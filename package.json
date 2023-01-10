@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@plaiceholder/next": "^2.5.0",
-    "aws-sdk": "^2.1212.0",
+    "aws-sdk": "^2.1292.0",
     "leaflet": "^1.8.0",
     "next": "^12.3.0",
     "next-plugin-preact": "^3.0.7",
