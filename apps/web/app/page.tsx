@@ -1,5 +1,3 @@
 export default function Page() {
-  return (
-    <h1>Playas Murcia</h1>
-  );
+  return <h1>Playas Murcia</h1>;
 }
