@@ -7,7 +7,10 @@ import * as S from 'fp-ts/string';
 import * as TE from 'fp-ts/TaskEither';
 import fetch from 'node-fetch';
 
-import { arrayOfThingsSchema, rawBeachSchema } from './schemas';
+import { arrayOfThingsSchema, rawBeachSchema } from '@/lib/schemas';
+
+import { injectFallbacks } from './injectFallbacks';
+import { parseRawBeach } from './parseRawBeach';
 
 const URL =
   'http://nexo.carm.es/nexo/archivos/recursos/opendata/json/Playas.json';
@@ -43,5 +46,16 @@ export const fetchRawData = pipe(
       ),
     ),
   ),
-  TE.map(flow(A.map(O.tryCatchK(rawBeachSchema.parse)), A.compact)),
+  TE.map(
+    flow(
+      A.map(
+        flow(
+          injectFallbacks,
+          O.tryCatchK(rawBeachSchema.parse),
+          O.map(parseRawBeach),
+        ),
+      ),
+      A.compact,
+    ),
+  ),
 );

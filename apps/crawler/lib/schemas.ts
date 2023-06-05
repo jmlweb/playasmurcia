@@ -59,3 +59,39 @@ export type RawBeach = z.infer<typeof rawBeachSchema>;
 export const arrayOfThingsSchema = z.array(z.any());
 
 export const arrayOfRawBeachesSchema = z.array(rawBeachSchema);
+
+export const beachSchema = z.object({
+  name: z.string(),
+  slug: z.string(),
+  address: z.string().optional(),
+  postalCode: z.string().optional(),
+  municipality: z.string(),
+  district: z.string().optional(),
+  phone: z.string().optional(),
+  email: z.string().optional(),
+  url: z.string().optional(),
+  position: z.tuple([z.number(), z.number()]),
+  groundType: z.string().optional(),
+  waveType: z.string().optional(),
+  occupation: z.union([
+    z.literal('Bajo'),
+    z.literal('Medio'),
+    z.literal('Alto'),
+  ]),
+  blueFlag: z.boolean(),
+  features: z.array(
+    z.union([
+      z.literal('accesible'),
+      z.literal('nudista'),
+      z.literal('punto-amarre'),
+      z.literal('paseo-maritimo'),
+    ]),
+  ),
+  access: z.string().optional(),
+  pictures: z.array(z.string()),
+  sea: z.union([z.literal(1), z.literal(0)]),
+});
+
+export type Beach = z.infer<typeof beachSchema>;
+
+export const arrayOfBeachesSchema = z.array(beachSchema);

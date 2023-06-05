@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node -r @swc-node/register"
+    "start": "node -r @swc-node/register start"
   },
   "prettier": "prettier-config-custom",
   "dependencies": {
