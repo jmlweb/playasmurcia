@@ -95,3 +95,5 @@ export const beachSchema = z.object({
 export type Beach = z.infer<typeof beachSchema>;
 
 export const arrayOfBeachesSchema = z.array(beachSchema);
+
+export const arrayOfStrings = z.array(z.string());

@@ -1,6 +1,13 @@
 import * as RA from 'fp-ts/Array';
 import * as E from 'fp-ts/Either';
-import { constant, constUndefined, flow, pipe, tupled } from 'fp-ts/function';
+import {
+  constant,
+  constFalse,
+  constUndefined,
+  flow,
+  pipe,
+  tupled,
+} from 'fp-ts/function';
 import * as O from 'fp-ts/Option';
 import * as S from 'fp-ts/string';
 import * as TU from 'fp-ts/Tuple';
@@ -20,7 +27,11 @@ const PARSED_FEATURES = {
   'Paseo Marítimo': 'paseo-maritimo',
 } as const;
 
-const isYes = (x: unknown) => S.isString(x) && S.Eq.equals(x, 'Sí');
+const isYes = flow(
+  O.fromPredicate(S.isString),
+  O.map(S.startsWith('Sí')),
+  O.getOrElse(constFalse),
+);
 
 const extractFeatures = (rawBeach: RawBeach): Beach['features'] =>
   pipe(

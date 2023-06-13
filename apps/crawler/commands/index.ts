@@ -1,3 +1,4 @@
 export * from './fetchAndUpdateData';
+export * from './generatePictures';
 export * from './getData';
-export * from './updateInvalidPictures';
+export * from './optimizePictures';
