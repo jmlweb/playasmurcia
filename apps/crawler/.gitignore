@@ -1,4 +1,7 @@
-data
+/data
+coverage
 node_modules
 .swc
-pictures
+/pictures
+/media
+!src/*
