@@ -1,0 +1,1 @@
+export { getBeaches } from './getBeaches';

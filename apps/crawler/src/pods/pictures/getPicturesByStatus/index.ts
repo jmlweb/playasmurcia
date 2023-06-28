@@ -1,0 +1,1 @@
+export { getPicturesByStatus } from './getPicturesByStatus';

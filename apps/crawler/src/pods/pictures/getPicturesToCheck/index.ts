@@ -1,0 +1,1 @@
+export { getPicturesToCheck } from './getPicturesToCheck';
