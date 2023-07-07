@@ -1,6 +1,6 @@
 import { constant, flow } from 'fp-ts/function';
 import * as O from 'fp-ts/Option';
-import * as P from 'fp-ts/predicate';
+import * as P from 'fp-ts/Predicate';
 import * as RNEA from 'fp-ts/ReadonlyNonEmptyArray';
 import * as S from 'fp-ts/string';
 
