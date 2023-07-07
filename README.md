@@ -4,7 +4,7 @@
 
 Catalog of beaches of Región de Murcia
 
-## Data extracted from
+## Data extracted from
 
 http://nexo.carm.es/nexo/archivos/recursos/opendata/json/Playas.json
 
@@ -18,7 +18,7 @@ The crawler is a Node script that extracts the data from the source and stores i
 
 The pictures are validated against a minimun resolution and the valid ones are upscaled with [chainner](https://chainner.app/) using an AI model.
 
-### Web
+### Web
 
 The web uses [Next.js](https://nextjs.org/) and [Tailwind CSS](https://tailwindcss.com/) as the main building tools.
 
