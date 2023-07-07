@@ -1,1 +1,0 @@
-export { getBeaches } from './getBeaches';

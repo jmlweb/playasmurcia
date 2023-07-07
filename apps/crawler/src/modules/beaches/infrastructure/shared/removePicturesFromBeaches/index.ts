@@ -1,0 +1,1 @@
+export { removePicturesFromBeaches } from './removePicturesFromBeaches';

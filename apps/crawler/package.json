@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node -r @swc-node/register src/app",
+    "start": "node -r @swc-node/register src/application",
     "test": "jest"
   },
   "prettier": "prettier-config-custom",

@@ -1,0 +1,1 @@
+export { RemoteBeachesRepository } from './remoteBeachesRepository';

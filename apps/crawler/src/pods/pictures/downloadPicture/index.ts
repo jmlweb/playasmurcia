@@ -1,1 +1,0 @@
-export { downloadPicture } from './downloadPicture';
