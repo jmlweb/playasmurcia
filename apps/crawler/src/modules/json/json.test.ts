@@ -39,9 +39,7 @@ describe('parse', () => {
     const result = json.parse('"sf"": "as"');
     expect(result).toEqual({
       _tag: 'Left',
-      left: new Error(
-        'Unexpected non-whitespace character after JSON at position 4',
-      ),
+      left: new SyntaxError('Unexpected string in JSON at position 4'),
     });
   });
 });

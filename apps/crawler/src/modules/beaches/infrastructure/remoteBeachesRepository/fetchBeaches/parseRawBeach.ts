@@ -7,7 +7,6 @@ import * as S from 'fp-ts/string';
 import * as TU from 'fp-ts/Tuple';
 
 import { string } from '@/modules/string';
-import { slugify } from '@/pods/utils';
 
 import { Beach } from '../../../domain';
 import { RawBeach } from './schemas';
@@ -68,7 +67,7 @@ const extractPictures = (rawBeach: RawBeach): Beach['pictures'] =>
   );
 
 const transformations = {
-  slug: ({ Nombre }: RawBeach) => slugify(Nombre),
+  slug: ({ Nombre }: RawBeach) => string.slugify(Nombre),
   name: ({ Nombre }: RawBeach) => Nombre,
   municipality: ({ Municipio }: RawBeach) => string.slugify(Municipio),
   position: extractPosition,
