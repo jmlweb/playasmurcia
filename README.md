@@ -21,5 +21,3 @@ The pictures are validated against a minimun resolution and the valid ones are u
 ### Web
 
 The web uses [Next.js](https://nextjs.org/) and [Tailwind CSS](https://tailwindcss.com/) as the main building tools.
-
-
