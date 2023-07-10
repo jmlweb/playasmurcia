@@ -2,7 +2,11 @@
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
-    extend: {},
+    extend: {
+      maxWidth: {
+        '8xl': '112.5rem',
+      },
+    },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-animated')],
 };

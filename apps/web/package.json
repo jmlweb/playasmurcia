@@ -10,9 +10,12 @@
   },
   "prettier": "prettier-config-custom",
   "dependencies": {
+    "class-variance-authority": "^0.6.1",
     "next": "^13.4.9",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "server-only": "^0.0.1",
+    "tailwind-merge": "^1.13.2"
   },
   "devDependencies": {
     "@types/node": "^20.4.0",
@@ -23,6 +26,7 @@
     "postcss": "^8.4.25",
     "prettier-config-custom": "*",
     "tailwindcss": "^3.3.2",
+    "tailwindcss-animated": "^1.0.1",
     "tsconfig": "*",
     "typescript": "^5.1.6"
   }
