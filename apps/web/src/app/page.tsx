@@ -24,59 +24,60 @@ const Page = async () => {
         </h3>
         <div className="flex snap-x items-start gap-x-4 gap-y-6 overflow-auto pb-4 md:grid md:grid-cols-[repeat(auto-fit,minmax(clamp(320px,calc(180px+9vw),466px),1fr))] xl:gap-x-6 xl:gap-y-8">
           {featuredBeaches.map((beach) => (
-            <article
+            <a
               key={beach.slug}
-              className="relative flex min-w-[min(85vw,416px)] snap-center flex-col-reverse md:min-w-full"
+              href={`/playa/${beach.slug}`}
+              className="group block"
+              aria-describedby={`beach-title-${beach.slug}`}
             >
-              <div className="mt-2 leading-5">
-                <h4
-                  id={`beach-title-${beach.slug}`}
-                  className="font-medium text-gray-900"
-                >
-                  {beach.name}
-                </h4>
-                <p className="text-sm text-gray-500">Águilas</p>
-              </div>
-              <div className="relative overflow-hidden rounded peer-hover:invisible">
-                <Image
-                  src={`https://res.cloudinary.com/jmlweb/image/upload/e_improve/c_fill,h_468,w_832,f_auto,fl_progressive/v1688825552/playasmurcia/${beach.pictures[0]}`}
-                  width={416}
-                  height={234}
-                  alt=""
-                  className="block h-auto w-full"
-                  priority
-                />
-                {beach.blueFlag && (
+              <article className="relative flex min-w-[min(85vw,416px)] snap-center flex-col-reverse md:min-w-full">
+                <header className="mt-2 leading-5">
+                  <h4
+                    id={`beach-title-${beach.slug}`}
+                    className="font-medium text-gray-900 group-hover:text-gray-600"
+                  >
+                    {beach.name}
+                  </h4>
+                  <p className="text-sm text-gray-500 group-hover:text-gray-400">
+                    Águilas
+                  </p>
+                </header>
+                <div className="relative overflow-hidden rounded shadow transition-opacity group-hover:opacity-75 group-hover:saturate-50">
                   <Image
-                    src={blueFlagSrc}
-                    alt="Bandera azul"
-                    title="Bandera azul"
-                    width={32}
-                    height={32}
-                    className="absolute left-4 top-4 z-10"
-                    quality={100}
-                    placeholder="blur"
+                    src={`https://res.cloudinary.com/jmlweb/image/upload/e_improve/c_fill,h_468,w_832,f_auto,fl_progressive/v1688825552/playasmurcia/${beach.pictures[0]}`}
+                    width={416}
+                    height={234}
+                    alt=""
+                    className="block h-auto w-full transition-transform duration-700 group-hover:scale-105"
+                    priority
                   />
-                )}
-                {beach.features.length > 0 && (
-                  <aside className="absolute bottom-4 right-4 flex gap-2">
-                    {beach.features.map((feature) => (
-                      <span
-                        className="rounded bg-white/95 px-2 py-1 text-xs text-gray-800"
-                        key={feature}
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </aside>
-                )}
-              </div>
-              <a
-                href={`/playa/${beach.slug}`}
-                className="peer absolute inset-0"
-                aria-describedby={`beach-title-${beach.slug}`}
-              ></a>
-            </article>
+                  {beach.blueFlag && (
+                    <Image
+                      src={blueFlagSrc}
+                      alt="Bandera azul"
+                      title="Bandera azul"
+                      width={32}
+                      height={32}
+                      className="absolute left-4 top-4 z-10"
+                      quality={100}
+                      placeholder="blur"
+                    />
+                  )}
+                  {beach.features.length > 0 && (
+                    <ul className="absolute bottom-4 right-4 flex gap-2">
+                      {beach.features.map((feature) => (
+                        <li
+                          className="rounded bg-white/95 px-2 py-1 text-xs text-gray-800"
+                          key={feature}
+                        >
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </article>
+            </a>
           ))}
         </div>
       </section>
