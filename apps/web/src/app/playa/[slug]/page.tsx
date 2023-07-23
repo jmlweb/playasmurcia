@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import probe from 'probe-image-size';
 
-import { Container } from '@/components/Container';
+import { Container } from '@/components/Container2';
 import { dataService, getMunicipalityName } from '@/data';
 
 import Features from './features';

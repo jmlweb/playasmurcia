@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
-import { Container } from '@/components/Container';
-import { Logo } from '@/components/Logo';
+import { Container } from '@/components/Container2';
+import { Logo } from '@/components/Logo2';
 
 type Props = {
   desktopMenu: ReactNode;
