@@ -1,1 +1,2620 @@
-[{"name":"Cala Abierta","slug":"cala-abierta","municipality":"cartagena","position":[37.543778129792386,-1.1479117523069706],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Cala Aguilar","slug":"cala-aguilar","municipality":"cartagena","position":[37.570334132325065,-1.1011940180602702],"blueFlag":false,"features":[],"pictures":["recurso-1-601-1p_g.jpg"],"sea":0},{"name":"Cala Arturo","slug":"cala-arturo","municipality":"cartagena","position":[37.60183606268255,-0.7254260679392321],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Cala Avellán","slug":"cala-avellan","municipality":"cartagena","position":[37.62993739960048,-0.7018737927370684],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Cala Blanca","slug":"cala-blanca","municipality":"lorca","district":"GARROBILLO","phone":"968 47 37 07 /112","email":"112lorca@lorca.es","url":"http://www.emergencias.lorca.es/playas-de-lorca.asp","position":[37.483338,-1.462284],"blueFlag":false,"features":[],"pictures":["recurso-1-628-2_g.jpg"],"sea":0},{"name":"Cala Botella","slug":"cala-botella","municipality":"cartagena","position":[37.63242101845318,-0.6938427798422424],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Cala Canalicas","slug":"cala-canalicas","address":"Acceso: Carretera de Cope, km 7. Calabardina (CALABARDINA)","postalCode":"30880","municipality":"aguilas","district":"CALABARDINA","position":[37.4318528,-1.5091859],"blueFlag":false,"features":[],"pictures":["recurso-1-7050-1p_g.jpg"],"sea":0},{"name":"Cala Cerrada","slug":"cala-cerrada","municipality":"cartagena","position":[37.5440417791123,-1.1469091907235547],"blueFlag":false,"features":[],"pictures":["recurso-1-658-2p_g.jpg","recurso-1-658-1p_g.jpg"],"sea":0},{"name":"Cala Cortina","slug":"cala-cortina","municipality":"cartagena","position":[37.58346704814301,-0.973449688081129],"blueFlag":true,"features":["accesible"],"pictures":["recurso-1-512-1p_g.jpg","recurso-1-512-2p_g.jpg","recurso-1-512-3p_g.jpg","recurso-1-512-4p_g.jpg","recurso-1-512-5p_g.jpg","recurso-1-512-11p_g.jpg","recurso-1-512-7p_g.jpg","recurso-1-512-8p_g.jpg","recurso-1-512-9p_g.jpg","recurso-1-512-10p_g.jpg"],"sea":0},{"name":"Cala de Calnegre","slug":"cala-calnegre","address":"Lorca (RAMONETE)","municipality":"lorca","district":"RAMONETE","phone":"968 473 707 / 112","email":"proteccioncivil@lorca.es","url":"http://www.emergencias.lorca.es/playas-de-lorca.asp","position":[37.5067891,-1.4162781],"blueFlag":true,"features":["accesible"],"pictures":["recurso-1-663-1p_g.jpg","recurso-1-663-6p_g.jpg","recurso-1-663-2p_g.jpg","recurso-1-663-5p_g.jpg","recurso-1-663-4p_g.jpg","recurso-1-663-3p_g.jpg"],"sea":0},{"name":"Cala de La Gruta","slug":"cala-gruta","municipality":"lorca","district":"GARROBILLO","phone":"968 47 37 07 / 112","email":"112lorca@lorca.es","url":"http://www.emergencias.lorca.es/playas-de-lorca.asp","position":[37.490493,-1.454182],"blueFlag":false,"features":[],"pictures":["recurso-1-551-1_g.jpg"],"sea":0},{"name":"Cala de La Herradura","slug":"cala-herradura","municipality":"aguilas","position":[37.38912429637273,-1.6084958207849451],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Cala de las Melvas","slug":"cala-melvas","municipality":"cartagena","position":[37.632673182223186,-0.6952173914093165],"blueFlag":false,"features":[],"pictures":["recurso-1-605-1p_g.jpg","recurso-1-605-2p_g.jpg","recurso-1-605-5p_g.jpg","recurso-1-605-4p_g.jpg","recurso-1-605-3p_g.jpg"],"sea":0},{"name":"Cala de las Mulas","slug":"cala-mulas","municipality":"cartagena","position":[37.59635996170473,-0.7823804962524692],"blueFlag":false,"features":[],"pictures":["recurso-1-513-1p_g.jpg"],"sea":0},{"name":"Cala de los Abejorros","slug":"cala-abejorros","address":"Carretera de Cuesta de Gos, camino del Cantal. (COPE)","municipality":"aguilas","district":"COPE","position":[37.469241,-1.471169],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Cala de San Pedro","slug":"cala-san-pedro","address":"Lorca (RAMONETE)","municipality":"lorca","district":"RAMONETE","phone":"968  47 37 07 / 112","email":"112lorca@lorca.es","url":"http://www.emergencias.lorca.es/playas-de-lorca.asp","position":[37.503153,-1.422861],"blueFlag":false,"features":[],"pictures":["recurso-1-631-1_g.jpg"],"sea":0},{"name":"Cala del Barco","slug":"cala-barco","municipality":"cartagena","position":[37.58922765157792,-0.7917766442163501],"blueFlag":false,"features":[],"pictures":["recurso-1-556-1p_g.jpg","recurso-1-556-3p_g.jpg","recurso-1-556-2p_g.jpg"],"sea":0},{"name":"Cala del Ciscal","slug":"cala-ciscal","municipality":"lorca","district":"GARROBILLO","phone":"968 47 37 07 /112","email":"112lorca@lorca.es","url":"http://www.emergencias.lorca.es/playas-de-lorca.asp","position":[37.503961,-1.424609],"blueFlag":false,"features":[],"pictures":["recurso-1-626-1_g.jpg"],"sea":0},{"name":"Cala del Cuartel del Ciscar","slug":"cala-cuartel-ciscar","address":"Lorca (GARROBILLO)","municipality":"lorca","district":"GARROBILLO","phone":"968 47 37 37 /112","email":"112lorca@lorca.es","url":"http://www.emergencias.lorca.es/playas-de-lorca.asp","position":[37.496904,-1.441985],"blueFlag":false,"features":[],"pictures":["recurso-1-567-1_g.jpg"],"sea":0},{"name":"Cala del Cuervo","slug":"cala-cuervo","municipality":"cartagena","position":[37.59324843247803,-0.7870483405048447],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Cala del Pino","slug":"cala-pino","municipality":"cartagena","position":[37.668560281294674,-0.7311445101817049],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-577-2p_g.jpg","recurso-1-577-3p_g.jpg","recurso-1-577-4p_g.jpg","recurso-1-577-10p_g.jpg"],"sea":1},{"name":"Cala del Reventón","slug":"cala-reventon","municipality":"cartagena","position":[37.597827992519704,-0.7727663633078241],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Cala Desnuda","slug":"cala-desnuda","address":"Las Moreras (Moreras / Bolnuevo)","postalCode":"30870","municipality":"mazarron","district":"Moreras / Bolnuevo","position":[37.557139,-1.341114],"blueFlag":false,"features":["nudista"],"pictures":["PLAYAS_1_552_1_g.jpg","PLAYAS_1_552_3_g.jpg","PLAYAS_1_552_2_g.jpg"],"sea":0},{"name":"Cala El Bolete","slug":"cala-bolete","municipality":"cartagena","position":[37.56761599107668,-1.112653081876026],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Cala El Bolete Grande","slug":"cala-bolete-grande","municipality":"cartagena","position":[37.56423333677151,-1.1192370568679813],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Cala Golera","slug":"cala-golera","municipality":"cartagena","position":[37.590031644973884,-0.7875513313996567],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Cala Honda","slug":"cala-honda","address":"Lorca (GARROBILLO)","municipality":"lorca","district":"GARROBILLO","phone":"968 47 37 07 /112","email":"proteccioncivil@lorca.es","url":"http://www.emergencias.lorca.es/playas-de-lorca.asp","position":[37.501073,-1.432871],"blueFlag":false,"features":[],"pictures":["recurso-1-579-1_g.jpg"],"sea":0},{"name":"Cala Junquera","slug":"cala-junquera","address":"Lorca (GARROBILLO)","municipality":"lorca","district":"GARROBILLO","phone":"968 47 37 07 / 112","email":"112lorca@lorca.es","url":"http://www.emergencias.lorca.es/playas-de-lorca.asp","position":[37.492495,-1.450058],"blueFlag":false,"features":[],"pictures":["recurso-1-630-1_g.jpg"],"sea":0},{"name":"Cala Las Escalerillas","slug":"cala-escalerillas","municipality":"cartagena","position":[37.63598633115706,-0.692293405396089],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Cala Leña","slug":"cala-lena","municipality":"lorca","district":"GARROBILLO","phone":"968 47 37 07 /112","email":"112lorca@lorca.es","url":"http://www.emergencias.lorca.es/playas-de-lorca.asp","position":[37.488959,-1.456763],"blueFlag":false,"features":[],"pictures":["recurso-1-629-1_g.jpg"],"sea":0},{"name":"Cala Magre","slug":"cala-magre","municipality":"cartagena","position":[37.60767769788192,-0.7231978237787589],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Cala Medina","slug":"cala-medina","municipality":"cartagena","position":[37.62918775804545,-0.702712698248463],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Cala Mijo. (Cueva de las Palomas)","slug":"cala-mijo-cueva-palomas","address":"Ctra. de Vera, km 3 (COCÓN)","postalCode":"30880","municipality":"aguilas","district":"COCÓN","position":[37.38729281440677,-1.6098738581592507],"blueFlag":false,"features":[],"pictures":["recurso-1-678-1p_g.jpg"],"sea":0},{"name":"Cala Mojarra","slug":"cala-mojarra","municipality":"cartagena","position":[37.54498090504592,-1.1157141883293442],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Cala Pozo de la Avispa","slug":"cala-pozo-avispa","municipality":"cartagena","position":[37.556166134009054,-1.1253944275225964],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Cala Reona","slug":"cala-reona","municipality":"cartagena","position":[37.620197252492865,-0.7130726307092754],"blueFlag":false,"features":[],"pictures":["recurso-1-518-1p_g.jpg","recurso-1-518-2p_g.jpg","recurso-1-518-3p_g.jpg","recurso-1-518-7p_g.jpg","recurso-1-518-5p_g.jpg","recurso-1-518-6p_g.jpg","recurso-1-518-4p_g.jpg"],"sea":0},{"name":"Cala Roja","slug":"cala-roja","municipality":"cartagena","position":[37.634445899765375,-0.6891002680612295],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Cala Salitrona","slug":"cala-salitrona","municipality":"cartagena","position":[37.550698090944906,-1.1227128612359312],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Cala Túnez (Cala Cuna)","slug":"cala-tunez-cala-cuna","municipality":"cartagena","position":[37.636423167529934,-0.6906707750049863],"blueFlag":false,"features":[],"pictures":["recurso-1-568-2p_g.jpg"],"sea":0},{"name":"Esculls de La Llana y Encañizadas","slug":"esculls-llana-encanizadas","municipality":"la-manga","position":[37.781770737269866,-0.744206762849096],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa  Lomas del Castillico (Villas Caravaning)","slug":"playa-lomas-castillico-villas-caravaning","municipality":"cartagena","position":[37.635442,-0.750816],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-689-1p_g.jpg","recurso-1-689-2p_g.jpg","recurso-1-689-6p_g.jpg","recurso-1-689-4p_g.jpg","recurso-1-689-5p_g.jpg","recurso-1-689-3p_g.jpg"],"sea":1},{"name":"Playa Alíseos","slug":"playa-aliseos","municipality":"la-manga","position":[37.67551586176223,-0.7320097103147463],"blueFlag":false,"features":[],"pictures":["recurso-1-538-1p_g.jpg","recurso-1-538-3p_g.jpg","recurso-1-538-8p_g.jpg","recurso-1-538-6p_g.jpg","recurso-1-538-4p_g.jpg"],"sea":1},{"name":"Playa Amarilla","slug":"playa-amarilla","address":"Las Moreras (Moreras / Bolnuevo)","postalCode":"30870","municipality":"mazarron","district":"Moreras / Bolnuevo","position":[37.560294,-1.330766],"blueFlag":false,"features":[],"pictures":["PLAYAS_1_586_1_g.jpg"],"sea":0},{"name":"Playa Amarilla","slug":"playa-amarilla","municipality":"aguilas","position":[37.414678736153846,-1.5494566566664352],"blueFlag":false,"features":[],"pictures":["recurso-1-615-1p_g.jpg","recurso-1-615-2p_g.jpg","recurso-1-615-3p_g.jpg","recurso-1-615-7p_g.jpg","recurso-1-615-5p_g.jpg","recurso-1-615-6p_g.jpg","recurso-1-615-4p_g.jpg"],"sea":0},{"name":"Playa Banco del Tabal","slug":"playa-banco-tabal","municipality":"la-manga","position":[37.674209009159945,-0.7273217239461998],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-671-1p_g.jpg","recurso-1-671-2p_g.jpg","recurso-1-671-3p_g.jpg","recurso-1-671-4p_g.jpg","recurso-1-671-5p_g.jpg","recurso-1-671-9p_g.jpg"],"sea":0},{"name":"Playa Baño de las Mujeres","slug":"playa-bano-mujeres","address":"Lorca (RAMONETE)","municipality":"lorca","district":"RAMONETE","phone":"968473707 / 112","email":"proteccioncivil@lorca.es","url":"http://www.emergencias.lorca.es/playas-de-lorca.asp","position":[37.5055745,-1.4186331],"blueFlag":false,"features":[],"pictures":["recurso-1-632-1p_g.jpg","recurso-1-632-3p_g.jpg","recurso-1-632-2p_g.jpg"],"sea":0},{"name":"Playa Barnuevo","slug":"playa-barnuevo","municipality":"san-javier","district":"SANTIAGO DE LA RIBERA","position":[37.79760794214085,-0.8015980750111429],"blueFlag":false,"features":["accesible","paseo-maritimo"],"pictures":["recurso-1-667-1p_g.jpg","recurso-1-667-3p_g.jpg","recurso-1-667-2p_g.jpg"],"sea":1},{"name":"Playa Cabezo de la Pelea","slug":"playa-cabezo-pelea","address":"Ifre - Cañada de Gallego (IFRE-CAÑADA DE GALLEGO)","postalCode":"30876","municipality":"mazarron","district":"IFRE-CAÑADA DE GALLEGO","position":[37.544527,-1.363548],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa Cabezo del Mojón","slug":"playa-cabezo-mojon","municipality":"cartagena","position":[37.57621204510004,-1.2204396803116515],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa Cala de Leño","slug":"playa-cala-leno","address":"Las Moreras (Moreras / Bolnuevo)","postalCode":"30870","municipality":"mazarron","district":"Moreras / Bolnuevo","position":[37.557548,-1.339952],"blueFlag":false,"features":["nudista"],"pictures":["recurso-1-642-3p_g.jpg","PLAYAS_1_642_1_g.jpg","PLAYAS_1_642_2_g.jpg"],"sea":0},{"name":"Playa Cala Flores","slug":"playa-cala-flores","municipality":"cartagena","position":[37.62615368106458,-0.7047096111234166],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa Calafría","slug":"playa-calafria","municipality":"cartagena","position":[37.63509224800107,-0.6885136619447825],"blueFlag":false,"features":[],"pictures":["recurso-1-569-1p_g.jpg","recurso-1-569-3p_g.jpg","recurso-1-569-2p_g.jpg"],"sea":0},{"name":"Playa Calnegre","slug":"playa-calnegre","municipality":"cartagena","position":[37.667010308987166,-0.7231994781225053],"blueFlag":false,"features":[],"pictures":["recurso-1-592-1p_g.jpg","recurso-1-592-4p_g.jpg","recurso-1-592-3p_g.jpg","recurso-1-592-2p_g.jpg"],"sea":0},{"name":"Playa Carrión","slug":"playa-carrion","municipality":"los-alcazares","position":[37.73898461437445,-0.84879256343448],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-692-1p_g.jpg","recurso-1-692-2p_g.jpg","recurso-1-692-5p_g.jpg","recurso-1-692-4p_g.jpg","recurso-1-692-3p_g.jpg"],"sea":1},{"name":"Playa Cavanna","slug":"playa-cavanna","municipality":"cartagena","position":[37.65660446626884,-0.7214658146919457],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-687-1p_g.jpg","recurso-1-687-2p_g.jpg","recurso-1-687-3p_g.jpg","recurso-1-687-4p_g.jpg","recurso-1-687-11p_g.jpg","recurso-1-687-7p_g.jpg","recurso-1-687-8p_g.jpg","recurso-1-687-9p_g.jpg","recurso-1-687-10p_g.jpg","recurso-1-687-5p_g.jpg"],"sea":1},{"name":"Playa Chica","slug":"playa-chica","municipality":"la-manga","position":[37.763655500386655,-0.7464486928965455],"blueFlag":false,"features":[],"pictures":["recurso-1-543-2p_g.jpg","recurso-1-543-3p_g.jpg","recurso-1-543-6p_g.jpg","recurso-1-543-7p_g.jpg","recurso-1-543-8p_g.jpg","recurso-1-543-5p_g.jpg"],"sea":1},{"name":"Playa Cobaticas","slug":"playa-cobaticas","address":"Diputación Cañada de Gallego (IFRE-CAÑADA DE GALLEGO)","postalCode":"30876","municipality":"mazarron","district":"IFRE-CAÑADA DE GALLEGO","position":[37.538644,-1.369282],"blueFlag":false,"features":[],"pictures":["PLAYAS_1_638_3_g.jpg","PLAYAS_1_638_7_g.jpg","PLAYAS_1_638_5_g.jpg","PLAYAS_1_638_6_g.jpg","PLAYAS_1_638_4_g.jpg"],"sea":0},{"name":"Playa Cueva de Lobos","slug":"playa-cueva-lobos","postalCode":"30877","municipality":"mazarron","district":"Moreras / Bolnuevo","position":[37.561711,-1.329002],"blueFlag":false,"features":[],"pictures":["PLAYAS_1_643_1_g.jpg","PLAYAS_1_643_2_g.jpg","PLAYAS_1_643_5_g.jpg","PLAYAS_1_643_4_g.jpg","PLAYAS_1_643_3_g.jpg"],"sea":0},{"name":"Playa Dársena Dos Mares","slug":"playa-darsena-dos-mares","municipality":"cartagena","position":[37.6630503098781,-0.7286030289793253],"blueFlag":false,"features":[],"pictures":[],"sea":1},{"name":"Playa de Bahía","slug":"playa-bahia","address":"Cabezo de la Reya (calle Noruega y calle Sevilla) (PUERTO DE MAZARRÓN)","postalCode":"30860","municipality":"mazarron","district":"PUERTO DE MAZARRÓN","position":[37.558255,-1.27489],"blueFlag":true,"features":[],"pictures":[],"sea":0},{"name":"Playa de Bolnuevo","slug":"playa-bolnuevo","address":"Avenida Pedro López Meca - Paseo marítimo de Bolnuevo (BOLNUEVO)","postalCode":"30877","municipality":"mazarron","district":"BOLNUEVO","position":[37.562678,-1.311139],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-646-1p_g.jpg","recurso-1-646-2p_g.jpg","recurso-1-646-3p_g.jpg","recurso-1-646-7p_g.jpg","recurso-1-646-5p_g.jpg","recurso-1-646-6p_g.jpg","recurso-1-646-4p_g.jpg"],"sea":0},{"name":"Playa de Calabarrilla","slug":"playa-calabarrilla","municipality":"aguilas","position":[37.42153365365286,-1.5396171034801065],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa de Calacerrada","slug":"playa-calacerrada","municipality":"aguilas","position":[37.375797868954166,-1.6234693784264127],"blueFlag":false,"features":[],"pictures":["recurso-1-593-6p_g.png","recurso-1-593-4p_g.jpg","recurso-1-593-5p_g.jpg","recurso-1-593-2p_g.jpg","recurso-1-593-1p_g.jpg","recurso-1-593-3p_g.jpg"],"sea":0},{"name":"Playa de Calarreona","slug":"playa-calarreona","municipality":"aguilas","position":[37.384976034907325,-1.6182977556555507],"blueFlag":true,"features":["accesible"],"pictures":["recurso-1-679-1p_g.jpg","recurso-1-679-2p_g.jpg","recurso-1-679-6p_g.jpg","recurso-1-679-4p_g.jpg","recurso-1-679-5p_g.jpg","recurso-1-679-3p_g.jpg"],"sea":0},{"name":"Playa de Calblanque","slug":"playa-calblanque","municipality":"cartagena","position":[37.6055453173988,-0.7289830668233708],"blueFlag":false,"features":[],"pictures":["recurso-1-590-1p_g.jpg","recurso-1-590-2p_g.jpg","recurso-1-590-3p_g.jpg","recurso-1-590-4p_g.jpg","recurso-1-590-9p_g.jpg","recurso-1-590-6p_g.jpg","recurso-1-590-7p_g.jpg","recurso-1-590-8p_g.jpg","recurso-1-590-5p_g.jpg"],"sea":0},{"name":"Playa de Colón","slug":"playa-colon","municipality":"san-javier","district":"SANTIAGO DE LA RIBERA","position":[37.80258252349344,-0.8006441875574644],"blueFlag":false,"features":["accesible","paseo-maritimo"],"pictures":["recurso-1-668-1p_g.jpg","recurso-1-668-3p_g.jpg","recurso-1-668-2p_g.jpg"],"sea":1},{"name":"Playa de El Alamillo","slug":"playa-alamillo","address":"Avenida de El Alamillo Ctra. N-332 (PUERTO DE MAZARRÓN)","postalCode":"30868","municipality":"mazarron","district":"PUERTO DE MAZARRÓN","position":[37.576165,-1.246462],"blueFlag":true,"features":["accesible"],"pictures":["recurso-1-651-2p_g.jpg","recurso-1-651-1p_g.jpg"],"sea":0},{"name":"Playa de El Castellar","slug":"playa-castellar","address":"Avenida del Castellar - Paseo marítimo del Castellar (PUERTO DE MAZARRÓN)","postalCode":"30860","municipality":"mazarron","district":"PUERTO DE MAZARRÓN","position":[37.559725,-1.288577],"blueFlag":true,"features":["accesible"],"pictures":["recurso-1-675-7p_g.jpg","recurso-1-675-8p_g.jpg","recurso-1-675-9p_g.jpg","recurso-1-675-10p_g.jpg","recurso-1-675-11p_g.jpg","PLAYAS_1_675_1_g.jpg","PLAYAS_1_675_2_g.jpg","PLAYAS_1_675_6_g.jpg","PLAYAS_1_675_4_g.jpg","PLAYAS_1_675_5_g.jpg"],"sea":0},{"name":"Playa de El Hornillo","slug":"playa-hornillo","municipality":"aguilas","position":[37.412991243605234,-1.5588677377246536],"blueFlag":false,"features":[],"pictures":["recurso-1-614-1p_g.jpg","recurso-1-614-2p_g.jpg","recurso-1-614-6p_g.jpg","recurso-1-614-4p_g.jpg","recurso-1-614-5p_g.jpg","recurso-1-614-3p_g.jpg"],"sea":0},{"name":"Playa de El Mojón","slug":"playa-mojon","address":"Ctra. comarcal RM-322 Isla Plana - Cartagena (PUERTO DE MAZARRÓN)","postalCode":"30860","municipality":"mazarron","district":"PUERTO DE MAZARRÓN","position":[37.576183,-1.229642],"blueFlag":true,"features":["accesible"],"pictures":["PLAYAS_1_654_1_g.jpg","PLAYAS_1_654_2_g.jpg","PLAYAS_1_654_5_g.jpg","PLAYAS_1_654_4_g.jpg","PLAYAS_1_654_3_g.jpg"],"sea":0},{"name":"Playa de El Palomarico","slug":"playa-palomarico","address":"Diputación Cañada de Gallego (IFRE-CAÑADA DE GALLEGO)","postalCode":"30876","municipality":"mazarron","district":"IFRE-CAÑADA DE GALLEGO","position":[37.52388,-1.371936],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa de El Rihuete (Playa del Rigüete)","slug":"playa-rihuete-playa-riguete","address":"Paseo de el Rihuete y paseo marítimo de Puerto Mazarrón (PUERTO DE MAZARRÓN)","postalCode":"30860","municipality":"mazarron","district":"PUERTO DE MAZARRÓN","position":[37.570203,-1.254104],"blueFlag":true,"features":["accesible"],"pictures":["PLAYAS_1_581_1_g.jpg"],"sea":0},{"name":"Playa de El Rincón","slug":"playa-rincon","address":"Avenida de Bolnuevo Urb. Punta Vela (BOLNUEVO)","postalCode":"30877","municipality":"mazarron","district":"BOLNUEVO","position":[37.562477,-1.318484],"blueFlag":false,"features":[],"pictures":["recurso-1-645-6p_g.jpg","recurso-1-645-7p_g.jpg","PLAYAS_1_645_1_g.jpg","PLAYAS_1_645_2_g.jpg","PLAYAS_1_645_5_g.jpg","PLAYAS_1_645_4_g.jpg","PLAYAS_1_645_3_g.jpg"],"sea":0},{"name":"Playa de Gollerón (Cala del Turco)","slug":"playa-golleron-cala-turco","municipality":"la-manga","position":[37.6545228,-0.734669],"blueFlag":false,"features":[],"pictures":[],"sea":1},{"name":"Playa de Islas Menores","slug":"playa-islas-menores","municipality":"cartagena","position":[37.648485055599245,-0.7695423382076361],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-530-1p_g.jpg","recurso-1-530-2p_g.jpg","recurso-1-530-3p_g.jpg","recurso-1-530-8p_g.jpg","recurso-1-530-5p_g.jpg","recurso-1-530-6p_g.jpg","recurso-1-530-7p_g.jpg","recurso-1-530-4p_g.jpg"],"sea":1},{"name":"Playa de la Azohía - El Cuartel","slug":"playa-azohia-cuartel","municipality":"cartagena","position":[37.553811682249034,-1.1694659029120347],"blueFlag":true,"features":["accesible"],"pictures":["recurso-1-582-1p_g.jpg","recurso-1-582-3p_g.jpg","recurso-1-582-2p_g.jpg"],"sea":0},{"name":"Playa de La Cañada del Negro","slug":"playa-canada-negro","municipality":"aguilas","position":[37.396731258183614,-1.603135929687188],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa de La Casica Verde","slug":"playa-casica-verde","postalCode":"30880","municipality":"aguilas","district":"AGUILAS","position":[37.395628,-1.601257],"blueFlag":true,"features":[],"pictures":[],"sea":0},{"name":"Playa de La Chapineta","slug":"playa-chapineta","municipality":"cartagena","position":[37.56191355090358,-1.169448770434613],"blueFlag":false,"features":[],"pictures":["recurso-1-580-1p_g.jpg","recurso-1-580-4p_g.jpg","recurso-1-580-3p_g.jpg","recurso-1-580-2p_g.jpg"],"sea":0},{"name":"Playa de La Cola","slug":"playa-cola","municipality":"aguilas","position":[37.434182869227456,-1.5117591041422849],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa de La Colonia","slug":"playa-colonia","postalCode":"30880","municipality":"aguilas","position":[37.40312316388304,-1.5903634912676026],"blueFlag":true,"features":["accesible"],"pictures":["recurso-1-612-1p_g.jpg","recurso-1-612-3p_g.jpg","recurso-1-612-2p_g.jpg"],"sea":0},{"name":"Playa de La Concha","slug":"playa-concha","municipality":"los-alcazares","position":[37.73770542012749,-0.8498054848096062],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-533-1p_g.jpg","recurso-1-533-2p_g.jpg","recurso-1-533-5p_g.jpg","recurso-1-533-4p_g.jpg","recurso-1-533-3p_g.jpg"],"sea":1},{"name":"Playa de La Ermita","slug":"playa-ermita","address":"Avenida José Alarcón Palacios (PUERTO DE MAZARRÓN)","postalCode":"30860","municipality":"mazarron","district":"PUERTO DE MAZARRÓN","position":[37.559182,-1.272936],"blueFlag":false,"features":["paseo-maritimo"],"pictures":["PLAYAS_1_649_2_g.jpg","PLAYAS_1_649_1_g.jpg"],"sea":0},{"name":"Playa de la Galera","slug":"playa-galera","municipality":"aguilas","position":[37.474386012742116,-1.4649926939540616],"blueFlag":false,"features":[],"pictures":["recurso-1-624-1p_g.jpg","recurso-1-624-3p_g.jpg","recurso-1-624-2p_g.jpg"],"sea":0},{"name":"Playa de La Gola","slug":"playa-gola","municipality":"cartagena","position":[37.6506976,-0.7249991],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-607-1p_g.jpg","recurso-1-607-2p_g.jpg","recurso-1-607-3p_g.jpg","recurso-1-607-4p_g.jpg","recurso-1-607-5p_g.jpg","recurso-1-607-11p_g.jpg","recurso-1-607-7p_g.jpg","recurso-1-607-8p_g.jpg","recurso-1-607-9p_g.jpg","recurso-1-607-10p_g.jpg"],"sea":1},{"name":"Playa de La Grúa","slug":"playa-grua","postalCode":"30877","municipality":"mazarron","district":"Moreras / Bolnuevo","position":[37.557374,-1.33876],"blueFlag":false,"features":["nudista"],"pictures":["PLAYAS_1_600_1_g.jpg"],"sea":0},{"name":"Playa de la Higuerica","slug":"playa-higuerica","municipality":"aguilas","position":[37.38075570058193,-1.622746244816467],"blueFlag":true,"features":[],"pictures":["recurso-1-625-1p_g.jpg","recurso-1-625-4p_g.jpg","recurso-1-625-3p_g.jpg","recurso-1-625-2p_g.jpg"],"sea":0},{"name":"Playa de La Isla","slug":"playa-isla","address":"Avenida Tierno Galván (PUERTO DE MAZARRÓN)","postalCode":"30860","municipality":"mazarron","district":"PUERTO DE MAZARRÓN","position":[37.560278,-1.266428],"blueFlag":false,"features":["accesible"],"pictures":["PLAYAS_1_680_1_g.jpg","PLAYAS_1_680_2_g.jpg","PLAYAS_1_680_5_g.jpg","PLAYAS_1_680_4_g.jpg","PLAYAS_1_680_3_g.jpg"],"sea":0},{"name":"Playa de La Llana (Playa de La Barraca Quemada)","slug":"playa-llana-playa-barraca-quemada","municipality":"san-pedro-del-pinatar","position":[37.807440720099024,-0.7543862132394934],"blueFlag":false,"features":[],"pictures":["recurso-1-545-2p_g.jpg","recurso-1-545-1p_g.jpg"],"sea":0},{"name":"Playa de La Llana (Playa de Las Salinas)","slug":"playa-llana-playa-salinas","municipality":"san-pedro-del-pinatar","position":[37.81888391790977,-0.7571519950790786],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-665-1p_g.jpg","recurso-1-665-3p_g.jpg","recurso-1-665-2p_g.jpg"],"sea":0},{"name":"Playa de La Llana (Playa Punta de Algas)","slug":"playa-llana-playa-punta-algas","municipality":"san-pedro-del-pinatar","position":[37.8136666766002,-0.7557537333934037],"blueFlag":false,"features":[],"pictures":["recurso-1-544-1p_g.jpg"],"sea":0},{"name":"Playa de La Mota","slug":"playa-mota","municipality":"san-pedro-del-pinatar","position":[37.818541882775286,-0.7723617142120323],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-682-2p_g.jpg","recurso-1-682-1p_g.jpg"],"sea":1},{"name":"Playa de La Parajola","slug":"playa-parajola","municipality":"cartagena","position":[37.58317786189133,-1.0115410381030727],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa de La Pava","slug":"playa-pava","address":"Avenida José Alarcón Palacios (PUERTO DE MAZARRÓN)","postalCode":"30860","municipality":"mazarron","district":"PUERTO DE MAZARRÓN","position":[37.55934,-1.280438],"blueFlag":false,"features":[],"pictures":["recurso-1-647-2p_g.jpg","recurso-1-647-3p_g.jpg","PLAYAS_1_647_1_g.jpg"],"sea":0},{"name":"Playa de La Puntica","slug":"playa-puntica","municipality":"san-pedro-del-pinatar","position":[37.81613909776927,-0.7844749420722215],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-664-1p_g.jpg","recurso-1-664-3p_g.jpg","recurso-1-664-2p_g.jpg"],"sea":1},{"name":"Playa de La Raja","slug":"playa-raja","address":"Ctra. comarcal RM-322 Isla Plana - Cartagena (PUERTO DE MAZARRÓN)","postalCode":"30860","municipality":"mazarron","district":"PUERTO DE MAZARRÓN","position":[37.577606,-1.236171],"blueFlag":false,"features":[],"pictures":["recurso-1-653-1p_g.jpg","recurso-1-653-3p_g.jpg","recurso-1-653-2p_g.jpg"],"sea":0},{"name":"Playa de la Rambla Elena","slug":"playa-rambla-elena","municipality":"aguilas","position":[37.45862480540321,-1.4749139445158457],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa de La Reya (Junta de los Mares)","slug":"playa-reya-junta-mares","address":"Avenida José Alarcón Palacios (PUERTO DE MAZARRÓN)","postalCode":"30860","municipality":"mazarron","district":"PUERTO DE MAZARRÓN","position":[37.559659,-1.276805],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-648-2_g.jpg","recurso-1-648-1_g.jpg"],"sea":0},{"name":"Playa de La Torre Derribada","slug":"playa-torre-derribada","municipality":"san-pedro-del-pinatar","position":[37.828451227874375,-0.7574758033459146],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-546-1p_g.jpg","recurso-1-546-3p_g.jpg","recurso-1-546-2p_g.jpg"],"sea":0},{"name":"Playa de las Cañas","slug":"playa-canas","municipality":"cartagena","position":[37.60157202975702,-0.7454708137621866],"blueFlag":false,"features":[],"pictures":["canas2_g.jpg"],"sea":0},{"name":"Playa de las Chapas","slug":"playa-chapas","postalCode":"30876","municipality":"mazarron","district":"IFRE-CAÑADA DE GALLEGO","position":[37.532225,-1.373645],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa de las Minas","slug":"playa-minas","postalCode":"30876","municipality":"mazarron","district":"IFRE-CAÑADA DE GALLEGO","position":[37.528342,-1.384026],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa de las Moreras","slug":"playa-moreras","address":"Avenida del Castellar - Avenida de Bolnuevo (BOLNUEVO)","postalCode":"30877","municipality":"mazarron","district":"BOLNUEVO","position":[37.560791,-1.296297],"blueFlag":false,"features":[],"pictures":["recurso-1-4894-1p_g.jpg"],"sea":0},{"name":"Playa de Las Palmeras","slug":"playa-palmeras","municipality":"los-alcazares","position":[37.74983814218372,-0.8440519946699365],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-534-1p_g.jpg","recurso-1-534-3p_g.jpg","recurso-1-534-2p_g.jpg"],"sea":1},{"name":"Playa de Las Pulgas","slug":"playa-pulgas","municipality":"aguilas","position":[37.471691188287444,-1.46638217935148],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa de Las Salinas","slug":"playa-salinas","municipality":"los-alcazares","position":[37.77032088554895,-0.8132141152010806],"blueFlag":false,"features":[],"pictures":["recurso-1-585-1p_g.jpg","recurso-1-585-3p_g.jpg","recurso-1-585-2p_g.jpg"],"sea":1},{"name":"Playa de Levante","slug":"playa-levante","postalCode":"30880","municipality":"aguilas","position":[37.408536843847926,-1.5758108718795119],"blueFlag":true,"features":["accesible"],"pictures":["recurso-1-693-1p_g.jpg","recurso-1-693-3p_g.jpg","recurso-1-693-2p_g.jpg"],"sea":0},{"name":"Playa de Levante","slug":"playa-levante","municipality":"cartagena","position":[37.63441112542518,-0.696534794261976],"blueFlag":true,"features":["accesible"],"pictures":["recurso-1-525-1p_g.jpg","recurso-1-525-4p_g.jpg","recurso-1-525-3p_g.jpg","recurso-1-525-2p_g.jpg"],"sea":0},{"name":"Playa de Los Alemanes","slug":"playa-alemanes","municipality":"cartagena","position":[37.64018000848231,-0.7225910743358828],"blueFlag":false,"features":[],"pictures":[],"sea":1},{"name":"Playa de Los Cocedores","slug":"playa-cocedores","postalCode":"30880","municipality":"aguilas","phone":"968493285","position":[37.377302,-1.629398],"blueFlag":false,"features":[],"pictures":["recurso-1-566-1p_g.jpg","recurso-1-566-3p_g.jpg","recurso-1-566-2p_g.jpg"],"sea":0},{"name":"Playa de los Hierros","slug":"playa-hierros","address":"Lorca (GARROBILLO)","municipality":"lorca","district":"GARROBILLO","phone":"968 47 37 07 /112","email":"112lorca@lorca.es","url":"http://www.emergencias.lorca.es/playas-de-lorca.asp","position":[37.486467,-1.459903],"blueFlag":false,"features":[],"pictures":["recurso-1-576-1_g.jpg"],"sea":0},{"name":"Playa de Los Narejos","slug":"playa-narejos","municipality":"los-alcazares","position":[37.75642156474186,-0.8325331893053107],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-661-1p_g.jpg","recurso-1-661-3p_g.jpg","recurso-1-661-2p_g.jpg"],"sea":1},{"name":"Playa de Los Urrutias","slug":"playa-urrutias","municipality":"cartagena","position":[37.68667198444632,-0.8296441249905548],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-677-2p_g.jpg","recurso-1-677-1p_g.jpg"],"sea":1},{"name":"Playa de Mar de Cristal","slug":"playa-mar-cristal","municipality":"cartagena","position":[37.64365046151846,-0.7574359750096424],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-676-1p_g.jpg","recurso-1-676-3p_g.jpg","recurso-1-676-2p_g.jpg"],"sea":1},{"name":"Playa de Nares","slug":"playa-nares","address":"Avenida del Castellar - Paseo marítimo del Castellar (PUERTO DE MAZARRÓN)","postalCode":"30860","municipality":"mazarron","district":"PUERTO DE MAZARRÓN","position":[37.559206,-1.282999],"blueFlag":true,"features":["accesible"],"pictures":["recurso-1-683-6p_g.jpg","recurso-1-683-7p_g.jpg","recurso-1-683-8p_g.jpg","recurso-1-683-9p_g.jpg","recurso-1-683-10p_g.jpg","PLAYAS_1_683_1_g.jpg","PLAYAS_1_683_2_g.jpg","PLAYAS_1_683_5_g.jpg","PLAYAS_1_683_4_g.jpg","PLAYAS_1_683_3_g.jpg"],"sea":0},{"name":"Playa de Percheles","slug":"playa-percheles","postalCode":"30876","municipality":"mazarron","district":"IFRE-CAÑADA DE GALLEGO","position":[37.5529873,-1.381302],"blueFlag":true,"features":[],"pictures":["recurso-1-608-1p_g.jpg","recurso-1-608-5p_g.jpg","recurso-1-608-3p_g.jpg"],"sea":0},{"name":"Playa de Piedra Mala","slug":"playa-piedra-mala","postalCode":"30876","municipality":"mazarron","district":"BOLNUEVO","position":[37.563217,-1.32014],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa de Poniente","slug":"playa-poniente","municipality":"aguilas","position":[37.40496205063353,-1.583595264451157],"blueFlag":true,"features":["accesible"],"pictures":["recurso-1-596-1p_g.jpg","recurso-1-596-2p_g.jpg","recurso-1-596-6p_g.jpg","recurso-1-596-4p_g.jpg","recurso-1-596-5p_g.jpg","recurso-1-596-3p_g.jpg"],"sea":0},{"name":"Playa de Poniente","slug":"playa-poniente","municipality":"la-manga","position":[37.70236921951902,-0.739924640300194],"blueFlag":false,"features":[],"pictures":[],"sea":1},{"name":"Playa de Portmán","slug":"playa-portman","municipality":"la-union","position":[37.584028278645135,-0.8468973586757889],"blueFlag":false,"features":[],"pictures":["recurso-1-560-1p_g.jpg","recurso-1-560-3p_g.jpg","recurso-1-560-2p_g.jpg"],"sea":0},{"name":"Playa de Villananitos","slug":"playa-villananitos","municipality":"san-pedro-del-pinatar","position":[37.82145072620041,-0.7803740936091206],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-681-4p_g.jpg"],"sea":1},{"name":"Playa del Arroz","slug":"playa-arroz","municipality":"aguilas","position":[37.43029206253299,-1.5242005292146248],"blueFlag":false,"features":[],"pictures":["recurso-1-617-1p_g.jpg","recurso-1-617-2p_g.jpg","recurso-1-617-5p_g.jpg","recurso-1-617-4p_g.jpg","recurso-1-617-3p_g.jpg"],"sea":0},{"name":"Playa del Ballenato","slug":"playa-ballenato","address":"Diputación Cañada de Gallego (IFRE-CAÑADA DE GALLEGO)","postalCode":"30876","municipality":"mazarron","district":"IFRE-CAÑADA DE GALLEGO","position":[37.531631,-1.375605],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa del Barco Perdido (Playa Entremares)","slug":"playa-barco-perdido-playa-entremares","municipality":"cartagena","position":[37.65382309857175,-0.7151128630848165],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-686-3p_g.jpg","recurso-1-686-9p_g.jpg","recurso-1-686-6p_g.jpg","recurso-1-686-8p_g.jpg","recurso-1-686-5p_g.jpg"],"sea":0},{"name":"Playa del Barco Perdido (Playa Las Sirenas)","slug":"playa-barco-perdido-playa-sirenas","municipality":"cartagena","position":[37.658643555944316,-0.7183316210375317],"blueFlag":false,"features":[],"pictures":["recurso-1-670-1p_g.jpg","recurso-1-670-3p_g.jpg"],"sea":0},{"name":"Playa del Barranco Ancho","slug":"playa-barranco-ancho","address":"Diputación Cañada de Gallego (IFRE-CAÑADA DE GALLEGO)","postalCode":"30876","municipality":"mazarron","district":"IFRE-CAÑADA DE GALLEGO","position":[37.555624,-1.343723],"blueFlag":false,"features":["nudista"],"pictures":["PLAYAS_1_641_2_g.jpg","PLAYAS_1_641_1_g.jpg"],"sea":0},{"name":"Playa del Barranco de La Mar","slug":"playa-barranco-mar","municipality":"aguilas","position":[37.42460980265058,-1.5289342580993308],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa del Charco","slug":"playa-charco","postalCode":"30880","municipality":"aguilas","position":[37.448211069129854,-1.4795116178875052],"blueFlag":false,"features":["nudista"],"pictures":["recurso-1-588-1p_g.jpg"],"sea":0},{"name":"Playa del Descargador","slug":"playa-descargador","municipality":"cartagena","position":[37.623752221959286,-0.7072647351080978],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa del Espejo","slug":"playa-espejo","municipality":"los-alcazares","position":[37.74541076193193,-0.8463707925947408],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-690-1p_g.jpg","recurso-1-690-4p_g.jpg","recurso-1-690-3p_g.jpg","recurso-1-690-2p_g.jpg"],"sea":1},{"name":"Playa del Estacio","slug":"playa-estacio","municipality":"la-manga","position":[37.73547465444957,-0.7374203499240233],"blueFlag":false,"features":[],"pictures":["recurso-1-536-1p_g.jpg","recurso-1-536-2p_g.jpg","recurso-1-536-3p_g.jpg","recurso-1-536-4p_g.jpg","recurso-1-536-5p_g.jpg","recurso-1-536-12p_g.jpg","recurso-1-536-9p_g.jpg","recurso-1-536-11p_g.jpg"],"sea":0},{"name":"Playa del Hoyo","slug":"playa-hoyo","address":"Carretera de Cope, km 9. (COPE)","postalCode":"30880","municipality":"aguilas","district":"COPE","position":[37.446608,-1.482473],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa del Lastre","slug":"playa-lastre","municipality":"la-union","position":[37.582150156454496,-0.841765156704632],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-695-1p_g.jpg","recurso-1-695-2p_g.jpg","recurso-1-695-3p_g.jpg","recurso-1-695-7p_g.jpg","recurso-1-695-5p_g.jpg","recurso-1-695-6p_g.jpg","recurso-1-695-4p_g.jpg"],"sea":0},{"name":"Playa del Matalentisco","slug":"playa-matalentisco","municipality":"aguilas","position":[37.39065573072325,-1.6068973446144748],"blueFlag":true,"features":[],"pictures":[],"sea":0},{"name":"Playa del Pino","slug":"playa-pino","municipality":"aguilas","position":[37.432276623008896,-1.5178548789977941],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa del Pocico del Animal","slug":"playa-pocico-animal","municipality":"aguilas","position":[37.4616147,-1.4786366],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa del Pozo de las Huertas","slug":"playa-pozo-huertas","municipality":"aguilas","position":[37.46707491757378,-1.469031993147751],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa del Puerto de Mazarrón","slug":"playa-puerto-mazarron","address":"Calle Progreso, plaza de las Comunidades Autónomas - Paseo Marítimo de Puerto de Mazarrón (PUERTO DE MAZARRÓN)","postalCode":"30860","municipality":"mazarron","district":"PUERTO DE MAZARRÓN","position":[37.565939,-1.257664],"blueFlag":true,"features":["accesible"],"pictures":["recurso-1-650-5p_g.jpg","recurso-1-650-6p_g.jpg","recurso-1-650-7p_g.jpg","recurso-1-650-8p_g.jpg","PLAYAS_1_650_3_g.jpg","PLAYAS_1_650_2_g.jpg"],"sea":0},{"name":"Playa del Saladar","slug":"playa-saladar","address":"Carretera de Cuesta de Gos, Restaurante El Pocico (COPE)","municipality":"aguilas","district":"COPE","position":[37.465421,-1.47414],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa del Salar o Benzal","slug":"playa-salar-o-benzal","address":"Diputación Cañada de Gallego (IFRE-CAÑADA DE GALLEGO)","postalCode":"30876","municipality":"mazarron","district":"IFRE-CAÑADA DE GALLEGO","position":[37.549592,-1.35647],"blueFlag":false,"features":[],"pictures":["recurso-1-5556-1p_g.jpg"],"sea":0},{"name":"Playa del Sombrerico","slug":"playa-sombrerico","municipality":"aguilas","position":[37.445742174132214,-1.4795615943931082],"blueFlag":false,"features":[],"pictures":["recurso-1-621-2p_g.JPG"],"sea":0},{"name":"Playa del Vivero","slug":"playa-vivero","municipality":"cartagena","position":[37.646822123580826,-0.7170274700061832],"blueFlag":false,"features":[],"pictures":[],"sea":1},{"name":"Playa El Arenal","slug":"playa-arenal","municipality":"la-manga","position":[37.71330040618691,-0.7399327955743091],"blueFlag":false,"features":[],"pictures":["recurso-1-561-9p_g.jpg"],"sea":0},{"name":"Playa El Carmolí","slug":"playa-carmoli","municipality":"cartagena","position":[37.7085359877404,-0.843967852378186],"blueFlag":false,"features":[],"pictures":[],"sea":1},{"name":"Playa El Castillico","slug":"playa-castillico","municipality":"san-javier","district":"SANTIAGO DE LA RIBERA","position":[37.81450558489751,-0.7920208490078227],"blueFlag":false,"features":["accesible","paseo-maritimo"],"pictures":["recurso-1-604-2p_g.jpg","recurso-1-604-1p_g.jpg"],"sea":1},{"name":"Playa El Gachero","slug":"playa-gachero","address":"Avenida de El Alamillo y calle Cabo Machichaco (punta de El Rihuete) (PUERTO DE MAZARRÓN)","postalCode":"30868","municipality":"mazarron","district":"PUERTO DE MAZARRÓN","position":[37.57192,-1.248946],"blueFlag":false,"features":[],"pictures":["PLAYAS_1_4893_1_g.jpg"],"sea":0},{"name":"Playa El Galán","slug":"playa-galan","municipality":"la-manga","position":[37.69558198616225,-0.738905968639902],"blueFlag":false,"features":[],"pictures":["recurso-1-540-2p_g.jpg"],"sea":1},{"name":"Playa El Mojón","slug":"playa-mojon","municipality":"san-pedro-del-pinatar","position":[37.84638380330269,-0.7617282000139172],"blueFlag":true,"features":["accesible"],"pictures":["recurso-1-666-2p_g.jpg","recurso-1-666-1p_g.jpg"],"sea":0},{"name":"Playa El Pedruchillo","slug":"playa-pedruchillo","municipality":"la-manga","position":[37.70472362173684,-0.7386394904187332],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-674-4p_g.jpg","recurso-1-674-12p_g.jpg","recurso-1-674-8p_g.jpg","recurso-1-674-9p_g.jpg"],"sea":1},{"name":"Playa El Pescador","slug":"playa-pescador","municipality":"san-javier","district":"SANTIAGO DE LA RIBERA","position":[37.79995017571539,-0.8020396886170884],"blueFlag":false,"features":["paseo-maritimo"],"pictures":["recurso-1-535-1p_g.jpg"],"sea":1},{"name":"Playa El Portús","slug":"playa-portus","municipality":"cartagena","position":[37.584072,-1.072204],"blueFlag":false,"features":["nudista"],"pictures":["recurso-1-606-1p_g.jpg","recurso-1-606-2p_g.jpg","recurso-1-606-3p_g.jpg","recurso-1-606-8p_g.jpg","recurso-1-606-5p_g.jpg","recurso-1-606-6p_g.jpg","recurso-1-606-7p_g.jpg","recurso-1-606-4p_g.jpg"],"sea":0},{"name":"Playa El Pudrimel","slug":"playa-pudrimel","municipality":"la-manga","position":[37.76914822882305,-0.7452829380542445],"blueFlag":false,"features":[],"pictures":["recurso-1-537-12p_g.jpg","recurso-1-537-8p_g.jpg","recurso-1-537-10p_g.jpg"],"sea":0},{"name":"Playa El Rafal","slug":"playa-rafal","municipality":"aguilas","position":[37.45380541883561,-1.4772050892024768],"blueFlag":false,"features":[],"pictures":["recurso-1-599-2p_g.jpg","recurso-1-599-1p_g.jpg"],"sea":0},{"name":"Playa El Siscal","slug":"playa-siscal","address":"Lorca (RAMONETE)","municipality":"lorca","district":"RAMONETE","phone":"968 473 707 /112","email":"proteccioncivil@lorca.es","url":"http://www.emergencias.lorca.es/playas-de-lorca.asp","position":[37.5040299,-1.4248082],"blueFlag":false,"features":["punto-amarre"],"pictures":["recurso-1-5906-1_g.jpg"],"sea":0},{"name":"Playa Ensenada de la Fuente","slug":"playa-ensenada-fuente","municipality":"aguilas","position":[37.43705393944494,-1.47887839229823],"blueFlag":false,"features":[],"pictures":["recurso-1-620-2p_g.jpg","recurso-1-620-1p_g.jpg"],"sea":0},{"name":"Playa Ensenada del Esparto","slug":"playa-ensenada-esparto","municipality":"la-manga","position":[37.75009466646371,-0.7319700398476274],"blueFlag":true,"features":["accesible"],"pictures":["recurso-1-562-4p_g.jpg","recurso-1-562-5p_g.jpg","recurso-1-562-12p_g.jpg","recurso-1-562-7p_g.jpg","recurso-1-562-8p_g.jpg","recurso-1-562-9p_g.jpg","recurso-1-562-10p_g.jpg"],"sea":0},{"name":"Playa Fatares","slug":"playa-fatares","municipality":"cartagena","position":[37.5813169386285,-1.0300827003992241],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa Galúa","slug":"playa-galua","municipality":"cartagena","position":[37.66164742411228,-0.7194185473365367],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-591-1p_g.jpg","recurso-1-591-2p_g.jpg","recurso-1-591-3p_g.jpg","recurso-1-591-4p_g.jpg","recurso-1-591-10p_g.jpg","recurso-1-591-6p_g.jpg","recurso-1-591-7p_g.jpg","recurso-1-591-8p_g.jpg","recurso-1-591-9p_g.jpg","recurso-1-591-5p_g.jpg"],"sea":0},{"name":"Playa Honda","slug":"playa-honda","municipality":"cartagena","position":[37.63378305935843,-0.7367014464291719],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-688-1p_g.jpg","recurso-1-688-2p_g.jpg","recurso-1-688-3p_g.jpg","recurso-1-688-7p_g.jpg","recurso-1-688-5p_g.jpg","recurso-1-688-6p_g.jpg","recurso-1-688-4p_g.jpg"],"sea":1},{"name":"Playa Hondón del Fondón (Playa del Jondo o del Fondo)","slug":"playa-hondon-fondon-playa-jondo-o-fondo","address":"Diputación Cañada de Gallego (IFRE-CAÑADA DE GALLEGO)","postalCode":"30876","municipality":"mazarron","district":"IFRE-CAÑADA DE GALLEGO","position":[37.553071,-1.350444],"blueFlag":false,"features":["nudista"],"pictures":["PLAYAS_1_640_1_g.jpg"],"sea":0},{"name":"Playa Isla Plana","slug":"playa-isla-plana","municipality":"cartagena","position":[37.57586958490696,-1.204968566578423],"blueFlag":true,"features":["accesible"],"pictures":["recurso-1-657-1p_g.jpg","recurso-1-657-2p_g.jpg","recurso-1-657-3p_g.jpg","recurso-1-657-7p_g.jpg","recurso-1-657-5p_g.jpg","recurso-1-657-6p_g.jpg","recurso-1-657-4p_g.jpg"],"sea":0},{"name":"Playa La Barra","slug":"playa-barra","municipality":"cartagena","position":[37.63118639212318,-0.7016880087140063],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa La Calabardina","slug":"playa-calabardina","municipality":"aguilas","position":[37.43454194142763,-1.5016587571321778],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-619-1p_g.jpg","recurso-1-619-2p_g.jpg","recurso-1-619-3p_g.jpg","recurso-1-619-7p_g.jpg","recurso-1-619-5p_g.jpg","recurso-1-619-6p_g.jpg","recurso-1-619-4p_g.jpg"],"sea":0},{"name":"Playa La Calera","slug":"playa-calera","municipality":"cartagena","position":[37.57312616618905,-1.1935075285127388],"blueFlag":false,"features":[],"pictures":["recurso-1-524-2p_g.jpg","recurso-1-524-1p_g.jpg"],"sea":0},{"name":"Playa La Caleta","slug":"playa-caleta","municipality":"cartagena","position":[37.57558252292477,-1.2080214747660896],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa La Carolina","slug":"playa-carolina","municipality":"aguilas","position":[37.37806447767704,-1.6246138461398545],"blueFlag":true,"features":[],"pictures":["recurso-1-589-2p_g.jpg","recurso-1-589-4p_g.jpg","recurso-1-589-9p_g.jpg","recurso-1-589-6p_g.jpg","recurso-1-589-7p_g.jpg","recurso-1-589-8p_g.jpg","recurso-1-589-5p_g.jpg"],"sea":0},{"name":"Playa La Galera","slug":"playa-galera","municipality":"cartagena","district":"CARTAGENA","position":[37.63543150608914,-0.6938743389565918],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa La Isla","slug":"playa-isla","municipality":"la-manga","position":[37.67148567598908,-0.7319056909940591],"blueFlag":false,"features":[],"pictures":[],"sea":1},{"name":"Playa La Tortuga","slug":"playa-tortuga","municipality":"aguilas","position":[37.386368534540814,-1.6132908750908828],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa La Veneziola (Veneciola)","slug":"playa-veneziola-veneciola","municipality":"la-manga","position":[37.772716126396894,-0.7485462924977515],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-673-3p_g.jpg","recurso-1-673-4p_g.jpg","recurso-1-673-6p_g.jpg"],"sea":1},{"name":"Playa Larga","slug":"playa-larga","municipality":"cartagena","position":[37.599897598847924,-0.7550128447454396],"blueFlag":false,"features":[],"pictures":["recurso-1-627-1_g.jpg"],"sea":0},{"name":"Playa Larga","slug":"playa-larga","municipality":"lorca","district":"GARROBILLO","phone":"968 47 37 07 / 112","email":"112lorca@lorca.es","url":"http://www.emergencias.lorca.es/playas-de-lorca.asp","position":[37.4807329,-1.4654142],"blueFlag":false,"features":[],"pictures":["recurso-1-5907-1_g.jpg"],"sea":0},{"name":"Playa Larga","slug":"playa-larga","municipality":"cartagena","position":[37.599897598847924,-0.7550128447454396],"blueFlag":false,"features":[],"pictures":["recurso-1-515-1p_g.jpg","recurso-1-515-3p_g.jpg","recurso-1-515-2p_g.jpg"],"sea":0},{"name":"Playa Las Amoladeras","slug":"playa-amoladeras","municipality":"cartagena","position":[37.63552497728912,-0.6995826023164073],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa Las Antillas","slug":"playa-antillas","municipality":"la-manga","position":[37.71054681195668,-0.7424892834397379],"blueFlag":false,"features":[],"pictures":["recurso-1-541-6p_g.jpg"],"sea":1},{"name":"Playa Las Delicias","slug":"playa-delicias","municipality":"aguilas","position":[37.40918697803395,-1.5662171054902636],"blueFlag":true,"features":["accesible","paseo-maritimo"],"pictures":["recurso-1-660-2p_g.jpg","recurso-1-660-1p_g.jpg"],"sea":0},{"name":"Playa Lebeche","slug":"playa-lebeche","municipality":"la-manga","position":[37.686526794266214,-0.7361647289010689],"blueFlag":false,"features":[],"pictures":[],"sea":1},{"name":"Playa Los Nietos","slug":"playa-nietos","municipality":"cartagena","position":[37.65364508183818,-0.7875232487323913],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-684-1p_g.jpg","recurso-1-684-2p_g.jpg","recurso-1-684-5p_g.jpg","recurso-1-684-4p_g.jpg","recurso-1-684-3p_g.jpg"],"sea":1},{"name":"Playa Manzanares","slug":"playa-manzanares","municipality":"los-alcazares","position":[37.74115350824285,-0.8471523871426934],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-691-1p_g.jpg","recurso-1-691-2p_g.jpg","recurso-1-691-5p_g.jpg","recurso-1-691-4p_g.jpg","recurso-1-691-3p_g.jpg"],"sea":1},{"name":"Playa Matasgordas","slug":"playa-matasgordas","municipality":"la-manga","position":[37.730838008021394,-0.7385826735522736],"blueFlag":false,"features":[],"pictures":["recurso-1-542-5p_g.jpg","recurso-1-542-6p_g.jpg","recurso-1-542-7p_g.jpg","recurso-1-542-4p_g.jpg"],"sea":1},{"name":"Playa Mistral","slug":"playa-mistral","municipality":"la-manga","position":[37.740714101241046,-0.7385544476418375],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-696-1p_g.jpg","recurso-1-696-3p_g.jpg","recurso-1-696-9p_g.jpg","recurso-1-696-7p_g.jpg","recurso-1-696-8p_g.jpg"],"sea":1},{"name":"Playa Morena","slug":"playa-morena","municipality":"cartagena","position":[37.584004886133904,-1.0672807447089814],"blueFlag":false,"features":["nudista"],"pictures":[],"sea":0},{"name":"Playa Negra","slug":"playa-negra","address":"Avenida de El Alamillo N-322 (PUERTO DE MAZARRÓN)","postalCode":"30868","municipality":"mazarron","district":"PUERTO DE MAZARRÓN","position":[37.578005,-1.239054],"blueFlag":false,"features":[],"pictures":["recurso-1-652-2p_g.jpg","recurso-1-652-1p_g.jpg"],"sea":0},{"name":"Playa Negrete","slug":"playa-negrete","municipality":"cartagena","position":[37.59965330958514,-0.7616007833774225],"blueFlag":false,"features":[],"pictures":["recurso-1-514-2p_g.jpg","recurso-1-514-1p_g.jpg"],"sea":0},{"name":"Playa Paraiso","slug":"playa-paraiso","municipality":"cartagena","position":[37.63513071923549,-0.7289890110154436],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-529-1p_g.jpg","recurso-1-529-3p_g.jpg","recurso-1-529-2p_g.jpg"],"sea":1},{"name":"Playa Parazuelos","slug":"playa-parazuelos","address":"Lorca (RAMONETE)","municipality":"lorca","district":"RAMONETE","phone":" 968 473 707 / 112","email":"proteccioncivil@lorca.es","url":"http://www.emergencias.lorca.es/playas-de-lorca.asp","position":[37.5110822,-1.4010619],"blueFlag":false,"features":[],"pictures":["recurso-1-6703-1p_g.jpg"],"sea":0},{"name":"Playa Parazuelos","slug":"playa-parazuelos","address":"Diputación Cañada de Gallego (IFRE-CAÑADA DE GALLEGO)","postalCode":"30876","municipality":"mazarron","district":"IFRE-CAÑADA DE GALLEGO","position":[37.521276,-1.394159],"blueFlag":false,"features":[],"pictures":[],"sea":0},{"name":"Playa Parreño","slug":"playa-parreno","municipality":"cartagena","position":[37.59916249120392,-0.7670860797324863],"blueFlag":false,"features":[],"pictures":["recurso-1-557-1p_g.jpg","recurso-1-557-3p_g.jpg","recurso-1-557-2p_g.jpg"],"sea":0},{"name":"Playa Pedrucho","slug":"playa-pedrucho","municipality":"la-manga","position":[37.70724157230249,-0.741183103923257],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-672-2p_g.jpg","recurso-1-672-3p_g.jpg","recurso-1-672-5p_g.jpg","recurso-1-672-8p_g.jpg","recurso-1-672-9p_g.jpg","recurso-1-672-10p_g.jpg"],"sea":0},{"name":"Playa Perla de Levante (Estrella de Mar)","slug":"playa-perla-levante-estrella-mar","municipality":"cartagena","position":[37.6764924149522,-0.8225143358118232],"blueFlag":false,"features":[],"pictures":[],"sea":1},{"name":"Playa Puerto Bello","slug":"playa-puerto-bello","municipality":"cartagena","position":[37.65050432206296,-0.7182407713293837],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-669-2p_g.jpg","recurso-1-669-1p_g.jpg"],"sea":1},{"name":"Playa Punta Brava","slug":"playa-punta-brava","municipality":"cartagena","position":[37.694505114506505,-0.835630532662544],"blueFlag":false,"features":["accesible"],"pictures":[],"sea":1},{"name":"Playa Puntas de Calnegre","slug":"playa-puntas-calnegre","address":"Lorca (RAMONETE)","municipality":"lorca","district":"RAMONETE","phone":"968 473 707","email":"proteccioncivil@lorca.es","url":"http://www.emergencias.lorca.es/playas-de-lorca.asp","position":[37.5094107,-1.4023527],"blueFlag":false,"features":["accesible"],"pictures":["recurso-1-694-2p_g.jpg","recurso-1-694-1p_g.jpg"],"sea":0},{"name":"Playa San Ginés","slug":"playa-san-gines","municipality":"cartagena","position":[37.570778630036344,-1.1826604703089907],"blueFlag":true,"features":["accesible"],"pictures":["recurso-1-685-1p_g.jpg","recurso-1-685-3p_g.jpg","recurso-1-685-2p_g.jpg"],"sea":0}]
+[
+  {
+    "name": "Cala Abierta",
+    "slug": "cala-abierta",
+    "municipality": "cartagena",
+    "position": [37.543778129792386, -1.1479117523069706],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Cala Aguilar",
+    "slug": "cala-aguilar",
+    "municipality": "cartagena",
+    "position": [37.570334132325065, -1.1011940180602702],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-601-1p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Cala Arturo",
+    "slug": "cala-arturo",
+    "municipality": "cartagena",
+    "position": [37.60183606268255, -0.7254260679392321],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Cala Avellán",
+    "slug": "cala-avellan",
+    "municipality": "cartagena",
+    "position": [37.62993739960048, -0.7018737927370684],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Cala Blanca",
+    "slug": "cala-blanca",
+    "municipality": "lorca",
+    "district": "GARROBILLO",
+    "phone": "968 47 37 07 /112",
+    "email": "112lorca@lorca.es",
+    "url": "http://www.emergencias.lorca.es/playas-de-lorca.asp",
+    "position": [37.483338, -1.462284],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-628-2_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Cala Botella",
+    "slug": "cala-botella",
+    "municipality": "cartagena",
+    "position": [37.63242101845318, -0.6938427798422424],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Cala Canalicas",
+    "slug": "cala-canalicas",
+    "address": "Acceso: Carretera de Cope, km 7. Calabardina (CALABARDINA)",
+    "postalCode": "30880",
+    "municipality": "aguilas",
+    "district": "CALABARDINA",
+    "position": [37.4318528, -1.5091859],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-7050-1p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Cala Cerrada",
+    "slug": "cala-cerrada",
+    "municipality": "cartagena",
+    "position": [37.5440417791123, -1.1469091907235547],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-658-2p_g.jpg", "recurso-1-658-1p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Cala Cortina",
+    "slug": "cala-cortina",
+    "municipality": "cartagena",
+    "position": [37.58346704814301, -0.973449688081129],
+    "blueFlag": true,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-512-1p_g.jpg",
+      "recurso-1-512-2p_g.jpg",
+      "recurso-1-512-3p_g.jpg",
+      "recurso-1-512-4p_g.jpg",
+      "recurso-1-512-5p_g.jpg",
+      "recurso-1-512-11p_g.jpg",
+      "recurso-1-512-7p_g.jpg",
+      "recurso-1-512-8p_g.jpg",
+      "recurso-1-512-9p_g.jpg",
+      "recurso-1-512-10p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Cala de Calnegre",
+    "slug": "cala-calnegre",
+    "address": "Lorca (RAMONETE)",
+    "municipality": "lorca",
+    "district": "RAMONETE",
+    "phone": "968 473 707 / 112",
+    "email": "proteccioncivil@lorca.es",
+    "url": "http://www.emergencias.lorca.es/playas-de-lorca.asp",
+    "position": [37.5067891, -1.4162781],
+    "blueFlag": true,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-663-1p_g.jpg",
+      "recurso-1-663-6p_g.jpg",
+      "recurso-1-663-2p_g.jpg",
+      "recurso-1-663-5p_g.jpg",
+      "recurso-1-663-4p_g.jpg",
+      "recurso-1-663-3p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Cala de La Gruta",
+    "slug": "cala-gruta",
+    "municipality": "lorca",
+    "district": "GARROBILLO",
+    "phone": "968 47 37 07 / 112",
+    "email": "112lorca@lorca.es",
+    "url": "http://www.emergencias.lorca.es/playas-de-lorca.asp",
+    "position": [37.490493, -1.454182],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-551-1_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Cala de La Herradura",
+    "slug": "cala-herradura",
+    "municipality": "aguilas",
+    "position": [37.38912429637273, -1.6084958207849451],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Cala de las Melvas",
+    "slug": "cala-melvas",
+    "municipality": "cartagena",
+    "position": [37.632673182223186, -0.6952173914093165],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-605-1p_g.jpg",
+      "recurso-1-605-2p_g.jpg",
+      "recurso-1-605-5p_g.jpg",
+      "recurso-1-605-4p_g.jpg",
+      "recurso-1-605-3p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Cala de las Mulas",
+    "slug": "cala-mulas",
+    "municipality": "cartagena",
+    "position": [37.59635996170473, -0.7823804962524692],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-513-1p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Cala de los Abejorros",
+    "slug": "cala-abejorros",
+    "address": "Carretera de Cuesta de Gos, camino del Cantal. (COPE)",
+    "municipality": "aguilas",
+    "district": "COPE",
+    "position": [37.469241, -1.471169],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Cala de San Pedro",
+    "slug": "cala-san-pedro",
+    "address": "Lorca (RAMONETE)",
+    "municipality": "lorca",
+    "district": "RAMONETE",
+    "phone": "968  47 37 07 / 112",
+    "email": "112lorca@lorca.es",
+    "url": "http://www.emergencias.lorca.es/playas-de-lorca.asp",
+    "position": [37.503153, -1.422861],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-631-1_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Cala del Barco",
+    "slug": "cala-barco",
+    "municipality": "cartagena",
+    "position": [37.58922765157792, -0.7917766442163501],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-556-1p_g.jpg",
+      "recurso-1-556-3p_g.jpg",
+      "recurso-1-556-2p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Cala del Ciscal",
+    "slug": "cala-ciscal",
+    "municipality": "lorca",
+    "district": "GARROBILLO",
+    "phone": "968 47 37 07 /112",
+    "email": "112lorca@lorca.es",
+    "url": "http://www.emergencias.lorca.es/playas-de-lorca.asp",
+    "position": [37.503961, -1.424609],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-626-1_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Cala del Cuartel del Ciscar",
+    "slug": "cala-cuartel-ciscar",
+    "address": "Lorca (GARROBILLO)",
+    "municipality": "lorca",
+    "district": "GARROBILLO",
+    "phone": "968 47 37 37 /112",
+    "email": "112lorca@lorca.es",
+    "url": "http://www.emergencias.lorca.es/playas-de-lorca.asp",
+    "position": [37.496904, -1.441985],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-567-1_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Cala del Cuervo",
+    "slug": "cala-cuervo",
+    "municipality": "cartagena",
+    "position": [37.59324843247803, -0.7870483405048447],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Cala del Pino",
+    "slug": "cala-pino",
+    "municipality": "cartagena",
+    "position": [37.668560281294674, -0.7311445101817049],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-577-2p_g.jpg",
+      "recurso-1-577-3p_g.jpg",
+      "recurso-1-577-4p_g.jpg",
+      "recurso-1-577-10p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Cala del Reventón",
+    "slug": "cala-reventon",
+    "municipality": "cartagena",
+    "position": [37.597827992519704, -0.7727663633078241],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Cala Desnuda",
+    "slug": "cala-desnuda",
+    "address": "Las Moreras (Moreras / Bolnuevo)",
+    "postalCode": "30870",
+    "municipality": "mazarron",
+    "district": "Moreras / Bolnuevo",
+    "position": [37.557139, -1.341114],
+    "blueFlag": false,
+    "features": ["nudista"],
+    "pictures": [
+      "PLAYAS_1_552_1_g.jpg",
+      "PLAYAS_1_552_3_g.jpg",
+      "PLAYAS_1_552_2_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Cala El Bolete",
+    "slug": "cala-bolete",
+    "municipality": "cartagena",
+    "position": [37.56761599107668, -1.112653081876026],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Cala El Bolete Grande",
+    "slug": "cala-bolete-grande",
+    "municipality": "cartagena",
+    "position": [37.56423333677151, -1.1192370568679813],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Cala Golera",
+    "slug": "cala-golera",
+    "municipality": "cartagena",
+    "position": [37.590031644973884, -0.7875513313996567],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Cala Honda",
+    "slug": "cala-honda",
+    "address": "Lorca (GARROBILLO)",
+    "municipality": "lorca",
+    "district": "GARROBILLO",
+    "phone": "968 47 37 07 /112",
+    "email": "proteccioncivil@lorca.es",
+    "url": "http://www.emergencias.lorca.es/playas-de-lorca.asp",
+    "position": [37.501073, -1.432871],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-579-1_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Cala Junquera",
+    "slug": "cala-junquera",
+    "address": "Lorca (GARROBILLO)",
+    "municipality": "lorca",
+    "district": "GARROBILLO",
+    "phone": "968 47 37 07 / 112",
+    "email": "112lorca@lorca.es",
+    "url": "http://www.emergencias.lorca.es/playas-de-lorca.asp",
+    "position": [37.492495, -1.450058],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-630-1_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Cala Las Escalerillas",
+    "slug": "cala-escalerillas",
+    "municipality": "cartagena",
+    "position": [37.63598633115706, -0.692293405396089],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Cala Leña",
+    "slug": "cala-lena",
+    "municipality": "lorca",
+    "district": "GARROBILLO",
+    "phone": "968 47 37 07 /112",
+    "email": "112lorca@lorca.es",
+    "url": "http://www.emergencias.lorca.es/playas-de-lorca.asp",
+    "position": [37.488959, -1.456763],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-629-1_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Cala Magre",
+    "slug": "cala-magre",
+    "municipality": "cartagena",
+    "position": [37.60767769788192, -0.7231978237787589],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Cala Medina",
+    "slug": "cala-medina",
+    "municipality": "cartagena",
+    "position": [37.62918775804545, -0.702712698248463],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Cala Mijo. (Cueva de las Palomas)",
+    "slug": "cala-mijo-cueva-palomas",
+    "address": "Ctra. de Vera, km 3 (COCÓN)",
+    "postalCode": "30880",
+    "municipality": "aguilas",
+    "district": "COCÓN",
+    "position": [37.38729281440677, -1.6098738581592507],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-678-1p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Cala Mojarra",
+    "slug": "cala-mojarra",
+    "municipality": "cartagena",
+    "position": [37.54498090504592, -1.1157141883293442],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Cala Pozo de la Avispa",
+    "slug": "cala-pozo-avispa",
+    "municipality": "cartagena",
+    "position": [37.556166134009054, -1.1253944275225964],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Cala Reona",
+    "slug": "cala-reona",
+    "municipality": "cartagena",
+    "position": [37.620197252492865, -0.7130726307092754],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-518-1p_g.jpg",
+      "recurso-1-518-2p_g.jpg",
+      "recurso-1-518-3p_g.jpg",
+      "recurso-1-518-7p_g.jpg",
+      "recurso-1-518-5p_g.jpg",
+      "recurso-1-518-6p_g.jpg",
+      "recurso-1-518-4p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Cala Roja",
+    "slug": "cala-roja",
+    "municipality": "cartagena",
+    "position": [37.634445899765375, -0.6891002680612295],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Cala Salitrona",
+    "slug": "cala-salitrona",
+    "municipality": "cartagena",
+    "position": [37.550698090944906, -1.1227128612359312],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Cala Túnez (Cala Cuna)",
+    "slug": "cala-tunez-cala-cuna",
+    "municipality": "cartagena",
+    "position": [37.636423167529934, -0.6906707750049863],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-568-2p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Esculls de La Llana y Encañizadas",
+    "slug": "esculls-llana-encanizadas",
+    "municipality": "la-manga",
+    "position": [37.781770737269866, -0.744206762849096],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa  Lomas del Castillico (Villas Caravaning)",
+    "slug": "playa-lomas-castillico-villas-caravaning",
+    "municipality": "cartagena",
+    "position": [37.635442, -0.750816],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-689-1p_g.jpg",
+      "recurso-1-689-2p_g.jpg",
+      "recurso-1-689-6p_g.jpg",
+      "recurso-1-689-4p_g.jpg",
+      "recurso-1-689-5p_g.jpg",
+      "recurso-1-689-3p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa Alíseos",
+    "slug": "playa-aliseos",
+    "municipality": "la-manga",
+    "position": [37.67551586176223, -0.7320097103147463],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-538-1p_g.jpg",
+      "recurso-1-538-3p_g.jpg",
+      "recurso-1-538-8p_g.jpg",
+      "recurso-1-538-6p_g.jpg",
+      "recurso-1-538-4p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa Amarilla",
+    "slug": "playa-amarilla",
+    "address": "Las Moreras (Moreras / Bolnuevo)",
+    "postalCode": "30870",
+    "municipality": "mazarron",
+    "district": "Moreras / Bolnuevo",
+    "position": [37.560294, -1.330766],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["PLAYAS_1_586_1_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa Amarilla",
+    "slug": "playa-amarilla",
+    "municipality": "aguilas",
+    "position": [37.414678736153846, -1.5494566566664352],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-615-1p_g.jpg",
+      "recurso-1-615-2p_g.jpg",
+      "recurso-1-615-3p_g.jpg",
+      "recurso-1-615-7p_g.jpg",
+      "recurso-1-615-5p_g.jpg",
+      "recurso-1-615-6p_g.jpg",
+      "recurso-1-615-4p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa Banco del Tabal",
+    "slug": "playa-banco-tabal",
+    "municipality": "la-manga",
+    "position": [37.674209009159945, -0.7273217239461998],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-671-1p_g.jpg",
+      "recurso-1-671-2p_g.jpg",
+      "recurso-1-671-3p_g.jpg",
+      "recurso-1-671-4p_g.jpg",
+      "recurso-1-671-5p_g.jpg",
+      "recurso-1-671-9p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa Baño de las Mujeres",
+    "slug": "playa-bano-mujeres",
+    "address": "Lorca (RAMONETE)",
+    "municipality": "lorca",
+    "district": "RAMONETE",
+    "phone": "968473707 / 112",
+    "email": "proteccioncivil@lorca.es",
+    "url": "http://www.emergencias.lorca.es/playas-de-lorca.asp",
+    "position": [37.5055745, -1.4186331],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-632-1p_g.jpg",
+      "recurso-1-632-3p_g.jpg",
+      "recurso-1-632-2p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa Barnuevo",
+    "slug": "playa-barnuevo",
+    "municipality": "san-javier",
+    "district": "SANTIAGO DE LA RIBERA",
+    "position": [37.79760794214085, -0.8015980750111429],
+    "blueFlag": false,
+    "features": ["accesible", "paseo-maritimo"],
+    "pictures": [
+      "recurso-1-667-1p_g.jpg",
+      "recurso-1-667-3p_g.jpg",
+      "recurso-1-667-2p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa Cabezo de la Pelea",
+    "slug": "playa-cabezo-pelea",
+    "address": "Ifre - Cañada de Gallego (IFRE-CAÑADA DE GALLEGO)",
+    "postalCode": "30876",
+    "municipality": "mazarron",
+    "district": "IFRE-CAÑADA DE GALLEGO",
+    "position": [37.544527, -1.363548],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa Cabezo del Mojón",
+    "slug": "playa-cabezo-mojon",
+    "municipality": "cartagena",
+    "position": [37.57621204510004, -1.2204396803116515],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa Cala de Leño",
+    "slug": "playa-cala-leno",
+    "address": "Las Moreras (Moreras / Bolnuevo)",
+    "postalCode": "30870",
+    "municipality": "mazarron",
+    "district": "Moreras / Bolnuevo",
+    "position": [37.557548, -1.339952],
+    "blueFlag": false,
+    "features": ["nudista"],
+    "pictures": [
+      "recurso-1-642-3p_g.jpg",
+      "PLAYAS_1_642_1_g.jpg",
+      "PLAYAS_1_642_2_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa Cala Flores",
+    "slug": "playa-cala-flores",
+    "municipality": "cartagena",
+    "position": [37.62615368106458, -0.7047096111234166],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa Calafría",
+    "slug": "playa-calafria",
+    "municipality": "cartagena",
+    "position": [37.63509224800107, -0.6885136619447825],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-569-1p_g.jpg",
+      "recurso-1-569-3p_g.jpg",
+      "recurso-1-569-2p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa Calnegre",
+    "slug": "playa-calnegre",
+    "municipality": "cartagena",
+    "position": [37.667010308987166, -0.7231994781225053],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-592-1p_g.jpg",
+      "recurso-1-592-4p_g.jpg",
+      "recurso-1-592-3p_g.jpg",
+      "recurso-1-592-2p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa Carrión",
+    "slug": "playa-carrion",
+    "municipality": "los-alcazares",
+    "position": [37.73898461437445, -0.84879256343448],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-692-1p_g.jpg",
+      "recurso-1-692-2p_g.jpg",
+      "recurso-1-692-5p_g.jpg",
+      "recurso-1-692-4p_g.jpg",
+      "recurso-1-692-3p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa Cavanna",
+    "slug": "playa-cavanna",
+    "municipality": "cartagena",
+    "position": [37.65660446626884, -0.7214658146919457],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-687-1p_g.jpg",
+      "recurso-1-687-2p_g.jpg",
+      "recurso-1-687-3p_g.jpg",
+      "recurso-1-687-4p_g.jpg",
+      "recurso-1-687-11p_g.jpg",
+      "recurso-1-687-7p_g.jpg",
+      "recurso-1-687-8p_g.jpg",
+      "recurso-1-687-9p_g.jpg",
+      "recurso-1-687-10p_g.jpg",
+      "recurso-1-687-5p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa Chica",
+    "slug": "playa-chica",
+    "municipality": "la-manga",
+    "position": [37.763655500386655, -0.7464486928965455],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-543-2p_g.jpg",
+      "recurso-1-543-3p_g.jpg",
+      "recurso-1-543-6p_g.jpg",
+      "recurso-1-543-7p_g.jpg",
+      "recurso-1-543-8p_g.jpg",
+      "recurso-1-543-5p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa Cobaticas",
+    "slug": "playa-cobaticas",
+    "address": "Diputación Cañada de Gallego (IFRE-CAÑADA DE GALLEGO)",
+    "postalCode": "30876",
+    "municipality": "mazarron",
+    "district": "IFRE-CAÑADA DE GALLEGO",
+    "position": [37.538644, -1.369282],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "PLAYAS_1_638_3_g.jpg",
+      "PLAYAS_1_638_7_g.jpg",
+      "PLAYAS_1_638_5_g.jpg",
+      "PLAYAS_1_638_6_g.jpg",
+      "PLAYAS_1_638_4_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa Cueva de Lobos",
+    "slug": "playa-cueva-lobos",
+    "postalCode": "30877",
+    "municipality": "mazarron",
+    "district": "Moreras / Bolnuevo",
+    "position": [37.561711, -1.329002],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "PLAYAS_1_643_1_g.jpg",
+      "PLAYAS_1_643_2_g.jpg",
+      "PLAYAS_1_643_5_g.jpg",
+      "PLAYAS_1_643_4_g.jpg",
+      "PLAYAS_1_643_3_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa Dársena Dos Mares",
+    "slug": "playa-darsena-dos-mares",
+    "municipality": "cartagena",
+    "position": [37.6630503098781, -0.7286030289793253],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 1
+  },
+  {
+    "name": "Playa de Bahía",
+    "slug": "playa-bahia",
+    "address": "Cabezo de la Reya (calle Noruega y calle Sevilla) (PUERTO DE MAZARRÓN)",
+    "postalCode": "30860",
+    "municipality": "mazarron",
+    "district": "PUERTO DE MAZARRÓN",
+    "position": [37.558255, -1.27489],
+    "blueFlag": true,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa de Bolnuevo",
+    "slug": "playa-bolnuevo",
+    "address": "Avenida Pedro López Meca - Paseo marítimo de Bolnuevo (BOLNUEVO)",
+    "postalCode": "30877",
+    "municipality": "mazarron",
+    "district": "BOLNUEVO",
+    "position": [37.562678, -1.311139],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-646-1p_g.jpg",
+      "recurso-1-646-2p_g.jpg",
+      "recurso-1-646-3p_g.jpg",
+      "recurso-1-646-7p_g.jpg",
+      "recurso-1-646-5p_g.jpg",
+      "recurso-1-646-6p_g.jpg",
+      "recurso-1-646-4p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de Calabarrilla",
+    "slug": "playa-calabarrilla",
+    "municipality": "aguilas",
+    "position": [37.42153365365286, -1.5396171034801065],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa de Calacerrada",
+    "slug": "playa-calacerrada",
+    "municipality": "aguilas",
+    "position": [37.375797868954166, -1.6234693784264127],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-593-6p_g.png",
+      "recurso-1-593-4p_g.jpg",
+      "recurso-1-593-5p_g.jpg",
+      "recurso-1-593-2p_g.jpg",
+      "recurso-1-593-1p_g.jpg",
+      "recurso-1-593-3p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de Calarreona",
+    "slug": "playa-calarreona",
+    "municipality": "aguilas",
+    "position": [37.384976034907325, -1.6182977556555507],
+    "blueFlag": true,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-679-1p_g.jpg",
+      "recurso-1-679-2p_g.jpg",
+      "recurso-1-679-6p_g.jpg",
+      "recurso-1-679-4p_g.jpg",
+      "recurso-1-679-5p_g.jpg",
+      "recurso-1-679-3p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de Calblanque",
+    "slug": "playa-calblanque",
+    "municipality": "cartagena",
+    "position": [37.6055453173988, -0.7289830668233708],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-590-1p_g.jpg",
+      "recurso-1-590-2p_g.jpg",
+      "recurso-1-590-3p_g.jpg",
+      "recurso-1-590-4p_g.jpg",
+      "recurso-1-590-9p_g.jpg",
+      "recurso-1-590-6p_g.jpg",
+      "recurso-1-590-7p_g.jpg",
+      "recurso-1-590-8p_g.jpg",
+      "recurso-1-590-5p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de Colón",
+    "slug": "playa-colon",
+    "municipality": "san-javier",
+    "district": "SANTIAGO DE LA RIBERA",
+    "position": [37.80258252349344, -0.8006441875574644],
+    "blueFlag": false,
+    "features": ["accesible", "paseo-maritimo"],
+    "pictures": [
+      "recurso-1-668-1p_g.jpg",
+      "recurso-1-668-3p_g.jpg",
+      "recurso-1-668-2p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa de El Alamillo",
+    "slug": "playa-alamillo",
+    "address": "Avenida de El Alamillo Ctra. N-332 (PUERTO DE MAZARRÓN)",
+    "postalCode": "30868",
+    "municipality": "mazarron",
+    "district": "PUERTO DE MAZARRÓN",
+    "position": [37.576165, -1.246462],
+    "blueFlag": true,
+    "features": ["accesible"],
+    "pictures": ["recurso-1-651-2p_g.jpg", "recurso-1-651-1p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa de El Castellar",
+    "slug": "playa-castellar",
+    "address": "Avenida del Castellar - Paseo marítimo del Castellar (PUERTO DE MAZARRÓN)",
+    "postalCode": "30860",
+    "municipality": "mazarron",
+    "district": "PUERTO DE MAZARRÓN",
+    "position": [37.559725, -1.288577],
+    "blueFlag": true,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-675-7p_g.jpg",
+      "recurso-1-675-8p_g.jpg",
+      "recurso-1-675-9p_g.jpg",
+      "recurso-1-675-10p_g.jpg",
+      "recurso-1-675-11p_g.jpg",
+      "PLAYAS_1_675_1_g.jpg",
+      "PLAYAS_1_675_2_g.jpg",
+      "PLAYAS_1_675_6_g.jpg",
+      "PLAYAS_1_675_4_g.jpg",
+      "PLAYAS_1_675_5_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de El Hornillo",
+    "slug": "playa-hornillo",
+    "municipality": "aguilas",
+    "position": [37.412991243605234, -1.5588677377246536],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-614-1p_g.jpg",
+      "recurso-1-614-2p_g.jpg",
+      "recurso-1-614-6p_g.jpg",
+      "recurso-1-614-4p_g.jpg",
+      "recurso-1-614-5p_g.jpg",
+      "recurso-1-614-3p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de El Mojón",
+    "slug": "playa-mojon",
+    "address": "Ctra. comarcal RM-322 Isla Plana - Cartagena (PUERTO DE MAZARRÓN)",
+    "postalCode": "30860",
+    "municipality": "mazarron",
+    "district": "PUERTO DE MAZARRÓN",
+    "position": [37.576183, -1.229642],
+    "blueFlag": true,
+    "features": ["accesible"],
+    "pictures": [
+      "PLAYAS_1_654_1_g.jpg",
+      "PLAYAS_1_654_2_g.jpg",
+      "PLAYAS_1_654_5_g.jpg",
+      "PLAYAS_1_654_4_g.jpg",
+      "PLAYAS_1_654_3_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de El Palomarico",
+    "slug": "playa-palomarico",
+    "address": "Diputación Cañada de Gallego (IFRE-CAÑADA DE GALLEGO)",
+    "postalCode": "30876",
+    "municipality": "mazarron",
+    "district": "IFRE-CAÑADA DE GALLEGO",
+    "position": [37.52388, -1.371936],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa de El Rihuete (Playa del Rigüete)",
+    "slug": "playa-rihuete-playa-riguete",
+    "address": "Paseo de el Rihuete y paseo marítimo de Puerto Mazarrón (PUERTO DE MAZARRÓN)",
+    "postalCode": "30860",
+    "municipality": "mazarron",
+    "district": "PUERTO DE MAZARRÓN",
+    "position": [37.570203, -1.254104],
+    "blueFlag": true,
+    "features": ["accesible"],
+    "pictures": ["PLAYAS_1_581_1_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa de El Rincón",
+    "slug": "playa-rincon",
+    "address": "Avenida de Bolnuevo Urb. Punta Vela (BOLNUEVO)",
+    "postalCode": "30877",
+    "municipality": "mazarron",
+    "district": "BOLNUEVO",
+    "position": [37.562477, -1.318484],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-645-6p_g.jpg",
+      "recurso-1-645-7p_g.jpg",
+      "PLAYAS_1_645_1_g.jpg",
+      "PLAYAS_1_645_2_g.jpg",
+      "PLAYAS_1_645_5_g.jpg",
+      "PLAYAS_1_645_4_g.jpg",
+      "PLAYAS_1_645_3_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de Gollerón (Cala del Turco)",
+    "slug": "playa-golleron-cala-turco",
+    "municipality": "la-manga",
+    "position": [37.6545228, -0.734669],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 1
+  },
+  {
+    "name": "Playa de Islas Menores",
+    "slug": "playa-islas-menores",
+    "municipality": "cartagena",
+    "position": [37.648485055599245, -0.7695423382076361],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-530-1p_g.jpg",
+      "recurso-1-530-2p_g.jpg",
+      "recurso-1-530-3p_g.jpg",
+      "recurso-1-530-8p_g.jpg",
+      "recurso-1-530-5p_g.jpg",
+      "recurso-1-530-6p_g.jpg",
+      "recurso-1-530-7p_g.jpg",
+      "recurso-1-530-4p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa de la Azohía - El Cuartel",
+    "slug": "playa-azohia-cuartel",
+    "municipality": "cartagena",
+    "position": [37.553811682249034, -1.1694659029120347],
+    "blueFlag": true,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-582-1p_g.jpg",
+      "recurso-1-582-3p_g.jpg",
+      "recurso-1-582-2p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de La Cañada del Negro",
+    "slug": "playa-canada-negro",
+    "municipality": "aguilas",
+    "position": [37.396731258183614, -1.603135929687188],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa de La Casica Verde",
+    "slug": "playa-casica-verde",
+    "postalCode": "30880",
+    "municipality": "aguilas",
+    "district": "AGUILAS",
+    "position": [37.395628, -1.601257],
+    "blueFlag": true,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa de La Chapineta",
+    "slug": "playa-chapineta",
+    "municipality": "cartagena",
+    "position": [37.56191355090358, -1.169448770434613],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-580-1p_g.jpg",
+      "recurso-1-580-4p_g.jpg",
+      "recurso-1-580-3p_g.jpg",
+      "recurso-1-580-2p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de La Cola",
+    "slug": "playa-cola",
+    "municipality": "aguilas",
+    "position": [37.434182869227456, -1.5117591041422849],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa de La Colonia",
+    "slug": "playa-colonia",
+    "postalCode": "30880",
+    "municipality": "aguilas",
+    "position": [37.40312316388304, -1.5903634912676026],
+    "blueFlag": true,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-612-1p_g.jpg",
+      "recurso-1-612-3p_g.jpg",
+      "recurso-1-612-2p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de La Concha",
+    "slug": "playa-concha",
+    "municipality": "los-alcazares",
+    "position": [37.73770542012749, -0.8498054848096062],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-533-1p_g.jpg",
+      "recurso-1-533-2p_g.jpg",
+      "recurso-1-533-5p_g.jpg",
+      "recurso-1-533-4p_g.jpg",
+      "recurso-1-533-3p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa de La Ermita",
+    "slug": "playa-ermita",
+    "address": "Avenida José Alarcón Palacios (PUERTO DE MAZARRÓN)",
+    "postalCode": "30860",
+    "municipality": "mazarron",
+    "district": "PUERTO DE MAZARRÓN",
+    "position": [37.559182, -1.272936],
+    "blueFlag": false,
+    "features": ["paseo-maritimo"],
+    "pictures": ["PLAYAS_1_649_2_g.jpg", "PLAYAS_1_649_1_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa de la Galera",
+    "slug": "playa-galera",
+    "municipality": "aguilas",
+    "position": [37.474386012742116, -1.4649926939540616],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-624-1p_g.jpg",
+      "recurso-1-624-3p_g.jpg",
+      "recurso-1-624-2p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de La Gola",
+    "slug": "playa-gola",
+    "municipality": "cartagena",
+    "position": [37.6506976, -0.7249991],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-607-1p_g.jpg",
+      "recurso-1-607-2p_g.jpg",
+      "recurso-1-607-3p_g.jpg",
+      "recurso-1-607-4p_g.jpg",
+      "recurso-1-607-5p_g.jpg",
+      "recurso-1-607-11p_g.jpg",
+      "recurso-1-607-7p_g.jpg",
+      "recurso-1-607-8p_g.jpg",
+      "recurso-1-607-9p_g.jpg",
+      "recurso-1-607-10p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa de La Grúa",
+    "slug": "playa-grua",
+    "postalCode": "30877",
+    "municipality": "mazarron",
+    "district": "Moreras / Bolnuevo",
+    "position": [37.557374, -1.33876],
+    "blueFlag": false,
+    "features": ["nudista"],
+    "pictures": ["PLAYAS_1_600_1_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa de la Higuerica",
+    "slug": "playa-higuerica",
+    "municipality": "aguilas",
+    "position": [37.38075570058193, -1.622746244816467],
+    "blueFlag": true,
+    "features": [],
+    "pictures": [
+      "recurso-1-625-1p_g.jpg",
+      "recurso-1-625-4p_g.jpg",
+      "recurso-1-625-3p_g.jpg",
+      "recurso-1-625-2p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de La Isla",
+    "slug": "playa-isla",
+    "address": "Avenida Tierno Galván (PUERTO DE MAZARRÓN)",
+    "postalCode": "30860",
+    "municipality": "mazarron",
+    "district": "PUERTO DE MAZARRÓN",
+    "position": [37.560278, -1.266428],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "PLAYAS_1_680_1_g.jpg",
+      "PLAYAS_1_680_2_g.jpg",
+      "PLAYAS_1_680_5_g.jpg",
+      "PLAYAS_1_680_4_g.jpg",
+      "PLAYAS_1_680_3_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de La Llana (Playa de La Barraca Quemada)",
+    "slug": "playa-llana-playa-barraca-quemada",
+    "municipality": "san-pedro-del-pinatar",
+    "position": [37.807440720099024, -0.7543862132394934],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-545-2p_g.jpg", "recurso-1-545-1p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa de La Llana (Playa de Las Salinas)",
+    "slug": "playa-llana-playa-salinas",
+    "municipality": "san-pedro-del-pinatar",
+    "position": [37.81888391790977, -0.7571519950790786],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-665-1p_g.jpg",
+      "recurso-1-665-3p_g.jpg",
+      "recurso-1-665-2p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de La Llana (Playa Punta de Algas)",
+    "slug": "playa-llana-playa-punta-algas",
+    "municipality": "san-pedro-del-pinatar",
+    "position": [37.8136666766002, -0.7557537333934037],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-544-1p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa de La Mota",
+    "slug": "playa-mota",
+    "municipality": "san-pedro-del-pinatar",
+    "position": [37.818541882775286, -0.7723617142120323],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": ["recurso-1-682-2p_g.jpg", "recurso-1-682-1p_g.jpg"],
+    "sea": 1
+  },
+  {
+    "name": "Playa de La Parajola",
+    "slug": "playa-parajola",
+    "municipality": "cartagena",
+    "position": [37.58317786189133, -1.0115410381030727],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa de La Pava",
+    "slug": "playa-pava",
+    "address": "Avenida José Alarcón Palacios (PUERTO DE MAZARRÓN)",
+    "postalCode": "30860",
+    "municipality": "mazarron",
+    "district": "PUERTO DE MAZARRÓN",
+    "position": [37.55934, -1.280438],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-647-2p_g.jpg",
+      "recurso-1-647-3p_g.jpg",
+      "PLAYAS_1_647_1_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de La Puntica",
+    "slug": "playa-puntica",
+    "municipality": "san-pedro-del-pinatar",
+    "position": [37.81613909776927, -0.7844749420722215],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-664-1p_g.jpg",
+      "recurso-1-664-3p_g.jpg",
+      "recurso-1-664-2p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa de La Raja",
+    "slug": "playa-raja",
+    "address": "Ctra. comarcal RM-322 Isla Plana - Cartagena (PUERTO DE MAZARRÓN)",
+    "postalCode": "30860",
+    "municipality": "mazarron",
+    "district": "PUERTO DE MAZARRÓN",
+    "position": [37.577606, -1.236171],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-653-1p_g.jpg",
+      "recurso-1-653-3p_g.jpg",
+      "recurso-1-653-2p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de la Rambla Elena",
+    "slug": "playa-rambla-elena",
+    "municipality": "aguilas",
+    "position": [37.45862480540321, -1.4749139445158457],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa de La Reya (Junta de los Mares)",
+    "slug": "playa-reya-junta-mares",
+    "address": "Avenida José Alarcón Palacios (PUERTO DE MAZARRÓN)",
+    "postalCode": "30860",
+    "municipality": "mazarron",
+    "district": "PUERTO DE MAZARRÓN",
+    "position": [37.559659, -1.276805],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": ["recurso-1-648-2_g.jpg", "recurso-1-648-1_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa de La Torre Derribada",
+    "slug": "playa-torre-derribada",
+    "municipality": "san-pedro-del-pinatar",
+    "position": [37.828451227874375, -0.7574758033459146],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-546-1p_g.jpg",
+      "recurso-1-546-3p_g.jpg",
+      "recurso-1-546-2p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de las Cañas",
+    "slug": "playa-canas",
+    "municipality": "cartagena",
+    "position": [37.60157202975702, -0.7454708137621866],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["canas2_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa de las Chapas",
+    "slug": "playa-chapas",
+    "postalCode": "30876",
+    "municipality": "mazarron",
+    "district": "IFRE-CAÑADA DE GALLEGO",
+    "position": [37.532225, -1.373645],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa de las Minas",
+    "slug": "playa-minas",
+    "postalCode": "30876",
+    "municipality": "mazarron",
+    "district": "IFRE-CAÑADA DE GALLEGO",
+    "position": [37.528342, -1.384026],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa de las Moreras",
+    "slug": "playa-moreras",
+    "address": "Avenida del Castellar - Avenida de Bolnuevo (BOLNUEVO)",
+    "postalCode": "30877",
+    "municipality": "mazarron",
+    "district": "BOLNUEVO",
+    "position": [37.560791, -1.296297],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-4894-1p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa de Las Palmeras",
+    "slug": "playa-palmeras",
+    "municipality": "los-alcazares",
+    "position": [37.74983814218372, -0.8440519946699365],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-534-1p_g.jpg",
+      "recurso-1-534-3p_g.jpg",
+      "recurso-1-534-2p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa de Las Pulgas",
+    "slug": "playa-pulgas",
+    "municipality": "aguilas",
+    "position": [37.471691188287444, -1.46638217935148],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa de Las Salinas",
+    "slug": "playa-salinas",
+    "municipality": "los-alcazares",
+    "position": [37.77032088554895, -0.8132141152010806],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-585-1p_g.jpg",
+      "recurso-1-585-3p_g.jpg",
+      "recurso-1-585-2p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa de Levante",
+    "slug": "playa-levante",
+    "postalCode": "30880",
+    "municipality": "aguilas",
+    "position": [37.408536843847926, -1.5758108718795119],
+    "blueFlag": true,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-693-1p_g.jpg",
+      "recurso-1-693-3p_g.jpg",
+      "recurso-1-693-2p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de Levante",
+    "slug": "playa-levante",
+    "municipality": "cartagena",
+    "position": [37.63441112542518, -0.696534794261976],
+    "blueFlag": true,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-525-1p_g.jpg",
+      "recurso-1-525-4p_g.jpg",
+      "recurso-1-525-3p_g.jpg",
+      "recurso-1-525-2p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de Los Alemanes",
+    "slug": "playa-alemanes",
+    "municipality": "cartagena",
+    "position": [37.64018000848231, -0.7225910743358828],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 1
+  },
+  {
+    "name": "Playa de Los Cocedores",
+    "slug": "playa-cocedores",
+    "postalCode": "30880",
+    "municipality": "aguilas",
+    "phone": "968493285",
+    "position": [37.377302, -1.629398],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-566-1p_g.jpg",
+      "recurso-1-566-3p_g.jpg",
+      "recurso-1-566-2p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de los Hierros",
+    "slug": "playa-hierros",
+    "address": "Lorca (GARROBILLO)",
+    "municipality": "lorca",
+    "district": "GARROBILLO",
+    "phone": "968 47 37 07 /112",
+    "email": "112lorca@lorca.es",
+    "url": "http://www.emergencias.lorca.es/playas-de-lorca.asp",
+    "position": [37.486467, -1.459903],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-576-1_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa de Los Narejos",
+    "slug": "playa-narejos",
+    "municipality": "los-alcazares",
+    "position": [37.75642156474186, -0.8325331893053107],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-661-1p_g.jpg",
+      "recurso-1-661-3p_g.jpg",
+      "recurso-1-661-2p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa de Los Urrutias",
+    "slug": "playa-urrutias",
+    "municipality": "cartagena",
+    "position": [37.68667198444632, -0.8296441249905548],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": ["recurso-1-677-2p_g.jpg", "recurso-1-677-1p_g.jpg"],
+    "sea": 1
+  },
+  {
+    "name": "Playa de Mar de Cristal",
+    "slug": "playa-mar-cristal",
+    "municipality": "cartagena",
+    "position": [37.64365046151846, -0.7574359750096424],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-676-1p_g.jpg",
+      "recurso-1-676-3p_g.jpg",
+      "recurso-1-676-2p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa de Nares",
+    "slug": "playa-nares",
+    "address": "Avenida del Castellar - Paseo marítimo del Castellar (PUERTO DE MAZARRÓN)",
+    "postalCode": "30860",
+    "municipality": "mazarron",
+    "district": "PUERTO DE MAZARRÓN",
+    "position": [37.559206, -1.282999],
+    "blueFlag": true,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-683-6p_g.jpg",
+      "recurso-1-683-7p_g.jpg",
+      "recurso-1-683-8p_g.jpg",
+      "recurso-1-683-9p_g.jpg",
+      "recurso-1-683-10p_g.jpg",
+      "PLAYAS_1_683_1_g.jpg",
+      "PLAYAS_1_683_2_g.jpg",
+      "PLAYAS_1_683_5_g.jpg",
+      "PLAYAS_1_683_4_g.jpg",
+      "PLAYAS_1_683_3_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de Percheles",
+    "slug": "playa-percheles",
+    "postalCode": "30876",
+    "municipality": "mazarron",
+    "district": "IFRE-CAÑADA DE GALLEGO",
+    "position": [37.5529873, -1.381302],
+    "blueFlag": true,
+    "features": [],
+    "pictures": [
+      "recurso-1-608-1p_g.jpg",
+      "recurso-1-608-5p_g.jpg",
+      "recurso-1-608-3p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de Piedra Mala",
+    "slug": "playa-piedra-mala",
+    "postalCode": "30876",
+    "municipality": "mazarron",
+    "district": "BOLNUEVO",
+    "position": [37.563217, -1.32014],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa de Poniente",
+    "slug": "playa-poniente",
+    "municipality": "aguilas",
+    "position": [37.40496205063353, -1.583595264451157],
+    "blueFlag": true,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-596-1p_g.jpg",
+      "recurso-1-596-2p_g.jpg",
+      "recurso-1-596-6p_g.jpg",
+      "recurso-1-596-4p_g.jpg",
+      "recurso-1-596-5p_g.jpg",
+      "recurso-1-596-3p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de Poniente",
+    "slug": "playa-poniente",
+    "municipality": "la-manga",
+    "position": [37.70236921951902, -0.739924640300194],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 1
+  },
+  {
+    "name": "Playa de Portmán",
+    "slug": "playa-portman",
+    "municipality": "la-union",
+    "position": [37.584028278645135, -0.8468973586757889],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-560-1p_g.jpg",
+      "recurso-1-560-3p_g.jpg",
+      "recurso-1-560-2p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa de Villananitos",
+    "slug": "playa-villananitos",
+    "municipality": "san-pedro-del-pinatar",
+    "position": [37.82145072620041, -0.7803740936091206],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": ["recurso-1-681-4p_g.jpg"],
+    "sea": 1
+  },
+  {
+    "name": "Playa del Arroz",
+    "slug": "playa-arroz",
+    "municipality": "aguilas",
+    "position": [37.43029206253299, -1.5242005292146248],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-617-1p_g.jpg",
+      "recurso-1-617-2p_g.jpg",
+      "recurso-1-617-5p_g.jpg",
+      "recurso-1-617-4p_g.jpg",
+      "recurso-1-617-3p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa del Ballenato",
+    "slug": "playa-ballenato",
+    "address": "Diputación Cañada de Gallego (IFRE-CAÑADA DE GALLEGO)",
+    "postalCode": "30876",
+    "municipality": "mazarron",
+    "district": "IFRE-CAÑADA DE GALLEGO",
+    "position": [37.531631, -1.375605],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa del Barco Perdido (Playa Entremares)",
+    "slug": "playa-barco-perdido-playa-entremares",
+    "municipality": "cartagena",
+    "position": [37.65382309857175, -0.7151128630848165],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-686-3p_g.jpg",
+      "recurso-1-686-9p_g.jpg",
+      "recurso-1-686-6p_g.jpg",
+      "recurso-1-686-8p_g.jpg",
+      "recurso-1-686-5p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa del Barco Perdido (Playa Las Sirenas)",
+    "slug": "playa-barco-perdido-playa-sirenas",
+    "municipality": "cartagena",
+    "position": [37.658643555944316, -0.7183316210375317],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-670-1p_g.jpg", "recurso-1-670-3p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa del Barranco Ancho",
+    "slug": "playa-barranco-ancho",
+    "address": "Diputación Cañada de Gallego (IFRE-CAÑADA DE GALLEGO)",
+    "postalCode": "30876",
+    "municipality": "mazarron",
+    "district": "IFRE-CAÑADA DE GALLEGO",
+    "position": [37.555624, -1.343723],
+    "blueFlag": false,
+    "features": ["nudista"],
+    "pictures": ["PLAYAS_1_641_2_g.jpg", "PLAYAS_1_641_1_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa del Barranco de La Mar",
+    "slug": "playa-barranco-mar",
+    "municipality": "aguilas",
+    "position": [37.42460980265058, -1.5289342580993308],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa del Charco",
+    "slug": "playa-charco",
+    "postalCode": "30880",
+    "municipality": "aguilas",
+    "position": [37.448211069129854, -1.4795116178875052],
+    "blueFlag": false,
+    "features": ["nudista"],
+    "pictures": ["recurso-1-588-1p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa del Descargador",
+    "slug": "playa-descargador",
+    "municipality": "cartagena",
+    "position": [37.623752221959286, -0.7072647351080978],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa del Espejo",
+    "slug": "playa-espejo",
+    "municipality": "los-alcazares",
+    "position": [37.74541076193193, -0.8463707925947408],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-690-1p_g.jpg",
+      "recurso-1-690-4p_g.jpg",
+      "recurso-1-690-3p_g.jpg",
+      "recurso-1-690-2p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa del Estacio",
+    "slug": "playa-estacio",
+    "municipality": "la-manga",
+    "position": [37.73547465444957, -0.7374203499240233],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-536-1p_g.jpg",
+      "recurso-1-536-2p_g.jpg",
+      "recurso-1-536-3p_g.jpg",
+      "recurso-1-536-4p_g.jpg",
+      "recurso-1-536-5p_g.jpg",
+      "recurso-1-536-12p_g.jpg",
+      "recurso-1-536-9p_g.jpg",
+      "recurso-1-536-11p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa del Hoyo",
+    "slug": "playa-hoyo",
+    "address": "Carretera de Cope, km 9. (COPE)",
+    "postalCode": "30880",
+    "municipality": "aguilas",
+    "district": "COPE",
+    "position": [37.446608, -1.482473],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa del Lastre",
+    "slug": "playa-lastre",
+    "municipality": "la-union",
+    "position": [37.582150156454496, -0.841765156704632],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-695-1p_g.jpg",
+      "recurso-1-695-2p_g.jpg",
+      "recurso-1-695-3p_g.jpg",
+      "recurso-1-695-7p_g.jpg",
+      "recurso-1-695-5p_g.jpg",
+      "recurso-1-695-6p_g.jpg",
+      "recurso-1-695-4p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa del Matalentisco",
+    "slug": "playa-matalentisco",
+    "municipality": "aguilas",
+    "position": [37.39065573072325, -1.6068973446144748],
+    "blueFlag": true,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa del Pino",
+    "slug": "playa-pino",
+    "municipality": "aguilas",
+    "position": [37.432276623008896, -1.5178548789977941],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa del Pocico del Animal",
+    "slug": "playa-pocico-animal",
+    "municipality": "aguilas",
+    "position": [37.4616147, -1.4786366],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa del Pozo de las Huertas",
+    "slug": "playa-pozo-huertas",
+    "municipality": "aguilas",
+    "position": [37.46707491757378, -1.469031993147751],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa del Puerto de Mazarrón",
+    "slug": "playa-puerto-mazarron",
+    "address": "Calle Progreso, plaza de las Comunidades Autónomas - Paseo Marítimo de Puerto de Mazarrón",
+    "postalCode": "30860",
+    "municipality": "mazarron",
+    "district": "PUERTO DE MAZARRÓN",
+    "position": [37.565939, -1.257664],
+    "blueFlag": true,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-650-5p_g.jpg",
+      "recurso-1-650-6p_g.jpg",
+      "recurso-1-650-7p_g.jpg",
+      "recurso-1-650-8p_g.jpg",
+      "PLAYAS_1_650_3_g.jpg",
+      "PLAYAS_1_650_2_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa del Saladar",
+    "slug": "playa-saladar",
+    "address": "Carretera de Cuesta de Gos, Restaurante El Pocico (COPE)",
+    "municipality": "aguilas",
+    "district": "COPE",
+    "position": [37.465421, -1.47414],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa del Salar o Benzal",
+    "slug": "playa-salar-o-benzal",
+    "address": "Diputación Cañada de Gallego (IFRE-CAÑADA DE GALLEGO)",
+    "postalCode": "30876",
+    "municipality": "mazarron",
+    "district": "IFRE-CAÑADA DE GALLEGO",
+    "position": [37.549592, -1.35647],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-5556-1p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa del Sombrerico",
+    "slug": "playa-sombrerico",
+    "municipality": "aguilas",
+    "position": [37.445742174132214, -1.4795615943931082],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-621-2p_g.JPG"],
+    "sea": 0
+  },
+  {
+    "name": "Playa del Vivero",
+    "slug": "playa-vivero",
+    "municipality": "cartagena",
+    "position": [37.646822123580826, -0.7170274700061832],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 1
+  },
+  {
+    "name": "Playa El Arenal",
+    "slug": "playa-arenal",
+    "municipality": "la-manga",
+    "position": [37.71330040618691, -0.7399327955743091],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-561-9p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa El Carmolí",
+    "slug": "playa-carmoli",
+    "municipality": "cartagena",
+    "position": [37.7085359877404, -0.843967852378186],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 1
+  },
+  {
+    "name": "Playa El Castillico",
+    "slug": "playa-castillico",
+    "municipality": "san-javier",
+    "district": "SANTIAGO DE LA RIBERA",
+    "position": [37.81450558489751, -0.7920208490078227],
+    "blueFlag": false,
+    "features": ["accesible", "paseo-maritimo"],
+    "pictures": ["recurso-1-604-2p_g.jpg", "recurso-1-604-1p_g.jpg"],
+    "sea": 1
+  },
+  {
+    "name": "Playa El Gachero",
+    "slug": "playa-gachero",
+    "address": "Avenida de El Alamillo y calle Cabo Machichaco (punta de El Rihuete) (PUERTO DE MAZARRÓN)",
+    "postalCode": "30868",
+    "municipality": "mazarron",
+    "district": "PUERTO DE MAZARRÓN",
+    "position": [37.57192, -1.248946],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["PLAYAS_1_4893_1_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa El Galán",
+    "slug": "playa-galan",
+    "municipality": "la-manga",
+    "position": [37.69558198616225, -0.738905968639902],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-540-2p_g.jpg"],
+    "sea": 1
+  },
+  {
+    "name": "Playa El Mojón",
+    "slug": "playa-mojon",
+    "municipality": "san-pedro-del-pinatar",
+    "position": [37.84638380330269, -0.7617282000139172],
+    "blueFlag": true,
+    "features": ["accesible"],
+    "pictures": ["recurso-1-666-2p_g.jpg", "recurso-1-666-1p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa El Pedruchillo",
+    "slug": "playa-pedruchillo",
+    "municipality": "la-manga",
+    "position": [37.70472362173684, -0.7386394904187332],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-674-4p_g.jpg",
+      "recurso-1-674-12p_g.jpg",
+      "recurso-1-674-8p_g.jpg",
+      "recurso-1-674-9p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa El Pescador",
+    "slug": "playa-pescador",
+    "municipality": "san-javier",
+    "district": "SANTIAGO DE LA RIBERA",
+    "position": [37.79995017571539, -0.8020396886170884],
+    "blueFlag": false,
+    "features": ["paseo-maritimo"],
+    "pictures": ["recurso-1-535-1p_g.jpg"],
+    "sea": 1
+  },
+  {
+    "name": "Playa El Portús",
+    "slug": "playa-portus",
+    "municipality": "cartagena",
+    "position": [37.584072, -1.072204],
+    "blueFlag": false,
+    "features": ["nudista"],
+    "pictures": [
+      "recurso-1-606-1p_g.jpg",
+      "recurso-1-606-2p_g.jpg",
+      "recurso-1-606-3p_g.jpg",
+      "recurso-1-606-8p_g.jpg",
+      "recurso-1-606-5p_g.jpg",
+      "recurso-1-606-6p_g.jpg",
+      "recurso-1-606-7p_g.jpg",
+      "recurso-1-606-4p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa El Pudrimel",
+    "slug": "playa-pudrimel",
+    "municipality": "la-manga",
+    "position": [37.76914822882305, -0.7452829380542445],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-537-12p_g.jpg",
+      "recurso-1-537-8p_g.jpg",
+      "recurso-1-537-10p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa El Rafal",
+    "slug": "playa-rafal",
+    "municipality": "aguilas",
+    "position": [37.45380541883561, -1.4772050892024768],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-599-2p_g.jpg", "recurso-1-599-1p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa El Siscal",
+    "slug": "playa-siscal",
+    "address": "Lorca (RAMONETE)",
+    "municipality": "lorca",
+    "district": "RAMONETE",
+    "phone": "968 473 707 /112",
+    "email": "proteccioncivil@lorca.es",
+    "url": "http://www.emergencias.lorca.es/playas-de-lorca.asp",
+    "position": [37.5040299, -1.4248082],
+    "blueFlag": false,
+    "features": ["punto-amarre"],
+    "pictures": ["recurso-1-5906-1_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa Ensenada de la Fuente",
+    "slug": "playa-ensenada-fuente",
+    "municipality": "aguilas",
+    "position": [37.43705393944494, -1.47887839229823],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-620-2p_g.jpg", "recurso-1-620-1p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa Ensenada del Esparto",
+    "slug": "playa-ensenada-esparto",
+    "municipality": "la-manga",
+    "position": [37.75009466646371, -0.7319700398476274],
+    "blueFlag": true,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-562-4p_g.jpg",
+      "recurso-1-562-5p_g.jpg",
+      "recurso-1-562-12p_g.jpg",
+      "recurso-1-562-7p_g.jpg",
+      "recurso-1-562-8p_g.jpg",
+      "recurso-1-562-9p_g.jpg",
+      "recurso-1-562-10p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa Fatares",
+    "slug": "playa-fatares",
+    "municipality": "cartagena",
+    "position": [37.5813169386285, -1.0300827003992241],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa Galúa",
+    "slug": "playa-galua",
+    "municipality": "cartagena",
+    "position": [37.66164742411228, -0.7194185473365367],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-591-1p_g.jpg",
+      "recurso-1-591-2p_g.jpg",
+      "recurso-1-591-3p_g.jpg",
+      "recurso-1-591-4p_g.jpg",
+      "recurso-1-591-10p_g.jpg",
+      "recurso-1-591-6p_g.jpg",
+      "recurso-1-591-7p_g.jpg",
+      "recurso-1-591-8p_g.jpg",
+      "recurso-1-591-9p_g.jpg",
+      "recurso-1-591-5p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa Honda",
+    "slug": "playa-honda",
+    "municipality": "cartagena",
+    "position": [37.63378305935843, -0.7367014464291719],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-688-1p_g.jpg",
+      "recurso-1-688-2p_g.jpg",
+      "recurso-1-688-3p_g.jpg",
+      "recurso-1-688-7p_g.jpg",
+      "recurso-1-688-5p_g.jpg",
+      "recurso-1-688-6p_g.jpg",
+      "recurso-1-688-4p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa Hondón del Fondón (Playa del Jondo o del Fondo)",
+    "slug": "playa-hondon-fondon-playa-jondo-o-fondo",
+    "address": "Diputación Cañada de Gallego (IFRE-CAÑADA DE GALLEGO)",
+    "postalCode": "30876",
+    "municipality": "mazarron",
+    "district": "IFRE-CAÑADA DE GALLEGO",
+    "position": [37.553071, -1.350444],
+    "blueFlag": false,
+    "features": ["nudista"],
+    "pictures": ["PLAYAS_1_640_1_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa Isla Plana",
+    "slug": "playa-isla-plana",
+    "municipality": "cartagena",
+    "position": [37.57586958490696, -1.204968566578423],
+    "blueFlag": true,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-657-1p_g.jpg",
+      "recurso-1-657-2p_g.jpg",
+      "recurso-1-657-3p_g.jpg",
+      "recurso-1-657-7p_g.jpg",
+      "recurso-1-657-5p_g.jpg",
+      "recurso-1-657-6p_g.jpg",
+      "recurso-1-657-4p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa La Barra",
+    "slug": "playa-barra",
+    "municipality": "cartagena",
+    "position": [37.63118639212318, -0.7016880087140063],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa La Calabardina",
+    "slug": "playa-calabardina",
+    "municipality": "aguilas",
+    "position": [37.43454194142763, -1.5016587571321778],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-619-1p_g.jpg",
+      "recurso-1-619-2p_g.jpg",
+      "recurso-1-619-3p_g.jpg",
+      "recurso-1-619-7p_g.jpg",
+      "recurso-1-619-5p_g.jpg",
+      "recurso-1-619-6p_g.jpg",
+      "recurso-1-619-4p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa La Calera",
+    "slug": "playa-calera",
+    "municipality": "cartagena",
+    "position": [37.57312616618905, -1.1935075285127388],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-524-2p_g.jpg", "recurso-1-524-1p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa La Caleta",
+    "slug": "playa-caleta",
+    "municipality": "cartagena",
+    "position": [37.57558252292477, -1.2080214747660896],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa La Carolina",
+    "slug": "playa-carolina",
+    "municipality": "aguilas",
+    "position": [37.37806447767704, -1.6246138461398545],
+    "blueFlag": true,
+    "features": [],
+    "pictures": [
+      "recurso-1-589-2p_g.jpg",
+      "recurso-1-589-4p_g.jpg",
+      "recurso-1-589-9p_g.jpg",
+      "recurso-1-589-6p_g.jpg",
+      "recurso-1-589-7p_g.jpg",
+      "recurso-1-589-8p_g.jpg",
+      "recurso-1-589-5p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa La Galera",
+    "slug": "playa-galera",
+    "municipality": "cartagena",
+    "district": "CARTAGENA",
+    "position": [37.63543150608914, -0.6938743389565918],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa La Isla",
+    "slug": "playa-isla",
+    "municipality": "la-manga",
+    "position": [37.67148567598908, -0.7319056909940591],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 1
+  },
+  {
+    "name": "Playa La Tortuga",
+    "slug": "playa-tortuga",
+    "municipality": "aguilas",
+    "position": [37.386368534540814, -1.6132908750908828],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa La Veneziola (Veneciola)",
+    "slug": "playa-veneziola-veneciola",
+    "municipality": "la-manga",
+    "position": [37.772716126396894, -0.7485462924977515],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-673-3p_g.jpg",
+      "recurso-1-673-4p_g.jpg",
+      "recurso-1-673-6p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa Larga",
+    "slug": "playa-larga",
+    "municipality": "cartagena",
+    "position": [37.599897598847924, -0.7550128447454396],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-627-1_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa Larga",
+    "slug": "playa-larga",
+    "municipality": "lorca",
+    "district": "GARROBILLO",
+    "phone": "968 47 37 07 / 112",
+    "email": "112lorca@lorca.es",
+    "url": "http://www.emergencias.lorca.es/playas-de-lorca.asp",
+    "position": [37.4807329, -1.4654142],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-5907-1_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa Larga",
+    "slug": "playa-larga",
+    "municipality": "cartagena",
+    "position": [37.599897598847924, -0.7550128447454396],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-515-1p_g.jpg",
+      "recurso-1-515-3p_g.jpg",
+      "recurso-1-515-2p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa Las Amoladeras",
+    "slug": "playa-amoladeras",
+    "municipality": "cartagena",
+    "position": [37.63552497728912, -0.6995826023164073],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa Las Antillas",
+    "slug": "playa-antillas",
+    "municipality": "la-manga",
+    "position": [37.71054681195668, -0.7424892834397379],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-541-6p_g.jpg"],
+    "sea": 1
+  },
+  {
+    "name": "Playa Las Delicias",
+    "slug": "playa-delicias",
+    "municipality": "aguilas",
+    "position": [37.40918697803395, -1.5662171054902636],
+    "blueFlag": true,
+    "features": ["accesible", "paseo-maritimo"],
+    "pictures": ["recurso-1-660-2p_g.jpg", "recurso-1-660-1p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa Lebeche",
+    "slug": "playa-lebeche",
+    "municipality": "la-manga",
+    "position": [37.686526794266214, -0.7361647289010689],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 1
+  },
+  {
+    "name": "Playa Los Nietos",
+    "slug": "playa-nietos",
+    "municipality": "cartagena",
+    "position": [37.65364508183818, -0.7875232487323913],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-684-1p_g.jpg",
+      "recurso-1-684-2p_g.jpg",
+      "recurso-1-684-5p_g.jpg",
+      "recurso-1-684-4p_g.jpg",
+      "recurso-1-684-3p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa Manzanares",
+    "slug": "playa-manzanares",
+    "municipality": "los-alcazares",
+    "position": [37.74115350824285, -0.8471523871426934],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-691-1p_g.jpg",
+      "recurso-1-691-2p_g.jpg",
+      "recurso-1-691-5p_g.jpg",
+      "recurso-1-691-4p_g.jpg",
+      "recurso-1-691-3p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa Matasgordas",
+    "slug": "playa-matasgordas",
+    "municipality": "la-manga",
+    "position": [37.730838008021394, -0.7385826735522736],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-542-5p_g.jpg",
+      "recurso-1-542-6p_g.jpg",
+      "recurso-1-542-7p_g.jpg",
+      "recurso-1-542-4p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa Mistral",
+    "slug": "playa-mistral",
+    "municipality": "la-manga",
+    "position": [37.740714101241046, -0.7385544476418375],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-696-1p_g.jpg",
+      "recurso-1-696-3p_g.jpg",
+      "recurso-1-696-9p_g.jpg",
+      "recurso-1-696-7p_g.jpg",
+      "recurso-1-696-8p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa Morena",
+    "slug": "playa-morena",
+    "municipality": "cartagena",
+    "position": [37.584004886133904, -1.0672807447089814],
+    "blueFlag": false,
+    "features": ["nudista"],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa Negra",
+    "slug": "playa-negra",
+    "address": "Avenida de El Alamillo N-322 (PUERTO DE MAZARRÓN)",
+    "postalCode": "30868",
+    "municipality": "mazarron",
+    "district": "PUERTO DE MAZARRÓN",
+    "position": [37.578005, -1.239054],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-652-2p_g.jpg", "recurso-1-652-1p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa Negrete",
+    "slug": "playa-negrete",
+    "municipality": "cartagena",
+    "position": [37.59965330958514, -0.7616007833774225],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-514-2p_g.jpg", "recurso-1-514-1p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa Paraiso",
+    "slug": "playa-paraiso",
+    "municipality": "cartagena",
+    "position": [37.63513071923549, -0.7289890110154436],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-529-1p_g.jpg",
+      "recurso-1-529-3p_g.jpg",
+      "recurso-1-529-2p_g.jpg"
+    ],
+    "sea": 1
+  },
+  {
+    "name": "Playa Parazuelos",
+    "slug": "playa-parazuelos",
+    "address": "Lorca (RAMONETE)",
+    "municipality": "lorca",
+    "district": "RAMONETE",
+    "phone": " 968 473 707 / 112",
+    "email": "proteccioncivil@lorca.es",
+    "url": "http://www.emergencias.lorca.es/playas-de-lorca.asp",
+    "position": [37.5110822, -1.4010619],
+    "blueFlag": false,
+    "features": [],
+    "pictures": ["recurso-1-6703-1p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa Parazuelos",
+    "slug": "playa-parazuelos",
+    "address": "Diputación Cañada de Gallego (IFRE-CAÑADA DE GALLEGO)",
+    "postalCode": "30876",
+    "municipality": "mazarron",
+    "district": "IFRE-CAÑADA DE GALLEGO",
+    "position": [37.521276, -1.394159],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 0
+  },
+  {
+    "name": "Playa Parreño",
+    "slug": "playa-parreno",
+    "municipality": "cartagena",
+    "position": [37.59916249120392, -0.7670860797324863],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [
+      "recurso-1-557-1p_g.jpg",
+      "recurso-1-557-3p_g.jpg",
+      "recurso-1-557-2p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa Pedrucho",
+    "slug": "playa-pedrucho",
+    "municipality": "la-manga",
+    "position": [37.70724157230249, -0.741183103923257],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-672-2p_g.jpg",
+      "recurso-1-672-3p_g.jpg",
+      "recurso-1-672-5p_g.jpg",
+      "recurso-1-672-8p_g.jpg",
+      "recurso-1-672-9p_g.jpg",
+      "recurso-1-672-10p_g.jpg"
+    ],
+    "sea": 0
+  },
+  {
+    "name": "Playa Perla de Levante (Estrella de Mar)",
+    "slug": "playa-perla-levante-estrella-mar",
+    "municipality": "cartagena",
+    "position": [37.6764924149522, -0.8225143358118232],
+    "blueFlag": false,
+    "features": [],
+    "pictures": [],
+    "sea": 1
+  },
+  {
+    "name": "Playa Puerto Bello",
+    "slug": "playa-puerto-bello",
+    "municipality": "cartagena",
+    "position": [37.65050432206296, -0.7182407713293837],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": ["recurso-1-669-2p_g.jpg", "recurso-1-669-1p_g.jpg"],
+    "sea": 1
+  },
+  {
+    "name": "Playa Punta Brava",
+    "slug": "playa-punta-brava",
+    "municipality": "cartagena",
+    "position": [37.694505114506505, -0.835630532662544],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": [],
+    "sea": 1
+  },
+  {
+    "name": "Playa Puntas de Calnegre",
+    "slug": "playa-puntas-calnegre",
+    "address": "Lorca (RAMONETE)",
+    "municipality": "lorca",
+    "district": "RAMONETE",
+    "phone": "968 473 707",
+    "email": "proteccioncivil@lorca.es",
+    "url": "http://www.emergencias.lorca.es/playas-de-lorca.asp",
+    "position": [37.5094107, -1.4023527],
+    "blueFlag": false,
+    "features": ["accesible"],
+    "pictures": ["recurso-1-694-2p_g.jpg", "recurso-1-694-1p_g.jpg"],
+    "sea": 0
+  },
+  {
+    "name": "Playa San Ginés",
+    "slug": "playa-san-gines",
+    "municipality": "cartagena",
+    "position": [37.570778630036344, -1.1826604703089907],
+    "blueFlag": true,
+    "features": ["accesible"],
+    "pictures": [
+      "recurso-1-685-1p_g.jpg",
+      "recurso-1-685-3p_g.jpg",
+      "recurso-1-685-2p_g.jpg"
+    ],
+    "sea": 0
+  }
+]

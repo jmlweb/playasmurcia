@@ -4,13 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "eslint-config-next": "^13.4.9",
+    "eslint-config-next": "^13.4.12",
     "eslint-config-prettier": "^8.8.0",
-    "eslint-config-turbo": "^1.10.7",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "7.32.2",
+    "eslint-config-turbo": "^1.10.9",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "7.33.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
-    "prettier": "^2.8.8",
+    "prettier": "^3.0.0",
     "prettier-config-custom": "*"
   },
   "publishConfig": {

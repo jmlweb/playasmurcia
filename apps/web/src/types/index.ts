@@ -1,1 +1,1 @@
-export type { Beach, Beaches } from './beaches';
+export type * from './beaches';

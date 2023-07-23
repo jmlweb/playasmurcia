@@ -1,7 +1,19 @@
-import { Logo } from '@/components/logo';
+import { ReactNode } from 'react';
 
-export const Header = () => (
-  <header className="relative z-10 bg-gray-700 px-4 py-2 text-white shadow-md shadow-gray-900/30">
-    <Logo />
+import { Container } from '@/components/Container';
+import { Logo } from '@/components/Logo';
+
+type Props = {
+  desktopMenu: ReactNode;
+  mobileMenu: ReactNode;
+};
+
+export const Header = ({ desktopMenu, mobileMenu }: Props) => (
+  <header className="relative top-0 z-10 bg-gray-700 text-gray-200 shadow-md shadow-gray-900/30">
+    <Container className="flex min-h-[55px] items-center justify-between" fixed>
+      <Logo />
+      {desktopMenu}
+      {mobileMenu}
+    </Container>
   </header>
 );
