@@ -1,5 +1,6 @@
 import './global.css';
 
+import { Analytics } from '@vercel/analytics/react';
 import { Metadata } from 'next';
 import { Libre_Franklin } from 'next/font/google';
 import { ReactNode } from 'react';
@@ -48,6 +49,7 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
         />
         <div className="w-full flex-1">{children}</div>
         <Footer features={features} municipalities={municipalities} />
+        <Analytics />
       </body>
     </html>
   );
