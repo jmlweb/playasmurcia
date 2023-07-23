@@ -1,8 +1,8 @@
 import { cva } from 'class-variance-authority';
 import Link from 'next/link';
 
-import { Container } from '@/components/Container2';
-import { Logo } from '@/components/Logo2';
+import { Container } from '@/components/Container';
+import { Logo } from '@/components/Logo';
 import { Counters } from '@/data';
 
 const gridStyle = cva(['grid grid-cols-2 gap-x-6 gap-y-1'], {

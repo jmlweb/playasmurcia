@@ -1,4 +1,4 @@
-import { Container } from '@/components/Container2';
+import { Container } from '@/components/Container';
 import { ItemsGrid } from '@/components/ItemsGrid';
 import { ItemsSectionHeader } from '@/components/ItemsSectionHeader';
 import { Pagination } from '@/components/Pagination';

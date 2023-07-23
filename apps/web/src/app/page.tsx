@@ -1,6 +1,6 @@
 import { LuArrowRight } from 'react-icons/lu';
 
-import { Container } from '@/components/Container2';
+import { Container } from '@/components/Container';
 import { ItemsGrid } from '@/components/ItemsGrid';
 import { dataService } from '@/data';
 
