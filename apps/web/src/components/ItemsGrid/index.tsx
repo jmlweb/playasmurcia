@@ -59,6 +59,8 @@ export const ItemsGrid = ({ beaches }: Props) => (
             <WeatherBox
               temperature={beach.temperature}
               weatherCode={beach.weatherCode}
+              windSpeed={beach.windSpeed}
+              windDirection={beach.windDirection}
             />
             {(beach.features.length > 0 || beach.blueFlag) && (
               <ul className="absolute bottom-4 right-4 flex gap-2">

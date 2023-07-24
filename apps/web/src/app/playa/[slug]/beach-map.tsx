@@ -3,19 +3,48 @@
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css';
 import 'leaflet-defaulticon-compatibility';
+import 'leaflet.fullscreen';
+import 'leaflet.fullscreen/Control.FullScreen.css';
 
+import { createControlComponent } from '@react-leaflet/core';
+import L from 'leaflet';
 import { divIcon } from 'leaflet';
 import { LatLngExpression } from 'leaflet';
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import { useEffect } from 'react';
+import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
 
 const mapBoxURL =
   'https://api.mapbox.com/styles/v1/mapbox/streets-v12/tiles/512/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoiam1sd2ViIiwiYSI6ImNsa2QzcnIxejAzMmszcG1tOTh5bmh2Ym0ifQ.5SNkUbeD9ubwM2NuY3DDYg';
 
 const markerIcon = divIcon({
-  className: 'bg-transparent text-gray-700 animate-scaleIn animate-once',
+  className: 'bg-transparent text-gray-600 animate-scaleIn animate-once',
   iconSize: [36, 36],
   html: `<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="36px" width="36px" xmlns="http://www.w3.org/2000/svg"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path></svg>`,
 });
+
+const FullscreenControl = function (props: any) {
+  const map = useMap();
+
+  useEffect(() => {
+    // create control
+    const control = L.control.fullscreen(props);
+    // link control to map
+    control.addTo(map);
+
+    return () => {
+      // get leaflet-control-zoom-fullscreen elements that need to be removed from container
+      const elementsToRemove =
+        control
+          .getContainer()
+          ?.getElementsByClassName('leaflet-control-zoom-fullscreen') ?? [];
+      for (let i = 0; i < elementsToRemove.length; i++) {
+        elementsToRemove[i].remove();
+      }
+    };
+  }, [map, props]);
+
+  return null;
+};
 
 type Props = {
   name: string;
@@ -45,6 +74,7 @@ const BeachMap = ({ name, position }: Props) => {
           <div className="font-semibold text-gray-500">{name}</div>
         </Popup>
       </Marker>
+      <FullscreenControl />
     </MapContainer>
   );
 };

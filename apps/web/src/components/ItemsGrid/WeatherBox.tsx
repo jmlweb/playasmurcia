@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import { LuArrowUp } from 'react-icons/lu';
 
 const Hot = dynamic(() => import('react-icons/wi').then((mod) => mod.WiHot));
 
@@ -32,19 +33,39 @@ const Icons = {
 type Props = {
   temperature: number;
   weatherCode: number;
+  windSpeed: number;
+  windDirection: number;
 };
 
-export const WeatherBox = ({ temperature, weatherCode }: Props) => {
+export const WeatherBox = ({
+  temperature,
+  weatherCode,
+  windSpeed,
+  windDirection,
+}: Props) => {
   const IconComponent =
     weatherCode < 3 && temperature > 30 ? Hot : Icons[weatherCode.toString()];
   return (
-    <ul className="absolute left-4 top-4 flex flex-col-reverse items-center rounded bg-gradient-to-b from-gray-500/80 via-gray-600/70 to-gray-700/60 p-2 text-gray-100  transition-all group-hover:bg-sky-800/75">
-      <li className="text-sm font-semibold tracking-wide">
-        {`${temperature}`.replace('.', ',')}ºC
-      </li>
-      <li>
+    <div className="absolute top-4 left-4 right-4 flex gap-2">
+      <div className="flex flex-col-reverse items-center justify-between rounded bg-gradient-to-b from-gray-500/80 via-gray-600/70 to-gray-700/60 p-2 text-gray-100  transition-all group-hover:bg-sky-800/75">
+        <span className="text-sm font-semibold tracking-wide">
+          {`${temperature}`.replace('.', ',')}º
+        </span>
         {IconComponent && <IconComponent className="text-4xl text-white" />}
-      </li>
-    </ul>
+      </div>
+      <div className="flex flex-col-reverse items-center justify-between rounded bg-gradient-to-b from-gray-500/80 via-gray-600/70 to-gray-700/60 p-2 text-gray-100  transition-all group-hover:bg-sky-800/75">
+        <span className="text-sm font-semibold tracking-wide">
+          {`${windSpeed}`.replace('.', ',')}
+          <span className="text-xs">km/h</span>
+        </span>
+        <LuArrowUp
+          className="text-2xl text-white origin-center mt-1.5"
+          title={`${windDirection}deg`}
+          style={{
+            transform: `rotate(${windDirection}deg)`,
+          }}
+        />
+      </div>
+    </div>
   );
 };
