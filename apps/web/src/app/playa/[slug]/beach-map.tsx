@@ -30,7 +30,7 @@ const BeachMap = ({ name, position }: Props) => {
   return (
     <MapContainer
       center={parsedPosition}
-      zoom={16}
+      zoom={10}
       scrollWheelZoom={false}
       closePopupOnClick
       className="absolute z-0 h-full w-full"

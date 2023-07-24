@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import probe from 'probe-image-size';
+import { LuExternalLink } from 'react-icons/lu';
 
 import { Container } from '@/components/Container';
 import { dataService, getMunicipalityName } from '@/data';
@@ -62,12 +63,23 @@ const Detail = async ({ params: { slug } }: { params: { slug: string } }) => {
           </h2>
           {data.address && (
             <p className="mt-2 text-gray-700">
-              <span className="font-semibold">Dirección:</span> {data.address}
+              <span className="font-semibold mr-1">Dirección:</span>
+              {data.address}
             </p>
           )}
-          <p className="text-gray-700">
-            <span className="font-semibold">Coordenadas:</span>{' '}
-            {data.position.join(', ')}
+          <p className="text-gray-700 flex flex-wrap items-center mt-2">
+            <span className="font-semibold mr-1">Coordenadas:</span>
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${data.position.join(
+                ',',
+              )}`}
+              target="_blank"
+              rel="external noopener noreferrer"
+              className="inline-flex items-center hover:text-sky-600 transition-colors"
+            >
+              {data.position.join(', ')}{' '}
+              <LuExternalLink className="ml-0.5 -mt-0.5" />
+            </a>
           </p>
         </header>
         <Features blueFlag={data.blueFlag} features={data.features} />
