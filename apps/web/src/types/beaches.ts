@@ -15,6 +15,8 @@ export type DataBeach = {
   postalCode?: string;
 };
 export type DataBeaches = DataBeach[];
+
+// TO REMOVE
 export type Beach = DataBeach & {
   temperature: number;
   windSpeed: number;
@@ -22,3 +24,16 @@ export type Beach = DataBeach & {
   weatherCode: number;
 };
 export type Beaches = Beach[];
+//EO TO REMOVE
+
+export type SimpleBeach = Pick<
+  DataBeach,
+  'name' | 'slug' | 'municipality' | 'features'
+> & {
+  picture?: string;
+  temperature: number;
+  windSpeed: number;
+  windDirection: number;
+  weatherCode: number;
+};
+export type SimpleBeaches = SimpleBeach[];
