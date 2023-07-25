@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import { Container } from '@/components/Container';
 import { Logo } from '@/components/Logo';
+import { PATHS } from '@/config/paths';
 import { Counters } from '@/data';
 
 const gridStyle = cva(['grid grid-cols-2 gap-x-6 gap-y-1'], {
@@ -58,12 +59,12 @@ export const Footer = ({ features, municipalities }: Props) => (
       <div className="gap-20 xl:flex">
         <LinksGroup
           title="Municipios"
-          path="municipios"
+          path={PATHS.municipality}
           items={municipalities}
         />
         <LinksGroup
           title="Características"
-          path="caracteristicas"
+          path={PATHS.feature}
           items={features}
         />
       </div>
