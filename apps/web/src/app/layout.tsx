@@ -22,6 +22,10 @@ const libreFranklin = Libre_Franklin({
 export const metadata: Metadata = {
   title:
     'PlayasMurcia: La información más completa sobre las playas de la Región de Murcia',
+  description: `PlayasMurcia - Descubre tu oasis en las playas de la Costa Cálida.`,
+  openGraph: {
+    images: ['https://playasmurcia.es/og-image.jpg'],
+  },
 };
 
 const RootLayout = async ({ children }: { children: ReactNode }) => {
