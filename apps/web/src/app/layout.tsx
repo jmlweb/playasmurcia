@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     'PlayasMurcia: La información más completa sobre las playas de la Región de Murcia',
   description: `PlayasMurcia - Descubre tu oasis en las playas de la Costa Cálida.`,
   openGraph: {
-    images: ['https://playasmurcia.es/og-image.jpg'],
+    images: ['https://playasmurcia.com/og-image.jpg'],
   },
 };
 
