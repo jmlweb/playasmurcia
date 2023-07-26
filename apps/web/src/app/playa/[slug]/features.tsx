@@ -1,7 +1,7 @@
 import { cva } from 'class-variance-authority';
 
 import { FEATURES, getFeatureName } from '@/data';
-import { Beach } from '@/types';
+import { SimpleBeach } from '@/types';
 
 const parsedFeatures = Object.keys(FEATURES);
 
@@ -17,24 +17,17 @@ const style = cva(['rounded px-3 py-2 shadow-lg'], {
   },
 });
 
-type Props = Pick<Beach, 'blueFlag' | 'features'>;
+type Props = Pick<SimpleBeach, 'features'>;
 
-const Features = ({ blueFlag, features }: Props) => (
+const Features = ({ features }: Props) => (
   <ul className="mb-10 flex flex-wrap gap-x-2 gap-y-3 text-sm lg:text-base">
     {parsedFeatures.map((feature) => (
       <li
         key={feature}
-        className={style(
-          feature === 'bandera-azul'
-            ? {
-                type: 'blueFlag',
-                status: !blueFlag ? 'disabled' : undefined,
-              }
-            : {
-                type: 'feature',
-                status: !features.includes(feature) ? 'disabled' : undefined,
-              },
-        )}
+        className={style({
+          type: feature === 'bandera-azul' ? 'blueFlag' : 'feature',
+          status: !features.includes(feature) ? 'disabled' : undefined,
+        })}
       >
         {getFeatureName(feature)}
       </li>

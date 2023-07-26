@@ -35,6 +35,7 @@ type Props = {
   weatherCode: number;
   windSpeed: number;
   windDirection: number;
+  weatherTitle: string;
 };
 
 export const WeatherBox = ({
@@ -42,29 +43,39 @@ export const WeatherBox = ({
   weatherCode,
   windSpeed,
   windDirection,
+  weatherTitle,
 }: Props) => {
   const IconComponent =
     weatherCode < 3 && temperature > 30 ? Hot : Icons[weatherCode.toString()];
   return (
     <div className="absolute top-4 left-4 right-4 flex gap-2">
-      <div className="flex flex-col-reverse items-center justify-between rounded bg-gradient-to-b from-gray-500/80 via-gray-600/70 to-gray-700/60 p-2 text-gray-100  transition-all group-hover:bg-sky-800/75">
+      <div
+        className="flex flex-col-reverse items-center justify-between rounded bg-gradient-to-b from-gray-500/80 via-gray-600/70 to-gray-700/60 p-2 text-gray-100 transition-all motion-safe:group-hover:bg-sky-800/75"
+        title={weatherTitle}
+      >
         <span className="text-sm font-semibold tracking-wide">
           {`${temperature}`.replace('.', ',')}º
         </span>
         {IconComponent && <IconComponent className="text-4xl text-white" />}
+        <span className="sr-only">{weatherTitle}</span>
       </div>
-      <div className="flex flex-col-reverse items-center justify-between rounded bg-gradient-to-b from-gray-500/80 via-gray-600/70 to-gray-700/60 p-2 text-gray-100  transition-all group-hover:bg-sky-800/75">
+      <div
+        className="flex flex-col-reverse items-center justify-between rounded bg-gradient-to-b from-gray-500/80 via-gray-600/70 to-gray-700/60 p-2 text-gray-100  transition-all motion-safe:group-hover:bg-sky-800/75"
+        title={`Dirección del viento: ${windDirection}º`}
+      >
         <span className="text-sm font-semibold tracking-wide">
           {`${windSpeed}`.replace('.', ',')}
           <span className="text-xs">km/h</span>
         </span>
         <LuArrowUp
           className="text-2xl text-white origin-center mt-1.5"
-          title={`${windDirection}deg`}
           style={{
             transform: `rotate(${windDirection}deg)`,
           }}
         />
+        <span className="sr-only">
+          Dirección del viento: {windDirection} grados
+        </span>
       </div>
     </div>
   );

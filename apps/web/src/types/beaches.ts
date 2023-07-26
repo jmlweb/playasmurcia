@@ -35,5 +35,6 @@ export type SimpleBeach = Pick<
   windSpeed: number;
   windDirection: number;
   weatherCode: number;
+  weatherTitle: string;
 };
 export type SimpleBeaches = SimpleBeach[];

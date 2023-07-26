@@ -16,7 +16,7 @@ type Props = {
 
 export const MenuItem = ({ title, basePath, data }: Props) => (
   <NavigationMenu.Item>
-    <NavigationMenu.Trigger className="group flex select-none items-center justify-between gap-1 px-3 py-5 text-[15px] font-medium leading-none text-gray-200 transition-colors hover:text-sky-300 focus:shadow-md">
+    <NavigationMenu.Trigger className="group flex select-none items-center justify-between gap-1 px-3 py-5 text-[15px] font-medium leading-none text-gray-200 transition-colors motion-safe:hover:text-sky-300 focus:shadow-md">
       {title}
       <LuChevronDown />
     </NavigationMenu.Trigger>
@@ -38,9 +38,9 @@ export const MenuItem = ({ title, basePath, data }: Props) => (
         {data.map((dataItem) => (
           <li key={dataItem.slug}>
             <Link href={`${basePath}/${dataItem.slug}`} legacyBehavior passHref>
-              <NavigationMenu.Link className="group flex select-none items-center py-3 text-[15px] font-medium leading-none text-gray-500 no-underline transition-colors hover:text-gray-700">
+              <NavigationMenu.Link className="group flex select-none items-center py-3 text-[15px] font-medium leading-none text-gray-500 no-underline transition-colors motion-safe:hover:text-gray-700">
                 {dataItem.name}{' '}
-                <span className="ml-1 rounded-full bg-gray-100 px-2 py-1 text-xs font-normal transition-colors duration-75 group-hover:bg-sky-200">
+                <span className="ml-1 rounded-full bg-gray-100 px-2 py-1 text-xs font-normal transition-colors duration-75 motion-safe:group-hover:bg-sky-200">
                   {dataItem.count} playa{dataItem.count !== 1 && 's'}
                 </span>
               </NavigationMenu.Link>

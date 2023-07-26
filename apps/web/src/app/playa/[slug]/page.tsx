@@ -6,6 +6,7 @@ import probe from 'probe-image-size';
 import { LuExternalLink } from 'react-icons/lu';
 
 import { Container } from '@/components/Container';
+import { IMAGES } from '@/config/images';
 import { dataService, getMunicipalityName } from '@/data';
 
 import Features from './features';
@@ -44,11 +45,8 @@ export const generateMetadata = async (
     openGraph: {
       images:
         data.pictures.length > 0
-          ? [
-              `https://res.cloudinary.com/jmlweb/image/upload/e_improve/f_auto,fl_progressive,c_limit,w_1024/v1688825552/playasmurcia/${data.pictures[0]}`,
-              ...previousImages,
-            ]
-          : previousImages,
+          ? [`${IMAGES.ogPath}${data.pictures[0]}`, ...previousImages]
+          : [IMAGES.ogDefault, ...previousImages],
     },
   };
 };
@@ -58,7 +56,7 @@ const Detail = async ({ params: { slug } }: { params: { slug: string } }) => {
   const enhancedPictures = await Promise.all(
     data.pictures.map(async (picture) => {
       const { width, height } = await (probe(
-        `https://res.cloudinary.com/jmlweb/image/upload/e_improve/f_auto,fl_progressive,c_limit,w_1920/v1688825552/playasmurcia/${picture}`,
+        `${IMAGES.detail}${picture}`,
       ) as Promise<{ width: number; height: number }>);
 
       return {
@@ -104,14 +102,14 @@ const Detail = async ({ params: { slug } }: { params: { slug: string } }) => {
               )}`}
               target="_blank"
               rel="external noopener noreferrer"
-              className="inline-flex items-center hover:text-sky-600 transition-colors"
+              className="inline-flex items-center motion-safe:hover:text-sky-600 transition-colors"
             >
               {data.position.join(', ')}{' '}
               <LuExternalLink className="ml-0.5 -mt-0.5" />
             </a>
           </p>
         </header>
-        <Features blueFlag={data.blueFlag} features={data.features} />
+        <Features features={data.features} />
       </Container>
       <div className="relative mx-4 grid h-[min(360px,60vh)] place-items-center bg-sky-200 md:mx-6 lg:mx-0 lg:h-[min(600px,400px+10vw)]">
         <BeachMap name={data.name} position={data.position} />
@@ -135,11 +133,11 @@ const Detail = async ({ params: { slug } }: { params: { slug: string } }) => {
                   scroll={false}
                 >
                   <Image
-                    src={`https://res.cloudinary.com/jmlweb/image/upload/e_improve/c_fill,h_468,w_832,f_auto,fl_progressive/v1688825552/playasmurcia/${picture}`}
+                    src={`${IMAGES.list}${picture}`}
                     width={416}
                     height={234}
                     alt=""
-                    className="transition-transform duration-700 group-hover:scale-105 bg-gray-200"
+                    className="transition-transform duration-700 motion-safe:group-hover:scale-105 bg-gray-200"
                   />
                 </Link>
               ))}

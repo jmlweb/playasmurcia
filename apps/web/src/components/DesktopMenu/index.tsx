@@ -31,7 +31,7 @@ export const DesktopMenu = ({ features, municipalities }: Props) => (
       />
       <NavigationMenu.Item>
         <Link href={`/${PATHS.all}`} legacyBehavior passHref>
-          <NavigationMenu.Link className="block select-none px-3 py-5 text-[15px] font-medium leading-none text-gray-200 no-underline outline-none transition-colors hover:text-sky-300 focus:shadow-[0_0_0_2px]">
+          <NavigationMenu.Link className="block select-none px-3 py-5 text-[15px] font-medium leading-none text-gray-200 no-underline outline-none transition-colors motion-safe:hover:text-sky-300 focus:shadow-[0_0_0_2px]">
             Todas las playas
           </NavigationMenu.Link>
         </Link>

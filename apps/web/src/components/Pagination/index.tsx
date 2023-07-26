@@ -26,20 +26,24 @@ const link = cva(
     'w-10',
     'h-10',
     'min-w-fit',
-    'hover:bg-gray-200',
+    'motion-safe:hover:bg-gray-200',
     'antialiased',
   ],
   {
     variants: {
       disabled: {
-        true: ['opacity-40', 'cursor-not-allowed', 'hover:bg-transparent'],
+        true: [
+          'opacity-40',
+          'cursor-not-allowed',
+          'motion-safe:hover:bg-transparent',
+        ],
       },
       active: {
         true: [
           'bg-sky-200',
           'border-sky-300',
           'text-sky-700',
-          'hover:bg-sky-200',
+          'motion-safe:hover:bg-sky-200',
         ],
       },
     },

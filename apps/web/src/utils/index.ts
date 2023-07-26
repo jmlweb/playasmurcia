@@ -1,0 +1,1 @@
+export { pluralizeBeach } from './pluralizeBeach';
