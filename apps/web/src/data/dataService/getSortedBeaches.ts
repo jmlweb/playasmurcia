@@ -1,5 +1,7 @@
 import { DataBeach } from '@/types';
 
+import beaches from '../beaches.json';
+
 type Comparison = (a: DataBeach, b: DataBeach) => number;
 
 const flowComparisons =
@@ -44,9 +46,18 @@ const byFeature =
     return 0;
   };
 
-export const sorter = flowComparisons(
+const sorter = flowComparisons(
   byPicture,
   byBlueFlag,
   byFeature('accesible'),
   byFeature('paseo-maritimo'),
 );
+
+let cache: DataBeach[];
+
+export const getSortedBeaches = () => {
+  if (!cache) {
+    cache = [...beaches].sort(sorter);
+  }
+  return cache;
+};

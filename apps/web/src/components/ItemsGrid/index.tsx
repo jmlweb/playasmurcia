@@ -1,16 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { IMAGES } from '@/config/images';
 import { getMunicipalityName } from '@/data';
 import { getFeatureName } from '@/data/getFeatureName';
-import { Beaches } from '@/types';
+import { SimpleBeaches } from '@/types';
 
 import emptyBeach from './empty-beach.jpg';
 import { Pill } from './Pill';
 import { WeatherBox } from './WeatherBox';
 
 type Props = {
-  beaches: Beaches;
+  beaches: SimpleBeaches;
 };
 
 export const ItemsGrid = ({ beaches }: Props) => (
@@ -26,7 +27,7 @@ export const ItemsGrid = ({ beaches }: Props) => (
           <header className="mt-2 leading-5 [text-wrap:balance]">
             <h4
               id={`beach-title-${beach.slug}-${beach.municipality}`}
-              className="font-semibold text-gray-800 transition-colors group-hover:text-sky-500"
+              className="font-semibold text-gray-800 transition-colors motion-safe:group-hover:text-sky-500"
             >
               {beach.name}
             </h4>
@@ -34,14 +35,14 @@ export const ItemsGrid = ({ beaches }: Props) => (
               {getMunicipalityName(beach.municipality)}
             </p>
           </header>
-          <div className="relative overflow-hidden rounded-md shadow transition-opacity group-hover:opacity-90 group-hover:shadow-lg">
-            {beach.pictures.length > 0 ? (
+          <div className="relative overflow-hidden rounded-md shadow transition-opacity motion-safe:group-hover:opacity-90 motion-safe:group-hover:shadow-lg">
+            {beach.picture ? (
               <Image
-                src={`https://res.cloudinary.com/jmlweb/image/upload/e_improve/c_fill,h_468,w_832,f_auto,fl_progressive/v1688825552/playasmurcia/${beach.pictures[0]}`}
+                src={`${IMAGES.list}${beach.picture}`}
                 width={416}
                 height={234}
                 alt=""
-                className="block h-auto w-full transition-transform duration-700 group-hover:scale-105 bg-gray-200"
+                className="block h-auto w-full transition-transform duration-700 motion-safe:group-hover:scale-105 bg-gray-200"
                 priority={index <= 12}
               />
             ) : (
@@ -51,7 +52,7 @@ export const ItemsGrid = ({ beaches }: Props) => (
                   width={416}
                   height={234}
                   alt=""
-                  className="block h-auto w-full opacity-60 blur-sm transition-transform duration-700 group-hover:scale-105"
+                  className="block h-auto w-full opacity-60 blur-sm transition-transform duration-700 motion-safe:group-hover:scale-105"
                   priority={index <= 12}
                 />
               </div>
@@ -61,12 +62,14 @@ export const ItemsGrid = ({ beaches }: Props) => (
               weatherCode={beach.weatherCode}
               windSpeed={beach.windSpeed}
               windDirection={beach.windDirection}
+              weatherTitle={beach.weatherTitle}
             />
-            {(beach.features.length > 0 || beach.blueFlag) && (
+            {beach.features.length > 0 && (
               <ul className="absolute bottom-4 right-4 flex gap-2">
-                {beach.blueFlag && <Pill blueFlag>Bandera azul</Pill>}
                 {beach.features.map((feature) => (
-                  <Pill key={feature}>{getFeatureName(feature)}</Pill>
+                  <Pill blueFlag={feature === 'bandera-azul'} key={feature}>
+                    {getFeatureName(feature)}
+                  </Pill>
                 ))}
               </ul>
             )}

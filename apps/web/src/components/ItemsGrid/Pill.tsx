@@ -8,13 +8,13 @@ const pill = cva(
       blueFlag: {
         true: [
           'text-sky-600',
-          'group-hover:bg-sky-600/75',
-          'group-hover:text-sky-100',
+          'motion-safe:group-hover:bg-sky-600/75',
+          'motion-safe:group-hover:text-sky-100',
         ],
         false: [
           'text-gray-500',
-          'group-hover:bg-gray-600/75',
-          'group-hover:text-gray-100',
+          'motion-safe:group-hover:bg-gray-600/75',
+          'motion-safe:group-hover:text-gray-100',
         ],
       },
     },

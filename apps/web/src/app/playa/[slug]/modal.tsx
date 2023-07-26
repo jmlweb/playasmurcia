@@ -7,6 +7,8 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { LuArrowLeft, LuArrowRight, LuX } from 'react-icons/lu';
 
+import { IMAGES } from '@/config/images';
+
 const EnabledModal = ({
   picture,
   width,
@@ -70,7 +72,7 @@ const EnabledModal = ({
               </div>
             )}
             <Image
-              src={`https://res.cloudinary.com/jmlweb/image/upload/e_improve/f_auto,fl_progressive,c_limit,w_1920/v1688825552/playasmurcia/${picture}`}
+              src={`${IMAGES.detail}${picture}`}
               alt=""
               className="block"
               width={width}

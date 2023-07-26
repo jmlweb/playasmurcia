@@ -32,10 +32,10 @@ const LinksGroup = ({ title, path, items }: LinksGroupProps) => (
         <li key={slug}>
           <Link
             href={`/${path}/${slug}`}
-            className="group block py-1 text-gray-100 transition-colors hover:text-sky-300"
+            className="group block py-1 text-gray-100 transition-colors motion-safe:hover:text-sky-300"
           >
             {name}{' '}
-            <span className="ml-1 hidden rounded-full bg-gray-600 px-2 py-1 text-xs font-normal text-gray-200 transition-colors group-hover:bg-sky-200 group-hover:text-sky-700 md:inline-block">
+            <span className="ml-1 hidden rounded-full bg-gray-600 px-2 py-1 text-xs font-normal text-gray-200 transition-colors motion-safe:group-hover:bg-sky-200 motion-safe:group-hover:text-sky-700 md:inline-block">
               {count} playa{count !== 1 && 's'}
             </span>
           </Link>

@@ -1,3 +1,5 @@
+import { getWeatherTitle } from './getWeatherTitle';
+
 const weatherMap: Record<
   string,
   Promise<{
@@ -10,7 +12,7 @@ const weatherMap: Record<
   }>
 > = {};
 
-export const getWeather = async (lat: number, lng: number) => {
+export const getCurrentWeather = async (lat: number, lng: number) => {
   if (!weatherMap[`${lat},${lng}`]) {
     weatherMap[`${lat},${lng}`] = fetch(
       `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current_weather=true`,
@@ -32,5 +34,6 @@ export const getWeather = async (lat: number, lng: number) => {
     windSpeed: data.current_weather.windspeed,
     windDirection: data.current_weather.winddirection,
     weatherCode: data.current_weather.weathercode,
+    weatherTitle: getWeatherTitle(data.current_weather.weathercode),
   };
 };

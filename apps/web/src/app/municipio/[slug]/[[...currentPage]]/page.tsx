@@ -4,8 +4,10 @@ import { Container } from '@/components/Container';
 import { ItemsGrid } from '@/components/ItemsGrid';
 import { ItemsSectionHeader } from '@/components/ItemsSectionHeader';
 import { Pagination } from '@/components/Pagination';
+import { IMAGES } from '@/config/images';
 import { PATHS } from '@/config/paths';
 import { dataService, getMunicipalityName } from '@/data';
+import { pluralizeBeach } from '@/utils';
 
 export function generateStaticParams() {
   const municipalities = dataService.municipalities();
@@ -24,24 +26,22 @@ export const generateMetadata = async (
   parent: ResolvingMetadata,
 ): Promise<Metadata> => {
   const data = await dataService.findBeaches(
-    slug === 'bandera-azul'
-      ? (beach) => beach.blueFlag
-      : (beach) => beach.features.includes(slug),
     Number(currentPage),
+    (beach) => beach.municipality === slug,
   );
   const previousImages = (await parent).openGraph?.images || [];
-  const selectedBeach = data.beaches.find((beach) => beach.pictures.length > 0);
+  const selectedBeach = data.beaches.find((beach) => beach.picture);
   const selectedImage = selectedBeach
-    ? `https://res.cloudinary.com/jmlweb/image/upload/e_improve/f_auto,fl_progressive,c_limit,w_1024/v1688825552/playasmurcia/${selectedBeach.pictures[0]}`
+    ? `${IMAGES.ogPath}${selectedBeach.picture}`
     : 'https://playasmurcia.com/og-image.jpg';
 
   return {
     title: `Playas en ${getMunicipalityName(slug)}${
       Number(currentPage) > 1 ? ` - Página ${currentPage}` : ''
     }`,
-    description: `${data.total} playa${
-      data.total > 0 ? 's' : ''
-    } ${getMunicipalityName(slug)} - Tus playas en la Región de Murcia`,
+    description: `${data.total} ${pluralizeBeach(
+      data.total,
+    )} ${getMunicipalityName(slug)} - Tus playas en la Región de Murcia`,
     openGraph: {
       images: [selectedImage, ...previousImages],
     },
@@ -54,8 +54,8 @@ const Municipality = async ({
   params: { slug: string; currentPage?: string };
 }) => {
   const data = await dataService.findBeaches(
-    (beach) => beach.municipality === slug,
     Number(currentPage),
+    (beach) => beach.municipality === slug,
   );
 
   return (

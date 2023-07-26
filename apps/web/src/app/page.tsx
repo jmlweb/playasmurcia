@@ -26,7 +26,7 @@ const Page = async () => {
         <ItemsGrid beaches={featuredBeaches} />
         <footer className="mt-10 flex justify-center">
           <a
-            className="flex items-center gap-x-1 rounded-md border border-gray-300 px-6 py-3 font-medium text-gray-700 transition-colors hover:border-sky-300 hover:bg-sky-100 hover:text-sky-700"
+            className="flex items-center gap-x-1 rounded-md border border-gray-300 px-6 py-3 font-medium text-gray-700 transition-colors motion-safe:hover:border-sky-300 motion-safe:hover:bg-sky-100 motion-safe:hover:text-sky-700"
             href="/lista-playas"
           >
             Ver todas las playas <LuArrowRight className="text-xl" />
