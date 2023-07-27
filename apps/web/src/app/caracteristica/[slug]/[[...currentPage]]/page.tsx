@@ -55,7 +55,7 @@ const Feature = async ({
   params: { slug: string; currentPage?: string };
 }) => {
   const data = await dataService.findBeaches(Number(currentPage), (beach) =>
-    beach.features.includes(slug),
+    slug === 'bandera-azul' ? beach.blueFlag : beach.features.includes(slug),
   );
 
   return (
