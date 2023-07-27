@@ -8,6 +8,10 @@ export const getDetail = async (slug: string): Promise<Beach> => {
   if (!dataBeach) {
     return undefined;
   }
+  if (dataBeach.blueFlag) {
+    dataBeach.features.push('bandera-azul');
+    dataBeach.features.sort();
+  }
   const weather = await getCurrentWeather(
     dataBeach.position[0],
     dataBeach.position[1],
