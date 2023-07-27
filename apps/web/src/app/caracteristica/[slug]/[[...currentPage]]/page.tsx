@@ -1,4 +1,5 @@
 import { Metadata, ResolvingMetadata } from 'next';
+import { notFound } from 'next/navigation';
 
 import { Container } from '@/components/Container';
 import { ItemsGrid } from '@/components/ItemsGrid';
@@ -30,6 +31,9 @@ export const generateMetadata = async (
   const data = await dataService.findBeaches(Number(currentPage), (beach) =>
     beach.features.includes(slug),
   );
+  if (!data.beaches.length) {
+    notFound();
+  }
   const previousImages = (await parent).openGraph?.images || [];
   const selectedBeach = data.beaches.find((beach) => beach.picture);
   const selectedImage = selectedBeach

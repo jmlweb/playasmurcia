@@ -1,4 +1,5 @@
 import { Metadata, ResolvingMetadata } from 'next';
+import { notFound } from 'next/navigation';
 
 import { Container } from '@/components/Container';
 import { ItemsGrid } from '@/components/ItemsGrid';
@@ -57,6 +58,10 @@ const Municipality = async ({
     Number(currentPage),
     (beach) => beach.municipality === slug,
   );
+
+  if (!data.beaches.length) {
+    notFound();
+  }
 
   return (
     <Container fixed>
