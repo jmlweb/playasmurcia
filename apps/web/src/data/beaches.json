@@ -960,7 +960,7 @@
   },
   {
     "name": "Playa de El Mojón",
-    "slug": "playa-mojon",
+    "slug": "playa-mojon-mazarron",
     "address": "Ctra. comarcal RM-322 Isla Plana - Cartagena (PUERTO DE MAZARRÓN)",
     "postalCode": "30860",
     "municipality": "mazarron",
@@ -2000,7 +2000,7 @@
   },
   {
     "name": "Playa El Mojón",
-    "slug": "playa-mojon",
+    "slug": "playa-mojon-san-pedro",
     "municipality": "san-pedro-del-pinatar",
     "position": [37.84638380330269, -0.7617282000139172],
     "blueFlag": true,
