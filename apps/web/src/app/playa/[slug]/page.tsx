@@ -2,6 +2,7 @@ import { Metadata, ResolvingMetadata } from 'next';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import probe from 'probe-image-size';
 import { LuExternalLink } from 'react-icons/lu';
 
@@ -35,6 +36,10 @@ export const generateMetadata = async (
   parent: ResolvingMetadata,
 ): Promise<Metadata> => {
   const data = await dataService.detail(slug);
+  if (!data) {
+    notFound();
+  }
+
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
@@ -53,6 +58,9 @@ export const generateMetadata = async (
 
 const Detail = async ({ params: { slug } }: { params: { slug: string } }) => {
   const data = await dataService.detail(slug);
+  if (!data) {
+    notFound();
+  }
   const enhancedPictures = await Promise.all(
     data.pictures.map(async (picture) => {
       const { width, height } = await (probe(

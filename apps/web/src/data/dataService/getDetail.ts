@@ -5,6 +5,9 @@ import { getCurrentWeather } from './getCurrentWeather';
 
 export const getDetail = async (slug: string): Promise<Beach> => {
   const dataBeach = beaches.find((beach) => beach.slug === slug);
+  if (!dataBeach) {
+    return undefined;
+  }
   const weather = await getCurrentWeather(
     dataBeach.position[0],
     dataBeach.position[1],
