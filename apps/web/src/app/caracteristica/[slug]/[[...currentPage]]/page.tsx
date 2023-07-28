@@ -29,7 +29,7 @@ export const generateMetadata = async (
   parent: ResolvingMetadata,
 ): Promise<Metadata> => {
   const data = await dataService.findBeaches(Number(currentPage), (beach) =>
-    beach.features.includes(slug),
+    slug === 'bandera-azul' ? beach.blueFlag : beach.features.includes(slug),
   );
   if (!data.beaches.length) {
     notFound();
