@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { WeatherBox } from '@/components/WeatherBox';
 import { IMAGES } from '@/config/images';
 import { getMunicipalityName } from '@/data';
 import { getFeatureName } from '@/data/getFeatureName';
@@ -8,7 +9,6 @@ import { SimpleBeaches } from '@/types';
 
 import emptyBeach from './empty-beach.jpg';
 import { Pill } from './Pill';
-import { WeatherBox } from './WeatherBox';
 
 type Props = {
   beaches: SimpleBeaches;
@@ -58,6 +58,7 @@ export const ItemsGrid = ({ beaches }: Props) => (
               </div>
             )}
             <WeatherBox
+              mode="list"
               temperature={beach.temperature}
               weatherCode={beach.weatherCode}
               windSpeed={beach.windSpeed}

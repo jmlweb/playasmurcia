@@ -38,3 +38,16 @@ export type SimpleBeach = Pick<
   weatherTitle: string;
 };
 export type SimpleBeaches = SimpleBeach[];
+
+export type Prediction = {
+  day: string;
+  weatherCode: number;
+  temperature: number | number[];
+  windSpeed: number;
+  windDirection: number;
+  weatherTitle: string;
+};
+
+export type CompleteBeach = Omit<DataBeach, 'blueFlag'> & {
+  predictions: Prediction[];
+};

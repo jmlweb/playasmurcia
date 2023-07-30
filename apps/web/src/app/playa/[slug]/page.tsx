@@ -11,6 +11,7 @@ import { IMAGES } from '@/config/images';
 import { dataService, getMunicipalityName } from '@/data';
 
 import Features from './features';
+import { Predictions } from './predictions';
 
 const LoadingMap = () => (
   <div className="animate-wiggle text-sky-700 animate-infinite">
@@ -88,36 +89,39 @@ const Detail = async ({ params: { slug } }: { params: { slug: string } }) => {
   return (
     <>
       <Container fixed>
-        <header className="pb-4 pt-8 md:pb-6 md:pt-12">
-          <h1 className="text-xl font-bold text-gray-600 [text-wrap:balance] md:text-2xl lg:text-3xl">
-            {data.name}
-          </h1>
-          <h2 className="text-lg font-bold text-gray-400 md:text-xl lg:text-2xl">
-            {getMunicipalityName(data.municipality)}, Mar{' '}
-            {data.sea === 0 ? 'Mediterráneo' : 'Menor'}
-          </h2>
-          {data.address && (
-            <p className="mt-2 text-gray-700">
-              <span className="font-semibold mr-1">Dirección:</span>
-              {data.address}
+        <div className="xl:flex justify-between items-center gap-6">
+          <header className="pb-4 pt-8 md:pb-6 md:pt-12">
+            <h1 className="text-2xl font-bold text-gray-600 [text-wrap:balance] lg:text-3xl leading-none">
+              {data.name}
+            </h1>
+            <h2 className="text-lg font-bold text-gray-400 md:text-xl lg:text-2xl mb-4">
+              {getMunicipalityName(data.municipality)}, Mar{' '}
+              {data.sea === 0 ? 'Mediterráneo' : 'Menor'}
+            </h2>
+            {data.address && (
+              <p className="mt-2 text-gray-700">
+                <span className="font-semibold mr-1">Dirección:</span>
+                {data.address}
+              </p>
+            )}
+            <p className="text-gray-700 flex flex-wrap items-center mt-2">
+              <span className="font-semibold mr-1">Coordenadas:</span>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${data.position.join(
+                  ',',
+                )}`}
+                target="_blank"
+                rel="external noopener noreferrer"
+                className="inline-flex items-center motion-safe:hover:text-sky-600 transition-colors"
+              >
+                {data.position.join(', ')}{' '}
+                <LuExternalLink className="ml-0.5 -mt-0.5" />
+              </a>
             </p>
-          )}
-          <p className="text-gray-700 flex flex-wrap items-center mt-2">
-            <span className="font-semibold mr-1">Coordenadas:</span>
-            <a
-              href={`https://www.google.com/maps/search/?api=1&query=${data.position.join(
-                ',',
-              )}`}
-              target="_blank"
-              rel="external noopener noreferrer"
-              className="inline-flex items-center motion-safe:hover:text-sky-600 transition-colors"
-            >
-              {data.position.join(', ')}{' '}
-              <LuExternalLink className="ml-0.5 -mt-0.5" />
-            </a>
-          </p>
-        </header>
-        <Features features={data.features} />
+          </header>
+          <Features features={data.features} />
+        </div>
+        <Predictions data={data.predictions} />
       </Container>
       <div className="relative mx-4 grid h-[min(360px,60vh)] place-items-center bg-sky-200 md:mx-6 lg:mx-0 lg:h-[min(600px,400px+10vw)]">
         <BeachMap name={data.name} position={data.position} />

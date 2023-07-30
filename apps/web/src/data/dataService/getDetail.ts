@@ -1,9 +1,9 @@
-import { Beach } from '@/types';
+import { CompleteBeach } from '@/types';
 
 import beaches from '../beaches.json';
-import { getCurrentWeather } from './getCurrentWeather';
+import { getWeatherPredictions } from './getWeatherPredictions';
 
-export const getDetail = async (slug: string): Promise<Beach> => {
+export const getDetail = async (slug: string): Promise<CompleteBeach> => {
   const dataBeach = beaches.find((beach) => beach.slug === slug);
   if (!dataBeach) {
     return undefined;
@@ -12,12 +12,11 @@ export const getDetail = async (slug: string): Promise<Beach> => {
     dataBeach.features.push('bandera-azul');
     dataBeach.features.sort();
   }
-  const weather = await getCurrentWeather(
-    dataBeach.position[0],
-    dataBeach.position[1],
-  );
   return {
     ...dataBeach,
-    ...weather,
+    predictions: await getWeatherPredictions(
+      dataBeach.position[0],
+      dataBeach.position[1],
+    ),
   };
 };
