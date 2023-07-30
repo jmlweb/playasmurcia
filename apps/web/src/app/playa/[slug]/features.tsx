@@ -20,7 +20,7 @@ const style = cva(['rounded px-3 py-2 shadow-lg'], {
 type Props = Pick<SimpleBeach, 'features'>;
 
 const Features = ({ features }: Props) => (
-  <ul className="mb-10 flex flex-wrap gap-x-2 gap-y-3 text-sm lg:text-base">
+  <ul className="mb-10 flex flex-wrap gap-x-2 gap-y-3 text-sm lg:text-base mt-4 xl:my-0">
     {parsedFeatures.map((feature) => (
       <li
         key={feature}
