@@ -6,7 +6,6 @@ import 'leaflet-defaulticon-compatibility';
 import 'leaflet.fullscreen';
 import 'leaflet.fullscreen/Control.FullScreen.css';
 
-import { createControlComponent } from '@react-leaflet/core';
 import L from 'leaflet';
 import { divIcon } from 'leaflet';
 import { LatLngExpression } from 'leaflet';
@@ -14,7 +13,7 @@ import { useEffect } from 'react';
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
 
 const mapBoxURL =
-  'https://api.mapbox.com/styles/v1/mapbox/streets-v12/tiles/512/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoiam1sd2ViIiwiYSI6ImNsa2QzcnIxejAzMmszcG1tOTh5bmh2Ym0ifQ.5SNkUbeD9ubwM2NuY3DDYg';
+  'https://api.mapbox.com/styles/v1/mapbox/navigation-day-v1/tiles/512/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoiam1sd2ViIiwiYSI6ImNsa2QzcnIxejAzMmszcG1tOTh5bmh2Ym0ifQ.5SNkUbeD9ubwM2NuY3DDYg';
 
 const markerIcon = divIcon({
   className: 'bg-transparent text-gray-600 animate-scaleIn animate-once',
@@ -59,7 +58,7 @@ const BeachMap = ({ name, position }: Props) => {
   return (
     <MapContainer
       center={parsedPosition}
-      zoom={10}
+      zoom={12}
       scrollWheelZoom={false}
       closePopupOnClick
       className="absolute z-0 h-full w-full"
@@ -71,7 +70,19 @@ const BeachMap = ({ name, position }: Props) => {
       />
       <Marker position={parsedPosition} icon={markerIcon}>
         <Popup>
-          <div className="font-semibold text-gray-500">{name}</div>
+          <div className="text-base font-sans font-semibold text-gray-500">
+            {name}
+          </div>
+          <a
+            href={`https://www.google.com/maps/search/?api=1&query=${position.join(
+              ',',
+            )}`}
+            target="_blank"
+            rel="external noopener noreferrer"
+            className="font-sans block mt-0.5 text-sm motion-safe:hover:text-sky-600 transition-colors"
+          >
+            Ver en Google Maps
+          </a>
         </Popup>
       </Marker>
       <FullscreenControl />

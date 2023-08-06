@@ -61,9 +61,9 @@ const styles = {
           ],
           detail: [
             'text-gray-600',
-            'from-gray-100/80',
-            'via-gray-200/70',
-            'to-gray-300/60',
+            'from-gray-100/50',
+            'via-gray-100/60',
+            'to-gray-100/70',
             'flex-1',
           ],
         },

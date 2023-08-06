@@ -17,7 +17,7 @@ const titleStyle = cva(['font-medium', 'mb-2', 'text-sm'], {
 });
 
 export const Predictions = ({ data }: Props) => (
-  <ul className="mt-4 lg:mt-6 mb-14 grid gap-4 md:gap-6 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6">
+  <ul className="mt-4 lg:mt-6 mb-14 grid gap-4 md:gap-6 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6">
     {data.map((prediction, index) => (
       <li key={prediction.day}>
         <p
