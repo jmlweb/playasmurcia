@@ -132,7 +132,7 @@ const Detail = async ({ params: { slug } }: { params: { slug: string } }) => {
       {data.pictures.length > 0 && (
         <>
           <Container fixed className="mt-10">
-            <h3 className="mb-2 text-xl font-bold text-gray-700">
+            <h3 id="pictures" className="mb-2 text-xl font-bold text-gray-700">
               Fotografías
             </h3>
             <div
@@ -142,10 +142,11 @@ const Detail = async ({ params: { slug } }: { params: { slug: string } }) => {
               {data.pictures.map((picture) => (
                 <Link
                   key={picture}
-                  href={`/playa/${slug}?picture=${picture}`}
+                  as={`/playa/${slug}?picture=${picture}`}
                   shallow
                   className="block w-full h-auto cursor-zoom-in"
                   scroll={false}
+                  href={`/playa/${slug}`}
                 >
                   <Image
                     src={`${IMAGES.list}${picture}`}
