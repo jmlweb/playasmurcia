@@ -54,6 +54,9 @@ export const generateMetadata = async (
           ? [`${IMAGES.ogPath}${data.pictures[0]}`, ...previousImages]
           : [IMAGES.ogDefault, ...previousImages],
     },
+    alternates: {
+      canonical: `https://www.playasmurcia.com/playa/${slug}`,
+    },
   };
 };
 

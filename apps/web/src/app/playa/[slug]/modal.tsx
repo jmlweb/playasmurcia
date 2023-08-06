@@ -39,9 +39,9 @@ const EnabledModal = ({
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-30 grid place-items-center bg-gray-900/80 data-[state=closed]:animate-fadeOut data-[state=open]:animate-fadeIn backdrop-blur-2xl">
           <Dialog.Content
-            className="relative grid place-items-center max-w-[96vw] shadow-2xl overflow-x-auto"
+            className="relative grid place-items-center max-w-[96vw] shadow-2xl overflow-x-auto w-full"
             style={{
-              width: `${width}px`,
+              aspectRatio: `${width}/${height}`,
             }}
           >
             {isCloseVisible ? (
@@ -67,14 +67,14 @@ const EnabledModal = ({
                 )}
               </>
             ) : (
-              <div className="animate-wiggle text-white animate-infinite whitespace-nowrap">
+              <div className="animate-wiggle text-white animate-infinite whitespace-nowrap absolute">
                 Cargando fotografía...
               </div>
             )}
             <Image
               src={`${IMAGES.detail}${picture}`}
               alt=""
-              className="block"
+              className="block bg-gray-100/50 transition-all"
               width={width}
               height={height}
               priority
