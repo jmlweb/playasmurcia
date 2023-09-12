@@ -1,6 +1,11 @@
 'use client';
 
-import { Item, Trigger, Content, Link as NavLink } from '@radix-ui/react-navigation-menu';
+import {
+  Content,
+  Item,
+  Link as NavLink,
+  Trigger,
+} from '@radix-ui/react-navigation-menu';
 import Link from 'next/link';
 import { LuChevronDown } from 'react-icons/lu';
 import { twMerge } from 'tailwind-merge';

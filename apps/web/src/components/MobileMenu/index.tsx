@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 
 import { PATHS } from '@/config/paths';
 import { Counters } from '@/data';
@@ -8,7 +8,7 @@ import { Trigger } from './Trigger';
 
 const Modal = dynamic(() => import('./Modal'), {
   loading: () => <Trigger disabled />,
-  ssr: false
+  ssr: false,
 });
 
 type Props = {
@@ -18,11 +18,7 @@ type Props = {
 
 export const MobileMenu = ({ features, municipalities }: Props) => (
   <div className="block md:hidden">
-    <Modal
-      trigger={
-        <Trigger />
-      }
-    >
+    <Modal trigger={<Trigger />}>
       <dl className="leading-relaxed">
         <dd className="mb-4">
           <Link href="/lista-playas" className="block font-medium text-sky-700">
