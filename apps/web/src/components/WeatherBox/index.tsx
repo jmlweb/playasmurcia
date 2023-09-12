@@ -1,40 +1,18 @@
 import { cva } from 'class-variance-authority';
-import dynamic from 'next/dynamic';
-import { LuArrowUp } from 'react-icons/lu';
 
-const getWiIcons = () => import('react-icons/wi');
+import { localizeNumber } from '@/utils/localizeNumber';
 
-const WiHot = dynamic(() => getWiIcons().then((mod) => mod.WiHot));
-
-const WiIcons = {
-  '0': dynamic(() => getWiIcons().then((mod) => mod.WiDaySunny)),
-  '1': dynamic(() => getWiIcons().then((mod) => mod.WiDaySunny)),
-  '2': dynamic(() => getWiIcons().then((mod) => mod.WiDaySunnyOvercast)),
-  '3': dynamic(() => getWiIcons().then((mod) => mod.WiCloud)),
-  '45': dynamic(() => getWiIcons().then((mod) => mod.WiFog)),
-  '48': dynamic(() => getWiIcons().then((mod) => mod.WiFog)),
-  '51': dynamic(() => getWiIcons().then((mod) => mod.WiDayShowers)),
-  '53': dynamic(() => getWiIcons().then((mod) => mod.WiDayRainMix)),
-  '55': dynamic(() => getWiIcons().then((mod) => mod.WiDayRain)),
-  '56': dynamic(() => getWiIcons().then((mod) => mod.WiDayHail)),
-  '57': dynamic(() => getWiIcons().then((mod) => mod.WiHail)),
-  '61': dynamic(() => getWiIcons().then((mod) => mod.WiShowers)),
-  '63': dynamic(() => getWiIcons().then((mod) => mod.WiRainMix)),
-  '65': dynamic(() => getWiIcons().then((mod) => mod.WiRain)),
-  '66': dynamic(() => getWiIcons().then((mod) => mod.WiDayHail)),
-  '67': dynamic(() => getWiIcons().then((mod) => mod.WiHail)),
-  '71': dynamic(() => getWiIcons().then((mod) => mod.WiDaySnow)),
-  '73': dynamic(() => getWiIcons().then((mod) => mod.WiSnow)),
-  '75': dynamic(() => getWiIcons().then((mod) => mod.WiSnowflakeCold)),
-  '77': dynamic(() => getWiIcons().then((mod) => mod.WiSleet)),
-};
+import { IconProps } from './icon';
+import { parseTemperature, Temperature } from './parseTemperature';
+import { WeatherIcon } from './WeatherIcon';
+import { WindIcon } from './WindIcon';
 
 const styles = {
-  wrapper: cva(['flex', 'gap-2'], {
+  wrapper: cva('flex gap-2', {
     variants: {
       mode: {
-        list: ['absolute', 'top-4', 'left-4', 'right-4'],
-        detail: [],
+        list: 'absolute top-4 left-4 right-4',
+        detail: undefined,
       },
     },
   }),
@@ -70,23 +48,11 @@ const styles = {
       },
     },
   ),
-  icon: cva([], {
-    variants: {
-      type: {
-        weather: ['text-4xl'],
-        wind: ['text-2xl', 'origin-center', 'mt-1.5'],
-      },
-      mode: {
-        list: ['text-white'],
-        detail: ['text-gray-500'],
-      },
-    },
-  }),
 };
 
 type Props = {
-  mode: 'list' | 'detail';
-  temperature: number | number[];
+  mode: IconProps['mode'];
+  temperature: Temperature;
   weatherCode: number;
   windSpeed: number;
   windDirection: number;
@@ -101,14 +67,7 @@ export const WeatherBox = ({
   windDirection,
   weatherTitle,
 }: Props) => {
-  const temperatureArr = Array.isArray(temperature)
-    ? temperature
-    : [temperature];
-  const maxTemperature = temperatureArr[temperatureArr.length - 1];
-  const IconComponent =
-    weatherCode < 2 && maxTemperature > 30
-      ? WiHot
-      : WiIcons[weatherCode.toString()];
+  const temperatureData = parseTemperature(temperature);
   return (
     <div
       className={styles.wrapper({
@@ -122,16 +81,13 @@ export const WeatherBox = ({
         title={weatherTitle}
       >
         <span className="text-sm font-medium tracking-wide">
-          {temperatureArr.map((t) => `${t}`.replace('.', ',')).join(' / ')}º
+          {temperatureData.asText}
         </span>
-        {IconComponent && (
-          <IconComponent
-            className={styles.icon({
-              type: 'weather',
-              mode,
-            })}
-          />
-        )}
+        <WeatherIcon
+          mode={mode}
+          weatherCode={weatherCode}
+          maxTemperature={temperatureData.max}
+        />
         <span className="sr-only">{weatherTitle}</span>
       </div>
       <div
@@ -141,18 +97,9 @@ export const WeatherBox = ({
         title={`Dirección del viento: ${windDirection}º`}
       >
         <span className="text-sm font-medium tracking-wide">
-          {`${windSpeed}`.replace('.', ',')}{' '}
-          <span className="text-xs">km/h</span>
+          {localizeNumber(windSpeed)} <span className="text-xs">km/h</span>
         </span>
-        <LuArrowUp
-          className={styles.icon({
-            type: 'wind',
-            mode,
-          })}
-          style={{
-            transform: `rotate(${windDirection}deg)`,
-          }}
-        />
+        <WindIcon mode={mode} windDirection={windDirection} />
         <span className="sr-only">
           Dirección del viento: {windDirection} grados
         </span>
