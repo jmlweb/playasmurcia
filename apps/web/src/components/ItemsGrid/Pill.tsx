@@ -2,7 +2,7 @@ import { cva } from 'class-variance-authority';
 import { ReactNode } from 'react';
 
 const pill = cva(
-  ['rounded bg-white/95 px-2 py-1 text-sm shadow-lg transition-colors'],
+  'rounded bg-white/95 px-2 py-1 text-sm shadow-lg transition-colors',
   {
     variants: {
       blueFlag: {

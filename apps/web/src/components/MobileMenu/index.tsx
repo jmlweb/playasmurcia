@@ -1,10 +1,15 @@
 import Link from 'next/link';
-import { LuGrip } from 'react-icons/lu';
+import dynamic from 'next/dynamic';
 
 import { PATHS } from '@/config/paths';
 import { Counters } from '@/data';
 
-import { Modal } from './Modal';
+import { Trigger } from './Trigger';
+
+const Modal = dynamic(() => import('./Modal'), {
+  loading: () => <Trigger disabled />,
+  ssr: false
+});
 
 type Props = {
   features: Counters;
@@ -15,10 +20,7 @@ export const MobileMenu = ({ features, municipalities }: Props) => (
   <div className="block md:hidden">
     <Modal
       trigger={
-        <button className="flex items-center gap-1 py-3 text-sm">
-          Menú
-          <LuGrip className="text-lg" />
-        </button>
+        <Trigger />
       }
     >
       <dl className="leading-relaxed">

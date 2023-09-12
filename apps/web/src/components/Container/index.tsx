@@ -2,10 +2,10 @@ import { cva } from 'class-variance-authority';
 import { Children, cloneElement, ReactElement, ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-const containerStyle = cva(['px-4', 'md:px-6', 'xl:px-8'], {
+const containerStyle = cva('px-4 md:px-6 xl:px-8', {
   variants: {
     fixed: {
-      true: ['mx-auto', 'max-w-8xl'],
+      true: 'mx-auto max-w-8xl',
     },
   },
 });

@@ -6,7 +6,7 @@ import { Logo } from '@/components/Logo';
 import { PATHS } from '@/config/paths';
 import { Counters } from '@/data';
 
-const gridStyle = cva(['grid grid-cols-2 gap-x-6 gap-y-1'], {
+const gridStyle = cva('grid grid-cols-2 gap-x-6 gap-y-1', {
   variants: {
     expanded: {
       true: ['2xl:grid-cols-3'],

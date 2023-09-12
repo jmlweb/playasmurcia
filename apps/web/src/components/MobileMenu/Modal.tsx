@@ -9,7 +9,7 @@ type Props = {
   trigger: ReactNode;
 };
 
-export const Modal = ({ children, trigger }: Props) => {
+const Modal = ({ children, trigger }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
@@ -30,3 +30,5 @@ export const Modal = ({ children, trigger }: Props) => {
     </Dialog.Root>
   );
 };
+
+export default Modal;
