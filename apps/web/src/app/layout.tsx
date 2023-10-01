@@ -20,6 +20,7 @@ const libreFranklin = Libre_Franklin({
 });
 
 export const metadata: Metadata = {
+  metadataBase: 'https://www.playasmurcia.com',
   title:
     'PlayasMurcia: La información más completa sobre las playas de la Región de Murcia',
   description: `PlayasMurcia - Descubre tu oasis en las playas de la Costa Cálida.`,
