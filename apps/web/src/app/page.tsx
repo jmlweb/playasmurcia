@@ -2,6 +2,7 @@ import { LuArrowRight } from 'react-icons/lu';
 
 import { Container } from '@/components/Container';
 import { ItemsGrid } from '@/components/ItemsGrid';
+import { PATHS } from '@/config/paths';
 import { dataService } from '@/data';
 
 export const revalidate = 86400; // 24 hours
@@ -27,7 +28,7 @@ const Page = async () => {
         <footer className="mt-10 flex justify-center">
           <a
             className="flex items-center gap-x-1 rounded-md border border-gray-300 px-6 py-3 font-medium text-gray-700 transition-colors motion-safe:hover:border-sky-300 motion-safe:hover:bg-sky-100 motion-safe:hover:text-sky-700"
-            href="/lista-playas"
+            href={`/${PATHS.all}`}
           >
             Ver todas las playas <LuArrowRight className="text-xl" />
           </a>

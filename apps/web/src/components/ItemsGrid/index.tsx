@@ -1,13 +1,11 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
 import { WeatherBox } from '@/components/WeatherBox';
-import { IMAGES } from '@/config/images';
 import { getMunicipalityName } from '@/data';
 import { getFeatureName } from '@/data/getFeatureName';
 import { SimpleBeaches } from '@/types';
 
-import emptyBeach from './empty-beach.jpg';
+import { ItemImage } from './ItemImage';
 import { Pill } from './Pill';
 
 type Props = {
@@ -36,27 +34,7 @@ export const ItemsGrid = ({ beaches }: Props) => (
             </p>
           </header>
           <div className="relative overflow-hidden rounded-md shadow transition-opacity motion-safe:group-hover:opacity-90 motion-safe:group-hover:shadow-lg">
-            {beach.picture ? (
-              <Image
-                src={`${IMAGES.list}${beach.picture}`}
-                width={416}
-                height={234}
-                alt=""
-                className="block h-auto w-full transition-transform duration-700 motion-safe:group-hover:scale-105 bg-gray-200"
-                priority={index <= 12}
-              />
-            ) : (
-              <div className="bg-gradient-to-r from-red-400/80 via-red-500/80 to-yellow-400/80">
-                <Image
-                  src={emptyBeach}
-                  width={416}
-                  height={234}
-                  alt=""
-                  className="block h-auto w-full opacity-60 blur-sm transition-transform duration-700 motion-safe:group-hover:scale-105"
-                  priority={index <= 12}
-                />
-              </div>
-            )}
+            <ItemImage src={beach.picture} priority={index <= 12} />
             <WeatherBox
               mode="list"
               temperature={beach.temperature}
