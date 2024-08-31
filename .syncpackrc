@@ -1,5 +1,19 @@
 {
-  "dependencyTypes": ["prod", "dev"],
+  "dependencyTypes": ["prod", "dev", "nodeEngine", "packageManager"],
+  "customTypes": {
+    "nodeEngine": {
+      "path": "engines.node",
+      "strategy": "version"
+    },
+    "engines": {
+      "path": "engines",
+      "strategy": "versionsByName"
+    },
+    "packageManager": {
+      "path": "packageManager",
+      "strategy": "name@version"
+    }
+  },
   "semverGroups": [
     {
       "label": "use exact version numbers in production",
@@ -7,6 +21,14 @@
       "dependencyTypes": ["prod"],
       "dependencies": ["**"],
       "range": ""
+    }
+  ],
+  "versionGroups": [
+    {
+      "dependencies": ["@types/**"],
+      "dependencyTypes": ["!dev"],
+      "isBanned": true,
+      "label": "@types packages should only be under devDependencies"
     }
   ]
 }
