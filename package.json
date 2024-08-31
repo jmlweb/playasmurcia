@@ -15,13 +15,8 @@
     "turbo": "^1.10.12"
   },
   "name": "playasmurcia",
-  "packageManager": "yarn@1.22.19",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
-  "volta": {
-    "node": "18.16.1",
-    "yarn": "1.22.19"
+  "packageManager": "pnpm@8.15.6",
+  "engines": {
+    "node": ">=18"
   }
 }
