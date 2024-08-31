@@ -34,12 +34,12 @@
     "@types/react": "^18.2.24",
     "@types/react-dom": "^18.2.8",
     "autoprefixer": "^10.4.16",
-    "eslint-config-custom": "*",
+    "eslint-config-custom": "workspace:*",
     "postcss": "^8.4.31",
-    "prettier-config-custom": "*",
+    "prettier-config-custom": "workspace:*",
     "tailwindcss": "^3.3.3",
     "tailwindcss-animated": "^1.0.1",
-    "tsconfig": "*",
+    "tsconfig": "workspace:*",
     "typescript": "^5.2.2"
   }
 }

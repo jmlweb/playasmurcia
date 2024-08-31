@@ -22,12 +22,12 @@
     "@types/jest": "^29.5.2",
     "@types/node": "^20.4.0",
     "@types/node-fetch": "2",
-    "eslint-config-custom": "*",
+    "eslint-config-custom": "workspace:*",
     "eslint-plugin-fp-ts": "^0.3.2",
     "jest": "^29.5.0",
     "prettier": "^2.8.8",
-    "prettier-config-custom": "*",
-    "tsconfig": "*",
+    "prettier-config-custom": "workspace:*",
+    "tsconfig": "workspace:*",
     "typescript": "^5.1.6"
   }
 }

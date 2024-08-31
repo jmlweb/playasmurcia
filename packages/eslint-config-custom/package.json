@@ -11,7 +11,7 @@
     "eslint-plugin-react": "7.33.1",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "prettier": "^3.0.1",
-    "prettier-config-custom": "*"
+    "prettier-config-custom": "workspace:*"
   },
   "publishConfig": {
     "access": "public"
