@@ -1,0 +1,70 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Turborepo
+
+- This project is a monorepo that uses the latest stable version of Turborepo as orchestration tool
+
+## Turborepo Fundamentals
+
+- Ensure all packages have clear definitions of `inputs` and `outputs` in `turbo.json`
+- Keep dependencies up-to-date in each workspace's `package.json` files
+- Properly define the dependency graph in `turbo.json` using `dependsOn`
+
+## Caching Strategies
+
+- Add `.turbo` to `.gitignore` to avoid versioning temporary cache files
+- Explicitly define `outputs` in each task to optimize caching
+- Use `globalDependencies` for files that affect all packages
+- Avoid `cache: false` unless absolutely necessary
+
+## Project Structure
+
+- Organize workspaces in structured folders (`apps/`, `packages/`, etc.)
+- Maintain clear separation between shared code and applications
+- Use `exports` in `package.json` to define specific entrypoints
+
+## Commands and Scripts
+
+- Prefer Turborepo commands over individual package commands
+- Create useful aliases for common workflows in root package.json
+- Maintain consistency in script names across workspaces
+
+## Cursor IDE: Configuration
+
+- Configure autocomplete to recognize imports between workspaces
+- Enable navigation between code references in different packages
+- Configure linting to detect circular imports between workspaces
+
+## Performance Optimization
+
+- Avoid unnecessary I/O operations that would invalidate the cache
+- Separate development tasks (`dev`) from build tasks
+- Use `persistent: true` for watch-mode tasks like `dev`
+
+## Dependency Management
+
+- Keep dependency versions consistent across packages
+- Use `workspace:*` for references between internal packages
+- Properly define development vs production dependencies
+
+## Code Best Practices for Turborepo
+
+- Avoid absolute imports that would cross workspace boundaries
+- Use named exports for better tree-shaking
+- Keep public APIs between packages small and well-documented
+
+## Testing and CI/CD
+
+- Configure tests to run only on affected packages
+- Add comments on `--filter` to clarify intent
+- Use persistent cache markers in CI systems
+
+## Troubleshooting
+
+- Use `turbo run build --dry` to visualize the dependency graph
+- Add `--verbose` to see details during cache issues
+- Manually verify cache hashes with `turbo run build --dry --summarize`

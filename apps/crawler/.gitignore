@@ -1,7 +1,0 @@
-/data
-coverage
-node_modules
-.swc
-/pictures
-/media
-!src/*

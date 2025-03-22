@@ -1,0 +1,68 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Cursor IDE Rules: Best Practices with pnpm Workspaces
+
+## pnpm Workspace Fundamentals
+
+- Configure `pnpm-workspace.yaml` at the root to define workspaces pattern
+- Use `packages:` prefix in workspace.yaml to specify package directories
+- Set up `.npmrc` with proper configurations for workspaces
+
+## Dependency Management
+
+- Use `pnpm add <package> -w` for root dependencies
+- Use `pnpm add <package> --filter <workspace>` for workspace-specific dependencies
+- Prefer workspace: protocol for internal package references (`"foo": "workspace:*"`)
+- Use `pnpm add -D <package>` for development dependencies
+
+## Script Execution
+
+- Use `pnpm -r <command>` to run commands in all workspaces
+- Use `pnpm --filter <pattern> <command>` for targeted execution
+- Prefer `--if-present` flag when running optional scripts
+- Utilize `--parallel` for independent tasks that can run concurrently
+
+## Cursor IDE: Configuration
+
+- Set up Cursor to recognize pnpm's symlinked structure
+- Configure TypeScript paths in `tsconfig.json` to support workspace imports
+- Use `.npmrc` settings to influence how Cursor resolves dependencies
+- Enable language server to work with pnpm's symlinking approach
+
+## Project Structure Best Practices
+
+- Organize related packages in subdirectories (`packages/`)
+- Keep a flat workspace structure at the root level
+- Use consistent naming conventions across workspaces
+- Maintain package architecture that follows the dependency graph
+
+## Code Navigation and Import Optimization
+
+- Configure path aliases in tsconfig.json to improve import readability
+- Structure imports to leverage pnpm's content-addressable storage
+- Avoid direct file path references between packages
+- Use package.json `exports` field to control exposed API surface
+
+## Versioning Strategies
+
+- Configure changesets for coordinated version bumps
+- Use `publishConfig` in package.json for publishing settings
+- Implement proper version ranges for internal dependencies
+- Use the `publish` field in package.json to control included files
+
+## CI/CD Integration
+
+- Set up CI cache for `.pnpm-store` directory
+- Use `pnpm install --frozen-lockfile` in CI
+- Implement build steps that respect the workspace dependency graph
+- Utilize `pnpm --filter` for focused testing and building
+
+## Troubleshooting
+
+- Use `pnpm why <package>` to understand dependency inclusion
+- Run `pnpm list` with `--depth` flag to inspect dependency trees
+- Check for circular dependencies with `pnpm dedupe --check`
+- Verify workspace resolution with `pnpm list --workspace`

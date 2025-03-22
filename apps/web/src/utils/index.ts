@@ -1,1 +1,0 @@
-export { pluralizeBeach } from './pluralizeBeach';
