@@ -1,0 +1,25 @@
+{
+  "name": "crawler",
+  "description": "Crawler for Playasmurcia",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsx src/index.ts",
+    "dev": "tsx watch src/index.ts",
+    "lint": "eslint src",
+    "check-types": "tsc --noEmit",
+    "format": "prettier --write \"src/**/*.{ts,json,md}\""
+  },
+  "dependencies": {
+    "axios": "^1.6.7"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^20.11.19",
+    "eslint": "^9.22.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.3.3"
+  }
+}

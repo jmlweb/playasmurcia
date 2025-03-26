@@ -1,17 +1,17 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "ui": "tui",
+  "globalDependencies": ["**/.env.*local"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": [".next/**", "dist/**"]
     },
     "lint": {
-      "dependsOn": ["^lint"]
+      "outputs": []
     },
     "check-types": {
-      "dependsOn": ["^check-types"]
+      "outputs": [],
+      "cache": false
     },
     "dev": {
       "cache": false,
