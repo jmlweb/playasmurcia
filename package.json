@@ -7,7 +7,9 @@
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,json,md}\"",
-    "check-types": "turbo check-types"
+    "check-types": "turbo check-types",
+    "test": "turbo test --filter=crawler",
+    "test:watch": "turbo test:watch --filter=crawler"
   },
   "devDependencies": {
     "turbo": "latest",

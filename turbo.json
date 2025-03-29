@@ -2,8 +2,15 @@
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
   "tasks": {
+    "crawler#start": {
+      "cache": false,
+      "persistent": true,
+      "env": ["MAPS_API_KEY"]
+    },
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build"]
+    },
+    "web#build": {
       "outputs": [".next/**", "dist/**"]
     },
     "lint": {
@@ -14,6 +21,16 @@
       "cache": false
     },
     "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "crawler:dev": {
+      "env": ["MAPS_API_KEY"]
+    },
+    "test": {
+      "dependsOn": ["^test"]
+    },
+    "test:watch": {
       "cache": false,
       "persistent": true
     }

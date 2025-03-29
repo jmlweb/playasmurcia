@@ -1,0 +1,223 @@
+---
+description: 
+globs: *.ts,*.tsx
+alwaysApply: false
+---
+# TypeScript Code Style Standards
+
+<rule>
+name: typescript_code_style
+description: Standards for TypeScript code style and best practices
+filters:
+  - type: file_extension
+    pattern: "\\.(ts|tsx)$"
+
+actions:
+  - type: suggest
+    message: |
+      When writing TypeScript code:
+
+      1. Programming Paradigms:
+         ```typescript
+         // ❌ Avoid classes when possible
+         class UserService {
+           private user: User;
+           constructor(user: User) {
+             this.user = user;
+           }
+         }
+
+         // ✅ Use functional approach
+         const createUserService = (user: User) => ({
+           getUser: () => user,
+           updateUser: (updates: Partial<User>) => ({ ...user, ...updates })
+         });
+         ```
+
+      2. Variable Naming:
+         ```typescript
+         // ❌ Avoid unclear names
+         const flag = true;
+         const data = [];
+
+         // ✅ Use descriptive names with auxiliary verbs
+         const isLoading = true;
+         const hasError = false;
+         const userList = [];
+         ```
+
+      3. Directory Structure:
+         ```
+         src/
+         ├── auth-wizard/
+         │   ├── components/
+         │   └── hooks/
+         ├── user-management/
+         │   ├── components/
+         │   └── utils/
+         └── shared/
+             ├── components/
+             └── types/
+         ```
+
+      4. Exports:
+         ```typescript
+         // ❌ Avoid default exports
+         export default function UserProfile() {}
+
+         // ✅ Use named exports
+         export const UserProfile = () => {};
+         export const useUserProfile = () => {};
+         ```
+
+      5. Enums vs Maps:
+         ```typescript
+         // ❌ Avoid enums
+         enum UserRole {
+           ADMIN = 'ADMIN',
+           USER = 'USER'
+         }
+
+         // ✅ Use const maps
+         const UserRole = {
+           ADMIN: 'ADMIN',
+           USER: 'USER'
+         } as const;
+         ```
+
+      6. Generics Usage:
+         ```typescript
+         // ❌ Avoid type assertions
+         const getFirst = (arr: any[]) => arr[0];
+
+         // ✅ Use generics
+         const getFirst = <T>(arr: T[]): T => arr[0];
+         ```
+
+      7. Code Organization:
+         - Keep files focused and single-responsibility
+         - Use barrel exports (index.ts) for clean imports
+         - Group related functionality in feature directories
+         - Keep components small and composable
+         - Use custom hooks for shared logic
+
+      8. Type Definitions:
+         ```typescript
+         // ❌ Avoid any
+         const handleData = (data: any) => {};
+
+         // ✅ Use specific types
+         interface UserData {
+           id: string;
+           name: string;
+           email: string;
+         }
+         const handleData = (data: UserData) => {};
+         ```
+
+      9. Error Handling:
+         ```typescript
+         // ❌ Avoid throwing raw strings
+         throw 'Invalid input';
+
+         // ✅ Use custom error types
+         class ValidationError extends Error {
+           constructor(message: string) {
+             super(message);
+             this.name = 'ValidationError';
+           }
+         }
+         ```
+
+      10. Testing:
+          - Write unit tests for pure functions
+          - Use integration tests for complex flows
+          - Mock external dependencies
+          - Test error cases and edge conditions
+
+      11. Performance:
+          ```typescript
+          // ❌ Avoid repeated array operations
+          const filtered = items.filter(item => item.active);
+          const mapped = filtered.map(item => item.name);
+          const sorted = mapped.sort();
+
+          // ✅ Chain operations or use reduce for complex transformations
+          const result = items
+            .filter(item => item.active)
+            .map(item => item.name)
+            .sort();
+
+          // ❌ Avoid unnecessary object creation in loops
+          for (const item of items) {
+            const newObj = { ...item, processed: true };
+            result.push(newObj);
+          }
+
+          // ✅ Use map for transformations
+          const result = items.map(item => ({ ...item, processed: true }));
+          ```
+
+          Additional Performance Guidelines:
+          - Use Map/Set for O(1) lookups instead of array methods
+          - Implement memoization for expensive computations
+          - Use WeakMap/WeakSet for garbage collection optimization
+          - Avoid creating closures in hot paths
+          - Use typed arrays for numeric operations
+          - Implement proper cleanup in event listeners
+          - Use requestAnimationFrame for smooth animations
+          - Implement proper debouncing/throttling for frequent events
+          - Use Web Workers for CPU-intensive tasks
+          - Implement proper caching strategies
+          - Use proper data structures for the use case (e.g., Queue vs Stack)
+          - Avoid unnecessary type assertions and checks
+          - Use proper iteration methods (for...of vs forEach)
+          - Implement proper error boundaries to prevent cascading failures
+
+      12. Documentation:
+          - Document complex functions with JSDoc
+          - Include examples in documentation
+          - Document type parameters
+          - Keep README files up to date
+
+examples:
+  - input: |
+      class DataService {
+        private data: any[];
+        constructor(data: any[]) {
+          this.data = data;
+        }
+        getData() {
+          return this.data;
+        }
+      }
+    output: |
+      interface DataItem {
+        id: string;
+        value: string;
+      }
+
+      const createDataService = <T extends DataItem>(data: T[]) => ({
+        getData: () => data,
+        filterData: (predicate: (item: T) => boolean) => data.filter(predicate)
+      });
+
+  - input: |
+      enum Status {
+        PENDING,
+        SUCCESS,
+        ERROR
+      }
+    output: |
+      const Status = {
+        PENDING: 'PENDING',
+        SUCCESS: 'SUCCESS',
+        ERROR: 'ERROR'
+      } as const;
+
+      type Status = typeof Status[keyof typeof Status];
+
+metadata:
+  priority: high
+  version: 1.0
+</rule>
