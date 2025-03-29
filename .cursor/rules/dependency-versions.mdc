@@ -1,0 +1,102 @@
+---
+description: 
+globs: package.json
+alwaysApply: false
+---
+# Dependency Version Standards
+
+<rule>
+name: dependency_versions
+description: Standards for managing package dependencies and versions
+filters:
+  - type: file_extension
+    pattern: "\\.json$"
+  - type: file_name
+    pattern: "^package\\.json$"
+
+actions:
+  - type: suggest
+    message: |
+      When managing package dependencies:
+
+      1. Version Format Guidelines:
+         - Always use the latest stable version from npm registry
+         - Use exact version numbers (e.g., ^15.2.4) instead of major versions (e.g., ^15.0.0)
+         - Verify versions at https://www.npmjs.com/package/{package-name}
+         - Check weekly downloads to ensure it's the main package
+         - Verify package is from official publisher
+
+      2. Version Update Process:
+         ```json
+         // Before (incorrect)
+         {
+           "dependencies": {
+             "next": "^15.0.0"
+           }
+         }
+
+         // After (correct)
+         {
+           "dependencies": {
+             "next": "^15.2.4"  // Latest stable version
+           }
+         }
+         ```
+
+      3. Best Practices:
+         - Never use major version ranges (e.g., ^15.0.0)
+         - Always specify the latest stable minor and patch versions
+         - Check compatibility with other dependencies
+         - Review breaking changes in release notes
+         - Test after version updates
+         - Keep dependencies in sync
+
+      4. Version Check Steps:
+         1. Visit npm registry for the package
+         2. Verify it's the official package
+         3. Check weekly download numbers
+         4. Review recent releases
+         5. Note the latest stable version
+         6. Update package.json with exact version
+         7. Run install and test
+
+      5. Common Pitfalls to Avoid:
+         - Using major version ranges
+         - Not verifying package authenticity
+         - Missing breaking changes
+         - Incompatible peer dependencies
+         - Not checking official sources
+         - Using unreleased versions
+
+examples:
+  - input: |
+      {
+        "dependencies": {
+          "next": "^15.0.0"
+        }
+      }
+    output: |
+      {
+        "dependencies": {
+          "next": "^15.2.4"  // Latest stable version from npm registry
+        }
+      }
+
+  - input: |
+      {
+        "dependencies": {
+          "react": "^18.0.0"
+        }
+      }
+    output: |
+      {
+        "dependencies": {
+          "react": "^18.2.0"  // Latest stable version from npm registry
+        }
+      }
+
+metadata:
+  priority: high
+  version: 1.0
+  source: "https://www.npmjs.com"
+</rule> 

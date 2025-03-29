@@ -12,8 +12,8 @@
     "test:watch": "turbo test:watch --filter=crawler"
   },
   "devDependencies": {
-    "turbo": "latest",
-    "prettier": "^3.2.5"
+    "prettier": "^3.5.3",
+    "turbo": "latest"
   },
   "packageManager": "pnpm@9.0.0",
   "engines": {
