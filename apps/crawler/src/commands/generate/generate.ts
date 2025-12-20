@@ -1,7 +1,14 @@
 import sourceData from '../../../source-data/beaches.json' assert { type: 'json' };
-import { normalize } from './normalize';
+import { normalize } from './normalize/normalize';
+import { PicturesExtractor } from './pictures-extractor';
 
 export const generate = async () => {
-  console.log(sourceData.map(normalize));
-  console.log(process.env.MAPS_API_KEY);
+  const extractPictures = await PicturesExtractor();
+  const beaches = await Promise.all(
+    sourceData.map(async (sourceItem) => {
+      const normalizedItem = normalize(sourceItem);
+      return extractPictures(normalizedItem);
+    }),
+  );
+  console.log(beaches);
 };

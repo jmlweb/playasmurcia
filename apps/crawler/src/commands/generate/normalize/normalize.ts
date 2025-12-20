@@ -1,4 +1,4 @@
-import { utmToLatLng } from './utmToLatLng';
+import { transformCoordinates } from './transform-coordinates';
 
 const TRANSLATIONS = {
   Código: 'code',
@@ -95,11 +95,11 @@ const getCoordinates = (beach: BeachInput) => {
   if (!beach.Latitud || !beach.Longitud) {
     throw new Error('No coordinates found');
   }
-  if (beach.Latitud < beach.Longitud) {
+  if (beach.Latitud < beach.Longitud && Number(beach.Latitud) < 10) {
     return [Number(beach.Longitud), Number(beach.Latitud)] as [number, number];
   }
   if (Number(beach.Longitud) > 10) {
-    return utmToLatLng(Number(beach.Longitud), Number(beach.Latitud));
+    return transformCoordinates(Number(beach.Longitud), Number(beach.Latitud));
   }
   return [Number(beach.Latitud), Number(beach.Longitud)] as [number, number];
 };
@@ -120,7 +120,12 @@ export const normalize = (beach: BeachInput): NormalizedBeach => {
         if (!acc.pictures) {
           acc.pictures = [];
         }
-        acc.pictures.push(value);
+        acc.pictures.push(
+          value.replace(
+            /https?:\/\/www\.murciaturistica\.es\/webs\/murciaturistica\/fotos\/1\/playas\//gi,
+            '',
+          ),
+        );
         return acc;
       }
 

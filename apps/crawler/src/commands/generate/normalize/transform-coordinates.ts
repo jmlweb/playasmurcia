@@ -17,7 +17,7 @@ const eccPrimeSquared = eccSquared / (1 - eccSquared);
 // This is the central meridian of the UTM zone and is used to determine the position of the zone.
 const longitudeOrigin = (30 - 1) * 6 - 180 + 3;
 
-export const utmToLatLng = (easting: number, northing: number) => {
+export const transformCoordinates = (easting: number, northing: number) => {
   // The first eccentricity of the ellipsoid.
   // This parameter describes the shape of the ellipsoid and is used in various calculations.
   const e1 = (1 - Math.sqrt(1 - eccSquared)) / (1 + Math.sqrt(1 - eccSquared));
