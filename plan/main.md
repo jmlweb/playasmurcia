@@ -35,13 +35,9 @@ Status indicators:
 18. [ ] step-18-add-google-place-ids.md
 19. [x] ~~step-19-add-certifications.md~~
 
-### Phase 2.5: Environmental
-20. [ ] step-22-calculate-sun-exposure.md
-
 ### Phase 3: Low Priority
-23. [ ] step-23-add-occupancy-level.md
-24. [ ] step-24-add-historical-info.md
-25. [ ] step-25-add-camping-nearby.md
+20. [x] ~~step-23-add-occupancy-level.md~~
+21. [ ] step-25-add-camping-nearby.md
 26. [x] ~~step-26-sort-pictures-by-size.md~~
 
 ### Phase 4: SEO

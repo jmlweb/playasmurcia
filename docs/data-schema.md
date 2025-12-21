@@ -53,6 +53,7 @@ interface Beach {
   instagramHashtag: string  // Instagram hashtag for the beach
 
   // Optional
+  occupancyLevel?: "low" | "medium" | "high"  // Typical crowd level
   certifications?: ("blue-flag" | "q-quality" | "ecoplayas")[]  // Official certifications
   bestSeason?: ("spring" | "summer" | "autumn" | "winter")[]  // Best visiting seasons
   district?: string         // District within municipality

@@ -137,3 +137,17 @@ Script: `scripts/add-dog-friendly.js` (run seasonally)
 Lifeguard data comes from the COPLA system (112 Región de Murcia).
 
 Script: `scripts/add-lifeguard-info.js` (run seasonally)
+
+## Occupancy Level
+
+Typical crowd level is inferred from beach characteristics:
+
+| Level | Criteria |
+|-------|----------|
+| high | Urban beaches, promenade, accessible tag, La Manga/Los Alcázares/San Pedro, 2+ certifications |
+| low | Wild/isolated/nudist tags, remote calas without lifeguard or services |
+| medium | Everything else |
+
+**Distribution:** ~47% high, ~26% medium, ~26% low
+
+Script: `scripts/add-occupancy-level.js`
