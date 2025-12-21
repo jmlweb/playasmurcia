@@ -17,8 +17,9 @@ Status indicators:
 2. [x] ~~step-02-orientation.md~~
 3. [x] ~~step-03-instagram-hashtag.md~~
 4. [x] ~~step-04-fix-validation-bounds.md~~
-5. [ ] step-05-add-missing-access.md
-6. [ ] step-06-validate-beaches.md
+5. [x] ~~step-05-add-missing-access.md~~
+6. [x] ~~step-06-validate-beaches.md~~
+7. [x] ~~step-07-consolidate-access-description.md~~
 
 ## Notes
 

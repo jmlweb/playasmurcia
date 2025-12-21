@@ -1,35 +1,41 @@
-# Step 06: Validate Beaches Data
+import { readFileSync } from 'fs'
 
-## Objective
-
-Create a validation script that checks `data/beaches.json` against all rules defined in `data/CLAUDE.md`.
-
-## Implementation
-
-Create `scripts/validate-beaches.js`:
-
-```javascript
-const beaches = require('../data/beaches.json')
-const municipalities = require('../data/municipalities.json')
-const seas = require('../data/seas.json')
+const beaches = JSON.parse(readFileSync('./data/beaches.json', 'utf-8'))
+const municipalities = JSON.parse(readFileSync('./data/municipalities.json', 'utf-8'))
+const seas = JSON.parse(readFileSync('./data/seas.json', 'utf-8'))
 
 const errors = []
 const warnings = []
 
-const allCodes = new Set(beaches.map(b => b.code))
+const allCodes = new Set(beaches.map((b) => b.code))
 
 const requiredFields = [
-  'code', 'name', 'municipality', 'sea', 'coordinates',
-  'soilType', 'blueFlag', 'nudist', 'accessible', 'promenade',
-  'anchorageZone', 'description', 'access', 'nearby'
+  'code',
+  'name',
+  'municipality',
+  'sea',
+  'coordinates',
+  'soilType',
+  'blueFlag',
+  'nudist',
+  'accessible',
+  'promenade',
+  'anchorageZone',
+  'description',
+  'access',
+  'nearby',
 ]
 
 beaches.forEach((beach, index) => {
   const prefix = `Beach ${beach.code || index}`
 
   // Required fields
-  requiredFields.forEach(field => {
-    if (beach[field] === undefined || beach[field] === null || beach[field] === '') {
+  requiredFields.forEach((field) => {
+    if (
+      beach[field] === undefined ||
+      beach[field] === null ||
+      beach[field] === ''
+    ) {
       errors.push(`${prefix}: missing required field '${field}'`)
     }
   })
@@ -53,7 +59,7 @@ beaches.forEach((beach, index) => {
 
   // Nearby validation
   if (beach.nearby) {
-    beach.nearby.forEach(code => {
+    beach.nearby.forEach((code) => {
       if (!allCodes.has(code)) {
         errors.push(`${prefix}: nearby contains invalid code '${code}'`)
       }
@@ -69,11 +75,10 @@ beaches.forEach((beach, index) => {
   }
 
   // Phone format (Spanish)
-  if (beach.phone && !beach.phone.match(/^[\d\s\/]+$/)) {
+  if (beach.phone && !beach.phone.match(/^[\d\s/]+$/)) {
     warnings.push(`${prefix}: phone format may be invalid '${beach.phone}'`)
   }
 
-  // Code uniqueness (checked via Set)
   // aemetId format
   if (beach.aemetId && !beach.aemetId.match(/^30\d{5}$/)) {
     errors.push(`${prefix}: aemetId should be 7 digits starting with 30`)
@@ -82,7 +87,7 @@ beaches.forEach((beach, index) => {
 
 // Check for duplicate codes
 const codeCounts = {}
-beaches.forEach(b => {
+beaches.forEach((b) => {
   codeCounts[b.code] = (codeCounts[b.code] || 0) + 1
 })
 Object.entries(codeCounts).forEach(([code, count]) => {
@@ -97,47 +102,12 @@ console.log(`Warnings: ${warnings.length}`)
 
 if (errors.length) {
   console.log(`\n--- Errors ---`)
-  errors.forEach(e => console.log(`  ✗ ${e}`))
+  errors.forEach((e) => console.log(`  ✗ ${e}`))
 }
 
 if (warnings.length) {
   console.log(`\n--- Warnings ---`)
-  warnings.forEach(w => console.log(`  ⚠ ${w}`))
+  warnings.forEach((w) => console.log(`  ⚠ ${w}`))
 }
 
 process.exit(errors.length > 0 ? 1 : 0)
-```
-
-## Usage
-
-```bash
-node scripts/validate-beaches.js
-```
-
-## Validation Checks
-
-| Category | Check |
-|----------|-------|
-| Required fields | All 14 required fields present |
-| Coordinates | Latitude [37.37, 37.9], Longitude [-1.7, -0.6] |
-| References | municipality/sea indices valid |
-| Nearby | All codes exist, not empty |
-| URLs | Valid http/https format |
-| Phone | Spanish format |
-| aemetId | 7 digits starting with 30 |
-| Uniqueness | No duplicate codes |
-
-## Exit Codes
-
-- `0`: All validations passed
-- `1`: One or more errors found
-
-## Validation Checklist
-
-- [ ] Script created at `scripts/validate-beaches.js`
-- [ ] Script runs without syntax errors
-- [ ] All current data passes validation (after fixing known issues)
-
-## Source
-
-Derived from validation rules in `data/CLAUDE.md`.

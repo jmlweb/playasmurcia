@@ -42,7 +42,6 @@
 | `soilType`, `blueFlag`, `nudist`, `accessible`, `promenade`, `anchorageZone` | 194/194 | Boolean/string fields |
 | `description` | 194/194 | AI-generated via Ollama |
 | `access` | 194/194 | Text directions |
-| `accessInfo` | 189/194 | AI-extracted structured data |
 | `pictures` | 187/194 | Image arrays |
 | `aemetId` | 65/194 | AEMET weather API codes |
 | `nearby` | 194/194 | Related beach codes |
@@ -75,21 +74,17 @@ node scripts/add-aemet-ids.js
 - Adds `aemetId` field for beaches with AEMET coverage (65 beaches)
 - Required for weather prediction integration (used by services, see [CREATE_SERVICES.md](./CREATE_SERVICES.md))
 
-### 3. Improve Access Info (`scripts/improve-access.js`) ✅ Executed
+### 3. Enrich Access Descriptions (`scripts/enrich-access.js`) ⏳ Pending
 
-Extracts structured data from the existing `access` text field using Ollama.
+Improves short or missing `access` descriptions using Ollama.
 
 ```bash
-node scripts/improve-access.js
+node scripts/enrich-access.js
 ```
 
-Adds `accessInfo` object with:
-- `hasParking`: boolean
-- `hasBusAccess`: boolean
-- `hasBoatAccess`: boolean
-- `walkingRequired`: boolean
-- `roadType`: "asphalt" | "dirt" | "path" | "unknown"
-- `difficultyLevel`: "easy" | "moderate" | "difficult"
+- Processes beaches with short/missing access descriptions
+- Uses existing data to generate richer descriptions
+- Integrates parking, difficulty, and access type information into the text
 
 ---
 
@@ -114,12 +109,31 @@ Adds `accessInfo` object with:
 
 | Field | Type | Source | Script | Status |
 |-------|------|--------|--------|--------|
-| `length` | number | OpenStreetMap Overpass API | `add-dimensions.js` | ⏳ Pending |
+| `length` | number | OpenStreetMap / MITECO | `add-dimensions.js` | ⏳ Pending |
+| `avgWidth` | number | MITECO Guía de Playas | `add-dimensions.js` | ⏳ Pending |
+| `tags` | string[] | Ollama inference | `generate-tags.js` | ⏳ Pending |
 | `activities` | string[] | Ollama inference + web | `extract-activities.js` | ⏳ Pending |
 | `bestSeason` | string[] | Ollama inference | `add-best-season.js` | ⏳ Pending |
 | `seasonalServices` | object | Official sources | `add-seasonal-services.js` | ⏳ Pending |
 | `googlePlaceId` | string | Google Places API | `add-google-place-ids.js` | ⏳ Pending |
 | `certifications` | string[] | Official sources | `add-certifications.js` | ⏳ Pending |
+
+**Tags values** (vibe/categorization):
+```
+["familiar", "salvaje", "aislada", "urbana", "snorkel", "buceo", "deportes-nauticos",
+ "chiringuito", "paseo-maritimo", "nudista", "canina", "accesible", "rocosa",
+ "arena-fina", "aguas-tranquilas", "calas", "acantilados", "puesta-sol", "fotogenica"]
+```
+
+### Phase 2.5: Environmental Data (New)
+
+| Field | Type | Source | Script | Status |
+|-------|------|--------|--------|--------|
+| `protectedArea` | object | Red Natura 2000 / MITECO | `add-protected-areas.js` | ⏳ Pending |
+| `seabedType` | string | IEO cartography | `add-seabed-type.js` | ⏳ Pending |
+| `sunExposure` | object | IGN elevation + GIS | `calculate-sun-exposure.js` | ⏳ Pending |
+
+**Seabed type values**: `"arena" | "posidonia" | "roca" | "grava" | "mixto"`
 
 
 **Activities values**: `["swimming", "snorkeling", "diving", "kayak", "paddleboard", "windsurf", "kitesurf", "sailing", "fishing", "volleyball"]`
@@ -188,7 +202,6 @@ interface Beach {
 
   // Existing generated fields
   description: string
-  accessInfo?: AccessInfo
   aemetId?: string
   pictures?: string[]
 
@@ -211,12 +224,19 @@ interface Beach {
 
   // Phase 2: Medium Priority
   length?: number               // Meters
+  avgWidth?: number             // Average width in meters (MITECO)
   orientation?: string          // Cardinal direction beach faces
   activities?: string[]
   bestSeason?: string[]
   seasonalServices?: SeasonalServices
   googlePlaceId?: string        // For Google Reviews integration
   certifications?: string[]     // ["blue-flag", "q-quality", ...]
+  tags?: string[]               // Vibe tags: ["familiar", "salvaje", "snorkel", ...]
+
+  // Phase 2.5: Environmental Data
+  protectedArea?: ProtectedArea // Red Natura 2000, Parque Natural, etc.
+  seabedType?: string           // Arena, posidonia, roca, mixto
+  sunExposure?: SunExposure     // Sun/shadow analysis
 
   // Phase 3: Low Priority
   occupancyLevel?: "low" | "medium" | "high"
@@ -230,13 +250,18 @@ interface Beach {
   seoKeywords?: string[]
 }
 
-interface AccessInfo {
-  hasParking: boolean | null
-  hasBusAccess: boolean | null
-  hasBoatAccess: boolean | null
-  walkingRequired: boolean | null
-  roadType: "asphalt" | "dirt" | "path" | "unknown" | null
-  difficultyLevel: "easy" | "moderate" | "difficult" | null
+interface ProtectedArea {
+  isProtected: boolean
+  name?: string                       // "Parque Natural de Cabo Cope y Puntas de Calnegre"
+  type?: "parque-natural" | "red-natura-2000" | "lic" | "zepa" | "reserva-marina"
+  restrictions?: string[]             // ["no-anchorage", "no-fishing", ...]
+}
+
+interface SunExposure {
+  orientation: "N" | "NE" | "E" | "SE" | "S" | "SW" | "W" | "NW"
+  morningShade: boolean               // Cliffs block morning sun
+  afternoonShade: boolean             // Cliffs block afternoon sun
+  estimatedSunHours?: number          // Peak summer hours of direct sun
 }
 
 interface SeasonalServices {
@@ -305,7 +330,88 @@ interface Translations {
 3. Match beach names to our database
 4. Extract `calidad` field and map to our schema
 
-### 4. OpenStreetMap - Beach Dimensions & Amenities
+### 4. MITECO - Guía de Playas (Beach Dimensions)
+
+**Portal**: https://www.miteco.gob.es/es/costas/servicios/guia-playas/
+
+**Data**: Official beach census with physical characteristics
+
+**Relevant fields**:
+- Beach length and average width
+- Sediment type (sand, gravel, rocks)
+- Wave conditions
+- Urbanization level
+- Promenade presence
+
+**Script approach**:
+1. Search beach by name or coordinates
+2. Extract physical dimensions (`length`, `avgWidth`)
+3. Verify/enrich `soilType` with official classification
+4. Cross-reference with existing data
+
+**Note**: This complements OSM data with official measurements.
+
+### 5. IGN - Instituto Geográfico Nacional
+
+**Portal**: https://www.ign.es/web/ign/portal
+
+**Services**: WFS/WMS cartographic services
+
+**Potential data**:
+- Official toponymy (beach names verification)
+- Coastline delimitation
+- Elevation data for sun exposure analysis
+
+**API**: https://www.ign.es/web/ign/portal/ide-area-nodo-ide-ign
+
+**Script approach**:
+1. Query WFS service by coordinates
+2. Validate/correct beach names with official toponymy
+3. Use elevation data to calculate shadow patterns (cliffs, hills)
+
+### 6. IEO - Instituto Español de Oceanografía
+
+**Portal**: https://www.ieo.es/
+
+**Cartographic services**: Marine cartography and seabed data
+
+**Relevant data**:
+- Seabed type (sand, posidonia, rock, mixed)
+- Bathymetry (depth profiles)
+- Posidonia oceanica meadows (protected, valuable for divers)
+
+**Script approach**:
+1. Query marine cartography by beach coordinates
+2. Extract seabed classification for `seabedType` field
+3. Flag beaches with posidonia (high ecological value)
+
+**Note**: Posidonia presence is valuable for snorkeling/diving beaches.
+
+### 7. Red Natura 2000 & Protected Areas
+
+**Portal**: https://www.miteco.gob.es/es/biodiversidad/temas/espacios-protegidos/red-natura-2000/
+
+**Data download**: https://www.miteco.gob.es/es/biodiversidad/servicios/banco-datos-naturaleza/
+
+**Protected area types**:
+- **LIC** (Lugares de Importancia Comunitaria)
+- **ZEPA** (Zonas de Especial Protección para las Aves)
+- **Parques Naturales** (Regional/National)
+- **Reservas Marinas**
+
+**Murcia protected areas affecting beaches**:
+- Parque Regional de Cabo Cope y Puntas de Calnegre
+- Parque Regional de Calblanque
+- Espacios abiertos e islas del Mar Menor
+- Sierra de la Fausilla
+
+**Script approach**:
+1. Download protected areas shapefile
+2. Check if beach coordinates fall within protected boundaries
+3. Extract protection type and name
+4. Add restrictions if applicable (no anchoring, fishing limits)
+
+### 8. OpenStreetMap - Beach Dimensions & Amenities
 
 **API**: Overpass API (https://overpass-api.de/)
 
@@ -440,9 +546,13 @@ node scripts/add-aemet-ids.js
 # 2. Generate descriptions (requires Ollama, ~30min)
 ollama serve  # if not running
 node scripts/generate-descriptions.js
+```
 
-# 3. Extract access info (requires Ollama, ~20min)
-node scripts/improve-access.js
+### ⏳ Next: Enrich Access
+
+```bash
+# 3. Enrich access descriptions (requires Ollama, ~40min)
+node scripts/enrich-access.js
 ```
 
 ### ⏳ Next Steps (Phase 1)
@@ -467,20 +577,36 @@ node scripts/add-webcams.js
 ### Phase 2
 
 ```bash
-# 9. Add beach dimensions from OSM
+# 9. Add beach dimensions from OSM + MITECO
 node scripts/add-dimensions.js
 
-# 12. Extract activities (Ollama inference)
+# 10. Generate vibe tags (Ollama inference, ~30min)
+node scripts/generate-tags.js
+
+# 11. Extract activities (Ollama inference)
 node scripts/extract-activities.js
 
-# 13. Add seasonal services calendar
+# 12. Add seasonal services calendar
 node scripts/add-seasonal-services.js
 
-# 14. Add Google Place IDs (requires API key)
+# 13. Add Google Place IDs (requires API key)
 node scripts/add-google-place-ids.js
 
-# 15. Add certifications (Blue Flag, Q Calidad)
+# 14. Add certifications (Blue Flag, Q Calidad)
 node scripts/add-certifications.js
+```
+
+### Phase 2.5: Environmental Data
+
+```bash
+# 15. Add protected areas (Red Natura 2000, Parques Naturales)
+node scripts/add-protected-areas.js
+
+# 16. Add seabed type (IEO cartography)
+node scripts/add-seabed-type.js
+
+# 17. Calculate sun exposure (IGN elevation data)
+node scripts/calculate-sun-exposure.js
 ```
 
 ### Phase 3
@@ -515,7 +641,7 @@ node scripts/generate-seo-keywords.js
 1. Get data from official sources (Region of Murcia, 112)
 2. Add entry with all required fields (except `description`)
 3. Run `generate-descriptions.js` to generate description
-4. Run `improve-access.js` to extract access info
+4. Run `enrich-access.js` to improve access description if needed
 5. Optionally run `add-aemet-ids.js` to check for AEMET code
 
 ### Adding a New Beach (from scratch)
@@ -539,7 +665,7 @@ When a beach is not in official sources, gather data using:
 ### Updating Beach Information
 
 1. Edit the specific fields in `beaches.json`
-2. If updating `access`, delete `accessInfo` and re-run `improve-access.js`
+2. If updating `access`, you can edit it directly or re-run `enrich-access.js`
 3. Never edit `description` directly - delete and regenerate if needed
 
 ### Validating Data
