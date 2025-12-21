@@ -4,7 +4,7 @@ This document describes the business logic and data processing rules for the pro
 
 ## Beach Orientation
 
-Orientation is calculated automatically based on coordinates:
+Orientation was calculated based on coordinates:
 
 | Condition | Orientation |
 |-----------|-------------|
@@ -13,8 +13,6 @@ Orientation is calculated automatically based on coordinates:
 | Mar Mediterráneo + latitude > 37.65 | southeast |
 | Mar Mediterráneo + latitude > 37.55 | east |
 | Mar Mediterráneo + latitude <= 37.55 | southeast |
-
-Script: `scripts/add-orientation.js`
 
 ## AEMET Integration
 
@@ -32,13 +30,9 @@ Weather predictions are available for beaches with `aemetId`.
 - Data: Temperature, wind, wave height, UV index
 - Cache: 30 minutes (data is ephemeral, not stored)
 
-Script: `scripts/add-aemet-ids.js`
+## Content Guidelines
 
-## Content Generation
-
-### Description Generation
-
-Descriptions are generated using Ollama (`gemma3:4b`) for cost efficiency.
+### Description Field
 
 **Guidelines:**
 - 2-3 sentences, max 150 words
@@ -46,8 +40,6 @@ Descriptions are generated using Ollama (`gemma3:4b`) for cost efficiency.
 - Tourist-oriented, highlight key features
 - Include: sand type, water conditions, accessibility
 - Avoid: promotional language, unverified claims
-
-Script: `scripts/generate-descriptions.js`
 
 ### Access vs Description Separation
 
@@ -61,11 +53,9 @@ The `access` field must contain only practical information:
 | Road type (asphalt/dirt) | Tourist recommendations |
 | Difficulty level | Nearby attractions |
 
-Script: `scripts/consolidate-access-description.js`
-
 ## Instagram Hashtags
 
-Generated automatically from beach name:
+Generated from beach name using this pattern:
 
 1. Remove accents (á→a, é→e, etc.)
 2. Remove special characters
@@ -74,7 +64,24 @@ Generated automatically from beach name:
 
 Example: "Cala Abierta" → "#CalaAbierta"
 
-Script: `scripts/add-social-tags.js`
+## Beach Certifications
+
+Official certifications are assigned based on annual awards:
+
+| Certification | Source | Update Frequency |
+|---------------|--------|------------------|
+| `blue-flag` | ADEAC/FEE (banderaazul.org) | Annual (spring) |
+| `q-quality` | ICTE (calidadturisticahoy.es) | Annual |
+| `ecoplayas` | ATEGRUS | Annual |
+
+**2025 Murcia counts:**
+- Blue Flag: 29 beaches
+- Q de Calidad: 37 beaches
+- Ecoplayas: 3 beaches (Mazarrón only)
+
+To check Blue Flag status: `beach.certifications?.includes('blue-flag')`
+
+Script: `scripts/add-certifications.js` (run annually)
 
 ## Jellyfish Risk
 
@@ -103,11 +110,30 @@ Calculate once and store (don't compute at runtime):
 - Instagram hashtags (from name)
 - Nearby beaches (from coordinates)
 
-### Script Patterns
+## Best Season
 
-All enrichment scripts should:
-1. Read current `beaches.json`
-2. Process only beaches missing the target field
-3. Save progress every 10 beaches (recovery on failure)
-4. Validate before writing
-5. Log progress to console
+Best visiting seasons are inferred using Ollama based on:
+
+| Factor | Impact |
+|--------|--------|
+| Orientation | South/southwest = more winter sun |
+| Sea | Mar Menor = warmer in spring/autumn |
+| Tags | Sheltered calas = wind protection |
+| Services | Urban beaches = year-round access |
+
+**Season distribution:**
+- Most beaches: `["spring", "summer", "autumn"]`
+- Sheltered south-facing: `["spring", "summer", "autumn", "winter"]`
+- All beaches include summer
+
+## Dog-Friendly Beaches
+
+Official dog-friendly beaches are designated by municipal ordinances.
+
+Script: `scripts/add-dog-friendly.js` (run seasonally)
+
+## Lifeguard Service
+
+Lifeguard data comes from the COPLA system (112 Región de Murcia).
+
+Script: `scripts/add-lifeguard-info.js` (run seasonally)

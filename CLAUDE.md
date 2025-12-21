@@ -21,7 +21,7 @@ For long-running processes (Ollama calls, batch operations, API requests), creat
 
 ```bash
 # Return this instead of running directly:
-node scripts/generate-descriptions.js
+node scripts/add-certifications.js
 ```
 
 ### Data Editing
@@ -29,3 +29,25 @@ node scripts/generate-descriptions.js
 - Never manually edit generated fields (`description`, `accessInfo`)
 - Run the appropriate script to regenerate
 - See [data-schema.md](./docs/data-schema.md) for validation rules
+
+### Documentation Maintenance
+
+After any structural or code change, update the corresponding documentation in `docs/`:
+
+| Change Type | Update |
+|-------------|--------|
+| New/modified data fields | `data-schema.md` - schemas, validation rules |
+| New data files (JSON) | `data-schema.md` - file table, relationships |
+| New scripts | `business-rules.md` and `development.md` - script tables |
+| Business logic changes | `business-rules.md` - relevant section |
+| New dependencies/tech | `architecture.md` - tech stack table |
+| Project structure changes | `architecture.md` - directory tree |
+| New commands | `development.md` - commands section |
+| New routes/pages | `architecture.md` - routing section |
+
+**Checklist before completing a task:**
+
+1. Did I add/modify a data schema? → Update `data-schema.md`
+2. Did I add/modify business logic? → Update `business-rules.md`
+3. Did I add/modify project structure? → Update `architecture.md`
+4. Did I add/modify dev workflow? → Update `development.md`

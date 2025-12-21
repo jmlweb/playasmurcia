@@ -34,16 +34,14 @@ Data processing scripts live in `scripts/`. Run with:
 node scripts/script-name.js
 ```
 
-### Common Scripts
+### Available Scripts
 
-| Script | Purpose |
-|--------|---------|
-| `generate-descriptions.js` | Generate beach descriptions with Ollama |
-| `add-orientation.js` | Calculate beach orientation from coordinates |
-| `add-aemet-ids.js` | Map beaches to AEMET weather codes |
-| `add-social-tags.js` | Generate Instagram hashtags |
-| `validate-beaches.js` | Validate all beach data |
-| `consolidate-access-description.js` | Separate access from description |
+| Script | Purpose | Frequency |
+|--------|---------|-----------|
+| `add-certifications.js` | Update Blue Flag, Q Quality, Ecoplayas | Annual |
+| `add-dog-friendly.js` | Update dog-friendly beaches list | Seasonal |
+| `add-lifeguard-info.js` | Update COPLA lifeguard data | Seasonal |
+| `validate-beaches.js` | Validate all beach data | As needed |
 
 ## Cost Optimization
 
@@ -65,7 +63,7 @@ For long-running scripts, return the command instead of running directly:
 
 ```bash
 # Instead of streaming large outputs, suggest:
-node scripts/generate-descriptions.js
+node scripts/add-certifications.js
 ```
 
 This saves tokens by avoiding large output streams in the conversation.
