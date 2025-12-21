@@ -24,7 +24,8 @@
     ],
     "description": "Cala Abierta, en Cartagena, te espera con un tranquilo mar Mediterráneo y una arena media de tonalidad gris. Disfruta de un entorno natural relajado, ideal para un día de playa en compañía de familiares y amigos. Aunque carece de servicios y acceso directo, ofrece un espacio tranquilo para desconectar y disfrutar del sol y el mar.",
     "orientation": "southeast",
-    "instagramHashtag": "#CalaAbierta"
+    "instagramHashtag": "#CalaAbierta",
+    "dogFriendly": false
   },
   {
     "code": "601",
@@ -54,7 +55,8 @@
     ],
     "description": "Cala Aguilar, en Cartagena, ofrece un tranquilo remanso de arena fina y gris en el corazón del Mediterráneo. Ideal para disfrutar de un día relajante, esta cala cuenta con aguas cristalinas y un ambiente familiar. Aunque no dispone de servicios ni paseo marítimo, su belleza natural y su tranquilidad la convierten en un lugar perfecto para desconectar.",
     "orientation": "east",
-    "instagramHashtag": "#CalaAguilar"
+    "instagramHashtag": "#CalaAguilar",
+    "dogFriendly": false
   },
   {
     "code": "516",
@@ -84,7 +86,8 @@
     ],
     "description": "Cala Arturo, en Cartagena, te espera con su arena fina y dorada, invitándote a disfrutar del refrescante Mar Mediterráneo. Esta cala tranquila ofrece un entorno natural ideal para relajarse y disfrutar de un día de sol. Aunque carece de servicios como paseo marítimo o zona de fondeo, su belleza natural y su ambiente relajado la convierten en un lugar perfecto para una escapada familiar o una tarde de desconexión.",
     "orientation": "east",
-    "instagramHashtag": "#CalaArturo"
+    "instagramHashtag": "#CalaArturo",
+    "dogFriendly": false
   },
   {
     "code": "559",
@@ -114,7 +117,8 @@
     ],
     "description": "Cala Avellán, un rincón tranquilo en Cartagena, te espera con su arena fina y dorada, perfecta para disfrutar del mar Mediterráneo. Esta cala ofrece un ambiente relajado para nadar y tomar el sol, ideal para familias y aquellos que buscan un lugar sencillo y sin complicaciones. Aunque no cuenta con servicios cercanos, su belleza natural y sus aguas cristalinas la convierten en un pequeño tesoro costero en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#CalaAvellan"
+    "instagramHashtag": "#CalaAvellan",
+    "dogFriendly": false
   },
   {
     "code": "628",
@@ -149,7 +153,8 @@
     ],
     "description": "Cala Blanca, en Lorca, es un pequeño oasis de arena gruesa, grava y bolos a orillas del refrescante Mar Mediterráneo. Disfruta de su entorno natural, ideal para relajarse y disfrutar del sol. Aunque no cuenta con servicios como paseo marítimo ni zona de fondeo, ofrece un refugio tranquilo para aquellos que buscan una playa auténtica en la Región de Murcia.",
     "orientation": "southeast",
-    "instagramHashtag": "#CalaBlanca"
+    "instagramHashtag": "#CalaBlanca",
+    "dogFriendly": false
   },
   {
     "code": "522",
@@ -179,7 +184,8 @@
     ],
     "description": "Cala Botella, en Cartagena, es un pequeño tesoro del Mediterráneo con arena de bolos y aguas cristalinas. Este enclave natural ofrece un paisaje impresionante y tranquilo, ideal para disfrutar de un día de sol y mar. Aunque carece de servicios y acceso directo, su belleza natural la convierte en un lugar especial para quienes buscan una escapada relajante en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#CalaBotella"
+    "instagramHashtag": "#CalaBotella",
+    "dogFriendly": false
   },
   {
     "code": "7050",
@@ -214,7 +220,8 @@
     ],
     "description": "Cala Canalicas, en Águilas, es un pequeño y encantador puerto pesquero con una arena gruesa y un mar Mediterráneo cristalino. Ideal para disfrutar de un día de sol relajante y observar la actividad de los barcos. Con su ambiente tranquilo, ofrece un lugar perfecto para familias y aquellos que buscan una escapada tranquila en la Región de Murcia.",
     "orientation": "southeast",
-    "instagramHashtag": "#CalaCanalicas"
+    "instagramHashtag": "#CalaCanalicas",
+    "dogFriendly": false
   },
   {
     "code": "658",
@@ -245,7 +252,8 @@
     ],
     "description": "Cala Cerrada, en Cartagena, te ofrece un tranquilo rincón de arena media y gris junto al Mar Mediterráneo. Disfruta de un ambiente relajado en esta cala, ideal para un día de sol y un baño refrescante. Aunque no cuenta con paseo marítimo ni zona de fondeo, su belleza natural la convierte en un lugar perfecto para desconectar.",
     "orientation": "southeast",
-    "instagramHashtag": "#CalaCerrada"
+    "instagramHashtag": "#CalaCerrada",
+    "dogFriendly": false
   },
   {
     "code": "512",
@@ -286,7 +294,8 @@
     ],
     "description": "Cala Cortina, en Cartagena, es un paraíso de arena gruesa y aguas cristalinas del Mar Mediterráneo. Esta playa, con Bandera Azul, ofrece un entorno familiar y accesible, ideal para disfrutar de un día de sol y baño. Su accesibilidad y seguridad la convierten en una opción perfecta para familias y visitantes que buscan tranquilidad y calidad en su experiencia playera.",
     "orientation": "east",
-    "instagramHashtag": "#CalaCortina"
+    "instagramHashtag": "#CalaCortina",
+    "dogFriendly": false
   },
   {
     "code": "663",
@@ -328,7 +337,8 @@
     "aemetId": "3002414",
     "description": "La Cala de Calnegre, en Lorca, es un paraíso de arena fina y dorada en el corazón del Mediterráneo. Con su bandera azul, garantiza aguas limpias y seguras para disfrutar del baño. Además, la cala es accesible y cuenta con todas las instalaciones necesarias para una estancia cómoda y relajante.",
     "orientation": "southeast",
-    "instagramHashtag": "#CalaDeCalnegre"
+    "instagramHashtag": "#CalaDeCalnegre",
+    "dogFriendly": false
   },
   {
     "code": "551",
@@ -363,7 +373,8 @@
     ],
     "description": "La Cala de La Gruta, en Lorca, te espera con su arena fina de bolos y el refrescante abrazo del Mar Mediterráneo. Disfruta de este rincón tranquilo, ideal para relajarse y disfrutar de la costa murciana. Aunque no cuenta con paseo marítimo ni zona de fondeo, ofrece un ambiente natural y relajado para una escapada agradable.",
     "orientation": "southeast",
-    "instagramHashtag": "#CalaDeLaGruta"
+    "instagramHashtag": "#CalaDeLaGruta",
+    "dogFriendly": false
   },
   {
     "code": "610",
@@ -393,7 +404,8 @@
     ],
     "description": "Cala de La Herradura, en Águilas, es un encantador puerto deportivo con aguas cristalinas del Mar Mediterráneo y una arena media mezclada con grava. Ideal para disfrutar de un día de baño y actividades acuáticas, ofrece un entorno tranquilo y natural. Aunque no cuenta con paseo marítimo ni zona de fondeo, su belleza natural la convierte en un destino perfecto para relajarse y conectar con el mar.",
     "orientation": "southeast",
-    "instagramHashtag": "#CalaDeLaHerradura"
+    "instagramHashtag": "#CalaDeLaHerradura",
+    "dogFriendly": false
   },
   {
     "code": "605",
@@ -427,7 +439,8 @@
     ],
     "description": "La Cala de las Melvas, en Cartagena, ofrece un tranquilo remanso en el Mar Mediterráneo con arena de bolos. Ideal para disfrutar de un día relajante, este pequeño puerto alberga un ambiente familiar y un mar cristalino. No cuenta con servicios como paseo marítimo o zona de fondeo, pero su encanto reside en su tranquilidad y belleza natural.",
     "orientation": "east",
-    "instagramHashtag": "#CalaDeLasMelvas"
+    "instagramHashtag": "#CalaDeLasMelvas",
+    "dogFriendly": false
   },
   {
     "code": "513",
@@ -457,7 +470,8 @@
     ],
     "description": "La Cala de las Mulas, en Cartagena, te espera con su arena fina y dorada, invitándote a disfrutar del refrescante Mar Mediterráneo. Esta tranquila cala es perfecta para relajarse y disfrutar de un día de sol en un entorno natural. Aunque no cuenta con paseo marítimo ni zona de fondeo, ofrece un respiro auténtico en la costa murciana.",
     "orientation": "east",
-    "instagramHashtag": "#CalaDeLasMulas"
+    "instagramHashtag": "#CalaDeLasMulas",
+    "dogFriendly": false
   },
   {
     "code": "7053",
@@ -490,7 +504,8 @@
     ],
     "description": "La Cala de los Abejorros, en Águilas, es un remanso de arena gruesa y grava junto al cristalino Mar Mediterráneo. Ofrece un paisaje natural salvaje y tranquilo, ideal para disfrutar de un día de sol y un baño refrescante. Aunque no cuenta con servicios cercanos, su belleza natural y ambiente relajado la convierten en un lugar especial para aquellos que buscan desconectar del bullicio.",
     "orientation": "southeast",
-    "instagramHashtag": "#CalaDeLosAbejorros"
+    "instagramHashtag": "#CalaDeLosAbejorros",
+    "dogFriendly": false
   },
   {
     "code": "631",
@@ -526,7 +541,8 @@
     ],
     "description": "La Cala de San Pedro, en Lorca, es un pequeño paraíso con arena fina y bolos que invita al descanso y la tranquilidad. Disfruta del refrescante Mar Mediterráneo en esta cala, ideal para un día de playa en familia. Aunque carece de paseo marítimo y zonas de fondeo, ofrece un entorno natural y sereno para relajarse y disfrutar de la costa murciana.",
     "orientation": "southeast",
-    "instagramHashtag": "#CalaDeSanPedro"
+    "instagramHashtag": "#CalaDeSanPedro",
+    "dogFriendly": false
   },
   {
     "code": "556",
@@ -558,7 +574,8 @@
     ],
     "description": "Cala del Barco es un pequeño paraíso en Cartagena, con arena fina y dorada que invita a relajarse bajo el sol mediterráneo. Disfruta de sus aguas cristalinas y de un ambiente tranquilo, ideal para un día de playa en familia o con amigos. Aunque no cuenta con servicios como paseo marítimo o zona de fondeo, ofrece un refugio natural perfecto para desconectar.",
     "orientation": "east",
-    "instagramHashtag": "#CalaDelBarco"
+    "instagramHashtag": "#CalaDelBarco",
+    "dogFriendly": false
   },
   {
     "code": "626",
@@ -593,7 +610,8 @@
     ],
     "description": "Cala del Ciscal, en Lorca, te espera con su arena media y dorada, invitándote a disfrutar del refrescante mar Mediterráneo. Esta tranquila cala ofrece un paisaje natural de belleza, ideal para relajarse y desconectar. Aunque no cuenta con servicios como paseo marítimo o zona de fondeo, su ambiente sereno la convierte en un lugar perfecto para una escapada tranquila.",
     "orientation": "southeast",
-    "instagramHashtag": "#CalaDelCiscal"
+    "instagramHashtag": "#CalaDelCiscal",
+    "dogFriendly": false
   },
   {
     "code": "567",
@@ -629,7 +647,8 @@
     ],
     "description": "La Cala del Cuartel del Ciscar, en Lorca, te espera con sus aguas cristalinas del Mar Mediterráneo y una arena media y blanca ideal para disfrutar del sol. Esta tranquila cala ofrece un entorno natural y relajante, perfecto para desconectar y disfrutar de un día de playa. Aunque no cuenta con servicios como paseo marítimo ni zona de fondeo, su belleza y tranquilidad la convierten en un lugar especial en la Región de Murcia.",
     "orientation": "southeast",
-    "instagramHashtag": "#CalaDelCuartelDelCiscar"
+    "instagramHashtag": "#CalaDelCuartelDelCiscar",
+    "dogFriendly": false
   },
   {
     "code": "572",
@@ -656,7 +675,8 @@
     ],
     "description": "La Cala del Cuervo, en Cartagena, es un pequeño tesoro escondido en la costa murciana. Con su arena de piedra y roca, ofrece un paisaje marino mediterráneo único y tranquilo. Ideal para aquellos que buscan un lugar para disfrutar del sol y el mar, alejado del bullicio. No cuenta con servicios ni acceso directo al paseo marítimo.",
     "orientation": "east",
-    "instagramHashtag": "#CalaDelCuervo"
+    "instagramHashtag": "#CalaDelCuervo",
+    "dogFriendly": false
   },
   {
     "code": "577",
@@ -697,7 +717,8 @@
     ],
     "description": "La Cala del Pino, en Cartagena, te espera con sus suaves y doradas arenas, producto del Mar Menor. Es un lugar ideal para disfrutar de un baño tranquilo y relajante, accesible para todos los públicos. Aunque carece de paseo marítimo y zona de fondeo, su belleza natural y su fácil acceso la convierten en un destino perfecto para una escapada familiar.",
     "orientation": "west",
-    "instagramHashtag": "#CalaDelPino"
+    "instagramHashtag": "#CalaDelPino",
+    "dogFriendly": false
   },
   {
     "code": "571",
@@ -724,7 +745,8 @@
     "description": "La Cala del Reventón, en Cartagena, te ofrece un paisaje costero único con su arena de piedra y roca, bañada por las aguas cristalinas del Mar Mediterráneo. Es un lugar ideal para disfrutar de la tranquilidad y la belleza natural de la costa murciana. Aunque no cuenta con servicios como paseo marítimo o zona de fondeo, su entorno salvaje y auténtico la convierte en un destino perfecto para los amantes de la naturaleza y la desconexión.",
     "orientation": "east",
     "instagramHashtag": "#CalaDelReventon",
-    "access": "Se accede principalmente por mar o mediante rutas de senderismo a través del espacio natural de la Sierra de la Muela, Cabo Tiñoso y Roldán. Es una cala de acceso difícil que no cuenta con zonas de aparcamiento en las inmediaciones."
+    "access": "Se accede principalmente por mar o mediante rutas de senderismo a través del espacio natural de la Sierra de la Muela, Cabo Tiñoso y Roldán. Es una cala de acceso difícil que no cuenta con zonas de aparcamiento en las inmediaciones.",
+    "dogFriendly": false
   },
   {
     "code": "552",
@@ -760,7 +782,8 @@
     ],
     "description": "Cala Desnuda, en Mazarrón, es un remanso de tranquilidad para los amantes del nudismo y la naturaleza. Su arena fina y gris, bañada por las cálidas aguas del Mediterráneo, ofrece un entorno natural y relajado. Disfruta de su belleza salvaje, alejada del bullicio, en este rincón único de la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#CalaDesnuda"
+    "instagramHashtag": "#CalaDesnuda",
+    "dogFriendly": false
   },
   {
     "code": "603",
@@ -790,7 +813,8 @@
     ],
     "description": "Cala El Bolete, en Cartagena, es un pequeño puerto pesquero con una playa de arena media y grava bañada por el Mar Mediterráneo. Ofrece un ambiente tranquilo y auténtico, ideal para disfrutar de un día de sol y un baño en sus aguas. Aunque no cuenta con servicios turísticos tradicionales, su belleza natural y su encanto rural la convierten en un lugar especial para aquellos que buscan desconectar.",
     "orientation": "east",
-    "instagramHashtag": "#CalaElBolete"
+    "instagramHashtag": "#CalaElBolete",
+    "dogFriendly": false
   },
   {
     "code": "554",
@@ -820,7 +844,8 @@
     ],
     "description": "Cala El Bolete Grande, en Cartagena, te ofrece un remanso de tranquilidad junto al Mar Mediterráneo. Su arena media y gris invita a relajarse y disfrutar del sol, aunque carece de paseo marítimo y zona de fondeo. Esta cala, con aguas cristalinas, es un lugar ideal para pasar un día de verano en la Región de Murcia, sin servicios adicionales.",
     "orientation": "east",
-    "instagramHashtag": "#CalaElBoleteGrande"
+    "instagramHashtag": "#CalaElBoleteGrande",
+    "dogFriendly": false
   },
   {
     "code": "595",
@@ -847,7 +872,8 @@
     ],
     "description": "Cala Golera, en Cartagena, es un pequeño tesoro del Mediterráneo. Sus aguas cristalinas y rocosas invitan al baño y al snorkel, ofreciendo un paisaje natural impresionante. Aunque no cuenta con servicios como paseo marítimo o zona de fondeo, su belleza salvaje y su entorno protegido la convierten en un lugar ideal para disfrutar de un día de tranquilidad en la costa murciana.",
     "orientation": "east",
-    "instagramHashtag": "#CalaGolera"
+    "instagramHashtag": "#CalaGolera",
+    "dogFriendly": false
   },
   {
     "code": "579",
@@ -883,7 +909,8 @@
     ],
     "description": "Cala Honda, en Lorca, te espera con sus aguas cristalinas del Mediterráneo y una arena fina y grava que invita a relajarse. Disfruta de un paisaje natural tranquilo, ideal para un día de sol y baño. Aunque no cuenta con servicios como paseo marítimo o fondeo, su belleza y ambiente relajado la convierten en un lugar perfecto para desconectar.",
     "orientation": "southeast",
-    "instagramHashtag": "#CalaHonda"
+    "instagramHashtag": "#CalaHonda",
+    "dogFriendly": false
   },
   {
     "code": "630",
@@ -919,7 +946,8 @@
     ],
     "description": "Cala Junquera, en Lorca, es un pequeño y tranquilo enclave costero en el Mediterráneo. Su arena gruesa y grava ofrecen un ambiente diferente y natural, ideal para aquellos que buscan escapar del bullicio. Disfruta de sus aguas cristalinas y de la belleza agreste del paisaje murciano, aunque no cuenta con servicios ni comodidades adicionales.",
     "orientation": "southeast",
-    "instagramHashtag": "#CalaJunquera"
+    "instagramHashtag": "#CalaJunquera",
+    "dogFriendly": false
   },
   {
     "code": "602",
@@ -949,7 +977,8 @@
     ],
     "description": "Cala Las Escalerillas, en Cartagena, ofrece un pequeño y tranquilo rincón de mar Mediterráneo. Su arena de roca y aguas cristalinas invitan a disfrutar de un baño refrescante y relajante. Ideal para aquellos que buscan una escapada tranquila y cercana a la ciudad, aunque carece de servicios y accesos directos.",
     "orientation": "east",
-    "instagramHashtag": "#CalaLasEscalerillas"
+    "instagramHashtag": "#CalaLasEscalerillas",
+    "dogFriendly": false
   },
   {
     "code": "629",
@@ -984,7 +1013,8 @@
     ],
     "description": "Cala Leña, en Lorca, te ofrece un pequeño rincón de belleza en el Mediterráneo. Sus aguas cristalinas y arena media mezclada con grava invitan a disfrutar de un baño refrescante. Aunque carece de paseo marítimo y no cuenta con bandera azul, esta cala es un lugar tranquilo para relajarse y disfrutar de la costa murciana.",
     "orientation": "southeast",
-    "instagramHashtag": "#CalaLena"
+    "instagramHashtag": "#CalaLena",
+    "dogFriendly": false
   },
   {
     "code": "517",
@@ -1014,7 +1044,8 @@
     ],
     "description": "Cala Magre es un pequeño tesoro escondido en Cartagena, con arena fina y dorada que invita a relajarse bajo el sol mediterráneo. Disfruta de sus aguas cristalinas y de un entorno tranquilo, ideal para un día de playa en familia. Aunque no cuenta con servicios como paseo marítimo o zona de fondeo, ofrece un refugio natural para quienes buscan un lugar sencillo y auténtico en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#CalaMagre"
+    "instagramHashtag": "#CalaMagre",
+    "dogFriendly": false
   },
   {
     "code": "558",
@@ -1044,7 +1075,8 @@
     ],
     "description": "Cala Medina, en Cartagena, te espera con un paisaje costero único. Sus acantilados de piedra y roca se sumergen en las aguas cristalinas del Mar Mediterráneo, ofreciendo un entorno natural impresionante. Aunque no cuenta con servicios o accesos especiales, es un lugar ideal para disfrutar de la belleza salvaje de la costa murciana y un baño refrescante.",
     "orientation": "east",
-    "instagramHashtag": "#CalaMedina"
+    "instagramHashtag": "#CalaMedina",
+    "dogFriendly": false
   },
   {
     "code": "678",
@@ -1077,7 +1109,8 @@
     ],
     "description": "Cala Mijo, en Águilas, te espera con su arena fina y gris, ofreciendo un refugio tranquilo en el Mediterráneo. Disfruta de sus aguas cristalinas y la peculiar Cueva de las Palomas, un lugar natural único para explorar. Esta cala ofrece un ambiente relajado, ideal para un día de sol y desconexión, aunque no cuenta con servicios como paseo marítimo ni zona de fondeo.",
     "orientation": "southeast",
-    "instagramHashtag": "#CalaMijocuevaDeLasPalomas"
+    "instagramHashtag": "#CalaMijocuevaDeLasPalomas",
+    "dogFriendly": true
   },
   {
     "code": "574",
@@ -1104,7 +1137,8 @@
     ],
     "description": "Cala Mojarra, en Cartagena, te ofrece un pequeño rincón de mar Mediterráneo con arena fina y grava, ideal para disfrutar de un día de sol y tranquilidad. Aunque no cuenta con paseo marítimo ni zona de fondeo, su belleza natural y aguas cristalinas invitan a relajarse y disfrutar del paisaje. Es una playa tranquila y familiar, perfecta para aquellos que buscan un lugar sencillo y sin aglomeraciones.",
     "orientation": "southeast",
-    "instagramHashtag": "#CalaMojarra"
+    "instagramHashtag": "#CalaMojarra",
+    "dogFriendly": false
   },
   {
     "code": "553",
@@ -1134,7 +1168,8 @@
     ],
     "description": "Cala Pozo de la Avispa, en Cartagena, te espera con su arena fina y gris, producto de la caliza circundante. Disfruta de las tranquilas aguas del Mar Mediterráneo, ideal para un baño refrescante. Aunque carece de paseo marítimo y zona de fondeo, esta cala ofrece un entorno natural y tranquilo para una escapada a la playa en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#CalaPozoDeLaAvispa"
+    "instagramHashtag": "#CalaPozoDeLaAvispa",
+    "dogFriendly": false
   },
   {
     "code": "518",
@@ -1170,7 +1205,8 @@
     ],
     "description": "Cala Reona, en Cartagena, te espera con una playa de ensueño. Su arena fina y dorada invita a relajarse y disfrutar del cálido mar Mediterráneo. Aunque no cuenta con paseo marítimo ni zona de fondeo, ofrece un entorno tranquilo y agradable para pasar un día de verano en la costa murciana.",
     "orientation": "east",
-    "instagramHashtag": "#CalaReona"
+    "instagramHashtag": "#CalaReona",
+    "dogFriendly": false
   },
   {
     "code": "523",
@@ -1201,7 +1237,8 @@
     ],
     "description": "Cala Roja, en Cartagena, te espera con un mar Mediterráneo de aguas cristalinas y un paisaje rocoso de arena única. Disfruta de un entorno natural impresionante, ideal para relajarte y disfrutar del sol. Aunque no cuenta con servicios como paseo marítimo o zona de fondeo, su belleza natural la convierte en un destino tranquilo y auténtico en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#CalaRoja"
+    "instagramHashtag": "#CalaRoja",
+    "dogFriendly": false
   },
   {
     "code": "510",
@@ -1232,7 +1269,8 @@
     ],
     "description": "Cala Salitrona, en Cartagena, te espera con sus aguas cristalinas del Mar Mediterráneo y una arena fina y grava que invita a relajarse. Disfruta de un entorno natural tranquilo, ideal para un día de playa en la Región de Murcia. Aunque carece de paseo marítimo y acceso directo, ofrece un refugio para aquellos que buscan un contacto cercano con la naturaleza.",
     "orientation": "east",
-    "instagramHashtag": "#CalaSalitrona"
+    "instagramHashtag": "#CalaSalitrona",
+    "dogFriendly": false
   },
   {
     "code": "568",
@@ -1263,7 +1301,8 @@
     ],
     "description": "Cala Túnez (Cala Cuna) es un pequeño y tranquilo enclave en Cartagena, ideal para disfrutar del mar Mediterráneo y de su arena media y dorada. Con aguas cristalinas y un ambiente relajado, ofrece un respiro perfecto para aquellos que buscan un día de sol y descanso. Aunque no cuenta con servicios como paseo marítimo o zona de fondeo, su belleza natural la convierte en un lugar encantador para disfrutar del Mediterráneo.",
     "orientation": "east",
-    "instagramHashtag": "#CalaTunezcalaCuna"
+    "instagramHashtag": "#CalaTunezcalaCuna",
+    "dogFriendly": false
   },
   {
     "code": "578",
@@ -1308,7 +1347,8 @@
     ],
     "description": "Las Esculls de La Llana y Encañizadas, en San Javier, ofrecen un entorno natural privilegiado para disfrutar del Mediterráneo. Su arena fina y dorada invita a relajarse y tomar el sol, mientras las formaciones rocosas crean un paisaje único. Disfruta de la tranquilidad de esta cala, ideal para un día de baño y contemplación, aunque no cuenta con servicios ni acceso directo al paseo marítimo.",
     "orientation": "southeast",
-    "instagramHashtag": "#EscullsDeLaLlanaYEncanizadas"
+    "instagramHashtag": "#EscullsDeLaLlanaYEncanizadas",
+    "dogFriendly": false
   },
   {
     "code": "689",
@@ -1344,7 +1384,8 @@
     ],
     "description": "Playa Lomas del Castillico, en Cartagena, ofrece un tranquilo entorno junto al Mar Menor con arena fina y grava, ideal para disfrutar de un día de sol y relax. Esta playa accesible, perfecta para familias y grupos, cuenta con un entorno natural agradable. Aunque no dispone de paseo marítimo ni zona de fondeo, es un lugar perfecto para desconectar en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaLomasDelCastillicovillasCaravaning"
+    "instagramHashtag": "#PlayaLomasDelCastillicovillasCaravaning",
+    "dogFriendly": false
   },
   {
     "code": "538",
@@ -1381,7 +1422,8 @@
     ],
     "description": "Playa Alíseos, en San Javier, te ofrece un tranquilo espacio junto al Mar Menor con arena gruesa ideal para disfrutar del sol y el baño.  Esta playa, aunque sin bandera azul, es un lugar perfecto para relajarse y desconectar.  Disfruta de su ambiente familiar y la belleza natural de la costa murciana.",
     "orientation": "west",
-    "instagramHashtag": "#PlayaAliseos"
+    "instagramHashtag": "#PlayaAliseos",
+    "dogFriendly": false
   },
   {
     "code": "586",
@@ -1415,7 +1457,8 @@
     ],
     "description": "Playa Amarilla, en Mazarrón, te espera con su arena media y grava y las cálidas aguas del Mar Mediterráneo. Disfruta de un día de sol y baño en esta playa tranquila, ideal para familias y aquellos que buscan un lugar sencillo y natural. Aunque no cuenta con paseo marítimo ni zona de fondeo, ofrece un entorno relajado para disfrutar de la costa murciana.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaAmarilla"
+    "instagramHashtag": "#PlayaAmarilla",
+    "dogFriendly": false
   },
   {
     "code": "615",
@@ -1451,7 +1494,8 @@
     ],
     "description": "Playa Amarilla, en Águilas, te espera con su arena dorada y fina, invitándote a disfrutar del refrescante Mar Mediterráneo. Esta playa ofrece un espacio tranquilo para relajarse y tomar el sol, ideal para familias y aquellos que buscan un día de playa en la Región de Murcia. Aunque no cuenta con servicios como paseo marítimo o zona de fondeo, su belleza natural la convierte en un destino encantador.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaAmarilla"
+    "instagramHashtag": "#PlayaAmarilla",
+    "dogFriendly": false
   },
   {
     "code": "671",
@@ -1495,7 +1539,8 @@
     ],
     "description": "Playa Banco del Tabal, en San Javier, te espera con su arena fina y dorada, invitándote a disfrutar del refrescante Mar Mediterráneo. Esta playa accesible ofrece un entorno tranquilo y familiar, ideal para relajarse y disfrutar de un día de sol. Aunque no cuenta con paseo marítimo ni zona de fondeo, su arena suave y aguas cristalinas la convierten en un lugar perfecto para pasar un buen rato.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaBancoDelTabal"
+    "instagramHashtag": "#PlayaBancoDelTabal",
+    "dogFriendly": false
   },
   {
     "code": "632",
@@ -1533,7 +1578,8 @@
     ],
     "description": "Playa Baño de las Mujeres, en Lorca, ofrece un tranquilo rincón del Mar Mediterráneo, caracterizado por su arena media y grava. Disfruta de un paisaje natural relajante, ideal para desconectar y disfrutar del sol. Aunque no cuenta con paseo marítimo ni acceso directo al fondeo, su belleza y ambiente ofrecen una experiencia única en la Región de Murcia.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaBanoDeLasMujeres"
+    "instagramHashtag": "#PlayaBanoDeLasMujeres",
+    "dogFriendly": false
   },
   {
     "code": "667",
@@ -1567,7 +1613,8 @@
     ],
     "description": "Playa Barnuevo, en La Manga, te ofrece un tramo de arena fina y dorada en el Mar Menor, ideal para disfrutar de un día de sol relajante. Con fácil acceso y un agradable paseo marítimo, es un lugar perfecto para familias y visitantes. Aunque no cuenta con bandera azul, su accesibilidad y ambiente familiar la convierten en una opción atractiva en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaBarnuevo"
+    "instagramHashtag": "#PlayaBarnuevo",
+    "dogFriendly": false
   },
   {
     "code": "639",
@@ -1602,7 +1649,8 @@
     ],
     "description": "Playa Cabezo de la Pelea, en Mazarrón, te ofrece un paisaje costero salvaje y auténtico. Sus aguas cristalinas del Mediterráneo se encuentran con arena fina y grava, creando un entorno natural único. Aunque no cuenta con servicios como paseo marítimo o fondeo, es un destino ideal para aquellos que buscan tranquilidad y disfrutar de la belleza natural de la costa murciana.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaCabezoDeLaPelea"
+    "instagramHashtag": "#PlayaCabezoDeLaPelea",
+    "dogFriendly": false
   },
   {
     "code": "655",
@@ -1633,7 +1681,8 @@
     ],
     "description": "Playa Cabezo del Mojón, en Cartagena, te ofrece un tranquilo rincón a orillas del Mar Mediterráneo. Su arena de bolos invita a relajarse y disfrutar del sol, mientras las suaves aguas te invitan a un baño refrescante. No dispone de paseo marítimo ni zona de fondeo, es un lugar ideal para una escapada tranquila y sin aglomeraciones.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaCabezoDelMojon"
+    "instagramHashtag": "#PlayaCabezoDelMojon",
+    "dogFriendly": false
   },
   {
     "code": "642",
@@ -1669,7 +1718,8 @@
     ],
     "description": "Playa Cala de Leño, en Mazarrón, es un paraíso escondido con aguas cristalinas del Mar Mediterráneo y un paisaje rocoso y singular. Su arena de grava ofrece un ambiente tranquilo y natural, ideal para relajarse y disfrutar de la belleza del entorno. Conocida por ser una playa nudista, ofrece un refugio para aquellos que buscan un espacio de libertad y contacto directo con la naturaleza.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaCalaDeLeno"
+    "instagramHashtag": "#PlayaCalaDeLeno",
+    "dogFriendly": false
   },
   {
     "code": "520",
@@ -1700,7 +1750,8 @@
     ],
     "description": "Playa Cala Flores, en Cartagena, te espera con su arena fina y dorada, invitándote a disfrutar del refrescante mar Mediterráneo. Esta tranquila cala ofrece un entorno natural ideal para relajarse y desconectar. Aunque carece de servicios como paseo marítimo o zona de fondeo, su belleza natural y aguas cristalinas la convierten en un lugar perfecto para una escapada tranquila.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaCalaFlores"
+    "instagramHashtag": "#PlayaCalaFlores",
+    "dogFriendly": false
   },
   {
     "code": "569",
@@ -1732,7 +1783,8 @@
     ],
     "description": "Playa Calafría, en Cartagena, es un rincón de belleza natural con arena fina y gris, ofreciendo un acceso directo al refrescante Mar Mediterráneo. Esta cala tranquila es perfecta para disfrutar de un día de sol y mar, ideal para familias y aquellos que buscan un ambiente relajado. Aunque carece de servicios como paseo marítimo o zona de fondeo, su entorno natural y aguas cristalinas la convierten en un lugar especial para desconectar.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaCalafria"
+    "instagramHashtag": "#PlayaCalafria",
+    "dogFriendly": false
   },
   {
     "code": "592",
@@ -1766,7 +1818,8 @@
     "aemetId": "3002414",
     "description": "Playa Calnegre, en Cartagena, te espera con su arena fina y dorada, invitándote a disfrutar del refrescante Mar Mediterráneo. Esta tranquila playa, ideal para familias y para aquellos que buscan un lugar relajado, ofrece un entorno natural protegido. Aunque no cuenta con servicios como paseo marítimo ni zona de fondeo, su belleza y aguas cristalinas la convierten en un destino encantador en la Región de Murcia.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaCalnegre"
+    "instagramHashtag": "#PlayaCalnegre",
+    "dogFriendly": false
   },
   {
     "code": "692",
@@ -1800,7 +1853,8 @@
     ],
     "description": "Playa Carrión, en Los Alcázares, Región de Murcia, ofrece un tranquilo espacio para disfrutar del Mar Menor. Su arena fina y gris invita a relajarse y tomar el sol. Gracias a su accesibilidad, es un destino ideal para familias y visitantes con movilidad reducida.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaCarrion"
+    "instagramHashtag": "#PlayaCarrion",
+    "dogFriendly": false
   },
   {
     "code": "687",
@@ -1840,7 +1894,8 @@
     ],
     "description": "Playa Cavanna, en Cartagena, ofrece un tranquilo remanso en el Mar Menor con arena fina y grava. Es una playa accesible, ideal para familias y aquellos que buscan un lugar relajado para disfrutar del sol y el agua. Dispone de un parking público cercano. Aunque no cuenta con paseo marítimo ni zona de fondeo, su entorno natural y su acceso facilitado la convierten en una opción atractiva para una escapada a la playa.",
     "orientation": "west",
-    "instagramHashtag": "#PlayaCavanna"
+    "instagramHashtag": "#PlayaCavanna",
+    "dogFriendly": false
   },
   {
     "code": "543",
@@ -1878,7 +1933,8 @@
     ],
     "description": "Playa Chica, en San Javier, ofrece un tranquilo espacio junto al Mar Menor con arena gruesa. Ideal para disfrutar de un día de sol y relajación, esta playa es perfecta para familias y aquellos que buscan un entorno natural sin aglomeraciones. Aunque no cuenta con servicios como paseo marítimo ni zona de fondeo, su ambiente relajado la convierte en un lugar agradable para disfrutar de la costa murciana.",
     "orientation": "west",
-    "instagramHashtag": "#PlayaChica"
+    "instagramHashtag": "#PlayaChica",
+    "dogFriendly": false
   },
   {
     "code": "638",
@@ -1918,7 +1974,8 @@
     ],
     "description": "Playa Cobaticas, en Mazarrón, te espera con su arena fina y grava, ofreciendo un contacto directo con el refrescante Mar Mediterráneo. Disfruta de sus aguas cristalinas y de un entorno natural tranquilo, ideal para relajarse y disfrutar del sol. Aunque no cuenta con servicios como paseo marítimo o fondeo, su belleza natural la convierte en un lugar perfecto para una escapada familiar o para aquellos que buscan desconectar.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaCobaticas"
+    "instagramHashtag": "#PlayaCobaticas",
+    "dogFriendly": true
   },
   {
     "code": "643",
@@ -1955,7 +2012,8 @@
     ],
     "description": "Playa Cueva de Los Lobos, en Mazarrón, te espera con su arena media y grava y el refrescante mar Mediterráneo. Esta cala natural, aunque sin bandera azul, ofrece un entorno tranquilo y salvaje, ideal para disfrutar de un día de sol y baño. Su belleza natural la convierte en un lugar perfecto para desconectar y conectar con el paisaje marino de la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaCuevaDeLobos"
+    "instagramHashtag": "#PlayaCuevaDeLobos",
+    "dogFriendly": false
   },
   {
     "code": "526",
@@ -1988,7 +2046,8 @@
     ],
     "description": "Playa Dársena Dos Mares, en Cartagena, ofrece un tranquilo remanso en el Mar Menor con arena fina y dorada, ideal para disfrutar de un día de sol y relajación. Disfruta de sus aguas cristalinas y su ambiente familiar, perfecto para un baño refrescante. Aunque no cuenta con paseo marítimo ni zona de fondeo, es un lugar sencillo y agradable para una escapada costera.",
     "orientation": "west",
-    "instagramHashtag": "#PlayaDarsenaDosMares"
+    "instagramHashtag": "#PlayaDarsenaDosMares",
+    "dogFriendly": false
   },
   {
     "code": "662",
@@ -2027,7 +2086,8 @@
     ],
     "description": "Playa de Bahía en Mazarrón es un oasis de arena fina y dorada, bañada por las cálidas aguas del Mar Mediterráneo. Con su Bandera Azul, garantiza la calidad del agua y la seguridad de los bañistas. Disfruta de este precioso rincón en la Región de Murcia, ideal para relajarse y disfrutar del sol.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeBahia"
+    "instagramHashtag": "#PlayaDeBahia",
+    "dogFriendly": false
   },
   {
     "code": "646",
@@ -2068,7 +2128,8 @@
     ],
     "description": "Playa de Bolnuevo, en Mazarrón, te espera con su arena dorada y gruesa, perfecta para disfrutar de un día de sol en el Mediterráneo. Esta playa accesible ofrece un ambiente familiar y tranquilo, ideal para relajarse y disfrutar del mar. Aunque no cuenta con paseo marítimo ni zona de fondeo, su belleza natural y su fácil acceso la convierten en un destino perfecto para una escapada a la playa.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeBolnuevo"
+    "instagramHashtag": "#PlayaDeBolnuevo",
+    "dogFriendly": false
   },
   {
     "code": "548",
@@ -2098,7 +2159,8 @@
     ],
     "description": "Playa de Calabarrilla, en Águilas, te espera con su arena fina de bolos y las cálidas aguas del Mar Mediterráneo. Disfruta de un entorno natural tranquilo, ideal para relajarse y desconectar. Aunque no cuenta con paseo marítimo ni zona de fondeo, ofrece un resguardo natural perfecto para disfrutar de un día en la playa.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDeCalabarrilla"
+    "instagramHashtag": "#PlayaDeCalabarrilla",
+    "dogFriendly": false
   },
   {
     "code": "593",
@@ -2134,7 +2196,8 @@
     ],
     "description": "Playa de Calacerrada, en Águilas, te espera con su arena fina y dorada, invitando a disfrutar del refrescante Mar Mediterráneo. Esta tranquila playa ofrece un entorno natural ideal para relajarse y desconectar. Aunque no cuenta con paseo marítimo ni zona de fondeo, su belleza y su ambiente relajado la convierten en un destino ideal para una escapada tranquila.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDeCalacerrada"
+    "instagramHashtag": "#PlayaDeCalacerrada",
+    "dogFriendly": false
   },
   {
     "code": "679",
@@ -2170,7 +2233,8 @@
     ],
     "description": "Playa de Calarreona, en Águilas, te espera con su arena fina y gris, perfecta para disfrutar de un día de sol en el Mediterráneo. Con su Bandera Azul, garantiza la calidad del agua y la seguridad de los bañistas, además de ser una playa accesible. Disfruta de un mar tranquilo y familiar en esta hermosa playa de Águilas.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDeCalarreona"
+    "instagramHashtag": "#PlayaDeCalarreona",
+    "dogFriendly": false
   },
   {
     "code": "590",
@@ -2210,7 +2274,8 @@
     ],
     "description": "Playa de Calblanque es un paraíso escondido en Cartagena, Región de Murcia, con arena fina y dorada que invita a relajarse bajo el sol del Mediterráneo. Sus aguas cristalinas y paisajes naturales vírgenes la convierten en un lugar ideal para disfrutar de un día de verano en un entorno tranquilo y salvaje. Aunque carece de servicios como paseo marítimo o zona de fondeo, su belleza natural es inigualable.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeCalblanque"
+    "instagramHashtag": "#PlayaDeCalblanque",
+    "dogFriendly": false
   },
   {
     "code": "668",
@@ -2245,7 +2310,8 @@
     ],
     "description": "Playa de Colón, en La Manga, ofrece un tramo de arena fina y dorada acariciado por las cálidas aguas del Mar Menor. Disfruta de un paseo marítimo accesible y de un ambiente familiar y tranquilo.  Ideal para un día de playa relajante, con fácil acceso y servicios cercanos.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeColon"
+    "instagramHashtag": "#PlayaDeColon",
+    "dogFriendly": false
   },
   {
     "code": "651",
@@ -2281,7 +2347,8 @@
     ],
     "description": "Playa de El Alamillo, en Mazarrón, te espera con su arena fina de bolos y las cálidas aguas del Mar Mediterráneo. Esta playa, con bandera azul, ofrece un entorno ideal para disfrutar de un día de sol y baño, siendo accesible para todos los públicos. Disfruta de su tranquilidad y belleza, perfecta para relajarse y crear recuerdos inolvidables en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeElAlamillo"
+    "instagramHashtag": "#PlayaDeElAlamillo",
+    "dogFriendly": false
   },
   {
     "code": "675",
@@ -2326,7 +2393,8 @@
     ],
     "description": "Playa de El Castellar, en Mazarrón, te espera con su arena gruesa y dorada, bañada por las cálidas aguas del Mar Mediterráneo. Esta playa, con Bandera Azul, ofrece un entorno familiar y seguro, además de ser accesible para todos. Disfruta de un día de sol y arena en una de las playas más tranquilas y bien cuidadas de la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeElCastellar"
+    "instagramHashtag": "#PlayaDeElCastellar",
+    "dogFriendly": false
   },
   {
     "code": "614",
@@ -2362,7 +2430,8 @@
     ],
     "description": "Playa de El Hornillo, en Águilas, ofrece un entorno costero tranquilo y con arena media, ideal para disfrutar del Mar Mediterráneo. Con sus aguas cristalinas, es un lugar perfecto para relajarse y pasar un día en la playa. Aunque no cuenta con servicios como paseo marítimo o zona de fondeo, su belleza natural y su ambiente relajado la convierten en un destino agradable para aquellos que buscan un respiro junto al mar.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDeElHornillo"
+    "instagramHashtag": "#PlayaDeElHornillo",
+    "dogFriendly": false
   },
   {
     "code": "654",
@@ -2401,7 +2470,8 @@
     ],
     "description": "Playa de El Mojón, en Mazarrón, te espera con su arena fina y gris, un entorno tranquilo y familiar gracias a su bandera azul. Disfruta de las aguas cristalinas del Mar Mediterráneo, ideal para familias y para aquellos que buscan un lugar accesible y seguro. Esta playa, con sus aguas limpias, es un oasis perfecto para relajarse y disfrutar del sol en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeElMojon"
+    "instagramHashtag": "#PlayaDeElMojon",
+    "dogFriendly": false
   },
   {
     "code": "634",
@@ -2437,7 +2507,8 @@
     ],
     "description": "Playa de El Palomarico, en Mazarrón, te espera con su arena fina y grava, ofreciendo un contacto directo con el refrescante Mar Mediterráneo. Disfruta de sus aguas cristalinas y de un entorno natural tranquilo, ideal para relajarse y tomar el sol. Aunque no cuenta con servicios como paseo marítimo o zona de fondeo, es un lugar perfecto para una escapada familiar y una experiencia auténtica en la Región de Murcia.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDeElPalomarico"
+    "instagramHashtag": "#PlayaDeElPalomarico",
+    "dogFriendly": false
   },
   {
     "code": "581",
@@ -2472,7 +2543,8 @@
     ],
     "description": "Playa de El Rihuete, en Mazarrón, es un paraíso de arena fina y dorada bañado por las cálidas aguas del Mar Mediterráneo. Esta playa, con Bandera Azul, ofrece un entorno tranquilo y familiar, además de ser accesible para todos los visitantes. Disfruta de sus aguas cristalinas y de la belleza natural de la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeElRihueteplayaDelRiguete"
+    "instagramHashtag": "#PlayaDeElRihueteplayaDelRiguete",
+    "dogFriendly": false
   },
   {
     "code": "645",
@@ -2513,7 +2585,8 @@
     ],
     "description": "Playa de El Rincón, en Mazarrón, te espera con su arena fina y gris, ofreciendo un entorno tranquilo junto al mar Mediterráneo. Disfruta de un día relajante en esta playa, ideal para familias y aquellos que buscan un respiro del bullicio. Aunque no cuenta con servicios como paseo marítimo o zona de fondeo, su belleza natural te sorprenderá.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeElRincon"
+    "instagramHashtag": "#PlayaDeElRincon",
+    "dogFriendly": false
   },
   {
     "code": "5253",
@@ -2543,7 +2616,8 @@
     ],
     "description": "Playa de Gollerón (Cala del Turco) es un pequeño paraíso en San Javier, Región de Murcia, con arena blanca y fina que invita a relajarse junto al Mar Menor. Disfruta de un entorno tranquilo y familiar, ideal para un día de sol y baño en aguas cristalinas. Aunque carece de servicios como paseo marítimo y zona de fondeo, su belleza natural y su ambiente relajado la convierten en un destino encantador.",
     "orientation": "west",
-    "instagramHashtag": "#PlayaDeGolleroncalaDelTurco"
+    "instagramHashtag": "#PlayaDeGolleroncalaDelTurco",
+    "dogFriendly": false
   },
   {
     "code": "530",
@@ -2580,7 +2654,8 @@
     "description": "Playa de Islas Menores, en Cartagena, te espera con su suave arena dorada y las cálidas aguas del Mar Menor.  Esta playa accesible, ideal para familias y personas con movilidad reducida, ofrece un entorno tranquilo para disfrutar del sol y el mar.  Aunque carece de paseo marítimo y zona de fondeo, su belleza natural y su ubicación en las Islas Menores la convierten en un lugar perfecto para una escapada relajante.",
     "orientation": "east",
     "instagramHashtag": "#PlayaDeIslasMenores",
-    "access": "El acceso se realiza por la autovía A-7, tomando la salida 790 en dirección a Los Alcázares. La playa es plenamente accesible, dispone de un área de aparcamiento con más de 100 plazas y cuenta con conexión mediante las líneas de autobús 21 y 46."
+    "access": "El acceso se realiza por la autovía A-7, tomando la salida 790 en dirección a Los Alcázares. La playa es plenamente accesible, dispone de un área de aparcamiento con más de 100 plazas y cuenta con conexión mediante las líneas de autobús 21 y 46.",
+    "dogFriendly": false
   },
   {
     "code": "582",
@@ -2613,7 +2688,8 @@
     ],
     "description": "Playa de la Azohía - El Cuartel, en Cartagena, es un paraíso de arena media y grava junto al Mar Mediterráneo. Con su Bandera Azul, garantiza la calidad y seguridad del agua, además de ser una playa accesible para todos. Disfruta de un día de sol y arena en esta hermosa playa de la Región de Murcia, perfecta para familias y visitantes que buscan tranquilidad y un entorno limpio.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeLaAzohiaElCuartel"
+    "instagramHashtag": "#PlayaDeLaAzohiaElCuartel",
+    "dogFriendly": false
   },
   {
     "code": "611",
@@ -2645,7 +2721,8 @@
     ],
     "description": "Playa de La Cañada del Negro ofrece un paisaje natural impresionante en Águilas, con su arena de bolos y el refrescante Mar Mediterráneo. Es un lugar ideal para disfrutar de la tranquilidad y la belleza de la costa murciana, aunque no cuenta con servicios como paseo marítimo ni zona de fondeo. Ideal para quienes buscan una playa más salvaje y apartada.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDeLaCanadaDelNegro"
+    "instagramHashtag": "#PlayaDeLaCanadaDelNegro",
+    "dogFriendly": false
   },
   {
     "code": "613",
@@ -2678,7 +2755,8 @@
     ],
     "description": "Playa de La Casica Verde, en Águilas, te espera con su arena gruesa y gris, ofreciendo un entorno natural y tranquilo en el corazón del Mediterráneo. Esta playa, con su Bandera Azul, garantiza la calidad del agua y del servicio. Disfruta de un día de sol y mar en este rincón de la Región de Murcia, ideal para familias y aquellos que buscan una experiencia relajante.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDeLaCasicaVerde"
+    "instagramHashtag": "#PlayaDeLaCasicaVerde",
+    "dogFriendly": false
   },
   {
     "code": "580",
@@ -2712,7 +2790,8 @@
     ],
     "description": "Playa de La Chapineta, en Cartagena, ofrece un tranquilo remanso de arena fina y grava junto al Mar Mediterráneo. Disfruta de un baño refrescante y de la belleza natural de este entorno protegido. Aunque no cuenta con servicios como paseo marítimo ni zona de fondeo, es un lugar ideal para quienes buscan una escapada relajante y un contacto directo con el mar.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeLaChapineta"
+    "instagramHashtag": "#PlayaDeLaChapineta",
+    "dogFriendly": false
   },
   {
     "code": "618",
@@ -2743,7 +2822,8 @@
     ],
     "description": "Playa de La Cola, en Águilas, ofrece un paisaje costero con arena media y grava, bañado por las cálidas aguas del Mar Mediterráneo. Es un lugar ideal para disfrutar de un día de sol y un baño refrescante. Aunque no cuenta con paseo marítimo y zona de fondeo, su belleza natural invita a relajarse y disfrutar de la costa murciana.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDeLaCola"
+    "instagramHashtag": "#PlayaDeLaCola",
+    "dogFriendly": false
   },
   {
     "code": "612",
@@ -2777,7 +2857,8 @@
     ],
     "description": "Playa de La Colonia, en Águilas, te espera con su arena media y gris y las cálidas aguas del Mar Mediterráneo. Esta playa, con bandera azul, ofrece un entorno seguro y limpio para disfrutar de un día de sol. Además, es una playa accesible y familiar, ideal para relajarse y disfrutar de la belleza de la costa murciana.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDeLaColonia"
+    "instagramHashtag": "#PlayaDeLaColonia",
+    "dogFriendly": false
   },
   {
     "code": "533",
@@ -2811,7 +2892,8 @@
     ],
     "description": "Playa de La Concha en Los Alcázares ofrece un tranquilo espacio en la costa del Mar Menor, ideal para disfrutar de un día de sol y relajación. Su arena gruesa invita a pasear y disfrutar del ambiente familiar. Gracias a su accesibilidad, es una opción cómoda para todos los visitantes, aunque no cuenta con paseo marítimo ni zona de fondeo.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeLaConcha"
+    "instagramHashtag": "#PlayaDeLaConcha",
+    "dogFriendly": false
   },
   {
     "code": "649",
@@ -2847,7 +2929,8 @@
     ],
     "description": "Playa de La Ermita, en Mazarrón, te ofrece un tranquilo remanso de arena media y dorada junto al Mar Mediterráneo. Disfruta de un paseo marítimo agradable y de un ambiente familiar, ideal para relajarse y disfrutar del sol. Aunque no cuenta con bandera azul ni zona de fondeo, esta playa es un lugar perfecto para pasar un día de verano en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeLaErmita"
+    "instagramHashtag": "#PlayaDeLaErmita",
+    "dogFriendly": false
   },
   {
     "code": "624",
@@ -2879,7 +2962,8 @@
     ],
     "description": "Playa de la Galera, en Águilas, ofrece un paisaje costero salvaje y auténtico con su arena gruesa y grava. Disfruta del Mar Mediterráneo y de sus aguas cristalinas, ideal para un baño refrescante. Esta playa virgen y poco concurrida es perfecta para aquellos que buscan tranquilidad y una conexión directa con la naturaleza.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDeLaGalera"
+    "instagramHashtag": "#PlayaDeLaGalera",
+    "dogFriendly": false
   },
   {
     "code": "607",
@@ -2920,7 +3004,8 @@
     ],
     "description": "Playa de La Gola, en Cartagena, ofrece un tranquilo espacio junto al Mar Menor con arena fina y grava. Ideal para disfrutar de un baño relajante y un día de sol accesible para todos, gracias a su acceso adaptado.  Aunque no cuenta con paseo marítimo ni zona de fondeo, esta playa familiar es una opción agradable para quienes buscan un entorno natural y tranquilo en la Región de Murcia.",
     "orientation": "west",
-    "instagramHashtag": "#PlayaDeLaGola"
+    "instagramHashtag": "#PlayaDeLaGola",
+    "dogFriendly": false
   },
   {
     "code": "600",
@@ -2953,7 +3038,8 @@
     ],
     "description": "Playa de La Grúa, en Mazarrón, te ofrece un entorno costero tranquilo y salvaje. Con arena media y grava, y el cristalino Mar Mediterráneo, es un lugar ideal para disfrutar de la naturaleza. Además, es una playa nudista, aunque no cuenta con paseo marítimo ni zona de fondeo.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeLaGrua"
+    "instagramHashtag": "#PlayaDeLaGrua",
+    "dogFriendly": false
   },
   {
     "code": "625",
@@ -2987,7 +3073,8 @@
     ],
     "description": "Playa de la Higuerica, en Águilas, te espera con su arena fina y gris, ofreciendo un mar Mediterráneo cristalino y aguas tranquilas ideales para disfrutar del sol. Esta playa, con bandera azul, garantiza la calidad del agua y un entorno protegido. Disfruta de un día de relax en un entorno natural de la Región de Murcia, perfecto para familias y aquellos que buscan una experiencia tranquila y familiar.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDeLaHiguerica"
+    "instagramHashtag": "#PlayaDeLaHiguerica",
+    "dogFriendly": false
   },
   {
     "code": "680",
@@ -3026,7 +3113,8 @@
     ],
     "description": "Playa de La Isla, en Mazarrón, te espera con su arena fina y suave, ideal para relajarse y disfrutar del cálido Mar Mediterráneo. Esta playa accesible ofrece un entorno tranquilo y seguro, perfecto para familias y aquellos que buscan una experiencia náutica sin complicaciones. Aunque carece de paseo marítimo y zona de fondeo, su belleza natural y su accesibilidad la convierten en un destino encantador en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeLaIsla"
+    "instagramHashtag": "#PlayaDeLaIsla",
+    "dogFriendly": false
   },
   {
     "code": "545",
@@ -3057,7 +3145,8 @@
     ],
     "description": "Playa de La Llana, también conocida como Playa de La Barraca Quemada, en San Pedro del Pinatar, te espera con su arena fina y gris, producto de los ricos fondos marinos del Mediterráneo. Disfruta de un paisaje natural tranquilo y auténtico, ideal para relajarse y conectar con el mar. Aunque carece de servicios como paseo marítimo o zona de fondeo, ofrece un refugio perfecto para aquellos que buscan una experiencia tranquila en la Región de Murcia.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDeLaLlanaplayaDeLaBarracaQuemada"
+    "instagramHashtag": "#PlayaDeLaLlanaplayaDeLaBarracaQuemada",
+    "dogFriendly": false
   },
   {
     "code": "665",
@@ -3090,7 +3179,8 @@
     ],
     "description": "Playa de La Llana, también conocida como Playa de Las Salinas, en San Pedro del Pinatar, te espera con sus suaves dunas de arena fina y gris, bañadas por el Mar Mediterráneo. Esta playa accesible, ideal para familias y personas con movilidad reducida, ofrece un entorno tranquilo y natural. Disfruta de sus aguas cristalinas y de la belleza única de la Reserva Natural de las Salinas.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDeLaLlanaplayaDeLasSalinas"
+    "instagramHashtag": "#PlayaDeLaLlanaplayaDeLasSalinas",
+    "dogFriendly": false
   },
   {
     "code": "544",
@@ -3120,7 +3210,8 @@
     ],
     "description": "Playa de La Llana, también conocida como Playa Punta de Algas, en San Pedro del Pinatar, ofrece un tranquilo entorno en la Región de Murcia. Sus arenas finas y grises invitan a relajarse junto al mar Mediterráneo, disfrutando de un paisaje natural y sereno. Aunque carece de servicios como paseo marítimo o zona de fondeo, es un destino ideal para quienes buscan una playa tranquila y salvaje.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDeLaLlanaplayaPuntaDeAlgas"
+    "instagramHashtag": "#PlayaDeLaLlanaplayaPuntaDeAlgas",
+    "dogFriendly": false
   },
   {
     "code": "682",
@@ -3151,7 +3242,8 @@
     ],
     "description": "Playa de La Mota, en San Pedro del Pinatar, es un remanso tranquilo en el corazón del Mar Menor. Con acceso accesible, ofrece un entorno ideal para disfrutar de la calma y la belleza natural de la zona. Perfecta para familias y visitantes que buscan una experiencia relajante en este enclave costero de la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeLaMota"
+    "instagramHashtag": "#PlayaDeLaMota",
+    "dogFriendly": false
   },
   {
     "code": "555",
@@ -3178,7 +3270,8 @@
     ],
     "description": "Playa de La Parajola, en Cartagena, es un remanso salvaje y auténtico del Mar Mediterráneo. Con su arena gruesa y grava, ofrece un paisaje costero diferente y una experiencia más natural. Ideal para quienes buscan tranquilidad y disfrutar de un entorno costero sin aglomeraciones, aunque no cuenta con servicios ni acceso directo desde un paseo marítimo.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeLaParajola"
+    "instagramHashtag": "#PlayaDeLaParajola",
+    "dogFriendly": false
   },
   {
     "code": "647",
@@ -3215,7 +3308,8 @@
     ],
     "description": "Playa de La Pava, en Mazarrón, te espera con su arena fina y dorada, invitándote a disfrutar del refrescante Mar Mediterráneo. Es un lugar ideal para relajarse y tomar el sol, perfecto para familias y aquellos que buscan tranquilidad. Aunque no cuenta con paseo marítimo ni zona de fondeo, ofrece un entorno natural para disfrutar de un día de playa en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeLaPava"
+    "instagramHashtag": "#PlayaDeLaPava",
+    "dogFriendly": false
   },
   {
     "code": "664",
@@ -3247,7 +3341,8 @@
     ],
     "description": "Playa de La Puntica, en San Pedro del Pinatar, te ofrece un tranquilo entorno junto al Mar Menor con arena fina y gris, ideal para disfrutar de un día relajante. Es una playa accesible, perfecta para familias y visitantes con movilidad reducida. Disfruta de sus aguas cristalinas y un ambiente familiar, aunque no cuenta con paseo marítimo ni zona de fondeo.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeLaPuntica"
+    "instagramHashtag": "#PlayaDeLaPuntica",
+    "dogFriendly": false
   },
   {
     "code": "653",
@@ -3284,7 +3379,8 @@
     ],
     "description": "Playa de La Raja, en Mazarrón, ofrece un tranquilo espacio en la costa mediterránea, ideal para disfrutar de su arena de bolos y las suaves aguas del mar. Es un lugar perfecto para relajarse y desconectar, disfrutando de la belleza natural de la zona. Aunque carece de paseo marítimo y zonas de fondeo, su tranquilidad la convierte en un destino ideal para aquellos que buscan un respiro en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeLaRaja"
+    "instagramHashtag": "#PlayaDeLaRaja",
+    "dogFriendly": false
   },
   {
     "code": "622",
@@ -3314,7 +3410,8 @@
     ],
     "description": "Playa de la Rambla Elena, en Águilas, ofrece un tranquilo espacio costero con arena fina y grava, perfecto para disfrutar del Mar Mediterráneo. Con aguas cristalinas, esta playa es ideal para relajarse y disfrutar del sol. Aunque no cuenta con servicios como paseo marítimo ni zona de fondeo, su belleza natural la convierte en un lugar ideal para una escapada tranquila en la Región de Murcia.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDeLaRamblaElena"
+    "instagramHashtag": "#PlayaDeLaRamblaElena",
+    "dogFriendly": false
   },
   {
     "code": "648",
@@ -3350,7 +3447,8 @@
     ],
     "description": "Playa de La Reya, en Mazarrón, te espera con su arena fina y dorada, invitándote a disfrutar del refrescante Mar Mediterráneo. Esta playa accesible, ideal para familias y grupos, ofrece un entorno tranquilo y seguro. Aunque no cuenta con paseo marítimo ni zona de fondeo, La Reya es un lugar perfecto para relajarse y disfrutar de la costa murciana.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeLaReyajuntaDeLosMares"
+    "instagramHashtag": "#PlayaDeLaReyajuntaDeLosMares",
+    "dogFriendly": false
   },
   {
     "code": "546",
@@ -3383,7 +3481,8 @@
     ],
     "description": "Playa de La Torre Derribada, en San Pedro del Pinatar, te ofrece un tranquilo rincón de arena fina y gris, bañada por las cálidas aguas del Mar Mediterráneo. Esta playa accesible, ideal para familias y visitantes con movilidad reducida, destaca por su ambiente relajado y natural. Disfruta de su belleza sin la afluencia de otros destinos turísticos, perfecta para una escapada tranquila.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDeLaTorreDerribada"
+    "instagramHashtag": "#PlayaDeLaTorreDerribada",
+    "dogFriendly": false
   },
   {
     "code": "584",
@@ -3414,7 +3513,8 @@
     ],
     "description": "Playa de las Cañas, en Cartagena, te espera con la brisa del Mar Mediterráneo. Disfruta de un entorno tranquilo y natural, ideal para relajarte y desconectar. Esta playa, aunque sin paseo marítimo ni zona de fondeo, ofrece un respiro de arena y sol en la hermosa costa murciana.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeLasCanas"
+    "instagramHashtag": "#PlayaDeLasCanas",
+    "dogFriendly": false
   },
   {
     "code": "637",
@@ -3447,7 +3547,8 @@
     ],
     "description": "Playa de las Chapas, en Mazarrón, te espera con su arena fina de bolos y el refrescante abrazo del Mar Mediterráneo. Disfruta de sus aguas cristalinas y de un entorno natural tranquilo, ideal para relajarte y disfrutar del sol. Aunque carece de paseo marítimo y zonas de fondeo, ofrece un refugio perfecto para aquellos que buscan una playa tranquila y familiar.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDeLasChapas"
+    "instagramHashtag": "#PlayaDeLasChapas",
+    "dogFriendly": false
   },
   {
     "code": "635",
@@ -3480,7 +3581,8 @@
     ],
     "description": "Playa de las Minas, en Mazarrón, te espera con su arena fina y gris, un paisaje costero tranquilo y relajante a orillas del Mar Mediterráneo. Disfruta de sus aguas cristalinas y de la belleza natural de la huerta murciana que la rodea.  Es un lugar ideal para pasear, tomar el sol y disfrutar de un día de playa en la Región de Murcia.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDeLasMinas"
+    "instagramHashtag": "#PlayaDeLasMinas",
+    "dogFriendly": false
   },
   {
     "code": "4894",
@@ -3514,7 +3616,8 @@
     "description": "Playa de las Moreras, en Mazarrón, te ofrece un remanso de tranquilidad con su arena gruesa y el refrescante mar Mediterráneo. Disfruta de sus aguas cristalinas y la belleza natural de la costa murciana. Aunque no cuenta con paseo marítimo ni zona de fondeo, es un lugar ideal para relajarse y disfrutar de un día en la playa.",
     "orientation": "east",
     "instagramHashtag": "#PlayaDeLasMoreras",
-    "access": "Ubicada en Mazarrón, se encuentra situada entre la Avenida del Castellar y la Avenida de Bolnuevo. Es una playa de entorno urbano con un acceso muy sencillo y directo tanto a pie como en coche."
+    "access": "Ubicada en Mazarrón, se encuentra situada entre la Avenida del Castellar y la Avenida de Bolnuevo. Es una playa de entorno urbano con un acceso muy sencillo y directo tanto a pie como en coche.",
+    "dogFriendly": true
   },
   {
     "code": "534",
@@ -3546,7 +3649,8 @@
     ],
     "description": "Playa de Las Palmeras, en Los Alcázares, te ofrece un tramo de arena fina y gris junto al Mar Menor. Es una playa accesible, ideal para familias y visitantes que buscan un lugar tranquilo para disfrutar del sol y el agua. Aunque no cuenta con paseo marítimo ni zona de fondeo, su ambiente relajado y su arena suave la convierten en una opción agradable en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeLasPalmeras"
+    "instagramHashtag": "#PlayaDeLasPalmeras",
+    "dogFriendly": false
   },
   {
     "code": "623",
@@ -3576,7 +3680,8 @@
     ],
     "description": "Playa de Las Pulgas, en Águilas, te ofrece un paisaje costero salvaje y auténtico. Sus dunas de grava y el mar Mediterráneo crean un entorno único, ideal para disfrutar de la naturaleza y el sol. Aunque no cuenta con servicios ni acceso directo al paseo marítimo, es un lugar perfecto para aquellos que buscan una experiencia de playa más tranquila y desconectada.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDeLasPulgas"
+    "instagramHashtag": "#PlayaDeLasPulgas",
+    "dogFriendly": false
   },
   {
     "code": "585",
@@ -3610,7 +3715,8 @@
     "description": "Playa de Las Salinas, en Los Alcázares, ofrece un paisaje único con su arena gruesa y gris, producto del Mar Menor. Ideal para disfrutar de un día de sol y relajación, aunque no cuenta con servicios ni instalaciones adicionales. Disfruta de su ambiente natural y tranquilo, perfecto para quienes buscan una experiencia auténtica en la Región de Murcia.",
     "orientation": "east",
     "instagramHashtag": "#PlayaDeLasSalinas",
-    "access": "El acceso principal se efectúa desde la autovía AP-7, tomando la salida indicada hacia Los Alcázares. La zona está bien comunicada por carretera y dispone de servicios regulares de autobús urbano."
+    "access": "El acceso principal se efectúa desde la autovía AP-7, tomando la salida indicada hacia Los Alcázares. La zona está bien comunicada por carretera y dispone de servicios regulares de autobús urbano.",
+    "dogFriendly": true
   },
   {
     "code": "693",
@@ -3644,7 +3750,8 @@
     ],
     "description": "Playa de Levante, en Águilas, te espera con su arena fina y gris, perfecta para disfrutar del cálido Mar Mediterráneo. Esta playa, con bandera azul, garantiza la calidad del agua y la seguridad de sus visitantes. Además, es una playa accesible y con servicios disponibles, ideal para una jornada de relax en la Región de Murcia.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDeLevante"
+    "instagramHashtag": "#PlayaDeLevante",
+    "dogFriendly": false
   },
   {
     "code": "525",
@@ -3678,7 +3785,8 @@
     "aemetId": "3000314",
     "description": "Playa de Levante en Cartagena es un oasis de arena fina y dorada, con las cálidas aguas del Mar Mediterráneo. Esta playa, con bandera azul, garantiza la calidad del agua y un entorno seguro para familias y visitantes. Además, es una playa accesible y perfecto para relajarse y disfrutar del sol en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeLevante"
+    "instagramHashtag": "#PlayaDeLevante",
+    "dogFriendly": false
   },
   {
     "code": "528",
@@ -3708,7 +3816,8 @@
     ],
     "description": "Playa de Los Alemanes, en Cartagena, ofrece un tranquilo espacio para disfrutar del Mar Menor. Su arena media y dorada invita a relajarse y a disfrutar de un día de sol. Aunque carece de paseo marítimo y no es accesible, es un lugar ideal para quienes buscan una playa tranquila y familiar en la Región de Murcia.",
     "orientation": "west",
-    "instagramHashtag": "#PlayaDeLosAlemanes"
+    "instagramHashtag": "#PlayaDeLosAlemanes",
+    "dogFriendly": true
   },
   {
     "code": "566",
@@ -3743,7 +3852,8 @@
     ],
     "description": "Playa de Los Cocedores, en Águilas, ofrece un entorno natural con arena media y grava, perfecto para disfrutar del mar Mediterráneo. Esta playa, con su belleza salvaje, es ideal para aquellos que buscan tranquilidad y contacto directo con la naturaleza. Aunque no cuenta con servicios como paseo marítimo ni zona de fondeo, su paisaje único la convierte en un destino interesante en la Región de Murcia.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDeLosCocedores"
+    "instagramHashtag": "#PlayaDeLosCocedores",
+    "dogFriendly": false
   },
   {
     "code": "576",
@@ -3779,7 +3889,8 @@
     ],
     "description": "Playa de los Hierros, en Lorca, te espera con un paisaje volcánico único y un mar Mediterráneo de aguas cristalinas. Su arena media y grava, combinada con la impresionante formación rocosa, ofrece una experiencia diferente. Disfruta de la belleza natural de esta playa, ideal para pasear y contemplar las vistas, aunque no cuenta con servicios como paseo marítimo ni zona de fondeo.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDeLosHierros"
+    "instagramHashtag": "#PlayaDeLosHierros",
+    "dogFriendly": false
   },
   {
     "code": "661",
@@ -3811,7 +3922,8 @@
     ],
     "description": "Playa de Los Narejos, en Los Alcázares, es una playa ideal para disfrutar del Mar Menor con su arena gruesa y cálida. Ofrece un entorno tranquilo y accesible, perfecto para familias y aquellos que buscan una experiencia relajante junto al agua. Aunque no cuenta con paseo marítimo ni zona de fondeo, su fácil acceso la convierte en un destino atractivo en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeLosNarejos"
+    "instagramHashtag": "#PlayaDeLosNarejos",
+    "dogFriendly": false
   },
   {
     "code": "677",
@@ -3844,7 +3956,8 @@
     ],
     "description": "Playa de Los Urrutias, en Cartagena, ofrece un tranquilo paseo por su arena media y gris, bordeada por las aguas cálidas del Mar Menor. Es una opción accesible para todos los visitantes, ideal para disfrutar de un día relajante en la playa. Aunque no cuenta con paseo marítimo ni zona de fondeo, su ambiente familiar la convierte en un lugar perfecto para disfrutar de un día de playa en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeLosUrrutias"
+    "instagramHashtag": "#PlayaDeLosUrrutias",
+    "dogFriendly": false
   },
   {
     "code": "676",
@@ -3877,7 +3990,8 @@
     ],
     "description": "Playa de Mar de Cristal, en Cartagena, es un destino ideal para disfrutar de aguas cristalinas del Mar Menor y una arena fina y dorada perfecta para relajarse. Con accesibilidad para todos y un ambiente familiar, ofrece un día de playa tranquilo y agradable. Aunque carece de paseo marítimo y zona de fondeo, su belleza natural la convierte en una opción encantadora en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeMarDeCristal"
+    "instagramHashtag": "#PlayaDeMarDeCristal",
+    "dogFriendly": false
   },
   {
     "code": "683",
@@ -3920,7 +4034,8 @@
     ],
     "description": "La Playa de Nares, en Mazarrón, te espera con su arena media y dorada y las cálidas aguas del Mar Mediterráneo. Con Bandera Azul, garantiza la calidad del agua y la limpieza de la playa. Además, es una playa accesible y apta para familias, ideal para disfrutar de un día de sol en un entorno seguro y con todas las comodidades.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeNares"
+    "instagramHashtag": "#PlayaDeNares",
+    "dogFriendly": false
   },
   {
     "code": "608",
@@ -3957,7 +4072,8 @@
     ],
     "description": "Playa de Percheles, en Mazarrón, te espera con su arena fina y gris, bañada por las cálidas aguas del Mar Mediterráneo. Esta playa, con su Bandera Azul, ofrece un entorno tranquilo y familiar, ideal para disfrutar del sol y el mar. Disfruta de sus extensas playas, perfectas para relajarse y crear recuerdos inolvidables.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDePercheles"
+    "instagramHashtag": "#PlayaDePercheles",
+    "dogFriendly": false
   },
   {
     "code": "644",
@@ -3992,7 +4108,8 @@
     ],
     "description": "Playa de Piedra Mala, en Mazarrón, te ofrece un paisaje único con su arena gruesa y gris, producto de la erosión del Mediterráneo. Disfruta de sus aguas cristalinas y de un ambiente tranquilo, ideal para relajarse y desconectar. Aunque carece de servicios y accesos, su belleza natural y su ambiente relajado la convierten en un lugar especial para los amantes de la playa que buscan un contacto directo con el mar.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDePiedraMala"
+    "instagramHashtag": "#PlayaDePiedraMala",
+    "dogFriendly": false
   },
   {
     "code": "596",
@@ -4028,7 +4145,8 @@
     ],
     "description": "Playa de Poniente, en Águilas, te espera con su arena fina y grava, ofreciendo un ambiente tranquilo junto al Mar Mediterráneo. Esta playa, con bandera azul, es accesible y apta para familias, garantizando un baño seguro y agradable. Disfruta de sus aguas cristalinas y un entorno familiar y bien cuidado.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDePoniente"
+    "instagramHashtag": "#PlayaDePoniente",
+    "dogFriendly": false
   },
   {
     "code": "564",
@@ -4059,7 +4177,8 @@
     "aemetId": "3000313",
     "description": "Playa de Poniente, en San Javier, ofrece un agradable paseo por su arena fina y dorada, bordeada por las aguas tranquilas del Mar Menor. Disfruta de un entorno relajado, ideal para familias y para aquellos que buscan un día de playa sin complicaciones. Aunque carece de paseo marítimo y no cuenta con bandera azul, es un lugar perfecto para disfrutar de la costa murciana.",
     "orientation": "west",
-    "instagramHashtag": "#PlayaDePoniente"
+    "instagramHashtag": "#PlayaDePoniente",
+    "dogFriendly": false
   },
   {
     "code": "560",
@@ -4092,7 +4211,8 @@
     ],
     "description": "Playa de Portmán, en La Unión, te espera con su arena fina y dorada, invitándote a disfrutar del refrescante Mar Mediterráneo. Esta playa, con un encanto natural, ofrece un espacio tranquilo para relajarse y disfrutar del sol. Aunque no cuenta con servicios como paseo marítimo o zona de fondeo, su belleza y ambiente relajado la convierten en un destino especial en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDePortman"
+    "instagramHashtag": "#PlayaDePortman",
+    "dogFriendly": false
   },
   {
     "code": "681",
@@ -4126,7 +4246,8 @@
     ],
     "description": "Playa de Villananitos, en San Pedro del Pinatar, te espera con su arena fina y gris, producto del Mar Menor. Es una playa tranquila y accesible, ideal para disfrutar de un día de sol en un entorno natural protegido. Aunque no cuenta con paseo marítimo ni zona de fondeo, ofrece un respiro perfecto para familias y visitantes que buscan relajación y un contacto agradable con el mar.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDeVillananitos"
+    "instagramHashtag": "#PlayaDeVillananitos",
+    "dogFriendly": false
   },
   {
     "code": "617",
@@ -4160,7 +4281,8 @@
     ],
     "description": "Playa del Arroz, en Águilas, te ofrece un paisaje costero tranquilo y auténtico. Con su arena media y grava, y el refrescante Mar Mediterráneo, es un lugar ideal para disfrutar de un día de sol y relajación.  Aunque carece de paseo marítimo y acceso directo al fondeo, su belleza natural y su ambiente familiar la convierten en una opción encantadora para aquellos que buscan desconectar.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDelArroz"
+    "instagramHashtag": "#PlayaDelArroz",
+    "dogFriendly": false
   },
   {
     "code": "636",
@@ -4194,7 +4316,8 @@
     ],
     "description": "Playa del Ballenato, en Mazarrón, te ofrece un paisaje costero único con su arena gruesa, grava y bolos, producto del Mar Mediterráneo. Es un lugar ideal para disfrutar de la naturaleza y las vistas al mar, aunque carece de paseo marítimo y zona de fondeo. Un destino tranquilo para aquellos que buscan un día de playa en la Región de Murcia.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDelBallenato"
+    "instagramHashtag": "#PlayaDelBallenato",
+    "dogFriendly": false
   },
   {
     "code": "686",
@@ -4233,7 +4356,8 @@
     "aemetId": "3001655",
     "description": "Playa Entremares, o Playa del Barco Perdido, es un remanso de arena fina y dorada en Cartagena, Región de Murcia. Disfruta de las tranquilas aguas del Mar Mediterráneo y de un entorno ideal para relajarse. Gracias a su accesibilidad, esta playa ofrece una experiencia agradable a todos los visitantes.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDelBarcoPerdidoplayaEntremares"
+    "instagramHashtag": "#PlayaDelBarcoPerdidoplayaEntremares",
+    "dogFriendly": false
   },
   {
     "code": "670",
@@ -4266,7 +4390,8 @@
     "aemetId": "3001655",
     "description": "Playa del Barco Perdido, también conocida como Playa Las Sirenas, es un rincón salvaje y tranquilo en Cartagena, Murcia. Disfruta de su arena fina y dorada, bañada por las cálidas aguas del Mar Mediterráneo. Aunque carece de servicios y acceso directo, ofrece un entorno natural ideal para quienes buscan una escapada tranquila y sin multitudes.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDelBarcoPerdidoplayaLasSirenas"
+    "instagramHashtag": "#PlayaDelBarcoPerdidoplayaLasSirenas",
+    "dogFriendly": false
   },
   {
     "code": "641",
@@ -4301,7 +4426,8 @@
     ],
     "description": "Playa del Barranco Ancho, en Mazarrón, ofrece un entorno natural salvaje y tranquilo, ideal para quienes buscan privacidad y contacto directo con el Mar Mediterráneo. Su arena media y grava, junto con la presencia de un área nudista, la hacen un lugar único para disfrutar de la costa murciana. Aunque carece de servicios como paseo marítimo o zona de fondeo, su belleza natural y su atmósfera relajada la convierten en un destino especial.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDelBarrancoAncho"
+    "instagramHashtag": "#PlayaDelBarrancoAncho",
+    "dogFriendly": false
   },
   {
     "code": "616",
@@ -4331,7 +4457,8 @@
     ],
     "description": "Playa del Barranco de La Mar, en Águilas, ofrece un tranquilo remanso de arena fina de bolos frente al Mar Mediterráneo. Ideal para disfrutar de un día de sol y relajación, esta playa cuenta con un entorno natural protegido. Aunque carece de servicios como paseo marítimo o zona de fondeo, su belleza natural la convierte en un lugar perfecto para desconectar.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDelBarrancoDeLaMar"
+    "instagramHashtag": "#PlayaDelBarrancoDeLaMar",
+    "dogFriendly": false
   },
   {
     "code": "588",
@@ -4362,7 +4489,8 @@
     ],
     "description": "Playa del Charco, en Águilas, te ofrece un tranquilo rincón de arena media y dorada junto al Mar Mediterráneo. Esta playa, con un ambiente relajado, es popular entre los amantes del naturismo. Aunque no cuenta con paseo marítimo ni zona de fondeo, su belleza natural y ambiente relajado la convierten en un lugar ideal para desconectar.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDelCharco"
+    "instagramHashtag": "#PlayaDelCharco",
+    "dogFriendly": false
   },
   {
     "code": "519",
@@ -4393,7 +4521,8 @@
     ],
     "description": "Playa del Descargador, en Cartagena, ofrece un paisaje costero rocoso con un mar Mediterráneo vibrante. Ideal para quienes buscan un lugar tranquilo para disfrutar de la costa, aunque carece de servicios como paseo marítimo o zona de fondeo. Su arena de piedra y roca la convierte en una opción diferente y auténtica en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDelDescargador"
+    "instagramHashtag": "#PlayaDelDescargador",
+    "dogFriendly": false
   },
   {
     "code": "690",
@@ -4427,7 +4556,8 @@
     ],
     "description": "Playa del Espejo, en Los Alcázares, Región de Murcia, ofrece un tranquilo entorno para disfrutar del Mar Menor. Su arena gruesa y cálida invita a relajarse y a los niños a jugar.  A pesar de no contar con paseo marítimo, la playa es accesible y ofrece una experiencia agradable para todos los visitantes.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDelEspejo"
+    "instagramHashtag": "#PlayaDelEspejo",
+    "dogFriendly": false
   },
   {
     "code": "536",
@@ -4467,7 +4597,8 @@
     ],
     "description": "Playa del Estacio, en San Javier, te espera con su arena fina y dorada, invitándote a disfrutar del refrescante Mar Mediterráneo. Esta tranquila playa ofrece un espacio para relajarse y desconectar, ideal para familias y aquellos que buscan un ambiente sereno. Aunque no cuenta con servicios como paseo marítimo ni zona de fondeo, su belleza natural te sorprenderá.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDelEstacio"
+    "instagramHashtag": "#PlayaDelEstacio",
+    "dogFriendly": false
   },
   {
     "code": "7051",
@@ -4501,7 +4632,8 @@
     ],
     "description": "Playa del Hoyo, en Águilas, es un destino costero con un mar Mediterráneo cristalino y un paisaje de grava y bolos únicos. Disfruta de la belleza natural de esta playa, ideal para relajarse y disfrutar del sol. Aunque carece de paseo marítimo y no cuenta con bandera azul, ofrece un entorno tranquilo y auténtico en la Región de Murcia.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDelHoyo"
+    "instagramHashtag": "#PlayaDelHoyo",
+    "dogFriendly": false
   },
   {
     "code": "695",
@@ -4538,7 +4670,8 @@
     ],
     "description": "Playa del Lastre, en La Unión, ofrece un paisaje costero único con arena fina y grava, en contacto directo con el mar Mediterráneo. Esta playa accesible, ideal para familias y personas con movilidad reducida, cuenta con un entorno natural privilegiado. Aunque carece de paseo marítimo y zona de fondeo, su belleza y tranquilidad la convierten en un destino encantador en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDelLastre"
+    "instagramHashtag": "#PlayaDelLastre",
+    "dogFriendly": false
   },
   {
     "code": "598",
@@ -4568,7 +4701,8 @@
     ],
     "description": "Playa del Matalentisco, en Águilas, te ofrece un refrescante encuentro con el Mar Mediterráneo. Su arena media y grava invita a disfrutar de un día de sol y baño en una playa con bandera azul, garantizando la calidad del agua. Aunque no cuenta con paseo marítimo ni zona de fondeo, es un lugar ideal para relajarse y disfrutar de las vistas del Mediterráneo.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDelMatalentisco"
+    "instagramHashtag": "#PlayaDelMatalentisco",
+    "dogFriendly": false
   },
   {
     "code": "594",
@@ -4600,7 +4734,8 @@
     ],
     "description": "Playa del Pino, en Águilas, te espera con su arena fina y gris, bañada por las cálidas aguas del Mar Mediterráneo. Disfruta de un entorno tranquilo y natural, ideal para relajarte y disfrutar del sol. Aunque no cuenta con paseo marítimo ni zona de fondeo, ofrece un espacio sencillo y auténtico para una escapada a la playa en la Región de Murcia.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDelPino"
+    "instagramHashtag": "#PlayaDelPino",
+    "dogFriendly": false
   },
   {
     "code": "565",
@@ -4630,7 +4765,8 @@
     ],
     "description": "Playa del Pocico del Animal, en Águilas, te espera con su arena fina y gris, un remanso tranquilo junto al Mar Mediterráneo. Disfruta de su belleza natural y de la tranquilidad de este pequeño enclave costero en la Región de Murcia. Aunque carece de servicios y no es accesible, ofrece un espacio para conectar con la naturaleza.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDelPocicoDelAnimal"
+    "instagramHashtag": "#PlayaDelPocicoDelAnimal",
+    "dogFriendly": false
   },
   {
     "code": "587",
@@ -4660,7 +4796,8 @@
     ],
     "description": "Playa del Pozo de las Huertas, en Águilas, ofrece un paisaje costero salvaje y auténtico con su arena gruesa y grava, producto del Mediterráneo. Ideal para quienes buscan tranquilidad y disfrutar de un entorno natural sin multitudes. Disfruta de sus aguas cristalinas y la belleza agreste de esta playa única en la Región de Murcia.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDelPozoDeLasHuertas"
+    "instagramHashtag": "#PlayaDelPozoDeLasHuertas",
+    "dogFriendly": false
   },
   {
     "code": "650",
@@ -4700,7 +4837,8 @@
     ],
     "description": "Playa del Puerto de Mazarrón, en Mazarrón, Región de Murcia, te espera con su arena fina y dorada, invitándote a disfrutar del cálido mar Mediterráneo. Esta playa, con bandera azul, garantiza la calidad del agua y la seguridad, además de ser accesible para todos los visitantes. Disfruta de un día de sol en un entorno tranquilo y agradable, perfecto para familias y aquellos que buscan relajación.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaDelPuertoDeMazarron"
+    "instagramHashtag": "#PlayaDelPuertoDeMazarron",
+    "dogFriendly": false
   },
   {
     "code": "7052",
@@ -4733,7 +4871,8 @@
     ],
     "description": "Playa del Saladar, en Águilas, ofrece un paisaje natural único con su arena gruesa y grava, producto del río Segura. Disfruta de las aguas cristalinas del Mar Mediterráneo y de la tranquilidad de esta playa salvaje y poco concurrida. Ideal para quienes buscan un contacto directo con la naturaleza y un entorno relajado, lejos del bullicio turístico.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDelSaladar"
+    "instagramHashtag": "#PlayaDelSaladar",
+    "dogFriendly": false
   },
   {
     "code": "5556",
@@ -4767,7 +4906,8 @@
     ],
     "description": "Playa del Salar o Benzal, en Mazarrón, ofrece un paisaje costero agreste y tranquilo en la Región de Murcia. Su arena de grava, bañada por las aguas cristalinas del Mar Mediterráneo, invita a disfrutar de un día de sol y desconexión. Aunque no cuenta con paseo marítimo ni zonas de fondeo, es un lugar ideal para quienes buscan un entorno natural y relajado.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDelSalarOBenzal"
+    "instagramHashtag": "#PlayaDelSalarOBenzal",
+    "dogFriendly": false
   },
   {
     "code": "621",
@@ -4797,7 +4937,8 @@
     ],
     "description": "Playa del Sombrerico, en Águilas, te espera con sus aguas cristalinas del Mar Mediterráneo y un paisaje de grava que invita a la tranquilidad. Disfruta de un ambiente natural y relajado, ideal para pasar un día a la vez. Aunque carece de paseo marítimo y no cuenta con bandera azul, ofrece un rincón tranquilo para conectar con la belleza de la costa murciana.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaDelSombrerico"
+    "instagramHashtag": "#PlayaDelSombrerico",
+    "dogFriendly": false
   },
   {
     "code": "527",
@@ -4829,7 +4970,8 @@
     ],
     "description": "Playa del Vivero, en Cartagena, ofrece un tranquilo remanso en el Mar Menor, con su característica arena fina y gris. Ideal para disfrutar de un día relajado junto a sus aguas, perfecta para familias y aquellos que buscan un ambiente natural y sereno. Aunque no cuenta con servicios como paseo marítimo o zona de fondeo, su belleza natural la convierte en un destino encantador en la Región de Murcia.",
     "orientation": "west",
-    "instagramHashtag": "#PlayaDelVivero"
+    "instagramHashtag": "#PlayaDelVivero",
+    "dogFriendly": false
   },
   {
     "code": "561",
@@ -4873,7 +5015,8 @@
     ],
     "description": "Playa El Arenal, en San Javier, te espera con su arena fina y dorada, invitándote a disfrutar del refrescante Mar Mediterráneo. Relájate en sus suaves dunas y disfruta de un día de sol en esta tranquila playa. Aunque no cuenta con paseo marítimo ni zona de fondeo, ofrece un entorno natural ideal para desconectar y disfrutar del Mediterráneo.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaElArenal"
+    "instagramHashtag": "#PlayaElArenal",
+    "dogFriendly": false
   },
   {
     "code": "532",
@@ -4904,7 +5047,8 @@
     ],
     "description": "Playa El Carmolí, en Cartagena, ofrece un tranquilo remanso en el Mar Menor. Su arena fina y dorada invita a disfrutar de un día relajante junto al agua. Ideal para familias y aquellos que buscan un lugar sencillo para disfrutar de la costa murciana, aunque carece de servicios y accesos específicos.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaElCarmoli"
+    "instagramHashtag": "#PlayaElCarmoli",
+    "dogFriendly": false
   },
   {
     "code": "604",
@@ -4937,7 +5081,8 @@
     ],
     "description": "Playa El Castillico, en La Manga, te espera con su arena fina y dorada, perfecta para disfrutar del cálido Mar Menor. Esta playa accesible ofrece un paseo marítimo agradable y un ambiente familiar, ideal para relajarse y disfrutar del sol. A pesar de no tener bandera azul, su accesibilidad y ubicación en un entorno atractivo la convierten en una opción cómoda para pasar un día en la playa.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaElCastillico"
+    "instagramHashtag": "#PlayaElCastillico",
+    "dogFriendly": false
   },
   {
     "code": "4893",
@@ -4971,7 +5116,8 @@
     "description": "Playa El Gachero, en Mazarrón, te espera con su arena de bolos y piedras, ofreciendo un paisaje costero singular en el corazón del Mediterráneo. Disfruta de sus aguas cristalinas y la belleza natural de la costa murciana. Aunque no cuenta con paseo marítimo ni zona de fondeo, es un lugar ideal para relajarse y disfrutar del sol.",
     "orientation": "east",
     "instagramHashtag": "#PlayaElGachero",
-    "access": "Situada en el Puerto de Mazarrón, se accede a ella a través de la Avenida de El Alamillo y la calle Cabo Machichaco. Se localiza en la zona de la punta de El Rihuete.  No hay información disponible sobre parking o transporte público. El acceso es fácil."
+    "access": "Situada en el Puerto de Mazarrón, se accede a ella a través de la Avenida de El Alamillo y la calle Cabo Machichaco. Se localiza en la zona de la punta de El Rihuete.  No hay información disponible sobre parking o transporte público. El acceso es fácil.",
+    "dogFriendly": true
   },
   {
     "code": "540",
@@ -5008,7 +5154,8 @@
     ],
     "description": "Playa El Galán, en San Javier, ofrece un tranquilo remanso en el Mar Menor. Su arena fina y dorada invita a relajarse y disfrutar del sol, perfecta para familias y aquellos que buscan un lugar sereno. Aunque no cuenta con paseo marítimo ni zonas de fondeo, su belleza natural y aguas cálidas la convierten en un destino ideal para un día de playa en la Región de Murcia.",
     "orientation": "west",
-    "instagramHashtag": "#PlayaElGalan"
+    "instagramHashtag": "#PlayaElGalan",
+    "dogFriendly": false
   },
   {
     "code": "666",
@@ -5040,7 +5187,8 @@
     "aemetId": "3002633",
     "description": "Playa El Mojón, en San Pedro del Pinatar, te espera con su arena fina y gris, perteneciente al Mar Mediterráneo y con Bandera Azul. Es una playa accesible y perfecta para disfrutar de un día de sol en un entorno tranquilo y familiar. Disfruta de sus aguas cristalinas y de la belleza natural de la Laguna Rosa, sin servicios de paseo marítimo ni zona de fondeo.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaElMojon"
+    "instagramHashtag": "#PlayaElMojon",
+    "dogFriendly": false
   },
   {
     "code": "674",
@@ -5081,7 +5229,8 @@
     ],
     "description": "Playa El Pedruchillo, en San Javier, te ofrece un tranquilo rincón en la costa del Mar Menor. Su arena gruesa y cálida invita al descanso y al sol, ideal para familias y aquellos que buscan un ambiente relajado. Además, la playa cuenta con acceso accesible, facilitando su disfrute a todos los visitantes.",
     "orientation": "west",
-    "instagramHashtag": "#PlayaElPedruchillo"
+    "instagramHashtag": "#PlayaElPedruchillo",
+    "dogFriendly": false
   },
   {
     "code": "535",
@@ -5113,7 +5262,8 @@
     ],
     "description": "Playa El Pescador, en La Manga, te espera con su arena fina y dorada, ofreciendo un ambiente tranquilo y familiar junto al Mar Menor. Disfruta de su agradable paseo marítimo y de la calidez del agua. Aunque no cuenta con bandera azul ni zona de fondeo, es un lugar ideal para relajarse y disfrutar de un día de playa en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaElPescador"
+    "instagramHashtag": "#PlayaElPescador",
+    "dogFriendly": false
   },
   {
     "code": "606",
@@ -5151,7 +5301,8 @@
     ],
     "description": "Playa El Portús, en Cartagena, ofrece un tranquilo rincón de arena media y grava junto al Mar Mediterráneo. Es una playa con carácter, popular entre la comunidad nudista, ideal para quienes buscan tranquilidad y contacto con la naturaleza. Aunque carece de servicios como paseo marítimo o zona de fondeo, su ambiente relajado la convierte en un lugar especial para disfrutar de un día en la playa.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaElPortus"
+    "instagramHashtag": "#PlayaElPortus",
+    "dogFriendly": false
   },
   {
     "code": "537",
@@ -5192,7 +5343,8 @@
     ],
     "description": "Playa El Pudrimel, en San Javier, te espera con su arena fina y gris, un paisaje singular junto al Mar Mediterráneo. Esta playa ofrece un entorno tranquilo para disfrutar de la costa murciana, ideal para un día de relax. Aunque no cuenta con servicios como paseo marítimo ni zona de fondeo, su belleza natural y su ambiente relajado la convierten en un lugar especial.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaElPudrimel"
+    "instagramHashtag": "#PlayaElPudrimel",
+    "dogFriendly": false
   },
   {
     "code": "599",
@@ -5223,7 +5375,8 @@
     ],
     "description": "Playa El Rafal, en Águilas, te ofrece un tramo de costa con arena media y grava, bordeado por las aguas cristalinas del Mar Mediterráneo. Disfruta de un entorno natural con encanto, ideal para relajarte y disfrutar del sol. Aunque no cuenta con paseo marítimo ni zona de fondeo, es un lugar tranquilo para pasar un día en la playa.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaElRafal"
+    "instagramHashtag": "#PlayaElRafal",
+    "dogFriendly": false
   },
   {
     "code": "5906",
@@ -5259,7 +5412,8 @@
     ],
     "description": "Playa El Siscal, en Lorca, ofrece un tranquilo remanso en el Mediterráneo con arena fina y grava. Disfruta de sus aguas cristalinas y de un entorno natural privilegiado, ideal para relajarse y disfrutar de un día de playa. Aunque no cuenta con paseo marítimo ni zona de fondeo, es un lugar perfecto para aquellos que buscan una escapada tranquila en la Región de Murcia.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaElSiscal"
+    "instagramHashtag": "#PlayaElSiscal",
+    "dogFriendly": false
   },
   {
     "code": "620",
@@ -5290,7 +5444,8 @@
     ],
     "description": "Playa Ensenada de la Fuente, en Águilas, ofrece un paisaje costero único con arena de bolos y rocas, abrazada por las aguas cristalinas del Mar Mediterráneo. Es un lugar ideal para disfrutar de la naturaleza y sus contrastes, perfecto para aquellos que buscan una experiencia tranquila en la costa murciana. Aunque carece de paseo marítimo y zonas de fondeo, su belleza natural la convierte en un destino interesante para visitar.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaEnsenadaDeLaFuente"
+    "instagramHashtag": "#PlayaEnsenadaDeLaFuente",
+    "dogFriendly": false
   },
   {
     "code": "562",
@@ -5331,7 +5486,8 @@
     ],
     "description": "Playa Ensenada del Esparto, en San Javier, es un oasis de arena fina y gris del Mar Mediterráneo. Esta playa, con bandera azul, ofrece un entorno tranquilo y accesible, ideal para familias y visitantes que buscan relajación. Disfruta de sus aguas cristalinas y de un espacio seguro y cuidado para un día inolvidable en la Región de Murcia.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaEnsenadaDelEsparto"
+    "instagramHashtag": "#PlayaEnsenadaDelEsparto",
+    "dogFriendly": false
   },
   {
     "code": "511",
@@ -5361,7 +5517,8 @@
     ],
     "description": "Playa Fatares, en Cartagena, ofrece un paisaje costero salvaje y auténtico con su arena gruesa y grava, abrazada por el Mar Mediterráneo. Ideal para aquellos que buscan una playa tranquila y menos concurrida, perfecta para disfrutar de la naturaleza y el sol. Aunque carece de servicios como paseo marítimo o zona de fondeo, su belleza natural la convierte en un destino único en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaFatares"
+    "instagramHashtag": "#PlayaFatares",
+    "dogFriendly": false
   },
   {
     "code": "591",
@@ -5401,7 +5558,8 @@
     ],
     "description": "Playa Galúa, en Cartagena, te espera con su arena fina y dorada del Mar Mediterráneo. Un lugar tranquilo y accesible, ideal para disfrutar de un día de sol y relajación. Aunque no cuenta con paseo marítimo ni zona de fondeo, ofrece un entorno natural agradable y seguro para familias y visitantes.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaGalua"
+    "instagramHashtag": "#PlayaGalua",
+    "dogFriendly": false
   },
   {
     "code": "688",
@@ -5437,7 +5595,8 @@
     ],
     "description": "Playa Honda, en Cartagena, te espera con su arena fina y dorada, producto del Mar Menor. Esta playa accesible ofrece un entorno tranquilo y familiar, ideal para disfrutar de un día de sol y baño en aguas cristalinas. Aunque no cuenta con paseo marítimo ni zona de fondeo, su arena suave y accesibilidad la convierten en un destino perfecto para una escapada relajante.",
     "orientation": "west",
-    "instagramHashtag": "#PlayaHonda"
+    "instagramHashtag": "#PlayaHonda",
+    "dogFriendly": false
   },
   {
     "code": "640",
@@ -5471,7 +5630,8 @@
     ],
     "description": "Playa Hondón del Fondón, en Mazarrón, es un remanso de tranquilidad en la costa mediterránea. Su arena fina y grava, junto con sus aguas cristalinas, la convierten en un lugar ideal para disfrutar de un día de verano en un entorno natural. Además, es una playa nudista, ofreciendo un espacio de paz y desconexión para aquellos que lo buscan.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaHondonDelFondonplayaDelJondoODelFondo"
+    "instagramHashtag": "#PlayaHondonDelFondonplayaDelJondoODelFondo",
+    "dogFriendly": false
   },
   {
     "code": "657",
@@ -5507,7 +5667,8 @@
     ],
     "description": "Playa Isla Plana, en Cartagena, es un oasis de tranquilidad en el Mediterráneo. Su arena media y grava, junto con aguas cristalinas, la convierte en un lugar ideal para disfrutar del sol y el mar. Con bandera azul y accesible para todos, ofrece una experiencia familiar y relajante en una de las playas más bonitas de la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaIslaPlana"
+    "instagramHashtag": "#PlayaIslaPlana",
+    "dogFriendly": false
   },
   {
     "code": "521",
@@ -5538,7 +5699,8 @@
     ],
     "description": "Playa La Barra, en Cartagena, ofrece un paisaje costero singular con su arena de piedra y roca, bañada por las cálidas aguas del Mar Mediterráneo. Es un lugar ideal para disfrutar de la naturaleza y el sol, aunque carece de servicios como paseo marítimo o zona de fondeo. Un destino tranquilo para aquellos que buscan una experiencia costera diferente en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaLaBarra"
+    "instagramHashtag": "#PlayaLaBarra",
+    "dogFriendly": false
   },
   {
     "code": "619",
@@ -5575,7 +5737,8 @@
     ],
     "description": "Playa La Calabardina, en Águilas, te ofrece un tranquilo remanso con arena fina y gris del Mar Mediterráneo. Es una playa accesible y con aguas tranquilas, ideal para disfrutar de un día de sol y relajación. Aunque no cuenta con paseo marítimo ni zona de fondeo, su belleza natural la convierte en un lugar perfecto para una visita familiar.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaLaCalabardina"
+    "instagramHashtag": "#PlayaLaCalabardina",
+    "dogFriendly": false
   },
   {
     "code": "524",
@@ -5607,7 +5770,8 @@
     ],
     "description": "Playa La Calera, en Cartagena, te ofrece un paisaje costero con arena de grava y el refrescante Mar Mediterráneo. Disfruta de sus aguas cristalinas y de un entorno natural tranquilo, ideal para relajarse y conectar con el mar. Aunque no cuenta con servicios como paseo marítimo o zona de fondeo, su belleza natural la convierte en un destino perfecto para un día de playa.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaLaCalera"
+    "instagramHashtag": "#PlayaLaCalera",
+    "dogFriendly": true
   },
   {
     "code": "656",
@@ -5638,7 +5802,8 @@
     ],
     "description": "Playa La Caleta, en Cartagena, te ofrece un tranquilo rincón en el Mediterráneo. Su arena media y grava invitan a disfrutar de un baño refrescante en sus aguas cristalinas. Aunque no cuenta con paseo marítimo ni zona de fondeo, es un lugar ideal para relajarse y disfrutar de la belleza natural de la costa murciana.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaLaCaleta"
+    "instagramHashtag": "#PlayaLaCaleta",
+    "dogFriendly": false
   },
   {
     "code": "589",
@@ -5677,7 +5842,8 @@
     ],
     "description": "Playa La Carolina, en Águilas, te espera con sus suaves dunas de arena fina y el cristalino mar Mediterráneo. Esta playa, con bandera azul, garantiza un entorno limpio y seguro para disfrutar de un día de sol. Perfecta para familias y aquellos que buscan relajarse en un entorno costero tranquilo y agradable, aunque no cuenta con paseo marítimo ni zona de fondeo.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaLaCarolina"
+    "instagramHashtag": "#PlayaLaCarolina",
+    "dogFriendly": false
   },
   {
     "code": "573",
@@ -5708,7 +5874,8 @@
     ],
     "description": "Playa La Galera, en Cartagena, te ofrece un paisaje costero singular con una arena de piedra y roca, bañada por las cálidas aguas del Mar Mediterráneo. Disfruta de sus formaciones rocosas y de un entorno natural tranquilo, ideal para relajarse y contemplar la belleza del Mediterráneo. Aunque no cuenta con servicios como paseo marítimo o zona de fondeo, es un lugar perfecto para una escapada auténtica.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaLaGalera"
+    "instagramHashtag": "#PlayaLaGalera",
+    "dogFriendly": false
   },
   {
     "code": "597",
@@ -5740,7 +5907,8 @@
     "aemetId": "3002626",
     "description": "Playa La Isla, en San Javier, ofrece un entorno natural con arena gruesa y vistas al Mar Menor. Ideal para disfrutar de un día de sol y un baño refrescante, aunque carece de servicios como paseo marítimo o zona de fondeo. Es una playa tranquila y sencilla, perfecta para aquellos que buscan un lugar para relajarse en la costa de la Región de Murcia.",
     "orientation": "west",
-    "instagramHashtag": "#PlayaLaIsla"
+    "instagramHashtag": "#PlayaLaIsla",
+    "dogFriendly": false
   },
   {
     "code": "609",
@@ -5772,7 +5940,8 @@
     ],
     "description": "Playa La Tortuga, en Águilas, te espera con su arena fina y gris, invitándote a disfrutar del cálido Mar Mediterráneo. Esta tranquila playa ofrece un espacio para relajarse y disfrutar del sol, ideal para familias y aquellos que buscan un ambiente sereno. Aunque no cuenta con servicios como paseo marítimo o zona de fondeo, su belleza natural la convierte en un lugar especial para una escapada.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaLaTortuga"
+    "instagramHashtag": "#PlayaLaTortuga",
+    "dogFriendly": false
   },
   {
     "code": "673",
@@ -5815,7 +5984,8 @@
     ],
     "description": "Playa La Veneziola, en San Javier, es un rincón tranquilo del Mar Menor ideal para disfrutar de un día de sol. Su arena gruesa y cálida invita al descanso y a actividades acuáticas suaves. Además, la playa es accesible para personas con movilidad reducida, ofreciendo una experiencia relajante y cómoda en la Región de Murcia.",
     "orientation": "west",
-    "instagramHashtag": "#PlayaLaVeneziolaveneciola"
+    "instagramHashtag": "#PlayaLaVeneziolaveneciola",
+    "dogFriendly": false
   },
   {
     "code": "627",
@@ -5846,7 +6016,8 @@
     ],
     "description": "Playa Larga, en Cartagena, te ofrece un tramo de costa con arena media y grava, bañada por las cálidas aguas del Mar Mediterráneo. Disfruta de su paisaje natural, ideal para relajarse y desconectar. Aunque no cuenta con paseo marítimo ni zona de fondeo, su belleza natural la convierte en un destino tranquilo para pasar un día en la playa.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaLarga"
+    "instagramHashtag": "#PlayaLarga",
+    "dogFriendly": false
   },
   {
     "code": "5907",
@@ -5881,7 +6052,8 @@
     ],
     "description": "Playa Larga, en Lorca, te espera con sus extensas dunas de arena fina y grava, ofreciendo un paisaje único frente al Mar Mediterráneo. Disfruta de un día de sol en esta playa natural, ideal para relajarse y disfrutar del ambiente costero. Aunque no cuenta con servicios como paseo marítimo ni zona de fondeo, su belleza y tranquilidad la convierten en un destino perfecto para los amantes de la naturaleza.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaLarga"
+    "instagramHashtag": "#PlayaLarga",
+    "dogFriendly": true
   },
   {
     "code": "515",
@@ -5913,7 +6085,8 @@
     ],
     "description": "Playa Larga, en Cartagena, te espera con un tranquilo mar Mediterráneo y un ambiente relajado. Disfruta de sus extensas playas y de la belleza natural de la costa murciana. Ideal para aquellos que buscan una escapada tranquila y sencilla, perfecta para pasar un día de sol y disfrutar del mar.  La playa ofrece un acceso fácil a través de un camino de tierra acondicionado, con un parking disponible cercano, lo que la hace ideal para familias y personas con movilidad reducida.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaLarga"
+    "instagramHashtag": "#PlayaLarga",
+    "dogFriendly": false
   },
   {
     "code": "563",
@@ -5945,7 +6118,8 @@
     ],
     "description": "Playa Las Amoladeras, en Cartagena, te espera con su arena fina y dorada, invitándote a disfrutar del refrescante Mar Mediterráneo. Esta tranquila playa ofrece un entorno natural ideal para relajarse y disfrutar del sol. Aunque carece de servicios como paseo marítimo o zona de fondeo, su belleza y tranquilidad la convierten en un lugar perfecto para una escapada familiar o individual.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaLasAmoladeras"
+    "instagramHashtag": "#PlayaLasAmoladeras",
+    "dogFriendly": false
   },
   {
     "code": "541",
@@ -5980,7 +6154,8 @@
     ],
     "description": "Playa Las Antillas, en San Javier, ofrece un tranquilo entorno junto al Mar Menor, ideal para disfrutar de un día de sol y arena. Su arena gruesa es perfecta para construir castillos y relajarse. Aunque no cuenta con paseo marítimo ni zona de fondeo, es un lugar sencillo y accesible para quienes buscan una playa con un ambiente familiar y relajado.",
     "orientation": "west",
-    "instagramHashtag": "#PlayaLasAntillas"
+    "instagramHashtag": "#PlayaLasAntillas",
+    "dogFriendly": false
   },
   {
     "code": "660",
@@ -6012,7 +6187,8 @@
     ],
     "description": "Playa Las Delicias, en Águilas, es un paraíso de arena media y aguas cristalinas del Mar Mediterráneo. Con su Bandera Azul, garantiza la calidad y seguridad para disfrutar de un día de playa perfecto. Además, cuenta con acceso accesible y un agradable paseo marítimo, convirtiéndola en una opción ideal para familias y visitantes de todas las edades.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaLasDelicias"
+    "instagramHashtag": "#PlayaLasDelicias",
+    "dogFriendly": false
   },
   {
     "code": "539",
@@ -6046,7 +6222,8 @@
     ],
     "description": "Playa Lebeche, en San Javier, Región de Murcia, te espera con su arena fina y dorada, producto del Mar Menor. Disfruta de un entorno tranquilo y familiar, ideal para relajarte y disfrutar del sol. Aunque no cuenta con paseo marítimo ni zona de fondeo, ofrece un espacio natural para desconectar y disfrutar de la belleza de la costa murciana.",
     "orientation": "west",
-    "instagramHashtag": "#PlayaLebeche"
+    "instagramHashtag": "#PlayaLebeche",
+    "dogFriendly": false
   },
   {
     "code": "684",
@@ -6081,7 +6258,8 @@
     ],
     "description": "Playa Los Nietos, en Cartagena, ofrece un tranquilo y familiar entorno junto al Mar Menor. Su arena fina y dorada invita a relajarse y disfrutar del sol, perfecta para familias y aquellos que buscan un ambiente relajado. Gracias a su accesibilidad, esta playa es ideal para todos los visitantes.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaLosNietos"
+    "instagramHashtag": "#PlayaLosNietos",
+    "dogFriendly": true
   },
   {
     "code": "691",
@@ -6116,7 +6294,8 @@
     ],
     "description": "Playa Manzanares, en Los Alcázares, ofrece un tranquilo espacio junto al Mar Menor con arena fina y gris ideal para disfrutar de un día relajante. Con acceso accesible, esta playa familiar es perfecta para quienes buscan un entorno tranquilo y familiar. Aunque carece de paseo marítimo y zona de fondeo, su arena suave y el agua del Mar Menor invitan a la desconexión y al descanso.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaManzanares"
+    "instagramHashtag": "#PlayaManzanares",
+    "dogFriendly": false
   },
   {
     "code": "542",
@@ -6153,7 +6332,8 @@
     ],
     "description": "Playa Matasgordas, en San Javier, es una playa tranquila con arena gruesa, bordeada por el Mar Menor. Ofrece un espacio sencillo para disfrutar del sol y el mar, ideal para familias y aquellos que buscan un lugar relajado. Aunque no cuenta con servicios como paseo marítimo o zona de fondeo, su entorno natural y la inmensidad del Mar Menor la convierten en un destino agradable para una visita.",
     "orientation": "west",
-    "instagramHashtag": "#PlayaMatasgordas"
+    "instagramHashtag": "#PlayaMatasgordas",
+    "dogFriendly": false
   },
   {
     "code": "696",
@@ -6192,7 +6372,8 @@
     ],
     "description": "Playa Mistral, en San Javier, ofrece un agradable entorno junto al Mar Menor, ideal para disfrutar de un día de sol y arena. Su arena gruesa es perfecta para relajarse y jugar, y el acceso es totalmente accesible. Aunque no cuenta con paseo marítimo ni zona de fondeo, es un lugar tranquilo para pasar un buen rato en la Región de Murcia.",
     "orientation": "west",
-    "instagramHashtag": "#PlayaMistral"
+    "instagramHashtag": "#PlayaMistral",
+    "dogFriendly": false
   },
   {
     "code": "583",
@@ -6224,7 +6405,8 @@
     ],
     "description": "Playa Morena, en Cartagena, te ofrece un paisaje costero único con su arena gruesa y de bolos, bañada por las cálidas aguas del Mar Mediterráneo. Es un lugar ideal para aquellos que buscan tranquilidad y disfrutar de un entorno natural, aunque no cuenta con paseo marítimo ni zona de fondeo. Además, es una playa nudista, respetando su particular ambiente.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaMorena"
+    "instagramHashtag": "#PlayaMorena",
+    "dogFriendly": false
   },
   {
     "code": "652",
@@ -6260,7 +6442,8 @@
     ],
     "description": "Playa Negra en Mazarrón ofrece un paisaje volcánico único con su arena gruesa y grava, ideal para disfrutar de un baño en el Mar Mediterráneo. Esta playa virgen, con sus tonalidades oscuras, invita a la tranquilidad y al contacto directo con la naturaleza. Aunque carece de servicios como paseo marítimo o zona de fondeo, es un destino perfecto para aquellos que buscan una experiencia auténtica y natural en la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaNegra"
+    "instagramHashtag": "#PlayaNegra",
+    "dogFriendly": false
   },
   {
     "code": "514",
@@ -6291,7 +6474,8 @@
     ],
     "description": "Playa Negrete, en Cartagena, es un paraíso de arena fina y dorada, donde el Mar Mediterráneo te espera para un baño refrescante. Esta joya natural ofrece un entorno tranquilo y salvaje, ideal para aquellos que buscan desconectar del bullicio y disfrutar de la belleza del paisaje costero. Aunque no cuenta con servicios como paseo marítimo o zona de fondeo, su arena y aguas cristalinas la convierten en un destino ideal para amantes de la naturaleza y la tranquilidad.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaNegrete"
+    "instagramHashtag": "#PlayaNegrete",
+    "dogFriendly": false
   },
   {
     "code": "529",
@@ -6323,7 +6507,8 @@
     ],
     "description": "Playa Paraiso, en Cartagena, te ofrece un tranquilo remanso en el Mar Menor con arena media ideal para disfrutar de un día de sol. Esta playa accesible, perfecta para familias y personas con movilidad reducida, cuenta con servicios básicos y un ambiente familiar. Disfruta de su aguas cristalinas y relajante, aunque no dispone de paseo marítimo ni zona de fondeo.",
     "orientation": "west",
-    "instagramHashtag": "#PlayaParaiso"
+    "instagramHashtag": "#PlayaParaiso",
+    "dogFriendly": false
   },
   {
     "code": "6703",
@@ -6360,7 +6545,8 @@
     ],
     "description": "Playa Parazuelos, en Lorca, te espera con sus aguas cristalinas del Mar Mediterráneo y una arena media y grava que invita a relajarse. Disfruta de este rincón natural de la Región de Murcia, ideal para pasar un día de sol y tranquilidad. Aunque carece de paseo marítimo y zonas de fondeo, ofrece un paisaje costero auténtico y sin aglomeraciones.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaParazuelos"
+    "instagramHashtag": "#PlayaParazuelos",
+    "dogFriendly": false
   },
   {
     "code": "633",
@@ -6396,7 +6582,8 @@
     ],
     "description": "Playa Parazuelos, en Mazarrón, te ofrece un entorno natural y tranquilo en la costa mediterránea. Su arena media y grava invita a relajarse y disfrutar del sol, mientras las aguas cristalinas del mar te invitan a un baño refrescante. Aunque no cuenta con servicios como paseo marítimo ni zona de fondeo, es un lugar ideal para aquellos que buscan una playa auténtica y con encanto en la Región de Murcia.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaParazuelos"
+    "instagramHashtag": "#PlayaParazuelos",
+    "dogFriendly": false
   },
   {
     "code": "557",
@@ -6428,7 +6615,8 @@
     ],
     "description": "Playa Parreño, en Cartagena, ofrece un tranquilo oasis en la costa mediterránea. Sus suaves dunas de arena fina y dorada invitan a disfrutar de un día de sol y relax junto al mar. Aunque carece de paseo marítimo y zonas de fondeo, esta playa es un lugar ideal para quienes buscan tranquilidad y un contacto directo con la belleza del Mediterráneo.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaParreno"
+    "instagramHashtag": "#PlayaParreno",
+    "dogFriendly": false
   },
   {
     "code": "672",
@@ -6470,7 +6658,8 @@
     ],
     "description": "Playa Pedrucho, en San Javier, te espera con su arena fina y dorada, perfecta para disfrutar del cálido Mar Mediterráneo. Esta playa accesible ofrece un entorno tranquilo y familiar, ideal para relajarse y disfrutar del sol. Aunque no cuenta con paseo marítimo ni zona de fondeo, su belleza natural y su accesibilidad la convierten en un destino perfecto para una escapada sin complicaciones.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaPedrucho"
+    "instagramHashtag": "#PlayaPedrucho",
+    "dogFriendly": false
   },
   {
     "code": "570",
@@ -6499,7 +6688,8 @@
     "aemetId": "3000314",
     "description": "Playa Perla de Levante, en Cartagena, te ofrece un tranquilo rincón junto al Mar Menor. Su arena fina y gris invita a relajarse y disfrutar de sus aguas cristalinas. Aunque no cuenta con paseo marítimo ni zona de fondeo, es un lugar ideal para una escapada tranquila y disfrutar de la belleza natural de la costa murciana.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaPerlaDeLevanteestrellaDeMar"
+    "instagramHashtag": "#PlayaPerlaDeLevanteestrellaDeMar",
+    "dogFriendly": false
   },
   {
     "code": "669",
@@ -6531,7 +6721,8 @@
     ],
     "description": "Playa Puerto Bello, en Cartagena, ofrece un tranquilo remanso en el Mar Menor. Su arena fina y grava crean un ambiente único, ideal para relajarse y disfrutar del sol. Gracias a su accesibilidad, esta playa es una opción cómoda para familias y visitantes con movilidad reducida, aunque carece de paseo marítimo y zona de fondeo.",
     "orientation": "west",
-    "instagramHashtag": "#PlayaPuertoBello"
+    "instagramHashtag": "#PlayaPuertoBello",
+    "dogFriendly": false
   },
   {
     "code": "531",
@@ -6563,7 +6754,8 @@
     ],
     "description": "Playa Punta Brava, en Cartagena, ofrece un tranquilo remanso en el Mar Menor. Su arena media y gris invita a relajarse y disfrutar del sol, ideal para familias y aquellos que buscan un ambiente familiar. Además, la playa cuenta con acceso para personas con movilidad reducida, garantizando una experiencia cómoda y accesible para todos.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaPuntaBrava"
+    "instagramHashtag": "#PlayaPuntaBrava",
+    "dogFriendly": false
   },
   {
     "code": "694",
@@ -6601,7 +6793,8 @@
     ],
     "description": "Playa Puntas de Calnegre, en Lorca, te espera con sus aguas cristalinas del Mar Mediterráneo y una arena media y grava ideal para disfrutar de un día de sol. Esta playa accesible, aunque sin paseo marítimo ni zona de fondeo, ofrece un entorno tranquilo y agradable para relajarse. Disfruta de su belleza natural en esta hermosa ría de la Región de Murcia.",
     "orientation": "southeast",
-    "instagramHashtag": "#PlayaPuntasDeCalnegre"
+    "instagramHashtag": "#PlayaPuntasDeCalnegre",
+    "dogFriendly": false
   },
   {
     "code": "685",
@@ -6633,6 +6826,7 @@
     ],
     "description": "Playa San Ginés, en Cartagena, te espera con sus aguas cristalinas del Mar Mediterráneo y su arena media y grava, ideal para disfrutar de un día de sol y relax. Esta playa, con bandera azul, es accesible y segura para familias y visitantes. Disfruta de su ambiente tranquilo y familiar en una de las mejores playas de la Región de Murcia.",
     "orientation": "east",
-    "instagramHashtag": "#PlayaSanGines"
+    "instagramHashtag": "#PlayaSanGines",
+    "dogFriendly": false
   }
 ]
