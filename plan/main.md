@@ -25,12 +25,10 @@ Status indicators:
 8. [x] ~~step-08-add-dog-friendly.md~~
 9. [x] ~~step-09-add-lifeguard-info.md~~
 10. [x] ~~step-10-extract-services.md~~
-11. [ ] step-11-add-water-quality.md
-12. [ ] step-12-add-webcams.md
 
 ### Phase 2: Medium Priority
-13. [ ] step-13-add-dimensions.md
-14. [ ] step-14-generate-tags.md
+13. [x] ~~step-13-add-dimensions.md~~
+14. [x] ~~step-14-generate-tags.md~~
 15. [ ] step-15-extract-activities.md
 16. [ ] step-16-add-best-season.md
 17. [ ] step-17-add-seasonal-services.md

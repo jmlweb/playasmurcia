@@ -28,6 +28,12 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 173,
+    "tags": [
+      "calas",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -60,7 +66,14 @@
     "instagramHashtag": "#CalaAguilar",
     "dogFriendly": false,
     "lifeguard": false,
-    "services": []
+    "services": [],
+    "length": 303,
+    "tags": [
+      "arena-fina",
+      "calas",
+      "aguas-tranquilas",
+      "familiar"
+    ]
   },
   {
     "code": "516",
@@ -97,6 +110,13 @@
       "toilets",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 286,
+    "tags": [
+      "arena-fina",
+      "calas",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -131,6 +151,13 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 123,
+    "tags": [
+      "arena-fina",
+      "calas",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -168,7 +195,14 @@
     "instagramHashtag": "#CalaBlanca",
     "dogFriendly": false,
     "lifeguard": false,
-    "services": []
+    "services": [],
+    "length": 214,
+    "tags": [
+      "rocosa",
+      "calas",
+      "aislada",
+      "fotogenica"
+    ]
   },
   {
     "code": "522",
@@ -200,7 +234,13 @@
     "instagramHashtag": "#CalaBotella",
     "dogFriendly": false,
     "lifeguard": false,
-    "services": []
+    "services": [],
+    "length": 99,
+    "tags": [
+      "calas",
+      "arena-fina",
+      "aislada"
+    ]
   },
   {
     "code": "7050",
@@ -241,6 +281,12 @@
       "parking",
       "showers",
       "chiringuito"
+    ],
+    "length": 955,
+    "tags": [
+      "chiringuito",
+      "calas",
+      "arena-fina"
     ]
   },
   {
@@ -279,6 +325,12 @@
       "showers",
       "sunbeds",
       "wheelchair-ramp"
+    ],
+    "tags": [
+      "accesible",
+      "calas",
+      "aguas-tranquilas",
+      "familiar"
     ]
   },
   {
@@ -330,6 +382,13 @@
       "umbrellas",
       "sunbeds",
       "first-aid"
+    ],
+    "length": 410,
+    "tags": [
+      "accesible",
+      "calas",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -381,6 +440,14 @@
       "wheelchair-ramp",
       "sunbeds",
       "first-aid"
+    ],
+    "length": 521,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "calas",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -425,6 +492,13 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "length": 79,
+    "tags": [
+      "chiringuito",
+      "calas",
+      "arena-fina",
+      "familiar"
     ]
   },
   {
@@ -463,6 +537,14 @@
       "sunbeds",
       "wheelchair-ramp",
       "footwash"
+    ],
+    "length": 106,
+    "tags": [
+      "accesible",
+      "rocosa",
+      "calas",
+      "snorkel",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -503,6 +585,13 @@
       "showers",
       "toilets",
       "chiringuito"
+    ],
+    "length": 222,
+    "tags": [
+      "chiringuito",
+      "calas",
+      "aguas-tranquilas",
+      "familiar"
     ]
   },
   {
@@ -540,6 +629,13 @@
       "showers",
       "sunbeds",
       "umbrellas"
+    ],
+    "length": 247,
+    "tags": [
+      "arena-fina",
+      "calas",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -575,7 +671,14 @@
     "instagramHashtag": "#CalaDeLosAbejorros",
     "dogFriendly": false,
     "lifeguard": false,
-    "services": []
+    "services": [],
+    "length": 239,
+    "tags": [
+      "rocosa",
+      "calas",
+      "salvaje",
+      "aislada"
+    ]
   },
   {
     "code": "631",
@@ -618,6 +721,13 @@
       "toilets",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 123,
+    "tags": [
+      "arena-fina",
+      "calas",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -652,7 +762,14 @@
     "instagramHashtag": "#CalaDelBarco",
     "dogFriendly": false,
     "lifeguard": true,
-    "services": []
+    "services": [],
+    "length": 174,
+    "tags": [
+      "arena-fina",
+      "calas",
+      "familiar",
+      "aguas-tranquilas"
+    ]
   },
   {
     "code": "626",
@@ -693,6 +810,14 @@
       "showers",
       "toilets",
       "chiringuito"
+    ],
+    "length": 442,
+    "tags": [
+      "chiringuito",
+      "arena-fina",
+      "calas",
+      "aguas-tranquilas",
+      "familiar"
     ]
   },
   {
@@ -733,6 +858,13 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 171,
+    "tags": [
+      "arena-fina",
+      "calas",
+      "aguas-tranquilas",
+      "fotogenica"
     ]
   },
   {
@@ -764,6 +896,13 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 132,
+    "tags": [
+      "rocosa",
+      "calas",
+      "aislada",
+      "fotogenica"
     ]
   },
   {
@@ -814,6 +953,14 @@
       "sunbeds",
       "sunbeds",
       "sunbeds"
+    ],
+    "length": 462,
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "arena-fina",
+      "calas",
+      "familiar"
     ]
   },
   {
@@ -845,6 +992,13 @@
     "lifeguard": false,
     "services": [
       "footwash"
+    ],
+    "length": 215,
+    "tags": [
+      "rocosa",
+      "calas",
+      "aislada",
+      "salvaje"
     ]
   },
   {
@@ -885,6 +1039,14 @@
     "lifeguard": false,
     "services": [
       "footwash"
+    ],
+    "length": 104,
+    "tags": [
+      "nudista",
+      "arena-fina",
+      "calas",
+      "aislada",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -919,6 +1081,13 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 226,
+    "tags": [
+      "rocosa",
+      "calas",
+      "aguas-tranquilas",
+      "familiar"
     ]
   },
   {
@@ -956,6 +1125,13 @@
       "showers",
       "sunbeds",
       "wheelchair-ramp"
+    ],
+    "length": 270,
+    "tags": [
+      "accesible",
+      "calas",
+      "arena-fina",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -987,6 +1163,13 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 142,
+    "tags": [
+      "rocosa",
+      "calas",
+      "snorkel",
+      "aislada"
     ]
   },
   {
@@ -1028,6 +1211,14 @@
     "services": [
       "parking",
       "showers"
+    ],
+    "length": 286,
+    "tags": [
+      "arena-fina",
+      "rocosa",
+      "calas",
+      "aguas-tranquilas",
+      "fotogenica"
     ]
   },
   {
@@ -1066,7 +1257,14 @@
     "instagramHashtag": "#CalaJunquera",
     "dogFriendly": false,
     "lifeguard": false,
-    "services": []
+    "services": [],
+    "length": 237,
+    "tags": [
+      "rocosa",
+      "calas",
+      "aislada",
+      "salvaje"
+    ]
   },
   {
     "code": "602",
@@ -1101,6 +1299,13 @@
     "services": [
       "parking",
       "showers"
+    ],
+    "length": 162,
+    "tags": [
+      "rocosa",
+      "calas",
+      "aguas-tranquilas",
+      "aislada"
     ]
   },
   {
@@ -1138,7 +1343,13 @@
     "instagramHashtag": "#CalaLena",
     "dogFriendly": false,
     "lifeguard": false,
-    "services": []
+    "services": [],
+    "length": 153,
+    "tags": [
+      "rocosa",
+      "calas",
+      "aislada"
+    ]
   },
   {
     "code": "517",
@@ -1172,6 +1383,13 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 380,
+    "tags": [
+      "arena-fina",
+      "calas",
+      "familiar",
+      "accesible"
     ]
   },
   {
@@ -1204,7 +1422,14 @@
     "instagramHashtag": "#CalaMedina",
     "dogFriendly": false,
     "lifeguard": false,
-    "services": []
+    "services": [],
+    "length": 123,
+    "tags": [
+      "rocosa",
+      "calas",
+      "acantilados",
+      "salvaje"
+    ]
   },
   {
     "code": "678",
@@ -1241,6 +1466,14 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 99,
+    "tags": [
+      "canina",
+      "arena-fina",
+      "calas",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -1276,6 +1509,14 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "length": 162,
+    "tags": [
+      "arena-fina",
+      "rocosa",
+      "calas",
+      "aguas-tranquilas",
+      "familiar"
     ]
   },
   {
@@ -1313,6 +1554,14 @@
       "showers",
       "sunbeds",
       "wheelchair-ramp"
+    ],
+    "length": 281,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "calas",
+      "aguas-tranquilas",
+      "familiar"
     ]
   },
   {
@@ -1356,6 +1605,14 @@
       "showers",
       "sunbeds",
       "wheelchair-ramp"
+    ],
+    "length": 389,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "calas",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -1392,6 +1649,14 @@
     "services": [
       "wheelchair-ramp",
       "parking"
+    ],
+    "length": 208,
+    "tags": [
+      "accesible",
+      "rocosa",
+      "calas",
+      "aguas-tranquilas",
+      "fotogenica"
     ]
   },
   {
@@ -1429,6 +1694,14 @@
       "parking",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 214,
+    "tags": [
+      "arena-fina",
+      "rocosa",
+      "calas",
+      "aguas-tranquilas",
+      "familiar"
     ]
   },
   {
@@ -1464,6 +1737,13 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 162,
+    "tags": [
+      "arena-fina",
+      "calas",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -1513,6 +1793,11 @@
     "lifeguard": true,
     "services": [
       "parking"
+    ],
+    "tags": [
+      "arena-fina",
+      "rocosa",
+      "calas"
     ]
   },
   {
@@ -1558,6 +1843,14 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "length": 829,
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "arena-fina",
+      "rocosa",
+      "familiar"
     ]
   },
   {
@@ -1602,6 +1895,11 @@
       "toilets",
       "umbrellas",
       "sunbeds"
+    ],
+    "tags": [
+      "aguas-tranquilas",
+      "familiar",
+      "puesta-sol"
     ]
   },
   {
@@ -1642,6 +1940,12 @@
       "parking",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 304,
+    "tags": [
+      "rocosa",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -1687,6 +1991,13 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "length": 543,
+    "tags": [
+      "chiringuito",
+      "arena-fina",
+      "familiar",
+      "fotogenica"
     ]
   },
   {
@@ -1740,6 +2051,12 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -1785,6 +2102,12 @@
       "showers",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 187,
+    "tags": [
+      "rocosa",
+      "aguas-tranquilas",
+      "familiar"
     ]
   },
   {
@@ -1828,6 +2151,14 @@
       "toilets",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 603,
+    "tags": [
+      "paseo-maritimo",
+      "accesible",
+      "aguas-tranquilas",
+      "arena-fina",
+      "familiar"
     ]
   },
   {
@@ -1869,6 +2200,14 @@
       "showers",
       "toilets",
       "chiringuito"
+    ],
+    "length": 1240,
+    "tags": [
+      "chiringuito",
+      "arena-fina",
+      "rocosa",
+      "salvaje",
+      "aislada"
     ]
   },
   {
@@ -1907,6 +2246,11 @@
       "toilets",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 772,
+    "tags": [
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -1947,6 +2291,14 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 219,
+    "tags": [
+      "nudista",
+      "rocosa",
+      "calas",
+      "aguas-tranquilas",
+      "aislada"
     ]
   },
   {
@@ -1983,6 +2335,14 @@
     "services": [
       "parking",
       "wheelchair-ramp"
+    ],
+    "length": 198,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "calas",
+      "aguas-tranquilas",
+      "familiar"
     ]
   },
   {
@@ -2021,6 +2381,13 @@
       "parking",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 208,
+    "tags": [
+      "arena-fina",
+      "calas",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -2062,6 +2429,13 @@
       "showers",
       "sunbeds",
       "wheelchair-ramp"
+    ],
+    "length": 242,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -2104,6 +2478,13 @@
       "showers",
       "sunbeds",
       "footwash"
+    ],
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "arena-fina",
+      "familiar",
+      "chiringuito"
     ]
   },
   {
@@ -2152,6 +2533,14 @@
       "showers",
       "sunbeds",
       "footwash"
+    ],
+    "length": 2219,
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "arena-fina",
+      "rocosa",
+      "familiar"
     ]
   },
   {
@@ -2195,6 +2584,13 @@
     "services": [
       "parking",
       "wheelchair-ramp"
+    ],
+    "length": 501,
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "familiar",
+      "puesta-sol"
     ]
   },
   {
@@ -2241,6 +2637,14 @@
       "parking",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 2127,
+    "tags": [
+      "canina",
+      "arena-fina",
+      "rocosa",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -2283,6 +2687,12 @@
     "services": [
       "showers",
       "footwash"
+    ],
+    "length": 309,
+    "tags": [
+      "rocosa",
+      "aislada",
+      "salvaje"
     ]
   },
   {
@@ -2324,6 +2734,14 @@
       "chiringuito",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 242,
+    "tags": [
+      "chiringuito",
+      "aguas-tranquilas",
+      "arena-fina",
+      "familiar",
+      "puesta-sol"
     ]
   },
   {
@@ -2370,6 +2788,13 @@
       "showers",
       "sunbeds",
       "wheelchair-ramp"
+    ],
+    "length": 384,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "familiar",
+      "chiringuito"
     ]
   },
   {
@@ -2421,6 +2846,12 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -2458,6 +2889,11 @@
       "toilets",
       "umbrellas",
       "sunbeds"
+    ],
+    "tags": [
+      "calas",
+      "arena-fina",
+      "familiar"
     ]
   },
   {
@@ -2501,6 +2937,14 @@
       "showers",
       "sunbeds",
       "wheelchair-ramp"
+    ],
+    "length": 661,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "calas",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -2545,6 +2989,14 @@
       "showers",
       "sunbeds",
       "footwash"
+    ],
+    "length": 1346,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "calas",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -2589,6 +3041,12 @@
     "lifeguard": true,
     "services": [
       "parking"
+    ],
+    "length": 848,
+    "tags": [
+      "arena-fina",
+      "familiar",
+      "aislada"
     ]
   },
   {
@@ -2633,6 +3091,14 @@
       "umbrellas",
       "sunbeds",
       "wheelchair-ramp"
+    ],
+    "length": 1963,
+    "tags": [
+      "paseo-maritimo",
+      "accesible",
+      "aguas-tranquilas",
+      "arena-fina",
+      "urbana"
     ]
   },
   {
@@ -2677,6 +3143,13 @@
       "wheelchair-ramp",
       "sunbeds",
       "umbrellas"
+    ],
+    "length": 2226,
+    "tags": [
+      "accesible",
+      "familiar",
+      "arena-fina",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -2730,6 +3203,13 @@
       "wheelchair-ramp",
       "showers",
       "first-aid"
+    ],
+    "length": 1557,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -2773,6 +3253,12 @@
       "showers",
       "sunbeds",
       "wheelchair-ramp"
+    ],
+    "length": 543,
+    "tags": [
+      "accesible",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -2821,6 +3307,13 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "length": 1309,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -2864,6 +3357,12 @@
       "toilets",
       "umbrellas",
       "sunbeds"
+    ],
+    "tags": [
+      "arena-fina",
+      "rocosa",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -2909,6 +3408,13 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "length": 1179,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "aguas-tranquilas",
+      "familiar"
     ]
   },
   {
@@ -2957,6 +3463,13 @@
       "showers",
       "sunbeds",
       "wheelchair-ramp"
+    ],
+    "length": 221,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -2991,6 +3504,13 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "tags": [
+      "aguas-tranquilas",
+      "arena-fina",
+      "calas",
+      "familiar",
+      "puesta-sol"
     ]
   },
   {
@@ -3037,6 +3557,13 @@
       "sunbeds",
       "sunbeds",
       "sunbeds"
+    ],
+    "length": 595,
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "arena-fina",
+      "familiar"
     ]
   },
   {
@@ -3078,6 +3605,13 @@
       "showers",
       "sunbeds",
       "toilets"
+    ],
+    "length": 314,
+    "tags": [
+      "accesible",
+      "rocosa",
+      "familiar",
+      "arena-fina"
     ]
   },
   {
@@ -3114,6 +3648,11 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 943,
+    "tags": [
+      "salvaje",
+      "aislada"
     ]
   },
   {
@@ -3153,6 +3692,11 @@
       "parking",
       "showers",
       "first-aid"
+    ],
+    "length": 943,
+    "tags": [
+      "familiar",
+      "urbana"
     ]
   },
   {
@@ -3191,6 +3735,13 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 1608,
+    "tags": [
+      "arena-fina",
+      "rocosa",
+      "aguas-tranquilas",
+      "familiar"
     ]
   },
   {
@@ -3228,6 +3779,10 @@
       "parking",
       "umbrellas",
       "sunbeds"
+    ],
+    "tags": [
+      "rocosa",
+      "familiar"
     ]
   },
   {
@@ -3269,6 +3824,12 @@
       "showers",
       "sunbeds",
       "footwash"
+    ],
+    "length": 2481,
+    "tags": [
+      "accesible",
+      "familiar",
+      "urbana"
     ]
   },
   {
@@ -3311,6 +3872,12 @@
       "showers",
       "sunbeds",
       "sunbeds"
+    ],
+    "length": 693,
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "familiar"
     ]
   },
   {
@@ -3355,6 +3922,14 @@
       "wheelchair-ramp",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 672,
+    "tags": [
+      "paseo-maritimo",
+      "accesible",
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -3394,6 +3969,12 @@
       "showers",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 356,
+    "tags": [
+      "rocosa",
+      "aislada",
+      "salvaje"
     ]
   },
   {
@@ -3442,6 +4023,13 @@
       "wheelchair-ramp",
       "umbrellas",
       "sunbeds"
+    ],
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "arena-fina",
+      "rocosa",
+      "familiar"
     ]
   },
   {
@@ -3482,6 +4070,13 @@
       "showers",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 174,
+    "tags": [
+      "nudista",
+      "rocosa",
+      "salvaje",
+      "aislada"
     ]
   },
   {
@@ -3523,6 +4118,12 @@
       "showers",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 1346,
+    "tags": [
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -3571,6 +4172,13 @@
       "sunbeds",
       "sunbeds",
       "umbrellas"
+    ],
+    "length": 871,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -3609,6 +4217,13 @@
       "showers",
       "sunbeds",
       "wheelchair-ramp"
+    ],
+    "length": 1962,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "aguas-tranquilas",
+      "familiar"
     ]
   },
   {
@@ -3648,6 +4263,13 @@
       "parking",
       "wheelchair-ramp",
       "showers"
+    ],
+    "length": 2057,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -3682,6 +4304,12 @@
     "lifeguard": true,
     "services": [
       "parking"
+    ],
+    "length": 2057,
+    "tags": [
+      "arena-fina",
+      "aguas-tranquilas",
+      "familiar"
     ]
   },
   {
@@ -3721,6 +4349,13 @@
       "showers",
       "sunbeds",
       "footwash"
+    ],
+    "length": 543,
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "familiar",
+      "paseo-maritimo"
     ]
   },
   {
@@ -3752,6 +4387,12 @@
     "lifeguard": false,
     "services": [
       "footwash"
+    ],
+    "length": 205,
+    "tags": [
+      "rocosa",
+      "salvaje",
+      "aislada"
     ]
   },
   {
@@ -3796,6 +4437,12 @@
       "showers",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 447,
+    "tags": [
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -3836,6 +4483,14 @@
       "showers",
       "sunbeds",
       "footwash"
+    ],
+    "length": 1057,
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "arena-fina",
+      "familiar",
+      "puesta-sol"
     ]
   },
   {
@@ -3879,6 +4534,11 @@
       "parking",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 356,
+    "tags": [
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -3913,6 +4573,13 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 690,
+    "tags": [
+      "arena-fina",
+      "rocosa",
+      "aguas-tranquilas",
+      "familiar"
     ]
   },
   {
@@ -3957,6 +4624,13 @@
       "showers",
       "sunbeds",
       "footwash"
+    ],
+    "length": 974,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -3996,6 +4670,12 @@
       "parking",
       "wheelchair-ramp",
       "showers"
+    ],
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -4036,6 +4716,11 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "tags": [
+      "chiringuito",
+      "familiar",
+      "arena-fina"
     ]
   },
   {
@@ -4073,6 +4758,11 @@
     "lifeguard": false,
     "services": [
       "footwash"
+    ],
+    "length": 373,
+    "tags": [
+      "familiar",
+      "arena-fina"
     ]
   },
   {
@@ -4113,6 +4803,13 @@
       "showers",
       "sunbeds",
       "wheelchair-ramp"
+    ],
+    "length": 267,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "aguas-tranquilas",
+      "familiar"
     ]
   },
   {
@@ -4154,6 +4851,12 @@
       "showers",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 1086,
+    "tags": [
+      "canina",
+      "familiar",
+      "urbana"
     ]
   },
   {
@@ -4195,6 +4898,13 @@
       "sunbeds",
       "sunbeds",
       "sunbeds"
+    ],
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "arena-fina",
+      "familiar",
+      "urbana"
     ]
   },
   {
@@ -4229,6 +4939,12 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 318,
+    "tags": [
+      "rocosa",
+      "salvaje",
+      "aislada"
     ]
   },
   {
@@ -4265,7 +4981,14 @@
     "access": "El acceso principal se efectúa desde la autovía AP-7, tomando la salida indicada hacia Los Alcázares. La zona está bien comunicada por carretera y dispone de servicios regulares de autobús urbano.",
     "dogFriendly": true,
     "lifeguard": true,
-    "services": []
+    "services": [],
+    "length": 646,
+    "tags": [
+      "canina",
+      "aguas-tranquilas",
+      "arena-fina",
+      "familiar"
+    ]
   },
   {
     "code": "693",
@@ -4309,6 +5032,13 @@
       "umbrellas",
       "sunbeds",
       "first-aid"
+    ],
+    "length": 588,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "familiar",
+      "urbana"
     ]
   },
   {
@@ -4352,6 +5082,13 @@
       "wheelchair-ramp",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 222,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "familiar",
+      "urbana"
     ]
   },
   {
@@ -4389,6 +5126,14 @@
       "showers",
       "sunbeds",
       "wheelchair-ramp"
+    ],
+    "length": 1004,
+    "tags": [
+      "canina",
+      "accesible",
+      "aguas-tranquilas",
+      "arena-fina",
+      "familiar"
     ]
   },
   {
@@ -4429,6 +5174,13 @@
     "services": [
       "parking",
       "wheelchair-ramp"
+    ],
+    "length": 661,
+    "tags": [
+      "accesible",
+      "rocosa",
+      "salvaje",
+      "fotogenica"
     ]
   },
   {
@@ -4471,6 +5223,12 @@
       "parking",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 519,
+    "tags": [
+      "rocosa",
+      "acantilados",
+      "fotogenica"
     ]
   },
   {
@@ -4512,6 +5270,12 @@
       "wheelchair-ramp",
       "umbrellas",
       "sunbeds"
+    ],
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "familiar",
+      "arena-fina"
     ]
   },
   {
@@ -4554,6 +5318,11 @@
       "sunbeds",
       "sunbeds",
       "sunbeds"
+    ],
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "familiar"
     ]
   },
   {
@@ -4597,6 +5366,14 @@
       "footwash",
       "first-aid",
       "wheelchair-ramp"
+    ],
+    "length": 1469,
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "arena-fina",
+      "familiar",
+      "fotogenica"
     ]
   },
   {
@@ -4648,6 +5425,13 @@
       "toilets",
       "wheelchair-ramp",
       "sunbeds"
+    ],
+    "length": 970,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "familiar",
+      "urbana"
     ]
   },
   {
@@ -4692,6 +5476,11 @@
       "showers",
       "umbrellas",
       "sunbeds"
+    ],
+    "tags": [
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -4729,7 +5518,12 @@
     "instagramHashtag": "#PlayaDePiedraMala",
     "dogFriendly": false,
     "lifeguard": false,
-    "services": []
+    "services": [],
+    "length": 334,
+    "tags": [
+      "aislada",
+      "rocosa"
+    ]
   },
   {
     "code": "596",
@@ -4773,6 +5567,14 @@
       "wheelchair-ramp",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 1256,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "rocosa",
+      "familiar",
+      "urbana"
     ]
   },
   {
@@ -4812,6 +5614,13 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "length": 205,
+    "tags": [
+      "aguas-tranquilas",
+      "arena-fina",
+      "familiar",
+      "puesta-sol"
     ]
   },
   {
@@ -4851,6 +5660,13 @@
       "showers",
       "toilets",
       "chiringuito"
+    ],
+    "length": 210,
+    "tags": [
+      "chiringuito",
+      "arena-fina",
+      "aguas-tranquilas",
+      "fotogenica"
     ]
   },
   {
@@ -4894,6 +5710,14 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "length": 976,
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "arena-fina",
+      "familiar",
+      "acantilados"
     ]
   },
   {
@@ -4934,6 +5758,12 @@
       "showers",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 193,
+    "tags": [
+      "rocosa",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -4976,6 +5806,12 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "length": 496,
+    "tags": [
+      "rocosa",
+      "familiar",
+      "acantilados"
     ]
   },
   {
@@ -5022,6 +5858,13 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "length": 2219,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -5057,7 +5900,13 @@
     "instagramHashtag": "#PlayaDelBarcoPerdidoplayaLasSirenas",
     "dogFriendly": false,
     "lifeguard": true,
-    "services": []
+    "services": [],
+    "length": 2219,
+    "tags": [
+      "arena-fina",
+      "aislada",
+      "aguas-tranquilas"
+    ]
   },
   {
     "code": "641",
@@ -5096,6 +5945,13 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 181,
+    "tags": [
+      "nudista",
+      "rocosa",
+      "salvaje",
+      "aislada"
     ]
   },
   {
@@ -5130,6 +5986,11 @@
     "lifeguard": true,
     "services": [
       "parking"
+    ],
+    "length": 109,
+    "tags": [
+      "arena-fina",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -5168,6 +6029,13 @@
       "showers",
       "sunbeds",
       "wheelchair-ramp"
+    ],
+    "length": 510,
+    "tags": [
+      "nudista",
+      "accesible",
+      "arena-fina",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -5205,6 +6073,12 @@
       "showers",
       "toilets",
       "chiringuito"
+    ],
+    "length": 198,
+    "tags": [
+      "chiringuito",
+      "rocosa",
+      "aislada"
     ]
   },
   {
@@ -5247,6 +6121,11 @@
       "showers",
       "sunbeds",
       "sunbeds"
+    ],
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "familiar"
     ]
   },
   {
@@ -5294,6 +6173,12 @@
       "toilets",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 723,
+    "tags": [
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -5334,6 +6219,12 @@
       "parking",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 326,
+    "tags": [
+      "rocosa",
+      "familiar",
+      "accesible"
     ]
   },
   {
@@ -5378,6 +6269,14 @@
       "wheelchair-ramp",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 210,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "rocosa",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -5415,6 +6314,12 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "length": 106,
+    "tags": [
+      "rocosa",
+      "familiar",
+      "fotogenica"
     ]
   },
   {
@@ -5453,6 +6358,11 @@
       "parking",
       "umbrellas",
       "sunbeds"
+    ],
+    "tags": [
+      "arena-fina",
+      "familiar",
+      "aislada"
     ]
   },
   {
@@ -5485,7 +6395,13 @@
     "instagramHashtag": "#PlayaDelPocicoDelAnimal",
     "dogFriendly": false,
     "lifeguard": false,
-    "services": []
+    "services": [],
+    "length": 195,
+    "tags": [
+      "arena-fina",
+      "aislada",
+      "salvaje"
+    ]
   },
   {
     "code": "587",
@@ -5519,6 +6435,12 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 239,
+    "tags": [
+      "rocosa",
+      "aislada",
+      "salvaje"
     ]
   },
   {
@@ -5567,6 +6489,13 @@
       "toilets",
       "wheelchair-ramp",
       "sunbeds"
+    ],
+    "length": 1030,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "familiar",
+      "paseo-maritimo"
     ]
   },
   {
@@ -5604,6 +6533,12 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 587,
+    "tags": [
+      "rocosa",
+      "arena-fina",
+      "accesible"
     ]
   },
   {
@@ -5646,6 +6581,11 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "length": 1284,
+    "tags": [
+      "rocosa",
+      "aislada"
     ]
   },
   {
@@ -5682,6 +6622,11 @@
       "parking",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 326,
+    "tags": [
+      "rocosa",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -5721,6 +6666,13 @@
       "showers",
       "sunbeds",
       "wheelchair-ramp"
+    ],
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "arena-fina",
+      "familiar",
+      "puesta-sol"
     ]
   },
   {
@@ -5772,6 +6724,11 @@
       "toilets",
       "umbrellas",
       "sunbeds"
+    ],
+    "tags": [
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -5807,6 +6764,11 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "tags": [
+      "aguas-tranquilas",
+      "arena-fina",
+      "familiar"
     ]
   },
   {
@@ -5850,6 +6812,14 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "length": 990,
+    "tags": [
+      "paseo-maritimo",
+      "accesible",
+      "aguas-tranquilas",
+      "arena-fina",
+      "familiar"
     ]
   },
   {
@@ -5892,6 +6862,14 @@
       "chiringuito",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 608,
+    "tags": [
+      "canina",
+      "chiringuito",
+      "rocosa",
+      "arena-fina",
+      "familiar"
     ]
   },
   {
@@ -5938,6 +6916,14 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "length": 966,
+    "tags": [
+      "chiringuito",
+      "aguas-tranquilas",
+      "arena-fina",
+      "familiar",
+      "puesta-sol"
     ]
   },
   {
@@ -5976,6 +6962,13 @@
       "parking",
       "wheelchair-ramp",
       "showers"
+    ],
+    "length": 988,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -6026,6 +7019,13 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "length": 847,
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "familiar",
+      "chiringuito"
     ]
   },
   {
@@ -6067,6 +7067,14 @@
       "toilets",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 603,
+    "tags": [
+      "paseo-maritimo",
+      "accesible",
+      "aguas-tranquilas",
+      "arena-fina",
+      "familiar"
     ]
   },
   {
@@ -6111,6 +7119,14 @@
       "showers",
       "toilets",
       "chiringuito"
+    ],
+    "length": 502,
+    "tags": [
+      "nudista",
+      "chiringuito",
+      "rocosa",
+      "aislada",
+      "arena-fina"
     ]
   },
   {
@@ -6156,6 +7172,12 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 1024,
+    "tags": [
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -6196,6 +7218,13 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "length": 745,
+    "tags": [
+      "chiringuito",
+      "rocosa",
+      "arena-fina",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -6239,6 +7268,13 @@
       "toilets",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 442,
+    "tags": [
+      "arena-fina",
+      "rocosa",
+      "aguas-tranquilas",
+      "familiar"
     ]
   },
   {
@@ -6277,6 +7313,12 @@
       "showers",
       "sunbeds",
       "wheelchair-ramp"
+    ],
+    "tags": [
+      "accesible",
+      "rocosa",
+      "aguas-tranquilas",
+      "fotogenica"
     ]
   },
   {
@@ -6327,6 +7369,13 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "length": 1712,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -6361,6 +7410,12 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 438,
+    "tags": [
+      "rocosa",
+      "salvaje",
+      "aislada"
     ]
   },
   {
@@ -6410,6 +7465,13 @@
       "sunbeds",
       "sunbeds",
       "sunbeds"
+    ],
+    "length": 2219,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -6454,6 +7516,14 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "length": 1406,
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "arena-fina",
+      "familiar",
+      "puesta-sol"
     ]
   },
   {
@@ -6493,6 +7563,14 @@
     "services": [
       "showers",
       "footwash"
+    ],
+    "length": 301,
+    "tags": [
+      "nudista",
+      "arena-fina",
+      "rocosa",
+      "aguas-tranquilas",
+      "aislada"
     ]
   },
   {
@@ -6537,6 +7615,13 @@
       "sunbeds",
       "sunbeds",
       "first-aid"
+    ],
+    "length": 76,
+    "tags": [
+      "accesible",
+      "rocosa",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -6573,6 +7658,11 @@
     "services": [
       "showers",
       "toilets"
+    ],
+    "length": 117,
+    "tags": [
+      "rocosa",
+      "aislada"
     ]
   },
   {
@@ -6619,6 +7709,14 @@
       "sunbeds",
       "sunbeds",
       "sunbeds"
+    ],
+    "length": 955,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "calas",
+      "familiar",
+      "puesta-sol"
     ]
   },
   {
@@ -6655,6 +7753,13 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 904,
+    "tags": [
+      "canina",
+      "rocosa",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -6693,6 +7798,13 @@
       "showers",
       "sunbeds",
       "wheelchair-ramp"
+    ],
+    "length": 197,
+    "tags": [
+      "accesible",
+      "rocosa",
+      "aguas-tranquilas",
+      "familiar"
     ]
   },
   {
@@ -6739,6 +7851,12 @@
       "showers",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 457,
+    "tags": [
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -6774,6 +7892,12 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 162,
+    "tags": [
+      "rocosa",
+      "aislada",
+      "fotogenica"
     ]
   },
   {
@@ -6811,6 +7935,11 @@
     "services": [
       "showers",
       "toilets"
+    ],
+    "tags": [
+      "aguas-tranquilas",
+      "familiar",
+      "puesta-sol"
     ]
   },
   {
@@ -6847,6 +7976,12 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 206,
+    "tags": [
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -6899,6 +8034,13 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "length": 1522,
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "familiar",
+      "puesta-sol"
     ]
   },
   {
@@ -6937,6 +8079,11 @@
       "toilets",
       "umbrellas",
       "sunbeds"
+    ],
+    "tags": [
+      "rocosa",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -6978,6 +8125,14 @@
       "parking",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 83,
+    "tags": [
+      "canina",
+      "arena-fina",
+      "rocosa",
+      "familiar",
+      "aislada"
     ]
   },
   {
@@ -7015,6 +8170,11 @@
     "services": [
       "parking",
       "wheelchair-ramp"
+    ],
+    "tags": [
+      "accesible",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -7051,6 +8211,12 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 222,
+    "tags": [
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -7093,6 +8259,13 @@
       "showers",
       "sunbeds",
       "wheelchair-ramp"
+    ],
+    "length": 453,
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "familiar",
+      "puesta-sol"
     ]
   },
   {
@@ -7134,6 +8307,13 @@
       "wheelchair-ramp",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 1728,
+    "tags": [
+      "paseo-maritimo",
+      "accesible",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -7177,6 +8357,13 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "tags": [
+      "chiringuito",
+      "aguas-tranquilas",
+      "arena-fina",
+      "familiar",
+      "puesta-sol"
     ]
   },
   {
@@ -7220,6 +8407,13 @@
       "showers",
       "sunbeds",
       "footwash"
+    ],
+    "tags": [
+      "canina",
+      "accesible",
+      "aguas-tranquilas",
+      "arena-fina",
+      "familiar"
     ]
   },
   {
@@ -7263,6 +8457,13 @@
       "showers",
       "sunbeds",
       "umbrellas"
+    ],
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "arena-fina",
+      "familiar",
+      "urbana"
     ]
   },
   {
@@ -7306,6 +8507,12 @@
       "parking",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 1919,
+    "tags": [
+      "aguas-tranquilas",
+      "familiar",
+      "puesta-sol"
     ]
   },
   {
@@ -7353,6 +8560,13 @@
       "showers",
       "sunbeds",
       "footwash"
+    ],
+    "length": 723,
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "familiar",
+      "urbana"
     ]
   },
   {
@@ -7391,6 +8605,13 @@
       "showers",
       "toilets",
       "chiringuito"
+    ],
+    "length": 360,
+    "tags": [
+      "nudista",
+      "chiringuito",
+      "aislada",
+      "arena-fina"
     ]
   },
   {
@@ -7434,6 +8655,13 @@
       "showers",
       "sunbeds",
       "wheelchair-ramp"
+    ],
+    "length": 356,
+    "tags": [
+      "accesible",
+      "rocosa",
+      "arena-fina",
+      "salvaje"
     ]
   },
   {
@@ -7469,6 +8697,12 @@
     "lifeguard": false,
     "services": [
       "parking"
+    ],
+    "length": 148,
+    "tags": [
+      "arena-fina",
+      "aislada",
+      "fotogenica"
     ]
   },
   {
@@ -7510,6 +8744,13 @@
       "showers",
       "sunbeds",
       "sunbeds"
+    ],
+    "length": 1745,
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "familiar",
+      "puesta-sol"
     ]
   },
   {
@@ -7554,6 +8795,12 @@
       "showers",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 1143,
+    "tags": [
+      "rocosa",
+      "familiar",
+      "aislada"
     ]
   },
   {
@@ -7598,6 +8845,12 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "length": 2046,
+    "tags": [
+      "rocosa",
+      "arena-fina",
+      "aislada"
     ]
   },
   {
@@ -7638,6 +8891,12 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "length": 710,
+    "tags": [
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -7688,6 +8947,13 @@
       "wheelchair-ramp",
       "umbrellas",
       "sunbeds"
+    ],
+    "length": 847,
+    "tags": [
+      "accesible",
+      "arena-fina",
+      "familiar",
+      "aguas-tranquilas"
     ]
   },
   {
@@ -7725,6 +8991,13 @@
       "umbrellas",
       "sunbeds",
       "footwash"
+    ],
+    "length": 938,
+    "tags": [
+      "aguas-tranquilas",
+      "arena-fina",
+      "familiar",
+      "snorkel"
     ]
   },
   {
@@ -7766,6 +9039,13 @@
       "sunbeds",
       "sunbeds",
       "sunbeds"
+    ],
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "arena-fina",
+      "rocosa",
+      "familiar"
     ]
   },
   {
@@ -7806,6 +9086,13 @@
       "showers",
       "sunbeds",
       "footwash"
+    ],
+    "length": 1773,
+    "tags": [
+      "accesible",
+      "aguas-tranquilas",
+      "familiar",
+      "urbana"
     ]
   },
   {
@@ -7853,6 +9140,13 @@
       "sunbeds",
       "sunbeds",
       "sunbeds"
+    ],
+    "length": 1143,
+    "tags": [
+      "accesible",
+      "rocosa",
+      "aguas-tranquilas",
+      "familiar"
     ]
   },
   {
@@ -7894,6 +9188,13 @@
       "sunbeds",
       "sunbeds",
       "footwash"
+    ],
+    "length": 2773,
+    "tags": [
+      "accesible",
+      "rocosa",
+      "familiar",
+      "aguas-tranquilas"
     ]
   }
 ]

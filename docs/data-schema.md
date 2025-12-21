@@ -57,6 +57,8 @@ interface Beach {
   waves?: string            // Wave conditions (MODERADO, etc.)
   pictures?: string[]       // Image filenames
   aemetId?: string          // AEMET beach code for weather API
+  length?: number           // Beach length in meters (from OSM)
+  tags?: string[]           // Vibe tags for categorization (see Tag type below)
 }
 ```
 
@@ -76,6 +78,31 @@ type Service =
   | 'first-aid'       // Puesto de primeros auxilios
   | 'wheelchair-ramp' // Rampa para sillas de ruedas
   | 'floating-chairs' // Sillas anfibias para baño
+```
+
+### Tag
+
+```typescript
+type Tag =
+  | 'familiar'          // Family-friendly, easy access
+  | 'salvaje'           // Wild, unspoiled nature
+  | 'aislada'           // Isolated, hard to reach
+  | 'urbana'            // Urban beach
+  | 'snorkel'           // Good for snorkeling
+  | 'buceo'             // Good for diving
+  | 'deportes-nauticos' // Water sports available
+  | 'chiringuito'       // Has beach bar
+  | 'paseo-maritimo'    // Has promenade
+  | 'nudista'           // Nudist beach
+  | 'canina'            // Dog-friendly
+  | 'accesible'         // Wheelchair accessible
+  | 'rocosa'            // Rocky terrain
+  | 'arena-fina'        // Fine sand
+  | 'aguas-tranquilas'  // Calm waters
+  | 'calas'             // Cove beach
+  | 'acantilados'       // Surrounded by cliffs
+  | 'puesta-sol'        // Good sunset views
+  | 'fotogenica'        // Photogenic/scenic
 ```
 
 ### Municipality
