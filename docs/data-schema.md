@@ -55,6 +55,7 @@ interface Beach {
   // Optional
   occupancyLevel?: "low" | "medium" | "high"  // Typical crowd level
   campingNearby?: boolean        // Camping within 3km
+  metaDescription?: string       // SEO meta description (140-170 chars)
   certifications?: ("blue-flag" | "q-quality" | "ecoplayas")[]  // Official certifications
   bestSeason?: ("spring" | "summer" | "autumn" | "winter")[]  // Best visiting seasons
   district?: string         // District within municipality

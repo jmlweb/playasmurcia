@@ -166,4 +166,18 @@ Beaches within 3km of a verified campsite are flagged as `campingNearby: true`.
 
 **Distribution:** 42 beaches (22%)
 
-Script: `scripts/add-camping.js`
+Script: `scripts/add-camping.js` (deleted after run)
+
+## Meta Descriptions
+
+SEO-optimized descriptions generated with Ollama:
+
+| Requirement | Value |
+|-------------|-------|
+| Length | 140-170 characters |
+| Language | Spanish |
+| Keywords | Beach name, municipality, "Murcia", "Costa Cálida" |
+
+Script auto-corrects length by asking Ollama to expand/shorten until in range.
+
+Script: `scripts/generate-meta-descriptions.js` (deleted after run)

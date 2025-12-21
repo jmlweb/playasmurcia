@@ -41,7 +41,7 @@ Status indicators:
 26. [x] ~~step-26-sort-pictures-by-size.md~~
 
 ### Phase 4: SEO
-27. [ ] step-27-generate-meta-descriptions.md
+27. [x] ~~step-27-generate-meta-descriptions.md~~
 28. [ ] step-28-generate-seo-keywords.md
 
 ## Notes
