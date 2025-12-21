@@ -181,3 +181,15 @@ SEO-optimized descriptions generated with Ollama:
 Script auto-corrects length by asking Ollama to expand/shorten until in range.
 
 Script: `scripts/generate-meta-descriptions.js` (deleted after run)
+
+## SEO Keywords
+
+Keywords extracted with Ollama for search optimization:
+
+| Requirement | Value |
+|-------------|-------|
+| Count | 5-10 keywords per beach |
+| Content | Beach name, municipality, type, activities, characteristics |
+| Format | Lowercase strings |
+
+Script: `scripts/generate-seo-keywords.js` (deleted after run)
