@@ -1,51 +1,41 @@
-# Plan: Enrich Beach Data
+# Plan: Enrich Beach Data ✓
 
 ## Description
 
 Add missing fields to `data/beaches.json` using automated scripts.
 
+**Status: COMPLETED**
+
 ## Steps
 
-<!--
-Status indicators:
-- [ ] pending
-- [~] in progress
-- [x] ~~completed~~ (file deleted)
--->
+1. [x] ~~jellyfish-risk~~
+2. [x] ~~orientation~~
+3. [x] ~~instagram-hashtag~~
+4. [x] ~~fix-validation-bounds~~
+5. [x] ~~add-missing-access~~
+6. [x] ~~validate-beaches~~
+7. [x] ~~consolidate-access-description~~
+8. [x] ~~add-dog-friendly~~
+9. [x] ~~add-lifeguard-info~~
+10. [x] ~~extract-services~~
+11. [x] ~~add-dimensions~~
+12. [x] ~~generate-tags~~
+13. [x] ~~extract-activities~~
+14. [x] ~~add-best-season~~
+15. [x] ~~add-certifications~~
+16. [x] ~~add-occupancy-level~~
+17. [x] ~~add-camping-nearby~~
+18. [x] ~~sort-pictures-by-size~~
+19. [x] ~~generate-meta-descriptions~~
+20. [x] ~~generate-seo-keywords~~
 
-1. [x] ~~step-01-jellyfish-risk.md~~
-2. [x] ~~step-02-orientation.md~~
-3. [x] ~~step-03-instagram-hashtag.md~~
-4. [x] ~~step-04-fix-validation-bounds.md~~
-5. [x] ~~step-05-add-missing-access.md~~
-6. [x] ~~step-06-validate-beaches.md~~
-7. [x] ~~step-07-consolidate-access-description.md~~
+## Backlog
 
-### Phase 1: High Priority
-8. [x] ~~step-08-add-dog-friendly.md~~
-9. [x] ~~step-09-add-lifeguard-info.md~~
-10. [x] ~~step-10-extract-services.md~~
-
-### Phase 2: Medium Priority
-13. [x] ~~step-13-add-dimensions.md~~
-14. [x] ~~step-14-generate-tags.md~~
-15. [x] ~~step-15-extract-activities.md~~
-16. [x] ~~step-16-add-best-season.md~~
-17. [ ] step-17-add-seasonal-services.md
-18. [ ] step-18-add-google-place-ids.md
-19. [x] ~~step-19-add-certifications.md~~
-
-### Phase 3: Low Priority
-20. [x] ~~step-23-add-occupancy-level.md~~
-21. [x] ~~step-25-add-camping-nearby.md~~
-26. [x] ~~step-26-sort-pictures-by-size.md~~
-
-### Phase 4: SEO
-27. [x] ~~step-27-generate-meta-descriptions.md~~
-28. [x] ~~step-28-generate-seo-keywords.md~~
-
-## Notes
-
-- Each step includes a ready-to-run script
-- Estimated time: <2h per step
-- Source: Tasks extracted from `docs/ENRICH_BEACHES.md`
+Pending ideas in `backlog/`:
+- add-seasonal-services
+- add-google-place-ids
+- add-water-quality
+- add-webcams
+- calculate-sun-exposure
+- add-historical-info
+- add-protected-areas
