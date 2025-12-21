@@ -1,3 +1,15 @@
+# Plan: SEO & Features
+
+## Description
+
+Improve SEO and add user-facing features.
+
+## Steps
+
+1. [x] ~~add-schema-markup~~ (completed)
+
+---
+
 # Plan: Enrich Beach Data ✓
 
 ## Description
@@ -6,7 +18,7 @@ Add missing fields to `data/beaches.json` using automated scripts.
 
 **Status: COMPLETED**
 
-## Steps
+## Completed Steps
 
 1. [x] ~~jellyfish-risk~~
 2. [x] ~~orientation~~
@@ -32,10 +44,11 @@ Add missing fields to `data/beaches.json` using automated scripts.
 ## Backlog
 
 Pending ideas in `backlog/`:
-- add-seasonal-services
-- add-google-place-ids
-- add-water-quality
-- add-webcams
-- calculate-sun-exposure
-- add-historical-info
-- add-protected-areas
+- beaches-add-access-difficulty
+- beaches-add-child-safe
+- beaches-add-natural-shade
+- beaches-add-water-quality
+- feature-dynamic-sitemap
+- feature-generate-translations
+- service-aemet-weather
+- service-beach-status-112

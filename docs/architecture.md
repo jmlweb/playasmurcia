@@ -22,7 +22,14 @@ playasmurcia/
 ├── src/                    # TanStack Start application source
 │   ├── routes/             # File-based routing (TanStack Router)
 │   │   ├── __root.tsx      # Root layout component
-│   │   └── index.tsx       # Home page (/)
+│   │   ├── index.tsx       # Home page (/)
+│   │   └── playas/
+│   │       └── $slug.tsx   # Beach detail page (/playas/:slug)
+│   ├── lib/                # Utility functions
+│   │   ├── data.ts         # Data access (beaches, municipalities, services)
+│   │   └── schema.ts       # JSON-LD schema generator for SEO
+│   ├── types/              # TypeScript type definitions
+│   │   └── beach.ts        # Beach, Service, Municipality types
 │   ├── router.tsx          # Router configuration
 │   ├── styles.css          # Global styles (Tailwind CSS)
 │   └── routeTree.gen.ts    # Auto-generated route tree (do not edit)
@@ -45,9 +52,16 @@ playasmurcia/
 
 TanStack Router with file-based routing in `src/routes/`:
 
-- `__root.tsx`: Root layout (HTML, meta tags, global CSS)
-- `index.tsx`: Home page (`/`)
-- Additional routes follow the pattern `path.tsx` or `path/index.tsx`
+| Route | File | Description |
+|-------|------|-------------|
+| `/` | `index.tsx` | Home page |
+| `/playas/:slug` | `playas/$slug.tsx` | Beach detail page |
+
+Root layout in `__root.tsx` provides HTML structure, meta tags, and global CSS.
+
+### SEO
+
+Beach pages include JSON-LD structured data (Schema.org Beach type) for rich results in search engines. The schema is generated in `src/lib/schema.ts` and injected via TanStack Router's `head` function.
 
 ### Styling
 

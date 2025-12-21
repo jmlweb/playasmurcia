@@ -18,6 +18,9 @@ dist-ssr
 .vinxi
 .wrangler
 
+# Test coverage
+coverage
+
 # Generated files
 src/routeTree.gen.ts
 
