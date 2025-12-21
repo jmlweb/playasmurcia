@@ -1,2 +1,29 @@
+# Environment
 .env
+.env.local
+*.local
+
+# Claude
 .claude
+
+# Dependencies
+node_modules
+
+# Build outputs
+dist
+dist-ssr
+.output
+.nitro
+.tanstack
+.vinxi
+.wrangler
+
+# Generated files
+src/routeTree.gen.ts
+
+# System files
+.DS_Store
+
+# Misc
+count.txt
+todos.json

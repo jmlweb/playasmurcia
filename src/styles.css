@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+  --default-font-family: "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+}
