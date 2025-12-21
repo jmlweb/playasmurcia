@@ -36,10 +36,11 @@ interface Beach {
   soilType: string          // Sand/rock type description
   blueFlag: boolean         // EU Blue Flag certification
   nudist: boolean           // Nudist beach
-  accessible: boolean       // Accessibility features
   promenade: boolean        // Has seafront promenade
   anchorageZone: boolean    // Boat anchoring allowed
   dogFriendly: boolean      // Officially allows dogs
+  lifeguard: boolean        // Has lifeguard service (COPLA) in summer
+  services: Service[]       // Available services (see Service type below)
 
   // Required - Content
   description: string       // AI-generated tourist description (2-3 sentences)
@@ -56,21 +57,25 @@ interface Beach {
   waves?: string            // Wave conditions (MODERADO, etc.)
   pictures?: string[]       // Image filenames
   aemetId?: string          // AEMET beach code for weather API
-  accessInfo?: AccessInfo   // Structured access data (AI-extracted)
 }
 ```
 
-### AccessInfo
+### Service
 
 ```typescript
-interface AccessInfo {
-  hasParking: boolean | null
-  hasBusAccess: boolean | null
-  hasBoatAccess: boolean | null
-  walkingRequired: boolean | null
-  roadType: 'asphalt' | 'dirt' | 'path' | 'unknown' | null
-  difficultyLevel: 'easy' | 'moderate' | 'difficult' | null
-}
+type Service =
+  | 'showers'         // Duchas
+  | 'toilets'         // Aseos
+  | 'restaurant'      // Restaurante
+  | 'bar'             // Bar
+  | 'chiringuito'     // Chiringuito/quiosco de playa
+  | 'parking'         // Aparcamiento
+  | 'umbrellas'       // Alquiler de sombrillas
+  | 'sunbeds'         // Alquiler de hamacas/tumbonas
+  | 'footwash'        // Lavapiés
+  | 'first-aid'       // Puesto de primeros auxilios
+  | 'wheelchair-ramp' // Rampa para sillas de ruedas
+  | 'floating-chairs' // Sillas anfibias para baño
 ```
 
 ### Municipality

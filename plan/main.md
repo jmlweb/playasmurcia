@@ -23,8 +23,8 @@ Status indicators:
 
 ### Phase 1: High Priority
 8. [x] ~~step-08-add-dog-friendly.md~~
-9. [ ] step-09-add-lifeguard-info.md
-10. [ ] step-10-extract-services.md
+9. [x] ~~step-09-add-lifeguard-info.md~~
+10. [x] ~~step-10-extract-services.md~~
 11. [ ] step-11-add-water-quality.md
 12. [ ] step-12-add-webcams.md
 
@@ -46,10 +46,11 @@ Status indicators:
 23. [ ] step-23-add-occupancy-level.md
 24. [ ] step-24-add-historical-info.md
 25. [ ] step-25-add-camping-nearby.md
+26. [x] ~~step-26-sort-pictures-by-size.md~~
 
 ### Phase 4: SEO
-26. [ ] step-27-generate-meta-descriptions.md
-27. [ ] step-28-generate-seo-keywords.md
+27. [ ] step-27-generate-meta-descriptions.md
+28. [ ] step-28-generate-seo-keywords.md
 
 ## Notes
 
