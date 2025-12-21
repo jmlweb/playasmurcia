@@ -15,6 +15,24 @@ See [plan/CLAUDE.md](./plan/CLAUDE.md) for rules on managing execution plans.
 
 ## Claude-Specific Rules
 
+### Agent Orchestration
+
+When using `/do-task` to implement features, follow this agent workflow:
+
+| Agent | Responsibility |
+|-------|----------------|
+| `Explore` | Understand codebase structure before implementation |
+| `Plan` | Design approach for complex features |
+| `frontend-developer` | Implement UI + write unit/integration tests for their code |
+| `backend-developer` | Implement APIs + write unit/integration tests for their code |
+| `qa-engineer` | Verify test coverage, write E2E tests (Playwright), audit quality |
+| `code-reviewer` | Final review before PR |
+
+**Testing responsibilities:**
+- **Developers write tests** for their own code (TDD approach)
+- **QA verifies** coverage exists and writes E2E tests for user flows
+- Never skip QA verification after implementation
+
 ### Cost Optimization
 
 For long-running processes (Ollama calls, batch operations, API requests), create a script in `scripts/` and return the command instead of running directly:
