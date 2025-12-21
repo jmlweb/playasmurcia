@@ -43,6 +43,10 @@ Example format:
 - When removing a step file: Update `main.md` accordingly
 - Keep `main.md` always in sync with existing step files
 
+### Index Renumbering
+
+When all pending steps in the current plan are completed, renumber `main.md` to eliminate gaps in the sequence. This keeps the index clean and readable for the next planning cycle.
+
 ## Backlog
 
 Unprioritized ideas and tasks are stored in `backlog/` at the project root. When a task is prioritized, move it to `plan/` and add the `step-XX-` prefix according to its execution order.

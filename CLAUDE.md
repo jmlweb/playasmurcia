@@ -24,6 +24,18 @@ For long-running processes (Ollama calls, batch operations, API requests), creat
 node scripts/add-certifications.js
 ```
 
+### Script Retention
+
+Only keep scripts in `scripts/` if the data requires periodic revalidation:
+
+- **Keep**: Scripts for data that changes over time (certifications, occupancy, weather)
+- **Delete**: One-time data enrichment scripts (initial descriptions, static attributes)
+
+If a script is retained, document it in `docs/development.md` with:
+- Purpose and when to run
+- Required environment variables or API keys
+- Expected frequency (daily, weekly, seasonal)
+
 ### Data Editing
 
 - Never manually edit generated fields (`description`, `accessInfo`)

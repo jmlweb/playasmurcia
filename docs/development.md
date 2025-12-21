@@ -38,11 +38,9 @@ node scripts/script-name.js
 
 | Script | Purpose | Frequency |
 |--------|---------|-----------|
-| `add-certifications.js` | Update Blue Flag, Q Quality, Ecoplayas | Annual |
-| `add-dog-friendly.js` | Update dog-friendly beaches list | Seasonal |
-| `add-lifeguard-info.js` | Update COPLA lifeguard data | Seasonal |
-| `add-occupancy-level.js` | Infer crowd levels from tags/certifications | As needed |
-| `validate-beaches.js` | Validate all beach data | As needed |
+| `add-certifications.js` | Update Blue Flag, Q Quality, Ecoplayas | Annual (spring) |
+| `add-lifeguard-info.js` | Update COPLA lifeguard data | Seasonal (summer) |
+| `validate-beaches.js` | Validate all beach data | Before releases |
 
 ## Cost Optimization
 
