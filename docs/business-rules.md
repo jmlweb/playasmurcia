@@ -151,3 +151,19 @@ Typical crowd level is inferred from beach characteristics:
 **Distribution:** ~47% high, ~26% medium, ~26% low
 
 Script: `scripts/add-occupancy-level.js`
+
+## Camping Nearby
+
+Beaches within 3km of a verified campsite are flagged as `campingNearby: true`.
+
+| Municipality | Campsites |
+|--------------|-----------|
+| San Javier | Camping Mar Menor, Camping Pueblo |
+| Cartagena | Camping Los Madriles, Camping El Portús |
+| Mazarrón | Camping Playa de Mazarrón, Las Torres, Los Delfines |
+| Águilas | Camping Bellavista, Camperpark Duemo |
+| Lorca | Camping Playa Parazuelos |
+
+**Distribution:** 42 beaches (22%)
+
+Script: `scripts/add-camping.js`

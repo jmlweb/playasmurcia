@@ -41,6 +41,7 @@ node scripts/script-name.js
 | `add-certifications.js` | Update Blue Flag, Q Quality, Ecoplayas | Annual |
 | `add-dog-friendly.js` | Update dog-friendly beaches list | Seasonal |
 | `add-lifeguard-info.js` | Update COPLA lifeguard data | Seasonal |
+| `add-occupancy-level.js` | Infer crowd levels from tags/certifications | As needed |
 | `validate-beaches.js` | Validate all beach data | As needed |
 
 ## Cost Optimization

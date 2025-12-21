@@ -45,7 +45,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "601",
@@ -95,7 +96,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "516",
@@ -151,7 +153,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "559",
@@ -204,7 +207,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "628",
@@ -261,7 +265,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "522",
@@ -310,7 +315,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "7050",
@@ -369,7 +375,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "658",
@@ -424,7 +431,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "512",
@@ -497,7 +505,8 @@
       "blue-flag",
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "663",
@@ -570,7 +579,8 @@
     "certifications": [
       "blue-flag"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "551",
@@ -633,7 +643,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "610",
@@ -692,7 +703,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "605",
@@ -751,7 +763,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "513",
@@ -807,7 +820,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "7053",
@@ -862,7 +876,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "631",
@@ -924,7 +939,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": true
   },
   {
     "code": "556",
@@ -978,7 +994,8 @@
     "certifications": [
       "blue-flag"
     ],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "626",
@@ -1039,7 +1056,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": true
   },
   {
     "code": "567",
@@ -1098,7 +1116,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": true
   },
   {
     "code": "572",
@@ -1149,7 +1168,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "577",
@@ -1222,7 +1242,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "571",
@@ -1273,7 +1294,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "552",
@@ -1332,7 +1354,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "603",
@@ -1386,7 +1409,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "554",
@@ -1442,7 +1466,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "595",
@@ -1492,7 +1517,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "579",
@@ -1554,7 +1580,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": true
   },
   {
     "code": "630",
@@ -1612,7 +1639,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": true
   },
   {
     "code": "602",
@@ -1667,7 +1695,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "629",
@@ -1722,7 +1751,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "517",
@@ -1774,7 +1804,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "558",
@@ -1826,7 +1857,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "678",
@@ -1882,7 +1914,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": true
   },
   {
     "code": "574",
@@ -1938,7 +1971,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "553",
@@ -1995,7 +2029,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "518",
@@ -2058,7 +2093,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "523",
@@ -2115,7 +2151,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "510",
@@ -2173,7 +2210,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "568",
@@ -2227,7 +2265,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "578",
@@ -2293,7 +2332,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "689",
@@ -2359,7 +2399,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "538",
@@ -2421,7 +2462,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "586",
@@ -2480,7 +2522,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "615",
@@ -2544,7 +2587,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": true
   },
   {
     "code": "671",
@@ -2617,7 +2661,8 @@
     "certifications": [
       "blue-flag"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "632",
@@ -2681,7 +2726,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": true
   },
   {
     "code": "667",
@@ -2748,7 +2794,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "639",
@@ -2810,7 +2857,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "655",
@@ -2865,7 +2913,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "642",
@@ -2926,7 +2975,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "520",
@@ -2982,7 +3032,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "569",
@@ -3039,7 +3090,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "592",
@@ -3099,7 +3151,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "692",
@@ -3163,7 +3216,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "687",
@@ -3235,7 +3289,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "543",
@@ -3298,7 +3353,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "638",
@@ -3366,7 +3422,8 @@
       "winter"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "643",
@@ -3427,7 +3484,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "526",
@@ -3489,7 +3547,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "662",
@@ -3557,7 +3616,8 @@
       "blue-flag",
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "646",
@@ -3629,7 +3689,8 @@
       "q-quality",
       "ecoplayas"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "548",
@@ -3683,7 +3744,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": true
   },
   {
     "code": "593",
@@ -3746,7 +3808,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "679",
@@ -3814,7 +3877,8 @@
       "blue-flag",
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "590",
@@ -3878,7 +3942,8 @@
     "certifications": [
       "blue-flag"
     ],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "668",
@@ -3946,7 +4011,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "651",
@@ -4011,7 +4077,8 @@
     "certifications": [
       "blue-flag"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "675",
@@ -4087,7 +4154,8 @@
       "q-quality",
       "ecoplayas"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "614",
@@ -4148,7 +4216,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "654",
@@ -4217,7 +4286,8 @@
     "certifications": [
       "blue-flag"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "634",
@@ -4279,7 +4349,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "581",
@@ -4347,7 +4418,8 @@
       "q-quality",
       "ecoplayas"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "645",
@@ -4414,7 +4486,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "5253",
@@ -4468,7 +4541,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "530",
@@ -4536,7 +4610,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "582",
@@ -4597,7 +4672,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "611",
@@ -4650,7 +4726,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": true
   },
   {
     "code": "613",
@@ -4708,7 +4785,8 @@
     "certifications": [
       "blue-flag"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "580",
@@ -4768,7 +4846,8 @@
     "certifications": [
       "blue-flag"
     ],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "618",
@@ -4822,7 +4901,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "612",
@@ -4884,7 +4964,8 @@
       "blue-flag",
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "533",
@@ -4947,7 +5028,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "649",
@@ -5012,7 +5094,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "624",
@@ -5070,7 +5153,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "607",
@@ -5141,7 +5225,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "600",
@@ -5201,7 +5286,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "625",
@@ -5260,7 +5346,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "680",
@@ -5327,7 +5414,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "545",
@@ -5384,7 +5472,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "665",
@@ -5445,7 +5534,8 @@
     "certifications": [
       "blue-flag"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "544",
@@ -5497,7 +5587,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "682",
@@ -5556,7 +5647,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "555",
@@ -5606,7 +5698,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "647",
@@ -5668,7 +5761,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": true
   },
   {
     "code": "664",
@@ -5731,7 +5825,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "653",
@@ -5791,7 +5886,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "622",
@@ -5845,7 +5941,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "648",
@@ -5910,7 +6007,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "546",
@@ -5970,7 +6068,8 @@
     "certifications": [
       "blue-flag"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "584",
@@ -6027,7 +6126,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "637",
@@ -6081,7 +6181,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "635",
@@ -6140,7 +6241,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "4894",
@@ -6199,7 +6301,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "534",
@@ -6262,7 +6365,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "623",
@@ -6315,7 +6419,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "585",
@@ -6371,7 +6476,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "693",
@@ -6437,7 +6543,8 @@
       "blue-flag",
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "525",
@@ -6502,7 +6609,8 @@
       "blue-flag",
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "528",
@@ -6560,7 +6668,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "566",
@@ -6620,7 +6729,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "576",
@@ -6681,7 +6791,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "661",
@@ -6743,7 +6854,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "677",
@@ -6803,7 +6915,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "676",
@@ -6869,7 +6982,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "683",
@@ -6942,7 +7056,8 @@
       "blue-flag",
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "608",
@@ -7003,7 +7118,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "644",
@@ -7056,7 +7172,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "596",
@@ -7125,7 +7242,8 @@
       "blue-flag",
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "564",
@@ -7184,7 +7302,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "560",
@@ -7242,7 +7361,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "681",
@@ -7308,7 +7428,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "617",
@@ -7367,7 +7488,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "636",
@@ -7428,7 +7550,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "686",
@@ -7495,7 +7618,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "670",
@@ -7548,7 +7672,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "641",
@@ -7607,7 +7732,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "616",
@@ -7658,7 +7784,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "588",
@@ -7715,7 +7842,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "519",
@@ -7771,7 +7899,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "690",
@@ -7833,7 +7962,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "536",
@@ -7898,7 +8028,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "7051",
@@ -7957,7 +8088,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "695",
@@ -8022,7 +8154,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "598",
@@ -8081,7 +8214,8 @@
       "blue-flag",
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "594",
@@ -8136,7 +8270,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "565",
@@ -8185,7 +8320,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "587",
@@ -8238,7 +8374,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "650",
@@ -8305,7 +8442,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "7052",
@@ -8361,7 +8499,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "5556",
@@ -8421,7 +8560,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "621",
@@ -8475,7 +8615,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "527",
@@ -8534,7 +8675,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "561",
@@ -8604,7 +8746,8 @@
     "certifications": [
       "blue-flag"
     ],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "532",
@@ -8657,7 +8800,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "604",
@@ -8724,7 +8868,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "4893",
@@ -8787,7 +8932,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": true
   },
   {
     "code": "540",
@@ -8854,7 +9000,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "666",
@@ -8913,7 +9060,8 @@
     "certifications": [
       "blue-flag"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "674",
@@ -8985,7 +9133,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "535",
@@ -9048,7 +9197,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "606",
@@ -9115,7 +9265,8 @@
     "certifications": [
       "blue-flag"
     ],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": true
   },
   {
     "code": "537",
@@ -9178,7 +9329,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "599",
@@ -9238,7 +9390,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "5906",
@@ -9302,7 +9455,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": true
   },
   {
     "code": "620",
@@ -9359,7 +9513,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "562",
@@ -9430,7 +9585,8 @@
     "certifications": [
       "blue-flag"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "511",
@@ -9483,7 +9639,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "591",
@@ -9553,7 +9710,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "688",
@@ -9620,7 +9778,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "640",
@@ -9680,7 +9839,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "657",
@@ -9746,7 +9906,8 @@
     "certifications": [
       "blue-flag"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "521",
@@ -9800,7 +9961,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "619",
@@ -9866,7 +10028,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "524",
@@ -9921,7 +10084,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "656",
@@ -9979,7 +10143,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "589",
@@ -10043,7 +10208,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "573",
@@ -10097,7 +10263,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "597",
@@ -10152,7 +10319,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "609",
@@ -10206,7 +10374,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "673",
@@ -10278,7 +10447,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "627",
@@ -10334,7 +10504,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "5907",
@@ -10396,7 +10567,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "515",
@@ -10450,7 +10622,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "563",
@@ -10504,7 +10677,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "541",
@@ -10566,7 +10740,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "660",
@@ -10630,7 +10805,8 @@
       "blue-flag",
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "539",
@@ -10693,7 +10869,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "684",
@@ -10756,7 +10933,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "691",
@@ -10821,7 +10999,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "542",
@@ -10883,7 +11062,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "696",
@@ -10952,7 +11132,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "583",
@@ -11008,7 +11189,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": true
   },
   {
     "code": "652",
@@ -11071,7 +11253,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "514",
@@ -11123,7 +11306,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "529",
@@ -11186,7 +11370,8 @@
     "certifications": [
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "6703",
@@ -11249,7 +11434,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": true
   },
   {
     "code": "633",
@@ -11312,7 +11498,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "low"
+    "occupancyLevel": "low",
+    "campingNearby": false
   },
   {
     "code": "557",
@@ -11370,7 +11557,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "672",
@@ -11442,7 +11630,8 @@
     "certifications": [
       "blue-flag"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "570",
@@ -11499,7 +11688,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "medium"
+    "occupancyLevel": "medium",
+    "campingNearby": false
   },
   {
     "code": "669",
@@ -11561,7 +11751,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "531",
@@ -11621,7 +11812,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   },
   {
     "code": "694",
@@ -11688,7 +11880,8 @@
       "autumn"
     ],
     "certifications": [],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": true
   },
   {
     "code": "685",
@@ -11752,6 +11945,7 @@
       "blue-flag",
       "q-quality"
     ],
-    "occupancyLevel": "high"
+    "occupancyLevel": "high",
+    "campingNearby": false
   }
 ]

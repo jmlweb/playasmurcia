@@ -37,7 +37,7 @@ Status indicators:
 
 ### Phase 3: Low Priority
 20. [x] ~~step-23-add-occupancy-level.md~~
-21. [ ] step-25-add-camping-nearby.md
+21. [x] ~~step-25-add-camping-nearby.md~~
 26. [x] ~~step-26-sort-pictures-by-size.md~~
 
 ### Phase 4: SEO
