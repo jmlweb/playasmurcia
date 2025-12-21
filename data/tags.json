@@ -1,0 +1,19 @@
+[
+  { "id": "arena-fina", "name": "Arena Fina" },
+  { "id": "calas", "name": "Calas" },
+  { "id": "familiar", "name": "Familiar" },
+  { "id": "aguas-tranquilas", "name": "Aguas Tranquilas" },
+  { "id": "urbana", "name": "Urbana" },
+  { "id": "paseo-maritimo", "name": "Paseo Marítimo" },
+  { "id": "accesible", "name": "Accesible" },
+  { "id": "chiringuito", "name": "Chiringuito" },
+  { "id": "snorkel", "name": "Snorkel" },
+  { "id": "salvaje", "name": "Salvaje" },
+  { "id": "aislada", "name": "Aislada" },
+  { "id": "rocosa", "name": "Rocosa" },
+  { "id": "acantilados", "name": "Acantilados" },
+  { "id": "nudista", "name": "Nudista" },
+  { "id": "canina", "name": "Playa Canina" },
+  { "id": "fotogenica", "name": "Fotogénica" },
+  { "id": "puesta-sol", "name": "Puesta de Sol" }
+]

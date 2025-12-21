@@ -33,6 +33,7 @@ Example format:
 3. **After completing a step**:
    - Delete the step file to save context space
    - Update `main.md` marking the step as completed (strikethrough)
+   - Create a descriptive commit following Conventional Commits format
 
 > **Note**: Deleting completed step files is mandatory. This keeps the plan directory clean and reduces context consumption when reading the codebase.
 
@@ -41,6 +42,10 @@ Example format:
 - When adding a new step file: Add corresponding entry to `main.md`
 - When removing a step file: Update `main.md` accordingly
 - Keep `main.md` always in sync with existing step files
+
+## Backlog
+
+Unprioritized ideas and tasks are stored in `backlog/` at the project root. When a task is prioritized, move it to `plan/` and add the `step-XX-` prefix according to its execution order.
 
 ## Efficiency Principles
 

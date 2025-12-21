@@ -9,6 +9,9 @@ This document describes the data structure for beaches in the Region of Murcia, 
 | `beaches.json` | Main dataset with all beach information | 194 beaches |
 | `municipalities.json` | Coastal municipalities with INE codes | 9 municipalities |
 | `seas.json` | Sea names (indexed array) | 2 seas |
+| `activities.json` | Beach activities (indexed array) | 10 activities |
+| `services.json` | Beach services (indexed array) | 9 services |
+| `tags.json` | Beach tags for categorization (indexed array) | 17 tags |
 
 ## Data Sources
 
@@ -34,13 +37,13 @@ interface Beach {
 
   // Required - Characteristics
   soilType: string          // Sand/rock type description
-  blueFlag: boolean         // EU Blue Flag certification
   nudist: boolean           // Nudist beach
   promenade: boolean        // Has seafront promenade
   anchorageZone: boolean    // Boat anchoring allowed
   dogFriendly: boolean      // Officially allows dogs
   lifeguard: boolean        // Has lifeguard service (COPLA) in summer
-  services: Service[]       // Available services (see Service type below)
+  services: number[]        // Indices into services.json
+  activities: number[]      // Indices into activities.json
 
   // Required - Content
   description: string       // AI-generated tourist description (2-3 sentences)
@@ -50,6 +53,8 @@ interface Beach {
   instagramHashtag: string  // Instagram hashtag for the beach
 
   // Optional
+  certifications?: ("blue-flag" | "q-quality" | "ecoplayas")[]  // Official certifications
+  bestSeason?: ("spring" | "summer" | "autumn" | "winter")[]  // Best visiting seasons
   district?: string         // District within municipality
   phone?: string            // Emergency contact
   email?: string            // Contact email
@@ -58,51 +63,37 @@ interface Beach {
   pictures?: string[]       // Image filenames
   aemetId?: string          // AEMET beach code for weather API
   length?: number           // Beach length in meters (from OSM)
-  tags?: string[]           // Vibe tags for categorization (see Tag type below)
+  tags?: number[]           // Indices into tags.json
+}
+```
+
+### Activity
+
+```typescript
+interface Activity {
+  id: string    // Unique identifier (e.g., "swimming")
+  name: string  // Spanish display name (e.g., "Natación")
+  icon: string  // Icon identifier for UI
 }
 ```
 
 ### Service
 
 ```typescript
-type Service =
-  | 'showers'         // Duchas
-  | 'toilets'         // Aseos
-  | 'restaurant'      // Restaurante
-  | 'bar'             // Bar
-  | 'chiringuito'     // Chiringuito/quiosco de playa
-  | 'parking'         // Aparcamiento
-  | 'umbrellas'       // Alquiler de sombrillas
-  | 'sunbeds'         // Alquiler de hamacas/tumbonas
-  | 'footwash'        // Lavapiés
-  | 'first-aid'       // Puesto de primeros auxilios
-  | 'wheelchair-ramp' // Rampa para sillas de ruedas
-  | 'floating-chairs' // Sillas anfibias para baño
+interface Service {
+  id: string    // Unique identifier (e.g., "parking")
+  name: string  // Spanish display name (e.g., "Parking")
+  icon: string  // Icon identifier for UI
+}
 ```
 
 ### Tag
 
 ```typescript
-type Tag =
-  | 'familiar'          // Family-friendly, easy access
-  | 'salvaje'           // Wild, unspoiled nature
-  | 'aislada'           // Isolated, hard to reach
-  | 'urbana'            // Urban beach
-  | 'snorkel'           // Good for snorkeling
-  | 'buceo'             // Good for diving
-  | 'deportes-nauticos' // Water sports available
-  | 'chiringuito'       // Has beach bar
-  | 'paseo-maritimo'    // Has promenade
-  | 'nudista'           // Nudist beach
-  | 'canina'            // Dog-friendly
-  | 'accesible'         // Wheelchair accessible
-  | 'rocosa'            // Rocky terrain
-  | 'arena-fina'        // Fine sand
-  | 'aguas-tranquilas'  // Calm waters
-  | 'calas'             // Cove beach
-  | 'acantilados'       // Surrounded by cliffs
-  | 'puesta-sol'        // Good sunset views
-  | 'fotogenica'        // Photogenic/scenic
+interface Tag {
+  id: string    // Unique identifier (e.g., "familiar")
+  name: string  // Spanish display name (e.g., "Familiar")
+}
 ```
 
 ### Municipality
@@ -133,6 +124,18 @@ municipalities.json (9 elements)
 seas.json (2 elements)
         ↓
         └─→ beaches.json[].sea (index 0-1)
+
+activities.json (10 elements)
+        ↓
+        └─→ beaches.json[].activities (array of indices 0-9)
+
+services.json (9 elements)
+        ↓
+        └─→ beaches.json[].services (array of indices 0-8)
+
+tags.json (17 elements)
+        ↓
+        └─→ beaches.json[].tags (array of indices 0-16)
 
 beaches.json[].nearby (array of codes)
         ↓
@@ -184,6 +187,9 @@ beaches.json[].nearby (array of codes)
 
 - `municipality`: Valid index 0-8
 - `sea`: Valid index 0-1
+- `activities`: Array of valid indices 0-9
+- `services`: Array of valid indices 0-8
+- `tags`: Array of valid indices 0-16
 - `nearby`: Array of valid beach `code` values
 
 ## Editing Guidelines

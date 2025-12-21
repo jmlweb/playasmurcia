@@ -1,0 +1,11 @@
+[
+  { "id": "parking", "name": "Parking", "icon": "parking" },
+  { "id": "showers", "name": "Duchas", "icon": "showers" },
+  { "id": "toilets", "name": "Aseos", "icon": "toilets" },
+  { "id": "footwash", "name": "Lavapiés", "icon": "footwash" },
+  { "id": "umbrellas", "name": "Sombrillas", "icon": "umbrellas" },
+  { "id": "sunbeds", "name": "Hamacas", "icon": "sunbeds" },
+  { "id": "chiringuito", "name": "Chiringuito", "icon": "restaurant" },
+  { "id": "first-aid", "name": "Primeros Auxilios", "icon": "first-aid" },
+  { "id": "wheelchair-ramp", "name": "Rampa Accesible", "icon": "wheelchair" }
+]

@@ -9,10 +9,10 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "type-check": "tsc --noEmit",
-    "lint": "eslint src/",
-    "lint:fix": "eslint src/ --fix",
+    "lint": "eslint src/ scripts/",
+    "lint:fix": "eslint src/ scripts/ --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
-    "check": "tsc --noEmit && eslint src/ && prettier --check ."
+    "check": "tsc --noEmit && eslint src/ scripts/ && prettier --check ."
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.6",

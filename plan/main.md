@@ -29,16 +29,14 @@ Status indicators:
 ### Phase 2: Medium Priority
 13. [x] ~~step-13-add-dimensions.md~~
 14. [x] ~~step-14-generate-tags.md~~
-15. [ ] step-15-extract-activities.md
-16. [ ] step-16-add-best-season.md
+15. [x] ~~step-15-extract-activities.md~~
+16. [x] ~~step-16-add-best-season.md~~
 17. [ ] step-17-add-seasonal-services.md
 18. [ ] step-18-add-google-place-ids.md
-19. [ ] step-19-add-certifications.md
+19. [x] ~~step-19-add-certifications.md~~
 
 ### Phase 2.5: Environmental
-20. [ ] step-20-add-protected-areas.md
-21. [ ] step-21-add-seabed-type.md
-22. [ ] step-22-calculate-sun-exposure.md
+20. [ ] step-22-calculate-sun-exposure.md
 
 ### Phase 3: Low Priority
 23. [ ] step-23-add-occupancy-level.md

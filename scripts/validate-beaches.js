@@ -1,4 +1,4 @@
-import { readFileSync } from 'fs'
+import { readFileSync } from 'node:fs'
 
 const beaches = JSON.parse(readFileSync('./data/beaches.json', 'utf-8'))
 const municipalities = JSON.parse(readFileSync('./data/municipalities.json', 'utf-8'))
@@ -16,9 +16,7 @@ const requiredFields = [
   'sea',
   'coordinates',
   'soilType',
-  'blueFlag',
   'nudist',
-  'accessible',
   'promenade',
   'anchorageZone',
   'description',
