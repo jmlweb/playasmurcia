@@ -1,28 +1,31 @@
 import { createFileRoute, notFound } from "@tanstack/react-router"
 import {
-  beaches,
   beachToSlug,
+  getAllBeaches,
   getBeachBySlug,
   getMunicipality,
-  services,
-} from "@/lib/data"
+  getAllServices,
+} from "@/lib/db-data"
 import { generateBeachSchema } from "@/lib/schema"
 
 export const Route = createFileRoute("/playas/$slug")({
-  loader: ({ params }) => {
-    const beach = getBeachBySlug(params.slug)
+  loader: async ({ params }) => {
+    const beach = await getBeachBySlug(params.slug)
     if (!beach) {
       throw notFound()
     }
-    return { beach }
+    const [municipality, services] = await Promise.all([
+      getMunicipality(beach.municipality),
+      getAllServices(),
+    ])
+    return { beach, municipality, services }
   },
   head: ({ loaderData }) => {
-    const beach = loaderData?.beach
-    if (!beach) {
+    if (!loaderData) {
       return { meta: [{ title: "Playa no encontrada" }] }
     }
+    const { beach, municipality, services } = loaderData
 
-    const municipality = getMunicipality(beach.municipality)
     const schema = generateBeachSchema(beach, municipality, services)
 
     return {
@@ -48,8 +51,7 @@ export const Route = createFileRoute("/playas/$slug")({
 })
 
 function BeachPage() {
-  const { beach } = Route.useLoaderData()
-  const municipality = getMunicipality(beach.municipality)
+  const { beach, municipality } = Route.useLoaderData()
 
   return (
     <main className="min-h-screen bg-white">
@@ -71,7 +73,8 @@ function BeachPage() {
   )
 }
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
+  const beaches = await getAllBeaches()
   return beaches.map((beach) => ({
     params: { slug: beachToSlug(beach) },
   }))
