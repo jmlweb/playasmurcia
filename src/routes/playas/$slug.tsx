@@ -2,9 +2,9 @@ import { createFileRoute, notFound } from "@tanstack/react-router"
 import {
   beachToSlug,
   getAllBeaches,
+  getAllServices,
   getBeachBySlug,
   getMunicipality,
-  getAllServices,
 } from "@/lib/db-data"
 import { generateBeachSchema } from "@/lib/schema"
 

@@ -61,6 +61,26 @@ Copy `.env.example` to `.env` and configure for your environment.
 
 ## Workflow
 
+### Task Management
+
+Tasks are tracked in `docs/dev/` using Claude Code slash commands:
+
+| Command | Description |
+|---------|-------------|
+| `/add-task` | Groom and add a new task to backlog |
+| `/start-task` | Mark a task as in-progress |
+| `/complete-task` | Complete a task, move to done |
+| `/block-task` | Mark a task as blocked |
+| `/check-task` | Verify task status matches reality |
+| `/next-task` | Suggest next priority task |
+| `/dev-status` | Show development status overview |
+| `/parallel-tasks` | Execute independent tasks in parallel |
+| `/add-learning` | Document a development insight |
+
+Task files live in `docs/dev/backlog/` (pending) and `docs/dev/done/` (completed).
+`docs/dev/INDEX.md` tracks stats and current focus.
+`docs/dev/LEARNINGS.md` collects insights from development.
+
 ### Plan-Based Development
 
 1. `plan/main.md` contains the master plan with all pending steps

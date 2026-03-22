@@ -15,6 +15,29 @@ Project documentation is in `docs/`:
 - **Data access**: Routes use async database queries via `src/lib/db-data.ts`. The old JSON-based `src/lib/data.ts` is kept as fallback. Local DB (`local.db`) is populated.
 - **Next steps**: See [NEXT_STEPS.md](./NEXT_STEPS.md) for remaining tasks (setup Turso cloud, configure production env vars, deploy).
 
+## Task Management
+
+Development tasks are tracked in `docs/dev/`:
+
+- [INDEX.md](./docs/dev/INDEX.md) - Task overview, stats, and backlog
+- [LEARNINGS.md](./docs/dev/LEARNINGS.md) - Insights discovered during development
+- `backlog/` - Pending task files
+- `done/` - Completed task files
+
+### Commands
+
+| Command | Description |
+|---------|-------------|
+| `/add-task` | Groom and add a new task to backlog |
+| `/start-task` | Mark a task as in-progress |
+| `/complete-task` | Complete a task, move to done |
+| `/block-task` | Mark a task as blocked |
+| `/check-task` | Verify task status matches reality |
+| `/next-task` | Suggest next priority task |
+| `/dev-status` | Show development status overview |
+| `/parallel-tasks` | Execute independent tasks in parallel |
+| `/add-learning` | Document a development insight |
+
 ## Plan Management
 
 See [plan/CLAUDE.md](./plan/CLAUDE.md) for rules on managing execution plans.
