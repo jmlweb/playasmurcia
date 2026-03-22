@@ -23,6 +23,7 @@ coverage
 
 # Generated files
 src/routeTree.gen.ts
+public/sitemap.xml
 
 # System files
 .DS_Store

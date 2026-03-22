@@ -90,6 +90,8 @@ Root layout in `__root.tsx` provides HTML structure, meta tags, and global CSS.
 
 Beach pages include JSON-LD structured data (Schema.org Beach type) for rich results in search engines. The schema is generated in `src/lib/schema.ts` and injected via TanStack Router's `head` function.
 
+A `sitemap.xml` is generated at build time from the database (`scripts/generate-sitemap.ts`), covering all 195 URLs (home + 194 beaches). The `robots.txt` references the sitemap.
+
 ### Styling
 
 Tailwind CSS v4 with native Vite integration. Global styles in `src/styles.css`.

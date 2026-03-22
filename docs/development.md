@@ -24,7 +24,8 @@ pnpm dev
 
 ```bash
 pnpm dev           # Start dev server at http://localhost:3000
-pnpm build         # Build for production
+pnpm build         # Generate sitemap + build for production
+pnpm generate:sitemap  # Generate sitemap only
 pnpm preview       # Preview production build
 pnpm lint          # Run ESLint
 pnpm lint:fix      # Run ESLint with auto-fix
@@ -92,6 +93,7 @@ pnpm tsx scripts/script-name.ts
 | `add-certifications.js` | Update Blue Flag, Q Quality, Ecoplayas | Annual (spring) |
 | `add-lifeguard-info.js` | Update COPLA lifeguard data | Seasonal (summer) |
 | `validate-beaches.js` | Validate all beach data | Before releases |
+| `generate-sitemap.ts` | Generate `public/sitemap.xml` from database | Every build (automatic) |
 
 ## Cost Optimization
 

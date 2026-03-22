@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev --port 3000",
-    "build": "vite build",
+    "generate:sitemap": "tsx scripts/generate-sitemap.ts",
+    "build": "tsx scripts/generate-sitemap.ts && vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
