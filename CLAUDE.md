@@ -8,6 +8,7 @@ Project documentation is in `docs/`:
 - [Data Schema](./docs/data-schema.md) - Data files and validation rules
 - [Business Rules](./docs/business-rules.md) - Data processing logic
 - [Development](./docs/development.md) - Commands and workflow
+- [UI Guidelines](./docs/ui-guidelines.md) - Visual design, colors, typography, accessibility
 
 ## Project State
 
