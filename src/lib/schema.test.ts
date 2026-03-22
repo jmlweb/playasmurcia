@@ -1,6 +1,6 @@
-import { describe, it, expect } from "vitest"
-import type { Beach, Municipality, Service } from "@/types/beach"
+import { describe, expect, it } from "vitest"
 import { generateBeachSchema } from "./schema"
+import type { Beach, Municipality, Service } from "@/types/beach"
 
 describe("generateBeachSchema", () => {
   const mockMunicipality: Municipality = {
@@ -8,7 +8,7 @@ describe("generateBeachSchema", () => {
     id: "30016",
   }
 
-  const mockServices: Service[] = [
+  const mockServices: Array<Service> = [
     { id: "parking", name: "Parking", icon: "parking" },
     { id: "showers", name: "Duchas", icon: "showers" },
     { id: "toilets", name: "Aseos", icon: "toilets" },

@@ -1,12 +1,12 @@
-import type { Beach, Municipality, Service } from "@/types/beach"
 
 import beachesData from "../../data/beaches.json"
 import municipalitiesData from "../../data/municipalities.json"
 import servicesData from "../../data/services.json"
+import type { Beach, Municipality, Service } from "@/types/beach"
 
-export const beaches = beachesData as Beach[]
-export const municipalities = municipalitiesData as Municipality[]
-export const services = servicesData as Service[]
+export const beaches = beachesData as Array<Beach>
+export const municipalities = municipalitiesData as Array<Municipality>
+export const services = servicesData as Array<Service>
 
 export function getBeachByCode(code: string): Beach | undefined {
   return beaches.find((beach) => beach.code === code)

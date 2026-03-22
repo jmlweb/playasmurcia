@@ -2,6 +2,18 @@
 
 This document describes the business logic and data processing rules for the project.
 
+## Scripts Reference
+
+Scripts that exist in `scripts/` and require periodic execution:
+
+| Script | Purpose | Frequency |
+|--------|---------|-----------|
+| `add-certifications.js` | Update Blue Flag, Q Quality, Ecoplayas certifications | Annual (spring) |
+| `add-lifeguard-info.js` | Update COPLA lifeguard data | Seasonal (pre-summer) |
+| `validate-beaches.js` | Validate all beach data integrity | Before releases |
+| `migrate-to-database.ts` | Migrate JSON data to SQLite/Turso | Once (or after JSON changes) |
+| `validate-migration.ts` | Validate database matches JSON source | After migration |
+
 ## Beach Orientation
 
 Orientation was calculated based on coordinates:
@@ -130,7 +142,7 @@ Best visiting seasons are inferred using Ollama based on:
 
 Official dog-friendly beaches are designated by municipal ordinances.
 
-Script: `scripts/add-dog-friendly.js` (run seasonally)
+Data updated manually when municipal ordinances change. No recurring script.
 
 ## Lifeguard Service
 
@@ -150,7 +162,7 @@ Typical crowd level is inferred from beach characteristics:
 
 **Distribution:** ~47% high, ~26% medium, ~26% low
 
-Script: `scripts/add-occupancy-level.js`
+Calculated once and stored in beach records. No recurring script.
 
 ## Camping Nearby
 
@@ -166,7 +178,7 @@ Beaches within 3km of a verified campsite are flagged as `campingNearby: true`.
 
 **Distribution:** 42 beaches (22%)
 
-Script: `scripts/add-camping.js` (deleted after run)
+Calculated once and stored in beach records. Script deleted after run.
 
 ## Meta Descriptions
 
@@ -180,7 +192,7 @@ SEO-optimized descriptions generated with Ollama:
 
 Script auto-corrects length by asking Ollama to expand/shorten until in range.
 
-Script: `scripts/generate-meta-descriptions.js` (deleted after run)
+Generated once with Ollama and stored in beach records. Script deleted after run.
 
 ## SEO Keywords
 
@@ -192,4 +204,4 @@ Keywords extracted with Ollama for search optimization:
 | Content | Beach name, municipality, type, activities, characteristics |
 | Format | Lowercase strings |
 
-Script: `scripts/generate-seo-keywords.js` (deleted after run)
+Generated once with Ollama and stored in beach records. Script deleted after run.

@@ -26,7 +26,7 @@ export interface BeachSchema {
   description: string
   geo: GeoCoordinates
   address: PostalAddress
-  amenityFeature: LocationFeatureSpecification[]
+  amenityFeature: Array<LocationFeatureSpecification>
   isAccessibleForFree: boolean
 }
 
@@ -43,12 +43,12 @@ const SERVICE_TO_AMENITY: Record<string, string> = {
 }
 
 function mapServicesToAmenities(
-  serviceIndices: number[],
-  services: Service[],
-): LocationFeatureSpecification[] {
+  serviceIndices: Array<number>,
+  services: Array<Service>,
+): Array<LocationFeatureSpecification> {
   return serviceIndices
     .map((index) => {
-      const service = services[index]
+      const service = services.at(index)
       if (!service) return null
       const amenityName = SERVICE_TO_AMENITY[service.id]
       if (!amenityName) return null
@@ -64,7 +64,7 @@ function mapServicesToAmenities(
 export function generateBeachSchema(
   beach: Beach,
   municipality: Municipality,
-  services: Service[],
+  services: Array<Service>,
 ): BeachSchema {
   return {
     "@context": "https://schema.org",

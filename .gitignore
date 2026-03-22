@@ -30,3 +30,9 @@ src/routeTree.gen.ts
 # Misc
 count.txt
 todos.json
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+drizzle/

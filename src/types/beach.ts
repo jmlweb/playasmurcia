@@ -10,28 +10,28 @@ export interface Beach {
   anchorageZone: boolean
   dogFriendly: boolean
   lifeguard: boolean
-  services: number[]
-  activities: number[]
+  services: Array<number>
+  activities: Array<number>
   description: string
   access: string
-  nearby: string[]
+  nearby: Array<string>
   orientation: string
   instagramHashtag: string
   occupancyLevel?: "low" | "medium" | "high"
   campingNearby?: boolean
   metaDescription?: string
-  seoKeywords?: string[]
-  certifications?: ("blue-flag" | "q-quality" | "ecoplayas")[]
-  bestSeason?: ("spring" | "summer" | "autumn" | "winter")[]
+  seoKeywords?: Array<string>
+  certifications?: Array<"blue-flag" | "q-quality" | "ecoplayas">
+  bestSeason?: Array<"spring" | "summer" | "autumn" | "winter">
   district?: string
   phone?: string
   email?: string
   realUrl?: string
   waves?: string
-  pictures?: string[]
+  pictures?: Array<string>
   aemetId?: string
   length?: number
-  tags?: number[]
+  tags?: Array<number>
 }
 
 export interface Service {

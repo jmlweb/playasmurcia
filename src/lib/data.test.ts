@@ -1,15 +1,15 @@
-import { describe, it, expect } from "vitest"
-import type { Beach } from "@/types/beach"
+import { describe, expect, it } from "vitest"
 import {
+  beachToSlug,
   beaches,
-  municipalities,
-  services,
   getBeachByCode,
   getBeachBySlug,
-  beachToSlug,
   getMunicipality,
   getService,
+  municipalities,
+  services,
 } from "./data"
+import type { Beach } from "@/types/beach"
 
 describe("data module", () => {
   describe("exported data", () => {

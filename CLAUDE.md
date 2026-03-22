@@ -9,6 +9,12 @@ Project documentation is in `docs/`:
 - [Business Rules](./docs/business-rules.md) - Data processing logic
 - [Development](./docs/development.md) - Commands and workflow
 
+## Project State
+
+- **Branch**: `v3` (database migration nearly complete)
+- **Data access**: Routes use async database queries via `src/lib/db-data.ts`. The old JSON-based `src/lib/data.ts` is kept as fallback. Local DB (`local.db`) is populated.
+- **Next steps**: See [NEXT_STEPS.md](./NEXT_STEPS.md) for remaining tasks (setup Turso cloud, configure production env vars, deploy).
+
 ## Plan Management
 
 See [plan/CLAUDE.md](./plan/CLAUDE.md) for rules on managing execution plans.
@@ -25,7 +31,7 @@ When using `/do-task` to implement features, follow this agent workflow:
 | `Plan` | Design approach for complex features |
 | `frontend-developer` | Implement UI + write unit/integration tests for their code |
 | `backend-developer` | Implement APIs + write unit/integration tests for their code |
-| `qa-engineer` | Verify test coverage, write E2E tests (Playwright), audit quality |
+| `qa-engineer` | Verify test coverage, write E2E tests (when test infrastructure is set up), audit quality |
 | `code-reviewer` | Final review before PR |
 
 **Testing responsibilities:**
@@ -56,7 +62,7 @@ If a script is retained, document it in `docs/development.md` with:
 
 ### Data Editing
 
-- Never manually edit generated fields (`description`, `accessInfo`)
+- Never manually edit generated fields (`description`, `access`)
 - Run the appropriate script to regenerate
 - See [data-schema.md](./docs/data-schema.md) for validation rules
 

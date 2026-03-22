@@ -14,6 +14,22 @@
 | **Vitest** | Testing |
 | **Testing Library** | Component testing |
 | **pnpm** | Package manager |
+| **Turso (libSQL)** | Edge database |
+| **Drizzle ORM** | Type-safe SQL |
+
+## Current State
+
+The project is on the `v3` branch, mid-migration from static JSON to a database-backed architecture.
+
+| Layer | Status | File(s) |
+|-------|--------|---------|
+| JSON data access (sync) | **Active** — used by all routes | `src/lib/data.ts` |
+| Database schema | Ready | `src/db/schema.ts` |
+| Database client | Ready | `src/db/client.ts` |
+| Database data access (async) | Ready but **not wired** into routes | `src/lib/db-data.ts` |
+| Migration scripts | Ready | `scripts/migrate-to-database.ts`, `scripts/validate-migration.ts` |
+
+See [NEXT_STEPS.md](../NEXT_STEPS.md) for the migration checklist.
 
 ## Project Structure
 
@@ -26,23 +42,34 @@ playasmurcia/
 │   │   └── playas/
 │   │       └── $slug.tsx   # Beach detail page (/playas/:slug)
 │   ├── lib/                # Utility functions
-│   │   ├── data.ts         # Data access (beaches, municipalities, services)
-│   │   └── schema.ts       # JSON-LD schema generator for SEO
+│   │   ├── data.ts         # Sync data access (JSON imports) — active
+│   │   ├── data.test.ts    # Tests for data.ts
+│   │   ├── db-data.ts      # Async data access (database queries) — not yet wired
+│   │   ├── schema.ts       # JSON-LD schema generator for SEO
+│   │   └── schema.test.ts  # Tests for schema.ts
+│   ├── db/                 # Database layer
+│   │   ├── schema.ts       # Drizzle schema definitions (9 tables)
+│   │   └── client.ts       # Turso/libSQL client
 │   ├── types/              # TypeScript type definitions
 │   │   └── beach.ts        # Beach, Service, Municipality types
 │   ├── router.tsx          # Router configuration
 │   ├── styles.css          # Global styles (Tailwind CSS)
 │   └── routeTree.gen.ts    # Auto-generated route tree (do not edit)
-├── public/                 # Static assets
 ├── data/                   # JSON data files (beaches, municipalities, seas)
 ├── docs/                   # Project documentation
 ├── plan/                   # Execution plans for data enrichment
 ├── backlog/                # Future ideas and service proposals
-├── scripts/                # Node.js scripts for data processing
+├── scripts/                # Data processing scripts
+├── drizzle/                # Drizzle migration files (auto-generated)
+├── public/                 # Static assets
+├── drizzle.config.ts       # Drizzle Kit configuration
+├── vitest.config.ts        # Vitest configuration
 ├── vite.config.ts          # Vite configuration
 ├── tsconfig.json           # TypeScript configuration
 ├── eslint.config.js        # ESLint configuration
 ├── prettier.config.js      # Prettier configuration
+├── .env.example            # Environment variable template
+├── NEXT_STEPS.md           # Database migration checklist
 └── README.md               # Project overview
 ```
 
@@ -73,7 +100,42 @@ Tailwind CSS v4 with native Vite integration. Global styles in `src/styles.css`.
 
 ## Data Architecture
 
-Static JSON files in `data/` directory consumed at build time:
+### Data Flow
+
+```
+data/*.json ──→ src/lib/data.ts ──→ route loaders ──→ React components
+                                                           ↓
+                                                    src/lib/schema.ts (JSON-LD for SEO)
+
+(future)
+local.db/Turso ──→ src/lib/db-data.ts ──→ route loaders (async) ──→ React components
+```
+
+### Database (Turso/libSQL)
+
+Production data will be stored in Turso, a distributed SQLite database:
+
+- **Local development**: SQLite file (`local.db`)
+- **Production**: Turso cloud with edge replicas
+- **ORM**: Drizzle for type-safe queries
+
+#### Tables
+
+| Table | Records | Description |
+|-------|---------|-------------|
+| beaches | 194 | Main beach data |
+| municipalities | 9 | Coastal municipalities |
+| seas | 2 | Water bodies |
+| services | 9 | Available services |
+| activities | 10 | Beach activities |
+| tags | 17 | Categorical tags |
+| beach_services | ~700 | Junction table |
+| beach_activities | ~900 | Junction table |
+| beach_tags | ~750 | Junction table |
+
+### JSON Files (Legacy/Backup)
+
+Static JSON files in `data/` directory — currently the active data source:
 
 - `beaches.json`: 194 beaches with full details
 - `municipalities.json`: 9 coastal municipalities
@@ -83,10 +145,19 @@ See [data-schema.md](./data-schema.md) for detailed schemas.
 
 ## Scripts
 
-Node.js scripts in `scripts/` for data processing:
-
-- Data enrichment (adding fields via AI or external APIs)
-- Validation
-- Batch operations
+| Script | Purpose | Frequency |
+|--------|---------|-----------|
+| `migrate-to-database.ts` | Migrate JSON data to SQLite/Turso | Once (or after JSON changes) |
+| `validate-migration.ts` | Validate database matches JSON source | After migration |
+| `add-certifications.js` | Update Blue Flag, Q Quality, Ecoplayas | Annual (spring) |
+| `add-lifeguard-info.js` | Update COPLA lifeguard data | Seasonal (summer) |
+| `validate-beaches.js` | Validate all beach data integrity | Before releases |
 
 Scripts use Ollama for AI tasks to minimize costs.
+
+## Deployment
+
+Not yet configured. Options under consideration (see [NEXT_STEPS.md](../NEXT_STEPS.md)):
+
+- **Cloudflare Workers** with Turso edge database
+- **Netlify** with serverless functions

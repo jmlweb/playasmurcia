@@ -118,7 +118,39 @@ interface Sea {
 }
 ```
 
-## Relationships
+## Database Schema
+
+The database (Turso/libSQL via Drizzle ORM) mirrors the JSON data with proper relational structure. Defined in `src/db/schema.ts`.
+
+### Entity Tables
+
+| Table | PK | Key Columns | Notes |
+|-------|----|-------------|-------|
+| `municipalities` | `id` (int) | `name`, `ine_code` | 9 rows |
+| `seas` | `id` (int) | `name`, `jellyfish_risk` | 2 rows |
+| `services` | `id` (int) | `service_id` (unique), `name`, `icon` | 9 rows |
+| `activities` | `id` (int) | `activity_id` (unique), `name`, `icon` | 10 rows |
+| `tags` | `id` (int) | `tag_id` (unique), `name` | 17 rows |
+| `beaches` | `id` (auto) | `code` (unique), `name`, FK `municipality_id`, FK `sea_id` | 194 rows |
+
+### Junction Tables
+
+| Table | FKs | Notes |
+|-------|-----|-------|
+| `beach_services` | `beach_id` → beaches, `service_id` → services | Cascade delete on beach |
+| `beach_activities` | `beach_id` → beaches, `activity_id` → activities | Cascade delete on beach |
+| `beach_tags` | `beach_id` → beaches, `tag_id` → tags | Cascade delete on beach |
+
+### Key Differences from JSON
+
+| Aspect | JSON | Database |
+|--------|------|----------|
+| References | Array indices (e.g., `municipality: 3`) | Foreign keys (`municipality_id`) |
+| Many-to-many | Integer arrays (e.g., `services: [0, 2, 5]`) | Junction tables |
+| Array fields | Native arrays | JSON TEXT columns (`nearby`, `seoKeywords`, `certifications`, `bestSeason`, `pictures`) |
+| Coordinates | `[lat, lng]` tuple | Separate `latitude`/`longitude` REAL columns |
+
+## JSON Relationships
 
 ```
 municipalities.json (9 elements)
@@ -144,6 +176,16 @@ tags.json (17 elements)
 beaches.json[].nearby (array of codes)
         ↓
         └─→ References to other beaches.json[].code
+```
+
+### Database Relationships
+
+```
+municipalities ──< beaches (municipality_id FK)
+seas ──< beaches (sea_id FK)
+beaches ──< beach_services >── services
+beaches ──< beach_activities >── activities
+beaches ──< beach_tags >── tags
 ```
 
 ## Validation Rules
@@ -198,7 +240,7 @@ beaches.json[].nearby (array of codes)
 
 ## Editing Guidelines
 
-1. **Never manually edit generated fields** (`description`, `accessInfo`) - re-run scripts instead
+1. **Never manually edit generated fields** (`description`, `access`) - re-run scripts instead
 2. **Preserve JSON formatting** - 2 spaces indentation, no trailing commas
 3. **Keep arrays sorted** by `code` field when adding new beaches
 4. **Update `nearby` arrays** when adding/removing beaches
