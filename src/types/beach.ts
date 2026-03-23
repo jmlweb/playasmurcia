@@ -1,3 +1,5 @@
+export type Certification = "blue-flag" | "q-quality" | "ecoplayas"
+
 export interface Beach {
   code: string
   name: string
@@ -21,7 +23,7 @@ export interface Beach {
   campingNearby?: boolean
   metaDescription?: string
   seoKeywords?: Array<string>
-  certifications?: Array<"blue-flag" | "q-quality" | "ecoplayas">
+  certifications?: Array<Certification>
   bestSeason?: Array<"spring" | "summer" | "autumn" | "winter">
   district?: string
   phone?: string

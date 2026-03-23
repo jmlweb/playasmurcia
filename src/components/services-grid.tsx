@@ -1,0 +1,35 @@
+import type { Service } from "@/types/beach"
+
+interface ServicesGridProps {
+  serviceIndices: Array<number>
+  allServices: Array<Service>
+}
+
+export function ServicesGrid({ serviceIndices, allServices }: ServicesGridProps) {
+  const resolvedServices = serviceIndices
+    .map((i) => allServices[i])
+    .filter(Boolean)
+
+  if (resolvedServices.length === 0) {
+    return null
+  }
+
+  return (
+    <section aria-label="Servicios disponibles">
+      <h2 className="mb-4 text-xl font-semibold text-gray-900">Servicios</h2>
+      <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+        {resolvedServices.map((service) => (
+          <li
+            key={service.id}
+            className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-gray-700"
+          >
+            <span className="text-xl" aria-hidden="true">
+              {service.icon}
+            </span>
+            <span>{service.name}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}

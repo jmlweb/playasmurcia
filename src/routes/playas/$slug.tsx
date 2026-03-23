@@ -1,12 +1,25 @@
 import { createFileRoute, notFound } from "@tanstack/react-router"
 import {
   beachToSlug,
+  getAllActivities,
   getAllBeaches,
   getAllServices,
+  getAllTags,
   getBeachBySlug,
   getMunicipality,
+  getMunicipalityMap,
+  getNearbyBeaches,
 } from "@/lib/db-data"
 import { generateBeachSchema } from "@/lib/schema"
+import { PhotoGallery } from "@/components/photo-gallery"
+import { ServicesGrid } from "@/components/services-grid"
+import { ActivitiesGrid } from "@/components/activities-grid"
+import { CertificationsBadge } from "@/components/certifications-badge"
+import { PracticalInfoCard } from "@/components/practical-info-card"
+import { NearbyCarousel } from "@/components/nearby-carousel"
+import { ContactInfo } from "@/components/contact-info"
+import { LocationMap } from "@/components/location-map"
+import { TagsSection } from "@/components/tags-section"
 
 export const Route = createFileRoute("/playas/$slug")({
   loader: async ({ params }) => {
@@ -14,11 +27,30 @@ export const Route = createFileRoute("/playas/$slug")({
     if (!beach) {
       throw notFound()
     }
-    const [municipality, services] = await Promise.all([
-      getMunicipality(beach.municipality),
-      getAllServices(),
-    ])
-    return { beach, municipality, services }
+
+    const [municipality, services, activities, tags, nearbyBeaches, municipalityMap] =
+      await Promise.all([
+        getMunicipality(beach.municipality),
+        getAllServices(),
+        getAllActivities(),
+        getAllTags(),
+        getNearbyBeaches(beach.nearby),
+        getMunicipalityMap(),
+      ])
+
+    const nearbyItems = nearbyBeaches.map((nearbyBeach) => {
+      const nearbyMunicipality = municipalityMap.get(nearbyBeach.municipality) ?? {
+        name: "",
+        id: "",
+      }
+      return {
+        beach: nearbyBeach,
+        municipality: nearbyMunicipality,
+        slug: beachToSlug(nearbyBeach),
+      }
+    })
+
+    return { beach, municipality, services, activities, tags, nearbyItems }
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
@@ -51,23 +83,110 @@ export const Route = createFileRoute("/playas/$slug")({
 })
 
 function BeachPage() {
-  const { beach, municipality } = Route.useLoaderData()
+  const { beach, municipality, services, activities, tags, nearbyItems } =
+    Route.useLoaderData()
+
+  const pictures = beach.pictures ?? []
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-gray-50">
+      {/* Hero / Gallery */}
+      <div className="bg-white">
+        <div className="container mx-auto px-4 pt-6 pb-4">
+          <nav className="mb-4 text-sm text-gray-500" aria-label="Ruta de navegación">
+            <a href="/" className="hover:text-blue-600 focus:outline-none">
+              Inicio
+            </a>
+            <span className="mx-2" aria-hidden="true">/</span>
+            <a href="/playas" className="hover:text-blue-600 focus:outline-none">
+              Playas
+            </a>
+            <span className="mx-2" aria-hidden="true">/</span>
+            <span aria-current="page">{beach.name}</span>
+          </nav>
+
+          <div className="mb-4 flex flex-wrap items-start gap-3">
+            <div className="flex-1">
+              <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+                {beach.name}
+              </h1>
+              <p className="mt-1 text-lg text-gray-500">{municipality.name}</p>
+            </div>
+            {beach.tags && beach.tags.length > 0 && (
+              <TagsSection tagIndices={beach.tags} allTags={tags} />
+            )}
+          </div>
+
+          {beach.certifications && beach.certifications.length > 0 && (
+            <div className="mb-4">
+              <CertificationsBadge certifications={beach.certifications} />
+            </div>
+          )}
+        </div>
+
+        <div className="container mx-auto px-4 pb-6">
+          <PhotoGallery pictures={pictures} beachName={beach.name} />
+        </div>
+      </div>
+
       <div className="container mx-auto px-4 py-8">
-        <nav className="text-sm text-gray-500 mb-4">
-          <a href="/" className="hover:text-blue-600">
-            Inicio
-          </a>
-          <span className="mx-2">/</span>
-          <span>{beach.name}</span>
-        </nav>
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          {/* Main content column */}
+          <div className="space-y-8 lg:col-span-2">
+            {/* Description */}
+            <section>
+              <h2 className="mb-3 text-xl font-semibold text-gray-900">Sobre esta playa</h2>
+              <p className="leading-relaxed text-gray-700">{beach.description}</p>
+            </section>
 
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">{beach.name}</h1>
-        <p className="text-lg text-gray-600 mb-6">{municipality.name}</p>
+            {/* Services */}
+            {beach.services.length > 0 && (
+              <ServicesGrid serviceIndices={beach.services} allServices={services} />
+            )}
 
-        <p className="text-gray-700 leading-relaxed">{beach.description}</p>
+            {/* Activities */}
+            {beach.activities.length > 0 && (
+              <ActivitiesGrid activityIndices={beach.activities} allActivities={activities} />
+            )}
+
+            {/* How to get there */}
+            {beach.access && (
+              <section>
+                <h2 className="mb-3 text-xl font-semibold text-gray-900">
+                  Cómo llegar
+                </h2>
+                <p className="leading-relaxed text-gray-700">{beach.access}</p>
+              </section>
+            )}
+
+            {/* Map */}
+            <LocationMap coordinates={beach.coordinates} beachName={beach.name} />
+
+            {/* Nearby beaches */}
+            {nearbyItems.length > 0 && (
+              <NearbyCarousel items={nearbyItems} />
+            )}
+          </div>
+
+          {/* Sidebar */}
+          <div className="space-y-6">
+            <PracticalInfoCard
+              length={beach.length}
+              soilType={beach.soilType}
+              waves={beach.waves}
+              occupancyLevel={beach.occupancyLevel}
+              bestSeason={beach.bestSeason}
+              orientation={beach.orientation}
+            />
+
+            <ContactInfo
+              phone={beach.phone}
+              email={beach.email}
+              realUrl={beach.realUrl}
+              instagramHashtag={beach.instagramHashtag}
+            />
+          </div>
+        </div>
       </div>
     </main>
   )

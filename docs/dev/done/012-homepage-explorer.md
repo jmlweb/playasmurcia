@@ -1,11 +1,12 @@
 # Task #012: Homepage Beach Explorer with Search and Filters
 
 ## Metadata
-- **Status**: in-progress
+- **Status**: completed
 - **Priority**: P1 - Now
 - **Slice**: Frontend
 - **Created**: 2026-03-22
 - **Started**: 2026-03-22
+- **Completed**: 2026-03-23
 - **Blocked by**: -
 
 ## User Story
@@ -14,15 +15,15 @@ As a visitor, I want to browse and filter all beaches from the homepage so that 
 
 ## Acceptance Criteria
 
-- [ ] Search bar with text search by beach name
-- [ ] Filter panel: municipality (9), sea (2), services, activities, tags
-- [ ] Beach card grid showing: photo, name, municipality, main tags, occupancy level
-- [ ] Sorting options: name (A-Z), municipality, length, occupancy
-- [ ] URL-based filter state (shareable filtered views)
-- [ ] Results count displayed
-- [ ] Empty state when no beaches match filters
-- [ ] Responsive: filters as sidebar on desktop, bottom sheet or modal on mobile
-- [ ] Performant with 194 beaches (client-side filtering acceptable)
+- [x] Search bar with text search by beach name
+- [x] Filter panel: municipality (9), sea (2), services, activities, tags
+- [x] Beach card grid showing: photo, name, municipality, main tags, occupancy level
+- [x] Sorting options: name (A-Z), municipality, length, occupancy
+- [x] URL-based filter state (shareable filtered views)
+- [x] Results count displayed
+- [x] Empty state when no beaches match filters
+- [x] Responsive: filters as sidebar on desktop, bottom sheet or modal on mobile
+- [x] Performant with 194 beaches (client-side filtering acceptable)
 
 ## Implementation Notes
 
@@ -46,7 +47,8 @@ As a visitor, I want to browse and filter all beaches from the homepage so that 
 
 ## Progress Log
 
-(No progress yet)
+- [2026-03-22] Implementation started
+- [2026-03-23] Task completed
 
 ## Learnings
 
