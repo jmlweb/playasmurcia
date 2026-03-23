@@ -1,5 +1,14 @@
 import type { Beach, Municipality, Service } from "@/types/beach"
 
+export interface MunicipalitySchema {
+  "@context": "https://schema.org"
+  "@type": "Place"
+  name: string
+  description: string
+  address: PostalAddress
+  url: string
+}
+
 interface GeoCoordinates {
   "@type": "GeoCoordinates"
   latitude: number
@@ -59,6 +68,26 @@ function mapServicesToAmenities(
       }
     })
     .filter((item): item is LocationFeatureSpecification => item !== null)
+}
+
+export function generateMunicipalitySchema(
+  municipality: Municipality,
+  beachCount: number,
+  slug: string,
+): MunicipalitySchema {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    name: municipality.name,
+    description: `Descubre ${beachCount === 1 ? "la playa" : `las ${beachCount} playas`} de ${municipality.name} en la Región de Murcia.`,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: municipality.name,
+      addressRegion: "Murcia",
+      addressCountry: "ES",
+    },
+    url: `https://www.playasmurcia.com/municipios/${slug}`,
+  }
 }
 
 export function generateBeachSchema(

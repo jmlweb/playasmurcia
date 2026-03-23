@@ -6,8 +6,11 @@ import {
   getAllServices,
   getBeachByCode,
   getBeachBySlug,
+  getBeachesByMunicipality,
   getMunicipality,
+  getMunicipalityBySlug,
   getService,
+  municipalityToSlug,
 } from "./db-data"
 
 describe("db-data module", () => {
@@ -200,6 +203,86 @@ describe("db-data module", () => {
 
       expect(Array.isArray(services)).toBe(true)
       expect(services.length).toBeGreaterThan(0)
+    })
+  })
+
+  describe("municipalityToSlug", () => {
+    it("converts name to lowercase slug with hyphens", () => {
+      const slug = municipalityToSlug({ name: "San Pedro del Pinatar", id: "30031" })
+      expect(slug).toBe("san-pedro-del-pinatar")
+    })
+
+    it("removes accents and diacritics", () => {
+      const slug = municipalityToSlug({ name: "Águilas", id: "30003" })
+      expect(slug).toBe("aguilas")
+    })
+
+    it("handles already lowercase names", () => {
+      const slug = municipalityToSlug({ name: "Cartagena", id: "30016" })
+      expect(slug).toBe("cartagena")
+    })
+  })
+
+  describe("getMunicipalityBySlug", () => {
+    it("finds municipality by slug", async () => {
+      const result = await getMunicipalityBySlug("cartagena")
+      expect(result).toBeDefined()
+      expect(result?.municipality.name).toBe("Cartagena")
+      expect(result?.index).toBe(0)
+    })
+
+    it("finds municipality with accented name by slug", async () => {
+      const result = await getMunicipalityBySlug("aguilas")
+      expect(result).toBeDefined()
+      expect(result?.municipality.name).toBe("Águilas")
+    })
+
+    it("returns undefined for non-existent slug", async () => {
+      const result = await getMunicipalityBySlug("non-existent-municipality")
+      expect(result).toBeUndefined()
+    })
+
+    it("slug lookup is consistent with municipalityToSlug", async () => {
+      const municipalities = await getAllMunicipalities()
+      const testMunicipality = municipalities[0]
+      const slug = municipalityToSlug(testMunicipality)
+      const result = await getMunicipalityBySlug(slug)
+      expect(result).toBeDefined()
+      expect(result?.municipality.id).toBe(testMunicipality.id)
+    })
+  })
+
+  describe("getBeachesByMunicipality", () => {
+    it("returns beaches for a given municipality index", async () => {
+      const beaches = await getBeachesByMunicipality(0)
+      expect(Array.isArray(beaches)).toBe(true)
+      expect(beaches.length).toBeGreaterThan(0)
+      for (const beach of beaches) {
+        expect(beach.municipality).toBe(0)
+      }
+    })
+
+    it("returns empty array for municipality with no beaches", async () => {
+      const beaches = await getBeachesByMunicipality(999)
+      expect(beaches).toEqual([])
+    })
+
+    it("returns beaches that only belong to the requested municipality", async () => {
+      const beaches = await getBeachesByMunicipality(2)
+      for (const beach of beaches) {
+        expect(beach.municipality).toBe(2)
+      }
+    })
+
+    it("total beaches across all municipalities equals total beaches count", async () => {
+      const allBeaches = await getAllBeaches()
+      const municipalities = await getAllMunicipalities()
+      let totalFromMunicipalities = 0
+      for (let i = 0; i < municipalities.length; i++) {
+        const municipalityBeaches = await getBeachesByMunicipality(i)
+        totalFromMunicipalities += municipalityBeaches.length
+      }
+      expect(totalFromMunicipalities).toBe(allBeaches.length)
     })
   })
 

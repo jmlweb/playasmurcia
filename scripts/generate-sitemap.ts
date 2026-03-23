@@ -1,12 +1,12 @@
 import { writeFileSync } from "node:fs"
 import { resolve } from "node:path"
 
-import { beachToSlug, getAllBeaches } from "../src/lib/db-data"
+import { beachToSlug, getAllBeaches, getAllMunicipalities, municipalityToSlug } from "../src/lib/db-data"
 
 const BASE_URL = "https://www.playasmurcia.com"
 
 async function generateSitemap() {
-  const beaches = await getAllBeaches()
+  const [beaches, municipalities] = await Promise.all([getAllBeaches(), getAllMunicipalities()])
   const today = new Date().toISOString().split("T")[0]
 
   const urls = [
@@ -16,6 +16,20 @@ async function generateSitemap() {
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>`,
+    `  <url>
+    <loc>${BASE_URL}/municipios</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`,
+    ...municipalities.map(
+      (municipality) => `  <url>
+    <loc>${BASE_URL}/municipios/${municipalityToSlug(municipality)}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`
+    ),
     ...beaches.map(
       (beach) => `  <url>
     <loc>${BASE_URL}/playas/${beachToSlug(beach)}</loc>

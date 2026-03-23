@@ -1,5 +1,5 @@
-import { eq } from "drizzle-orm"
-import type { Activity, Beach, Municipality, Sea, Service, Tag } from "@/types/beach"
+import { eq, inArray } from "drizzle-orm"
+import type { Activity, Beach, Certification, Municipality, Sea, Service, Tag } from "@/types/beach"
 
 import { db } from "@/db/client"
 import * as schema from "@/db/schema"
@@ -70,9 +70,7 @@ function mapBeachFromDB(dbBeach: {
     ...(dbBeach.metaDescription && { metaDescription: dbBeach.metaDescription }),
     ...(dbBeach.seoKeywords && { seoKeywords: JSON.parse(dbBeach.seoKeywords) }),
     ...(dbBeach.certifications && {
-      certifications: JSON.parse(dbBeach.certifications) as Array<
-        "blue-flag" | "q-quality" | "ecoplayas"
-      >,
+      certifications: JSON.parse(dbBeach.certifications) as Array<Certification>,
     }),
     ...(dbBeach.bestSeason && {
       bestSeason: JSON.parse(dbBeach.bestSeason) as Array<
@@ -196,6 +194,22 @@ export async function getAllMunicipalities(): Promise<Array<Municipality>> {
 }
 
 /**
+ * Returns a Map keyed by the 0-based municipality index used in Beach.municipality
+ */
+export async function getMunicipalityMap(): Promise<Map<number, Municipality>> {
+  const dbMunicipalities = await db.query.municipalities.findMany({
+    orderBy: (municipalities, { asc }) => [asc(municipalities.id)],
+  })
+
+  return new Map(
+    dbMunicipalities.map((m, index) => [
+      index,
+      { name: m.name, id: m.ineCode },
+    ]),
+  )
+}
+
+/**
  * Retrieves all services from the database
  */
 export async function getAllServices(): Promise<Array<Service>> {
@@ -237,6 +251,60 @@ export async function getAllTags(): Promise<Array<Tag>> {
     id: t.tagId,
     name: t.name,
   }))
+}
+
+/**
+ * Retrieves multiple beaches by their codes (used for nearby beaches)
+ */
+export async function getNearbyBeaches(codes: Array<string>): Promise<Array<Beach>> {
+  if (codes.length === 0) {
+    return []
+  }
+
+  const dbBeaches = await db.query.beaches.findMany({
+    where: inArray(schema.beaches.code, codes),
+    with: {
+      services: true,
+      activities: true,
+      tags: true,
+    },
+  })
+
+  return dbBeaches.map(mapBeachFromDB)
+}
+
+/**
+ * Converts a municipality name to a URL-friendly slug
+ */
+export function municipalityToSlug(municipality: Municipality): string {
+  return municipality.name
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, "-")
+}
+
+/**
+ * Finds a municipality by its slug
+ */
+export async function getMunicipalityBySlug(
+  slug: string,
+): Promise<{ municipality: Municipality; index: number } | undefined> {
+  const municipalities = await getAllMunicipalities()
+  const index = municipalities.findIndex((m) => municipalityToSlug(m) === slug)
+  if (index === -1) return undefined
+  return { municipality: municipalities[index], index }
+}
+
+/**
+ * Retrieves all beaches for a given municipality (0-based index)
+ */
+export async function getBeachesByMunicipality(municipalityIndex: number): Promise<Array<Beach>> {
+  const dbBeaches = await db.query.beaches.findMany({
+    where: eq(schema.beaches.municipalityId, municipalityIndex + 1),
+    with: { services: true, activities: true, tags: true },
+  })
+  return dbBeaches.map(mapBeachFromDB)
 }
 
 /**

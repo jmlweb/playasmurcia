@@ -1,11 +1,12 @@
 # Task #013: Beaches by Municipality Pages
 
 ## Metadata
-- **Status**: pending
-- **Priority**: P2 - Next
+- **Status**: completed
+- **Priority**: P2 - Active
 - **Slice**: Frontend
 - **Created**: 2026-03-22
-- **Started**: -
+- **Started**: 2026-03-23
+- **Completed**: 2026-03-23
 - **Blocked by**: -
 
 ## User Story
@@ -14,13 +15,13 @@ As a visitor planning a trip to a specific coastal town, I want to see all beach
 
 ## Acceptance Criteria
 
-- [ ] Index page `/municipios` listing all 9 municipalities with beach count and summary stats
-- [ ] Detail page `/municipios/:slug` showing all beaches for that municipality
-- [ ] Municipality card shows: name, number of beaches, blue flag count, most common services
-- [ ] Beach list within municipality reuses beach card component from #012
-- [ ] SEO: unique title, meta description, JSON-LD for each municipality page
-- [ ] Breadcrumb navigation (Home > Municipios > Municipality Name)
-- [ ] Sitemap updated to include municipality pages
+- [x] Index page `/municipios` listing all 9 municipalities with beach count and summary stats
+- [x] Detail page `/municipios/:slug` showing all beaches for that municipality
+- [x] Municipality card shows: name, number of beaches, blue flag count, most common services
+- [x] Beach list within municipality reuses beach card component from #012
+- [x] SEO: unique title, meta description, JSON-LD for each municipality page
+- [x] Breadcrumb navigation (Home > Municipios > Municipality Name)
+- [x] Sitemap updated to include municipality pages
 
 ## Implementation Notes
 
@@ -42,7 +43,10 @@ As a visitor planning a trip to a specific coastal town, I want to see all beach
 
 ## Progress Log
 
-(No progress yet)
+- [2026-03-23] Task started
+- [2026-03-23] Implementation complete: index page, detail page, db queries, schema, sitemap
+- [2026-03-23] Code review fixes: removed dead getStaticPaths, fixed Spanish grammar, optimized DB query, added services display
+- [2026-03-23] Task completed - all 7 criteria met, 142 tests passing
 
 ## Learnings
 
