@@ -1,5 +1,5 @@
 import { eq } from "drizzle-orm"
-import type { Beach, Municipality, Service } from "@/types/beach"
+import type { Activity, Beach, Municipality, Sea, Service, Tag } from "@/types/beach"
 
 import { db } from "@/db/client"
 import * as schema from "@/db/schema"
@@ -207,5 +207,48 @@ export async function getAllServices(): Promise<Array<Service>> {
     id: s.serviceId,
     name: s.name,
     icon: s.icon,
+  }))
+}
+
+/**
+ * Retrieves all activities from the database
+ */
+export async function getAllActivities(): Promise<Array<Activity>> {
+  const dbActivities = await db.query.activities.findMany({
+    orderBy: (activities, { asc }) => [asc(activities.id)],
+  })
+
+  return dbActivities.map((a) => ({
+    id: a.activityId,
+    name: a.name,
+    icon: a.icon,
+  }))
+}
+
+/**
+ * Retrieves all tags from the database
+ */
+export async function getAllTags(): Promise<Array<Tag>> {
+  const dbTags = await db.query.tags.findMany({
+    orderBy: (tags, { asc }) => [asc(tags.id)],
+  })
+
+  return dbTags.map((t) => ({
+    id: t.tagId,
+    name: t.name,
+  }))
+}
+
+/**
+ * Retrieves all seas from the database
+ */
+export async function getAllSeas(): Promise<Array<Sea>> {
+  const dbSeas = await db.query.seas.findMany({
+    orderBy: (seas, { asc }) => [asc(seas.id)],
+  })
+
+  return dbSeas.map((s) => ({
+    name: s.name,
+    jellyfishRisk: s.jellyfishRisk,
   }))
 }

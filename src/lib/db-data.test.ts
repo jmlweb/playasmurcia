@@ -2,12 +2,12 @@ import { describe, expect, it } from "vitest"
 import {
   beachToSlug,
   getAllBeaches,
+  getAllMunicipalities,
+  getAllServices,
   getBeachByCode,
   getBeachBySlug,
   getMunicipality,
   getService,
-  getAllMunicipalities,
-  getAllServices,
 } from "./db-data"
 
 describe("db-data module", () => {

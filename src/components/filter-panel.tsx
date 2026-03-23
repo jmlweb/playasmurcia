@@ -1,0 +1,256 @@
+'use client'
+
+import { useState } from "react"
+import type { Activity, Municipality, Sea, Service, Tag } from "@/types/beach"
+import type { BeachSearchParams } from "@/lib/beach-filters"
+
+interface FilterPanelProps {
+  municipalities: Array<Municipality>
+  seas: Array<Sea>
+  services: Array<Service>
+  activities: Array<Activity>
+  tags: Array<Tag>
+  filters: BeachSearchParams
+  onChange: (filters: BeachSearchParams) => void
+}
+
+interface FilterGroupProps {
+  label: string
+  children: React.ReactNode
+  activeCount: number
+}
+
+function FilterGroup({ label, children, activeCount }: FilterGroupProps) {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <div className="border-b border-gray-200 last:border-0">
+      <button
+        type="button"
+        onClick={() => setIsOpen((prev) => !prev)}
+        className="flex w-full items-center justify-between py-3 text-left text-sm font-medium text-gray-900 hover:text-blue-600 focus:outline-none"
+        aria-expanded={isOpen}
+      >
+        <span className="flex items-center gap-2">
+          {label}
+          {activeCount > 0 && (
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-xs text-white">
+              {activeCount}
+            </span>
+          )}
+        </span>
+        <svg
+          className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      {isOpen && <div className="pb-3 space-y-2">{children}</div>}
+    </div>
+  )
+}
+
+interface CheckboxItemProps {
+  label: string
+  checked: boolean
+  onChange: (checked: boolean) => void
+}
+
+function CheckboxItem({ label, checked, onChange }: CheckboxItemProps) {
+  return (
+    <label className="flex cursor-pointer items-center gap-2 text-sm text-gray-700 hover:text-gray-900">
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={(e) => onChange(e.target.checked)}
+        className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-600"
+      />
+      {label}
+    </label>
+  )
+}
+
+function FilterContent({
+  municipalities,
+  seas,
+  services,
+  activities,
+  tags,
+  filters,
+  onChange,
+}: FilterPanelProps) {
+  function toggleArrayFilter<TKey extends keyof BeachSearchParams>(
+    key: TKey,
+    index: number,
+    current: Array<number> | undefined,
+  ) {
+    const arr = current ?? []
+    const next = arr.includes(index) ? arr.filter((v) => v !== index) : [...arr, index]
+    onChange({ ...filters, [key]: next.length > 0 ? next : undefined })
+  }
+
+  const totalActive =
+    (filters.municipality?.length ?? 0) +
+    (filters.sea?.length ?? 0) +
+    (filters.services?.length ?? 0) +
+    (filters.activities?.length ?? 0) +
+    (filters.tags?.length ?? 0)
+
+  function clearAll() {
+    onChange({
+      q: filters.q,
+      sort: filters.sort,
+    })
+  }
+
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-base font-semibold text-gray-900">Filtros</h2>
+        {totalActive > 0 && (
+          <button
+            type="button"
+            onClick={clearAll}
+            className="text-sm text-blue-600 hover:underline focus:outline-none"
+          >
+            Limpiar todo ({totalActive})
+          </button>
+        )}
+      </div>
+
+      <FilterGroup label="Municipio" activeCount={filters.municipality?.length ?? 0}>
+        {municipalities.map((m, i) => (
+          <CheckboxItem
+            key={m.id}
+            label={m.name}
+            checked={(filters.municipality ?? []).includes(i)}
+            onChange={() => toggleArrayFilter("municipality", i, filters.municipality)}
+          />
+        ))}
+      </FilterGroup>
+
+      <FilterGroup label="Mar" activeCount={filters.sea?.length ?? 0}>
+        {seas.map((s, i) => (
+          <CheckboxItem
+            key={s.name}
+            label={s.name}
+            checked={(filters.sea ?? []).includes(i)}
+            onChange={() => toggleArrayFilter("sea", i, filters.sea)}
+          />
+        ))}
+      </FilterGroup>
+
+      <FilterGroup label="Servicios" activeCount={filters.services?.length ?? 0}>
+        {services.map((s, i) => (
+          <CheckboxItem
+            key={s.id}
+            label={s.name}
+            checked={(filters.services ?? []).includes(i)}
+            onChange={() => toggleArrayFilter("services", i, filters.services)}
+          />
+        ))}
+      </FilterGroup>
+
+      <FilterGroup label="Actividades" activeCount={filters.activities?.length ?? 0}>
+        {activities.map((a, i) => (
+          <CheckboxItem
+            key={a.id}
+            label={a.name}
+            checked={(filters.activities ?? []).includes(i)}
+            onChange={() => toggleArrayFilter("activities", i, filters.activities)}
+          />
+        ))}
+      </FilterGroup>
+
+      <FilterGroup label="Etiquetas" activeCount={filters.tags?.length ?? 0}>
+        {tags.map((t, i) => (
+          <CheckboxItem
+            key={t.id}
+            label={t.name}
+            checked={(filters.tags ?? []).includes(i)}
+            onChange={() => toggleArrayFilter("tags", i, filters.tags)}
+          />
+        ))}
+      </FilterGroup>
+    </div>
+  )
+}
+
+export function FilterPanel(props: FilterPanelProps) {
+  const [mobileOpen, setMobileOpen] = useState(false)
+
+  const totalActive =
+    (props.filters.municipality?.length ?? 0) +
+    (props.filters.sea?.length ?? 0) +
+    (props.filters.services?.length ?? 0) +
+    (props.filters.activities?.length ?? 0) +
+    (props.filters.tags?.length ?? 0)
+
+  return (
+    <>
+      {/* Mobile toggle button */}
+      <div className="lg:hidden mb-3">
+        <button
+          type="button"
+          onClick={() => setMobileOpen(true)}
+          className="flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-blue-600 focus:outline-none"
+        >
+          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4h18M6 8h12M9 12h6" />
+          </svg>
+          Filtros
+          {totalActive > 0 && (
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-xs text-white">
+              {totalActive}
+            </span>
+          )}
+        </button>
+      </div>
+
+      {/* Mobile modal overlay */}
+      {mobileOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden">
+          <div
+            className="fixed inset-0 bg-black/40"
+            onClick={() => setMobileOpen(false)}
+            aria-hidden="true"
+          />
+          <div className="fixed inset-y-0 left-0 w-80 max-w-full overflow-y-auto bg-white p-5 shadow-xl">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-base font-semibold text-gray-900">Filtros</h2>
+              <button
+                type="button"
+                onClick={() => setMobileOpen(false)}
+                aria-label="Cerrar filtros"
+                className="rounded p-1 text-gray-400 hover:text-gray-600 focus:outline-none"
+              >
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <FilterContent {...props} />
+            <div className="mt-6">
+              <button
+                type="button"
+                onClick={() => setMobileOpen(false)}
+                className="w-full rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-600 focus:outline-none"
+              >
+                Ver resultados
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Desktop sidebar */}
+      <div className="hidden lg:block">
+        <FilterContent {...props} />
+      </div>
+    </>
+  )
+}

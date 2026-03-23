@@ -1,11 +1,11 @@
 # Task #012: Homepage Beach Explorer with Search and Filters
 
 ## Metadata
-- **Status**: pending
+- **Status**: in-progress
 - **Priority**: P1 - Now
 - **Slice**: Frontend
 - **Created**: 2026-03-22
-- **Started**: -
+- **Started**: 2026-03-22
 - **Blocked by**: -
 
 ## User Story

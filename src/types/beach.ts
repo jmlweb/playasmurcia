@@ -40,6 +40,22 @@ export interface Service {
   icon: string
 }
 
+export interface Activity {
+  id: string
+  name: string
+  icon: string
+}
+
+export interface Tag {
+  id: string
+  name: string
+}
+
+export interface Sea {
+  name: string
+  jellyfishRisk: string
+}
+
 export interface Municipality {
   name: string
   id: string

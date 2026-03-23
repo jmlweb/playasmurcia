@@ -3,13 +3,13 @@
 ## Quick Stats
 
 - **Pending**: 16 tasks
-- **In Progress**: 0 tasks
+- **In Progress**: 1 task
 - **Completed**: 0 tasks
 - **Blocked**: 0 tasks
 
 ## Current Focus
 
-> No active task. Use `/start-task` or `/next-task` to begin.
+> **Active**: #012 Homepage Beach Explorer with Search and Filters (started 2026-03-22)
 
 ## Backlog
 
