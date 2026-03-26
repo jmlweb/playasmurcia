@@ -10,7 +10,7 @@ describe("PracticalInfoCard", () => {
 
   it("renders the heading when any data is present", () => {
     render(<PracticalInfoCard length={500} />)
-    expect(screen.getByRole("heading", { name: "Información práctica" })).toBeTruthy()
+    expect(screen.getByRole("heading", { name: "Informacion practica" })).toBeTruthy()
   })
 
   it("renders length with meters unit", () => {

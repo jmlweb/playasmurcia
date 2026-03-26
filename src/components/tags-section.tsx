@@ -19,7 +19,7 @@ export function TagsSection({ tagIndices, allTags }: TagsSectionProps) {
       {resolvedTags.map((tag) => (
         <span
           key={tag.id}
-          className="rounded-full bg-blue-50 px-3 py-1 text-sm text-blue-700"
+          className="rounded-full bg-ocean-50 px-3 py-1 text-sm font-medium text-ocean-700"
         >
           {tag.name}
         </span>

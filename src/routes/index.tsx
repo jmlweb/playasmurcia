@@ -144,26 +144,37 @@ function HomePage() {
     (filters.tags?.length ?? 0) > 0
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-sand-50">
       {/* Hero */}
-      <section className="bg-linear-to-b from-blue-800 to-blue-600 px-4 py-10 text-white">
-        <div className="mx-auto max-w-5xl text-center">
-          <h1 className="mb-2 text-5xl font-bold">Playas de Murcia</h1>
-          <p className="mb-6 text-xl text-blue-100">
-            Descubre las {beaches.length} playas de la Región de Murcia
+      <section className="relative overflow-hidden bg-ocean-800 px-4 py-16 sm:py-20">
+        <div className="absolute inset-0 bg-linear-to-br from-ocean-900 via-ocean-800 to-ocean-700" />
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 right-0 h-96 w-96 translate-x-1/3 -translate-y-1/3 rounded-full bg-ocean-400 blur-3xl" />
+          <div className="absolute bottom-0 left-0 h-64 w-64 -translate-x-1/4 translate-y-1/4 rounded-full bg-sand-400 blur-3xl" />
+        </div>
+        <div className="relative mx-auto max-w-3xl text-center">
+          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-ocean-300">
+            Region de Murcia
           </p>
-          <div className="mx-auto max-w-xl">
+          <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+            Descubre nuestras playas
+          </h1>
+          <p className="mx-auto mb-8 max-w-xl text-lg text-ocean-200">
+            Explora {beaches.length} playas y calas del litoral murciano.
+            Filtra por servicios, actividades y mucho mas.
+          </p>
+          <div className="mx-auto max-w-lg">
             <SearchBar value={filters.q ?? ""} onChange={handleSearchChange} />
           </div>
         </div>
       </section>
 
       {/* Explorer */}
-      <div className="mx-auto max-w-7xl px-4 py-8">
-        <div className="flex gap-8">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="flex gap-10">
           {/* Sidebar filters (desktop) */}
           <aside className="hidden lg:block w-64 shrink-0">
-            <div className="sticky top-4 rounded-lg bg-white p-5 shadow-sm">
+            <div className="sticky top-6 rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm">
               <FilterPanel
                 municipalities={municipalities}
                 seas={seas}
@@ -179,7 +190,7 @@ function HomePage() {
           {/* Main content */}
           <div className="flex-1 min-w-0">
             {/* Toolbar */}
-            <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-3">
                 {/* Mobile filter toggle */}
                 <div className="lg:hidden">
@@ -193,9 +204,9 @@ function HomePage() {
                     onChange={handleFiltersChange}
                   />
                 </div>
-                <span className="text-sm text-gray-600">
-                  <strong className="text-gray-900">{filteredBeaches.length}</strong> playas
-                  encontradas
+                <span className="text-sm text-gray-500">
+                  <strong className="font-semibold text-gray-900">{filteredBeaches.length}</strong>{" "}
+                  playas encontradas
                 </span>
               </div>
               <SortSelect value={sort} onChange={handleSortChange} />
@@ -203,7 +214,7 @@ function HomePage() {
 
             {/* Results */}
             {filteredBeaches.length > 0 ? (
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
                 {filteredBeaches.map((beach) => {
                   const slug = slugMap.get(beach.code) ?? beachToSlug(beach)
                   return (
@@ -218,9 +229,9 @@ function HomePage() {
                 })}
               </div>
             ) : (
-              <div className="flex flex-col items-center justify-center py-20 text-center">
+              <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-300 py-24 text-center">
                 <svg
-                  className="mb-4 h-16 w-16 text-gray-300"
+                  className="mb-5 h-14 w-14 text-gray-300"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -229,21 +240,21 @@ function HomePage() {
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth={1}
-                    d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    strokeWidth={1.5}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                   />
                 </svg>
-                <p className="mb-1 text-xl font-semibold text-gray-900">
+                <p className="mb-1 text-lg font-semibold text-gray-900">
                   No se encontraron playas
                 </p>
-                <p className="mb-4 text-gray-500">
-                  Prueba a modificar los filtros o el texto de búsqueda
+                <p className="mb-5 text-sm text-gray-500">
+                  Prueba a modificar los filtros o el texto de busqueda
                 </p>
                 {hasActiveFilters && (
                   <button
                     type="button"
                     onClick={clearAllFilters}
-                    className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-600 focus:outline-none"
+                    className="rounded-full bg-ocean-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-ocean-700 focus:ring-2 focus:ring-ocean-500 focus:ring-offset-2 focus:outline-none"
                   >
                     Limpiar filtros
                   </button>
@@ -253,6 +264,23 @@ function HomePage() {
           </div>
         </div>
       </div>
+
+      {/* Footer */}
+      <footer className="border-t border-gray-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+            <div>
+              <p className="text-sm font-semibold text-gray-900">Playas de Murcia</p>
+              <p className="mt-1 text-xs text-gray-400">
+                Guia de las {beaches.length} playas del litoral murciano
+              </p>
+            </div>
+            <p className="text-xs text-gray-400">
+              Datos del Ministerio de Transicion Ecologica
+            </p>
+          </div>
+        </div>
+      </footer>
     </main>
   )
 }

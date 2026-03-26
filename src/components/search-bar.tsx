@@ -55,7 +55,7 @@ export function SearchBar({ value, onChange, placeholder = "Buscar playa..." }: 
         onChange={handleChange}
         placeholder={placeholder}
         aria-label="Buscar playa por nombre"
-        className="w-full rounded-lg border border-gray-300 bg-white py-3 pr-10 pl-10 text-base text-gray-900 placeholder-gray-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-600 focus:outline-none"
+        className="w-full rounded-full border-0 bg-white/95 py-3.5 pr-10 pl-11 text-base text-gray-900 shadow-lg placeholder-gray-400 backdrop-blur-sm transition-shadow focus:bg-white focus:shadow-xl focus:ring-2 focus:ring-ocean-400 focus:outline-none"
       />
       {localValue && (
         <button

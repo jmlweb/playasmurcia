@@ -24,23 +24,23 @@ function FilterGroup({ label, children, activeCount }: FilterGroupProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="border-b border-gray-200 last:border-0">
+    <div className="border-b border-gray-100 last:border-0">
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="flex w-full items-center justify-between py-3 text-left text-sm font-medium text-gray-900 hover:text-blue-600 focus:outline-none"
+        className="flex w-full items-center justify-between py-3.5 text-left text-sm font-medium text-gray-800 transition-colors hover:text-ocean-600 focus:outline-none"
         aria-expanded={isOpen}
       >
         <span className="flex items-center gap-2">
           {label}
           {activeCount > 0 && (
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-xs text-white">
+            <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-ocean-500 px-1.5 text-[11px] font-semibold text-white">
               {activeCount}
             </span>
           )}
         </span>
         <svg
-          className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
+          className={`h-4 w-4 text-gray-400 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -49,7 +49,7 @@ function FilterGroup({ label, children, activeCount }: FilterGroupProps) {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
       </button>
-      {isOpen && <div className="pb-3 space-y-2">{children}</div>}
+      {isOpen && <div className="pb-4 space-y-2.5">{children}</div>}
     </div>
   )
 }
@@ -62,14 +62,14 @@ interface CheckboxItemProps {
 
 function CheckboxItem({ label, checked, onChange }: CheckboxItemProps) {
   return (
-    <label className="flex cursor-pointer items-center gap-2 text-sm text-gray-700 hover:text-gray-900">
+    <label className="flex cursor-pointer items-center gap-2.5 rounded-lg px-1 py-0.5 text-sm text-gray-600 transition-colors hover:text-gray-900">
       <input
         type="checkbox"
         checked={checked}
         onChange={(e) => onChange(e.target.checked)}
-        className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-600"
+        className="h-4 w-4 rounded border-gray-300 text-ocean-600 accent-ocean-600 focus:ring-ocean-500"
       />
-      {label}
+      <span className={checked ? "font-medium text-gray-900" : ""}>{label}</span>
     </label>
   )
 }
@@ -115,7 +115,7 @@ function FilterContent({
           <button
             type="button"
             onClick={clearAll}
-            className="text-sm text-blue-600 hover:underline focus:outline-none"
+            className="text-sm text-ocean-600 hover:underline focus:outline-none"
           >
             Limpiar todo ({totalActive})
           </button>
@@ -193,18 +193,18 @@ export function FilterPanel(props: FilterPanelProps) {
   return (
     <>
       {/* Mobile toggle button */}
-      <div className="lg:hidden mb-3">
+      <div className="lg:hidden">
         <button
           type="button"
           onClick={() => setMobileOpen(true)}
-          className="flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-blue-600 focus:outline-none"
+          className="flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:border-ocean-300 hover:text-ocean-700 focus:ring-2 focus:ring-ocean-500 focus:outline-none"
         >
           <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4h18M6 8h12M9 12h6" />
           </svg>
           Filtros
           {totalActive > 0 && (
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-xs text-white">
+            <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-ocean-500 px-1.5 text-[11px] font-semibold text-white">
               {totalActive}
             </span>
           )}
@@ -215,18 +215,18 @@ export function FilterPanel(props: FilterPanelProps) {
       {mobileOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div
-            className="fixed inset-0 bg-black/40"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm"
             onClick={() => setMobileOpen(false)}
             aria-hidden="true"
           />
-          <div className="fixed inset-y-0 left-0 w-80 max-w-full overflow-y-auto bg-white p-5 shadow-xl">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-base font-semibold text-gray-900">Filtros</h2>
+          <div className="fixed inset-y-0 left-0 w-80 max-w-[85vw] overflow-y-auto bg-white p-6 shadow-2xl">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-lg font-semibold text-gray-900">Filtros</h2>
               <button
                 type="button"
                 onClick={() => setMobileOpen(false)}
                 aria-label="Cerrar filtros"
-                className="rounded p-1 text-gray-400 hover:text-gray-600 focus:outline-none"
+                className="rounded-full p-1.5 text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-600 focus:outline-none"
               >
                 <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -234,11 +234,11 @@ export function FilterPanel(props: FilterPanelProps) {
               </button>
             </div>
             <FilterContent {...props} />
-            <div className="mt-6">
+            <div className="mt-8 sticky bottom-0 bg-white pt-4 pb-2">
               <button
                 type="button"
                 onClick={() => setMobileOpen(false)}
-                className="w-full rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-600 focus:outline-none"
+                className="w-full rounded-full bg-ocean-600 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-ocean-700 focus:ring-2 focus:ring-ocean-500 focus:ring-offset-2 focus:outline-none"
               >
                 Ver resultados
               </button>

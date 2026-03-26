@@ -1,6 +1,61 @@
 @import "tailwindcss";
 
 @theme {
-  --default-font-family: "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-  sans-serif;
+  --default-font-family: "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+
+  /* Coastal palette */
+  --color-ocean-50: #f0f9f6;
+  --color-ocean-100: #d5f0e8;
+  --color-ocean-200: #a8e0d0;
+  --color-ocean-300: #6ec9b3;
+  --color-ocean-400: #3baa91;
+  --color-ocean-500: #1e8a73;
+  --color-ocean-600: #166e5c;
+  --color-ocean-700: #13584a;
+  --color-ocean-800: #0f4339;
+  --color-ocean-900: #0a2e27;
+
+  --color-sand-50: #fefcf8;
+  --color-sand-100: #fdf6eb;
+  --color-sand-200: #f9ead2;
+  --color-sand-300: #f2d8b0;
+  --color-sand-400: #e8c18a;
+  --color-sand-500: #d4a56a;
+
+  --color-coral-400: #f0806e;
+  --color-coral-500: #e8604d;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  /* Scrollbar styling for carousels */
+  .overflow-x-auto {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gray-300) transparent;
+  }
+
+  .overflow-x-auto::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .overflow-x-auto::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .overflow-x-auto::-webkit-scrollbar-thumb {
+    background-color: var(--color-gray-300);
+    border-radius: 9999px;
+  }
+
+  /* Selection color */
+  ::selection {
+    background-color: var(--color-ocean-200);
+    color: var(--color-ocean-900);
+  }
 }

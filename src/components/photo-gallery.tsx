@@ -10,7 +10,7 @@ export function PhotoGallery({ pictures, beachName }: PhotoGalleryProps) {
 
   if (pictures.length === 0) {
     return (
-      <div className="relative h-64 overflow-hidden rounded-xl bg-gray-100 sm:h-80 lg:h-96">
+      <div className="relative h-64 overflow-hidden rounded-2xl bg-gray-100 sm:h-80 lg:h-96">
         <img
           src="/pictures/default-beach.svg"
           alt={beachName}
@@ -33,7 +33,7 @@ export function PhotoGallery({ pictures, beachName }: PhotoGalleryProps) {
   return (
     <div className="space-y-3">
       {/* Main image */}
-      <div className="relative h-64 overflow-hidden rounded-xl bg-gray-100 sm:h-80 lg:h-[480px]">
+      <div className="relative h-64 overflow-hidden rounded-2xl bg-gray-100 shadow-sm sm:h-80 lg:h-[480px]">
         <img
           src={`/pictures/${activePicture}`}
           alt={`${beachName} - foto ${activeIndex + 1}`}
@@ -84,9 +84,9 @@ export function PhotoGallery({ pictures, beachName }: PhotoGalleryProps) {
               aria-selected={index === activeIndex}
               aria-label={`Ver foto ${index + 1}`}
               onClick={() => setActiveIndex(index)}
-              className={`h-16 w-24 flex-shrink-0 overflow-hidden rounded-lg border-2 transition-all focus:ring-2 focus:ring-blue-600 focus:outline-none ${
+              className={`h-16 w-24 flex-shrink-0 overflow-hidden rounded-lg border-2 transition-all focus:ring-2 focus:ring-ocean-500 focus:outline-none ${
                 index === activeIndex
-                  ? "border-blue-600"
+                  ? "border-ocean-500"
                   : "border-transparent opacity-70 hover:opacity-100"
               }`}
             >

@@ -1,7 +1,7 @@
 const OccupancyConfig = {
-  low: { label: "Baja", colorClass: "text-green-700 bg-green-50" },
-  medium: { label: "Media", colorClass: "text-yellow-700 bg-yellow-50" },
-  high: { label: "Alta", colorClass: "text-red-700 bg-red-50" },
+  low: { label: "Baja", colorClass: "text-emerald-700 bg-emerald-50 ring-1 ring-emerald-200" },
+  medium: { label: "Media", colorClass: "text-amber-700 bg-amber-50 ring-1 ring-amber-200" },
+  high: { label: "Alta", colorClass: "text-rose-700 bg-rose-50 ring-1 ring-rose-200" },
 } as const
 
 const SeasonConfig = {
@@ -53,10 +53,10 @@ export function PracticalInfoCard({
 
   return (
     <section
-      className="rounded-xl border border-gray-200 bg-white p-5"
-      aria-label="Información práctica"
+      className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm"
+      aria-label="Informacion practica"
     >
-      <h2 className="mb-1 text-xl font-semibold text-gray-900">Información práctica</h2>
+      <h2 className="mb-1 text-lg font-semibold text-gray-900">Informacion practica</h2>
       <dl>
         {length !== undefined && (
           <InfoRow label="Longitud" value={`${length} m`} />

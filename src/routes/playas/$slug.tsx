@@ -89,28 +89,24 @@ function BeachPage() {
   const pictures = beach.pictures ?? []
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-sand-50">
       {/* Hero / Gallery */}
       <div className="bg-white">
-        <div className="container mx-auto px-4 pt-6 pb-4">
-          <nav className="mb-4 text-sm text-gray-500" aria-label="Ruta de navegación">
-            <a href="/" className="hover:text-blue-600 focus:outline-none">
+        <div className="mx-auto max-w-7xl px-4 pt-6 pb-4 sm:px-6 lg:px-8">
+          <nav className="mb-5 text-sm text-gray-400" aria-label="Ruta de navegacion">
+            <a href="/" className="transition-colors hover:text-ocean-600 focus:outline-none">
               Inicio
             </a>
             <span className="mx-2" aria-hidden="true">/</span>
-            <a href="/playas" className="hover:text-blue-600 focus:outline-none">
-              Playas
-            </a>
-            <span className="mx-2" aria-hidden="true">/</span>
-            <span aria-current="page">{beach.name}</span>
+            <span className="text-gray-600" aria-current="page">{beach.name}</span>
           </nav>
 
-          <div className="mb-4 flex flex-wrap items-start gap-3">
+          <div className="mb-5 flex flex-wrap items-start gap-4">
             <div className="flex-1">
-              <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+              <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                 {beach.name}
               </h1>
-              <p className="mt-1 text-lg text-gray-500">{municipality.name}</p>
+              <p className="mt-1.5 text-lg text-gray-400">{municipality.name}</p>
             </div>
             {beach.tags && beach.tags.length > 0 && (
               <TagsSection tagIndices={beach.tags} allTags={tags} />
@@ -118,25 +114,25 @@ function BeachPage() {
           </div>
 
           {beach.certifications && beach.certifications.length > 0 && (
-            <div className="mb-4">
+            <div className="mb-5">
               <CertificationsBadge certifications={beach.certifications} />
             </div>
           )}
         </div>
 
-        <div className="container mx-auto px-4 pb-6">
+        <div className="mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
           <PhotoGallery pictures={pictures} beachName={beach.name} />
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           {/* Main content column */}
-          <div className="space-y-8 lg:col-span-2">
+          <div className="space-y-10 lg:col-span-2">
             {/* Description */}
             <section>
               <h2 className="mb-3 text-xl font-semibold text-gray-900">Sobre esta playa</h2>
-              <p className="leading-relaxed text-gray-700">{beach.description}</p>
+              <p className="leading-relaxed text-gray-600">{beach.description}</p>
             </section>
 
             {/* Services */}
@@ -153,9 +149,9 @@ function BeachPage() {
             {beach.access && (
               <section>
                 <h2 className="mb-3 text-xl font-semibold text-gray-900">
-                  Cómo llegar
+                  Como llegar
                 </h2>
-                <p className="leading-relaxed text-gray-700">{beach.access}</p>
+                <p className="leading-relaxed text-gray-600">{beach.access}</p>
               </section>
             )}
 

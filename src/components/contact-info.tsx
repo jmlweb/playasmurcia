@@ -14,7 +14,7 @@ export function ContactInfo({ phone, email, realUrl, instagramHashtag }: Contact
 
   return (
     <section
-      className="rounded-xl border border-gray-200 bg-white p-5"
+      className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm"
       aria-label="Información de contacto"
     >
       <h2 className="mb-4 text-xl font-semibold text-gray-900">Contacto</h2>
@@ -33,7 +33,7 @@ export function ContactInfo({ phone, email, realUrl, instagramHashtag }: Contact
             </span>
             <a
               href={`tel:${phone}`}
-              className="rounded text-sm text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="rounded text-sm text-gray-700 hover:text-ocean-600 focus:outline-none focus:ring-2 focus:ring-ocean-500"
             >
               {phone}
             </a>
@@ -53,7 +53,7 @@ export function ContactInfo({ phone, email, realUrl, instagramHashtag }: Contact
             </span>
             <a
               href={`mailto:${email}`}
-              className="rounded text-sm text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="rounded text-sm text-gray-700 hover:text-ocean-600 focus:outline-none focus:ring-2 focus:ring-ocean-500"
             >
               {email}
             </a>
@@ -75,7 +75,7 @@ export function ContactInfo({ phone, email, realUrl, instagramHashtag }: Contact
               href={realUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded text-sm text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="rounded text-sm text-ocean-600 hover:underline focus:outline-none focus:ring-2 focus:ring-ocean-500"
             >
               Sitio web oficial
             </a>
@@ -92,7 +92,7 @@ export function ContactInfo({ phone, email, realUrl, instagramHashtag }: Contact
               href={`https://www.instagram.com/explore/tags/${instagramHashtag.replace("#", "")}/`}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded text-sm text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="rounded text-sm text-gray-700 hover:text-ocean-600 focus:outline-none focus:ring-2 focus:ring-ocean-500"
             >
               {instagramHashtag}
             </a>

@@ -30,7 +30,7 @@ export function NearbyCarousel({ items }: NearbyCarouselProps) {
               key={beach.code}
               href={`/playas/${slug}`}
               aria-label={`Ver playa ${beach.name}`}
-              className="group flex w-48 flex-shrink-0 flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md focus:ring-2 focus:ring-blue-600 focus:outline-none"
+              className="group flex w-48 flex-shrink-0 flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:ring-ocean-200 focus:ring-2 focus:ring-ocean-500 focus:outline-none"
             >
               <div className="relative h-32 overflow-hidden bg-gray-100">
                 <img
@@ -41,7 +41,7 @@ export function NearbyCarousel({ items }: NearbyCarouselProps) {
                 />
               </div>
               <div className="p-3">
-                <p className="line-clamp-1 text-sm font-semibold text-gray-900 group-hover:text-blue-600">
+                <p className="line-clamp-1 text-sm font-semibold text-gray-900 group-hover:text-ocean-600">
                   {beach.name}
                 </p>
                 <p className="text-xs text-gray-500">{municipality.name}</p>

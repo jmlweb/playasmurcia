@@ -19,14 +19,14 @@ interface SortSelectProps {
 export function SortSelect({ value, onChange }: SortSelectProps) {
   return (
     <div className="flex items-center gap-2">
-      <label htmlFor="sort-select" className="text-sm text-gray-600 whitespace-nowrap">
+      <label htmlFor="sort-select" className="text-sm text-gray-400 whitespace-nowrap">
         Ordenar por
       </label>
       <select
         id="sort-select"
         value={value}
         onChange={(e) => onChange(e.target.value as SortOption)}
-        className="rounded-lg border border-gray-300 bg-white py-2 pr-8 pl-3 text-sm text-gray-900 focus:border-blue-600 focus:ring-2 focus:ring-blue-600 focus:outline-none"
+        className="cursor-pointer rounded-full border border-gray-200 bg-white py-2 pr-8 pl-3.5 text-sm font-medium text-gray-700 transition-all hover:border-gray-300 focus:border-ocean-400 focus:ring-2 focus:ring-ocean-400 focus:outline-none"
       >
         {SORT_OPTIONS.map((option) => (
           <option key={option.value} value={option.value}>

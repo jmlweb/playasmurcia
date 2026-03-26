@@ -84,21 +84,21 @@ function MunicipalityCard({
   return (
     <a
       href={`/municipios/${stats.slug}`}
-      className="group flex flex-col overflow-hidden rounded-lg bg-white shadow-sm transition-shadow hover:shadow-md focus:ring-2 focus:ring-blue-600 focus:outline-none"
+      className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:ring-ocean-200 focus:ring-2 focus:ring-ocean-500 focus:outline-none"
     >
       <div className="flex flex-1 flex-col p-6">
-        <h2 className="mb-1 text-xl font-semibold text-gray-900 group-hover:text-blue-600">
+        <h2 className="mb-1 text-xl font-semibold text-gray-900 transition-colors group-hover:text-ocean-600">
           {stats.municipality.name}
         </h2>
-        <div className="mb-4 flex flex-wrap gap-3 text-sm text-gray-500">
+        <div className="mb-4 flex flex-wrap gap-3 text-sm text-gray-400">
           <span>
-            <strong className="text-gray-900">{stats.beachCount}</strong>{" "}
+            <strong className="font-semibold text-gray-900">{stats.beachCount}</strong>{" "}
             {stats.beachCount === 1 ? "playa" : "playas"}
           </span>
           {stats.blueFlagCount > 0 && (
             <span className="flex items-center gap-1">
               <span aria-hidden="true">🏖️</span>
-              <strong className="text-blue-700">{stats.blueFlagCount}</strong>{" "}
+              <strong className="font-semibold text-ocean-700">{stats.blueFlagCount}</strong>{" "}
               bandera{stats.blueFlagCount === 1 ? "" : "s"} azul
             </span>
           )}
@@ -108,7 +108,7 @@ function MunicipalityCard({
             {topServices.map((service) => (
               <span
                 key={service.id}
-                className="flex items-center gap-1 rounded-full bg-blue-50 px-2 py-0.5 text-xs text-blue-700"
+                className="flex items-center gap-1 rounded-full bg-ocean-50 px-2.5 py-0.5 text-xs font-medium text-ocean-700"
                 title={service.name}
               >
                 <span aria-hidden="true">{service.icon}</span>
@@ -118,7 +118,7 @@ function MunicipalityCard({
           </div>
         )}
         <div className="mt-auto flex items-center justify-between">
-          <span className="text-sm font-medium text-blue-600 group-hover:underline">
+          <span className="text-sm font-medium text-ocean-600 transition-colors group-hover:text-ocean-700">
             Ver playas →
           </span>
         </div>
@@ -133,29 +133,38 @@ function MunicipiosPage() {
   const totalBeaches = stats.reduce((sum, s) => sum + s.beachCount, 0)
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-sand-50">
       {/* Hero */}
-      <section className="bg-linear-to-b from-blue-800 to-blue-600 px-4 py-10 text-white">
-        <div className="mx-auto max-w-5xl text-center">
-          <h1 className="mb-2 text-5xl font-bold">Municipios de la Costa</h1>
-          <p className="text-xl text-blue-100">
-            {stats.length} municipios costeros con {totalBeaches} playas en la Región de Murcia
+      <section className="relative overflow-hidden bg-ocean-800 px-4 py-16 sm:py-20">
+        <div className="absolute inset-0 bg-linear-to-br from-ocean-900 via-ocean-800 to-ocean-700" />
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/3 rounded-full bg-ocean-400 blur-3xl" />
+        </div>
+        <div className="relative mx-auto max-w-3xl text-center">
+          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-ocean-300">
+            Costa de Murcia
+          </p>
+          <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+            Municipios costeros
+          </h1>
+          <p className="text-lg text-ocean-200">
+            {stats.length} municipios con {totalBeaches} playas en la Region de Murcia
           </p>
         </div>
       </section>
 
       {/* Content */}
-      <div className="mx-auto max-w-7xl px-4 py-8">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
-        <nav className="mb-6 text-sm text-gray-500" aria-label="Ruta de navegación">
-          <a href="/" className="hover:text-blue-600 focus:outline-none">
+        <nav className="mb-8 text-sm text-gray-400" aria-label="Ruta de navegacion">
+          <a href="/" className="transition-colors hover:text-ocean-600 focus:outline-none">
             Inicio
           </a>
           <span className="mx-2" aria-hidden="true">/</span>
-          <span aria-current="page">Municipios</span>
+          <span className="text-gray-600" aria-current="page">Municipios</span>
         </nav>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {stats.map((s) => (
             <MunicipalityCard key={s.municipality.id} stats={s} services={services} />
           ))}
