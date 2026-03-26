@@ -58,7 +58,8 @@
       "día de playa",
       "cartagena",
       "kayak"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "601",
@@ -122,7 +123,8 @@
       "playas virgen",
       "relax",
       "mediterráneo"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "516",
@@ -178,7 +180,7 @@
     "certifications": [],
     "occupancyLevel": "medium",
     "campingNearby": false,
-    "metaDescription": "Playa Cala Arturo, Cartagena: Disfruta de la arena dorada de esta cala en la Costa Cálida, Murcia. Relájate en la Playa de Cartagena y disfruta del Mediterráneo.",
+    "metaDescription": "Playa Cala Arturo, Cartagena: Disfruta de la arena dorada de esta cala en la Costa Cálida, Murcia. Relájate en la Playa de Cartagena y disfruta del",
     "seoKeywords": [
       "cala arturo",
       "cartagena",
@@ -190,7 +192,8 @@
       "aguas cristalinas",
       "escapada familiar",
       "playas urbanas"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "559",
@@ -255,7 +258,8 @@
       "playas urbanas",
       "región de murcia",
       "kayak"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "628",
@@ -384,7 +388,8 @@
       "snorkel murcia",
       "escapada relajante",
       "cartagena"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "7050",
@@ -525,7 +530,8 @@
       "cala urbana",
       "kayak",
       "relax"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "512",
@@ -676,7 +682,7 @@
     ],
     "occupancyLevel": "high",
     "campingNearby": true,
-    "metaDescription": "Playa Cala de Calnegre, Lorca: Disfruta de esta preciosa playa en Murcia, Costa Cálida. Agua limpia, arena fina y todas las comodidades. ¡Tu oasis en el Mediterráneo!",
+    "metaDescription": "Playa Cala de Calnegre, Lorca: Disfruta de esta preciosa playa en Murcia, Costa Cálida. Agua limpia, arena fina y todas las comodidades.",
     "seoKeywords": [
       "cala de calnegre",
       "lorca",
@@ -750,7 +756,7 @@
     "certifications": [],
     "occupancyLevel": "medium",
     "campingNearby": false,
-    "metaDescription": "Playa Cala de La Gruta, Lorca: Relájate en esta hermosa playa de Murcia, Costa Cálida. Arena fina y aguas cristalinas. Disfruta de un rincón tranquilo en la huerta.",
+    "metaDescription": "Playa Cala de La Gruta, Lorca: Relájate en esta hermosa playa de Murcia, Costa Cálida. Arena fina y aguas cristalinas. Disfruta de un rincón tranquilo en la",
     "seoKeywords": [
       "cala de la gruta",
       "lorca",
@@ -833,7 +839,8 @@
       "snorkel",
       "puerto deportivo",
       "mar mediterráneo"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "605",
@@ -906,7 +913,8 @@
       "arena de bolos",
       "mar mediterráneo",
       "verano"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "513",
@@ -975,7 +983,8 @@
       "kayak",
       "snorkel",
       "verano murcia"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "7053",
@@ -1172,7 +1181,7 @@
     ],
     "occupancyLevel": "medium",
     "campingNearby": false,
-    "metaDescription": "Playa Cala del Barco, Cartagena: Disfruta de esta hermosa playa en Murcia, Costa Cálida. Arena dorada, aguas cristalinas y un ambiente tranquilo. ¡Tu día perfecto!",
+    "metaDescription": "Playa Cala del Barco, Cartagena: Disfruta de esta hermosa playa en Murcia, Costa Cálida. Arena dorada, aguas cristalinas y un ambiente tranquilo.",
     "seoKeywords": [
       "cala del barco",
       "cartagena",
@@ -1183,7 +1192,8 @@
       "snorkel",
       "relax playa",
       "escapada cartagena"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "626",
@@ -1244,7 +1254,7 @@
     "certifications": [],
     "occupancyLevel": "low",
     "campingNearby": true,
-    "metaDescription": "Playa Cala del Ciscal, Lorca: Disfruta de esta hermosa playa en Murcia, Costa Cálida. Arena dorada y mar Mediterráneo. Relájate y desconecta en esta tranquila cala.",
+    "metaDescription": "Playa Cala del Ciscal, Lorca: Disfruta de esta hermosa playa en Murcia, Costa Cálida. Arena dorada y mar Mediterráneo. Relájate y desconecta en esta",
     "seoKeywords": [
       "cala del ciscal",
       "lorca",
@@ -1391,7 +1401,8 @@
       "costa murciana",
       "actividades acuáticas",
       "paisaje mediterráneo"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "577",
@@ -1535,7 +1546,8 @@
       "pesca",
       "naturaleza murciana",
       "arena de roca"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "552",
@@ -1594,7 +1606,7 @@
     "certifications": [],
     "occupancyLevel": "low",
     "campingNearby": false,
-    "metaDescription": "Playa Cala Desnuda, Mazarrón: Disfruta de esta playa nudista en la Costa Cálida, Murcia. Arena fina y aguas cristalinas en un rincón natural de la Región de Murcia.",
+    "metaDescription": "Playa Cala Desnuda, Mazarrón: Disfruta de esta playa nudista en la Costa Cálida, Murcia. Arena fina y aguas cristalinas en un rincón natural de la Región de",
     "seoKeywords": [
       "cala desnuda",
       "mazarrón",
@@ -1660,7 +1672,7 @@
     "certifications": [],
     "occupancyLevel": "low",
     "campingNearby": false,
-    "metaDescription": "Playa Cala El Bolete, Cartagena: Descubre esta joya de la Costa Cálida en Murcia. Playa de arena y grava, ambiente tranquilo y auténtico. ¡Disfruta del Mediterráneo!",
+    "metaDescription": "Playa Cala El Bolete, Cartagena: Descubre esta joya de la Costa Cálida en Murcia. Playa de arena y grava, ambiente tranquilo y auténtico.",
     "seoKeywords": [
       "cala el bolete",
       "cartagena",
@@ -1671,7 +1683,8 @@
       "mar mediterráneo",
       "pesca",
       "playas urbanas"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "554",
@@ -1741,7 +1754,8 @@
       "cala urbana",
       "kayak",
       "pesca"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "595",
@@ -1805,7 +1819,8 @@
       "paisaje natural",
       "actividades acuáticas",
       "turismo cartagena"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "579",
@@ -2016,7 +2031,8 @@
       "relax",
       "mar mediterráneo",
       "escalerillas"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "629",
@@ -2145,7 +2161,8 @@
       "snorkel",
       "relax",
       "región de murcia"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "558",
@@ -2208,7 +2225,8 @@
       "snorkel",
       "paisaje costero",
       "acceso natural"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "678",
@@ -2278,7 +2296,8 @@
       "snorkel",
       "kayak",
       "vacaciones en águilas"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "574",
@@ -2348,7 +2367,8 @@
       "verano cartagena",
       "actividades acuáticas",
       "playa familiar"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "553",
@@ -2417,7 +2437,8 @@
       "mar mediterráneo",
       "escapada a la playa",
       "región de murcia"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "518",
@@ -2494,7 +2515,8 @@
       "verano murcia",
       "kayak",
       "pesca"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "523",
@@ -2562,7 +2584,8 @@
       "naturaleza",
       "buceo",
       "arena roja"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "510",
@@ -2621,7 +2644,7 @@
     "certifications": [],
     "occupancyLevel": "low",
     "campingNearby": false,
-    "metaDescription": "Playa Cala Salitrona, Cartagena: Disfruta de esta hermosa playa en la Costa Cálida de Murcia. Arena fina y aguas cristalinas, ideal para relajarte en la Región de Murcia.",
+    "metaDescription": "Playa Cala Salitrona, Cartagena: Disfruta de esta hermosa playa en la Costa Cálida de Murcia. Arena fina y aguas cristalinas, ideal para relajarte en la",
     "seoKeywords": [
       "cala salitrona",
       "cartagena",
@@ -2633,7 +2656,8 @@
       "arena fina",
       "mar mediterráneo",
       "actividades náuticas"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "568",
@@ -2699,7 +2723,8 @@
       "mar mediterráneo",
       "relax",
       "playas urbanas"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "578",
@@ -2761,7 +2786,8 @@
       "formaciones rocosas",
       "kayak",
       "aguas cristalinas"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "689",
@@ -2910,7 +2936,8 @@
       "arena gruesa",
       "familia",
       "costa murciana"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "586",
@@ -3048,7 +3075,7 @@
     "certifications": [],
     "occupancyLevel": "medium",
     "campingNearby": true,
-    "metaDescription": "Playa Amarilla, Águilas: Disfruta de la arena dorada de esta playa en Murcia, Costa Cálida. Relájate y disfruta del Mediterráneo. ¡Tu día perfecto en la Región de Murcia!",
+    "metaDescription": "Playa Amarilla, Águilas: Disfruta de la arena dorada de esta playa en Murcia, Costa Cálida. Relájate y disfruta del Mediterráneo.",
     "seoKeywords": [
       "playa amarilla",
       "águilas",
@@ -3059,7 +3086,8 @@
       "snorkel",
       "región de murcia",
       "verano"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "671",
@@ -3137,7 +3165,8 @@
       "acceso accesible",
       "familia",
       "sol mediterráneo"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "632",
@@ -3203,7 +3232,7 @@
     "certifications": [],
     "occupancyLevel": "medium",
     "campingNearby": true,
-    "metaDescription": "Playa Baño de las Mujeres, Lorca: Relájate en esta hermosa playa de Murcia, Costa Cálida. Disfruta de un paisaje natural único y tranquilo en la Región de Murcia.",
+    "metaDescription": "Playa Baño de las Mujeres, Lorca: Relájate en esta hermosa playa de Murcia, Costa Cálida. Disfruta de un paisaje natural único y tranquilo en la Región de",
     "seoKeywords": [
       "baño de las mujeres",
       "lorca",
@@ -3433,7 +3462,8 @@
       "escapada tranquila",
       "arena de bolos",
       "actividades acuáticas"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "642",
@@ -3572,7 +3602,8 @@
       "snorkel",
       "kayak",
       "escapada tranquila"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "569",
@@ -3643,7 +3674,8 @@
       "día de sol",
       "kayak",
       "paddle surf"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "592",
@@ -3716,7 +3748,8 @@
       "kayak",
       "snorkel",
       "región de murcia"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "692",
@@ -3794,7 +3827,8 @@
       "natación",
       "paddle surf",
       "vacaciones familiares"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "687",
@@ -3866,7 +3900,7 @@
     ],
     "occupancyLevel": "high",
     "campingNearby": false,
-    "metaDescription": "Playa Cavanna, Cartagena: Disfruta de esta tranquila playa en el Mar Menor, Murcia. Costa Cálida, arena fina y ideal para familias. Playa accesible y parking cercano.",
+    "metaDescription": "Playa Cavanna, Cartagena: Disfruta de esta tranquila playa en el Mar Menor, Murcia. Costa Cálida, arena fina y ideal para familias.",
     "seoKeywords": [
       "cavanna beach",
       "cartagena beach",
@@ -3951,7 +3985,8 @@
       "arena gruesa",
       "recreativa",
       "cala serena"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "638",
@@ -4238,7 +4273,7 @@
     ],
     "occupancyLevel": "high",
     "campingNearby": true,
-    "metaDescription": "Playa de Bahía, Mazarrón: Disfruta de esta hermosa playa en la Costa Cálida, Murcia. Playa con Bandera Azul, agua cristalina y sol. ¡Tu oasis en la Región de Murcia!",
+    "metaDescription": "Playa de Bahía, Mazarrón: Disfruta de esta hermosa playa en la Costa Cálida, Murcia. Playa con Bandera Azul, agua cristalina y sol.",
     "seoKeywords": [
       "bahía mazarrón",
       "playa bahía",
@@ -4400,7 +4435,8 @@
       "aguilas playa",
       "vacaciones enaguilas",
       "actividades náuticas"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "593",
@@ -4474,7 +4510,8 @@
       "kayak",
       "snorkel",
       "escapada tranquila"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "679",
@@ -4554,7 +4591,8 @@
       "actividades acuáticas",
       "playa familiar",
       "acceso accesible"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "590",
@@ -4953,7 +4991,8 @@
       "kayak",
       "snorkel",
       "arena media"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "654",
@@ -5328,7 +5367,8 @@
       "paddle surf",
       "actividades acuáticas",
       "destino familiar"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "530",
@@ -5410,7 +5450,8 @@
       "escapada relajante",
       "mar menor",
       "actividades acuáticas"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "582",
@@ -5485,7 +5526,8 @@
       "familia",
       "mar mediterráneo",
       "actividades acuáticas"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "611",
@@ -5549,7 +5591,8 @@
       "costa murciana",
       "kayak",
       "pesca"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "613",
@@ -5619,7 +5662,8 @@
       "bandera azul",
       "dunas",
       "verde"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "580",
@@ -5692,7 +5736,8 @@
       "aguas cristalinas",
       "escapada relajante",
       "actividades acuáticas"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "618",
@@ -5757,7 +5802,8 @@
       "costa murciana",
       "día de sol",
       "aguas cristalinas"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "612",
@@ -5832,7 +5878,8 @@
       "acceso accesible",
       "familia",
       "mar mediterráneo"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "533",
@@ -5907,7 +5954,8 @@
       "arena gruesa",
       "actividades acuáticas",
       "vacaciones en familia"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "649",
@@ -5973,7 +6021,7 @@
     "certifications": [],
     "occupancyLevel": "high",
     "campingNearby": true,
-    "metaDescription": "Playa de La Ermita, Mazarrón: Disfruta de esta tranquila playa en la Costa Cálida de Murcia. Relájate en su arena dorada y disfruta de un paseo marítimo familiar.",
+    "metaDescription": "Playa de La Ermita, Mazarrón: Disfruta de esta tranquila playa en la Costa Cálida de Murcia. Relájate en su arena dorada y disfruta de un paseo marítimo",
     "seoKeywords": [
       "la ermita",
       "mazarrón",
@@ -6043,7 +6091,7 @@
     "certifications": [],
     "occupancyLevel": "low",
     "campingNearby": false,
-    "metaDescription": "Playa de la Galera, Águilas: Disfruta de esta playa virgen en Murcia, Costa Cálida. Arena gruesa y aguas cristalinas para un baño refrescante. Playa en la naturaleza.",
+    "metaDescription": "Playa de la Galera, Águilas: Disfruta de esta playa virgen en Murcia, Costa Cálida. Arena gruesa y aguas cristalinas para un baño refrescante.",
     "seoKeywords": [
       "galera beach",
       "aguilas",
@@ -6054,7 +6102,8 @@
       "kayak",
       "playas salvajes",
       "mar mediterráneo"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "607",
@@ -6277,7 +6326,8 @@
       "snorkel",
       "región de murcia",
       "cala familiar"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "680",
@@ -6412,7 +6462,7 @@
     "certifications": [],
     "occupancyLevel": "high",
     "campingNearby": false,
-    "metaDescription": "Playa de La Llana (La Barraca Quemada), San Pedro del Pinatar. Disfruta de esta playa en Murcia, Costa Cálida. Arena fina y tranquila. Relájate en la Región de Murcia.",
+    "metaDescription": "Playa de La Llana (La Barraca Quemada), San Pedro del Pinatar. Disfruta de esta playa en Murcia, Costa Cálida. Arena fina y tranquila.",
     "seoKeywords": [
       "la llana",
       "san pedro del pinatar",
@@ -6424,7 +6474,8 @@
       "región de murcia",
       "kayak",
       "pesca"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "665",
@@ -6486,7 +6537,7 @@
     ],
     "occupancyLevel": "high",
     "campingNearby": false,
-    "metaDescription": "Playa de La Llana (Las Salinas), San Pedro del Pinatar, Murcia. Disfruta de esta playa en la Costa Cálida. Playa familiar, accesible y natural. Aguas cristalinas.",
+    "metaDescription": "Playa de La Llana (Las Salinas), San Pedro del Pinatar, Murcia. Disfruta de esta playa en la Costa Cálida. Playa familiar, accesible y natural.",
     "seoKeywords": [
       "la llana",
       "san pedro del pinatar",
@@ -6498,7 +6549,8 @@
       "kayak",
       "reserva natural",
       "cala accesible"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "544",
@@ -6561,7 +6613,8 @@
       "aguas cristalinas",
       "región de murcia",
       "playa tranquila"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "682",
@@ -6633,7 +6686,8 @@
       "familia",
       "relax",
       "acceso accesible"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "555",
@@ -6696,7 +6750,8 @@
       "arena gruesa",
       "mar mediterráneo",
       "entorno natural"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "647",
@@ -6846,7 +6901,8 @@
       "aguas cristalinas",
       "familia",
       "paddle surf"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "653",
@@ -6971,7 +7027,7 @@
     "certifications": [],
     "occupancyLevel": "medium",
     "campingNearby": false,
-    "metaDescription": "Playa de la Rambla Elena, Águilas: Disfruta de esta tranquila playa en Murcia, Costa Cálida. Arena fina y aguas cristalinas para relajarte en la Región de Murcia.",
+    "metaDescription": "Playa de la Rambla Elena, Águilas: Disfruta de esta tranquila playa en Murcia, Costa Cálida. Arena fina y aguas cristalinas para relajarte en la Región de",
     "seoKeywords": [
       "playa rambla elena",
       "águilas",
@@ -6982,7 +7038,8 @@
       "snorkel",
       "región de murcia",
       "escapada tranquila"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "648",
@@ -7118,7 +7175,7 @@
     ],
     "occupancyLevel": "high",
     "campingNearby": false,
-    "metaDescription": "Playa La Torre Derribada, San Pedro del Pinatar: Disfruta de esta playa en Murcia, Costa Cálida. Arena fina y aguas tranquilas. Playa ideal para familias y accesibilidad.",
+    "metaDescription": "Playa La Torre Derribada, San Pedro del Pinatar: Disfruta de esta playa en Murcia, Costa Cálida. Arena fina y aguas tranquilas.",
     "seoKeywords": [
       "la torre derribada",
       "san pedro del pinatar",
@@ -7129,7 +7186,8 @@
       "acceso accesible",
       "familia",
       "escapada tranquila"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "584",
@@ -7199,7 +7257,8 @@
       "cala tranquila",
       "actividades acuáticas",
       "costa murciana"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "637",
@@ -7405,7 +7464,8 @@
       "kayak",
       "snorkel",
       "relax en la playa"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "534",
@@ -7481,7 +7541,8 @@
       "aguas cristalinas",
       "actividades acuáticas",
       "playa urbana"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "623",
@@ -7545,7 +7606,8 @@
       "snorkel",
       "kayak",
       "playa tranquila"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "585",
@@ -7691,7 +7753,8 @@
       "aguas cristalinas",
       "región de murcia",
       "bandera azul"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "525",
@@ -7755,7 +7818,7 @@
     ],
     "occupancyLevel": "high",
     "campingNearby": false,
-    "metaDescription": "Playa de Levante, Cartagena: Disfruta de esta playa de bandera azul en la Costa Cálida de Murcia. Arena dorada, aguas cristalinas y relax en la Región de Murcia.",
+    "metaDescription": "Playa de Levante, Cartagena: Disfruta de esta playa de bandera azul en la Costa Cálida de Murcia. Arena dorada, aguas cristalinas y relax en la Región de",
     "seoKeywords": [
       "levante beach",
       "cartagena beach",
@@ -7766,7 +7829,8 @@
       "kayak",
       "región de murcia",
       "cala urbana"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "528",
@@ -7836,7 +7900,8 @@
       "arena dorada",
       "familia",
       "región de murcia"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "566",
@@ -7907,7 +7972,8 @@
       "región de murcia",
       "arena media",
       "aguas cristalinas"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "576",
@@ -8050,7 +8116,8 @@
       "arena gruesa",
       "familia",
       "acceso fácil"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "677",
@@ -8191,7 +8258,7 @@
     ],
     "occupancyLevel": "high",
     "campingNearby": false,
-    "metaDescription": "Playa de Mar de Cristal, Cartagena: Disfruta de esta hermosa playa en la Costa Cálida de Murcia. Agua cristalina y arena dorada. ¡Un día perfecto en la Región de Murcia!",
+    "metaDescription": "Playa de Mar de Cristal, Cartagena: Disfruta de esta hermosa playa en la Costa Cálida de Murcia. Agua cristalina y arena dorada.",
     "seoKeywords": [
       "mar de cristal",
       "cartagena playa",
@@ -8281,7 +8348,8 @@
       "arena dorada",
       "playa urbana",
       "aventura familiar"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "608",
@@ -8485,7 +8553,7 @@
     ],
     "occupancyLevel": "high",
     "campingNearby": true,
-    "metaDescription": "Playa de Poniente, Águilas: Disfruta de esta playa en Murcia, Costa Cálida. Playa familiar con bandera azul, arena fina y aguas cristalinas. ¡Vacaciones perfectas!",
+    "metaDescription": "Playa de Poniente, Águilas: Disfruta de esta playa en Murcia, Costa Cálida. Playa familiar con bandera azul, arena fina y aguas cristalinas.",
     "seoKeywords": [
       "poniente beach",
       "aguilas beach",
@@ -8496,7 +8564,8 @@
       "natación",
       "snorkel",
       "arena fina"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "564",
@@ -8567,7 +8636,8 @@
       "actividades acuáticas",
       "familia",
       "verano"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "560",
@@ -8626,7 +8696,7 @@
     "certifications": [],
     "occupancyLevel": "medium",
     "campingNearby": false,
-    "metaDescription": "Playa de Portmán, La Unión: Disfruta de esta hermosa playa en Murcia, Costa Cálida. Arena dorada y aguas cristalinas para relajarte y disfrutar del Mediterráneo.",
+    "metaDescription": "Playa de Portmán, La Unión: Disfruta de esta hermosa playa en Murcia, Costa Cálida. Arena dorada y aguas cristalinas para relajarte y disfrutar del",
     "seoKeywords": [
       "portmán",
       "la unión",
@@ -8714,7 +8784,8 @@
       "actividades náuticas",
       "familia",
       "relax"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "617",
@@ -8782,7 +8853,8 @@
       "actividades acuáticas",
       "playa familiar",
       "arena grava"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "636",
@@ -8928,7 +9000,8 @@
       "kayak",
       "snorkel",
       "acceso para discapacitados"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "670",
@@ -8990,7 +9063,8 @@
       "kayak",
       "escapada tranquila",
       "mar mediterráneo"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "641",
@@ -9048,7 +9122,7 @@
     "certifications": [],
     "occupancyLevel": "low",
     "campingNearby": false,
-    "metaDescription": "Playa del Barranco Ancho, Mazarrón: Descubre esta playa salvaje en Murcia, Costa Cálida. Playa tranquila con arena y grava, ideal para disfrutar de la naturaleza.",
+    "metaDescription": "Playa del Barranco Ancho, Mazarrón: Descubre esta playa salvaje en Murcia, Costa Cálida. Playa tranquila con arena y grava, ideal para disfrutar de la",
     "seoKeywords": [
       "barranco ancho",
       "mazarrón",
@@ -9122,7 +9196,8 @@
       "snorkel",
       "pesca",
       "aguilas playa"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "588",
@@ -9192,7 +9267,8 @@
       "mar mediterráneo",
       "actividades acuáticas",
       "playa tranquila"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "519",
@@ -9261,7 +9337,8 @@
       "arena de roca",
       "buceo",
       "kayak"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "690",
@@ -9336,7 +9413,8 @@
       "acceso accesible",
       "vacaciones familiares",
       "actividades agua salada"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "536",
@@ -9409,7 +9487,8 @@
       "familia",
       "relax",
       "mar mediterráneo"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "7051",
@@ -9468,7 +9547,7 @@
     "certifications": [],
     "occupancyLevel": "high",
     "campingNearby": false,
-    "metaDescription": "Playa del Hoyo, Águilas: Descubre esta joya en la Costa Cálida de Murcia. Playa tranquila y natural con mar cristalino y paisaje único. ¡Relájate en la Región de Murcia!",
+    "metaDescription": "Playa del Hoyo, Águilas: Descubre esta joya en la Costa Cálida de Murcia. Playa tranquila y natural con mar cristalino y paisaje único.",
     "seoKeywords": [
       "playa del hoyo",
       "águilas",
@@ -9556,7 +9635,8 @@
       "actividades acuáticas",
       "región de murcia",
       "arena y grava"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "598",
@@ -9626,7 +9706,8 @@
       "vacaciones en españa",
       "actividades acuáticas",
       "playa con bandera azul"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "594",
@@ -9690,7 +9771,8 @@
       "mar mediterráneo",
       "región de murcia",
       "actividades náuticas"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "565",
@@ -9751,7 +9833,8 @@
       "kayak",
       "región de murcia",
       "enclave costero"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "587",
@@ -9816,7 +9899,8 @@
       "arena gruesa",
       "kayak",
       "pesca"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "650",
@@ -10088,7 +10172,7 @@
     "certifications": [],
     "occupancyLevel": "medium",
     "campingNearby": false,
-    "metaDescription": "Playa del Sombrerico, Águilas: Disfruta de esta tranquila playa en Murcia, Costa Cálida. Aguas cristalinas y paisaje natural. Relájate en la mejor playa de Murcia.",
+    "metaDescription": "Playa del Sombrerico, Águilas: Disfruta de esta tranquila playa en Murcia, Costa Cálida. Aguas cristalinas y paisaje natural.",
     "seoKeywords": [
       "sombrerico",
       "águilas",
@@ -10100,7 +10184,8 @@
       "paddle surf",
       "playa urbana",
       "costa murciana"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "527",
@@ -10243,7 +10328,8 @@
       "kayak",
       "paddle surf",
       "dunas suaves"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "532",
@@ -10308,7 +10394,8 @@
       "paddle surf",
       "actividades acuáticas",
       "vacaciones familiares"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "604",
@@ -10465,7 +10552,8 @@
       "kayak",
       "relax playa",
       "arena de bolos"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "540",
@@ -10612,7 +10700,8 @@
       "kayak",
       "familia",
       "bandera azul"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "674",
@@ -10690,7 +10779,8 @@
       "arena gruesa",
       "acceso accesible",
       "actividades acuáticas"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "535",
@@ -10841,7 +10931,8 @@
       "arena grava",
       "actividades acuáticas",
       "naturismo"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "537",
@@ -10911,7 +11002,8 @@
       "pesca",
       "costa murciana",
       "playas tranquilas"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "599",
@@ -10981,7 +11073,8 @@
       "verano águilas",
       "actividades mar",
       "cala tranquila"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "5906",
@@ -11127,7 +11220,8 @@
       "arena de bolos",
       "actividades acuáticas",
       "costa murciana"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "562",
@@ -11208,7 +11302,8 @@
       "familia",
       "región de murcia",
       "cala urbana"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "511",
@@ -11273,7 +11368,8 @@
       "mar mediterráneo",
       "actividades acuáticas",
       "destino tranquilo"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "591",
@@ -11431,7 +11527,8 @@
       "natación",
       "snorkel",
       "cala familiar"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "640",
@@ -11569,7 +11666,7 @@
     ],
     "occupancyLevel": "high",
     "campingNearby": false,
-    "metaDescription": "Playa Isla Plana, Cartagena: Disfruta de esta preciosa playa en la Costa Cálida, Murcia. Agua cristalina, arena y bandera azul. ¡Tu oasis en la Región de Murcia!",
+    "metaDescription": "Playa Isla Plana, Cartagena: Disfruta de esta preciosa playa en la Costa Cálida, Murcia. Agua cristalina, arena y bandera azul.",
     "seoKeywords": [
       "isla plana",
       "cartagena",
@@ -11580,7 +11677,8 @@
       "kayak",
       "región de murcia",
       "cala familiar"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "521",
@@ -11645,7 +11743,8 @@
       "actividades acuáticas",
       "destino tranquilo",
       "región de murcia"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "619",
@@ -11723,7 +11822,8 @@
       "kayak",
       "snorkel",
       "playa urbana"
-    ]
+    ],
+    "waves": "SUAVE"
   },
   {
     "code": "524",
@@ -11780,7 +11880,7 @@
     "certifications": [],
     "occupancyLevel": "medium",
     "campingNearby": false,
-    "metaDescription": "Playa La Calera, Cartagena: Descubre la belleza de la Costa Cálida en Murcia. Playa tranquila con arena de grava y aguas cristalinas. Relájate en la Playa La Calera.",
+    "metaDescription": "Playa La Calera, Cartagena: Descubre la belleza de la Costa Cálida en Murcia. Playa tranquila con arena de grava y aguas cristalinas.",
     "seoKeywords": [
       "la calera",
       "cartagena",
@@ -11861,7 +11961,8 @@
       "cala urbana",
       "arena media grava",
       "actividades acuáticas"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "589",
@@ -11935,7 +12036,8 @@
       "snorkel",
       "vacaciones familiares",
       "costa mediterránea"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "573",
@@ -12001,7 +12103,8 @@
       "escapada auténtica",
       "actividades acuáticas",
       "pesca"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "597",
@@ -12066,7 +12169,8 @@
       "actividades acuáticas",
       "región de murcia",
       "arena gruesa"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "609",
@@ -12206,7 +12310,8 @@
       "natación",
       "paddle surf",
       "región de murcia"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "627",
@@ -12412,7 +12517,8 @@
       "familia",
       "relax",
       "costa murciana"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "563",
@@ -12477,7 +12583,8 @@
       "mar mediterráneo",
       "actividades acuáticas",
       "arena dorada"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "541",
@@ -12547,7 +12654,8 @@
       "familia",
       "acceso fácil",
       "actividades acuáticas"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "660",
@@ -12625,7 +12733,8 @@
       "actividades acuáticas",
       "acceso accesible",
       "familia"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "539",
@@ -12684,7 +12793,7 @@
     "certifications": [],
     "occupancyLevel": "medium",
     "campingNearby": false,
-    "metaDescription": "Playa Lebeche, San Javier: Disfruta de esta hermosa playa en Murcia, Costa Cálida. Arena fina y dorada, ideal para relajarte y desconectar en la Región de Murcia.",
+    "metaDescription": "Playa Lebeche, San Javier: Disfruta de esta hermosa playa en Murcia, Costa Cálida. Arena fina y dorada, ideal para relajarte y desconectar en la Región de",
     "seoKeywords": [
       "lebeche",
       "san javier",
@@ -12695,7 +12804,8 @@
       "natación",
       "verano murcia",
       "costa murciana"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "684",
@@ -12840,7 +12950,8 @@
       "actividades agua",
       "vacaciones familiares",
       "cala tranquila"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "542",
@@ -12911,7 +13022,8 @@
       "arena gruesa",
       "familia",
       "relax"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "696",
@@ -12976,7 +13088,7 @@
     ],
     "occupancyLevel": "high",
     "campingNearby": false,
-    "metaDescription": "Playa Mistral San Javier: Disfruta de la Costa Cálida en Murcia. Arena ideal para relajarte en esta playa junto al Mar Menor. ¡Un día perfecto en la Región de Murcia!",
+    "metaDescription": "Playa Mistral San Javier: Disfruta de la Costa Cálida en Murcia. Arena ideal para relajarte en esta playa junto al Mar Menor.",
     "seoKeywords": [
       "playa mistral",
       "san javier",
@@ -12988,7 +13100,8 @@
       "actividades acuáticas",
       "región de murcia",
       "dunas"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "583",
@@ -13057,7 +13170,8 @@
       "mar mediterráneo",
       "actividades acuáticas",
       "playas cartagena"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "652",
@@ -13198,7 +13312,8 @@
       "snorkel",
       "kayak",
       "paraíso natural"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "529",
@@ -13274,7 +13389,8 @@
       "familia cartagena",
       "arena media",
       "vacaciones cartagena"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "6703",
@@ -13339,7 +13455,7 @@
     "certifications": [],
     "occupancyLevel": "low",
     "campingNearby": true,
-    "metaDescription": "Playa Parazuelos, Lorca: Disfruta de esta hermosa playa en Murcia, Costa Cálida. Arena y aguas cristalinas en un rincón natural y tranquilo. ¡Ideal para relajarte!",
+    "metaDescription": "Playa Parazuelos, Lorca: Disfruta de esta hermosa playa en Murcia, Costa Cálida. Arena y aguas cristalinas en un rincón natural y tranquilo.",
     "seoKeywords": [
       "parazuelos",
       "lorca",
@@ -13480,7 +13596,7 @@
     "certifications": [],
     "occupancyLevel": "medium",
     "campingNearby": false,
-    "metaDescription": "Playa Parreño, Cartagena: Descubre un oasis tranquilo en la Costa Cálida de Murcia. Playa de arena fina y dorada, relax y belleza mediterránea. ¡Tu día perfecto!",
+    "metaDescription": "Playa Parreño, Cartagena: Descubre un oasis tranquilo en la Costa Cálida de Murcia. Playa de arena fina y dorada, relax y belleza mediterránea.",
     "seoKeywords": [
       "parreño",
       "cartagena",
@@ -13491,7 +13607,8 @@
       "kayak",
       "relax",
       "costa mediterránea"
-    ]
+    ],
+    "waves": "MODERADO"
   },
   {
     "code": "672",
@@ -13786,7 +13903,8 @@
       "mar menor",
       "familia",
       "actividades acuáticas"
-    ]
+    ],
+    "waves": "TRANQUILO"
   },
   {
     "code": "694",
@@ -13927,7 +14045,7 @@
     ],
     "occupancyLevel": "high",
     "campingNearby": false,
-    "metaDescription": "Playa San Ginés, Cartagena: Relájate en esta hermosa playa de la Costa Cálida. Disfruta de aguas cristalinas y arena en Murcia. Playa azul bandera, ideal para familias.",
+    "metaDescription": "Playa San Ginés, Cartagena: Relájate en esta hermosa playa de la Costa Cálida. Disfruta de aguas cristalinas y arena en Murcia.",
     "seoKeywords": [
       "san ginés",
       "cartagena",
@@ -13938,6 +14056,7 @@
       "familia",
       "región de murcia",
       "actividades acuáticas"
-    ]
+    ],
+    "waves": "MODERADO"
   }
 ]
