@@ -345,7 +345,7 @@ function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link
           to="/"
-          className="text-base font-bold tracking-tight text-white transition-opacity hover:opacity-80"
+          className="text-base sm:text-lg font-bold tracking-tight text-white transition-opacity hover:opacity-80"
         >
           Playas de Murcia
         </Link>
@@ -421,9 +421,9 @@ function RootComponent() {
           Saltar al contenido
         </a>
         <Navbar />
-        <div id="main-content">
+        <main id="main-content">
           <Outlet />
-        </div>
+        </main>
         <SiteFooter
           municipalities={navData.municipalities}
           characteristics={navData.characteristics}

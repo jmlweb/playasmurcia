@@ -1,14 +1,7 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
+import { createServerFn } from '@tanstack/react-start'
 import type { Beach, Municipality, Service, Activity, Sea } from '@/types/beach'
-import {
-  beachToSlug,
-  getAllActivities,
-  getAllBeaches,
-  getAllMunicipalities,
-  getAllSeas,
-  getAllServices,
-  getBeachesByCodes,
-} from '@/lib/db-data'
+import { beachToSlug } from '@/lib/slugs'
 
 const OccupancyLabels: Record<string, string> = { low: 'Baja', medium: 'Media', high: 'Alta' }
 const AccessLabels: Record<string, string> = { easy: 'Fácil', moderate: 'Moderado', hard: 'Difícil' }
@@ -19,41 +12,36 @@ interface CompareSearch {
   playas?: string
 }
 
+const fetchCompareData = createServerFn({ method: 'GET' }).handler(async (ctx: { data: { codes: Array<string> } }) => {
+  const { getAllBeaches, getAllMunicipalities, getAllServices, getAllActivities, getAllSeas, getBeachesByCodes } = await import('@/lib/db-data')
+  const [selected, allBeaches, municipalities, services, activities, seas] = await Promise.all([
+    getBeachesByCodes(ctx.data.codes),
+    getAllBeaches(),
+    getAllMunicipalities(),
+    getAllServices(),
+    getAllActivities(),
+    getAllSeas(),
+  ])
+  return {
+    selected,
+    allBeaches: allBeaches.map((b) => ({ code: b.code, name: b.name })),
+    municipalities,
+    services,
+    activities,
+    seas,
+  }
+})
+
 export const Route = createFileRoute('/comparar/')({
   validateSearch: (search: Record<string, unknown>): CompareSearch => ({
     playas: typeof search.playas === 'string' ? search.playas : undefined,
   }),
   loaderDeps: ({ search }) => ({ playas: search.playas }),
-  loader: async ({ deps }) => {
+  loader: ({ deps }) => {
     const codes = deps.playas
-      ? deps.playas
-          .split(',')
-          .map((c: string) => c.trim())
-          .filter(Boolean)
-          .slice(0, 3)
+      ? deps.playas.split(',').map((c: string) => c.trim()).filter(Boolean).slice(0, 3)
       : []
-
-    const [selected, allBeaches, municipalities, services, activities, seas] =
-      await Promise.all([
-        getBeachesByCodes(codes),
-        getAllBeaches(),
-        getAllMunicipalities(),
-        getAllServices(),
-        getAllActivities(),
-        getAllSeas(),
-      ])
-
-    return {
-      selected,
-      allBeaches: allBeaches.map((b) => ({
-        code: b.code,
-        name: b.name,
-      })),
-      municipalities,
-      services,
-      activities,
-      seas,
-    }
+    return fetchCompareData({ data: { codes } })
   },
   head: () => ({
     meta: [
@@ -86,7 +74,7 @@ function CompareRow({
   children: React.ReactNode
 }) {
   return (
-    <tr className="border-b border-gray-100">
+    <tr className="border-b border-gray-100 even:bg-gray-50/50">
       <td className="py-3 pr-4 text-sm font-medium text-gray-500">
         {label}
       </td>

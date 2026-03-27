@@ -15,7 +15,7 @@ interface BeachCardProps {
 
 export function BeachCard({ beach, municipality, tags, slug }: BeachCardProps) {
   const firstPicture = beach.pictures?.[0]
-  const imageSrc = firstPicture ? `/pictures/${firstPicture}` : "/pictures/default-beach.svg"
+  const imageSrc = firstPicture ? `/pictures/${firstPicture}` : "/pictures/default-beach.png"
   const visibleTags = (beach.tags ?? []).slice(0, 3).map((i) => tags[i]).filter(Boolean)
 
   return (
@@ -49,7 +49,7 @@ export function BeachCard({ beach, municipality, tags, slug }: BeachCardProps) {
             {visibleTags.map((tag) => (
               <span
                 key={tag.id}
-                className="rounded-full bg-ocean-50 px-2.5 py-0.5 text-xs font-medium text-ocean-700"
+                className="rounded-full bg-ocean-50 px-2.5 py-0.5 text-xs font-medium text-ocean-700 transition-colors group-hover:bg-ocean-100"
               >
                 {tag.name}
               </span>

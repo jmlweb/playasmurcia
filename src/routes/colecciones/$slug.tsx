@@ -1,11 +1,6 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
-import type { Beach, Municipality } from '@/types/beach'
-import {
-  beachToSlug,
-  getAllBeaches,
-  getAllTags,
-  getMunicipalityMap,
-} from '@/lib/db-data'
+import { createServerFn } from '@tanstack/react-start'
+import { beachToSlug } from '@/lib/slugs'
 import {
   collections,
   filterBeachesByCollection,
@@ -13,39 +8,41 @@ import {
 } from '@/lib/collections'
 import { BeachCard } from '@/components/beach-card'
 
+const fetchCollectionData = createServerFn({ method: 'GET' }).handler(async (ctx: { data: { slug: string } }) => {
+  const { beachToSlug: toSlug, getAllBeaches, getAllTags, getMunicipalityMap } = await import('@/lib/db-data')
+  const collection = getCollectionBySlug(ctx.data.slug)
+  if (!collection) return null
+
+  const [beaches, tags, municipalityMap] = await Promise.all([
+    getAllBeaches(),
+    getAllTags(),
+    getMunicipalityMap(),
+  ])
+
+  const filtered = filterBeachesByCollection(beaches, collection)
+  const items = filtered.map((beach) => ({
+    beach,
+    municipality: municipalityMap.get(beach.municipality) ?? { name: '', id: '' },
+    slug: toSlug(beach),
+  }))
+
+  return {
+    collection: {
+      slug: collection.slug,
+      title: collection.title,
+      description: collection.description,
+      metaDescription: collection.metaDescription,
+    },
+    items,
+    tags,
+  }
+})
+
 export const Route = createFileRoute('/colecciones/$slug')({
   loader: async ({ params }) => {
-    const collection = getCollectionBySlug(params.slug)
-    if (!collection) {
-      throw notFound()
-    }
-
-    const [beaches, tags, municipalityMap] = await Promise.all([
-      getAllBeaches(),
-      getAllTags(),
-      getMunicipalityMap(),
-    ])
-
-    const filtered = filterBeachesByCollection(beaches, collection)
-    const items = filtered.map((beach) => ({
-      beach,
-      municipality: municipalityMap.get(beach.municipality) ?? {
-        name: '',
-        id: '',
-      },
-      slug: beachToSlug(beach),
-    }))
-
-    return {
-      collection: {
-        slug: collection.slug,
-        title: collection.title,
-        description: collection.description,
-        metaDescription: collection.metaDescription,
-      },
-      items,
-      tags,
-    }
+    const data = await fetchCollectionData({ data: { slug: params.slug } })
+    if (!data) throw notFound()
+    return data
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
@@ -126,7 +123,7 @@ function CollectionPage() {
           </p>
         ) : (
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
-            {items.map(({ beach, municipality, slug }: { beach: Beach; municipality: Municipality; slug: string }) => (
+            {items.map(({ beach, municipality, slug }) => (
               <BeachCard
                 key={beach.code}
                 beach={beach}
@@ -137,6 +134,15 @@ function CollectionPage() {
             ))}
           </div>
         )}
+
+        <div className="mt-12 text-center">
+          <a
+            href="/colecciones"
+            className="text-sm font-medium text-ocean-600 transition-colors hover:text-ocean-700 focus-visible:underline focus:outline-none"
+          >
+            ← Volver a colecciones
+          </a>
+        </div>
       </div>
     </main>
   )

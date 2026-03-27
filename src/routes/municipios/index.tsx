@@ -1,11 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
+import { createServerFn } from "@tanstack/react-start"
 import type { Beach, Municipality, Service } from "@/types/beach"
-import {
-  getAllBeaches,
-  getAllMunicipalities,
-  getAllServices,
-  municipalityToSlug,
-} from "@/lib/db-data"
+import { municipalityToSlug } from "@/lib/slugs"
 
 interface MunicipalityStats {
   municipality: Municipality
@@ -49,16 +45,19 @@ function computeMunicipalityStats(
   })
 }
 
+const fetchMunicipiosData = createServerFn({ method: 'GET' }).handler(async () => {
+  const { getAllBeaches, getAllMunicipalities, getAllServices } = await import("@/lib/db-data")
+  const [municipalities, beaches, services] = await Promise.all([
+    getAllMunicipalities(),
+    getAllBeaches(),
+    getAllServices(),
+  ])
+  const stats = computeMunicipalityStats(municipalities, beaches)
+  return { stats, services }
+})
+
 export const Route = createFileRoute("/municipios/")({
-  loader: async () => {
-    const [municipalities, beaches, services] = await Promise.all([
-      getAllMunicipalities(),
-      getAllBeaches(),
-      getAllServices(),
-    ])
-    const stats = computeMunicipalityStats(municipalities, beaches)
-    return { stats, services }
-  },
+  loader: () => fetchMunicipiosData(),
   head: () => ({
     meta: [
       { title: "Municipios de la Costa de Murcia - Playas de Murcia" },
@@ -109,7 +108,6 @@ function MunicipalityCard({
               <span
                 key={service.id}
                 className="flex items-center gap-1 rounded-full bg-ocean-50 px-2.5 py-0.5 text-xs font-medium text-ocean-700"
-                title={service.name}
               >
                 <span aria-hidden="true">{service.icon}</span>
                 <span>{service.name}</span>
@@ -147,7 +145,7 @@ function MunicipiosPage() {
           <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
             Municipios costeros
           </h1>
-          <p className="text-lg text-ocean-200">
+          <p className="mx-auto max-w-xl text-lg text-ocean-200">
             {stats.length} municipios con {totalBeaches} playas en la Region de Murcia
           </p>
         </div>
@@ -166,7 +164,7 @@ function MunicipiosPage() {
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {stats.map((s) => (
-            <MunicipalityCard key={s.municipality.id} stats={s} services={services} />
+            <MunicipalityCard key={s.slug} stats={s} services={services} />
           ))}
         </div>
       </div>

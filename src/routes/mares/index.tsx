@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { createServerFn } from '@tanstack/react-start'
 import type { Beach, Sea } from '@/types/beach'
-import { getAllBeaches, getAllSeas } from '@/lib/db-data'
 
 interface SeaStats {
   sea: Sea
@@ -69,12 +69,15 @@ function computeSeaStats(beaches: Array<Beach>, seas: Array<Sea>): Array<SeaStat
   })
 }
 
+const fetchMaresData = createServerFn({ method: 'GET' }).handler(async () => {
+  const { getAllBeaches, getAllSeas } = await import('@/lib/db-data')
+  const [beaches, seas] = await Promise.all([getAllBeaches(), getAllSeas()])
+  const stats = computeSeaStats(beaches, seas)
+  return { stats }
+})
+
 export const Route = createFileRoute('/mares/')({
-  loader: async () => {
-    const [beaches, seas] = await Promise.all([getAllBeaches(), getAllSeas()])
-    const stats = computeSeaStats(beaches, seas)
-    return { stats }
-  },
+  loader: () => fetchMaresData(),
   head: () => ({
     meta: [
       { title: 'Mediterraneo vs Mar Menor - Playas de Murcia' },
@@ -96,7 +99,7 @@ function SeaCard({ stats }: { stats: SeaStats }) {
       <h2 className="mb-3 text-2xl font-bold text-gray-900">{stats.sea.name}</h2>
       <p className="mb-6 leading-relaxed text-gray-600">{info?.description}</p>
 
-      <div className="mb-6 grid grid-cols-2 gap-4">
+      <div className="mb-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
         <div className="rounded-xl bg-ocean-50 p-4 text-center">
           <p className="text-3xl font-bold text-ocean-700">{stats.beachCount}</p>
           <p className="text-sm text-ocean-600">playas</p>
@@ -105,6 +108,12 @@ function SeaCard({ stats }: { stats: SeaStats }) {
           <p className="text-3xl font-bold text-ocean-700">{stats.blueFlagCount}</p>
           <p className="text-sm text-ocean-600">bandera azul</p>
         </div>
+        {stats.totalLength > 0 && (
+          <div className="col-span-2 rounded-xl bg-ocean-50 p-4 text-center sm:col-span-1">
+            <p className="text-3xl font-bold text-ocean-700">{(stats.totalLength / 1000).toFixed(1)} km</p>
+            <p className="text-sm text-ocean-600">longitud total</p>
+          </div>
+        )}
         <div className="rounded-xl bg-gray-50 p-4 text-center">
           <p className="text-3xl font-bold text-gray-900">{stats.avgLength}m</p>
           <p className="text-sm text-gray-500">longitud media</p>
@@ -166,7 +175,7 @@ function MaresPage() {
           <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
             Mediterraneo vs Mar Menor
           </h1>
-          <p className="text-lg text-ocean-200">
+          <p className="mx-auto max-w-xl text-lg text-ocean-200">
             Dos mares, dos experiencias unicas en la misma costa
           </p>
         </div>
@@ -181,7 +190,7 @@ function MaresPage() {
           <span className="text-gray-600" aria-current="page">Mares</span>
         </nav>
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
           {(stats as Array<SeaStats>).map((s) => (
             <SeaCard key={s.seaIndex} stats={s} />
           ))}

@@ -12,7 +12,7 @@ export function PhotoGallery({ pictures, beachName }: PhotoGalleryProps) {
     return (
       <div className="relative h-64 overflow-hidden rounded-2xl bg-gray-100 sm:h-80 lg:h-96">
         <img
-          src="/pictures/default-beach.svg"
+          src="/pictures/default-beach.png"
           alt={beachName}
           className="h-full w-full object-cover"
         />
@@ -81,11 +81,12 @@ export function PhotoGallery({ pictures, beachName }: PhotoGalleryProps) {
 
       {/* Thumbnails */}
       {pictures.length > 1 && (
-        <div
-          className="flex gap-2 overflow-x-auto pb-1"
-          role="tablist"
-          aria-label="Miniaturas de fotos"
-        >
+        <div className="relative">
+          <div
+            className="flex gap-2 overflow-x-auto pb-1"
+            role="tablist"
+            aria-label="Miniaturas de fotos"
+          >
           {pictures.map((picture, index) => (
             <button
               key={picture}
@@ -108,6 +109,9 @@ export function PhotoGallery({ pictures, beachName }: PhotoGalleryProps) {
               />
             </button>
           ))}
+          </div>
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-8 bg-linear-to-r from-white to-transparent" aria-hidden="true" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-linear-to-l from-white to-transparent" aria-hidden="true" />
         </div>
       )}
     </div>

@@ -1,15 +1,6 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
-import {
-  beachToSlug,
-  getAllActivities,
-  getAllBeaches,
-  getAllServices,
-  getAllTags,
-  getBeachBySlug,
-  getMunicipality,
-  getMunicipalityMap,
-  getNearbyBeaches,
-} from '@/lib/db-data'
+import { createServerFn } from '@tanstack/react-start'
+import { beachToSlug } from '@/lib/slugs'
 import { generateBeachSchema } from '@/lib/schema'
 import { PhotoGallery } from '@/components/photo-gallery'
 import { ServicesGrid } from '@/components/services-grid'
@@ -21,44 +12,33 @@ import { ContactInfo } from '@/components/contact-info'
 import { LocationMap } from '@/components/location-map'
 import { TagsSection } from '@/components/tags-section'
 
+const fetchBeachData = createServerFn({ method: 'GET' }).handler(async (ctx: { data: { slug: string } }) => {
+  const { beachToSlug: toSlug, getBeachBySlug, getMunicipality, getAllServices, getAllActivities, getAllTags, getNearbyBeaches, getMunicipalityMap } = await import('@/lib/db-data')
+  const beach = await getBeachBySlug(ctx.data.slug)
+  if (!beach) return null
+
+  const [municipality, services, activities, tags, nearbyBeaches, municipalityMap] = await Promise.all([
+    getMunicipality(beach.municipality),
+    getAllServices(),
+    getAllActivities(),
+    getAllTags(),
+    getNearbyBeaches(beach.nearby),
+    getMunicipalityMap(),
+  ])
+
+  const nearbyItems = nearbyBeaches.map((nearbyBeach) => {
+    const nearbyMunicipality = municipalityMap.get(nearbyBeach.municipality) ?? { name: '', id: '' }
+    return { beach: nearbyBeach, municipality: nearbyMunicipality, slug: toSlug(nearbyBeach) }
+  })
+
+  return { beach, municipality, services, activities, tags, nearbyItems }
+})
+
 export const Route = createFileRoute('/playas/$slug')({
   loader: async ({ params }) => {
-    const beach = await getBeachBySlug(params.slug)
-    if (!beach) {
-      throw notFound()
-    }
-
-    const [
-      municipality,
-      services,
-      activities,
-      tags,
-      nearbyBeaches,
-      municipalityMap,
-    ] = await Promise.all([
-      getMunicipality(beach.municipality),
-      getAllServices(),
-      getAllActivities(),
-      getAllTags(),
-      getNearbyBeaches(beach.nearby),
-      getMunicipalityMap(),
-    ])
-
-    const nearbyItems = nearbyBeaches.map((nearbyBeach) => {
-      const nearbyMunicipality = municipalityMap.get(
-        nearbyBeach.municipality,
-      ) ?? {
-        name: '',
-        id: '',
-      }
-      return {
-        beach: nearbyBeach,
-        municipality: nearbyMunicipality,
-        slug: beachToSlug(nearbyBeach),
-      }
-    })
-
-    return { beach, municipality, services, activities, tags, nearbyItems }
+    const data = await fetchBeachData({ data: { slug: params.slug } })
+    if (!data) throw notFound()
+    return data
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
@@ -152,7 +132,7 @@ function BeachPage() {
           <div className="space-y-8 lg:col-span-2">
             {/* Description */}
             <section className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm">
-              <h2 className="mb-3 text-xl font-semibold text-gray-900">
+              <h2 className="mb-3 text-2xl font-semibold text-gray-900">
                 Sobre esta playa
               </h2>
               <p className="leading-relaxed text-gray-600">
@@ -225,6 +205,7 @@ function BeachPage() {
 }
 
 export async function getStaticPaths() {
+  const { getAllBeaches } = await import('@/lib/db-data')
   const beaches = await getAllBeaches()
   return beaches.map((beach) => ({
     params: { slug: beachToSlug(beach) },

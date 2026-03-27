@@ -2,31 +2,34 @@
 
 ## Quick Stats
 
-- **Pending**: 3 tasks
-- **In Progress**: 2 tasks
-- **Completed**: 15 tasks
+- **Pending**: 5 tasks
+- **In Progress**: 0 tasks
+- **Completed**: 20 tasks
 - **Blocked**: 0 tasks
 
 ## Current Focus
 
-> Task #003: Deploy to Production (also #002 in progress)
+> No active task. Next up: Task #021 (Add Missing Contact Info)
 
 ## Backlog
 
 | # | Task | Slice | Priority | Blocked by |
 |---|------|-------|----------|------------|
-| 002 | Configure Production Env | Infra | P1 - Active | - |
-| 003 | Deploy to Production | Infra | P1 - Active | - |
-| 009 | AEMET Weather Widget | Frontend | P4 | #003 |
-| 010 | Beach Status 112 Widget | Frontend | P4 | #003 |
 | 017 | Source Missing Beach Pictures | Content | P2 - Next | - |
 | 021 | Add Missing Contact Info | Data | P3 | - |
 | 022 | UI Low-Impact Polish | UI | P3 | - |
+| 009 | AEMET Weather Widget | Frontend | P4 | - |
+| 010 | Beach Status 112 Widget | Frontend | P4 | - |
 
 ## Recently Completed
 
 | # | Task | Completed |
 |---|------|-----------|
+| 025 | Rich Navigable Footer | 2026-03-27 |
+| 024 | Dropdown Navigation Menu | 2026-03-27 |
+| 023 | Homepage Featured Beaches + Editorial Hero | 2026-03-27 |
+| 003 | Deploy to Production | 2026-03-27 |
+| 002 | Configure Production Env | 2026-03-27 |
 | 008 | Generate Translations | 2026-03-27 |
 | 016 | Beach Comparator Tool | 2026-03-27 |
 | 015 | Mediterranean vs Mar Menor | 2026-03-27 |

@@ -1,29 +1,29 @@
 import { createFileRoute, notFound } from "@tanstack/react-router"
-import {
-  beachToSlug,
-  getAllTags,
-  getBeachesByMunicipality,
-  getMunicipalityBySlug,
-} from "@/lib/db-data"
+import { createServerFn } from "@tanstack/react-start"
+import { beachToSlug } from "@/lib/slugs"
 import { generateMunicipalitySchema } from "@/lib/schema"
 import { BeachCard } from "@/components/beach-card"
 
+const fetchMunicipalityData = createServerFn({ method: 'GET' }).handler(async (ctx: { data: { slug: string } }) => {
+  const { getAllTags, getBeachesByMunicipality, getMunicipalityBySlug } = await import("@/lib/db-data")
+  const result = await getMunicipalityBySlug(ctx.data.slug)
+  if (!result) return null
+
+  const { municipality, index } = result
+  const [beaches, tags] = await Promise.all([
+    getBeachesByMunicipality(index),
+    getAllTags(),
+  ])
+
+  const blueFlagCount = beaches.filter((b) => b.certifications?.includes("blue-flag")).length
+  return { municipality, beaches, tags, blueFlagCount, slug: ctx.data.slug }
+})
+
 export const Route = createFileRoute("/municipios/$slug")({
   loader: async ({ params }) => {
-    const result = await getMunicipalityBySlug(params.slug)
-    if (!result) {
-      throw notFound()
-    }
-
-    const { municipality, index } = result
-    const [beaches, tags] = await Promise.all([
-      getBeachesByMunicipality(index),
-      getAllTags(),
-    ])
-
-    const blueFlagCount = beaches.filter((b) => b.certifications?.includes("blue-flag")).length
-
-    return { municipality, beaches, tags, blueFlagCount, slug: params.slug }
+    const data = await fetchMunicipalityData({ data: { slug: params.slug } })
+    if (!data) throw notFound()
+    return data
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
@@ -95,7 +95,7 @@ function MunicipalityPage() {
       {/* Beach grid */}
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         {beaches.length > 0 ? (
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-5 xl:grid-cols-3 xl:gap-6">
             {beaches.map((beach) => (
               <BeachCard
                 key={beach.code}
@@ -119,6 +119,15 @@ function MunicipalityPage() {
             </p>
           </div>
         )}
+
+        <div className="mt-12 text-center">
+          <a
+            href="/municipios"
+            className="text-sm font-medium text-ocean-600 transition-colors hover:text-ocean-700 focus-visible:underline focus:outline-none"
+          >
+            ← Ver todos los municipios
+          </a>
+        </div>
       </div>
     </main>
   )

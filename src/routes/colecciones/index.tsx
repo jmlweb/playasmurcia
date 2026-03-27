@@ -1,21 +1,24 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { getAllBeaches } from '@/lib/db-data'
+import { createServerFn } from '@tanstack/react-start'
 import {
   collections,
   filterBeachesByCollection,
 } from '@/lib/collections'
 
+const fetchCollectionsData = createServerFn({ method: 'GET' }).handler(async () => {
+  const { getAllBeaches } = await import('@/lib/db-data')
+  const beaches = await getAllBeaches()
+  const items = collections.map((collection) => ({
+    slug: collection.slug,
+    title: collection.title,
+    description: collection.description,
+    beachCount: filterBeachesByCollection(beaches, collection).length,
+  }))
+  return { items }
+})
+
 export const Route = createFileRoute('/colecciones/')({
-  loader: async () => {
-    const beaches = await getAllBeaches()
-    const items = collections.map((collection) => ({
-      slug: collection.slug,
-      title: collection.title,
-      description: collection.description,
-      beachCount: filterBeachesByCollection(beaches, collection).length,
-    }))
-    return { items }
-  },
+  loader: () => fetchCollectionsData(),
   head: () => ({
     meta: [
       {
@@ -87,7 +90,7 @@ function ColeccionesPage() {
           <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
             Colecciones de playas
           </h1>
-          <p className="text-lg text-ocean-200">
+          <p className="mx-auto max-w-xl text-lg text-ocean-200">
             Encuentra la playa perfecta segun tus preferencias
           </p>
         </div>
@@ -113,7 +116,7 @@ function ColeccionesPage() {
         </nav>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
-          {items.map((item: { slug: string; title: string; description: string; beachCount: number }) => (
+          {items.map((item) => (
             <CollectionCard
               key={item.slug}
               slug={item.slug}
