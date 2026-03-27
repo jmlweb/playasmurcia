@@ -313,6 +313,26 @@ export async function getNearbyBeaches(
 }
 
 /**
+ * Retrieves beaches by their codes (for comparator tool)
+ */
+export async function getBeachesByCodes(
+  codes: Array<string>,
+): Promise<Array<Beach>> {
+  if (codes.length === 0) return []
+
+  const dbBeaches = await db.query.beaches.findMany({
+    where: inArray(schema.beaches.code, codes),
+    with: {
+      services: true,
+      activities: true,
+      tags: true,
+    },
+  })
+
+  return dbBeaches.map(mapBeachFromDB)
+}
+
+/**
  * Converts a municipality name to a URL-friendly slug
  */
 export function municipalityToSlug(municipality: Municipality): string {

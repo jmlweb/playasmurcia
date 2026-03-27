@@ -32,6 +32,12 @@ async function generateSitemap() {
   </url>`
     ),
     `  <url>
+    <loc>${BASE_URL}/comparar</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>`,
+    `  <url>
     <loc>${BASE_URL}/mares</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>

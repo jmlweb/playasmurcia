@@ -99,6 +99,12 @@ function Navbar() {
           >
             Mares
           </a>
+          <a
+            href="/comparar"
+            className="text-sm font-medium text-ocean-200 transition-colors hover:text-white"
+          >
+            Comparar
+          </a>
         </div>
       </div>
     </nav>
