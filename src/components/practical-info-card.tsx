@@ -41,6 +41,7 @@ interface PracticalInfoCardProps {
   waves?: string
   occupancyLevel?: 'low' | 'medium' | 'high'
   accessDifficulty?: 'easy' | 'moderate' | 'hard'
+  childSafe?: boolean
   bestSeason?: Array<'spring' | 'summer' | 'autumn' | 'winter'>
   orientation?: string
 }
@@ -70,6 +71,7 @@ export function PracticalInfoCard({
   waves,
   occupancyLevel,
   accessDifficulty,
+  childSafe,
   bestSeason,
   orientation,
 }: PracticalInfoCardProps) {
@@ -121,6 +123,18 @@ export function PracticalInfoCard({
                 className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${OccupancyConfig[occupancyLevel].colorClass}`}
               >
                 {OccupancyConfig[occupancyLevel].label}
+              </span>
+            </dd>
+          </div>
+        )}
+        {childSafe !== undefined && (
+          <div className="flex items-start justify-between gap-4 border-b border-gray-100 py-3 last:border-0">
+            <dt className="text-sm text-gray-500">Apta para ninos</dt>
+            <dd>
+              <span
+                className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${childSafe ? 'text-emerald-700 bg-emerald-50 ring-1 ring-emerald-200' : 'text-gray-600 bg-gray-50 ring-1 ring-gray-200'}`}
+              >
+                {childSafe ? 'Si' : 'No'}
               </span>
             </dd>
           </div>

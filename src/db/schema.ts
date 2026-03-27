@@ -79,6 +79,7 @@ export const beaches = sqliteTable(
     aemetId: text('aemet_id'),
     length: integer('length'),
     accessDifficulty: text('access_difficulty'),
+    childSafe: integer('child_safe', { mode: 'boolean' }),
   },
   (table) => [
     index('beach_code_idx').on(table.code),

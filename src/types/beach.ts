@@ -34,6 +34,7 @@ export interface Beach {
   aemetId?: string
   length?: number
   accessDifficulty?: 'easy' | 'moderate' | 'hard'
+  childSafe?: boolean
   tags?: Array<number>
 }
 

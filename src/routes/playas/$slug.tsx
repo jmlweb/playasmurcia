@@ -203,6 +203,7 @@ function BeachPage() {
               waves={beach.waves}
               occupancyLevel={beach.occupancyLevel}
               accessDifficulty={beach.accessDifficulty}
+              childSafe={beach.childSafe}
               bestSeason={beach.bestSeason}
               orientation={beach.orientation}
             />

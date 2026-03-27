@@ -68,6 +68,7 @@ interface Beach {
   aemetId?: string          // AEMET beach code for weather API
   length?: number           // Beach length in meters (from OSM)
   accessDifficulty?: "easy" | "moderate" | "hard"  // How difficult to reach (~61% easy, ~22% moderate, ~17% hard)
+  childSafe?: boolean       // Safe for young children (~38% true)
   tags?: number[]           // Indices into tags.json
 }
 ```
