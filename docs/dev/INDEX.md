@@ -2,9 +2,9 @@
 
 ## Quick Stats
 
-- **Pending**: 8 tasks
+- **Pending**: 7 tasks
 - **In Progress**: 2 tasks
-- **Completed**: 9 tasks
+- **Completed**: 10 tasks
 - **Blocked**: 0 tasks
 
 ## Current Focus
@@ -24,7 +24,6 @@
 | 015 | Mediterranean vs Mar Menor Page | Frontend | P3 | - |
 | 016 | Beach Comparator Tool | Frontend | P3 | #011 |
 | 017 | Source Missing Beach Pictures | Content | P2 - Next | - |
-| 019 | Enrich SEO Keywords and Meta | Content | P2 - Next | - |
 | 020 | Improve Schema.org Markup | SEO | P2 - Next | #003 |
 | 021 | Add Missing Contact Info | Data | P3 | - |
 
@@ -32,6 +31,7 @@
 
 | # | Task | Completed |
 |---|------|-----------|
+| 019 | Enrich SEO Keywords | 2026-03-27 |
 | 018 | Complete Missing Beach Lengths | 2026-03-27 |
 | 007 | Add Water Quality | 2026-03-27 |
 | 006 | Add Natural Shade | 2026-03-27 |
