@@ -1,12 +1,8 @@
+import { edgeCacheGet, edgeCacheSet } from './edge-cache'
+
 const AEMET_BASE_URL = 'https://opendata.aemet.es/opendata/api'
-const CACHE_TTL_MS = 30 * 60 * 1000 // 30 minutes
-
-interface CacheEntry<T> {
-  data: T
-  expiresAt: number
-}
-
-const cache = new Map<string, CacheEntry<AemetBeachForecast | null>>()
+const CACHE_TTL_SECONDS = 30 * 60 // 30 minutes
+const CACHE_NS = 'aemet'
 
 export interface AemetSkyPeriod {
   periodo: '00-24' | '00-12' | '12-24' | string
@@ -66,20 +62,6 @@ interface AemetRawPrediction {
   }
 }
 
-function getCached(aemetId: string): AemetBeachForecast | null | undefined {
-  const entry = cache.get(aemetId)
-  if (!entry) return undefined
-  if (Date.now() > entry.expiresAt) {
-    cache.delete(aemetId)
-    return undefined
-  }
-  return entry.data
-}
-
-function setCached(aemetId: string, data: AemetBeachForecast | null): void {
-  cache.set(aemetId, { data, expiresAt: Date.now() + CACHE_TTL_MS })
-}
-
 /**
  * Fetches beach weather forecast from AEMET API.
  * Returns null on any error (API unavailable, missing key, etc.)
@@ -88,7 +70,7 @@ export async function fetchAemetForecast(
   aemetId: string,
   apiKey: string,
 ): Promise<AemetBeachForecast | null> {
-  const cached = getCached(aemetId)
+  const cached = await edgeCacheGet<AemetBeachForecast | null>(CACHE_NS, aemetId)
   if (cached !== undefined) return cached
 
   try {
@@ -98,20 +80,20 @@ export async function fetchAemetForecast(
     })
 
     if (!metaRes.ok) {
-      setCached(aemetId, null)
+      await edgeCacheSet(CACHE_NS, aemetId, null, CACHE_TTL_SECONDS)
       return null
     }
 
     const meta = (await metaRes.json()) as AemetMetaResponse
 
     if (meta.estado !== 200 || !meta.datos) {
-      setCached(aemetId, null)
+      await edgeCacheSet(CACHE_NS, aemetId, null, CACHE_TTL_SECONDS)
       return null
     }
 
     const dataRes = await fetch(meta.datos)
     if (!dataRes.ok) {
-      setCached(aemetId, null)
+      await edgeCacheSet(CACHE_NS, aemetId, null, CACHE_TTL_SECONDS)
       return null
     }
 
@@ -119,7 +101,7 @@ export async function fetchAemetForecast(
     const raw = rawArray[0]
 
     if (!raw?.prediccion?.dia) {
-      setCached(aemetId, null)
+      await edgeCacheSet(CACHE_NS, aemetId, null, CACHE_TTL_SECONDS)
       return null
     }
 
@@ -137,10 +119,10 @@ export async function fetchAemetForecast(
       })),
     }
 
-    setCached(aemetId, forecast)
+    await edgeCacheSet(CACHE_NS, aemetId, forecast, CACHE_TTL_SECONDS)
     return forecast
   } catch {
-    setCached(aemetId, null)
+    await edgeCacheSet(CACHE_NS, aemetId, null, CACHE_TTL_SECONDS)
     return null
   }
 }

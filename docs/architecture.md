@@ -16,20 +16,19 @@
 | **pnpm** | Package manager |
 | **Turso (libSQL)** | Edge database |
 | **Drizzle ORM** | Type-safe SQL |
+| **Cloudflare Cache API** | Durable edge caching for external API calls |
 
 ## Current State
 
-The project is on the `v3` branch, mid-migration from static JSON to a database-backed architecture.
+The project is on the `v3` branch. Routes use async database queries via `src/lib/db-data.ts`.
 
 | Layer | Status | File(s) |
 |-------|--------|---------|
-| JSON data access (sync) | **Active** — used by all routes | `src/lib/data.ts` |
-| Database schema | Ready | `src/db/schema.ts` |
-| Database client | Ready | `src/db/client.ts` |
-| Database data access (async) | Ready but **not wired** into routes | `src/lib/db-data.ts` |
+| Database schema | Active | `src/db/schema.ts` |
+| Database client | Active | `src/db/client.ts` |
+| Database data access (async) | **Active** — used by all routes | `src/lib/db-data.ts` |
+| JSON data access (sync) | Legacy fallback | `src/lib/data.ts` |
 | Migration scripts | Ready | `scripts/migrate-to-database.ts`, `scripts/validate-migration.ts` |
-
-See [NEXT_STEPS.md](../NEXT_STEPS.md) for the migration checklist.
 
 ## Project Structure
 
@@ -58,7 +57,6 @@ playasmurcia/
 ├── data/                   # JSON data files (beaches, municipalities, seas)
 ├── docs/                   # Project documentation
 ├── plan/                   # Execution plans for data enrichment
-├── backlog/                # Future ideas and service proposals
 ├── scripts/                # Data processing scripts
 ├── drizzle/                # Drizzle migration files (auto-generated)
 ├── public/                 # Static assets
@@ -115,8 +113,10 @@ data/*.json ──→ src/lib/data.ts ──→ route loaders ──→ React co
                                                            ↓
                                                     src/lib/schema.ts (JSON-LD for SEO)
 
-(future)
 local.db/Turso ──→ src/lib/db-data.ts ──→ route loaders (async) ──→ React components
+
+External APIs (AEMET, 112 COPLA) ──→ src/lib/edge-cache.ts ──→ route loaders
+  (Cloudflare Cache API in production, in-memory Map fallback in local dev)
 ```
 
 ### Database (Turso/libSQL)
@@ -165,7 +165,10 @@ Scripts use Ollama for AI tasks to minimize costs.
 
 ## Deployment
 
-Not yet configured. Options under consideration (see [NEXT_STEPS.md](../NEXT_STEPS.md)):
+| Component | Technology |
+|-----------|-----------|
+| **Hosting** | Cloudflare Workers |
+| **Database** | Turso (libSQL edge) |
+| **Vite plugin** | `@cloudflare/vite-plugin` (workerd runtime for SSR) |
 
-- **Cloudflare Workers** with Turso edge database
-- **Netlify** with serverless functions
+The Cloudflare Vite plugin runs SSR in workerd (not Node.js). This affects which npm packages work at runtime — notably, `@libsql/client` resolves to its web client, which only supports network URLs (`libsql:`, `https:`, `http:`), not `file:` URLs. See [development.md](./development.md) for environment setup details.

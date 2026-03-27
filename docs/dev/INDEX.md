@@ -2,9 +2,9 @@
 
 ## Quick Stats
 
-- **Pending**: 2 tasks
+- **Pending**: 5 tasks
 - **In Progress**: 0 tasks
-- **Completed**: 23 tasks
+- **Completed**: 24 tasks
 - **Blocked**: 0 tasks
 
 ## Current Focus
@@ -15,6 +15,9 @@
 
 | # | Task | Slice | Priority | Blocked by |
 |---|------|-------|----------|------------|
+| 027 | Image Optimization and Responsive Variants | Full-stack | P1 - Critical | - |
+| 028 | Coordinate-Based Weather for All Beaches | Full-stack | P2 - Next | - |
+| 029 | Current Weather on Beach Cards | Full-stack | P3 - Later | 028 |
 | 017 | Source Missing Beach Pictures | Content | P2 - Next | - |
 | 021 | Add Missing Contact Info | Data | P3 | - |
 
@@ -22,6 +25,7 @@
 
 | # | Task | Completed |
 |---|------|-----------|
+| 026 | Edge Caching for External API Calls | 2026-03-28 |
 | 010 | Beach Status 112 Widget | 2026-03-27 |
 | 009 | AEMET Weather Widget | 2026-03-27 |
 | 022 | UI Low-Impact Polish | 2026-03-27 |

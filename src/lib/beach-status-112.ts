@@ -1,5 +1,8 @@
+import { edgeCacheGet, edgeCacheSet } from './edge-cache'
+
 const COPLA_URL = 'https://www.112rmurcia.es/copla/copla.xml'
-const CACHE_TTL_MS = 15 * 60 * 1000 // 15 minutes
+const CACHE_TTL_SECONDS = 15 * 60 // 15 minutes
+const CACHE_NS = 'copla-112'
 const STALE_DAYS = 2
 
 // ---------------------------------------------------------------------------
@@ -26,17 +29,6 @@ interface CoplaEntry {
   bandera: string
   estadoMar: string
 }
-
-interface CacheEntry {
-  entries: CoplaEntry[]
-  expiresAt: number
-}
-
-// ---------------------------------------------------------------------------
-// Cache (module-level singleton)
-// ---------------------------------------------------------------------------
-
-let cache: CacheEntry | null = null
 
 // ---------------------------------------------------------------------------
 // XML parsing (regex-based, no external library — works on Cloudflare Workers)
@@ -122,10 +114,8 @@ function isDataStale(dia: string): boolean {
 // ---------------------------------------------------------------------------
 
 async function fetchAndCacheEntries(): Promise<CoplaEntry[]> {
-  const now = Date.now()
-  if (cache && cache.expiresAt > now) {
-    return cache.entries
-  }
+  const cached = await edgeCacheGet<CoplaEntry[]>(CACHE_NS, 'all')
+  if (cached !== undefined) return cached
 
   const response = await fetch(COPLA_URL)
   if (!response.ok) {
@@ -134,7 +124,7 @@ async function fetchAndCacheEntries(): Promise<CoplaEntry[]> {
   const xml = await response.text()
   const entries = parseCoplaXml(xml)
 
-  cache = { entries, expiresAt: now + CACHE_TTL_MS }
+  await edgeCacheSet(CACHE_NS, 'all', entries, CACHE_TTL_SECONDS)
   return entries
 }
 
