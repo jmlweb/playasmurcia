@@ -21,7 +21,7 @@ export function ServicesGrid({ serviceIndices, allServices }: ServicesGridProps)
         {resolvedServices.map((service) => (
           <li
             key={service.id}
-            className="flex items-center gap-2.5 rounded-xl border border-gray-200/60 bg-white px-3.5 py-3 text-sm text-gray-700 shadow-sm"
+            className="flex items-center gap-2.5 rounded-xl border border-gray-200/60 bg-white px-3.5 py-3 text-sm text-gray-700 shadow-sm transition-colors hover:border-ocean-200 hover:bg-ocean-50/50"
           >
             <span className="text-xl" aria-hidden="true">
               {service.icon}

@@ -31,14 +31,24 @@ export function PhotoGallery({ pictures, beachName }: PhotoGalleryProps) {
   }
 
   return (
-    <div className="space-y-3">
+    <div
+      className="space-y-3"
+      onKeyDown={(e) => {
+        if (e.key === "ArrowLeft") handlePrev()
+        if (e.key === "ArrowRight") handleNext()
+      }}
+      tabIndex={0}
+      role="region"
+      aria-label="Galería de fotos"
+    >
       {/* Main image */}
       <div className="relative h-64 overflow-hidden rounded-2xl bg-gray-100 shadow-sm sm:h-80 lg:h-[480px]">
         <img
           src={`/pictures/${activePicture}`}
           alt={`${beachName} - foto ${activeIndex + 1}`}
           className="h-full w-full object-cover transition-opacity duration-300"
-          loading="lazy"
+          loading="eager"
+          fetchPriority="high"
         />
         {pictures.length > 1 && (
           <>

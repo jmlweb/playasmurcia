@@ -149,9 +149,9 @@ function BeachPage() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           {/* Main content column */}
-          <div className="space-y-10 lg:col-span-2">
+          <div className="space-y-8 lg:col-span-2">
             {/* Description */}
-            <section>
+            <section className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm">
               <h2 className="mb-3 text-xl font-semibold text-gray-900">
                 Sobre esta playa
               </h2>
@@ -178,7 +178,7 @@ function BeachPage() {
 
             {/* How to get there */}
             {beach.access && (
-              <section>
+              <section className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm">
                 <h2 className="mb-3 text-xl font-semibold text-gray-900">
                   Como llegar
                 </h2>
@@ -197,7 +197,7 @@ function BeachPage() {
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-6">
+          <div className="space-y-6 lg:sticky lg:top-20">
             <PracticalInfoCard
               length={beach.length}
               soilType={beach.soilType}

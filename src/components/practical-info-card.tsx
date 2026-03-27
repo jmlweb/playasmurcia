@@ -116,7 +116,7 @@ export function PracticalInfoCard({
       className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm"
       aria-label="Informacion practica"
     >
-      <h2 className="mb-1 text-lg font-semibold text-gray-900">
+      <h2 className="mb-4 text-xl font-semibold text-gray-900">
         Informacion practica
       </h2>
       <dl>
