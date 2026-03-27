@@ -49,7 +49,14 @@ function FilterGroup({ label, children, activeCount }: FilterGroupProps) {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
       </button>
-      {isOpen && <div className="pb-4 space-y-2.5">{children}</div>}
+      <div
+        className="grid transition-[grid-template-rows] duration-200 ease-in-out"
+        style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
+      >
+        <div className="overflow-hidden">
+          <div className="pb-4 space-y-2.5">{children}</div>
+        </div>
+      </div>
     </div>
   )
 }
@@ -219,7 +226,7 @@ export function FilterPanel(props: FilterPanelProps) {
             onClick={() => setMobileOpen(false)}
             aria-hidden="true"
           />
-          <div className="fixed inset-y-0 left-0 w-80 max-w-[85vw] overflow-y-auto bg-white p-6 shadow-2xl">
+          <div className="fixed inset-y-0 left-0 w-80 max-w-[85vw] overflow-y-auto bg-white p-6 shadow-2xl animate-slide-in-left">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-lg font-semibold text-gray-900">Filtros</h2>
               <button
