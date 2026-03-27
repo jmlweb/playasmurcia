@@ -69,6 +69,7 @@ interface Beach {
   length?: number           // Beach length in meters (from OSM)
   accessDifficulty?: "easy" | "moderate" | "hard"  // How difficult to reach (~61% easy, ~22% moderate, ~17% hard)
   childSafe?: boolean       // Safe for young children (~38% true)
+  naturalShade?: boolean    // Has natural shade from cliffs/trees (~29% true)
   tags?: number[]           // Indices into tags.json
 }
 ```

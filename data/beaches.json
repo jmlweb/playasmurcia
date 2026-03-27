@@ -61,7 +61,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "601",
@@ -128,7 +129,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "516",
@@ -199,7 +201,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "559",
@@ -267,7 +270,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "628",
@@ -338,7 +342,8 @@
       "actividades acuáticas"
     ],
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "522",
@@ -401,7 +406,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "7050",
@@ -475,7 +481,8 @@
       "chiringuitos"
     ],
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "658",
@@ -547,7 +554,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "512",
@@ -628,7 +636,8 @@
       "acceso accesible"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": true
   },
   {
     "code": "663",
@@ -713,7 +722,8 @@
       "vacaciones mediterráneo"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": true
   },
   {
     "code": "551",
@@ -790,7 +800,8 @@
       "costa murciana"
     ],
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "610",
@@ -864,7 +875,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "605",
@@ -940,7 +952,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "513",
@@ -1012,7 +1025,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "7053",
@@ -1081,7 +1095,8 @@
       "kayak"
     ],
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "631",
@@ -1157,7 +1172,8 @@
       "vacaciones en familia"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": true
   },
   {
     "code": "556",
@@ -1227,7 +1243,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "moderate",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": true
   },
   {
     "code": "626",
@@ -1301,7 +1318,8 @@
       "actividades acuáticas"
     ],
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "567",
@@ -1374,7 +1392,8 @@
       "natación"
     ],
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "572",
@@ -1442,7 +1461,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "577",
@@ -1523,7 +1543,8 @@
       "mar menor"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": true
   },
   {
     "code": "571",
@@ -1591,7 +1612,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "552",
@@ -1664,7 +1686,8 @@
       "cala virgen"
     ],
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "603",
@@ -1732,7 +1755,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "554",
@@ -1805,7 +1829,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "595",
@@ -1872,7 +1897,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "579",
@@ -1948,7 +1974,8 @@
       "sol"
     ],
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "630",
@@ -2020,7 +2047,8 @@
       "actividades acuáticas"
     ],
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "602",
@@ -2090,7 +2118,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "629",
@@ -2158,7 +2187,8 @@
       "relax en la playa"
     ],
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "517",
@@ -2224,7 +2254,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "558",
@@ -2290,7 +2321,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "678",
@@ -2363,7 +2395,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "574",
@@ -2436,7 +2469,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "553",
@@ -2508,7 +2542,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "518",
@@ -2588,7 +2623,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": true
   },
   {
     "code": "523",
@@ -2659,7 +2695,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "510",
@@ -2733,7 +2770,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "568",
@@ -2802,7 +2840,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "578",
@@ -2867,7 +2906,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "689",
@@ -2946,7 +2986,8 @@
       "actividades acuáticas"
     ],
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "538",
@@ -3021,7 +3062,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "586",
@@ -3095,7 +3137,8 @@
       "costa murciana"
     ],
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "615",
@@ -3175,7 +3218,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "671",
@@ -3256,7 +3300,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "632",
@@ -3335,7 +3380,8 @@
       "playas murcia"
     ],
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "667",
@@ -3417,7 +3463,8 @@
       "playas murcia"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "639",
@@ -3492,7 +3539,8 @@
       "naturaleza salvaje"
     ],
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "655",
@@ -3561,7 +3609,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "642",
@@ -3636,7 +3685,8 @@
       "playas virgenes"
     ],
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "520",
@@ -3705,7 +3755,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "569",
@@ -3779,7 +3830,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "592",
@@ -3855,7 +3907,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "692",
@@ -3936,7 +3989,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "687",
@@ -4021,7 +4075,8 @@
       "escapada playa"
     ],
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "543",
@@ -4098,7 +4153,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "638",
@@ -4179,7 +4235,8 @@
       "actividades acuáticas"
     ],
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "643",
@@ -4254,7 +4311,8 @@
       "aventura marina"
     ],
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "526",
@@ -4327,7 +4385,8 @@
       "mar menor"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "662",
@@ -4404,7 +4463,8 @@
       "vacaciones en bahía"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "646",
@@ -4491,7 +4551,8 @@
       "escapada playa"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "548",
@@ -4560,7 +4621,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "593",
@@ -4637,7 +4699,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "679",
@@ -4720,7 +4783,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": true
   },
   {
     "code": "590",
@@ -4800,7 +4864,8 @@
       "calas salvajes"
     ],
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "668",
@@ -4883,7 +4948,8 @@
       "servicios playa"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "651",
@@ -4963,7 +5029,8 @@
       "cala virgen"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "675",
@@ -5053,7 +5120,8 @@
       "región de murcia"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "614",
@@ -5130,7 +5198,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "654",
@@ -5212,7 +5281,8 @@
       "bandera azul"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "634",
@@ -5286,7 +5356,8 @@
       "actividades acuáticas"
     ],
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "581",
@@ -5367,7 +5438,8 @@
       "bandera azul"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "645",
@@ -5447,7 +5519,8 @@
       "aguas cristalinas"
     ],
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "5253",
@@ -5516,7 +5589,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "moderate",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": true
   },
   {
     "code": "530",
@@ -5601,7 +5675,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "582",
@@ -5679,7 +5754,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "611",
@@ -5746,7 +5822,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "613",
@@ -5819,7 +5896,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "580",
@@ -5895,7 +5973,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "618",
@@ -5963,7 +6042,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "612",
@@ -6041,7 +6121,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "533",
@@ -6119,7 +6200,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "649",
@@ -6197,7 +6279,8 @@
       "cala mediterránea"
     ],
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "624",
@@ -6271,7 +6354,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "607",
@@ -6353,7 +6437,8 @@
       "actividades acuáticas"
     ],
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "600",
@@ -6429,7 +6514,8 @@
       "actividades acuáticas"
     ],
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "625",
@@ -6501,7 +6587,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "680",
@@ -6579,7 +6666,8 @@
       "región de murcia"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "545",
@@ -6653,7 +6741,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "665",
@@ -6730,7 +6819,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "544",
@@ -6796,7 +6886,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "moderate",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "682",
@@ -6871,7 +6962,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "555",
@@ -6937,7 +7029,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "647",
@@ -7012,7 +7105,8 @@
       "vacaciones familiares"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "664",
@@ -7092,7 +7186,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "653",
@@ -7165,7 +7260,8 @@
       "región de murcia"
     ],
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "622",
@@ -7233,7 +7329,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "648",
@@ -7310,7 +7407,8 @@
       "costa murciana"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "546",
@@ -7385,7 +7483,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "584",
@@ -7458,7 +7557,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "637",
@@ -7525,7 +7625,8 @@
       "familia"
     ],
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "635",
@@ -7597,7 +7698,8 @@
       "verano murcia"
     ],
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "4894",
@@ -7671,7 +7773,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "534",
@@ -7750,7 +7853,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": true
   },
   {
     "code": "623",
@@ -7817,7 +7921,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "585",
@@ -7887,7 +7992,8 @@
       "playas naturales"
     ],
     "accessDifficulty": "moderate",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "693",
@@ -7968,7 +8074,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "525",
@@ -8046,7 +8153,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "528",
@@ -8119,7 +8227,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "566",
@@ -8193,7 +8302,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "576",
@@ -8267,7 +8377,8 @@
       "actividades acuáticas"
     ],
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "661",
@@ -8341,7 +8452,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "677",
@@ -8416,7 +8528,8 @@
       "región de murcia"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "676",
@@ -8497,7 +8610,8 @@
       "región de murcia"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "683",
@@ -8579,7 +8693,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "608",
@@ -8650,7 +8765,8 @@
       "playas urbanas"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "644",
@@ -8717,7 +8833,8 @@
       "ambiente tranquilo"
     ],
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "596",
@@ -8801,7 +8918,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "564",
@@ -8875,7 +8993,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "560",
@@ -8947,7 +9066,8 @@
       "vacaciones en portmán"
     ],
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "681",
@@ -9027,7 +9147,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "617",
@@ -9098,7 +9219,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "636",
@@ -9172,7 +9294,8 @@
       "actividades marinas"
     ],
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "686",
@@ -9249,7 +9372,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "670",
@@ -9314,7 +9438,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "641",
@@ -9385,7 +9510,8 @@
       "área nudista"
     ],
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "616",
@@ -9451,7 +9577,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "588",
@@ -9524,7 +9651,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "519",
@@ -9596,7 +9724,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "690",
@@ -9674,7 +9803,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "536",
@@ -9750,7 +9880,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "7051",
@@ -9822,7 +9953,8 @@
       "región de murcia"
     ],
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "695",
@@ -9902,7 +10034,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "598",
@@ -9975,7 +10108,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "594",
@@ -10042,7 +10176,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": true
   },
   {
     "code": "565",
@@ -10106,7 +10241,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "587",
@@ -10174,7 +10310,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "650",
@@ -10253,7 +10390,8 @@
       "verano murcia"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "7052",
@@ -10322,7 +10460,8 @@
       "actividades náuticas"
     ],
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "5556",
@@ -10396,7 +10535,8 @@
       "vacaciones tranquilas"
     ],
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "621",
@@ -10467,7 +10607,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "527",
@@ -10539,7 +10680,8 @@
       "región de murcia"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "561",
@@ -10615,7 +10757,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "532",
@@ -10683,7 +10826,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "moderate",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "604",
@@ -10765,7 +10909,8 @@
       "paddle surf"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "4893",
@@ -10845,7 +10990,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "540",
@@ -10922,7 +11068,8 @@
       "día de playa"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "666",
@@ -10997,7 +11144,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "674",
@@ -11078,7 +11226,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "535",
@@ -11157,7 +11306,8 @@
       "deportes marítimos"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "606",
@@ -11234,7 +11384,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "537",
@@ -11307,7 +11458,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "599",
@@ -11380,7 +11532,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "5906",
@@ -11459,7 +11612,8 @@
       "escapada tranquila"
     ],
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "620",
@@ -11531,7 +11685,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "562",
@@ -11615,7 +11770,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "511",
@@ -11683,7 +11839,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "591",
@@ -11766,7 +11923,8 @@
       "aguas cristalinas"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "688",
@@ -11846,7 +12004,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "640",
@@ -11920,7 +12079,8 @@
       "actividades acuáticas"
     ],
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "657",
@@ -12000,7 +12160,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "521",
@@ -12068,7 +12229,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "619",
@@ -12149,7 +12311,8 @@
     ],
     "waves": "SUAVE",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": true
   },
   {
     "code": "524",
@@ -12220,7 +12383,8 @@
       "actividades acuáticas"
     ],
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "656",
@@ -12292,7 +12456,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "589",
@@ -12369,7 +12534,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "573",
@@ -12438,7 +12604,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "597",
@@ -12506,7 +12673,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "moderate",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "609",
@@ -12572,7 +12740,8 @@
       "vacaciones familiares"
     ],
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "673",
@@ -12651,7 +12820,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "627",
@@ -12722,7 +12892,8 @@
       "costa caribeña"
     ],
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "5907",
@@ -12797,7 +12968,8 @@
       "arena fina"
     ],
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "515",
@@ -12864,7 +13036,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "563",
@@ -12932,7 +13105,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "moderate",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "541",
@@ -13005,7 +13179,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "660",
@@ -13086,7 +13261,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "539",
@@ -13159,7 +13335,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "684",
@@ -13231,7 +13408,8 @@
       "acceso accesible"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "691",
@@ -13309,7 +13487,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "542",
@@ -13383,7 +13562,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "moderate",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "696",
@@ -13463,7 +13643,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "583",
@@ -13535,7 +13716,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "652",
@@ -13614,7 +13796,8 @@
       "cala negra"
     ],
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "514",
@@ -13681,7 +13864,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "529",
@@ -13760,7 +13944,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "6703",
@@ -13838,7 +14023,8 @@
       "cala virgen"
     ],
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "633",
@@ -13914,7 +14100,8 @@
       "costa mediterránea"
     ],
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "557",
@@ -13984,7 +14171,8 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "hard",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "672",
@@ -14066,7 +14254,8 @@
       "escapada"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "570",
@@ -14138,7 +14327,8 @@
       "actividades acuáticas"
     ],
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "669",
@@ -14214,7 +14404,8 @@
       "actividades acuáticas"
     ],
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "531",
@@ -14288,7 +14479,8 @@
     ],
     "waves": "TRANQUILO",
     "accessDifficulty": "easy",
-    "childSafe": true
+    "childSafe": true,
+    "naturalShade": false
   },
   {
     "code": "694",
@@ -14367,7 +14559,8 @@
       "playas murcia"
     ],
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   },
   {
     "code": "685",
@@ -14445,6 +14638,7 @@
     ],
     "waves": "MODERADO",
     "accessDifficulty": "easy",
-    "childSafe": false
+    "childSafe": false,
+    "naturalShade": false
   }
 ]

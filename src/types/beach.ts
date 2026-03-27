@@ -35,6 +35,7 @@ export interface Beach {
   length?: number
   accessDifficulty?: 'easy' | 'moderate' | 'hard'
   childSafe?: boolean
+  naturalShade?: boolean
   tags?: Array<number>
 }
 

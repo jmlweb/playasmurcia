@@ -2,9 +2,9 @@
 
 ## Quick Stats
 
-- **Pending**: 11 tasks
+- **Pending**: 10 tasks
 - **In Progress**: 2 tasks
-- **Completed**: 6 tasks
+- **Completed**: 7 tasks
 - **Blocked**: 0 tasks
 
 ## Current Focus
@@ -17,7 +17,6 @@
 |---|------|-------|----------|------------|
 | 002 | Configure Production Env | Infra | P1 - Active | - |
 | 003 | Deploy to Production | Infra | P1 - Active | - |
-| 006 | Add Natural Shade | Data | P3 | - |
 | 007 | Add Water Quality | Data | P3 | - |
 | 008 | Generate Translations | Data | P3 | - |
 | 009 | AEMET Weather Widget | Frontend | P4 | #003 |
@@ -35,6 +34,7 @@
 
 | # | Task | Completed |
 |---|------|-----------|
+| 006 | Add Natural Shade | 2026-03-27 |
 | 005 | Add Child Safe | 2026-03-27 |
 | 004 | Add Access Difficulty | 2026-03-27 |
 | 001 | Turso Cloud Setup | 2026-03-26 |

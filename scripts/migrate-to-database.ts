@@ -41,6 +41,7 @@ type JsonBeach = {
   aemetId?: string
   accessDifficulty?: string
   childSafe?: boolean
+  naturalShade?: boolean
 }
 
 type JsonMunicipality = {
@@ -271,6 +272,7 @@ async function main() {
           length: beach.length || null,
           accessDifficulty: beach.accessDifficulty || null,
           childSafe: beach.childSafe ?? null,
+          naturalShade: beach.naturalShade ?? null,
         })
         .returning({ id: schema.beaches.id })
 

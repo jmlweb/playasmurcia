@@ -50,6 +50,7 @@ function mapBeachFromDB(dbBeach: {
   length: number | null
   accessDifficulty: string | null
   childSafe: boolean | null
+  naturalShade: boolean | null
   services: Array<{ serviceId: number }>
   activities: Array<{ activityId: number }>
   tags: Array<{ tagId: number }>
@@ -110,6 +111,9 @@ function mapBeachFromDB(dbBeach: {
         | 'hard',
     }),
     ...(dbBeach.childSafe !== null && { childSafe: dbBeach.childSafe }),
+    ...(dbBeach.naturalShade !== null && {
+      naturalShade: dbBeach.naturalShade,
+    }),
     ...(dbBeach.tags.length > 0 && {
       tags: dbBeach.tags.map((t) => t.tagId - 1), // Convert to 0-based index
     }),
