@@ -46,6 +46,7 @@ function mapBeachFromDB(dbBeach: {
   realUrl: string | null
   waves: string | null
   pictures: string | null
+  pictureQualityScore: number | null
   aemetId: string | null
   length: number | null
   accessDifficulty: string | null
@@ -103,6 +104,9 @@ function mapBeachFromDB(dbBeach: {
     ...(dbBeach.realUrl && { realUrl: dbBeach.realUrl }),
     ...(dbBeach.waves && { waves: dbBeach.waves }),
     ...(dbBeach.pictures && { pictures: JSON.parse(dbBeach.pictures) }),
+    ...(dbBeach.pictureQualityScore != null && {
+      pictureQualityScore: dbBeach.pictureQualityScore as 0 | 1 | 2 | 3,
+    }),
     ...(dbBeach.aemetId && { aemetId: dbBeach.aemetId }),
     ...(dbBeach.length !== null && { length: dbBeach.length }),
     ...(dbBeach.accessDifficulty && {
@@ -380,4 +384,37 @@ export async function getAllSeas(): Promise<Array<Sea>> {
     name: s.name,
     jellyfishRisk: s.jellyfishRisk,
   }))
+}
+
+/**
+ * Returns ~10 featured beaches selected by picture quality and geographic spread.
+ * Picks the top-scoring beaches (pictureQualityScore >= 2) ensuring at most
+ * 2 beaches per municipality for diversity, sorted by quality then name.
+ */
+export async function getFeaturedBeaches(): Promise<Array<Beach>> {
+  const allBeaches = await getAllBeaches()
+
+  // Filter to beaches with good photos
+  const withPhotos = allBeaches
+    .filter((b) => b.pictures && b.pictures.length > 0 && (b.pictureQualityScore ?? 0) >= 2)
+    .sort((a, b) => {
+      const scoreA = a.pictureQualityScore ?? 0
+      const scoreB = b.pictureQualityScore ?? 0
+      if (scoreB !== scoreA) return scoreB - scoreA
+      return a.name.localeCompare(b.name)
+    })
+
+  // Limit per municipality for geographic spread
+  const municipalityCounts = new Map<number, number>()
+  const featured: Array<Beach> = []
+
+  for (const beach of withPhotos) {
+    const count = municipalityCounts.get(beach.municipality) ?? 0
+    if (count >= 2) continue
+    municipalityCounts.set(beach.municipality, count + 1)
+    featured.push(beach)
+    if (featured.length >= 10) break
+  }
+
+  return featured
 }

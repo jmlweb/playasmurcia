@@ -67,7 +67,8 @@ export const Route = createRootRoute({
 })
 
 const navLinks = [
-  { to: '/' as const, label: 'Explorar', exact: true },
+  { to: '/' as const, label: 'Inicio', exact: true },
+  { to: '/explorar' as const, label: 'Explorar' },
   { to: '/municipios' as const, label: 'Municipios' },
   { to: '/colecciones' as const, label: 'Colecciones' },
   { to: '/mares' as const, label: 'Mares' },

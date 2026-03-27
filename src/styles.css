@@ -5,16 +5,16 @@
     "Segoe UI", Roboto, sans-serif;
 
   /* Coastal palette */
-  --color-ocean-50: #f0f9f6;
-  --color-ocean-100: #d5f0e8;
-  --color-ocean-200: #a8e0d0;
-  --color-ocean-300: #6ec9b3;
-  --color-ocean-400: #3baa91;
-  --color-ocean-500: #1e8a73;
-  --color-ocean-600: #166e5c;
-  --color-ocean-700: #13584a;
-  --color-ocean-800: #0f4339;
-  --color-ocean-900: #0a2e27;
+  --color-ocean-50: #f0f7fa;
+  --color-ocean-100: #d0eaf4;
+  --color-ocean-200: #a3d5e8;
+  --color-ocean-300: #5fb8d6;
+  --color-ocean-400: #2e9aba;
+  --color-ocean-500: #1a7d9e;
+  --color-ocean-600: #14637e;
+  --color-ocean-700: #104f65;
+  --color-ocean-800: #0c3c4d;
+  --color-ocean-900: #082935;
 
   --color-sand-50: #fefcf8;
   --color-sand-100: #fdf6eb;
@@ -68,6 +68,21 @@
 
   .animate-slide-in-left {
     animation: slide-in-left 0.2s ease-out;
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.6s ease-out both;
   }
 
   .scrollbar-hide::-webkit-scrollbar { display: none; }
