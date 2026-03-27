@@ -42,7 +42,7 @@ describe("generateBeachSchema", () => {
   }
 
   it("returns valid Schema.org structure with required fields", () => {
-    const schema = generateBeachSchema(mockBeach, mockMunicipality, mockServices)
+    const schema = generateBeachSchema(mockBeach, mockMunicipality, mockServices, 'cala-abierta')
 
     expect(schema["@context"]).toBe("https://schema.org")
     expect(schema["@type"]).toBe("Beach")
@@ -52,7 +52,7 @@ describe("generateBeachSchema", () => {
   })
 
   it("generates correct geo coordinates", () => {
-    const schema = generateBeachSchema(mockBeach, mockMunicipality, mockServices)
+    const schema = generateBeachSchema(mockBeach, mockMunicipality, mockServices, 'cala-abierta')
 
     expect(schema.geo).toEqual({
       "@type": "GeoCoordinates",
@@ -62,7 +62,7 @@ describe("generateBeachSchema", () => {
   })
 
   it("generates correct postal address", () => {
-    const schema = generateBeachSchema(mockBeach, mockMunicipality, mockServices)
+    const schema = generateBeachSchema(mockBeach, mockMunicipality, mockServices, 'cala-abierta')
 
     expect(schema.address).toEqual({
       "@type": "PostalAddress",
@@ -73,7 +73,7 @@ describe("generateBeachSchema", () => {
   })
 
   it("maps services to amenityFeature names correctly", () => {
-    const schema = generateBeachSchema(mockBeach, mockMunicipality, mockServices)
+    const schema = generateBeachSchema(mockBeach, mockMunicipality, mockServices, 'cala-abierta')
 
     expect(schema.amenityFeature).toEqual([
       { "@type": "LocationFeatureSpecification", name: "Parking", value: true },
@@ -92,6 +92,7 @@ describe("generateBeachSchema", () => {
       beachWithAllServices,
       mockMunicipality,
       mockServices,
+      'cala-abierta',
     )
 
     expect(schema.amenityFeature).toEqual([
@@ -132,7 +133,7 @@ describe("generateBeachSchema", () => {
   })
 
   it("falls back to description when metaDescription is missing", () => {
-    const schema = generateBeachSchema(mockBeach, mockMunicipality, mockServices)
+    const schema = generateBeachSchema(mockBeach, mockMunicipality, mockServices, 'cala-abierta')
 
     expect(schema.description).toBe("Una hermosa cala con arena gris.")
   })
@@ -147,6 +148,7 @@ describe("generateBeachSchema", () => {
       beachWithMetaDescription,
       mockMunicipality,
       mockServices,
+      'cala-abierta',
     )
 
     expect(schema.description).toBe("Meta description for SEO purposes.")
@@ -162,6 +164,7 @@ describe("generateBeachSchema", () => {
       beachWithoutServices,
       mockMunicipality,
       mockServices,
+      'cala-abierta',
     )
 
     expect(schema.amenityFeature).toEqual([])
@@ -177,6 +180,7 @@ describe("generateBeachSchema", () => {
       beachWithInvalidIndices,
       mockMunicipality,
       mockServices,
+      'cala-abierta',
     )
 
     expect(schema.amenityFeature).toEqual([
@@ -195,6 +199,7 @@ describe("generateBeachSchema", () => {
       beachWithNegativeCoords,
       mockMunicipality,
       mockServices,
+      'cala-abierta',
     )
 
     expect(schema.geo.latitude).toBe(-33.8688)
@@ -211,6 +216,7 @@ describe("generateBeachSchema", () => {
       beachWithSpecialChars,
       mockMunicipality,
       mockServices,
+      'cala-abierta',
     )
 
     expect(schema.name).toBe("Playa de Cañón Águilas")

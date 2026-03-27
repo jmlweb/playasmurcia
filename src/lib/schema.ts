@@ -1,4 +1,8 @@
-import type { Beach, Municipality, Service } from "@/types/beach"
+import type { Beach, Municipality, Service } from '@/types/beach'
+
+const SITE_URL = process.env.SITE_URL ?? 'https://www.playasmurcia.com'
+const PICTURES_BASE_URL =
+  'https://www.turismoregiondemurcia.es/webs/murciaturistica/fotos/1/playas/'
 
 export interface MunicipalitySchema {
   "@context": "https://schema.org"
@@ -29,14 +33,16 @@ interface LocationFeatureSpecification {
 }
 
 export interface BeachSchema {
-  "@context": "https://schema.org"
-  "@type": "Beach"
+  '@context': 'https://schema.org'
+  '@type': 'Beach'
   name: string
   description: string
+  url: string
   geo: GeoCoordinates
   address: PostalAddress
   amenityFeature: Array<LocationFeatureSpecification>
   isAccessibleForFree: boolean
+  image?: string
 }
 
 const SERVICE_TO_AMENITY: Record<string, string> = {
@@ -86,7 +92,7 @@ export function generateMunicipalitySchema(
       addressRegion: "Murcia",
       addressCountry: "ES",
     },
-    url: `https://www.playasmurcia.com/municipios/${slug}`,
+    url: `${SITE_URL}/municipios/${slug}`,
   }
 }
 
@@ -94,24 +100,31 @@ export function generateBeachSchema(
   beach: Beach,
   municipality: Municipality,
   services: Array<Service>,
+  slug: string,
 ): BeachSchema {
+  const pictures = beach.pictures ?? []
+  const firstImage =
+    pictures.length > 0 ? `${PICTURES_BASE_URL}${pictures[0]}` : undefined
+
   return {
-    "@context": "https://schema.org",
-    "@type": "Beach",
+    '@context': 'https://schema.org',
+    '@type': 'Beach',
     name: beach.name,
     description: beach.metaDescription ?? beach.description,
+    url: `${SITE_URL}/playas/${slug}`,
     geo: {
-      "@type": "GeoCoordinates",
+      '@type': 'GeoCoordinates',
       latitude: beach.coordinates[0],
       longitude: beach.coordinates[1],
     },
     address: {
-      "@type": "PostalAddress",
+      '@type': 'PostalAddress',
       addressLocality: municipality.name,
-      addressRegion: "Murcia",
-      addressCountry: "ES",
+      addressRegion: 'Murcia',
+      addressCountry: 'ES',
     },
     amenityFeature: mapServicesToAmenities(beach.services, services),
     isAccessibleForFree: true,
+    ...(firstImage && { image: firstImage }),
   }
 }

@@ -65,8 +65,9 @@ export const Route = createFileRoute('/playas/$slug')({
       return { meta: [{ title: 'Playa no encontrada' }] }
     }
     const { beach, municipality, services } = loaderData
+    const slug = beachToSlug(beach)
 
-    const schema = generateBeachSchema(beach, municipality, services)
+    const schema = generateBeachSchema(beach, municipality, services, slug)
 
     return {
       meta: [
