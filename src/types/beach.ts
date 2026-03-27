@@ -1,4 +1,4 @@
-export type Certification = "blue-flag" | "q-quality" | "ecoplayas"
+export type Certification = 'blue-flag' | 'q-quality' | 'ecoplayas'
 
 export interface Beach {
   code: string
@@ -19,12 +19,12 @@ export interface Beach {
   nearby: Array<string>
   orientation: string
   instagramHashtag: string
-  occupancyLevel?: "low" | "medium" | "high"
+  occupancyLevel?: 'low' | 'medium' | 'high'
   campingNearby?: boolean
   metaDescription?: string
   seoKeywords?: Array<string>
   certifications?: Array<Certification>
-  bestSeason?: Array<"spring" | "summer" | "autumn" | "winter">
+  bestSeason?: Array<'spring' | 'summer' | 'autumn' | 'winter'>
   district?: string
   phone?: string
   email?: string
@@ -33,6 +33,7 @@ export interface Beach {
   pictures?: Array<string>
   aemetId?: string
   length?: number
+  accessDifficulty?: 'easy' | 'moderate' | 'hard'
   tags?: Array<number>
 }
 

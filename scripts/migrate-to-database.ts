@@ -1,9 +1,9 @@
-import { readFileSync } from "node:fs"
-import { join } from "node:path"
-import { createClient } from "@libsql/client"
-import { drizzle } from "drizzle-orm/libsql"
-import { sql } from "drizzle-orm"
-import * as schema from "../src/db/schema"
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { createClient } from '@libsql/client'
+import { drizzle } from 'drizzle-orm/libsql'
+import { sql } from 'drizzle-orm'
+import * as schema from '../src/db/schema'
 
 type JsonBeach = {
   code: string
@@ -39,6 +39,7 @@ type JsonBeach = {
   waves?: string
   pictures?: Array<string>
   aemetId?: string
+  accessDifficulty?: string
 }
 
 type JsonMunicipality = {
@@ -69,8 +70,8 @@ type JsonTag = {
 }
 
 function loadJsonFile<T>(filename: string): T {
-  const filePath = join(process.cwd(), "data", filename)
-  const content = readFileSync(filePath, "utf-8")
+  const filePath = join(process.cwd(), 'data', filename)
+  const content = readFileSync(filePath, 'utf-8')
   return JSON.parse(content) as T
 }
 
@@ -80,27 +81,29 @@ function serializeArray(arr: Array<unknown> | undefined): string | undefined {
 }
 
 async function main() {
-  console.log("Starting migration...")
+  console.log('Starting migration...')
 
   // Initialize database client
-  const isProduction = process.env.NODE_ENV === "production"
+  const isProduction = process.env.NODE_ENV === 'production'
   const client = createClient({
     url: isProduction
       ? process.env.TURSO_DATABASE_URL!
-      : process.env.DATABASE_URL || "file:./local.db",
+      : process.env.DATABASE_URL || 'file:./local.db',
     authToken: isProduction ? process.env.TURSO_AUTH_TOKEN : undefined,
   })
   const db = drizzle(client, { schema })
 
   try {
     // Load all JSON files
-    console.log("\n📂 Loading JSON files...")
-    const municipalitiesData = loadJsonFile<Array<JsonMunicipality>>("municipalities.json")
-    const seasData = loadJsonFile<Array<JsonSea>>("seas.json")
-    const servicesData = loadJsonFile<Array<JsonService>>("services.json")
-    const activitiesData = loadJsonFile<Array<JsonActivity>>("activities.json")
-    const tagsData = loadJsonFile<Array<JsonTag>>("tags.json")
-    const beachesData = loadJsonFile<Array<JsonBeach>>("beaches.json")
+    console.log('\n📂 Loading JSON files...')
+    const municipalitiesData = loadJsonFile<Array<JsonMunicipality>>(
+      'municipalities.json',
+    )
+    const seasData = loadJsonFile<Array<JsonSea>>('seas.json')
+    const servicesData = loadJsonFile<Array<JsonService>>('services.json')
+    const activitiesData = loadJsonFile<Array<JsonActivity>>('activities.json')
+    const tagsData = loadJsonFile<Array<JsonTag>>('tags.json')
+    const beachesData = loadJsonFile<Array<JsonBeach>>('beaches.json')
 
     console.log(`  ✓ Loaded ${municipalitiesData.length} municipalities`)
     console.log(`  ✓ Loaded ${seasData.length} seas`)
@@ -110,7 +113,7 @@ async function main() {
     console.log(`  ✓ Loaded ${beachesData.length} beaches`)
 
     // Clear existing data (in reverse order of dependencies)
-    console.log("\n🗑️  Clearing existing data...")
+    console.log('\n🗑️  Clearing existing data...')
     await db.delete(schema.beachTags)
     await db.delete(schema.beachActivities)
     await db.delete(schema.beachServices)
@@ -120,13 +123,13 @@ async function main() {
     await db.delete(schema.services)
     await db.delete(schema.seas)
     await db.delete(schema.municipalities)
-    console.log("  ✓ Tables cleared")
+    console.log('  ✓ Tables cleared')
 
     // Reset autoincrement counters
     await db.run(sql`DELETE FROM sqlite_sequence`)
 
     // Insert municipalities
-    console.log("\n📍 Inserting municipalities...")
+    console.log('\n📍 Inserting municipalities...')
     const municipalityIdMap = new Map<number, number>()
     for (let i = 0; i < municipalitiesData.length; i++) {
       const mun = municipalitiesData[i]
@@ -143,7 +146,7 @@ async function main() {
     }
 
     // Insert seas
-    console.log("\n🌊 Inserting seas...")
+    console.log('\n🌊 Inserting seas...')
     const seaIdMap = new Map<number, number>()
     for (let i = 0; i < seasData.length; i++) {
       const sea = seasData[i]
@@ -160,7 +163,7 @@ async function main() {
     }
 
     // Insert services
-    console.log("\n🛟 Inserting services...")
+    console.log('\n🛟 Inserting services...')
     const serviceIdMap = new Map<number, number>()
     for (let i = 0; i < servicesData.length; i++) {
       const service = servicesData[i]
@@ -178,7 +181,7 @@ async function main() {
     }
 
     // Insert activities
-    console.log("\n🏄 Inserting activities...")
+    console.log('\n🏄 Inserting activities...')
     const activityIdMap = new Map<number, number>()
     for (let i = 0; i < activitiesData.length; i++) {
       const activity = activitiesData[i]
@@ -196,7 +199,7 @@ async function main() {
     }
 
     // Insert tags
-    console.log("\n🏷️  Inserting tags...")
+    console.log('\n🏷️  Inserting tags...')
     const tagIdMap = new Map<number, number>()
     for (let i = 0; i < tagsData.length; i++) {
       const tag = tagsData[i]
@@ -213,7 +216,7 @@ async function main() {
     }
 
     // Insert beaches
-    console.log("\n🏖️  Inserting beaches...")
+    console.log('\n🏖️  Inserting beaches...')
     const beachIdMap = new Map<string, number>()
 
     for (const beach of beachesData) {
@@ -221,10 +224,14 @@ async function main() {
       const seaId = seaIdMap.get(beach.sea)
 
       if (!municipalityId) {
-        throw new Error(`Municipality index ${beach.municipality} not found for beach ${beach.code}`)
+        throw new Error(
+          `Municipality index ${beach.municipality} not found for beach ${beach.code}`,
+        )
       }
       if (!seaId) {
-        throw new Error(`Sea index ${beach.sea} not found for beach ${beach.code}`)
+        throw new Error(
+          `Sea index ${beach.sea} not found for beach ${beach.code}`,
+        )
       }
 
       const result = await db
@@ -261,6 +268,7 @@ async function main() {
           pictures: serializeArray(beach.pictures) || null,
           aemetId: beach.aemetId || null,
           length: beach.length || null,
+          accessDifficulty: beach.accessDifficulty || null,
         })
         .returning({ id: schema.beaches.id })
 
@@ -269,7 +277,7 @@ async function main() {
     }
 
     // Insert beach-service relationships
-    console.log("\n🔗 Inserting beach-service relationships...")
+    console.log('\n🔗 Inserting beach-service relationships...')
     let serviceRelationCount = 0
     for (const beach of beachesData) {
       const beachId = beachIdMap.get(beach.code)
@@ -278,7 +286,9 @@ async function main() {
       for (const serviceIndex of beach.services) {
         const serviceId = serviceIdMap.get(serviceIndex)
         if (!serviceId) {
-          console.warn(`  ⚠️  Service index ${serviceIndex} not found for beach ${beach.code}`)
+          console.warn(
+            `  ⚠️  Service index ${serviceIndex} not found for beach ${beach.code}`,
+          )
           continue
         }
 
@@ -292,7 +302,7 @@ async function main() {
     console.log(`  ✓ Inserted ${serviceRelationCount} service relationships`)
 
     // Insert beach-activity relationships
-    console.log("\n🔗 Inserting beach-activity relationships...")
+    console.log('\n🔗 Inserting beach-activity relationships...')
     let activityRelationCount = 0
     for (const beach of beachesData) {
       const beachId = beachIdMap.get(beach.code)
@@ -301,7 +311,9 @@ async function main() {
       for (const activityIndex of beach.activities) {
         const activityId = activityIdMap.get(activityIndex)
         if (!activityId) {
-          console.warn(`  ⚠️  Activity index ${activityIndex} not found for beach ${beach.code}`)
+          console.warn(
+            `  ⚠️  Activity index ${activityIndex} not found for beach ${beach.code}`,
+          )
           continue
         }
 
@@ -315,7 +327,7 @@ async function main() {
     console.log(`  ✓ Inserted ${activityRelationCount} activity relationships`)
 
     // Insert beach-tag relationships
-    console.log("\n🔗 Inserting beach-tag relationships...")
+    console.log('\n🔗 Inserting beach-tag relationships...')
     let tagRelationCount = 0
     for (const beach of beachesData) {
       const beachId = beachIdMap.get(beach.code)
@@ -324,7 +336,9 @@ async function main() {
       for (const tagIndex of beach.tags) {
         const tagId = tagIdMap.get(tagIndex)
         if (!tagId) {
-          console.warn(`  ⚠️  Tag index ${tagIndex} not found for beach ${beach.code}`)
+          console.warn(
+            `  ⚠️  Tag index ${tagIndex} not found for beach ${beach.code}`,
+          )
           continue
         }
 
@@ -337,8 +351,8 @@ async function main() {
     }
     console.log(`  ✓ Inserted ${tagRelationCount} tag relationships`)
 
-    console.log("\n✨ Migration completed successfully!")
-    console.log("\n📊 Summary:")
+    console.log('\n✨ Migration completed successfully!')
+    console.log('\n📊 Summary:')
     console.log(`  - ${municipalitiesData.length} municipalities`)
     console.log(`  - ${seasData.length} seas`)
     console.log(`  - ${servicesData.length} services`)
@@ -349,7 +363,7 @@ async function main() {
     console.log(`  - ${activityRelationCount} beach-activity relationships`)
     console.log(`  - ${tagRelationCount} beach-tag relationships`)
   } catch (error) {
-    console.error("\n❌ Migration failed:", error)
+    console.error('\n❌ Migration failed:', error)
     throw error
   } finally {
     await client.close()

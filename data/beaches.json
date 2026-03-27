@@ -59,7 +59,8 @@
       "cartagena",
       "kayak"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "601",
@@ -124,7 +125,8 @@
       "relax",
       "mediterráneo"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "hard"
   },
   {
     "code": "516",
@@ -193,7 +195,8 @@
       "escapada familiar",
       "playas urbanas"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "easy"
   },
   {
     "code": "559",
@@ -259,7 +262,8 @@
       "región de murcia",
       "kayak"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "628",
@@ -328,7 +332,8 @@
       "aguas cristalinas",
       "relax en la playa",
       "actividades acuáticas"
-    ]
+    ],
+    "accessDifficulty": "hard"
   },
   {
     "code": "522",
@@ -389,7 +394,8 @@
       "escapada relajante",
       "cartagena"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "7050",
@@ -461,7 +467,8 @@
       "puerto pesquero",
       "región de murcia",
       "chiringuitos"
-    ]
+    ],
+    "accessDifficulty": "hard"
   },
   {
     "code": "658",
@@ -531,7 +538,8 @@
       "kayak",
       "relax"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "easy"
   },
   {
     "code": "512",
@@ -610,7 +618,8 @@
       "familia",
       "snorkel",
       "acceso accesible"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "663",
@@ -693,7 +702,8 @@
       "kayak",
       "snorkel",
       "vacaciones mediterráneo"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "551",
@@ -768,7 +778,8 @@
       "actividades acuáticas",
       "escapada relajante",
       "costa murciana"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "610",
@@ -840,7 +851,8 @@
       "puerto deportivo",
       "mar mediterráneo"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "easy"
   },
   {
     "code": "605",
@@ -914,7 +926,8 @@
       "mar mediterráneo",
       "verano"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "513",
@@ -984,7 +997,8 @@
       "snorkel",
       "verano murcia"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "easy"
   },
   {
     "code": "7053",
@@ -1051,7 +1065,8 @@
       "mar mediterráneo",
       "vacaciones en águilas",
       "kayak"
-    ]
+    ],
+    "accessDifficulty": "hard"
   },
   {
     "code": "631",
@@ -1125,7 +1140,8 @@
       "costa murciana",
       "relax",
       "vacaciones en familia"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "556",
@@ -1193,7 +1209,8 @@
       "relax playa",
       "escapada cartagena"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "626",
@@ -1265,7 +1282,8 @@
       "mar mediterráneo",
       "escapada tranquila",
       "actividades acuáticas"
-    ]
+    ],
+    "accessDifficulty": "moderate"
   },
   {
     "code": "567",
@@ -1336,7 +1354,8 @@
       "playa virgen",
       "región de murcia",
       "natación"
-    ]
+    ],
+    "accessDifficulty": "moderate"
   },
   {
     "code": "572",
@@ -1402,7 +1421,8 @@
       "actividades acuáticas",
       "paisaje mediterráneo"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "hard"
   },
   {
     "code": "577",
@@ -1481,7 +1501,8 @@
       "aguas cristalinas",
       "escapada familiar",
       "mar menor"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "571",
@@ -1547,7 +1568,8 @@
       "naturaleza murciana",
       "arena de roca"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "hard"
   },
   {
     "code": "552",
@@ -1618,7 +1640,8 @@
       "kayak",
       "región de murcia",
       "cala virgen"
-    ]
+    ],
+    "accessDifficulty": "hard"
   },
   {
     "code": "603",
@@ -1684,7 +1707,8 @@
       "pesca",
       "playas urbanas"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "554",
@@ -1755,7 +1779,8 @@
       "kayak",
       "pesca"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "easy"
   },
   {
     "code": "595",
@@ -1820,7 +1845,8 @@
       "actividades acuáticas",
       "turismo cartagena"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "579",
@@ -1894,7 +1920,8 @@
       "kayak",
       "relax",
       "sol"
-    ]
+    ],
+    "accessDifficulty": "moderate"
   },
   {
     "code": "630",
@@ -1964,7 +1991,8 @@
       "paisaje murciano",
       "natación",
       "actividades acuáticas"
-    ]
+    ],
+    "accessDifficulty": "hard"
   },
   {
     "code": "602",
@@ -2032,7 +2060,8 @@
       "mar mediterráneo",
       "escalerillas"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "629",
@@ -2098,7 +2127,8 @@
       "costa murciana",
       "kayak",
       "relax en la playa"
-    ]
+    ],
+    "accessDifficulty": "hard"
   },
   {
     "code": "517",
@@ -2162,7 +2192,8 @@
       "relax",
       "región de murcia"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "easy"
   },
   {
     "code": "558",
@@ -2226,7 +2257,8 @@
       "paisaje costero",
       "acceso natural"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "hard"
   },
   {
     "code": "678",
@@ -2297,7 +2329,8 @@
       "kayak",
       "vacaciones en águilas"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "574",
@@ -2368,7 +2401,8 @@
       "actividades acuáticas",
       "playa familiar"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "easy"
   },
   {
     "code": "553",
@@ -2438,7 +2472,8 @@
       "escapada a la playa",
       "región de murcia"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "easy"
   },
   {
     "code": "518",
@@ -2516,7 +2551,8 @@
       "kayak",
       "pesca"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "easy"
   },
   {
     "code": "523",
@@ -2585,7 +2621,8 @@
       "buceo",
       "arena roja"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "easy"
   },
   {
     "code": "510",
@@ -2657,7 +2694,8 @@
       "mar mediterráneo",
       "actividades náuticas"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "568",
@@ -2724,7 +2762,8 @@
       "relax",
       "playas urbanas"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "578",
@@ -2787,7 +2826,8 @@
       "kayak",
       "aguas cristalinas"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "689",
@@ -2864,7 +2904,8 @@
       "villas caravaning",
       "región de murcia",
       "actividades acuáticas"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "538",
@@ -2937,7 +2978,8 @@
       "familia",
       "costa murciana"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "586",
@@ -3009,7 +3051,8 @@
       "actividades acuáticas",
       "familia",
       "costa murciana"
-    ]
+    ],
+    "accessDifficulty": "moderate"
   },
   {
     "code": "615",
@@ -3087,7 +3130,8 @@
       "región de murcia",
       "verano"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "671",
@@ -3166,7 +3210,8 @@
       "familia",
       "sol mediterráneo"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "632",
@@ -3243,7 +3288,8 @@
       "arena grava",
       "región de murcia",
       "playas murcia"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "667",
@@ -3323,7 +3369,8 @@
       "actividades acuáticas",
       "familia",
       "playas murcia"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "639",
@@ -3396,7 +3443,8 @@
       "actividades acuáticas",
       "costa murciana",
       "naturaleza salvaje"
-    ]
+    ],
+    "accessDifficulty": "hard"
   },
   {
     "code": "655",
@@ -3463,7 +3511,8 @@
       "arena de bolos",
       "actividades acuáticas"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "642",
@@ -3536,7 +3585,8 @@
       "buceo",
       "playas nudistas",
       "playas virgenes"
-    ]
+    ],
+    "accessDifficulty": "hard"
   },
   {
     "code": "520",
@@ -3603,7 +3653,8 @@
       "kayak",
       "escapada tranquila"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "easy"
   },
   {
     "code": "569",
@@ -3675,7 +3726,8 @@
       "kayak",
       "paddle surf"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "592",
@@ -3749,7 +3801,8 @@
       "snorkel",
       "región de murcia"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "692",
@@ -3828,7 +3881,8 @@
       "paddle surf",
       "vacaciones familiares"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "687",
@@ -3911,7 +3965,8 @@
       "acceso accesible",
       "familia",
       "escapada playa"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "543",
@@ -3986,7 +4041,8 @@
       "recreativa",
       "cala serena"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "638",
@@ -4065,7 +4121,8 @@
       "arena fina",
       "vacaciones familiares",
       "actividades acuáticas"
-    ]
+    ],
+    "accessDifficulty": "moderate"
   },
   {
     "code": "643",
@@ -4138,7 +4195,8 @@
       "región de murcia",
       "días de sol",
       "aventura marina"
-    ]
+    ],
+    "accessDifficulty": "hard"
   },
   {
     "code": "526",
@@ -4209,7 +4267,8 @@
       "actividades acuáticas",
       "familia",
       "mar menor"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "662",
@@ -4284,7 +4343,8 @@
       "actividades náuticas",
       "región de murcia",
       "vacaciones en bahía"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "646",
@@ -4369,7 +4429,8 @@
       "acceso fácil",
       "familia",
       "escapada playa"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "548",
@@ -4436,7 +4497,8 @@
       "vacaciones enaguilas",
       "actividades náuticas"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "easy"
   },
   {
     "code": "593",
@@ -4511,7 +4573,8 @@
       "snorkel",
       "escapada tranquila"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "easy"
   },
   {
     "code": "679",
@@ -4592,7 +4655,8 @@
       "playa familiar",
       "acceso accesible"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "easy"
   },
   {
     "code": "590",
@@ -4670,7 +4734,8 @@
       "snorkel",
       "verano murcia",
       "calas salvajes"
-    ]
+    ],
+    "accessDifficulty": "moderate"
   },
   {
     "code": "668",
@@ -4751,7 +4816,8 @@
       "deportes acuáticos",
       "familia",
       "servicios playa"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "651",
@@ -4829,7 +4895,8 @@
       "vacaciones murcia",
       "actividades acuáticas",
       "cala virgen"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "675",
@@ -4917,7 +4984,8 @@
       "playa familiar",
       "arena dorada",
       "región de murcia"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "614",
@@ -4992,7 +5060,8 @@
       "snorkel",
       "arena media"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "654",
@@ -5072,7 +5141,8 @@
       "familia",
       "región de murcia",
       "bandera azul"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "634",
@@ -5144,7 +5214,8 @@
       "escapada familiar",
       "arena fina",
       "actividades acuáticas"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "581",
@@ -5223,7 +5294,8 @@
       "kayak",
       "región de murcia",
       "bandera azul"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "645",
@@ -5301,7 +5373,8 @@
       "snorkel",
       "familia",
       "aguas cristalinas"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "5253",
@@ -5368,7 +5441,8 @@
       "actividades acuáticas",
       "destino familiar"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "530",
@@ -5451,7 +5525,8 @@
       "mar menor",
       "actividades acuáticas"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "582",
@@ -5527,7 +5602,8 @@
       "mar mediterráneo",
       "actividades acuáticas"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "611",
@@ -5592,7 +5668,8 @@
       "kayak",
       "pesca"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "hard"
   },
   {
     "code": "613",
@@ -5663,7 +5740,8 @@
       "dunas",
       "verde"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "580",
@@ -5737,7 +5815,8 @@
       "escapada relajante",
       "actividades acuáticas"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "618",
@@ -5803,7 +5882,8 @@
       "día de sol",
       "aguas cristalinas"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "612",
@@ -5879,7 +5959,8 @@
       "familia",
       "mar mediterráneo"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "533",
@@ -5955,7 +6036,8 @@
       "actividades acuáticas",
       "vacaciones en familia"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "649",
@@ -6031,7 +6113,8 @@
       "familia",
       "sol murcia",
       "cala mediterránea"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "624",
@@ -6103,7 +6186,8 @@
       "playas salvajes",
       "mar mediterráneo"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "hard"
   },
   {
     "code": "607",
@@ -6183,7 +6267,8 @@
       "familia",
       "región de murcia",
       "actividades acuáticas"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "600",
@@ -6257,7 +6342,8 @@
       "arena grava",
       "costa mediterránea",
       "actividades acuáticas"
-    ]
+    ],
+    "accessDifficulty": "hard"
   },
   {
     "code": "625",
@@ -6327,7 +6413,8 @@
       "región de murcia",
       "cala familiar"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "680",
@@ -6403,7 +6490,8 @@
       "actividades náuticas",
       "familia",
       "región de murcia"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "545",
@@ -6475,7 +6563,8 @@
       "kayak",
       "pesca"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "665",
@@ -6550,7 +6639,8 @@
       "reserva natural",
       "cala accesible"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "544",
@@ -6614,7 +6704,8 @@
       "región de murcia",
       "playa tranquila"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "682",
@@ -6687,7 +6778,8 @@
       "relax",
       "acceso accesible"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "555",
@@ -6751,7 +6843,8 @@
       "mar mediterráneo",
       "entorno natural"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "hard"
   },
   {
     "code": "647",
@@ -6824,7 +6917,8 @@
       "kayak",
       "región de murcia",
       "vacaciones familiares"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "664",
@@ -6902,7 +6996,8 @@
       "familia",
       "paddle surf"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "653",
@@ -6973,7 +7068,8 @@
       "aguas cristalinas",
       "relax",
       "región de murcia"
-    ]
+    ],
+    "accessDifficulty": "moderate"
   },
   {
     "code": "622",
@@ -7039,7 +7135,8 @@
       "región de murcia",
       "escapada tranquila"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "648",
@@ -7114,7 +7211,8 @@
       "kayak",
       "familia",
       "costa murciana"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "546",
@@ -7187,7 +7285,8 @@
       "familia",
       "escapada tranquila"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "584",
@@ -7258,7 +7357,8 @@
       "actividades acuáticas",
       "costa murciana"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "637",
@@ -7323,7 +7423,8 @@
       "snorkel",
       "relax",
       "familia"
-    ]
+    ],
+    "accessDifficulty": "moderate"
   },
   {
     "code": "635",
@@ -7393,7 +7494,8 @@
       "snorkel",
       "región de murcia",
       "verano murcia"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "4894",
@@ -7465,7 +7567,8 @@
       "snorkel",
       "relax en la playa"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "534",
@@ -7542,7 +7645,8 @@
       "actividades acuáticas",
       "playa urbana"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "623",
@@ -7607,7 +7711,8 @@
       "kayak",
       "playa tranquila"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "hard"
   },
   {
     "code": "585",
@@ -7675,7 +7780,8 @@
       "arena gruesa",
       "verano murcia",
       "playas naturales"
-    ]
+    ],
+    "accessDifficulty": "moderate"
   },
   {
     "code": "693",
@@ -7754,7 +7860,8 @@
       "región de murcia",
       "bandera azul"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "525",
@@ -7830,7 +7937,8 @@
       "región de murcia",
       "cala urbana"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "528",
@@ -7901,7 +8009,8 @@
       "familia",
       "región de murcia"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "566",
@@ -7973,7 +8082,8 @@
       "arena media",
       "aguas cristalinas"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "576",
@@ -8045,7 +8155,8 @@
       "formación rocosa",
       "natación",
       "actividades acuáticas"
-    ]
+    ],
+    "accessDifficulty": "moderate"
   },
   {
     "code": "661",
@@ -8117,7 +8228,8 @@
       "familia",
       "acceso fácil"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "677",
@@ -8190,7 +8302,8 @@
       "familia",
       "días de playa",
       "región de murcia"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "676",
@@ -8269,7 +8382,8 @@
       "paddle surf",
       "familia",
       "región de murcia"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "683",
@@ -8349,7 +8463,8 @@
       "playa urbana",
       "aventura familiar"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "608",
@@ -8418,7 +8533,8 @@
       "bandera azul",
       "actividades acuáticas",
       "playas urbanas"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "644",
@@ -8483,7 +8599,8 @@
       "kayak",
       "relax playa",
       "ambiente tranquilo"
-    ]
+    ],
+    "accessDifficulty": "hard"
   },
   {
     "code": "596",
@@ -8565,7 +8682,8 @@
       "snorkel",
       "arena fina"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "564",
@@ -8637,7 +8755,8 @@
       "familia",
       "verano"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "560",
@@ -8707,7 +8826,8 @@
       "kayak",
       "región de murcia",
       "vacaciones en portmán"
-    ]
+    ],
+    "accessDifficulty": "moderate"
   },
   {
     "code": "681",
@@ -8785,7 +8905,8 @@
       "familia",
       "relax"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "617",
@@ -8854,7 +8975,8 @@
       "playa familiar",
       "arena grava"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "636",
@@ -8926,7 +9048,8 @@
       "arena gruesa",
       "región de murcia",
       "actividades marinas"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "686",
@@ -9001,7 +9124,8 @@
       "snorkel",
       "acceso para discapacitados"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "670",
@@ -9064,7 +9188,8 @@
       "escapada tranquila",
       "mar mediterráneo"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "641",
@@ -9133,7 +9258,8 @@
       "costa murciana",
       "arena grava",
       "área nudista"
-    ]
+    ],
+    "accessDifficulty": "hard"
   },
   {
     "code": "616",
@@ -9197,7 +9323,8 @@
       "pesca",
       "aguilas playa"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "588",
@@ -9268,7 +9395,8 @@
       "actividades acuáticas",
       "playa tranquila"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "519",
@@ -9338,7 +9466,8 @@
       "buceo",
       "kayak"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "690",
@@ -9414,7 +9543,8 @@
       "vacaciones familiares",
       "actividades agua salada"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "536",
@@ -9488,7 +9618,8 @@
       "relax",
       "mar mediterráneo"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "7051",
@@ -9558,7 +9689,8 @@
       "grava",
       "actividades acuáticas",
       "región de murcia"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "695",
@@ -9636,7 +9768,8 @@
       "región de murcia",
       "arena y grava"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "598",
@@ -9707,7 +9840,8 @@
       "actividades acuáticas",
       "playa con bandera azul"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "594",
@@ -9772,7 +9906,8 @@
       "región de murcia",
       "actividades náuticas"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "hard"
   },
   {
     "code": "565",
@@ -9834,7 +9969,8 @@
       "región de murcia",
       "enclave costero"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "hard"
   },
   {
     "code": "587",
@@ -9900,7 +10036,8 @@
       "kayak",
       "pesca"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "hard"
   },
   {
     "code": "650",
@@ -9977,7 +10114,8 @@
       "kayak",
       "familia",
       "verano murcia"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "7052",
@@ -10044,7 +10182,8 @@
       "arena grava",
       "playas salvajes",
       "actividades náuticas"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "5556",
@@ -10116,7 +10255,8 @@
       "kayak",
       "arena de grava",
       "vacaciones tranquilas"
-    ]
+    ],
+    "accessDifficulty": "hard"
   },
   {
     "code": "621",
@@ -10185,7 +10325,8 @@
       "playa urbana",
       "costa murciana"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "527",
@@ -10255,7 +10396,8 @@
       "actividades acuáticas",
       "destino familiar",
       "región de murcia"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "561",
@@ -10329,7 +10471,8 @@
       "paddle surf",
       "dunas suaves"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "532",
@@ -10395,7 +10538,8 @@
       "actividades acuáticas",
       "vacaciones familiares"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "604",
@@ -10475,7 +10619,8 @@
       "familia",
       "natación",
       "paddle surf"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "4893",
@@ -10553,7 +10698,8 @@
       "relax playa",
       "arena de bolos"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "540",
@@ -10628,7 +10774,8 @@
       "paddle surf",
       "región de murcia",
       "día de playa"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "666",
@@ -10701,7 +10848,8 @@
       "familia",
       "bandera azul"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "674",
@@ -10780,7 +10928,8 @@
       "acceso accesible",
       "actividades acuáticas"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "535",
@@ -10857,7 +11006,8 @@
       "familia",
       "mar menor",
       "deportes marítimos"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "606",
@@ -10932,7 +11082,8 @@
       "actividades acuáticas",
       "naturismo"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "hard"
   },
   {
     "code": "537",
@@ -11003,7 +11154,8 @@
       "costa murciana",
       "playas tranquilas"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "599",
@@ -11074,7 +11226,8 @@
       "actividades mar",
       "cala tranquila"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "5906",
@@ -11151,7 +11304,8 @@
       "snorkel",
       "región de murcia",
       "escapada tranquila"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "620",
@@ -11221,7 +11375,8 @@
       "actividades acuáticas",
       "costa murciana"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "562",
@@ -11303,7 +11458,8 @@
       "región de murcia",
       "cala urbana"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "511",
@@ -11369,7 +11525,8 @@
       "actividades acuáticas",
       "destino tranquilo"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "hard"
   },
   {
     "code": "591",
@@ -11450,7 +11607,8 @@
       "familia",
       "relax",
       "aguas cristalinas"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "688",
@@ -11528,7 +11686,8 @@
       "snorkel",
       "cala familiar"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "640",
@@ -11600,7 +11759,8 @@
       "playa nudista",
       "costa mediterránea",
       "actividades acuáticas"
-    ]
+    ],
+    "accessDifficulty": "hard"
   },
   {
     "code": "657",
@@ -11678,7 +11838,8 @@
       "región de murcia",
       "cala familiar"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "521",
@@ -11744,7 +11905,8 @@
       "destino tranquilo",
       "región de murcia"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "619",
@@ -11823,7 +11985,8 @@
       "snorkel",
       "playa urbana"
     ],
-    "waves": "SUAVE"
+    "waves": "SUAVE",
+    "accessDifficulty": "easy"
   },
   {
     "code": "524",
@@ -11892,7 +12055,8 @@
       "playas urbanas",
       "día de playa",
       "actividades acuáticas"
-    ]
+    ],
+    "accessDifficulty": "moderate"
   },
   {
     "code": "656",
@@ -11962,7 +12126,8 @@
       "arena media grava",
       "actividades acuáticas"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "589",
@@ -12037,7 +12202,8 @@
       "vacaciones familiares",
       "costa mediterránea"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "573",
@@ -12104,7 +12270,8 @@
       "actividades acuáticas",
       "pesca"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "597",
@@ -12170,7 +12337,8 @@
       "región de murcia",
       "arena gruesa"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "609",
@@ -12234,7 +12402,8 @@
       "kayak",
       "snorkel",
       "vacaciones familiares"
-    ]
+    ],
+    "accessDifficulty": "moderate"
   },
   {
     "code": "673",
@@ -12311,7 +12480,8 @@
       "paddle surf",
       "región de murcia"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "627",
@@ -12380,7 +12550,8 @@
       "arena media grava",
       "vacaciones tranquilas",
       "costa caribeña"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "5907",
@@ -12453,7 +12624,8 @@
       "snorkel",
       "kayak",
       "arena fina"
-    ]
+    ],
+    "accessDifficulty": "hard"
   },
   {
     "code": "515",
@@ -12518,7 +12690,8 @@
       "relax",
       "costa murciana"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "563",
@@ -12584,7 +12757,8 @@
       "actividades acuáticas",
       "arena dorada"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "541",
@@ -12655,7 +12829,8 @@
       "acceso fácil",
       "actividades acuáticas"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "660",
@@ -12734,7 +12909,8 @@
       "acceso accesible",
       "familia"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "539",
@@ -12805,7 +12981,8 @@
       "verano murcia",
       "costa murciana"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "684",
@@ -12875,7 +13052,8 @@
       "natación",
       "paddle surf",
       "acceso accesible"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "691",
@@ -12951,7 +13129,8 @@
       "vacaciones familiares",
       "cala tranquila"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "542",
@@ -13023,7 +13202,8 @@
       "familia",
       "relax"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "moderate"
   },
   {
     "code": "696",
@@ -13101,7 +13281,8 @@
       "región de murcia",
       "dunas"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "583",
@@ -13171,7 +13352,8 @@
       "actividades acuáticas",
       "playas cartagena"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "hard"
   },
   {
     "code": "652",
@@ -13248,7 +13430,8 @@
       "región de murcia",
       "aventura natural",
       "cala negra"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "514",
@@ -13313,7 +13496,8 @@
       "kayak",
       "paraíso natural"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "hard"
   },
   {
     "code": "529",
@@ -13390,7 +13574,8 @@
       "arena media",
       "vacaciones cartagena"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "6703",
@@ -13466,7 +13651,8 @@
       "kayak",
       "región de murcia",
       "cala virgen"
-    ]
+    ],
+    "accessDifficulty": "hard"
   },
   {
     "code": "633",
@@ -13540,7 +13726,8 @@
       "playas virgenes",
       "actividades acuáticas",
       "costa mediterránea"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "557",
@@ -13608,7 +13795,8 @@
       "relax",
       "costa mediterránea"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "hard"
   },
   {
     "code": "672",
@@ -13688,7 +13876,8 @@
       "aguas cristalinas",
       "familia",
       "escapada"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "570",
@@ -13758,7 +13947,8 @@
       "paddle surf",
       "mar menor",
       "actividades acuáticas"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "669",
@@ -13832,7 +14022,8 @@
       "mar menor",
       "acceso accesible",
       "actividades acuáticas"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "531",
@@ -13904,7 +14095,8 @@
       "familia",
       "actividades acuáticas"
     ],
-    "waves": "TRANQUILO"
+    "waves": "TRANQUILO",
+    "accessDifficulty": "easy"
   },
   {
     "code": "694",
@@ -13981,7 +14173,8 @@
       "actividades acuáticas",
       "ría de lorca",
       "playas murcia"
-    ]
+    ],
+    "accessDifficulty": "easy"
   },
   {
     "code": "685",
@@ -14057,6 +14250,7 @@
       "región de murcia",
       "actividades acuáticas"
     ],
-    "waves": "MODERADO"
+    "waves": "MODERADO",
+    "accessDifficulty": "easy"
   }
 ]

@@ -1,8 +1,16 @@
-import { eq, inArray } from "drizzle-orm"
-import type { Activity, Beach, Certification, Municipality, Sea, Service, Tag } from "@/types/beach"
+import { eq, inArray } from 'drizzle-orm'
+import type {
+  Activity,
+  Beach,
+  Certification,
+  Municipality,
+  Sea,
+  Service,
+  Tag,
+} from '@/types/beach'
 
-import { db } from "@/db/client"
-import * as schema from "@/db/schema"
+import { db } from '@/db/client'
+import * as schema from '@/db/schema'
 
 /**
  * Maps a database beach record with its relations to the Beach type
@@ -40,6 +48,7 @@ function mapBeachFromDB(dbBeach: {
   pictures: string | null
   aemetId: string | null
   length: number | null
+  accessDifficulty: string | null
   services: Array<{ serviceId: number }>
   activities: Array<{ activityId: number }>
   tags: Array<{ tagId: number }>
@@ -64,17 +73,25 @@ function mapBeachFromDB(dbBeach: {
     orientation: dbBeach.orientation,
     instagramHashtag: dbBeach.instagramHashtag,
     ...(dbBeach.occupancyLevel && {
-      occupancyLevel: dbBeach.occupancyLevel as "low" | "medium" | "high",
+      occupancyLevel: dbBeach.occupancyLevel as 'low' | 'medium' | 'high',
     }),
-    ...(dbBeach.campingNearby !== null && { campingNearby: dbBeach.campingNearby }),
-    ...(dbBeach.metaDescription && { metaDescription: dbBeach.metaDescription }),
-    ...(dbBeach.seoKeywords && { seoKeywords: JSON.parse(dbBeach.seoKeywords) }),
+    ...(dbBeach.campingNearby !== null && {
+      campingNearby: dbBeach.campingNearby,
+    }),
+    ...(dbBeach.metaDescription && {
+      metaDescription: dbBeach.metaDescription,
+    }),
+    ...(dbBeach.seoKeywords && {
+      seoKeywords: JSON.parse(dbBeach.seoKeywords),
+    }),
     ...(dbBeach.certifications && {
-      certifications: JSON.parse(dbBeach.certifications) as Array<Certification>,
+      certifications: JSON.parse(
+        dbBeach.certifications,
+      ) as Array<Certification>,
     }),
     ...(dbBeach.bestSeason && {
       bestSeason: JSON.parse(dbBeach.bestSeason) as Array<
-        "spring" | "summer" | "autumn" | "winter"
+        'spring' | 'summer' | 'autumn' | 'winter'
       >,
     }),
     ...(dbBeach.district && { district: dbBeach.district }),
@@ -85,6 +102,12 @@ function mapBeachFromDB(dbBeach: {
     ...(dbBeach.pictures && { pictures: JSON.parse(dbBeach.pictures) }),
     ...(dbBeach.aemetId && { aemetId: dbBeach.aemetId }),
     ...(dbBeach.length !== null && { length: dbBeach.length }),
+    ...(dbBeach.accessDifficulty && {
+      accessDifficulty: dbBeach.accessDifficulty as
+        | 'easy'
+        | 'moderate'
+        | 'hard',
+    }),
     ...(dbBeach.tags.length > 0 && {
       tags: dbBeach.tags.map((t) => t.tagId - 1), // Convert to 0-based index
     }),
@@ -137,9 +160,9 @@ export async function getBeachBySlug(slug: string): Promise<Beach | undefined> {
 export function beachToSlug(beach: Beach): string {
   return beach.name
     .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/\s+/g, "-")
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, '-')
 }
 
 /**
@@ -256,7 +279,9 @@ export async function getAllTags(): Promise<Array<Tag>> {
 /**
  * Retrieves multiple beaches by their codes (used for nearby beaches)
  */
-export async function getNearbyBeaches(codes: Array<string>): Promise<Array<Beach>> {
+export async function getNearbyBeaches(
+  codes: Array<string>,
+): Promise<Array<Beach>> {
   if (codes.length === 0) {
     return []
   }
@@ -279,9 +304,9 @@ export async function getNearbyBeaches(codes: Array<string>): Promise<Array<Beac
 export function municipalityToSlug(municipality: Municipality): string {
   return municipality.name
     .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/\s+/g, "-")
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, '-')
 }
 
 /**
@@ -299,7 +324,9 @@ export async function getMunicipalityBySlug(
 /**
  * Retrieves all beaches for a given municipality (0-based index)
  */
-export async function getBeachesByMunicipality(municipalityIndex: number): Promise<Array<Beach>> {
+export async function getBeachesByMunicipality(
+  municipalityIndex: number,
+): Promise<Array<Beach>> {
   const dbBeaches = await db.query.beaches.findMany({
     where: eq(schema.beaches.municipalityId, municipalityIndex + 1),
     with: { services: true, activities: true, tags: true },

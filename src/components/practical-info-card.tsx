@@ -1,22 +1,47 @@
 const OccupancyConfig = {
-  low: { label: "Baja", colorClass: "text-emerald-700 bg-emerald-50 ring-1 ring-emerald-200" },
-  medium: { label: "Media", colorClass: "text-amber-700 bg-amber-50 ring-1 ring-amber-200" },
-  high: { label: "Alta", colorClass: "text-rose-700 bg-rose-50 ring-1 ring-rose-200" },
+  low: {
+    label: 'Baja',
+    colorClass: 'text-emerald-700 bg-emerald-50 ring-1 ring-emerald-200',
+  },
+  medium: {
+    label: 'Media',
+    colorClass: 'text-amber-700 bg-amber-50 ring-1 ring-amber-200',
+  },
+  high: {
+    label: 'Alta',
+    colorClass: 'text-rose-700 bg-rose-50 ring-1 ring-rose-200',
+  },
+} as const
+
+const AccessDifficultyConfig = {
+  easy: {
+    label: 'Fácil',
+    colorClass: 'text-emerald-700 bg-emerald-50 ring-1 ring-emerald-200',
+  },
+  moderate: {
+    label: 'Moderado',
+    colorClass: 'text-amber-700 bg-amber-50 ring-1 ring-amber-200',
+  },
+  hard: {
+    label: 'Difícil',
+    colorClass: 'text-rose-700 bg-rose-50 ring-1 ring-rose-200',
+  },
 } as const
 
 const SeasonConfig = {
-  spring: "Primavera",
-  summer: "Verano",
-  autumn: "Otoño",
-  winter: "Invierno",
+  spring: 'Primavera',
+  summer: 'Verano',
+  autumn: 'Otoño',
+  winter: 'Invierno',
 } as const
 
 interface PracticalInfoCardProps {
   length?: number
   soilType?: string
   waves?: string
-  occupancyLevel?: "low" | "medium" | "high"
-  bestSeason?: Array<"spring" | "summer" | "autumn" | "winter">
+  occupancyLevel?: 'low' | 'medium' | 'high'
+  accessDifficulty?: 'easy' | 'moderate' | 'hard'
+  bestSeason?: Array<'spring' | 'summer' | 'autumn' | 'winter'>
   orientation?: string
 }
 
@@ -30,7 +55,9 @@ function InfoRow({ label, value, valueClass }: InfoRowProps) {
   return (
     <div className="flex items-start justify-between gap-4 border-b border-gray-100 py-3 last:border-0">
       <dt className="text-sm text-gray-500">{label}</dt>
-      <dd className={`text-right text-sm font-medium text-gray-900 ${valueClass ?? ""}`}>
+      <dd
+        className={`text-right text-sm font-medium text-gray-900 ${valueClass ?? ''}`}
+      >
         {value}
       </dd>
     </div>
@@ -42,10 +69,18 @@ export function PracticalInfoCard({
   soilType,
   waves,
   occupancyLevel,
+  accessDifficulty,
   bestSeason,
   orientation,
 }: PracticalInfoCardProps) {
-  const hasAnyInfo = length !== undefined || soilType || waves || occupancyLevel || bestSeason?.length || orientation
+  const hasAnyInfo =
+    length !== undefined ||
+    soilType ||
+    waves ||
+    occupancyLevel ||
+    accessDifficulty ||
+    bestSeason?.length ||
+    orientation
 
   if (!hasAnyInfo) {
     return null
@@ -56,19 +91,27 @@ export function PracticalInfoCard({
       className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm"
       aria-label="Informacion practica"
     >
-      <h2 className="mb-1 text-lg font-semibold text-gray-900">Informacion practica</h2>
+      <h2 className="mb-1 text-lg font-semibold text-gray-900">
+        Informacion practica
+      </h2>
       <dl>
         {length !== undefined && (
           <InfoRow label="Longitud" value={`${length} m`} />
         )}
-        {soilType && (
-          <InfoRow label="Tipo de suelo" value={soilType} />
-        )}
-        {waves && (
-          <InfoRow label="Oleaje" value={waves} />
-        )}
-        {orientation && (
-          <InfoRow label="Orientación" value={orientation} />
+        {soilType && <InfoRow label="Tipo de suelo" value={soilType} />}
+        {waves && <InfoRow label="Oleaje" value={waves} />}
+        {orientation && <InfoRow label="Orientación" value={orientation} />}
+        {accessDifficulty && (
+          <div className="flex items-start justify-between gap-4 border-b border-gray-100 py-3 last:border-0">
+            <dt className="text-sm text-gray-500">Dificultad de acceso</dt>
+            <dd>
+              <span
+                className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${AccessDifficultyConfig[accessDifficulty].colorClass}`}
+              >
+                {AccessDifficultyConfig[accessDifficulty].label}
+              </span>
+            </dd>
+          </div>
         )}
         {occupancyLevel && (
           <div className="flex items-start justify-between gap-4 border-b border-gray-100 py-3 last:border-0">
@@ -85,7 +128,7 @@ export function PracticalInfoCard({
         {bestSeason && bestSeason.length > 0 && (
           <InfoRow
             label="Mejor temporada"
-            value={bestSeason.map((s) => SeasonConfig[s]).join(", ")}
+            value={bestSeason.map((s) => SeasonConfig[s]).join(', ')}
           />
         )}
       </dl>
