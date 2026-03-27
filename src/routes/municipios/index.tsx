@@ -135,7 +135,7 @@ function MunicipiosPage() {
   return (
     <main className="min-h-screen bg-sand-50">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-ocean-800 px-4 py-16 sm:py-20">
+      <section className="relative overflow-hidden bg-ocean-800 px-4 py-20 sm:py-24 lg:py-28">
         <div className="absolute inset-0 bg-linear-to-br from-ocean-900 via-ocean-800 to-ocean-700" />
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/3 rounded-full bg-ocean-400 blur-3xl" />
@@ -154,7 +154,7 @@ function MunicipiosPage() {
       </section>
 
       {/* Content */}
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav className="mb-8 text-sm text-gray-500" aria-label="Ruta de navegacion">
           <a href="/" className="transition-colors hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:underline focus:outline-none">

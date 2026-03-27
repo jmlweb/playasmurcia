@@ -146,7 +146,7 @@ function HomePage() {
   return (
     <main className="min-h-screen bg-sand-50">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-ocean-800 px-4 py-16 sm:py-20">
+      <section className="relative overflow-hidden bg-ocean-800 px-4 py-20 sm:py-24 lg:py-28">
         <div className="absolute inset-0 bg-linear-to-br from-ocean-900 via-ocean-800 to-ocean-700" />
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 h-96 w-96 translate-x-1/3 -translate-y-1/3 rounded-full bg-ocean-400 blur-3xl" />
@@ -170,7 +170,7 @@ function HomePage() {
       </section>
 
       {/* Explorer */}
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="flex gap-10">
           {/* Sidebar filters (desktop) */}
           <aside className="hidden lg:block w-64 shrink-0">
