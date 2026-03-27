@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import type { Beach, Municipality, Service, Activity, Sea } from '@/types/beach'
 import {
   beachToSlug,
@@ -9,6 +9,11 @@ import {
   getAllServices,
   getBeachesByCodes,
 } from '@/lib/db-data'
+
+const OccupancyLabels: Record<string, string> = { low: 'Baja', medium: 'Media', high: 'Alta' }
+const AccessLabels: Record<string, string> = { easy: 'Fácil', moderate: 'Moderado', hard: 'Difícil' }
+const WaterQualityLabels: Record<string, string> = { excellent: 'Excelente', good: 'Buena', sufficient: 'Suficiente', poor: 'Insuficiente' }
+const SeasonLabels: Record<string, string> = { spring: 'Primavera', summer: 'Verano', autumn: 'Otoño', winter: 'Invierno' }
 
 interface CompareSearch {
   playas?: string
@@ -107,20 +112,18 @@ function CompararPage() {
     seas: Array<Sea>
   }
 
+  const navigate = useNavigate({ from: '/comparar' })
   const currentCodes = selected.map((b) => b.code)
 
   function addBeach(code: string) {
     if (currentCodes.length >= 3 || currentCodes.includes(code)) return
     const newCodes = [...currentCodes, code]
-    window.location.href = `/comparar?playas=${newCodes.join(',')}`
+    void navigate({ search: { playas: newCodes.join(',') }, replace: true })
   }
 
   function removeBeach(code: string) {
     const newCodes = currentCodes.filter((c) => c !== code)
-    window.location.href =
-      newCodes.length > 0
-        ? `/comparar?playas=${newCodes.join(',')}`
-        : '/comparar'
+    void navigate({ search: newCodes.length > 0 ? { playas: newCodes.join(',') } : {}, replace: true })
   }
 
   return (
@@ -228,9 +231,10 @@ function CompararPage() {
                           {beach.name}
                         </a>
                         <button
+                          type="button"
                           onClick={() => removeBeach(beach.code)}
-                          className="shrink-0 text-xs text-gray-500 hover:text-rose-500"
-                          title="Quitar"
+                          aria-label={`Quitar ${beach.name} de la comparacion`}
+                          className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs text-gray-500 transition-colors hover:bg-rose-50 hover:text-rose-500 focus:ring-2 focus:ring-rose-400 focus:outline-none"
                         >
                           ✗
                         </button>
@@ -281,7 +285,7 @@ function CompararPage() {
                 <CompareRow label="Ocupacion">
                   {selected.map((b) => (
                     <td key={b.code} className="p-4 text-sm text-gray-900">
-                      {b.occupancyLevel ?? '-'}
+                      {b.occupancyLevel ? OccupancyLabels[b.occupancyLevel] ?? b.occupancyLevel : '-'}
                     </td>
                   ))}
                 </CompareRow>
@@ -323,14 +327,14 @@ function CompararPage() {
                 <CompareRow label="Dificultad acceso">
                   {selected.map((b) => (
                     <td key={b.code} className="p-4 text-sm text-gray-900">
-                      {b.accessDifficulty ?? '-'}
+                      {b.accessDifficulty ? AccessLabels[b.accessDifficulty] ?? b.accessDifficulty : '-'}
                     </td>
                   ))}
                 </CompareRow>
                 <CompareRow label="Calidad agua">
                   {selected.map((b) => (
                     <td key={b.code} className="p-4 text-sm text-gray-900">
-                      {b.waterQuality ?? '-'}
+                      {b.waterQuality ? WaterQualityLabels[b.waterQuality] ?? b.waterQuality : '-'}
                     </td>
                   ))}
                 </CompareRow>
@@ -401,7 +405,7 @@ function CompararPage() {
                 <CompareRow label="Mejor temporada">
                   {selected.map((b) => (
                     <td key={b.code} className="p-4 text-sm text-gray-900">
-                      {b.bestSeason?.join(', ') ?? '-'}
+                      {b.bestSeason?.map((s) => SeasonLabels[s] ?? s).join(', ') ?? '-'}
                     </td>
                   ))}
                 </CompareRow>
