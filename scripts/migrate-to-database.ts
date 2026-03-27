@@ -42,6 +42,7 @@ type JsonBeach = {
   accessDifficulty?: string
   childSafe?: boolean
   naturalShade?: boolean
+  waterQuality?: string
 }
 
 type JsonMunicipality = {
@@ -273,6 +274,7 @@ async function main() {
           accessDifficulty: beach.accessDifficulty || null,
           childSafe: beach.childSafe ?? null,
           naturalShade: beach.naturalShade ?? null,
+          waterQuality: beach.waterQuality || null,
         })
         .returning({ id: schema.beaches.id })
 

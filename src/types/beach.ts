@@ -36,6 +36,7 @@ export interface Beach {
   accessDifficulty?: 'easy' | 'moderate' | 'hard'
   childSafe?: boolean
   naturalShade?: boolean
+  waterQuality?: 'excellent' | 'good' | 'sufficient' | 'poor'
   tags?: Array<number>
 }
 

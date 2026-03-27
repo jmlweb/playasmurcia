@@ -51,6 +51,7 @@ function mapBeachFromDB(dbBeach: {
   accessDifficulty: string | null
   childSafe: boolean | null
   naturalShade: boolean | null
+  waterQuality: string | null
   services: Array<{ serviceId: number }>
   activities: Array<{ activityId: number }>
   tags: Array<{ tagId: number }>
@@ -113,6 +114,13 @@ function mapBeachFromDB(dbBeach: {
     ...(dbBeach.childSafe !== null && { childSafe: dbBeach.childSafe }),
     ...(dbBeach.naturalShade !== null && {
       naturalShade: dbBeach.naturalShade,
+    }),
+    ...(dbBeach.waterQuality && {
+      waterQuality: dbBeach.waterQuality as
+        | 'excellent'
+        | 'good'
+        | 'sufficient'
+        | 'poor',
     }),
     ...(dbBeach.tags.length > 0 && {
       tags: dbBeach.tags.map((t) => t.tagId - 1), // Convert to 0-based index

@@ -2,9 +2,9 @@
 
 ## Quick Stats
 
-- **Pending**: 10 tasks
+- **Pending**: 9 tasks
 - **In Progress**: 2 tasks
-- **Completed**: 7 tasks
+- **Completed**: 8 tasks
 - **Blocked**: 0 tasks
 
 ## Current Focus
@@ -17,7 +17,6 @@
 |---|------|-------|----------|------------|
 | 002 | Configure Production Env | Infra | P1 - Active | - |
 | 003 | Deploy to Production | Infra | P1 - Active | - |
-| 007 | Add Water Quality | Data | P3 | - |
 | 008 | Generate Translations | Data | P3 | - |
 | 009 | AEMET Weather Widget | Frontend | P4 | #003 |
 | 010 | Beach Status 112 Widget | Frontend | P4 | #003 |
@@ -34,6 +33,7 @@
 
 | # | Task | Completed |
 |---|------|-----------|
+| 007 | Add Water Quality | 2026-03-27 |
 | 006 | Add Natural Shade | 2026-03-27 |
 | 005 | Add Child Safe | 2026-03-27 |
 | 004 | Add Access Difficulty | 2026-03-27 |

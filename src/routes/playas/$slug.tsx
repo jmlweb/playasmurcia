@@ -205,6 +205,7 @@ function BeachPage() {
               accessDifficulty={beach.accessDifficulty}
               childSafe={beach.childSafe}
               naturalShade={beach.naturalShade}
+              waterQuality={beach.waterQuality}
               bestSeason={beach.bestSeason}
               orientation={beach.orientation}
             />

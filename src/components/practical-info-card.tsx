@@ -28,6 +28,25 @@ const AccessDifficultyConfig = {
   },
 } as const
 
+const WaterQualityConfig = {
+  excellent: {
+    label: 'Excelente',
+    colorClass: 'text-blue-700 bg-blue-50 ring-1 ring-blue-200',
+  },
+  good: {
+    label: 'Buena',
+    colorClass: 'text-emerald-700 bg-emerald-50 ring-1 ring-emerald-200',
+  },
+  sufficient: {
+    label: 'Suficiente',
+    colorClass: 'text-amber-700 bg-amber-50 ring-1 ring-amber-200',
+  },
+  poor: {
+    label: 'Insuficiente',
+    colorClass: 'text-rose-700 bg-rose-50 ring-1 ring-rose-200',
+  },
+} as const
+
 const SeasonConfig = {
   spring: 'Primavera',
   summer: 'Verano',
@@ -43,6 +62,7 @@ interface PracticalInfoCardProps {
   accessDifficulty?: 'easy' | 'moderate' | 'hard'
   childSafe?: boolean
   naturalShade?: boolean
+  waterQuality?: 'excellent' | 'good' | 'sufficient' | 'poor'
   bestSeason?: Array<'spring' | 'summer' | 'autumn' | 'winter'>
   orientation?: string
 }
@@ -74,6 +94,7 @@ export function PracticalInfoCard({
   accessDifficulty,
   childSafe,
   naturalShade,
+  waterQuality,
   bestSeason,
   orientation,
 }: PracticalInfoCardProps) {
@@ -149,6 +170,18 @@ export function PracticalInfoCard({
                 className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${naturalShade ? 'text-emerald-700 bg-emerald-50 ring-1 ring-emerald-200' : 'text-gray-600 bg-gray-50 ring-1 ring-gray-200'}`}
               >
                 {naturalShade ? 'Si' : 'No'}
+              </span>
+            </dd>
+          </div>
+        )}
+        {waterQuality && (
+          <div className="flex items-start justify-between gap-4 border-b border-gray-100 py-3 last:border-0">
+            <dt className="text-sm text-gray-500">Calidad del agua</dt>
+            <dd>
+              <span
+                className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${WaterQualityConfig[waterQuality].colorClass}`}
+              >
+                {WaterQualityConfig[waterQuality].label}
               </span>
             </dd>
           </div>
