@@ -57,41 +57,40 @@ function MunicipalityPage() {
 
   return (
     <main className="min-h-screen bg-sand-50">
-      {/* Header */}
-      <div className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 pt-6 pb-8 sm:px-6 lg:px-8">
-          {/* Breadcrumb */}
-          <nav className="mb-5 text-sm text-gray-500" aria-label="Ruta de navegacion">
-            <a href="/" className="transition-colors hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:underline focus:outline-none">
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-ocean-800 px-4 py-12 sm:py-16">
+        <div className="absolute inset-0 bg-gradient-to-br from-ocean-900 via-ocean-800 to-ocean-700" />
+        <div className="relative mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <nav className="mb-5 text-sm text-ocean-300" aria-label="Ruta de navegacion">
+            <a href="/" className="transition-colors hover:text-white focus-visible:text-white focus-visible:underline focus:outline-none">
               Inicio
             </a>
-            <span className="mx-2" aria-hidden="true">/</span>
-            <a href="/municipios" className="transition-colors hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:underline focus:outline-none">
+            <span className="mx-2 text-ocean-500" aria-hidden="true">/</span>
+            <a href="/municipios" className="transition-colors hover:text-white focus-visible:text-white focus-visible:underline focus:outline-none">
               Municipios
             </a>
-            <span className="mx-2" aria-hidden="true">/</span>
-            <span className="text-gray-600" aria-current="page">{municipality.name}</span>
+            <span className="mx-2 text-ocean-500" aria-hidden="true">/</span>
+            <span className="text-white" aria-current="page">{municipality.name}</span>
           </nav>
 
-          <h1 className="mb-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
             Playas de {municipality.name}
           </h1>
 
-          {/* Stats row */}
-          <div className="flex flex-wrap gap-4 text-sm text-gray-500">
+          <div className="mt-3 flex flex-wrap gap-4 text-sm text-ocean-200">
             <span>
-              <strong className="font-semibold text-gray-900">{beaches.length}</strong>{" "}
+              <strong className="font-semibold text-white">{beaches.length}</strong>{" "}
               {beaches.length === 1 ? "playa" : "playas"}
             </span>
             {blueFlagCount > 0 && (
               <span>
-                <strong className="font-semibold text-ocean-700">{blueFlagCount}</strong>{" "}
+                <strong className="font-semibold text-ocean-300">{blueFlagCount}</strong>{" "}
                 {blueFlagCount === 1 ? "bandera azul" : "banderas azules"}
               </span>
             )}
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Beach grid */}
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -109,8 +108,14 @@ function MunicipalityPage() {
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-300 py-24 text-center">
-            <p className="text-lg font-semibold text-gray-900">
-              No hay playas registradas para este municipio
+            <svg className="mb-5 h-14 w-14 text-ocean-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <p className="mb-1 text-lg font-semibold text-gray-900">
+              No hay playas registradas
+            </p>
+            <p className="text-sm text-gray-500">
+              Este municipio no tiene playas catalogadas en nuestra base de datos.
             </p>
           </div>
         )}
