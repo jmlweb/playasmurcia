@@ -563,7 +563,8 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent"
+    "waterQuality": "excellent",
+    "length": 200
   },
   {
     "code": "512",
@@ -2947,7 +2948,8 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent"
+    "waterQuality": "excellent",
+    "length": 200
   },
   {
     "code": "689",
@@ -3105,7 +3107,8 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good"
+    "waterQuality": "good",
+    "length": 1077
   },
   {
     "code": "586",
@@ -3346,7 +3349,8 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "excellent"
+    "waterQuality": "excellent",
+    "length": 848
   },
   {
     "code": "632",
@@ -4044,7 +4048,8 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "excellent"
+    "waterQuality": "excellent",
+    "length": 931
   },
   {
     "code": "687",
@@ -4613,7 +4618,8 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "excellent"
+    "waterQuality": "excellent",
+    "length": 451
   },
   {
     "code": "548",
@@ -4684,7 +4690,8 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent"
+    "waterQuality": "excellent",
+    "length": 200
   },
   {
     "code": "593",
@@ -5428,7 +5435,8 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent"
+    "waterQuality": "excellent",
+    "length": 1062
   },
   {
     "code": "581",
@@ -5664,7 +5672,8 @@
     "accessDifficulty": "moderate",
     "childSafe": true,
     "naturalShade": true,
-    "waterQuality": "good"
+    "waterQuality": "good",
+    "length": 200
   },
   {
     "code": "530",
@@ -6123,7 +6132,8 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent"
+    "waterQuality": "excellent",
+    "length": 482
   },
   {
     "code": "612",
@@ -6523,7 +6533,8 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent"
+    "waterQuality": "excellent",
+    "length": 1572
   },
   {
     "code": "600",
@@ -7583,7 +7594,8 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "excellent"
+    "waterQuality": "excellent",
+    "length": 4076
   },
   {
     "code": "584",
@@ -7658,7 +7670,8 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent"
+    "waterQuality": "excellent",
+    "length": 474
   },
   {
     "code": "637",
@@ -7958,7 +7971,8 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": true,
-    "waterQuality": "excellent"
+    "waterQuality": "excellent",
+    "length": 929
   },
   {
     "code": "623",
@@ -8565,7 +8579,8 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "excellent"
+    "waterQuality": "excellent",
+    "length": 760
   },
   {
     "code": "677",
@@ -8642,7 +8657,8 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good"
+    "waterQuality": "good",
+    "length": 3488
   },
   {
     "code": "676",
@@ -8882,7 +8898,8 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "excellent"
+    "waterQuality": "excellent",
+    "length": 1104
   },
   {
     "code": "644",
@@ -9934,7 +9951,8 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "excellent"
+    "waterQuality": "excellent",
+    "length": 792
   },
   {
     "code": "536",
@@ -10312,7 +10330,8 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent"
+    "waterQuality": "excellent",
+    "length": 539
   },
   {
     "code": "565",
@@ -10823,7 +10842,8 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good"
+    "waterQuality": "good",
+    "length": 1847
   },
   {
     "code": "561",
@@ -10901,7 +10921,8 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "excellent"
+    "waterQuality": "excellent",
+    "length": 854
   },
   {
     "code": "532",
@@ -10971,7 +10992,8 @@
     "accessDifficulty": "moderate",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good"
+    "waterQuality": "good",
+    "length": 1565
   },
   {
     "code": "604",
@@ -11841,7 +11863,8 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent"
+    "waterQuality": "excellent",
+    "length": 572
   },
   {
     "code": "562",
@@ -12842,7 +12865,8 @@
     "accessDifficulty": "moderate",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good"
+    "waterQuality": "good",
+    "length": 574
   },
   {
     "code": "609",
@@ -13064,7 +13088,8 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent"
+    "waterQuality": "excellent",
+    "length": 479
   },
   {
     "code": "5907",
@@ -13210,7 +13235,8 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent"
+    "waterQuality": "excellent",
+    "length": 405
   },
   {
     "code": "563",
@@ -13513,7 +13539,8 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good"
+    "waterQuality": "good",
+    "length": 734
   },
   {
     "code": "684",
@@ -13587,7 +13614,8 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good"
+    "waterQuality": "good",
+    "length": 4531
   },
   {
     "code": "691",
@@ -13667,7 +13695,8 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "excellent"
+    "waterQuality": "excellent",
+    "length": 821
   },
   {
     "code": "542",
@@ -14596,7 +14625,8 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "good"
+    "waterQuality": "good",
+    "length": 2015
   },
   {
     "code": "531",

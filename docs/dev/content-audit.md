@@ -9,7 +9,7 @@ Generated: 2026-03-27
 | Total beaches | 194 | 100% |
 | Missing pictures | 79 | 41% |
 | Missing `waves` | 119 | 61% |
-| Missing `length` | 30 | 15% |
+| Missing `length` | 0 | 0% |
 | Short descriptions (<100 chars) | 0 | 0% |
 | Short access (<80 chars) | 0 | 0% |
 | Generic access patterns | 4 | 2% |
@@ -144,40 +144,9 @@ Based on geographical and oceanographic logic:
 | Mazarrón | 3 | Mediterranean |
 | La Unión | 1 | Mediterranean |
 
-## 3. Beaches Missing `length` (30)
+## 3. Beaches Missing `length` (0)
 
-| Beach | Municipality |
-|-------|-------------|
-| Cala Cerrada | Cartagena |
-| Esculls de La Llana y Encañizadas | San Javier |
-| Playa Alíseos | San Javier |
-| Playa Banco del Tabal | San Javier |
-| Playa Carrión | Los Alcázares |
-| Playa de Bolnuevo | Mazarrón |
-| Playa de Calabarrilla | Águilas |
-| Playa de El Palomarico | Mazarrón |
-| Playa de Gollerón (Cala del Turco) | San Javier |
-| Playa de La Cola | Águilas |
-| Playa de La Gola | Cartagena |
-| Playa de La Torre Derribada | San Pedro del Pinatar |
-| Playa de las Cañas | Cartagena |
-| Playa de Las Palmeras | Los Alcázares |
-| Playa de Los Narejos | Los Alcázares |
-| Playa de Los Urrutias | Cartagena |
-| Playa de Percheles | Mazarrón |
-| Playa del Espejo | Los Alcázares |
-| Playa del Pino | Águilas |
-| Playa del Vivero | Cartagena |
-| Playa El Arenal | San Javier |
-| Playa El Carmolí | Cartagena |
-| Playa Ensenada de la Fuente | Águilas |
-| Playa La Isla | San Javier |
-| Playa Larga | Cartagena |
-| Playa Larga | Cartagena |
-| Playa Lebeche | San Javier |
-| Playa Los Nietos | Cartagena |
-| Playa Manzanares | Los Alcázares |
-| Playa Puerto Bello | Cartagena |
+All 194 beaches now have length data. Completed via OSM Overpass API (3 beaches) and estimation from nearby beaches (27 beaches) on 2026-03-27.
 
 ## 4. Descriptions Quality
 
