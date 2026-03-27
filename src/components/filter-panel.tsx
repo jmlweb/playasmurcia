@@ -28,7 +28,7 @@ function FilterGroup({ label, children, activeCount }: FilterGroupProps) {
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="flex w-full items-center justify-between py-3.5 text-left text-sm font-medium text-gray-800 transition-colors hover:text-ocean-600 focus:outline-none"
+        className="flex w-full items-center justify-between py-3.5 text-left text-sm font-medium text-gray-800 transition-colors hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:rounded focus:outline-none"
         aria-expanded={isOpen}
       >
         <span className="flex items-center gap-2">

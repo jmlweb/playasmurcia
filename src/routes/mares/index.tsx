@@ -174,7 +174,7 @@ function MaresPage() {
 
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <nav className="mb-8 text-sm text-gray-500" aria-label="Ruta de navegacion">
-          <a href="/" className="hover:text-ocean-600 transition-colors focus:outline-none">
+          <a href="/" className="transition-colors hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:underline focus:outline-none">
             Inicio
           </a>
           <span className="mx-2" aria-hidden="true">/</span>

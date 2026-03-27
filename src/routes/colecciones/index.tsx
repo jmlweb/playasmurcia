@@ -100,7 +100,7 @@ function ColeccionesPage() {
         >
           <a
             href="/"
-            className="hover:text-ocean-600 transition-colors focus:outline-none"
+            className="transition-colors hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:underline focus:outline-none"
           >
             Inicio
           </a>

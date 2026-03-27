@@ -62,11 +62,11 @@ function MunicipalityPage() {
         <div className="mx-auto max-w-7xl px-4 pt-6 pb-8 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
           <nav className="mb-5 text-sm text-gray-500" aria-label="Ruta de navegacion">
-            <a href="/" className="transition-colors hover:text-ocean-600 focus:outline-none">
+            <a href="/" className="transition-colors hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:underline focus:outline-none">
               Inicio
             </a>
             <span className="mx-2" aria-hidden="true">/</span>
-            <a href="/municipios" className="transition-colors hover:text-ocean-600 focus:outline-none">
+            <a href="/municipios" className="transition-colors hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:underline focus:outline-none">
               Municipios
             </a>
             <span className="mx-2" aria-hidden="true">/</span>
