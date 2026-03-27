@@ -2,7 +2,7 @@
 
 ## Quick Stats
 
-- **Pending**: 2 tasks
+- **Pending**: 3 tasks
 - **In Progress**: 2 tasks
 - **Completed**: 15 tasks
 - **Blocked**: 0 tasks
@@ -21,6 +21,7 @@
 | 010 | Beach Status 112 Widget | Frontend | P4 | #003 |
 | 017 | Source Missing Beach Pictures | Content | P2 - Next | - |
 | 021 | Add Missing Contact Info | Data | P3 | - |
+| 022 | UI Low-Impact Polish | UI | P3 | - |
 
 ## Recently Completed
 
