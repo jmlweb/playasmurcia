@@ -172,22 +172,6 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-ocean-900 text-ocean-200">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <div>
-              <p className="text-sm font-semibold text-white">Playas de Murcia</p>
-              <p className="mt-1 text-xs text-ocean-300">
-                Guia de las {totalBeaches} playas del litoral murciano
-              </p>
-            </div>
-            <p className="text-xs text-ocean-400">
-              Datos del Ministerio de Transicion Ecologica
-            </p>
-          </div>
-        </div>
-      </footer>
     </main>
   )
 }

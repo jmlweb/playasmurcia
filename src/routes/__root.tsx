@@ -11,6 +11,7 @@ import { TanStackDevtools } from '@tanstack/react-devtools'
 import { useEffect, useRef, useState } from 'react'
 
 import appCss from '../styles.css?url'
+import { SiteFooter } from '@/components/site-footer'
 
 interface NavMunicipality {
   name: string
@@ -405,6 +406,8 @@ function Navbar() {
 }
 
 function RootComponent() {
+  const navData = Route.useLoaderData()
+
   return (
     <html lang="es">
       <head>
@@ -421,6 +424,10 @@ function RootComponent() {
         <div id="main-content">
           <Outlet />
         </div>
+        <SiteFooter
+          municipalities={navData.municipalities}
+          characteristics={navData.characteristics}
+        />
         {import.meta.env.DEV && (
           <TanStackDevtools
             config={{
