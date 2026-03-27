@@ -87,6 +87,7 @@ TanStack Router with file-based routing in `src/routes/`:
 | `/municipios/:slug` | `municipios/$slug.tsx` | Municipality beaches |
 | `/colecciones` | `colecciones/index.tsx` | Thematic collection index |
 | `/colecciones/:slug` | `colecciones/$slug.tsx` | Collection detail page |
+| `/mares` | `mares/index.tsx` | Mediterranean vs Mar Menor comparison |
 
 Root layout in `__root.tsx` provides HTML structure, meta tags, and global CSS.
 

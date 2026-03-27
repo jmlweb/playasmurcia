@@ -87,6 +87,18 @@ function Navbar() {
           >
             Municipios
           </a>
+          <a
+            href="/colecciones"
+            className="text-sm font-medium text-ocean-200 transition-colors hover:text-white"
+          >
+            Colecciones
+          </a>
+          <a
+            href="/mares"
+            className="text-sm font-medium text-ocean-200 transition-colors hover:text-white"
+          >
+            Mares
+          </a>
         </div>
       </div>
     </nav>

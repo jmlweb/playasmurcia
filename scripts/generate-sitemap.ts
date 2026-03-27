@@ -2,6 +2,7 @@ import { writeFileSync } from "node:fs"
 import { resolve } from "node:path"
 
 import { beachToSlug, getAllBeaches, getAllMunicipalities, municipalityToSlug } from "../src/lib/db-data"
+import { collections } from "../src/lib/collections"
 
 const BASE_URL = "https://www.playasmurcia.com"
 
@@ -25,6 +26,26 @@ async function generateSitemap() {
     ...municipalities.map(
       (municipality) => `  <url>
     <loc>${BASE_URL}/municipios/${municipalityToSlug(municipality)}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`
+    ),
+    `  <url>
+    <loc>${BASE_URL}/mares</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`,
+    `  <url>
+    <loc>${BASE_URL}/colecciones</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`,
+    ...collections.map(
+      (collection) => `  <url>
+    <loc>${BASE_URL}/colecciones/${collection.slug}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
