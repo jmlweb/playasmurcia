@@ -2,14 +2,14 @@
 
 ## Quick Stats
 
-- **Pending**: 3 tasks
+- **Pending**: 2 tasks
 - **In Progress**: 0 tasks
-- **Completed**: 22 tasks
+- **Completed**: 23 tasks
 - **Blocked**: 0 tasks
 
 ## Current Focus
 
-> No active task. Next up: Task #010 (Beach Status 112 Widget)
+> No active task. Remaining: #017 (skipped - manual research), #021 (skipped - manual research)
 
 ## Backlog
 
@@ -17,12 +17,12 @@
 |---|------|-------|----------|------------|
 | 017 | Source Missing Beach Pictures | Content | P2 - Next | - |
 | 021 | Add Missing Contact Info | Data | P3 | - |
-| 010 | Beach Status 112 Widget | Frontend | P4 | - |
 
 ## Recently Completed
 
 | # | Task | Completed |
 |---|------|-----------|
+| 010 | Beach Status 112 Widget | 2026-03-27 |
 | 009 | AEMET Weather Widget | 2026-03-27 |
 | 022 | UI Low-Impact Polish | 2026-03-27 |
 | 025 | Rich Navigable Footer | 2026-03-27 |
