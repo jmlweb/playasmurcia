@@ -2,9 +2,9 @@
 
 ## Quick Stats
 
-- **Pending**: 3 tasks
+- **Pending**: 2 tasks
 - **In Progress**: 2 tasks
-- **Completed**: 14 tasks
+- **Completed**: 15 tasks
 - **Blocked**: 0 tasks
 
 ## Current Focus
@@ -17,7 +17,6 @@
 |---|------|-------|----------|------------|
 | 002 | Configure Production Env | Infra | P1 - Active | - |
 | 003 | Deploy to Production | Infra | P1 - Active | - |
-| 008 | Generate Translations | Data | P3 | - |
 | 009 | AEMET Weather Widget | Frontend | P4 | #003 |
 | 010 | Beach Status 112 Widget | Frontend | P4 | #003 |
 | 017 | Source Missing Beach Pictures | Content | P2 - Next | - |
@@ -27,6 +26,7 @@
 
 | # | Task | Completed |
 |---|------|-----------|
+| 008 | Generate Translations | 2026-03-27 |
 | 016 | Beach Comparator Tool | 2026-03-27 |
 | 015 | Mediterranean vs Mar Menor | 2026-03-27 |
 | 014 | Thematic Beach Collections | 2026-03-27 |

@@ -71,6 +71,7 @@ interface Beach {
   childSafe?: boolean       // Safe for young children (~38% true)
   naturalShade?: boolean    // Has natural shade from cliffs/trees (~29% true)
   waterQuality?: "excellent" | "good" | "sufficient" | "poor"  // Water quality rating
+  translations?: { en: { description: string }, fr: { description: string }, de: { description: string } }
   tags?: number[]           // Indices into tags.json
 }
 ```
