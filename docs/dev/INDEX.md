@@ -2,9 +2,9 @@
 
 ## Quick Stats
 
-- **Pending**: 6 tasks
+- **Pending**: 5 tasks
 - **In Progress**: 2 tasks
-- **Completed**: 11 tasks
+- **Completed**: 12 tasks
 - **Blocked**: 0 tasks
 
 ## Current Focus
@@ -20,7 +20,6 @@
 | 008 | Generate Translations | Data | P3 | - |
 | 009 | AEMET Weather Widget | Frontend | P4 | #003 |
 | 010 | Beach Status 112 Widget | Frontend | P4 | #003 |
-| 014 | Thematic Beach Collections | Frontend | P2 - Next | #012 |
 | 015 | Mediterranean vs Mar Menor Page | Frontend | P3 | - |
 | 016 | Beach Comparator Tool | Frontend | P3 | #011 |
 | 017 | Source Missing Beach Pictures | Content | P2 - Next | - |
@@ -30,6 +29,7 @@
 
 | # | Task | Completed |
 |---|------|-----------|
+| 014 | Thematic Beach Collections | 2026-03-27 |
 | 020 | Improve Schema.org Markup | 2026-03-27 |
 | 019 | Enrich SEO Keywords | 2026-03-27 |
 | 018 | Complete Missing Beach Lengths | 2026-03-27 |

@@ -81,8 +81,12 @@ TanStack Router with file-based routing in `src/routes/`:
 
 | Route | File | Description |
 |-------|------|-------------|
-| `/` | `index.tsx` | Home page |
+| `/` | `index.tsx` | Home page with search and filters |
 | `/playas/:slug` | `playas/$slug.tsx` | Beach detail page |
+| `/municipios` | `municipios/index.tsx` | Municipality index |
+| `/municipios/:slug` | `municipios/$slug.tsx` | Municipality beaches |
+| `/colecciones` | `colecciones/index.tsx` | Thematic collection index |
+| `/colecciones/:slug` | `colecciones/$slug.tsx` | Collection detail page |
 
 Root layout in `__root.tsx` provides HTML structure, meta tags, and global CSS.
 
