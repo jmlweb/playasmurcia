@@ -90,7 +90,7 @@ function MunicipalityCard({
         <h2 className="mb-1 text-xl font-semibold text-gray-900 transition-colors group-hover:text-ocean-600">
           {stats.municipality.name}
         </h2>
-        <div className="mb-4 flex flex-wrap gap-3 text-sm text-gray-400">
+        <div className="mb-4 flex flex-wrap gap-3 text-sm text-gray-500">
           <span>
             <strong className="font-semibold text-gray-900">{stats.beachCount}</strong>{" "}
             {stats.beachCount === 1 ? "playa" : "playas"}
@@ -156,7 +156,7 @@ function MunicipiosPage() {
       {/* Content */}
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
-        <nav className="mb-8 text-sm text-gray-400" aria-label="Ruta de navegacion">
+        <nav className="mb-8 text-sm text-gray-500" aria-label="Ruta de navegacion">
           <a href="/" className="transition-colors hover:text-ocean-600 focus:outline-none">
             Inicio
           </a>

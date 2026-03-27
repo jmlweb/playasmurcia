@@ -36,7 +36,7 @@ export function SearchBar({ value, onChange, placeholder = "Buscar playa..." }: 
       <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
         <svg
           aria-hidden="true"
-          className="h-5 w-5 text-gray-400"
+          className="h-5 w-5 text-gray-500"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -62,7 +62,7 @@ export function SearchBar({ value, onChange, placeholder = "Buscar playa..." }: 
           type="button"
           onClick={handleClear}
           aria-label="Limpiar búsqueda"
-          className="absolute inset-y-0 right-0 flex cursor-pointer items-center pr-3 text-gray-400 hover:text-gray-600"
+          className="absolute inset-y-0 right-0 flex cursor-pointer items-center pr-3 text-gray-500 hover:text-gray-600"
         >
           <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path

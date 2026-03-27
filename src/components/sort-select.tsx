@@ -19,7 +19,7 @@ interface SortSelectProps {
 export function SortSelect({ value, onChange }: SortSelectProps) {
   return (
     <div className="flex items-center gap-2">
-      <label htmlFor="sort-select" className="text-sm text-gray-400 whitespace-nowrap">
+      <label htmlFor="sort-select" className="text-sm text-gray-500 whitespace-nowrap">
         Ordenar por
       </label>
       <select

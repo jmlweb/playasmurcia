@@ -103,7 +103,7 @@ function BeachPage() {
       <div className="bg-white">
         <div className="mx-auto max-w-7xl px-4 pt-6 pb-4 sm:px-6 lg:px-8">
           <nav
-            className="mb-5 text-sm text-gray-400"
+            className="mb-5 text-sm text-gray-500"
             aria-label="Ruta de navegacion"
           >
             <a
@@ -125,7 +125,7 @@ function BeachPage() {
               <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                 {beach.name}
               </h1>
-              <p className="mt-1.5 text-lg text-gray-400">
+              <p className="mt-1.5 text-lg text-gray-500">
                 {municipality.name}
               </p>
             </div>

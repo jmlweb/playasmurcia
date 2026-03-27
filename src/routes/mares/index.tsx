@@ -117,7 +117,7 @@ function SeaCard({ stats }: { stats: SeaStats }) {
 
       {info?.highlights && (
         <div className="mb-6">
-          <h3 className="mb-2 text-sm font-semibold uppercase tracking-wider text-gray-400">
+          <h3 className="mb-2 text-sm font-semibold uppercase tracking-wider text-gray-500">
             Caracteristicas
           </h3>
           <ul className="space-y-2">
@@ -132,7 +132,7 @@ function SeaCard({ stats }: { stats: SeaStats }) {
       )}
 
       <div className="flex items-center justify-between border-t border-gray-100 pt-4">
-        <span className="text-sm text-gray-400">
+        <span className="text-sm text-gray-500">
           Riesgo medusas:{' '}
           <span className={`font-medium ${stats.sea.jellyfishRisk === 'low' ? 'text-emerald-600' : 'text-amber-600'}`}>
             {stats.sea.jellyfishRisk === 'low' ? 'Bajo' : 'Moderado'}
@@ -173,7 +173,7 @@ function MaresPage() {
       </section>
 
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <nav className="mb-8 text-sm text-gray-400" aria-label="Ruta de navegacion">
+        <nav className="mb-8 text-sm text-gray-500" aria-label="Ruta de navegacion">
           <a href="/" className="hover:text-ocean-600 transition-colors focus:outline-none">
             Inicio
           </a>

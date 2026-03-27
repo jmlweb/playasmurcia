@@ -271,11 +271,11 @@ function HomePage() {
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <div>
               <p className="text-sm font-semibold text-gray-900">Playas de Murcia</p>
-              <p className="mt-1 text-xs text-gray-400">
+              <p className="mt-1 text-xs text-gray-500">
                 Guia de las {beaches.length} playas del litoral murciano
               </p>
             </div>
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-gray-500">
               Datos del Ministerio de Transicion Ecologica
             </p>
           </div>

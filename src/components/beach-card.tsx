@@ -43,7 +43,7 @@ export function BeachCard({ beach, municipality, tags, slug }: BeachCardProps) {
         <h3 className="mb-1 text-lg font-semibold text-gray-900 transition-colors group-hover:text-ocean-600">
           {beach.name}
         </h3>
-        <p className="mb-3 text-sm text-gray-400">{municipality.name}</p>
+        <p className="mb-3 text-sm text-gray-500">{municipality.name}</p>
         {visibleTags.length > 0 && (
           <div className="mt-auto flex flex-wrap gap-1.5">
             {visibleTags.map((tag) => (

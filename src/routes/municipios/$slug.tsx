@@ -61,7 +61,7 @@ function MunicipalityPage() {
       <div className="bg-white">
         <div className="mx-auto max-w-7xl px-4 pt-6 pb-8 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
-          <nav className="mb-5 text-sm text-gray-400" aria-label="Ruta de navegacion">
+          <nav className="mb-5 text-sm text-gray-500" aria-label="Ruta de navegacion">
             <a href="/" className="transition-colors hover:text-ocean-600 focus:outline-none">
               Inicio
             </a>
@@ -78,7 +78,7 @@ function MunicipalityPage() {
           </h1>
 
           {/* Stats row */}
-          <div className="flex flex-wrap gap-4 text-sm text-gray-400">
+          <div className="flex flex-wrap gap-4 text-sm text-gray-500">
             <span>
               <strong className="font-semibold text-gray-900">{beaches.length}</strong>{" "}
               {beaches.length === 1 ? "playa" : "playas"}

@@ -145,7 +145,7 @@ function CompararPage() {
 
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <nav
-          className="mb-8 text-sm text-gray-400"
+          className="mb-8 text-sm text-gray-500"
           aria-label="Ruta de navegacion"
         >
           <a
@@ -229,13 +229,13 @@ function CompararPage() {
                         </a>
                         <button
                           onClick={() => removeBeach(beach.code)}
-                          className="shrink-0 text-xs text-gray-400 hover:text-rose-500"
+                          className="shrink-0 text-xs text-gray-500 hover:text-rose-500"
                           title="Quitar"
                         >
                           ✗
                         </button>
                       </div>
-                      <p className="text-xs text-gray-400">
+                      <p className="text-xs text-gray-500">
                         {municipalities[beach.municipality]?.name}
                       </p>
                     </th>
@@ -350,7 +350,7 @@ function CompararPage() {
                           ) : null
                         })}
                         {b.services.length === 0 && (
-                          <span className="text-xs text-gray-400">
+                          <span className="text-xs text-gray-500">
                             Ninguno
                           </span>
                         )}
@@ -390,7 +390,7 @@ function CompararPage() {
                           </span>
                         ))}
                         {(b.certifications ?? []).length === 0 && (
-                          <span className="text-xs text-gray-400">
+                          <span className="text-xs text-gray-500">
                             Ninguna
                           </span>
                         )}
