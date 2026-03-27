@@ -2,14 +2,14 @@
 
 ## Quick Stats
 
-- **Pending**: 5 tasks
+- **Pending**: 3 tasks
 - **In Progress**: 0 tasks
-- **Completed**: 20 tasks
+- **Completed**: 22 tasks
 - **Blocked**: 0 tasks
 
 ## Current Focus
 
-> No active task. Next up: Task #021 (Add Missing Contact Info)
+> No active task. Next up: Task #010 (Beach Status 112 Widget)
 
 ## Backlog
 
@@ -17,14 +17,14 @@
 |---|------|-------|----------|------------|
 | 017 | Source Missing Beach Pictures | Content | P2 - Next | - |
 | 021 | Add Missing Contact Info | Data | P3 | - |
-| 022 | UI Low-Impact Polish | UI | P3 | - |
-| 009 | AEMET Weather Widget | Frontend | P4 | - |
 | 010 | Beach Status 112 Widget | Frontend | P4 | - |
 
 ## Recently Completed
 
 | # | Task | Completed |
 |---|------|-----------|
+| 009 | AEMET Weather Widget | 2026-03-27 |
+| 022 | UI Low-Impact Polish | 2026-03-27 |
 | 025 | Rich Navigable Footer | 2026-03-27 |
 | 024 | Dropdown Navigation Menu | 2026-03-27 |
 | 023 | Homepage Featured Beaches + Editorial Hero | 2026-03-27 |

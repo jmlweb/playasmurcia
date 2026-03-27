@@ -12,6 +12,7 @@ import { ContactInfo } from '@/components/contact-info'
 import { LocationMap } from '@/components/location-map'
 import { TagsSection } from '@/components/tags-section'
 import { WeatherWidget } from '@/components/weather-widget'
+import { BeachStatusWidget } from '@/components/beach-status-widget'
 
 const fetchBeachData = createServerFn({ method: 'GET' }).handler(async (ctx: { data: { slug: string } }) => {
   const { beachToSlug: toSlug, getBeachBySlug, getMunicipality, getAllServices, getAllActivities, getAllTags, getNearbyBeaches, getMunicipalityMap } = await import('@/lib/db-data')
@@ -180,6 +181,11 @@ function BeachPage() {
           {/* Sidebar */}
           <div className="space-y-6 lg:sticky lg:top-20">
             {beach.aemetId && <WeatherWidget aemetId={beach.aemetId} />}
+
+            <BeachStatusWidget
+              beachName={beach.name}
+              municipalityName={municipality.name}
+            />
 
             <PracticalInfoCard
               length={beach.length}
