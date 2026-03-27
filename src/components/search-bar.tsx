@@ -32,7 +32,7 @@ export function SearchBar({ value, onChange, placeholder = "Buscar playa..." }: 
   }
 
   return (
-    <div className="relative w-full">
+    <div role="search" className="relative w-full">
       <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
         <svg
           aria-hidden="true"
