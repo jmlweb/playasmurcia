@@ -229,11 +229,23 @@ type ForecastDayCardProps = {
   day: UnifiedDay
 }
 
+const WindDirDegrees: Record<string, number> = {
+  N: 180,
+  NE: 225,
+  E: 270,
+  SE: 315,
+  S: 0,
+  SO: 45,
+  O: 90,
+  NO: 135,
+}
+
 function ForecastDayCard({ day }: ForecastDayCardProps) {
   const iconType = day.skyIcon
     ? (day.skyIcon as WeatherIconType)
     : getSkyIconType(day.skyDescription)
   const hasTemp = day.tMaxima !== -999
+  const windDeg = WindDirDegrees[day.windDirection.toUpperCase()]
 
   return (
     <div className="flex flex-col items-center gap-1.5 rounded-xl border border-gray-100 bg-gray-50/60 p-3 text-center">
@@ -247,6 +259,28 @@ function ForecastDayCard({ day }: ForecastDayCardProps) {
           {day.tMinima !== -999 && (
             <span className="text-gray-400"> / {day.tMinima}°</span>
           )}
+        </div>
+      )}
+      {day.windSpeed > 0 && (
+        <div className="flex items-center gap-1 text-[10px] text-gray-400">
+          {windDeg !== undefined && (
+            <svg
+              aria-hidden="true"
+              className="h-3 w-3 flex-shrink-0"
+              fill="none"
+              style={{ transform: `rotate(${windDeg}deg)` }}
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 4l-4 8h8l-4-8zM12 4v16"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+              />
+            </svg>
+          )}
+          {day.windSpeed}
         </div>
       )}
     </div>
@@ -346,7 +380,7 @@ export function WeatherWidget({ aemetId, coordinates }: WeatherWidgetProps) {
 
   const { forecast } = state
   const [today, ...rest] = forecast.days
-  const nextDays = rest.slice(0, 2)
+  const nextDays = rest.slice(0, 6)
 
   if (!today) return null
 
@@ -362,9 +396,7 @@ export function WeatherWidget({ aemetId, coordinates }: WeatherWidgetProps) {
       <TodayCard day={today} />
 
       {nextDays.length > 0 && (
-        <div
-          className={`mt-4 grid gap-2 ${nextDays.length === 1 ? 'grid-cols-1' : 'grid-cols-2'}`}
-        >
+        <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
           {nextDays.map((day) => (
             <ForecastDayCard key={day.fecha} day={day} />
           ))}

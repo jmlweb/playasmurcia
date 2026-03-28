@@ -126,7 +126,7 @@ export async function fetchOpenMeteoForecast(
       daily:
         'weather_code,temperature_2m_max,temperature_2m_min,wind_speed_10m_max,wind_direction_10m_dominant,uv_index_max',
       timezone: 'Europe/Madrid',
-      forecast_days: '3',
+      forecast_days: '7',
     })
 
     const res = await fetch(`${BASE_URL}?${params}`)
