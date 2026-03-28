@@ -2,9 +2,9 @@
 
 ## Quick Stats
 
-- **Pending**: 3 tasks
+- **Pending**: 2 tasks
 - **In Progress**: 0 tasks
-- **Completed**: 26 tasks
+- **Completed**: 27 tasks
 - **Blocked**: 0 tasks
 
 ## Current Focus
@@ -15,7 +15,6 @@
 
 | # | Task | Slice | Priority | Blocked by |
 |---|------|-------|----------|------------|
-| 029 | Current Weather on Beach Cards | Full-stack | P3 - Later | - |
 | 017 | Source Missing Beach Pictures | Content | P2 - Next | - |
 | 021 | Add Missing Contact Info | Data | P3 | - |
 
@@ -23,6 +22,7 @@
 
 | # | Task | Completed |
 |---|------|-----------|
+| 029 | Current Weather on Beach Cards | 2026-03-28 |
 | 028 | Coordinate-Based Weather for All Beaches | 2026-03-28 |
 | 027 | Image Optimization and Responsive Variants | 2026-03-28 |
 | 026 | Edge Caching for External API Calls | 2026-03-28 |

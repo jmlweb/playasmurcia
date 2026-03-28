@@ -1,8 +1,7 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
-import { beachToSlug } from '@/lib/slugs'
 import {
-  collections,
+  allCollections,
   filterBeachesByCollection,
   getCollectionBySlug,
 } from '@/lib/collections'
@@ -10,6 +9,7 @@ import { BeachCard } from '@/components/beach-card'
 
 const fetchCollectionData = createServerFn({ method: 'GET' }).handler(async (ctx: { data: { slug: string } }) => {
   const { beachToSlug: toSlug, getAllBeaches, getAllTags, getMunicipalityMap } = await import('@/lib/db-data')
+  const { fetchBatchCardWeather } = await import('@/lib/open-meteo')
   const collection = getCollectionBySlug(ctx.data.slug)
   if (!collection) return null
 
@@ -20,6 +20,8 @@ const fetchCollectionData = createServerFn({ method: 'GET' }).handler(async (ctx
   ])
 
   const filtered = filterBeachesByCollection(beaches, collection)
+  const weatherMap = await fetchBatchCardWeather(filtered)
+  const weatherData = Object.fromEntries(weatherMap)
   const items = filtered.map((beach) => ({
     beach,
     municipality: municipalityMap.get(beach.municipality) ?? { name: '', id: '' },
@@ -35,6 +37,7 @@ const fetchCollectionData = createServerFn({ method: 'GET' }).handler(async (ctx
     },
     items,
     tags,
+    weatherData,
   }
 })
 
@@ -64,7 +67,7 @@ export const Route = createFileRoute('/colecciones/$slug')({
 })
 
 function CollectionPage() {
-  const { collection, items, tags } = Route.useLoaderData()
+  const { collection, items, tags, weatherData } = Route.useLoaderData()
 
   return (
     <main className="bg-sand-50 min-h-screen">
@@ -130,6 +133,7 @@ function CollectionPage() {
                 municipality={municipality}
                 tags={tags}
                 slug={slug}
+                weather={weatherData[beach.code]}
               />
             ))}
           </div>
@@ -149,7 +153,7 @@ function CollectionPage() {
 }
 
 export function getStaticPaths() {
-  return collections.map((c) => ({
+  return allCollections.map((c) => ({
     params: { slug: c.slug },
   }))
 }

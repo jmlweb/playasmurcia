@@ -6,6 +6,7 @@ import { BeachCard } from "@/components/beach-card"
 
 const fetchMunicipalityData = createServerFn({ method: 'GET' }).handler(async (ctx: { data: { slug: string } }) => {
   const { getAllTags, getBeachesByMunicipality, getMunicipalityBySlug } = await import("@/lib/db-data")
+  const { fetchBatchCardWeather } = await import("@/lib/open-meteo")
   const result = await getMunicipalityBySlug(ctx.data.slug)
   if (!result) return null
 
@@ -15,8 +16,10 @@ const fetchMunicipalityData = createServerFn({ method: 'GET' }).handler(async (c
     getAllTags(),
   ])
 
+  const weatherMap = await fetchBatchCardWeather(beaches)
+  const weatherData = Object.fromEntries(weatherMap)
   const blueFlagCount = beaches.filter((b) => b.certifications?.includes("blue-flag")).length
-  return { municipality, beaches, tags, blueFlagCount, slug: ctx.data.slug }
+  return { municipality, beaches, tags, blueFlagCount, slug: ctx.data.slug, weatherData }
 })
 
 export const Route = createFileRoute("/municipios/$slug")({
@@ -53,13 +56,13 @@ export const Route = createFileRoute("/municipios/$slug")({
 })
 
 function MunicipalityPage() {
-  const { municipality, beaches, tags, blueFlagCount } = Route.useLoaderData()
+  const { municipality, beaches, tags, blueFlagCount, weatherData } = Route.useLoaderData()
 
   return (
     <main className="min-h-screen bg-sand-50">
       {/* Hero */}
       <section className="relative overflow-hidden bg-ocean-800 px-4 py-12 sm:py-16">
-        <div className="absolute inset-0 bg-gradient-to-br from-ocean-900 via-ocean-800 to-ocean-700" />
+        <div className="absolute inset-0 bg-linear-to-br from-ocean-900 via-ocean-800 to-ocean-700" />
         <div className="relative mx-auto max-w-7xl sm:px-6 lg:px-8">
           <nav className="mb-5 text-sm text-ocean-300" aria-label="Ruta de navegacion">
             <a href="/" className="transition-colors hover:text-white focus-visible:text-white focus-visible:underline focus:outline-none">
@@ -103,6 +106,7 @@ function MunicipalityPage() {
                 municipality={municipality}
                 tags={tags}
                 slug={beachToSlug(beach)}
+                weather={weatherData[beach.code]}
               />
             ))}
           </div>

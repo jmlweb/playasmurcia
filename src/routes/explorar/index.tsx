@@ -1,5 +1,3 @@
-'use client'
-
 import { createFileRoute, useNavigate } from "@tanstack/react-router"
 import { createServerFn } from "@tanstack/react-start"
 import { useCallback, useMemo } from "react"
@@ -51,6 +49,7 @@ function validateSearch(search: Record<string, unknown>): BeachSearchParams {
 
 const fetchExplorerData = createServerFn({ method: 'GET' }).handler(async () => {
   const { getAllBeaches, getAllMunicipalities, getAllServices, getAllActivities, getAllTags, getAllSeas } = await import("@/lib/db-data")
+  const { fetchBatchCardWeather } = await import("@/lib/open-meteo")
   const [beaches, municipalities, services, activities, tags, seas] = await Promise.all([
     getAllBeaches(),
     getAllMunicipalities(),
@@ -59,19 +58,21 @@ const fetchExplorerData = createServerFn({ method: 'GET' }).handler(async () => 
     getAllTags(),
     getAllSeas(),
   ])
-  return { beaches, municipalities, services, activities, tags, seas }
+  const weatherMap = await fetchBatchCardWeather(beaches)
+  const weatherData = Object.fromEntries(weatherMap)
+  return { beaches, municipalities, services, activities, tags, seas, weatherData }
 })
 
 export const Route = createFileRoute("/explorar/")({
   validateSearch,
   loader: () => fetchExplorerData(),
-  head: () => ({
+  head: ({ loaderData }) => ({
     meta: [
       { title: "Explorar playas - Playas de Murcia" },
       {
         name: "description",
         content:
-          "Explora y filtra las 194 playas de la Region de Murcia. Busca por municipio, mar, servicios, actividades y mas.",
+          `Explora y filtra las ${loaderData?.beaches.length ?? 194} playas de la Region de Murcia. Busca por municipio, mar, servicios, actividades y mas.`,
       },
     ],
   }),
@@ -79,7 +80,7 @@ export const Route = createFileRoute("/explorar/")({
 })
 
 function ExplorerPage() {
-  const { beaches, municipalities, services, activities, tags, seas } = Route.useLoaderData()
+  const { beaches, municipalities, services, activities, tags, seas, weatherData } = Route.useLoaderData()
   const search = Route.useSearch()
   const navigate = useNavigate({ from: "/explorar" })
 
@@ -211,6 +212,7 @@ function ExplorerPage() {
                       municipality={municipalities[beach.municipality]}
                       tags={tags}
                       slug={slug}
+                      weather={weatherData[beach.code]}
                     />
                   )
                 })}

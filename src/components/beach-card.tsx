@@ -1,4 +1,5 @@
 import type { Beach, Municipality, Tag } from "@/types/beach"
+import type { CardWeather } from "@/lib/open-meteo"
 import { parseImageFilename } from "@/lib/images"
 import { ResponsiveImage } from "@/components/responsive-image"
 
@@ -8,15 +9,26 @@ const OccupancyConfig = {
   high: { label: "Alta ocupación", className: "bg-rose-700 text-rose-100" },
 } as const
 
+const WeatherIconMap: Record<string, string> = {
+  sunny: '☀️',
+  'partly-cloudy': '⛅',
+  cloudy: '☁️',
+  rain: '🌧️',
+  storm: '⛈️',
+  fog: '🌫️',
+  haze: '🌫️',
+}
+
 interface BeachCardProps {
   beach: Beach
   municipality: Municipality
   tags: Array<Tag>
   slug: string
   eager?: boolean
+  weather?: CardWeather
 }
 
-export function BeachCard({ beach, municipality, tags, slug, eager }: BeachCardProps) {
+export function BeachCard({ beach, municipality, tags, slug, eager, weather }: BeachCardProps) {
   const firstPicture = beach.pictures?.[0]
   const { baseName, ext } = parseImageFilename(firstPicture ?? 'default-beach.png')
   const visibleTags = (beach.tags ?? []).slice(0, 3).map((i) => tags[i]).filter(Boolean)
@@ -36,6 +48,12 @@ export function BeachCard({ beach, municipality, tags, slug, eager }: BeachCardP
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
+        {weather && (
+          <span className="absolute top-3 left-3 flex items-center gap-1 rounded-full bg-white/80 px-2 py-0.5 text-xs font-medium text-gray-800 backdrop-blur-sm">
+            <span aria-hidden="true">{WeatherIconMap[weather.icon] ?? '🌡️'}</span>
+            {weather.temp}°
+          </span>
+        )}
         {beach.occupancyLevel && (
           <span
             className={`absolute top-3 right-3 rounded-full px-2.5 py-1 text-xs font-medium backdrop-blur-sm ${OccupancyConfig[beach.occupancyLevel].className}`}

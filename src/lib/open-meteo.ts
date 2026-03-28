@@ -69,6 +69,11 @@ export interface OpenMeteoForecast {
   days: Array<OpenMeteoForecastDay>
 }
 
+export interface CardWeather {
+  temp: number
+  icon: string
+}
+
 // ---------------------------------------------------------------------------
 // API types
 // ---------------------------------------------------------------------------
@@ -82,6 +87,25 @@ interface OpenMeteoResponse {
     wind_speed_10m_max: Array<number>
     wind_direction_10m_dominant: Array<number>
     uv_index_max: Array<number>
+  }
+}
+
+interface CurrentWeatherResponse {
+  latitude: Array<number>
+  longitude: Array<number>
+  current: Array<{
+    temperature_2m: number
+    weather_code: number
+  }>
+}
+
+// For the batch current weather endpoint
+interface MultiCurrentResponse {
+  latitude: number
+  longitude: number
+  current: {
+    temperature_2m: number
+    weather_code: number
   }
 }
 
@@ -143,4 +167,92 @@ export async function fetchOpenMeteoForecast(
     await edgeCacheSet(CACHE_NS, cacheKey, null, CACHE_TTL_SECONDS)
     return null
   }
+}
+
+// ---------------------------------------------------------------------------
+// Batch current weather for cards
+// ---------------------------------------------------------------------------
+
+const CARD_CACHE_NS = 'open-meteo-card'
+const CARD_CACHE_TTL = 2 * 60 * 60 // 2 hours
+
+/**
+ * Fetches current weather for multiple beaches in a single API call.
+ * Returns a Map keyed by beach code with compact weather data (temp + icon).
+ *
+ * Deduplicates by rounded coordinates — nearby beaches share one data point.
+ */
+export async function fetchBatchCardWeather(
+  beaches: Array<{ code: string; coordinates: [number, number] }>,
+): Promise<Map<string, CardWeather>> {
+  const result = new Map<string, CardWeather>()
+  if (beaches.length === 0) return result
+
+  // Check cache first
+  const cached = await edgeCacheGet<Array<[string, CardWeather]>>(CARD_CACHE_NS, 'batch')
+  if (cached) {
+    return new Map(cached)
+  }
+
+  // Deduplicate by rounded coordinates
+  const coordMap = new Map<string, Array<string>>() // "lat,lng" -> [beachCode, ...]
+  const uniqueCoords: Array<{ lat: number; lng: number }> = []
+
+  for (const beach of beaches) {
+    const lat = Math.round(beach.coordinates[0] * 100) / 100
+    const lng = Math.round(beach.coordinates[1] * 100) / 100
+    const key = `${lat},${lng}`
+    const existing = coordMap.get(key)
+    if (existing) {
+      existing.push(beach.code)
+    } else {
+      coordMap.set(key, [beach.code])
+      uniqueCoords.push({ lat, lng })
+    }
+  }
+
+  try {
+    // Open-Meteo supports comma-separated coordinates for multi-location
+    const latitudes = uniqueCoords.map((c) => c.lat).join(',')
+    const longitudes = uniqueCoords.map((c) => c.lng).join(',')
+
+    const params = new URLSearchParams({
+      latitude: latitudes,
+      longitude: longitudes,
+      current: 'temperature_2m,weather_code',
+      timezone: 'Europe/Madrid',
+      forecast_days: '1',
+    })
+
+    const res = await fetch(`${BASE_URL}?${params}`)
+    if (!res.ok) return result
+
+    // When multiple locations: response is an array
+    // When single location: response is a single object
+    const rawData = await res.json()
+    const responses: Array<MultiCurrentResponse> = Array.isArray(rawData) ? rawData : [rawData]
+
+    for (let i = 0; i < uniqueCoords.length; i++) {
+      const resp = responses[i]
+      if (!resp?.current) continue
+
+      const weather: CardWeather = {
+        temp: Math.round(resp.current.temperature_2m),
+        icon: wmoToIcon(resp.current.weather_code),
+      }
+
+      const key = `${uniqueCoords[i].lat},${uniqueCoords[i].lng}`
+      const beachCodes = coordMap.get(key) ?? []
+      for (const code of beachCodes) {
+        result.set(code, weather)
+      }
+    }
+
+    // Cache the batch result
+    await edgeCacheSet(CARD_CACHE_NS, 'batch', Array.from(result.entries()), CARD_CACHE_TTL)
+  } catch {
+    // Silent failure — cards just won't show weather
+  }
+
+  return result
 }
