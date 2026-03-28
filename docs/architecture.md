@@ -19,6 +19,7 @@
 | **Cloudflare Cache API** | Durable edge caching for external API calls |
 | **Open-Meteo API** | Coordinate-based weather (cards and detail when AEMET is unavailable) |
 | **AEMET Open Data** | Official beach forecasts where `aemetId` is set |
+| **Leaflet + react-leaflet** | Interactive maps on beach detail (lazy-loaded, client-only) |
 
 ## Current State
 

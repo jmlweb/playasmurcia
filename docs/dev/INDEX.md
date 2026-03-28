@@ -4,9 +4,9 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 9 tasks
+- **Pending**: 8 tasks
 - **In progress**: 0 tasks
-- **Completed**: 40 tasks
+- **Completed**: 41 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
@@ -17,7 +17,6 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 | # | Task | Slice | Priority | Blocked by |
 |---|------|-------|----------|------------|
-| 048 | Restore Interactive Map on Beach Detail | Feature | P2 - Next | - |
 | 043 | Extract Shared UI Components and Standardize | Styling | P3 | - |
 | 045 | Homepage UX and Accessibility Fixes | Styling | P3 | - |
 | 046 | Explorer Filter Panel and UX Polish | Styling | P3 | - |
@@ -31,6 +30,7 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 | # | Task | Completed |
 |---|------|-----------|
+| 048 | Restore Interactive Map on Beach Detail | 2026-03-29 |
 | 042 | Beach Detail Hero and Gallery Redesign | 2026-03-29 |
 | 040 | Replace Emoji Icons with SVG Icons | 2026-03-29 |
 | 044 | Standardize Hero Heading Size Tiers | 2026-03-28 |

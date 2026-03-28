@@ -11,24 +11,18 @@ describe('LocationMap', () => {
     expect(screen.getByRole('heading', { name: 'Ubicación' })).toBeTruthy()
   })
 
-  it('renders the map image with correct alt text', () => {
+  it('renders a loading placeholder while map loads', () => {
     render(<LocationMap beachName="Playa Test" coordinates={coords} />)
-    const img = screen.getByRole('img', {
-      name: 'Mapa de ubicación de Playa Test',
-    })
-    expect(img).toBeTruthy()
+    expect(screen.getByText('Cargando mapa...')).toBeTruthy()
   })
 
   it('renders a Google Maps link with correct coordinates', () => {
     render(<LocationMap beachName="Playa Test" coordinates={coords} />)
-    const links = screen.getAllByRole('link')
-    const mapsLink = links.find((l) =>
-      l.getAttribute('href')?.includes('google.com/maps'),
-    )
-    expect(mapsLink).toBeTruthy()
-    expect(mapsLink?.getAttribute('target')).toBe('_blank')
-    expect(mapsLink?.getAttribute('href')).toContain('37.6894')
-    expect(mapsLink?.getAttribute('href')).toContain('-0.9812')
+    const link = screen.getByText('Ver en Google Maps →')
+    expect(link).toBeTruthy()
+    expect(link.getAttribute('target')).toBe('_blank')
+    expect(link.getAttribute('href')).toContain('37.6894')
+    expect(link.getAttribute('href')).toContain('-0.9812')
   })
 
   it('renders the coordinates as text', () => {
