@@ -2,6 +2,15 @@
 
 This file is the single source of truth for how humans and AI coding agents should work in this repository. Technical documentation under `docs/` is in **English**. Public URLs and much of the UI copy are **Spanish**; follow existing patterns when adding user-facing text.
 
+## Spelling and orthography (all languages)
+
+AI agents and contributors must keep **correct spelling, punctuation, and diacritics** (accents, tildes, cedillas, umlauts, etc.) for **every** language in scope—Spanish UI, English docs, metadata, `aria-*` labels, error messages, task files, and editorial fields in `data/*.json` unless a field is explicitly machine-only.
+
+- **Do not** strip diacritics or use ASCII stand-ins (e.g. `año` must not become `ano`; `más` must not become `mas` when it means "more").
+- **Spanish**: follow standard orthography; when in doubt, prefer forms consistent with nearby copy and authoritative references for place names and common UI terms.
+- **English** (`docs/`, comments where English is used): use standard spelling and typography (hyphens, apostrophes, not “smart punctuation” hacks that break code—only in prose/markdown).
+- When changing existing strings, **fix** obvious typos you touch; avoid introducing new ones. Re-read **only the lines you edited** before finishing (or the full visible string if the change is small).
+
 ## Documentation map
 
 Project documentation is in `docs/`:
@@ -11,7 +20,7 @@ Project documentation is in `docs/`:
 - [Business Rules](./docs/business-rules.md) — Data processing logic
 - [Development](./docs/development.md) — Commands and workflow
 - [UI Guidelines](./docs/ui-guidelines.md) — Visual design, colors, typography, accessibility
-- **Dev reports & UI review layout** — Not a separate doc: see [Reports, UI reviews, and audits (mandatory for agents)](#reports-ui-reviews-and-audits-mandatory-for-agents) in this file (`docs/dev/ui-review/`, `docs/dev/reports/`).
+- **Reports & UI reviews** — See [Reports, UI reviews, and audits (mandatory for agents)](#reports-ui-reviews-and-audits-mandatory-for-agents) in this file (`reports/`).
 
 ## Project state
 
@@ -19,17 +28,18 @@ Project documentation is in `docs/`:
 - **Package manager**: **pnpm** only (`package.json` → `packageManager`). Enable with `corepack enable` (Node 20+). Do not use `npm install` in this repo — `package-lock.json` is gitignored.
 - **Data access**: Route loaders use async queries via `src/lib/db-data.ts` against Turso (libSQL). There is **no** runtime JSON loader in `src/lib/`; `data/*.json` is the **editorial source** — edit JSON, then migrate (see `docs/architecture.md` and `docs/development.md`).
 - **Local DB**: `local.db` is created locally (not committed); use Drizzle push + migration script as documented.
-- **Next steps**: [docs/dev/INDEX.md](./docs/dev/INDEX.md) for the backlog; [docs/github-main-feature-gap-analysis.md](./docs/github-main-feature-gap-analysis.md) for product parity vs `main`.
+- **Next steps**: [backlog/INDEX.md](./backlog/INDEX.md) for the backlog; [reports/done/github-main-feature-gap-analysis.md](./reports/done/github-main-feature-gap-analysis.md) for product parity vs `main`.
 
 ## Task management
 
-Tasks live under `docs/dev/`:
+Tasks live under `backlog/`; reports under `reports/`:
 
-- [INDEX.md](./docs/dev/INDEX.md) — Overview, stats, backlog table
-- [LEARNINGS.md](./docs/dev/LEARNINGS.md) — Development insights
-- `docs/dev/backlog/` — Pending task files
-- `docs/dev/done/` — Completed task files
-- **Reports, UI reviews, and audits** — [Reports, UI reviews, and audits (mandatory for agents)](#reports-ui-reviews-and-audits-mandatory-for-agents); short pointers: [docs/dev/ui-review/README.md](./docs/dev/ui-review/README.md), [docs/dev/reports/README.md](./docs/dev/reports/README.md)
+- [backlog/INDEX.md](./backlog/INDEX.md) — Overview, stats, backlog table
+- [backlog/LEARNINGS.md](./backlog/LEARNINGS.md) — Development insights
+- `backlog/pending/` — Pending task files
+- `backlog/done/` — Completed task files
+- `reports/pending/` — Unprocessed reports and UI reviews
+- `reports/done/` — Processed reports (linked from tasks)
 
 ### Reports, UI reviews, and audits (mandatory for agents)
 
@@ -37,17 +47,14 @@ Tasks live under `docs/dev/`:
 
 | Location | Use |
 |----------|-----|
-| `docs/dev/ui-review/{name}.md` | **Active** UI directives while a review is in progress (before backlog tasks exist). |
-| `docs/dev/ui-review/processed/{name}.md` | Directives **after** backlog tasks reference them. Split files if only part of a directive was task-backed. |
-| `docs/dev/reports/{name}.md` | **Active** standalone reports (e.g. v3 vs production draft) before tasks cite them. |
-| `docs/dev/reports/processed/{name}.md` | Standalone reports **and** data/content audits used as reference artifacts for tasks (e.g. `v3-vs-production-beach-detail.md`, `content-audit.md`). |
-| `docs/github-main-feature-gap-analysis.md` | Product parity vs `main` — stays at `docs/` root; link from tasks when relevant. |
+| `reports/pending/{name}.md` | **Active** reports and UI directives while a review is in progress (before backlog tasks exist). |
+| `reports/done/{name}.md` | Reports and directives **after** backlog tasks reference them. Split files if only part of a directive was task-backed. |
 
 **Required behavior**
 
-1. **`/ui-review`**: Run the workflow in [`.claude/templates/ui-review.md`](./.claude/templates/ui-review.md) under the role in [`.claude/agents/ui-designer.md`](./.claude/agents/ui-designer.md). Write directives under `docs/dev/ui-review/` during the audit; after creating backlog tasks, **move** covered files to `docs/dev/ui-review/processed/` and ensure every new task links to the **final** path (`docs/dev/ui-review/processed/…`).
-2. **Other reports**: Add markdown under `docs/dev/reports/` first if no tasks yet; when tasks reference the report, **move** it to `docs/dev/reports/processed/` and put the repo-relative path in the task body (see existing tasks for tone).
-3. **Moves/renames**: Search the repo for the old path and update `docs/dev/backlog/`, `docs/dev/done/`, and any doc that linked to it.
+1. **`/ui-review`**: Run the workflow in [`.claude/templates/ui-review.md`](./.claude/templates/ui-review.md) under the role in [`.claude/agents/ui-designer.md`](./.claude/agents/ui-designer.md). Write directives under `reports/pending/` during the audit; after creating backlog tasks, **move** covered files to `reports/done/` and ensure every new task links to the **final** path (`reports/done/…`).
+2. **Other reports**: Add markdown under `reports/pending/` first if no tasks yet; when tasks reference the report, **move** it to `reports/done/` and put the repo-relative path in the task body (see existing tasks for tone).
+3. **Moves/renames**: Search the repo for the old path and update `backlog/pending/`, `backlog/done/`, and any doc that linked to it.
 4. **Guidelines**: UI work still defers to [`docs/ui-guidelines.md`](./docs/ui-guidelines.md); propose updates per the UI review template Phase 4 when appropriate.
 
 ### Slash-style commands (Claude Code / similar)
@@ -158,7 +165,7 @@ After structural or behavioral changes, update the matching doc:
 | Project structure | `docs/architecture.md` — directory tree |
 | New commands | `docs/development.md` |
 | New routes/pages | `docs/architecture.md` — routing |
-| New or moved UI directives / dev reports | This file — [Reports, UI reviews, and audits](#reports-ui-reviews-and-audits-mandatory-for-agents); folder READMEs under `docs/dev/ui-review/` and `docs/dev/reports/` |
+| New or moved UI directives / dev reports | This file — [Reports, UI reviews, and audits](#reports-ui-reviews-and-audits-mandatory-for-agents) |
 
 **Checklist before completing a task**
 
@@ -166,4 +173,5 @@ After structural or behavioral changes, update the matching doc:
 2. Business logic changed? → `business-rules.md`
 3. Structure or stack changed? → `architecture.md`
 4. Workflow or commands changed? → `development.md`
-5. Report / UI review layout or rules changed? → this file (`AGENTS.md`) and the README under `docs/dev/reports/` or `docs/dev/ui-review/` if the folder contract changed
+5. Report / UI review layout or rules changed? → this file (`AGENTS.md`)
+6. User-facing copy, docs prose, or editorial JSON text changed? → [Spelling and orthography](#spelling-and-orthography-all-languages) — verify diacritics and spelling in each target language

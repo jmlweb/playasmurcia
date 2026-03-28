@@ -17,7 +17,7 @@ Verify that a task's status accurately reflects implementation reality.
 
 ### 1. Load Task
 
-Read the task file from `docs/dev/backlog/` or `docs/dev/done/`:
+Read the task file from `backlog/pending/` or `backlog/done/`:
 - Parse acceptance criteria
 - Note current status
 - Identify files to check

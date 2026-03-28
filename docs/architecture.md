@@ -60,10 +60,9 @@ playasmurcia/
 │   ├── styles.css
 │   └── routeTree.gen.ts    # Generated — do not edit
 ├── data/                   # JSON — migrate to Turso after changes
-├── docs/
-│   └── dev/                # INDEX, backlog/, done/, LEARNINGS, …
-│       ├── ui-review/      # Active directives; processed/ once tasks reference them (see AGENTS.md)
-│       └── reports/        # Active reports; processed/ for task-linked reports & audits (see AGENTS.md)
+├── backlog/                # Task management (INDEX, LEARNINGS, pending/, done/)
+├── reports/                # Reports & UI reviews (pending/, done/)
+├── docs/                   # Project documentation (architecture, data-schema, …)
 ├── scripts/
 ├── public/                 # Static assets (pictures/, sitemap.xml, …)
 ├── drizzle.config.ts

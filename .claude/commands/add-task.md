@@ -17,10 +17,10 @@ Interactively groom a new task and add it to the development backlog.
 
 ### 1. Read Current State
 
-Read `docs/dev/INDEX.md` to understand current task count and priorities.
+Read `backlog/INDEX.md` to understand current task count and priorities.
 
 ```bash
-ls docs/dev/backlog/ docs/dev/done/ 2>/dev/null | grep -E '^[0-9]+' | sort -n | tail -1
+ls backlog/pending/ backlog/done/ 2>/dev/null | grep -E '^[0-9]+' | sort -n | tail -1
 ```
 
 ### 2. Gather Task Information
@@ -66,7 +66,7 @@ Ask the user for:
 
 ### 4. Generate Task File
 
-Create `docs/dev/backlog/XXX-task-name.md`:
+Create `backlog/pending/XXX-task-name.md`:
 
 ```markdown
 # Task #XXX: Task Title
@@ -121,7 +121,7 @@ Create `docs/dev/backlog/XXX-task-name.md`:
 Created task #XXX: [title]
   Priority: P3
   Slice: [slice]
-  File: docs/dev/backlog/XXX-task-name.md
+  File: backlog/pending/XXX-task-name.md
 
 Next steps:
 - /start-task XXX to begin work

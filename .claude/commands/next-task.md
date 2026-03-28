@@ -16,7 +16,7 @@ Analyze backlog and suggest the best next task to work on.
 
 ### 1. Check Current State
 
-Read `docs/dev/INDEX.md`:
+Read `backlog/INDEX.md`:
 - Is there an active task?
 - What are the pending tasks?
 - What are the blocked tasks?

@@ -18,24 +18,24 @@ Mark a task as in-progress, update INDEX.md, and prepare for work.
 ### 1. Validate
 
 If task number provided:
-- Check `docs/dev/backlog/XXX-*.md` exists
+- Check `backlog/pending/XXX-*.md` exists
 - Verify status is `pending` (not in_progress or blocked)
 
 If no task number:
-- Read `docs/dev/INDEX.md`
+- Read `backlog/INDEX.md`
 - Show pending tasks with priorities
 - Ask user which to start
 
 ### 2. Check for Active Task
 
-Read `docs/dev/INDEX.md` Current Focus section:
+Read `backlog/INDEX.md` Current Focus section:
 - If another task is in_progress, warn user
 - Ask: "Task #YYY is currently active. Switch to #XXX?"
 - Only one task can be in_progress at a time
 
 ### 3. Update Task File
 
-In `docs/dev/backlog/XXX-*.md`:
+In `backlog/pending/XXX-*.md`:
 
 ```markdown
 ## Metadata
@@ -76,7 +76,7 @@ Remember:
 
 ## Validation
 
-- Task must exist in `docs/dev/backlog/`
+- Task must exist in `backlog/pending/`
 - Task must be pending (not blocked or already active)
 - Only one active task at a time
 - Blocked tasks cannot start — show blocker info

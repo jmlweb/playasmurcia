@@ -43,4 +43,4 @@ Add missing fields to `data/beaches.json` using automated scripts.
 
 ## Backlog
 
-See `docs/dev/backlog/` and `docs/dev/INDEX.md` for pending tasks.
+See `backlog/pending/` and `backlog/INDEX.md` for pending tasks.

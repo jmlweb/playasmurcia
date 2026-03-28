@@ -26,13 +26,13 @@ If not provided as argument, ask:
 
 ### 2. Link to Active Task
 
-Read `docs/dev/INDEX.md` Current Focus:
+Read `backlog/INDEX.md` Current Focus:
 - If a task is active, link the learning to it
 - Also add to the task's "Learnings" section
 
 ### 3. Determine Learning ID
 
-Read `docs/dev/LEARNINGS.md`, find highest LXXX number, increment.
+Read `backlog/LEARNINGS.md`, find highest LXXX number, increment.
 
 ### 4. Add to LEARNINGS.md
 

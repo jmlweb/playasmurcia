@@ -16,8 +16,8 @@ Display current development status, active task, and backlog overview.
 
 ### 1. Read State
 
-Read `docs/dev/INDEX.md` and parse all sections.
-Also count files in `docs/dev/backlog/` and `docs/dev/done/`.
+Read `backlog/INDEX.md` and parse all sections.
+Also count files in `backlog/pending/` and `backlog/done/`.
 
 ### 2. Display Status
 

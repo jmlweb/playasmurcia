@@ -111,6 +111,11 @@ Each major section follows a pattern:
 - Used for beach types (Arena Fina, Familiar, Salvaje...) and activities (Natación, Snorkel, Kayak...)
 - Keep icon style consistent (all outline or all filled, not mixed)
 
+### Icons Policy
+
+- **Functional UI icons** (services, activities, weather, collection themes) must use SVG with `currentColor` for fill/stroke, sized consistently (20×20 or 24×24). Never use emoji as functional icons — emoji rendering varies across OS and browser.
+- **Decorative/editorial emoji** (e.g. inside user-facing prose) are acceptable but not for interactive or branded UI elements.
+
 ### Stats Bar
 
 - Horizontal row of key metrics: icon + number + label
@@ -132,11 +137,20 @@ Two height tiers to create visual hierarchy between the homepage and inner pages
 | **Homepage** (immersive) | `py-16 sm:py-20 lg:py-28` | Homepage hero only — full-bleed image, staggered animation |
 | **Inner page** (compact) | `py-14 sm:py-18 lg:py-20` | All other pages — gradient background, functional header |
 
+### Heading size tiers
+
+Inner pages follow two sub-tiers for `h1` size:
+
+| Sub-tier | Size | Usage |
+|----------|------|-------|
+| **Index** | `text-4xl font-extrabold tracking-tight text-white sm:text-5xl` | Index/listing pages (`/municipios`, `/colecciones`) |
+| **Detail / tool** | `text-3xl font-extrabold tracking-tight text-white sm:text-4xl` | Detail pages (`/municipios/$slug`, `/colecciones/$slug`) and tool pages (`/explorar`) |
+
 **Structure** (inner pages):
 
 1. Gradient background: `bg-linear-to-br from-ocean-900 via-ocean-800 to-ocean-700`
 2. Optional uppercase label: `text-sm font-medium uppercase tracking-widest text-ocean-300`
-3. Page title: `text-4xl font-extrabold tracking-tight text-white sm:text-5xl`
+3. Page title: sized per sub-tier above
 4. Optional subtitle: `text-lg text-ocean-200`
 
 Decorative blur circles are optional — use `opacity-20` minimum if present, otherwise remove.
@@ -198,6 +212,26 @@ Two patterns, applied consistently:
 | Inline text links | `focus-visible:text-ocean-600 focus-visible:underline focus-visible:outline-none` |
 
 Always use `focus-visible` (not `focus`) to avoid showing focus rings on mouse clicks.
+
+## Empty States
+
+When a page or section has no results (empty search, empty collection, no beaches in municipality), use a consistent visual pattern:
+
+- Container: `rounded-2xl border border-dashed border-gray-200 py-20 text-center`
+- Icon: `text-gray-300 mb-5 h-14 w-14` (centered, using a relevant SVG — typically a magnifying glass)
+- Title: `text-lg font-semibold text-gray-900 mb-1`
+- Description: `text-sm text-gray-500`
+- Optional action button: standard primary pill button (`bg-ocean-600 text-white rounded-full`)
+
+Extract into a shared `EmptyState` component to avoid per-page drift.
+
+## Back Navigation Links
+
+Pages that are children of an index (e.g. `/colecciones/$slug` → `/colecciones`) include a bottom back-link:
+
+- Position: `mt-12 text-center` below the main content
+- Style: `text-ocean-600 hover:text-ocean-700 text-sm font-medium transition-colors focus:outline-none focus-visible:underline`
+- Copy: Use the pattern `← Volver a {section}` consistently (e.g. "← Volver a colecciones", "← Volver a municipios"). Do not mix with "Ver todos/as" or other verbs.
 
 ## Components
 

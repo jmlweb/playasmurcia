@@ -17,8 +17,8 @@ Mark a task as completed, move to done/, transfer learnings, and update INDEX.
 
 ### 1. Identify Task
 
-If no argument: use active task from `docs/dev/INDEX.md` Current Focus.
-If argument: validate task exists in `docs/dev/backlog/`.
+If no argument: use active task from `backlog/INDEX.md` Current Focus.
+If argument: validate task exists in `backlog/pending/`.
 
 ### 2. Verify Completion
 
@@ -44,7 +44,7 @@ Options:
 ### 3. Extract Learnings
 
 If task has learnings in its "Learnings" section:
-1. Read `docs/dev/LEARNINGS.md`
+1. Read `backlog/LEARNINGS.md`
 2. Determine next learning ID (LXXX)
 3. Append to appropriate category section
 4. Format:
@@ -72,7 +72,7 @@ Add final Progress Log entry:
 ### 5. Move Task File
 
 ```bash
-mv docs/dev/backlog/XXX-task-name.md docs/dev/done/XXX-task-name.md
+mv backlog/pending/XXX-task-name.md backlog/done/XXX-task-name.md
 ```
 
 ### 6. Update INDEX.md

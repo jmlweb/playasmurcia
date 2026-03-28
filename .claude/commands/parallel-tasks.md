@@ -17,7 +17,7 @@ Launch multiple independent backlog tasks in parallel using subagents.
 
 ### 1. Identify Independent Tasks
 
-Read all tasks from `docs/dev/backlog/`. For each, check:
+Read all tasks from `backlog/pending/`. For each, check:
 - `Blocked by: -` (no dependencies)
 - `Status: pending` (not already in progress)
 - No file conflicts with other selected tasks
