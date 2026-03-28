@@ -6,7 +6,7 @@
 - **Slice**: Styling
 - **Created**: 2026-03-28
 - **Started**: -
-- **Blocked by**: -
+- **Blocked by**: 017
 
 ## User Story
 
@@ -14,7 +14,7 @@ As a visitor browsing municipalities, I want visual cues that help me distinguis
 
 ## Context
 
-UI review (2026-03-28) found municipality cards on both the index and homepage are text-only and visually flat. Service icons also render as text IDs (covered by task #030). See `docs/dev/ui-review/municipios-index.md` for full directive.
+UI review (2026-03-28) found municipality cards on both the index and homepage are text-only and visually flat. Service icons also render as text IDs (covered by task #030). See `docs/dev/ui-review/processed/municipios-index.md` for full directive.
 
 ## Acceptance Criteria
 
@@ -27,4 +27,4 @@ UI review (2026-03-28) found municipality cards on both the index and homepage a
 
 - This task has a dependency on task #017 (source missing beach pictures) for image availability
 - If no image exists for a municipality, use an ocean gradient placeholder
-- See `docs/dev/ui-review/municipios-index.md` and `docs/dev/ui-review/municipality-detail.md` for detailed directives
+- See `docs/dev/ui-review/processed/municipios-index.md` and `docs/dev/ui-review/processed/municipality-detail.md` for detailed directives

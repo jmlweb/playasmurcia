@@ -15,7 +15,7 @@ As a visitor viewing a beach detail page, I want consistent visual structure so 
 
 ## Context
 
-UI review (2026-03-28) found heading inconsistencies, missing card containers, and invisible UI elements. See `docs/dev/ui-review/beach-detail.md` for full directive.
+UI review (2026-03-28) found heading inconsistencies, missing card containers, and invisible UI elements. See `docs/dev/ui-review/processed/beach-detail.md` for full directive.
 
 ## Acceptance Criteria
 
@@ -29,7 +29,7 @@ UI review (2026-03-28) found heading inconsistencies, missing card containers, a
 ## Notes
 
 - Sidebar sticky `top-20` offset should also be verified against actual navbar height
-- See `docs/dev/ui-review/beach-detail.md` for detailed fix instructions per item
+- See `docs/dev/ui-review/processed/beach-detail.md` for detailed fix instructions per item
 
 ## Progress Log
 

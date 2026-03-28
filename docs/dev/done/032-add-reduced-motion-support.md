@@ -14,7 +14,7 @@ As a visitor with motion sensitivity, I want animations to be disabled when I've
 
 ## Context
 
-UI review (2026-03-28) found no `prefers-reduced-motion` handling anywhere. Multiple animations run unconditionally: hero fade-up, filter panel slide-in, card hover transforms, image zoom on hover. See `docs/dev/ui-review/cross-cutting.md` for full directive.
+UI review (2026-03-28) found no `prefers-reduced-motion` handling anywhere. Multiple animations run unconditionally: hero fade-up, filter panel slide-in, card hover transforms, image zoom on hover. See `docs/dev/ui-review/processed/cross-cutting.md` for full directive.
 
 ## Acceptance Criteria
 

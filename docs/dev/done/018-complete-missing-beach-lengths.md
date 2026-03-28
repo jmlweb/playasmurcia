@@ -16,14 +16,14 @@ As a visitor, I want to know the length of every beach so that I can use the "so
 
 Content audit (2026-03-27) identified 30 of 194 beaches (15%) missing the `length` field. This degrades the sort-by-length feature on the homepage.
 
-See [`docs/dev/content-audit.md`](../content-audit.md#3-beach-length) §3 for completion snapshot.
+See [`docs/dev/reports/processed/content-audit.md`](../reports/processed/content-audit.md#3-beach-length) §3 for completion snapshot.
 
 ## Acceptance Criteria
 
 - [ ] Script to query OSM Overpass API for beach coastline lengths by coordinates
 - [ ] Populate `length` field for the 30 missing beaches
 - [ ] Manual verification for beaches not found in OSM
-- [ ] Update `content-audit.md` with new coverage stats
+- [ ] Update `docs/dev/reports/processed/content-audit.md` with new coverage stats
 
 ## Notes
 

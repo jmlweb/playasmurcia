@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 
 import { Breadcrumb } from '@/components/breadcrumb'
+import { BlueFlagBadgeIcon, ServiceIcon } from '@/components/icons'
 import { PageHero } from '@/components/page-hero'
 import { municipalityToSlug } from '@/lib/slugs'
 import type { Beach, Municipality, Service } from '@/types/beach'
@@ -109,7 +110,7 @@ function MunicipalityCard({
           </span>
           {stats.blueFlagCount > 0 && (
             <span className="flex items-center gap-1">
-              <span aria-hidden="true">🏖️</span>
+              <BlueFlagBadgeIcon className="text-ocean-500 h-4 w-4" />
               <strong className="text-ocean-700 font-semibold">
                 {stats.blueFlagCount}
               </strong>{' '}
@@ -124,7 +125,7 @@ function MunicipalityCard({
                 key={service.id}
                 className="bg-ocean-50 text-ocean-700 flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium"
               >
-                <span aria-hidden="true">{service.icon}</span>
+                <ServiceIcon className="h-3.5 w-3.5" emoji={service.icon} />
                 <span>{service.name}</span>
               </span>
             ))}

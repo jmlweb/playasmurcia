@@ -16,7 +16,7 @@ As a visitor, I want to see photos of every beach so that I can visually evaluat
 
 Content audit (2026-03-27) identified 79 of 194 beaches (41%) have no pictures. Worst coverage: Cartagena (30), Águilas (17), Mazarrón (14), Lorca (11).
 
-See municipality counts in [`docs/dev/content-audit.md`](../content-audit.md#1-beaches-missing-pictures-79) §1.
+See municipality counts in [`docs/dev/reports/processed/content-audit.md`](../reports/processed/content-audit.md#1-beaches-missing-pictures-79) §1.
 
 ## Acceptance Criteria
 
@@ -24,7 +24,7 @@ See municipality counts in [`docs/dev/content-audit.md`](../content-audit.md#1-b
 - [ ] Source at least 1 photo per beach for the 79 missing
 - [ ] Optimize images (WebP, max 1200px wide, <200KB)
 - [ ] Add to `pictures` array in `data/beaches.json`
-- [ ] Update `content-audit.md` with new coverage stats
+- [ ] Update `docs/dev/reports/processed/content-audit.md` with new coverage stats
 
 ## Skip Reason
 

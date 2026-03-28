@@ -14,7 +14,7 @@ As a visitor browsing collections, I want visually distinct cards that help me q
 
 ## Context
 
-UI review (2026-03-28) found thematic collection cards lack visual differentiation, section headings are undersized, and empty states are inconsistent. See `docs/dev/ui-review/colecciones-index.md` and `docs/dev/ui-review/collection-detail.md` for full directives.
+UI review (2026-03-28) found thematic collection cards lack visual differentiation, section headings are undersized, and empty states are inconsistent. See `docs/dev/ui-review/processed/colecciones-index.md` and `docs/dev/ui-review/processed/collection-detail.md` for full directives.
 
 ## Acceptance Criteria
 
@@ -28,4 +28,4 @@ UI review (2026-03-28) found thematic collection cards lack visual differentiati
 ## Notes
 
 - Icons for thematic collections could be emoji or SVG — match the sea card treatment
-- See `docs/dev/ui-review/colecciones-index.md` for specific icon/color suggestions
+- See `docs/dev/ui-review/processed/colecciones-index.md` for specific icon/color suggestions

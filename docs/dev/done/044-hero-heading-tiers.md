@@ -14,7 +14,7 @@ As a visitor navigating between pages, I want a consistent visual hierarchy wher
 
 ## Context
 
-UI review (2026-03-28) found hero h1 sizes are inconsistently applied. The collection detail uses `text-4xl sm:text-5xl` (index tier) instead of `text-3xl sm:text-4xl` (detail tier). See `docs/dev/ui-review/cross-cutting.md` (CC-4) and `docs/dev/ui-review/coleccion-detail.md`.
+UI review (2026-03-28) found hero h1 sizes are inconsistently applied. The collection detail uses `text-4xl sm:text-5xl` (index tier) instead of `text-3xl sm:text-4xl` (detail tier). See `docs/dev/ui-review/processed/cross-cutting.md` (CC-4) and `docs/dev/ui-review/processed/coleccion-detail.md`.
 
 ## Acceptance Criteria
 
@@ -26,4 +26,4 @@ UI review (2026-03-28) found hero h1 sizes are inconsistently applied. The colle
 ## Notes
 
 - Quick fix, ~15 minutes
-- See `docs/dev/ui-review/coleccion-detail.md` for full directive
+- See `docs/dev/ui-review/processed/coleccion-detail.md` for full directive

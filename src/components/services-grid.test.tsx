@@ -36,8 +36,10 @@ describe('ServicesGrid', () => {
     expect(screen.getByText('Parking')).toBeTruthy()
   })
 
-  it('renders service icons', () => {
-    render(<ServicesGrid allServices={mockServices} serviceIndices={[0]} />)
-    expect(screen.getByText('🅿️')).toBeTruthy()
+  it('renders service icons as SVG', () => {
+    const { container } = render(
+      <ServicesGrid allServices={mockServices} serviceIndices={[0]} />,
+    )
+    expect(container.querySelector('svg')).toBeTruthy()
   })
 })

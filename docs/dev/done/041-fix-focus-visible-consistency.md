@@ -14,7 +14,7 @@ As a keyboard user, I want focus rings to appear only when I'm using the keyboar
 
 ## Context
 
-UI review (2026-03-28) found multiple elements using `focus:` instead of `focus-visible:` for ring styles, contrary to the project guidelines. See `docs/dev/ui-review/cross-cutting.md` (CC-2).
+UI review (2026-03-28) found multiple elements using `focus:` instead of `focus-visible:` for ring styles, contrary to the project guidelines. See `docs/dev/ui-review/processed/cross-cutting.md` (CC-2).
 
 ## Acceptance Criteria
 
@@ -29,4 +29,4 @@ UI review (2026-03-28) found multiple elements using `focus:` instead of `focus-
 ## Notes
 
 - This is largely a search-and-replace task but needs manual verification
-- See `docs/dev/ui-review/homepage.md` and `docs/dev/ui-review/explorar.md` for specific instances
+- See `docs/dev/ui-review/processed/homepage.md` and `docs/dev/ui-review/processed/explorar.md` for specific instances

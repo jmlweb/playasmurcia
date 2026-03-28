@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 
 import { Breadcrumb } from '@/components/breadcrumb'
+import { CollectionIcon } from '@/components/icons'
 import { PageHero } from '@/components/page-hero'
 import {
   collections,
@@ -46,19 +47,19 @@ export const Route = createFileRoute('/colecciones/')({
   component: ColeccionesPage,
 })
 
-const ThematicIcons: Record<string, { icon: string; bg: string; text: string; bar: string }> = {
-  'calas-escondidas': { icon: '🏝️', bg: 'bg-teal-50', text: 'text-teal-600', bar: 'bg-teal-500' },
-  'playas-familiares': { icon: '👨‍👩‍👧‍👦', bg: 'bg-amber-50', text: 'text-amber-600', bar: 'bg-amber-500' },
-  'playas-para-perros': { icon: '🐕', bg: 'bg-orange-50', text: 'text-orange-600', bar: 'bg-orange-500' },
-  'playas-nudistas': { icon: '☀️', bg: 'bg-rose-50', text: 'text-rose-600', bar: 'bg-rose-500' },
-  'con-chiringuito': { icon: '🍹', bg: 'bg-purple-50', text: 'text-purple-600', bar: 'bg-purple-500' },
-  'bandera-azul': { icon: '🏳️', bg: 'bg-sky-50', text: 'text-sky-600', bar: 'bg-sky-500' },
-  snorkel: { icon: '🤿', bg: 'bg-cyan-50', text: 'text-cyan-600', bar: 'bg-cyan-500' },
-  'deportes-acuaticos': { icon: '🏄', bg: 'bg-indigo-50', text: 'text-indigo-600', bar: 'bg-indigo-500' },
-  'mejores-atardeceres': { icon: '🌅', bg: 'bg-amber-50', text: 'text-amber-600', bar: 'bg-amber-500' },
-  'playas-tranquilas': { icon: '🧘', bg: 'bg-green-50', text: 'text-green-600', bar: 'bg-green-500' },
-  accesibles: { icon: '♿', bg: 'bg-blue-50', text: 'text-blue-600', bar: 'bg-blue-500' },
-  'playas-fotogenicas': { icon: '📸', bg: 'bg-pink-50', text: 'text-pink-600', bar: 'bg-pink-500' },
+const ThematicThemes: Record<string, { bg: string; text: string; bar: string }> = {
+  'calas-escondidas': { bg: 'bg-teal-50', text: 'text-teal-600', bar: 'bg-teal-500' },
+  'playas-familiares': { bg: 'bg-amber-50', text: 'text-amber-600', bar: 'bg-amber-500' },
+  'playas-para-perros': { bg: 'bg-orange-50', text: 'text-orange-600', bar: 'bg-orange-500' },
+  'playas-nudistas': { bg: 'bg-rose-50', text: 'text-rose-600', bar: 'bg-rose-500' },
+  'con-chiringuito': { bg: 'bg-purple-50', text: 'text-purple-600', bar: 'bg-purple-500' },
+  'bandera-azul': { bg: 'bg-sky-50', text: 'text-sky-600', bar: 'bg-sky-500' },
+  snorkel: { bg: 'bg-cyan-50', text: 'text-cyan-600', bar: 'bg-cyan-500' },
+  'deportes-acuaticos': { bg: 'bg-indigo-50', text: 'text-indigo-600', bar: 'bg-indigo-500' },
+  'mejores-atardeceres': { bg: 'bg-amber-50', text: 'text-amber-600', bar: 'bg-amber-500' },
+  'playas-tranquilas': { bg: 'bg-green-50', text: 'text-green-600', bar: 'bg-green-500' },
+  accesibles: { bg: 'bg-blue-50', text: 'text-blue-600', bar: 'bg-blue-500' },
+  'playas-fotogenicas': { bg: 'bg-pink-50', text: 'text-pink-600', bar: 'bg-pink-500' },
 }
 
 function CollectionCard({
@@ -72,8 +73,7 @@ function CollectionCard({
   description: string
   beachCount: number
 }) {
-  const theme = ThematicIcons[slug] ?? {
-    icon: '🏖️',
+  const theme = ThematicThemes[slug] ?? {
     bg: 'bg-gray-50',
     text: 'text-gray-600',
     bar: 'bg-gray-500',
@@ -88,9 +88,9 @@ function CollectionCard({
       <div className="flex flex-1 flex-col p-6">
         <div className="mb-3 flex items-center gap-3">
           <div
-            className={`flex h-10 w-10 items-center justify-center rounded-xl text-lg ${theme.bg}`}
+            className={`flex h-10 w-10 items-center justify-center rounded-xl ${theme.bg} ${theme.text}`}
           >
-            {theme.icon}
+            <CollectionIcon className="h-6 w-6" slug={slug} />
           </div>
           <h3 className="group-hover:text-ocean-600 text-xl font-bold text-gray-900 transition-colors">
             {title}

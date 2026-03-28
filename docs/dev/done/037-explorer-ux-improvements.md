@@ -14,7 +14,7 @@ As a visitor using the beach explorer, I want clear feedback about active filter
 
 ## Context
 
-UI review (2026-03-28) found the explorer lacks active filter indication, uses a native browser dropdown for sort, and has other UX gaps. See `docs/dev/ui-review/explorer.md` for full directive.
+UI review (2026-03-28) found the explorer lacks active filter indication, uses a native browser dropdown for sort, and has other UX gaps. See `docs/dev/ui-review/processed/explorer.md` for full directive.
 
 ## Acceptance Criteria
 
@@ -28,4 +28,4 @@ UI review (2026-03-28) found the explorer lacks active filter indication, uses a
 
 - Filter chips pattern: `rounded-full bg-ocean-50 px-3 py-1 text-sm text-ocean-700` with X remove button
 - Custom dropdown could use Base UI Popover (already in the project for nav)
-- See `docs/dev/ui-review/explorer.md` for detailed directives
+- See `docs/dev/ui-review/processed/explorer.md` for detailed directives

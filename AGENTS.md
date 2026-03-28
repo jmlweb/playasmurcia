@@ -11,6 +11,7 @@ Project documentation is in `docs/`:
 - [Business Rules](./docs/business-rules.md) — Data processing logic
 - [Development](./docs/development.md) — Commands and workflow
 - [UI Guidelines](./docs/ui-guidelines.md) — Visual design, colors, typography, accessibility
+- **Dev reports & UI review layout** — Not a separate doc: see [Reports, UI reviews, and audits (mandatory for agents)](#reports-ui-reviews-and-audits-mandatory-for-agents) in this file (`docs/dev/ui-review/`, `docs/dev/reports/`).
 
 ## Project state
 
@@ -28,6 +29,26 @@ Tasks live under `docs/dev/`:
 - [LEARNINGS.md](./docs/dev/LEARNINGS.md) — Development insights
 - `docs/dev/backlog/` — Pending task files
 - `docs/dev/done/` — Completed task files
+- **Reports, UI reviews, and audits** — [Reports, UI reviews, and audits (mandatory for agents)](#reports-ui-reviews-and-audits-mandatory-for-agents); short pointers: [docs/dev/ui-review/README.md](./docs/dev/ui-review/README.md), [docs/dev/reports/README.md](./docs/dev/reports/README.md)
+
+### Reports, UI reviews, and audits (mandatory for agents)
+
+**AI agents must read and follow this subsection** before creating, moving, or linking any UI review directive, standalone report, or data audit markdown. There is **no** central JSON registry and **no** `pnpm reports:status` command — traceability is **task files + paths**.
+
+| Location | Use |
+|----------|-----|
+| `docs/dev/ui-review/{name}.md` | **Active** UI directives while a review is in progress (before backlog tasks exist). |
+| `docs/dev/ui-review/processed/{name}.md` | Directives **after** backlog tasks reference them. Split files if only part of a directive was task-backed. |
+| `docs/dev/reports/{name}.md` | **Active** standalone reports (e.g. v3 vs production draft) before tasks cite them. |
+| `docs/dev/reports/processed/{name}.md` | Standalone reports **and** data/content audits used as reference artifacts for tasks (e.g. `v3-vs-production-beach-detail.md`, `content-audit.md`). |
+| `docs/github-main-feature-gap-analysis.md` | Product parity vs `main` — stays at `docs/` root; link from tasks when relevant. |
+
+**Required behavior**
+
+1. **`/ui-review`**: Run the workflow in [`.claude/templates/ui-review.md`](./.claude/templates/ui-review.md) under the role in [`.claude/agents/ui-designer.md`](./.claude/agents/ui-designer.md). Write directives under `docs/dev/ui-review/` during the audit; after creating backlog tasks, **move** covered files to `docs/dev/ui-review/processed/` and ensure every new task links to the **final** path (`docs/dev/ui-review/processed/…`).
+2. **Other reports**: Add markdown under `docs/dev/reports/` first if no tasks yet; when tasks reference the report, **move** it to `docs/dev/reports/processed/` and put the repo-relative path in the task body (see existing tasks for tone).
+3. **Moves/renames**: Search the repo for the old path and update `docs/dev/backlog/`, `docs/dev/done/`, and any doc that linked to it.
+4. **Guidelines**: UI work still defers to [`docs/ui-guidelines.md`](./docs/ui-guidelines.md); propose updates per the UI review template Phase 4 when appropriate.
 
 ### Slash-style commands (Claude Code / similar)
 
@@ -137,6 +158,7 @@ After structural or behavioral changes, update the matching doc:
 | Project structure | `docs/architecture.md` — directory tree |
 | New commands | `docs/development.md` |
 | New routes/pages | `docs/architecture.md` — routing |
+| New or moved UI directives / dev reports | This file — [Reports, UI reviews, and audits](#reports-ui-reviews-and-audits-mandatory-for-agents); folder READMEs under `docs/dev/ui-review/` and `docs/dev/reports/` |
 
 **Checklist before completing a task**
 
@@ -144,3 +166,4 @@ After structural or behavioral changes, update the matching doc:
 2. Business logic changed? → `business-rules.md`
 3. Structure or stack changed? → `architecture.md`
 4. Workflow or commands changed? → `development.md`
+5. Report / UI review layout or rules changed? → this file (`AGENTS.md`) and the README under `docs/dev/reports/` or `docs/dev/ui-review/` if the folder contract changed

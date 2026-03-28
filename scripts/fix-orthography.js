@@ -7,7 +7,7 @@
  * @example
  * pnpm run fix:orthography
  * pnpm run fix:orthography -- --write
- * pnpm run fix:orthography -- --lang es docs/dev/content-audit.md
+ * pnpm run fix:orthography -- --lang es docs/dev/reports/processed/content-audit.md
  */
 
 import { execFileSync } from 'node:child_process'

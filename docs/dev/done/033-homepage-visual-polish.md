@@ -15,7 +15,7 @@ As a visitor landing on the homepage, I want a visually rich and well-structured
 
 ## Context
 
-UI review (2026-03-28) found several layout and hierarchy issues on the homepage. See `docs/dev/ui-review/homepage.md` for full directive.
+UI review (2026-03-28) found several layout and hierarchy issues on the homepage. See `docs/dev/ui-review/processed/homepage.md` for full directive.
 
 ## Acceptance Criteria
 
@@ -27,7 +27,7 @@ UI review (2026-03-28) found several layout and hierarchy issues on the homepage
 ## Notes
 
 - The search bar on homepage hero is a bigger feature — consider as a separate task if desired
-- See `docs/dev/ui-review/homepage.md` for detailed fix instructions
+- See `docs/dev/ui-review/processed/homepage.md` for detailed fix instructions
 - Alternating bg pattern is defined in `docs/ui-guidelines.md` Section Rhythm
 
 ## Progress Log

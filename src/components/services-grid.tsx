@@ -1,3 +1,4 @@
+import { ServiceIcon } from '@/components/icons'
 import type { Service } from '@/types/beach'
 
 type ServicesGridProps = {
@@ -26,9 +27,7 @@ export function ServicesGrid({
             key={service.id}
             className="hover:border-ocean-200 hover:bg-ocean-50/50 flex items-center gap-2.5 rounded-xl border border-gray-200/60 bg-white px-3.5 py-3 text-sm text-gray-700 shadow-sm transition-colors"
           >
-            <span aria-hidden="true" className="text-xl">
-              {service.icon}
-            </span>
+            <ServiceIcon className="text-ocean-500 h-5 w-5" emoji={service.icon} />
             <span>{service.name}</span>
           </li>
         ))}

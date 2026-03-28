@@ -15,7 +15,7 @@ As a visitor, I want the site to render correctly without broken text, invalid H
 
 ## Context
 
-UI review (2026-03-28) found three critical rendering issues affecting multiple pages. See `docs/dev/ui-review/cross-cutting.md` and `docs/dev/ui-review/municipios-index.md` for full directives.
+UI review (2026-03-28) found three critical rendering issues affecting multiple pages. See `docs/dev/ui-review/processed/cross-cutting.md` and `docs/dev/ui-review/processed/municipios-index.md` for full directives.
 
 ## Acceptance Criteria
 

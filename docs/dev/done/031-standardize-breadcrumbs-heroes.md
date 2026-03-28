@@ -15,7 +15,7 @@ As a visitor, I want consistent navigation cues and page headers so the site fee
 
 ## Context
 
-UI review (2026-03-28) found breadcrumbs and hero heights vary arbitrarily across pages. See `docs/dev/ui-review/cross-cutting.md`, `docs/dev/ui-review/municipality-detail.md`, and `docs/dev/ui-review/explorer.md` for full directives.
+UI review (2026-03-28) found breadcrumbs and hero heights vary arbitrarily across pages. See `docs/dev/ui-review/processed/cross-cutting.md`, `docs/dev/ui-review/processed/municipality-detail.md`, and `docs/dev/ui-review/processed/explorer.md` for full directives.
 
 ## Acceptance Criteria
 
@@ -30,4 +30,4 @@ UI review (2026-03-28) found breadcrumbs and hero heights vary arbitrarily acros
 
 - Homepage hero keeps its own taller height — it's the immersive entry point
 - Consider extracting a shared `PageHero` component to enforce consistency
-- See `docs/dev/ui-review/cross-cutting.md` for the recommended two-tier hero system
+- See `docs/dev/ui-review/processed/cross-cutting.md` for the recommended two-tier hero system

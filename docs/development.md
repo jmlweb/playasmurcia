@@ -46,6 +46,10 @@ pnpm run prune:small-pictures -- --delete-files  # Also delete unreferenced rast
 pnpm optimize:images           # Generate WebP variants + thumbnails in public/pictures/optimized/
 ```
 
+### Dev reports and UI reviews
+
+No registry file or `pnpm reports:status`. **Authoritative workflow and paths:** [AGENTS.md](../AGENTS.md) — *Reports, UI reviews, and audits (mandatory for agents)*. Short layout: [`dev/reports/README.md`](dev/reports/README.md), [`dev/ui-review/README.md`](dev/ui-review/README.md).
+
 ## Database Commands
 
 ```bash
@@ -164,7 +168,7 @@ The Ollama CLI (`ollama run`) does not provide a `--stdin` flag on current versi
 ollama pull gemma3:4b
 pnpm run fix:orthography                    # dry-run: git-style diff on stdout
 pnpm run fix:orthography -- --write         # apply corrections in place
-pnpm run fix:orthography -- --lang es docs/dev/content-audit.md
+pnpm run fix:orthography -- --lang es docs/dev/reports/processed/content-audit.md
 ```
 
 Default behavior processes all `**/*.md` under `docs/`. Pass file paths or repeat `--root DIR` to include other trees. **Do not** use this on `data/beaches.json` or generated beach fields without a dedicated workflow—LLM output can break JSON or alter controlled copy.

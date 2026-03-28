@@ -1,3 +1,5 @@
+import { WeatherIcon } from '@/components/icons'
+import type { WeatherIconType } from '@/components/icons'
 import { ResponsiveImage } from '@/components/responsive-image'
 import { parseImageFilename } from '@/lib/images'
 import type { CardWeather } from '@/lib/open-meteo'
@@ -15,15 +17,15 @@ const OccupancyConfig = {
   high: { label: 'Alta ocupación', className: 'bg-rose-700 text-rose-100' },
 } as const
 
-const WeatherIconMap: Record<string, string> = {
-  sunny: '☀️',
-  'partly-cloudy': '⛅',
-  cloudy: '☁️',
-  rain: '🌧️',
-  storm: '⛈️',
-  fog: '🌫️',
-  haze: '🌫️',
-}
+const validWeatherIcons = new Set([
+  'sunny',
+  'partly-cloudy',
+  'cloudy',
+  'rain',
+  'storm',
+  'fog',
+  'haze',
+])
 
 type BeachCardProps = {
   beach: Beach
@@ -68,9 +70,14 @@ export function BeachCard({
         <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
         {weather && (
           <span className="absolute top-3 left-3 flex items-center gap-1 rounded-full bg-white/80 px-2 py-0.5 text-xs font-medium text-gray-800 backdrop-blur-sm">
-            <span aria-hidden="true">
-              {WeatherIconMap[weather.icon] ?? '🌡️'}
-            </span>
+            <WeatherIcon
+              className="h-4 w-4"
+              type={
+                validWeatherIcons.has(weather.icon)
+                  ? (weather.icon as WeatherIconType)
+                  : 'unknown'
+              }
+            />
             {weather.temp}°
           </span>
         )}

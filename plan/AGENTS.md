@@ -1,6 +1,6 @@
 # Plan Directory Rules
 
-General repository rules: [AGENTS.md](../AGENTS.md).
+General repository rules: [AGENTS.md](../AGENTS.md). For where to put UI directives and dev reports, use the same file — *Reports, UI reviews, and audits (mandatory for agents)*.
 
 This directory stores the different stages to execute a plan.
 

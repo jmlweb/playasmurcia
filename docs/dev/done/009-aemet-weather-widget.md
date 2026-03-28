@@ -21,8 +21,8 @@ As a beachgoer, I want to see real-time weather predictions for each beach so th
 - [ ] Graceful handling of API errors and rate limits
 - [ ] Only shown for beaches with `aemetId` (65 beaches)
 - [ ] Loading and error states
-- [ ] Homepage beach cards show current temperature + wind indicator (see v3 comparison report, point 3)
-- [ ] Beach detail page shows multi-day forecast with min/max temps, conditions, wind (see v3 comparison report, point 4)
+- [ ] Homepage beach cards show current temperature + wind indicator (see `docs/dev/reports/processed/v3-vs-production-beach-detail.md` for production vs v3 weather UI)
+- [ ] Beach detail page shows multi-day forecast with min/max temps, conditions, wind (see `docs/dev/reports/processed/v3-vs-production-beach-detail.md`, weather section)
 
 ## Implementation Notes
 

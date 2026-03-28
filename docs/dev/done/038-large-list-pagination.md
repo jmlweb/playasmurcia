@@ -14,7 +14,7 @@ As a visitor viewing a municipality with many beaches, I want the page to load f
 
 ## Context
 
-UI review (2026-03-28) found that Cartagena renders 69 beach cards simultaneously with no pagination. This is a performance issue on mobile (massive DOM, dozens of image requests). See `docs/dev/ui-review/municipality-detail.md` for full directive.
+UI review (2026-03-28) found that Cartagena renders 69 beach cards simultaneously with no pagination. This is a performance issue on mobile (massive DOM, dozens of image requests). See `docs/dev/ui-review/processed/municipality-detail.md` for full directive.
 
 ## Acceptance Criteria
 
