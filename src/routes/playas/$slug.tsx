@@ -10,9 +10,11 @@ import { LocationMap } from '@/components/location-map'
 import { NearbyCarousel } from '@/components/nearby-carousel'
 import { PhotoGallery } from '@/components/photo-gallery'
 import { PracticalInfoCard } from '@/components/practical-info-card'
+import { ResponsiveImage } from '@/components/responsive-image'
 import { ServicesGrid } from '@/components/services-grid'
 import { TagsSection } from '@/components/tags-section'
 import { WeatherWidget } from '@/components/weather-widget'
+import { parseImageFilename } from '@/lib/images'
 import { generateBeachSchema } from '@/lib/schema'
 import { beachToSlug, municipalityToSlug } from '@/lib/slugs'
 
@@ -104,50 +106,85 @@ function BeachPage() {
     Route.useLoaderData()
 
   const pictures = beach.pictures ?? []
+  const heroImage = pictures[0] ? parseImageFilename(pictures[0]) : null
 
   return (
     <main className="bg-sand-50 min-h-screen">
-      {/* Hero / Gallery */}
-      <div className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 pt-6 pb-4 sm:px-6 lg:px-8">
-          <Breadcrumb
-            items={[
-              { label: 'Inicio', href: '/' },
-              {
-                label: municipality.name,
-                href: `/municipios/${municipalityToSlug(municipality)}`,
-              },
-              { label: beach.name },
-            ]}
+      {/* Hero section */}
+      {heroImage ? (
+        <section className="relative h-64 overflow-hidden sm:h-80 lg:h-96">
+          <ResponsiveImage
+            alt={beach.name}
+            baseName={heroImage.baseName}
+            className="absolute inset-0 h-full w-full object-cover"
+            ext={heroImage.ext}
+            priority="high"
+            variant="full"
           />
-
-          <div className="mb-5 flex flex-wrap items-start gap-4">
-            <div className="flex-1">
-              <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                {beach.name}
-              </h1>
-              <p className="mt-1.5 text-lg text-gray-500">
-                {municipality.name}
-              </p>
-            </div>
+          <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
+            <h1 className="text-3xl font-extrabold tracking-tight text-white drop-shadow-lg sm:text-4xl">
+              {beach.name}
+            </h1>
+            <p className="mt-1 text-lg text-white/80">
+              {municipality.name}
+            </p>
             {beach.tags && beach.tags.length > 0 && (
-              <TagsSection allTags={tags} tagIndices={beach.tags} />
+              <div className="mt-3">
+                <TagsSection allTags={tags} tagIndices={beach.tags} />
+              </div>
             )}
           </div>
-        </div>
+        </section>
+      ) : (
+        <section className="bg-ocean-700 relative py-12">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+              {beach.name}
+            </h1>
+            <p className="mt-1 text-lg text-white/80">
+              {municipality.name}
+            </p>
+            {beach.tags && beach.tags.length > 0 && (
+              <div className="mt-3">
+                <TagsSection allTags={tags} tagIndices={beach.tags} />
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
-        <div className="mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
-          <PhotoGallery beachName={beach.name} pictures={pictures} />
+      {/* Breadcrumb + Gallery */}
+      <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
+        <Breadcrumb
+          items={[
+            { label: 'Inicio', href: '/' },
+            {
+              label: municipality.name,
+              href: `/municipios/${municipalityToSlug(municipality)}`,
+            },
+            { label: beach.name },
+          ]}
+        />
 
-          {beach.certifications && beach.certifications.length > 0 && (
-            <div className="mt-5">
-              <CertificationsBadge certifications={beach.certifications} />
-            </div>
-          )}
-        </div>
+        {pictures.length > 1 ? (
+          <div className="mt-6 mb-8">
+            <BeachGallery beachName={beach.name} pictures={pictures} />
+          </div>
+        ) : pictures.length === 1 && !heroImage ? (
+          <div className="mt-6 mb-8">
+            <PhotoGallery beachName={beach.name} pictures={pictures} />
+          </div>
+        ) : null}
+
+        {beach.certifications && beach.certifications.length > 0 && (
+          <div className="mb-8">
+            <CertificationsBadge certifications={beach.certifications} />
+          </div>
+        )}
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           {/* Main content column */}
           <div className="space-y-8 lg:col-span-2">
@@ -236,6 +273,101 @@ function BeachPage() {
         </div>
       </div>
     </main>
+  )
+}
+
+function BeachGallery({
+  beachName,
+  pictures,
+}: {
+  beachName: string
+  pictures: string[]
+}) {
+  if (pictures.length === 1) {
+    const { baseName, ext } = parseImageFilename(pictures[0])
+    return (
+      <div className="aspect-[16/9] overflow-hidden rounded-2xl">
+        <ResponsiveImage
+          alt={beachName}
+          baseName={baseName}
+          className="h-full w-full object-cover"
+          ext={ext}
+          variant="full"
+        />
+      </div>
+    )
+  }
+
+  const galleryPics = pictures.slice(0, 3)
+  const [first, second, third] = galleryPics.map((p) => parseImageFilename(p))
+
+  return (
+    <>
+      {/* Desktop: grid layout */}
+      <div className="hidden gap-3 md:grid md:grid-cols-3">
+        <div className="col-span-2 overflow-hidden rounded-2xl">
+          <ResponsiveImage
+            alt={`${beachName} - foto principal`}
+            baseName={first.baseName}
+            className="h-full w-full object-cover"
+            ext={first.ext}
+            variant="full"
+          />
+        </div>
+        <div className="flex flex-col gap-3">
+          {second && (
+            <div className="flex-1 overflow-hidden rounded-2xl">
+              <ResponsiveImage
+                alt={`${beachName} - foto 2`}
+                baseName={second.baseName}
+                className="h-full w-full object-cover"
+                ext={second.ext}
+                variant="full"
+              />
+            </div>
+          )}
+          {third && (
+            <div className="flex-1 overflow-hidden rounded-2xl">
+              <ResponsiveImage
+                alt={`${beachName} - foto 3`}
+                baseName={third.baseName}
+                className="h-full w-full object-cover"
+                ext={third.ext}
+                variant="full"
+              />
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Mobile: horizontal scroll */}
+      <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 md:hidden">
+        {pictures.map((pic, i) => {
+          const { baseName, ext } = parseImageFilename(pic)
+          return (
+            <div
+              key={pic}
+              className="aspect-[4/3] w-72 flex-shrink-0 snap-start overflow-hidden rounded-2xl"
+            >
+              <ResponsiveImage
+                alt={`${beachName} - foto ${i + 1}`}
+                baseName={baseName}
+                className="h-full w-full object-cover"
+                ext={ext}
+                variant="thumb"
+              />
+            </div>
+          )
+        })}
+      </div>
+
+      {/* If more than 3 photos, show remaining count */}
+      {pictures.length > 3 && (
+        <p className="mt-2 hidden text-sm text-gray-500 md:block">
+          +{pictures.length - 3} fotos mas en la galeria
+        </p>
+      )}
+    </>
   )
 }
 
