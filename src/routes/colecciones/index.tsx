@@ -84,7 +84,7 @@ function CollectionCard({
       className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none"
       href={`/colecciones/${slug}`}
     >
-      <div className={`h-2 ${theme.bar}`} />
+      <div className={`h-2.5 ${theme.bar}`} />
       <div className="flex flex-1 flex-col p-6">
         <div className="mb-3 flex items-center gap-3">
           <div
@@ -134,16 +134,16 @@ function SeaCollectionCard({
       href={`/colecciones/${slug}`}
     >
       <div
-        className={`h-2 ${isMediterraneo ? 'bg-ocean-500' : 'bg-emerald-500'}`}
+        className={`h-2.5 ${isMediterraneo ? 'bg-ocean-500' : 'bg-emerald-500'}`}
       />
       <div className="flex flex-1 flex-col p-6">
         <div className="mb-3 flex items-center gap-3">
           <div
-            className={`flex h-10 w-10 items-center justify-center rounded-xl ${isMediterraneo ? 'bg-ocean-50 text-ocean-600' : 'bg-emerald-50 text-emerald-600'}`}
+            className={`flex h-14 w-14 items-center justify-center rounded-xl ${isMediterraneo ? 'bg-ocean-50 text-ocean-600' : 'bg-emerald-50 text-emerald-600'}`}
           >
             <svg
               aria-hidden="true"
-              className="h-5 w-5"
+              className="h-7 w-7"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -202,14 +202,11 @@ function ColeccionesPage() {
         />
 
         {/* Seas — featured */}
-        <section className="mb-14">
-          <p className="text-ocean-600 mb-1 text-sm font-semibold tracking-wider uppercase">
-            Por mar
-          </p>
+        <section className="mb-10">
           <h2 className="mb-5 text-2xl font-bold text-gray-900">
-            Segun su mar
+            Playas por mar
           </h2>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:gap-6">
             {seas.map((sea) => (
               <SeaCollectionCard
                 key={sea.slug}
@@ -224,11 +221,8 @@ function ColeccionesPage() {
 
         {/* Thematic collections */}
         <section className="border-t border-gray-200 pt-10">
-          <p className="text-ocean-600 mb-1 text-sm font-semibold tracking-wider uppercase">
-            Por tematica
-          </p>
           <h2 className="mb-5 text-2xl font-bold text-gray-900">
-            Segun tus preferencias
+            Colecciones tematicas
           </h2>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
             {items.map((item) => (
