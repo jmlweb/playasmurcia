@@ -81,8 +81,12 @@ export const Route = createFileRoute('/municipios/$slug')({
 function MunicipalityPage() {
   const { municipality, beaches, tags, blueFlagCount, weatherData } =
     Route.useLoaderData()
+  const PAGE_SIZE = 15
   const [sort, setSort] = useState<NonNullable<BeachSearchParams['sort']>>('name')
   const sortedBeaches = useMemo(() => sortBeaches(beaches, sort), [beaches, sort])
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
+  const visibleBeaches = sortedBeaches.slice(0, visibleCount)
+  const hasMore = visibleCount < sortedBeaches.length
 
   return (
     <main className="bg-sand-50 min-h-screen">
@@ -123,8 +127,21 @@ function MunicipalityPage() {
             <div className="mb-6 flex justify-end">
               <SortSelect value={sort} onChange={setSort} />
             </div>
+            {sortedBeaches.length > PAGE_SIZE && (
+              <p className="mb-4 text-sm text-gray-500">
+                Mostrando{' '}
+                <strong className="font-semibold text-gray-900">
+                  {Math.min(visibleCount, sortedBeaches.length)}
+                </strong>{' '}
+                de{' '}
+                <strong className="font-semibold text-gray-900">
+                  {sortedBeaches.length}
+                </strong>{' '}
+                playas
+              </p>
+            )}
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-5 xl:grid-cols-3 xl:gap-6">
-              {sortedBeaches.map((beach) => (
+              {visibleBeaches.map((beach) => (
                 <BeachCard
                   key={beach.code}
                   beach={beach}
@@ -135,6 +152,17 @@ function MunicipalityPage() {
                 />
               ))}
             </div>
+            {hasMore && (
+              <div className="mt-8 text-center">
+                <button
+                  className="bg-ocean-600 hover:bg-ocean-700 focus:ring-ocean-500 rounded-full px-6 py-3 text-sm font-semibold text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
+                  type="button"
+                  onClick={() => setVisibleCount((prev) => prev + PAGE_SIZE)}
+                >
+                  Cargar mas playas
+                </button>
+              </div>
+            )}
           </>
         ) : (
           <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-300 py-24 text-center">

@@ -85,6 +85,7 @@ export const Route = createFileRoute('/colecciones/$slug')({
 
 function CollectionPage() {
   const { collection, items, tags, weatherData } = Route.useLoaderData()
+  const PAGE_SIZE = 15
   const [sort, setSort] = useState<NonNullable<BeachSearchParams['sort']>>('name')
   const sortedItems = useMemo(
     () =>
@@ -94,6 +95,9 @@ function CollectionPage() {
       ).map((beach) => items.find((i) => i.beach.code === beach.code)!),
     [items, sort],
   )
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
+  const visibleItems = sortedItems.slice(0, visibleCount)
+  const hasMore = visibleCount < sortedItems.length
 
   return (
     <main className="bg-sand-50 min-h-screen">
@@ -151,18 +155,44 @@ function CollectionPage() {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
-            {sortedItems.map(({ beach, municipality, slug }) => (
-              <BeachCard
-                key={beach.code}
-                beach={beach}
-                municipality={municipality}
-                slug={slug}
-                tags={tags}
-                weather={weatherData[beach.code]}
-              />
-            ))}
-          </div>
+          <>
+            {sortedItems.length > PAGE_SIZE && (
+              <p className="mb-4 text-sm text-gray-500">
+                Mostrando{' '}
+                <strong className="font-semibold text-gray-900">
+                  {Math.min(visibleCount, sortedItems.length)}
+                </strong>{' '}
+                de{' '}
+                <strong className="font-semibold text-gray-900">
+                  {sortedItems.length}
+                </strong>{' '}
+                playas
+              </p>
+            )}
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+              {visibleItems.map(({ beach, municipality, slug }) => (
+                <BeachCard
+                  key={beach.code}
+                  beach={beach}
+                  municipality={municipality}
+                  slug={slug}
+                  tags={tags}
+                  weather={weatherData[beach.code]}
+                />
+              ))}
+            </div>
+            {hasMore && (
+              <div className="mt-8 text-center">
+                <button
+                  className="bg-ocean-600 hover:bg-ocean-700 focus:ring-ocean-500 rounded-full px-6 py-3 text-sm font-semibold text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
+                  type="button"
+                  onClick={() => setVisibleCount((prev) => prev + PAGE_SIZE)}
+                >
+                  Cargar mas playas
+                </button>
+              </div>
+            )}
+          </>
         )}
 
         <div className="mt-12 text-center">
