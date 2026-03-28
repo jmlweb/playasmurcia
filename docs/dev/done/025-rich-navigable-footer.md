@@ -15,7 +15,7 @@ As a visitor, I want a footer with organized links to municipalities and beach c
 
 ## Context
 
-v3 comparison report (`docs/v3-comparison-report.md`, point 5) identified that the production site has a rich footer with 9 municipality links and 5 characteristic links (each with beach counts in badges), while v3 only shows a data attribution line.
+Product parity doc ([`docs/github-main-feature-gap-analysis.md`](../../github-main-feature-gap-analysis.md#footer)) described the gap: production footer acts as a small sitemap with municipalities and characteristics (with counts).
 
 ## Acceptance Criteria
 

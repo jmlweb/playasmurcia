@@ -8,7 +8,8 @@ import {
 import { createServerFn } from '@tanstack/react-start'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
+import { Popover } from '@base-ui/react/popover'
 
 import appCss from '../styles.css?url'
 import { SiteFooter } from '@/components/site-footer'
@@ -134,8 +135,6 @@ const simpleNavLinks = [
   { to: '/' as const, label: 'Inicio', exact: true },
   { to: '/explorar' as const, label: 'Explorar' },
   { to: '/colecciones' as const, label: 'Colecciones' },
-  { to: '/mares' as const, label: 'Mares' },
-  { to: '/comparar' as const, label: 'Comparar' },
 ]
 
 function ChevronDownIcon({ className }: { className?: string }) {
@@ -155,7 +154,6 @@ function NavDropdown({
 }) {
   const [open, setOpen] = useState(false)
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const containerRef = useRef<HTMLDivElement>(null)
 
   function handleMouseEnter() {
     if (timeoutRef.current) clearTimeout(timeoutRef.current)
@@ -166,115 +164,96 @@ function NavDropdown({
     timeoutRef.current = setTimeout(() => setOpen(false), 150)
   }
 
-  // Close on Escape
-  useEffect(() => {
-    if (!open) return
-    function handleKeyDown(e: KeyboardEvent) {
-      if (e.key === 'Escape') setOpen(false)
-    }
-    document.addEventListener('keydown', handleKeyDown)
-    return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [open])
-
-  // Close on click outside
-  useEffect(() => {
-    if (!open) return
-    function handleClick(e: MouseEvent) {
-      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
-        setOpen(false)
-      }
-    }
-    document.addEventListener('click', handleClick)
-    return () => document.removeEventListener('click', handleClick)
-  }, [open])
-
   return (
-    <div
-      ref={containerRef}
-      className="relative"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <button
-        type="button"
-        className="inline-flex items-center gap-1 text-sm font-medium text-ocean-200 transition-colors hover:text-white focus-visible:text-white focus-visible:underline focus-visible:outline-none"
-        aria-expanded={open}
-        aria-haspopup="true"
-        onClick={() => setOpen((prev) => !prev)}
+    <Popover.Root open={open} onOpenChange={setOpen}>
+      <div
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
-        {label}
-        <ChevronDownIcon className={`h-3.5 w-3.5 transition-transform ${open ? 'rotate-180' : ''}`} />
-      </button>
-
-      {open && (
-        <div
-          className="absolute left-1/2 top-full z-50 mt-3 w-[28rem] -translate-x-1/2 rounded-xl border border-white/10 bg-ocean-800 p-5 shadow-2xl animate-dropdown"
-          role="menu"
+        <Popover.Trigger
+          className="inline-flex items-center gap-1 text-sm font-medium text-ocean-200 transition-colors hover:text-white focus-visible:text-white focus-visible:underline focus-visible:outline-none"
         >
-          <div className="grid grid-cols-2 gap-6">
-            {/* Municipalities */}
-            <div>
-              <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-ocean-400">
-                Municipios
-              </p>
-              <ul className="space-y-1" role="none">
-                {navData.municipalities.map((m) => (
-                  <li key={m.slug} role="none">
-                    <a
-                      href={`/municipios/${m.slug}`}
-                      role="menuitem"
-                      className="flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm text-ocean-100 transition-colors hover:bg-ocean-700 hover:text-white focus-visible:bg-ocean-700 focus-visible:text-white focus-visible:outline-none"
-                      onClick={() => setOpen(false)}
-                    >
-                      {m.name}
-                      <span className="ml-2 rounded-full bg-ocean-700/60 px-2 py-0.5 text-xs text-ocean-300">
-                        {m.beachCount}
-                      </span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {label}
+          <ChevronDownIcon className={`h-3.5 w-3.5 transition-transform ${open ? 'rotate-180' : ''}`} />
+        </Popover.Trigger>
 
-            {/* Characteristics */}
-            <div>
-              <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-ocean-400">
-                Caracteristicas
-              </p>
-              <ul className="space-y-1" role="none">
-                {navData.characteristics.map((c) => (
-                  <li key={c.href} role="none">
+        <Popover.Portal>
+          <Popover.Positioner
+            sideOffset={12}
+            side="bottom"
+            align="center"
+            collisionPadding={12}
+            className="z-50"
+          >
+            <Popover.Popup
+              className="w-[28rem] rounded-xl border border-white/10 bg-ocean-800 p-5 shadow-2xl"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="grid grid-cols-2 gap-6">
+                {/* Municipalities */}
+                <div>
+                  <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-ocean-400">
+                    Municipios
+                  </p>
+                  <ul className="space-y-1">
+                    {navData.municipalities.map((m) => (
+                      <li key={m.slug}>
+                        <a
+                          href={`/municipios/${m.slug}`}
+                          className="flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm text-ocean-100 transition-colors hover:bg-ocean-700 hover:text-white focus-visible:bg-ocean-700 focus-visible:text-white focus-visible:outline-none"
+                          onClick={() => setOpen(false)}
+                        >
+                          {m.name}
+                          <span className="ml-2 rounded-full bg-ocean-700/60 px-2 py-0.5 text-xs text-ocean-300">
+                            {m.beachCount}
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Characteristics */}
+                <div>
+                  <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-ocean-400">
+                    Caracteristicas
+                  </p>
+                  <ul className="space-y-1">
+                    {navData.characteristics.map((c) => (
+                      <li key={c.href}>
+                        <a
+                          href={c.href}
+                          className="flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm text-ocean-100 transition-colors hover:bg-ocean-700 hover:text-white focus-visible:bg-ocean-700 focus-visible:text-white focus-visible:outline-none"
+                          onClick={() => setOpen(false)}
+                        >
+                          {c.label}
+                          <span className="ml-2 rounded-full bg-ocean-700/60 px-2 py-0.5 text-xs text-ocean-300">
+                            {c.count}
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-4 border-t border-ocean-700 pt-3">
                     <a
-                      href={c.href}
-                      role="menuitem"
-                      className="flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm text-ocean-100 transition-colors hover:bg-ocean-700 hover:text-white focus-visible:bg-ocean-700 focus-visible:text-white focus-visible:outline-none"
+                      href="/explorar"
+                      className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-ocean-300 transition-colors hover:bg-ocean-700 hover:text-white"
                       onClick={() => setOpen(false)}
                     >
-                      {c.label}
-                      <span className="ml-2 rounded-full bg-ocean-700/60 px-2 py-0.5 text-xs text-ocean-300">
-                        {c.count}
-                      </span>
+                      Ver todas las playas
+                      <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
                     </a>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-4 border-t border-ocean-700 pt-3">
-                <a
-                  href="/explorar"
-                  className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-ocean-300 transition-colors hover:bg-ocean-700 hover:text-white"
-                  onClick={() => setOpen(false)}
-                >
-                  Ver todas las playas
-                  <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
+            </Popover.Popup>
+          </Popover.Positioner>
+        </Popover.Portal>
+      </div>
+    </Popover.Root>
   )
 }
 
@@ -341,7 +320,7 @@ function Navbar() {
   const navData = Route.useLoaderData()
 
   return (
-    <nav className="sticky top-0 z-40 border-b border-white/10 bg-ocean-900 sm:bg-ocean-900/95 sm:backdrop-blur-md">
+    <nav className="sticky top-0 z-40 border-b border-white/10 bg-nav sm:bg-nav/95 sm:backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link
           to="/"
@@ -355,8 +334,9 @@ function Navbar() {
               key={to}
               to={to}
               activeOptions={{ exact }}
-              className="text-sm font-medium text-ocean-200 transition-colors hover:text-white focus-visible:text-white focus-visible:underline focus-visible:outline-none"
-              activeProps={{ className: 'text-sm font-medium text-white border-b-2 border-ocean-400 pb-0.5 transition-colors hover:text-white focus-visible:underline focus-visible:outline-none' }}
+              className="text-sm font-medium transition-colors"
+              inactiveProps={{ className: 'text-ocean-200 hover:text-white focus-visible:text-white focus-visible:underline focus-visible:outline-none' }}
+              activeProps={{ className: 'text-white border-b-2 border-ocean-400 pb-0.5' }}
             >
               {label}
             </Link>
@@ -387,8 +367,9 @@ function Navbar() {
               key={to}
               to={to}
               activeOptions={{ exact }}
-              className="block py-2.5 text-sm font-medium text-ocean-200 transition-colors hover:text-white"
-              activeProps={{ className: 'block py-2.5 text-sm font-medium text-white transition-colors hover:text-white' }}
+              className="block py-2.5 text-sm font-medium transition-colors"
+              inactiveProps={{ className: 'text-ocean-200 hover:text-white' }}
+              activeProps={{ className: 'text-white' }}
               onClick={() => setMobileOpen(false)}
             >
               {label}
@@ -421,9 +402,9 @@ function RootComponent() {
           Saltar al contenido
         </a>
         <Navbar />
-        <main id="main-content">
+        <div id="main-content">
           <Outlet />
-        </main>
+        </div>
         <SiteFooter
           municipalities={navData.municipalities}
           characteristics={navData.characteristics}

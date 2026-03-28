@@ -5,7 +5,11 @@
 *.local
 
 # Claude
-.claude
+.claude/*
+!.claude/agents/
+!.claude/commands/
+!.claude/ralph-*.md
+.claude/settings.local.json
 
 # Dependencies
 node_modules

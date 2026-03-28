@@ -6,7 +6,7 @@ describe("PhotoGallery", () => {
   it("renders the default beach image when no pictures are provided", () => {
     render(<PhotoGallery pictures={[]} beachName="Playa Test" />)
     const img = screen.getByRole("img", { name: "Playa Test" })
-    expect(img.getAttribute("src")).toBe("/pictures/default-beach.svg")
+    expect(img.getAttribute("src")).toBe("/pictures/default-beach.png")
   })
 
   it("renders the first picture when pictures are provided", () => {

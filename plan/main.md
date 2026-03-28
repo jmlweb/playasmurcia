@@ -43,12 +43,4 @@ Add missing fields to `data/beaches.json` using automated scripts.
 
 ## Backlog
 
-Pending ideas in `backlog/`:
-- beaches-add-access-difficulty
-- beaches-add-child-safe
-- beaches-add-natural-shade
-- beaches-add-water-quality
-- feature-dynamic-sitemap
-- feature-generate-translations
-- service-aemet-weather
-- service-beach-status-112
+See `docs/dev/backlog/` and `docs/dev/INDEX.md` for pending tasks.

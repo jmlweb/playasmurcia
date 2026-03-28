@@ -49,7 +49,7 @@ When all pending steps in the current plan are completed, renumber `main.md` to 
 
 ## Backlog
 
-Unprioritized ideas and tasks are stored in `backlog/` at the project root. When a task is prioritized, move it to `plan/` and add the `step-XX-` prefix according to its execution order.
+Unprioritized ideas and tasks are stored in `docs/dev/backlog/`. When a task is prioritized, move it to `plan/` and add the `step-XX-` prefix according to its execution order.
 
 ## Efficiency Principles
 

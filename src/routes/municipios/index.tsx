@@ -1,31 +1,37 @@
-import { createFileRoute } from "@tanstack/react-router"
-import { createServerFn } from "@tanstack/react-start"
-import type { Beach, Municipality, Service } from "@/types/beach"
-import { municipalityToSlug } from "@/lib/slugs"
+import { createFileRoute } from '@tanstack/react-router'
+import { createServerFn } from '@tanstack/react-start'
 
-interface MunicipalityStats {
+import { Breadcrumb } from '@/components/breadcrumb'
+import { PageHero } from '@/components/page-hero'
+import { municipalityToSlug } from '@/lib/slugs'
+import type { Beach, Municipality, Service } from '@/types/beach'
+
+type MunicipalityStats = {
   municipality: Municipality
   index: number
   slug: string
   beachCount: number
   blueFlagCount: number
-  topServiceIndices: Array<number>
+  topServiceIndices: number[]
 }
 
 function computeMunicipalityStats(
-  municipalities: Array<Municipality>,
-  beaches: Array<Beach>,
-): Array<MunicipalityStats> {
+  municipalities: Municipality[],
+  beaches: Beach[],
+): MunicipalityStats[] {
   return municipalities.map((municipality, index) => {
     const municipalityBeaches = beaches.filter((b) => b.municipality === index)
     const blueFlagCount = municipalityBeaches.filter((b) =>
-      b.certifications?.includes("blue-flag"),
+      b.certifications?.includes('blue-flag'),
     ).length
 
     const serviceCounts = new Map<number, number>()
     for (const beach of municipalityBeaches) {
       for (const serviceIndex of beach.services) {
-        serviceCounts.set(serviceIndex, (serviceCounts.get(serviceIndex) ?? 0) + 1)
+        serviceCounts.set(
+          serviceIndex,
+          (serviceCounts.get(serviceIndex) ?? 0) + 1,
+        )
       }
     }
 
@@ -45,26 +51,29 @@ function computeMunicipalityStats(
   })
 }
 
-const fetchMunicipiosData = createServerFn({ method: 'GET' }).handler(async () => {
-  const { getAllBeaches, getAllMunicipalities, getAllServices } = await import("@/lib/db-data")
-  const [municipalities, beaches, services] = await Promise.all([
-    getAllMunicipalities(),
-    getAllBeaches(),
-    getAllServices(),
-  ])
-  const stats = computeMunicipalityStats(municipalities, beaches)
-  return { stats, services }
-})
+const fetchMunicipiosData = createServerFn({ method: 'GET' }).handler(
+  async () => {
+    const { getAllBeaches, getAllMunicipalities, getAllServices } =
+      await import('@/lib/db-data')
+    const [municipalities, beaches, services] = await Promise.all([
+      getAllMunicipalities(),
+      getAllBeaches(),
+      getAllServices(),
+    ])
+    const stats = computeMunicipalityStats(municipalities, beaches)
+    return { stats, services }
+  },
+)
 
-export const Route = createFileRoute("/municipios/")({
+export const Route = createFileRoute('/municipios/')({
   loader: () => fetchMunicipiosData(),
   head: () => ({
     meta: [
-      { title: "Municipios de la Costa de Murcia - Playas de Murcia" },
+      { title: 'Municipios de la Costa de Murcia - Playas de Murcia' },
       {
-        name: "description",
+        name: 'description',
         content:
-          "Explora las playas de los 9 municipios costeros de la Región de Murcia. Cartagena, Águilas, Mazarrón y más.",
+          'Explora las playas de los 9 municipios costeros de la Región de Murcia. Cartagena, Águilas, Mazarrón y más.',
       },
     ],
   }),
@@ -76,29 +85,35 @@ function MunicipalityCard({
   services,
 }: {
   stats: MunicipalityStats
-  services: Array<Service>
+  services: Service[]
 }) {
-  const topServices = stats.topServiceIndices.map((i) => services[i]).filter(Boolean)
+  const topServices = stats.topServiceIndices
+    .map((i) => services[i])
+    .filter(Boolean)
 
   return (
     <a
+      className="group hover:ring-ocean-200 focus:ring-ocean-500 flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg focus:ring-2 focus:outline-none"
       href={`/municipios/${stats.slug}`}
-      className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:ring-ocean-200 focus:ring-2 focus:ring-ocean-500 focus:outline-none"
     >
       <div className="flex flex-1 flex-col p-6">
-        <h2 className="mb-1 text-xl font-semibold text-gray-900 transition-colors group-hover:text-ocean-600">
+        <h2 className="group-hover:text-ocean-600 mb-1 text-xl font-semibold text-gray-900 transition-colors">
           {stats.municipality.name}
         </h2>
         <div className="mb-4 flex flex-wrap gap-3 text-sm text-gray-500">
           <span>
-            <strong className="font-semibold text-gray-900">{stats.beachCount}</strong>{" "}
-            {stats.beachCount === 1 ? "playa" : "playas"}
+            <strong className="font-semibold text-gray-900">
+              {stats.beachCount}
+            </strong>{' '}
+            {stats.beachCount === 1 ? 'playa' : 'playas'}
           </span>
           {stats.blueFlagCount > 0 && (
             <span className="flex items-center gap-1">
               <span aria-hidden="true">🏖️</span>
-              <strong className="font-semibold text-ocean-700">{stats.blueFlagCount}</strong>{" "}
-              bandera{stats.blueFlagCount === 1 ? "" : "s"} azul
+              <strong className="text-ocean-700 font-semibold">
+                {stats.blueFlagCount}
+              </strong>{' '}
+              bandera{stats.blueFlagCount === 1 ? '' : 's'} azul
             </span>
           )}
         </div>
@@ -107,7 +122,7 @@ function MunicipalityCard({
             {topServices.map((service) => (
               <span
                 key={service.id}
-                className="flex items-center gap-1 rounded-full bg-ocean-50 px-2.5 py-0.5 text-xs font-medium text-ocean-700"
+                className="bg-ocean-50 text-ocean-700 flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium"
               >
                 <span aria-hidden="true">{service.icon}</span>
                 <span>{service.name}</span>
@@ -116,7 +131,7 @@ function MunicipalityCard({
           </div>
         )}
         <div className="mt-auto flex items-center justify-between">
-          <span className="text-sm font-medium text-ocean-600 transition-colors group-hover:text-ocean-700">
+          <span className="text-ocean-600 group-hover:text-ocean-700 text-sm font-medium transition-colors">
             Ver playas →
           </span>
         </div>
@@ -131,40 +146,30 @@ function MunicipiosPage() {
   const totalBeaches = stats.reduce((sum, s) => sum + s.beachCount, 0)
 
   return (
-    <main className="min-h-screen bg-sand-50">
+    <main className="bg-sand-50 min-h-screen">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-ocean-800 px-4 py-20 sm:py-24 lg:py-28">
-        <div className="absolute inset-0 bg-linear-to-br from-ocean-900 via-ocean-800 to-ocean-700" />
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/3 rounded-full bg-ocean-400 blur-3xl" />
-        </div>
-        <div className="relative mx-auto max-w-3xl text-center">
-          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-ocean-300">
-            Costa de Murcia
-          </p>
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-            Municipios costeros
-          </h1>
-          <p className="mx-auto max-w-xl text-lg text-ocean-200">
-            {stats.length} municipios con {totalBeaches} playas en la Region de Murcia
-          </p>
-        </div>
-      </section>
+      <PageHero>
+        <p className="text-ocean-300 mb-3 text-sm font-medium tracking-widest uppercase">
+          Costa de Murcia
+        </p>
+        <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+          Municipios costeros
+        </h1>
+        <p className="text-ocean-200 mx-auto max-w-xl text-lg">
+          {stats.length} municipios con {totalBeaches} playas en la Region de
+          Murcia
+        </p>
+      </PageHero>
 
       {/* Content */}
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* Breadcrumb */}
-        <nav className="mb-8 text-sm text-gray-500" aria-label="Ruta de navegacion">
-          <a href="/" className="transition-colors hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:underline focus:outline-none">
-            Inicio
-          </a>
-          <span className="mx-2" aria-hidden="true">/</span>
-          <span className="text-gray-600" aria-current="page">Municipios</span>
-        </nav>
+        <Breadcrumb
+          items={[{ label: 'Inicio', href: '/' }, { label: 'Municipios' }]}
+        />
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {stats.map((s) => (
-            <MunicipalityCard key={s.slug} stats={s} services={services} />
+            <MunicipalityCard key={s.slug} services={services} stats={s} />
           ))}
         </div>
       </div>

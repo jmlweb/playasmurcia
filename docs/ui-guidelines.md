@@ -9,27 +9,33 @@
 
 ## Color Palette
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `blue-600` | Primary | CTAs, buttons, links, interactive elements |
-| `blue-800` | Primary dark | Navigation bar, footer background |
-| `white` | Background | Default page/card background |
-| `gray-50` | Background alt | Alternating sections for visual separation |
-| `gray-500` | Text light | Secondary text, captions |
-| `gray-600` | Text medium | Body text |
-| `gray-700` | Text dark | Subheadings, emphasized body |
-| `gray-900` | Text darkest | Headings, high-emphasis text |
+Custom coastal palette defined in `src/styles.css` via `@theme` (Tailwind v4 CSS theme):
+
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `ocean-500` | `#1a7d9e` | Primary CTAs, buttons |
+| `ocean-600` | `#14637e` | Links, interactive elements, accents |
+| `ocean-700` | `#104f65` | Hover states |
+| `ocean-800` | `#0c3c4d` | Hero gradients, section backgrounds |
+| `ocean-900` | `#082935` | Dark backgrounds, footer |
+| `ocean-950` | `#041a23` | Deepest dark tone |
+| `nav` | mix of ocean-950 + slate-900 | Navigation bar |
+| `sand-50` | `#fefcf8` | Default page background |
+| `sand-100` | `#fdf6eb` | Card/section alt background |
+| `white` | — | Card backgrounds |
+| `gray-500` | — | Secondary text, captions |
+| `gray-900` | — | Headings, high-emphasis text |
 
 **Gradients and accents**:
 
-- Blue gradient (`from-blue-800 to-blue-600`) for hero sections
-- Solid blue (`blue-600`) for accent sections that need to stand out (e.g., activity grids)
-- Dark blue/navy (`blue-900` / `blue-950`) for footer
+- Ocean gradient (`from-ocean-900 via-ocean-800 to-ocean-700`) for hero and section headers
+- Solid ocean (`ocean-600`) for accent sections
+- Nav color (`bg-nav`) for navigation bar (color-mix of ocean-950 and slate-900)
 - Avoid introducing new brand colors without clear justification
 
 ## Typography
 
-**Font stack**: Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif
+**Font stack**: Inter, SF Pro Display, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif (loaded from Google Fonts)
 
 **Size hierarchy**:
 
@@ -47,7 +53,7 @@
 
 ### Section Rhythm
 
-Alternate between white and light gray (`gray-50`) backgrounds to create visual separation between content sections. Use consistent vertical padding (`py-12` / `py-16`) for each section.
+Alternate between white and sand (`sand-50`) backgrounds to create visual separation between content sections. Use consistent vertical padding (`py-16` / `py-20`) for each section.
 
 ### Content Width
 
@@ -88,15 +94,15 @@ Each major section follows a pattern:
 
 ### Buttons
 
-- Primary: solid blue (`bg-blue-600 text-white`) with rounded corners
-- Outlined/secondary: white background with blue border or text
-- Consistent padding (`px-6 py-3`) and rounded shape (`rounded-lg` or `rounded-full`)
+- Primary: solid ocean (`bg-ocean-500 text-white` or `bg-ocean-600 text-white`) with rounded-full shape
+- Outlined/secondary: transparent with `border border-white/20` or text-only link style
+- Consistent padding (`px-8 py-3.5`) and pill shape (`rounded-full`)
 
 ### Tags and Badges
 
 - Small rounded pills (`rounded-full`, `px-3 py-1`, `text-xs` / `text-sm`)
 - Icon + label format when space allows
-- Light background variants for neutral tags, blue for active/selected filters
+- Light background variants for neutral tags (`bg-ocean-50 text-ocean-700`), ocean for active/selected filters
 
 ### Icon Categories
 
@@ -117,6 +123,61 @@ Each major section follows a pattern:
 - Input with placeholder text + blue action button
 - Optional filter tags below the search bar for quick filtering
 
+## Hero Sections
+
+Two height tiers to create visual hierarchy between the homepage and inner pages:
+
+| Tier | Padding | Usage |
+|------|---------|-------|
+| **Homepage** (immersive) | `py-16 sm:py-20 lg:py-28` | Homepage hero only — full-bleed image, staggered animation |
+| **Inner page** (compact) | `py-14 sm:py-18 lg:py-20` | All other pages — gradient background, functional header |
+
+**Structure** (inner pages):
+
+1. Gradient background: `bg-linear-to-br from-ocean-900 via-ocean-800 to-ocean-700`
+2. Optional uppercase label: `text-sm font-medium uppercase tracking-widest text-ocean-300`
+3. Page title: `text-4xl font-extrabold tracking-tight text-white sm:text-5xl`
+4. Optional subtitle: `text-lg text-ocean-200`
+
+Decorative blur circles are optional — use `opacity-20` minimum if present, otherwise remove.
+
+## Breadcrumbs
+
+Present on every page except the homepage. Always placed **below the hero**, inside the main content area (light background).
+
+**Styling**: `text-sm text-gray-500` with separator `<span className="mx-2" aria-hidden="true">/</span>`. Links use `hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:underline`. Current page uses `text-gray-600` with `aria-current="page"`.
+
+**Spacing**: `mb-8` below the breadcrumb, before main content.
+
+**Depth**: Mirror the site hierarchy. Examples:
+- `/municipios` → Inicio / Municipios
+- `/municipios/cartagena` → Inicio / Municipios / Cartagena
+- `/playas/playa-x` → Inicio / {Municipality} / {Beach name}
+- `/colecciones/slug` → Inicio / Colecciones / {Collection title}
+- `/explorar` → Inicio / Explorar playas
+
+## Animation & Motion
+
+### Reduced motion
+
+All animations and hover transforms **must** respect `prefers-reduced-motion: reduce`. Use Tailwind's `motion-safe:` prefix for transform-based interactions (e.g., `motion-safe:hover:-translate-y-1`). Custom keyframe animations defined in `src/styles.css` must include a `@media (prefers-reduced-motion: reduce)` block that disables them.
+
+### Transitions
+
+| Context | Duration | Easing |
+|---------|----------|--------|
+| Micro-interactions (hover, focus) | 150-200ms | `ease-out` |
+| Color/opacity changes | 200-300ms | `ease` (default `transition-colors`) |
+| Layout changes (accordion, modal) | 200-300ms | `ease-out` |
+| Page entrance animations | 400-600ms | `ease-out` |
+
+### Hover effects
+
+- **Cards**: `motion-safe:hover:-translate-y-1` + `hover:shadow-lg` + `hover:ring-ocean-200`. Duration: 300ms.
+- **Images inside cards**: `motion-safe:group-hover:scale-105`. Duration: 500ms.
+- **Buttons**: color shift only, no transform. Duration: 150ms.
+- **Text links**: `hover:text-ocean-600` or `hover:text-white` (on dark backgrounds).
+
 ## Accessibility
 
 - Ensure sufficient contrast for text over images (overlay required)
@@ -124,6 +185,19 @@ Each major section follows a pattern:
 - Use descriptive `alt` text on all images
 - Maintain semantic heading structure (`h1` > `h2` > `h3`, no skipped levels)
 - Use semantic HTML elements (`nav`, `main`, `section`, `article`) appropriately
+- Exactly one `<main>` element per page — do not nest `<main>` inside `<main>`
+- Respect `prefers-reduced-motion` (see Animation & Motion section)
+
+### Focus states
+
+Two patterns, applied consistently:
+
+| Element type | Focus style |
+|-------------|-------------|
+| Buttons, cards, interactive containers | `focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none` |
+| Inline text links | `focus-visible:text-ocean-600 focus-visible:underline focus-visible:outline-none` |
+
+Always use `focus-visible` (not `focus`) to avoid showing focus rings on mouse clicks.
 
 ## Components
 

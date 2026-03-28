@@ -1,8 +1,6 @@
-'use client'
-
-import { useState } from "react"
+import { type ReactNode, useState } from "react"
 import type { Activity, Municipality, Sea, Service, Tag } from "@/types/beach"
-import type { BeachSearchParams } from "@/lib/beach-filters"
+import { type BeachSearchParams, countActiveFilters } from "@/lib/beach-filters"
 
 interface FilterPanelProps {
   municipalities: Array<Municipality>
@@ -16,7 +14,7 @@ interface FilterPanelProps {
 
 interface FilterGroupProps {
   label: string
-  children: React.ReactNode
+  children: ReactNode
   activeCount: number
 }
 
@@ -100,12 +98,7 @@ function FilterContent({
     onChange({ ...filters, [key]: next.length > 0 ? next : undefined })
   }
 
-  const totalActive =
-    (filters.municipality?.length ?? 0) +
-    (filters.sea?.length ?? 0) +
-    (filters.services?.length ?? 0) +
-    (filters.activities?.length ?? 0) +
-    (filters.tags?.length ?? 0)
+  const totalActive = countActiveFilters(filters)
 
   function clearAll() {
     onChange({
@@ -190,12 +183,7 @@ function FilterContent({
 export function FilterPanel(props: FilterPanelProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
 
-  const totalActive =
-    (props.filters.municipality?.length ?? 0) +
-    (props.filters.sea?.length ?? 0) +
-    (props.filters.services?.length ?? 0) +
-    (props.filters.activities?.length ?? 0) +
-    (props.filters.tags?.length ?? 0)
+  const totalActive = countActiveFilters(props.filters)
 
   return (
     <>

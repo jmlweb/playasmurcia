@@ -81,6 +81,15 @@ beaches.forEach((beach, index) => {
   if (beach.aemetId && !beach.aemetId.match(/^30\d{5}$/)) {
     errors.push(`${prefix}: aemetId should be 7 digits starting with 30`)
   }
+
+  if (
+    beach.pictureQualityScore !== undefined &&
+    ![0, 1, 2, 3].includes(beach.pictureQualityScore)
+  ) {
+    errors.push(
+      `${prefix}: pictureQualityScore must be 0, 1, 2, or 3 if present`,
+    )
+  }
 })
 
 // Check for duplicate codes

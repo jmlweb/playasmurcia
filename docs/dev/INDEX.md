@@ -1,27 +1,39 @@
 # PlayasMurcia - Development Index
 
-## Quick Stats
+Product-wide feature parity vs production / GitHub `main`: [github-main-feature-gap-analysis.md](../github-main-feature-gap-analysis.md).
 
-- **Pending**: 2 tasks
-- **In Progress**: 0 tasks
-- **Completed**: 27 tasks
+## Quick stats
+
+- **Pending**: 7 tasks
+- **In progress**: 0 tasks
+- **Completed**: 32 tasks
 - **Blocked**: 0 tasks
 
-## Current Focus
+## Current focus
 
-> No active task. Remaining: #017 (skipped - manual research), #021 (skipped - manual research)
+> No active task. Next up: Task #036 (Collections Page Visual Consistency)
 
 ## Backlog
 
 | # | Task | Slice | Priority | Blocked by |
 |---|------|-------|----------|------------|
-| 017 | Source Missing Beach Pictures | Content | P2 - Next | - |
-| 021 | Add Missing Contact Info | Data | P3 | - |
+| 036 | Collections Page Visual Consistency | Styling | P3 | - |
+| 037 | Explorer UX Improvements | Styling | P3 | - |
+| 038 | Large List Pagination | Styling | P3 | - |
+| 035 | Add Imagery and Visual Hierarchy to Municipality Cards | Styling | P3 | 017 |
+| 017 | Source Missing Beach Pictures | Content | P4 - Later | - |
+| 039 | Recommendation Score and "Recomendados" Sort | Data + Frontend | P3 | - |
+| 021 | Add Missing Contact Info | Data | P4 - Later | - |
 
-## Recently Completed
+## Recently completed
 
 | # | Task | Completed |
 |---|------|-----------|
+| 032 | Add Reduced Motion Support | 2026-03-28 |
+| 034 | Beach Detail Layout and Hierarchy Fixes | 2026-03-28 |
+| 033 | Homepage Visual Polish | 2026-03-28 |
+| 031 | Standardize Breadcrumbs and Hero Sections | 2026-03-28 |
+| 030 | Fix Critical HTML and Rendering Bugs | 2026-03-28 |
 | 029 | Current Weather on Beach Cards | 2026-03-28 |
 | 028 | Coordinate-Based Weather for All Beaches | 2026-03-28 |
 | 027 | Image Optimization and Responsive Variants | 2026-03-28 |

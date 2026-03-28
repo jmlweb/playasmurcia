@@ -12,6 +12,23 @@ import type {
 import { db } from '@/db/client'
 import * as schema from '@/db/schema'
 
+type OccupancyLevel = 'low' | 'medium' | 'high'
+
+function adjustOccupancy(stored: OccupancyLevel): OccupancyLevel {
+  const month = new Date().getMonth() // 0-based
+
+  // July–August: use stored value as-is
+  if (month === 6 || month === 7) return stored
+
+  // June and September: cap at medium
+  if (month === 5 || month === 8) {
+    return stored === 'high' ? 'medium' : stored
+  }
+
+  // Rest of the year: always low
+  return 'low'
+}
+
 /**
  * Maps a database beach record with its relations to the Beach type
  */
@@ -77,7 +94,7 @@ function mapBeachFromDB(dbBeach: {
     orientation: dbBeach.orientation,
     instagramHashtag: dbBeach.instagramHashtag,
     ...(dbBeach.occupancyLevel && {
-      occupancyLevel: dbBeach.occupancyLevel as 'low' | 'medium' | 'high',
+      occupancyLevel: adjustOccupancy(dbBeach.occupancyLevel as 'low' | 'medium' | 'high'),
     }),
     ...(dbBeach.campingNearby !== null && {
       campingNearby: dbBeach.campingNearby,
@@ -316,25 +333,6 @@ export async function getNearbyBeaches(
   return dbBeaches.map(mapBeachFromDB)
 }
 
-/**
- * Retrieves beaches by their codes (for comparator tool)
- */
-export async function getBeachesByCodes(
-  codes: Array<string>,
-): Promise<Array<Beach>> {
-  if (codes.length === 0) return []
-
-  const dbBeaches = await db.query.beaches.findMany({
-    where: inArray(schema.beaches.code, codes),
-    with: {
-      services: true,
-      activities: true,
-      tags: true,
-    },
-  })
-
-  return dbBeaches.map(mapBeachFromDB)
-}
 
 /**
  * Converts a municipality name to a URL-friendly slug
@@ -413,7 +411,7 @@ export async function getFeaturedBeaches(): Promise<Array<Beach>> {
     if (count >= 2) continue
     municipalityCounts.set(beach.municipality, count + 1)
     featured.push(beach)
-    if (featured.length >= 10) break
+    if (featured.length >= 12) break
   }
 
   return featured

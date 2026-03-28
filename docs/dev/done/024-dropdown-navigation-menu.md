@@ -15,7 +15,7 @@ As a visitor, I want a dropdown navigation menu that lets me jump directly to an
 
 ## Context
 
-v3 comparison report (`docs/v3-comparison-report.md`, point 2) identified that the production site offers a dropdown menu with municipalities (9 items + beach counts) and characteristics (5 items + counts), allowing 1-click access from anywhere. The v3 flat navbar requires navigating to each section first.
+Product parity doc ([`docs/github-main-feature-gap-analysis.md`](../../github-main-feature-gap-analysis.md#navigation)) described the gap: production uses a dropdown with municipalities and characteristics (with counts) for one-click access from any page.
 
 ## Acceptance Criteria
 

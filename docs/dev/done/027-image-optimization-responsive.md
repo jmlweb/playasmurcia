@@ -17,7 +17,7 @@ As a visitor, I want beach photos to load quickly in the right size for my devic
 
 Gap analysis (`docs/github-main-feature-gap-analysis.md`, section 3) identified that v3 serves raw static images from `public/pictures/` with plain `<img>` tags — no CDN transformations, no responsive `srcset`, no format optimization. The production site uses Cloudinary + `next/image` for automatic format, quality, and responsive variants.
 
-Prior exploration in `docs/unpic-use-cases.md` evaluated unpic as a lightweight solution.
+Optional follow-up: a transforming CDN or [unpic](https://unpic.pics/) is noted in [architecture.md](../../architecture.md#images).
 
 ## Acceptance Criteria
 

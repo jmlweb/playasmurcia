@@ -12,12 +12,9 @@ type ResponsiveImageProps = Omit<ImgHTMLAttributes<HTMLImageElement>, 'src'> & {
 }
 
 /**
- * Renders an <img> with WebP srcset (optimized/) and original fallback.
- *
- * - "full" variant: original-size WebP from optimized/
- * - "thumb" variant: 400w thumbnail from optimized/ + original-size WebP
- *
- * Falls back to the original PNG/JPG if WebP is not generated yet.
+ * Renders beach photos. When `public/pictures/optimized/*.webp` exists (see `pnpm optimize:images`),
+ * uses <picture> with WebP + original fallback. Otherwise uses only the original raster so missing
+ * WebP files cannot hide the image (some browsers do not fall back from a failed <source>).
  */
 export function ResponsiveImage({
   baseName,
@@ -33,25 +30,34 @@ export function ResponsiveImage({
   const originalSrc = `/pictures/${baseName}.${ext}`
   const webpFull = `/pictures/optimized/${baseName}.webp`
   const webpThumb = `/pictures/optimized/${baseName}-thumb.webp`
+  const useWebp = import.meta.env.PLAYASMURCIA_OPTIMIZED_IMAGES
 
   const isHigh = priority === 'high'
 
-  const imgProps = {
+  const imgProps: ImgHTMLAttributes<HTMLImageElement> = {
+    ...rest,
     src: originalSrc,
     alt,
     className,
     width,
     height,
-    loading: (isHigh ? 'eager' : 'lazy') as const,
-    decoding: (isHigh ? 'sync' : 'async') as const,
-    fetchPriority: (isHigh ? 'high' : 'auto') as const,
-    ...rest,
+    loading: isHigh ? 'eager' : 'lazy',
+    decoding: isHigh ? 'sync' : 'async',
+    fetchPriority: isHigh ? 'high' : 'auto',
+  }
+
+  if (!useWebp) {
+    return <img {...imgProps} />
   }
 
   if (variant === 'thumb') {
     return (
       <picture style={{ display: 'contents' }}>
-        <source type="image/webp" srcSet={`${webpThumb} 400w, ${webpFull} 800w`} sizes="(max-width: 640px) 100vw, 400px" />
+        <source
+          type="image/webp"
+          srcSet={`${webpThumb} 400w, ${webpFull} 800w`}
+          sizes="(max-width: 640px) 100vw, 400px"
+        />
         <img {...imgProps} />
       </picture>
     )

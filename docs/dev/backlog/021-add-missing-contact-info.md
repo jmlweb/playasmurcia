@@ -2,7 +2,7 @@
 
 ## Metadata
 - **Status**: pending
-- **Priority**: P3
+- **Priority**: P4 - Later
 - **Slice**: Data
 - **Created**: 2026-03-27
 - **Started**: -

@@ -14,121 +14,120 @@
 | **Vitest** | Testing |
 | **Testing Library** | Component testing |
 | **pnpm** | Package manager |
-| **Turso (libSQL)** | Edge database |
+| **Turso (libSQL)** | Edge database (runtime data) |
 | **Drizzle ORM** | Type-safe SQL |
 | **Cloudflare Cache API** | Durable edge caching for external API calls |
-| **Open-Meteo API** | Coordinate-based weather forecasts for beaches without AEMET station |
+| **Open-Meteo API** | Coordinate-based weather (cards and detail when AEMET is unavailable) |
+| **AEMET Open Data** | Official beach forecasts where `aemetId` is set |
 
 ## Current State
 
-The project is on the `v3` branch. Routes use async database queries via `src/lib/db-data.ts`.
+The project is on the `v3` branch. Route loaders use async database access via `src/lib/db-data.ts`.
 
 | Layer | Status | File(s) |
 |-------|--------|---------|
 | Database schema | Active | `src/db/schema.ts` |
 | Database client | Active | `src/db/client.ts` |
-| Database data access (async) | **Active** — used by all routes | `src/lib/db-data.ts` |
-| JSON data access (sync) | Legacy fallback | `src/lib/data.ts` |
-| Migration scripts | Ready | `scripts/migrate-to-database.ts`, `scripts/validate-migration.ts` |
+| Data access (async) | **Active** — used by routes | `src/lib/db-data.ts` |
+| JSON source files | **Source for migration** — edit then migrate to DB | `data/*.json` |
+| Migration / validation | Ready | `scripts/migrate-to-database.ts`, `scripts/validate-migration.ts` |
 
 ## Project Structure
 
 ```
 playasmurcia/
-├── src/                    # TanStack Start application source
-│   ├── routes/             # File-based routing (TanStack Router)
-│   │   ├── __root.tsx      # Root layout component
-│   │   ├── index.tsx       # Home page (/)
-│   │   └── playas/
-│   │       └── $slug.tsx   # Beach detail page (/playas/:slug)
-│   ├── lib/                # Utility functions
-│   │   ├── data.ts         # Sync data access (JSON imports) — active
-│   │   ├── data.test.ts    # Tests for data.ts
-│   │   ├── db-data.ts      # Async data access (database queries) — not yet wired
-│   │   ├── edge-cache.ts   # Durable edge cache (Cache API + in-memory fallback)
-│   │   ├── images.ts       # Image filename parsing utilities
-│   │   ├── schema.ts       # JSON-LD schema generator for SEO
-│   │   └── schema.test.ts  # Tests for schema.ts
-│   ├── db/                 # Database layer
-│   │   ├── schema.ts       # Drizzle schema definitions (9 tables)
-│   │   └── client.ts       # Turso/libSQL client
-│   ├── types/              # TypeScript type definitions
-│   │   └── beach.ts        # Beach, Service, Municipality types
-│   ├── router.tsx          # Router configuration
-│   ├── styles.css          # Global styles (Tailwind CSS)
-│   └── routeTree.gen.ts    # Auto-generated route tree (do not edit)
-├── data/                   # JSON data files (beaches, municipalities, seas)
-├── docs/                   # Project documentation
-├── plan/                   # Execution plans for data enrichment
-├── scripts/                # Data processing scripts
-├── drizzle/                # Drizzle migration files (auto-generated)
-├── public/                 # Static assets
-├── drizzle.config.ts       # Drizzle Kit configuration
-├── vitest.config.ts        # Vitest configuration
-├── vite.config.ts          # Vite configuration
-├── tsconfig.json           # TypeScript configuration
-├── eslint.config.js        # ESLint configuration
-├── prettier.config.js      # Prettier configuration
-├── .env.example            # Environment variable template
-├── NEXT_STEPS.md           # Database migration checklist
-└── README.md               # Project overview
+├── src/
+│   ├── routes/             # File-based routing
+│   │   ├── __root.tsx
+│   │   ├── index.tsx       # Home (/)
+│   │   ├── explorar/       # Full beach explorer (/explorar)
+│   │   ├── playas/$slug.tsx
+│   │   ├── municipios/
+│   │   └── colecciones/
+│   ├── components/         # UI (e.g. responsive-image.tsx, site-footer.tsx)
+│   ├── lib/
+│   │   ├── db-data.ts      # Async loaders (primary)
+│   │   ├── edge-cache.ts
+│   │   ├── aemet.ts
+│   │   ├── open-meteo.ts   # Coordinate-based weather
+│   │   ├── images.ts
+│   │   ├── schema.ts       # JSON-LD
+│   │   └── collections.ts
+│   ├── db/
+│   ├── types/
+│   ├── router.tsx
+│   ├── styles.css
+│   └── routeTree.gen.ts    # Generated — do not edit
+├── data/                   # JSON — migrate to Turso after changes
+├── docs/                   # See docs/dev/INDEX.md for tasks
+├── scripts/
+├── public/                 # Static assets (pictures/, sitemap.xml, …)
+├── drizzle.config.ts
+├── vite.config.ts
+├── vitest.config.ts
+├── .env.example
+└── README.md
 ```
 
 ## Frontend Architecture
 
 ### Routing
 
-TanStack Router with file-based routing in `src/routes/`:
+TanStack Router — files under `src/routes/`:
 
 | Route | File | Description |
 |-------|------|-------------|
-| `/` | `index.tsx` | Home page with search and filters |
-| `/playas/:slug` | `playas/$slug.tsx` | Beach detail page |
+| `/` | `index.tsx` | Home: featured beaches, hero, entry to explorer |
+| `/explorar` | `explorar/index.tsx` | Full list with search and filters |
+| `/playas/:slug` | `playas/$slug.tsx` | Beach detail |
 | `/municipios` | `municipios/index.tsx` | Municipality index |
-| `/municipios/:slug` | `municipios/$slug.tsx` | Municipality beaches |
-| `/colecciones` | `colecciones/index.tsx` | Thematic collection index |
-| `/colecciones/:slug` | `colecciones/$slug.tsx` | Collection detail page |
-| `/mares` | `mares/index.tsx` | Mediterranean vs Mar Menor comparison |
-| `/comparar` | `comparar/index.tsx` | Beach comparator tool (up to 3) |
+| `/municipios/:slug` | `municipios/$slug.tsx` | Beaches in one municipality |
+| `/colecciones` | `colecciones/index.tsx` | Thematic collections index |
+| `/colecciones/:slug` | `colecciones/$slug.tsx` | One collection |
 
-Root layout in `__root.tsx` provides HTML structure, meta tags, and global CSS.
+Root layout in `__root.tsx` provides document shell, meta, and global styles.
 
 ### SEO
 
-Beach pages include JSON-LD structured data (Schema.org Beach type) for rich results in search engines. The schema is generated in `src/lib/schema.ts` and injected via TanStack Router's `head` function.
-
-A `sitemap.xml` is generated at build time from the database (`scripts/generate-sitemap.ts`), covering all 195 URLs (home + 194 beaches). The `robots.txt` references the sitemap.
+Beach pages inject JSON-LD from `src/lib/schema.ts`. `scripts/generate-sitemap.ts` writes `public/sitemap.xml` from the database (home, section indexes, municipalities, collections, beach URLs). `robots.txt` references the sitemap.
 
 ### Styling
 
-Tailwind CSS v4 with native Vite integration. Global styles in `src/styles.css`.
+Tailwind CSS v4; global tokens and rules in `src/styles.css`.
 
-### Generated Files
+### Images
 
-- `src/routeTree.gen.ts`: Auto-generated by TanStack Router (do not edit manually)
+Beach photos live under `public/pictures/`. The build can add WebP variants and thumbnails under `public/pictures/optimized/` via `pnpm optimize:images` (see [development.md](./development.md)). When `PLAYASMURCIA_OPTIMIZED_IMAGES` is enabled at build time, `ResponsiveImage` (`src/components/responsive-image.tsx`) emits `<picture>` with WebP sources and a raster fallback so missing optimized files do not hide the image.
+
+**Optional next steps (not implemented):** a transforming image CDN (e.g. [Cloudflare Images](https://developers.cloudflare.com/images/)) for automatic format/quality and global caching; or [unpic](https://unpic.pics/) as a React layer on top of such a CDN. Until then, delivery is static files from the worker’s origin (or configured asset hosting).
+
+### Generated files
+
+- `src/routeTree.gen.ts` — generated by TanStack Router; do not edit by hand.
 
 ## Data Architecture
 
-### Data Flow
+### Data flow
 
 ```
-data/*.json ──→ src/lib/data.ts ──→ route loaders ──→ React components
-                                                           ↓
-                                                    src/lib/schema.ts (JSON-LD for SEO)
+data/*.json ──→ scripts/migrate-to-database.ts ──→ Turso (libSQL)
+                                                        │
+                                                        ▼
+                                              src/lib/db-data.ts
+                                                        │
+                                                        ▼
+                                              route loaders → components
+                                                        │
+                                                        ▼
+                                              src/lib/schema.ts (JSON-LD)
 
-local.db/Turso ──→ src/lib/db-data.ts ──→ route loaders (async) ──→ React components
-
-External APIs (AEMET, 112 COPLA) ──→ src/lib/edge-cache.ts ──→ route loaders
-  (Cloudflare Cache API in production, in-memory Map fallback in local dev)
+External APIs (AEMET, Open-Meteo, 112 COPLA) ──→ src/lib/edge-cache.ts ──→ loaders
+  (Cloudflare Cache API in production, in-memory fallback in local dev)
 ```
 
-### Database (Turso/libSQL)
+### Database (Turso / libSQL)
 
-Production data will be stored in Turso, a distributed SQLite database:
-
-- **Local development**: SQLite file (`local.db`)
-- **Production**: Turso cloud with edge replicas
-- **ORM**: Drizzle for type-safe queries
+Runtime reads use a network-accessible libSQL URL (`TURSO_DATABASE_URL` / `DATABASE_URL` and `TURSO_AUTH_TOKEN`). See [development.md](./development.md) for local vs production env (including `turso dev` for offline-friendly HTTP).
 
 #### Tables
 
@@ -140,38 +139,22 @@ Production data will be stored in Turso, a distributed SQLite database:
 | services | 9 | Available services |
 | activities | 10 | Beach activities |
 | tags | 17 | Categorical tags |
-| beach_services | ~700 | Junction table |
-| beach_activities | ~900 | Junction table |
-| beach_tags | ~750 | Junction table |
+| beach_services | ~700 | Junction |
+| beach_activities | ~900 | Junction |
+| beach_tags | ~750 | Junction |
 
-### JSON Files (Legacy/Backup)
+### JSON files (`data/`)
 
-Static JSON files in `data/` directory — currently the active data source:
+Authoritative **editorial source** for bulk fields; after edits, run migration so Turso stays in sync. Schemas: [data-schema.md](./data-schema.md).
 
-- `beaches.json`: 194 beaches with full details
-- `municipalities.json`: 9 coastal municipalities
-- `seas.json`: 2 water bodies
+## Scripts and deployment
 
-See [data-schema.md](./data-schema.md) for detailed schemas.
-
-## Scripts
-
-| Script | Purpose | Frequency |
-|--------|---------|-----------|
-| `migrate-to-database.ts` | Migrate JSON data to SQLite/Turso | Once (or after JSON changes) |
-| `validate-migration.ts` | Validate database matches JSON source | After migration |
-| `add-certifications.js` | Update Blue Flag, Q Quality, Ecoplayas | Annual (spring) |
-| `add-lifeguard-info.js` | Update COPLA lifeguard data | Seasonal (summer) |
-| `validate-beaches.js` | Validate all beach data integrity | Before releases |
-
-Scripts use Ollama for AI tasks to minimize costs.
-
-## Deployment
+Maintenance and data scripts are listed in [development.md](./development.md).
 
 | Component | Technology |
-|-----------|-----------|
+|-----------|------------|
 | **Hosting** | Cloudflare Workers |
-| **Database** | Turso (libSQL edge) |
-| **Vite plugin** | `@cloudflare/vite-plugin` (workerd runtime for SSR) |
+| **Database** | Turso (libSQL) |
+| **Vite plugin** | `@cloudflare/vite-plugin` (workerd SSR) |
 
-The Cloudflare Vite plugin runs SSR in workerd (not Node.js). This affects which npm packages work at runtime — notably, `@libsql/client` resolves to its web client, which only supports network URLs (`libsql:`, `https:`, `http:`), not `file:` URLs. See [development.md](./development.md) for environment setup details.
+The workerd runtime is not Node.js: `@libsql/client` uses the web client and does not support `file:` database URLs. See [development.md](./development.md) for environment setup.

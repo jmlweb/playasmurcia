@@ -205,9 +205,9 @@ pnpm test:watch     # Watch mode
 pnpm test:coverage  # Coverage report (requires @vitest/coverage-v8)
 ```
 
-## UI Guidelines
+## UI guidelines
 
-See [ui-guidelines.md](./ui-guidelines.md) for visual design rules including color palette, typography, images, accessibility, responsive design, and performance. All UI changes should follow these guidelines.
+See [ui-guidelines.md](./ui-guidelines.md). Image pipeline (`optimize:images`, `ResponsiveImage`) is summarized in [architecture.md](./architecture.md#images).
 
 ## Code Style
 

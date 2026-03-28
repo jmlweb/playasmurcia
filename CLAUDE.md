@@ -14,7 +14,7 @@ Project documentation is in `docs/`:
 
 - **Branch**: `v3` (database migration nearly complete)
 - **Data access**: Routes use async database queries via `src/lib/db-data.ts`. The old JSON-based `src/lib/data.ts` is kept as fallback. Local DB (`local.db`) is populated.
-- **Next steps**: See [NEXT_STEPS.md](./NEXT_STEPS.md) for remaining tasks (setup Turso cloud, configure production env vars, deploy).
+- **Next steps**: See [docs/dev/INDEX.md](./docs/dev/INDEX.md) for backlog and [github-main-feature-gap-analysis.md](./docs/github-main-feature-gap-analysis.md) for product parity status.
 
 ## Task Management
 
@@ -22,8 +22,8 @@ Development tasks are tracked in `docs/dev/`:
 
 - [INDEX.md](./docs/dev/INDEX.md) - Task overview, stats, and backlog
 - [LEARNINGS.md](./docs/dev/LEARNINGS.md) - Insights discovered during development
-- `backlog/` - Pending task files
-- `done/` - Completed task files
+- `docs/dev/backlog/` - Pending task files
+- `docs/dev/done/` - Completed task files
 
 ### Commands
 

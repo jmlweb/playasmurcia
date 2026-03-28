@@ -1,6 +1,4 @@
-'use client'
-
-import { useEffect, useRef, useState } from "react"
+import { type ChangeEvent, useEffect, useRef, useState } from "react"
 
 interface SearchBarProps {
   value: string
@@ -16,7 +14,7 @@ export function SearchBar({ value, onChange, placeholder = "Buscar playa..." }: 
     setLocalValue(value)
   }, [value])
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
     const next = e.target.value
     setLocalValue(next)
 

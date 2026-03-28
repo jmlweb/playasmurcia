@@ -76,6 +76,7 @@ export const beaches = sqliteTable(
     realUrl: text('real_url'),
     waves: text('waves'),
     pictures: text('pictures'),
+    pictureQualityScore: integer('picture_quality_score'),
     aemetId: text('aemet_id'),
     length: integer('length'),
     accessDifficulty: text('access_difficulty'),

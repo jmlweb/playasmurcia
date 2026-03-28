@@ -1,19 +1,29 @@
-import { createClient } from "@libsql/client"
-import { drizzle } from "drizzle-orm/libsql"
+import { createClient } from '@libsql/client'
+import { drizzle } from 'drizzle-orm/libsql'
+import * as schema from './schema'
+import type { LibSQLDatabase } from 'drizzle-orm/libsql'
 
-import * as schema from "./schema"
+let _db: LibSQLDatabase<typeof schema> | null = null
 
-function createDbClient() {
-  const isProduction = process.env.NODE_ENV === "production"
+export function getDb(): LibSQLDatabase<typeof schema> {
+  if (_db) return _db
 
-  const client = createClient({
-    url: isProduction
-      ? process.env.TURSO_DATABASE_URL!
-      : process.env.DATABASE_URL || "file:./local.db",
-    authToken: isProduction ? process.env.TURSO_AUTH_TOKEN : undefined,
-  })
+  // DATABASE_URL first so local `file:./local.db` wins when both are in `.env`
+  // (avoids hitting remote Turso without the latest schema during dev).
+  const url =
+    process.env.DATABASE_URL ||
+    process.env.TURSO_DATABASE_URL ||
+    'file:./local.db'
+  const authToken = process.env.TURSO_AUTH_TOKEN
 
-  return drizzle(client, { schema })
+  const client = createClient({ url, authToken })
+  _db = drizzle(client, { schema })
+  return _db
 }
 
-export const db = createDbClient()
+// Keep backwards-compatible export that lazy-initializes
+export const db = new Proxy({} as LibSQLDatabase<typeof schema>, {
+  get(_target, prop) {
+    return (getDb() as Record<string | symbol, unknown>)[prop]
+  },
+})

@@ -15,7 +15,7 @@ As a visitor, I want to see a curated selection of featured beaches on the homep
 
 ## Context
 
-v3 comparison report (`docs/v3-comparison-report.md`, points 1 and 6) identified that the current v3 homepage dumps all 194 beaches with filters, while the production site shows 10 curated featured beaches with a "Ver todas las playas" link and an editorial hero promoting Costa Calida.
+Product parity doc ([`docs/github-main-feature-gap-analysis.md`](../../github-main-feature-gap-analysis.md#home-and-hero)) described the gap: homepage should show curated featured beaches and an editorial hero instead of only dumping the full list.
 
 ## Acceptance Criteria
 

@@ -26,21 +26,31 @@ Orientation was calculated based on coordinates:
 | Mar Mediterráneo + latitude > 37.55 | east |
 | Mar Mediterráneo + latitude <= 37.55 | southeast |
 
-## AEMET Integration
+## Weather: AEMET and Open-Meteo
 
-Weather predictions are available for beaches with `aemetId`.
+v3 uses **two** weather sources:
 
-### ID Assignment
+1. **AEMET** — official beach forecast where the beach has `aemetId` (detail page widget).
+2. **Open-Meteo** — latitude/longitude-based current conditions and forecasts where AEMET is not used or to supplement list cards and non-AEMET beaches.
+
+So weather is **not** limited to beaches with `aemetId`; those codes only gate the **AEMET** widget.
+
+### AEMET: ID assignment
 
 - Source: https://www.aemet.es/documentos/es/eltiempo/prediccion/playas/Playas_codigos.csv
 - Format: 7-digit code starting with "30" (Murcia province)
-- Coverage: ~65 beaches (AEMET only tracks major beaches)
+- Coverage: subset of beaches (~65) — AEMET only publishes stations for major beaches
 
-### API Usage
+### AEMET: API usage
 
 - Endpoint: `GET /api/prediccion/especifica/playa/{aemetId}`
 - Data: Temperature, wind, wave height, UV index
-- Cache: 30 minutes (data is ephemeral, not stored)
+- Caching: short TTL via `src/lib/edge-cache.ts` in production (see architecture)
+
+### Open-Meteo
+
+- Used for coordinate-based current weather (e.g. beach cards) and detail when AEMET is unavailable
+- Cached like other external HTTP calls at the edge where configured
 
 ## Content Guidelines
 

@@ -74,7 +74,7 @@ describe("NearbyCarousel", () => {
       />,
     )
     const img = screen.getByRole("img", { name: "Sin Foto" })
-    expect(img.getAttribute("src")).toBe("/pictures/default-beach.svg")
+    expect(img.getAttribute("src")).toBe("/pictures/default-beach.png")
   })
 
   it("renders the municipality name", () => {

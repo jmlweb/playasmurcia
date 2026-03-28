@@ -65,6 +65,7 @@ interface Beach {
   realUrl?: string          // Official website URL
   waves?: string            // Wave conditions (MODERADO, etc.)
   pictures?: string[]       // Image filenames
+  pictureQualityScore?: 0 | 1 | 2 | 3  // Derived from `pictures` + `public/pictures` files (see `pnpm score:picture-quality`)
   aemetId?: string          // AEMET beach code for weather API
   length?: number           // Beach length in meters (from OSM)
   accessDifficulty?: "easy" | "moderate" | "hard"  // How difficult to reach (~61% easy, ~22% moderate, ~17% hard)
@@ -136,7 +137,7 @@ The database (Turso/libSQL via Drizzle ORM) mirrors the JSON data with proper re
 | `services` | `id` (int) | `service_id` (unique), `name`, `icon` | 9 rows |
 | `activities` | `id` (int) | `activity_id` (unique), `name`, `icon` | 10 rows |
 | `tags` | `id` (int) | `tag_id` (unique), `name` | 17 rows |
-| `beaches` | `id` (auto) | `code` (unique), `name`, FK `municipality_id`, FK `sea_id` | 194 rows |
+| `beaches` | `id` (auto) | `code` (unique), `name`, FK `municipality_id`, FK `sea_id`, `picture_quality_score` (nullable int) | 194 rows |
 
 ### Junction Tables
 
@@ -215,6 +216,8 @@ beaches ──< beach_tags >── tags
 ### Images
 
 - `pictures`: Array of filenames (not full URLs)
+- `pictureQualityScore`: Optional 0–3. **0** = no `pictures` entries; **1** = entries exist but no usable raster on disk or best short side under 600; **2** = short side under 1200; **3** = short side 1200+. Regenerate with `pnpm score:picture-quality`.
+- To drop sub-threshold files from `pictures` arrays (and optionally from disk), run `pnpm run prune:small-pictures -- --dry-run` then without `--dry-run`; use `--delete-files` only after checking the dry-run output.
 - Base URL: `https://www.turismoregiondemurcia.es/webs/murciaturistica/fotos/1/playas/`
 - Minimum size: 640x480 pixels
 

@@ -1,8 +1,9 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-  --default-font-family: "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, sans-serif;
+  --default-font-family:
+    'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, sans-serif;
 
   /* Coastal palette */
   --color-ocean-50: #f0f7fa;
@@ -15,6 +16,12 @@
   --color-ocean-700: #104f65;
   --color-ocean-800: #0c3c4d;
   --color-ocean-900: #082935;
+  --color-ocean-950: #041a23;
+  --color-nav: color-mix(
+    in oklab,
+    var(--color-ocean-950),
+    var(--color-slate-900)
+  );
 
   --color-sand-50: #fefcf8;
   --color-sand-100: #fdf6eb;
@@ -32,6 +39,12 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   /* Scrollbar styling for carousels */
@@ -62,8 +75,12 @@
 
 @layer utilities {
   @keyframes slide-in-left {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(0); }
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
   }
 
   .animate-slide-in-left {
@@ -100,6 +117,19 @@
     animation: dropdown 0.15s ease-out;
   }
 
-  .scrollbar-hide::-webkit-scrollbar { display: none; }
-  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up,
+    .animate-slide-in-left,
+    .animate-dropdown {
+      animation: none;
+    }
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }

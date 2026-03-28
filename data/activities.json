@@ -1,12 +1,12 @@
 [
-  { "id": "swimming", "name": "Natación", "icon": "swim" },
-  { "id": "snorkeling", "name": "Snorkel", "icon": "snorkel" },
-  { "id": "kayak", "name": "Kayak", "icon": "kayak" },
-  { "id": "paddleboard", "name": "Paddle Surf", "icon": "paddleboard" },
-  { "id": "diving", "name": "Buceo", "icon": "diving" },
-  { "id": "fishing", "name": "Pesca", "icon": "fishing" },
-  { "id": "sailing", "name": "Vela", "icon": "sailing" },
-  { "id": "windsurf", "name": "Windsurf", "icon": "windsurf" },
-  { "id": "kitesurf", "name": "Kitesurf", "icon": "kitesurf" },
-  { "id": "volleyball", "name": "Vóley Playa", "icon": "volleyball" }
+  { "id": "swimming", "name": "Natación", "icon": "🏊" },
+  { "id": "snorkeling", "name": "Snorkel", "icon": "🤿" },
+  { "id": "kayak", "name": "Kayak", "icon": "🛶" },
+  { "id": "paddleboard", "name": "Paddle Surf", "icon": "🏄" },
+  { "id": "diving", "name": "Buceo", "icon": "🫧" },
+  { "id": "fishing", "name": "Pesca", "icon": "🎣" },
+  { "id": "sailing", "name": "Vela", "icon": "⛵" },
+  { "id": "windsurf", "name": "Windsurf", "icon": "🏄‍♂️" },
+  { "id": "kitesurf", "name": "Kitesurf", "icon": "🪁" },
+  { "id": "volleyball", "name": "Vóley Playa", "icon": "🏐" }
 ]

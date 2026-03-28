@@ -51,6 +51,7 @@ interface BeachJSON {
   email?: string
   realUrl?: string
   waves?: string
+  pictureQualityScore?: 0 | 1 | 2 | 3
   aemetId?: string
 }
 
@@ -237,9 +238,18 @@ async function validateSampleBeaches(jsonBeaches: Array<BeachJSON>): Promise<voi
       const servicesMatch = firstDB.services.length === firstJSON.services.length
       const activitiesMatch = firstDB.activities.length === firstJSON.activities.length
       const tagsMatch = firstDB.tags.length === firstJSON.tags.length
+      const expectedScore = firstJSON.pictureQualityScore ?? null
+      const scoreMatch = firstDB.pictureQualityScore === expectedScore
 
       const allMatch =
-        nameMatch && latMatch && lonMatch && soilMatch && servicesMatch && activitiesMatch && tagsMatch
+        nameMatch &&
+        latMatch &&
+        lonMatch &&
+        soilMatch &&
+        servicesMatch &&
+        activitiesMatch &&
+        tagsMatch &&
+        scoreMatch
 
       addResult(
         "Sample Beaches",
@@ -266,6 +276,11 @@ async function validateSampleBeaches(jsonBeaches: Array<BeachJSON>): Promise<voi
                 match: activitiesMatch,
               },
               tags: { db: firstDB.tags.length, json: firstJSON.tags.length, match: tagsMatch },
+              pictureQualityScore: {
+                db: firstDB.pictureQualityScore,
+                json: expectedScore,
+                match: scoreMatch,
+              },
             },
       )
     }

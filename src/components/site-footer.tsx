@@ -81,12 +81,6 @@ export function SiteFooter({ municipalities, characteristics }: SiteFooterProps)
               <a href="/colecciones" className="text-sm text-ocean-200 transition-colors hover:text-white">
                 Colecciones
               </a>
-              <a href="/mares" className="text-sm text-ocean-200 transition-colors hover:text-white">
-                Mares
-              </a>
-              <a href="/comparar" className="text-sm text-ocean-200 transition-colors hover:text-white">
-                Comparar playas
-              </a>
             </div>
           </div>
         </div>

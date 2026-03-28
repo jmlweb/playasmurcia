@@ -288,15 +288,15 @@ describe("db-data module", () => {
 
   describe("data consistency with JSON source", () => {
     it("returns the same number of beaches as JSON", async () => {
-      const { beaches: jsonBeaches } = await import("./data")
+      const jsonBeaches = (await import("../../data/beaches.json")).default
       const dbBeaches = await getAllBeaches()
 
       expect(dbBeaches.length).toBe(jsonBeaches.length)
     })
 
     it("returns the same beach data for a known beach", async () => {
-      const { getBeachByCode: jsonGetByCode } = await import("./data")
-      const jsonBeach = jsonGetByCode("575")
+      const jsonBeaches = (await import("../../data/beaches.json")).default
+      const jsonBeach = jsonBeaches.find((b: { code: string }) => b.code === "575")
       const dbBeach = await getBeachByCode("575")
 
       expect(dbBeach).toBeDefined()
@@ -313,7 +313,7 @@ describe("db-data module", () => {
     })
 
     it("municipalities match between JSON and DB", async () => {
-      const { municipalities: jsonMunicipalities } = await import("./data")
+      const jsonMunicipalities = (await import("../../data/municipalities.json")).default
       const dbMunicipalities = await getAllMunicipalities()
 
       expect(dbMunicipalities.length).toBe(jsonMunicipalities.length)
@@ -324,7 +324,7 @@ describe("db-data module", () => {
     })
 
     it("services match between JSON and DB", async () => {
-      const { services: jsonServices } = await import("./data")
+      const jsonServices = (await import("../../data/services.json")).default
       const dbServices = await getAllServices()
 
       expect(dbServices.length).toBe(jsonServices.length)

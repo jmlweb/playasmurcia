@@ -88,6 +88,7 @@ type FetchState =
   | { status: 'idle' }
   | { status: 'loading' }
   | { status: 'notfound' }
+  | { status: 'error' }
   | { status: 'success'; data: BeachStatus112 }
 
 export function BeachStatusWidget({ beachName, municipalityName }: BeachStatusWidgetProps) {
@@ -107,7 +108,7 @@ export function BeachStatusWidget({ beachName, municipalityName }: BeachStatusWi
         }
       })
       .catch(() => {
-        if (!cancelled) setState({ status: 'notfound' })
+        if (!cancelled) setState({ status: 'error' })
       })
 
     return () => {
@@ -119,8 +120,8 @@ export function BeachStatusWidget({ beachName, municipalityName }: BeachStatusWi
     return <BeachStatusSkeleton />
   }
 
-  // No match from 112 — render nothing rather than an error card
-  if (state.status === 'notfound') {
+  // No match from 112 or fetch error — render nothing rather than an error card
+  if (state.status === 'notfound' || state.status === 'error') {
     return null
   }
 

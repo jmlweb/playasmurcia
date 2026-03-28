@@ -16,7 +16,7 @@ As a visitor, I want to know the length of every beach so that I can use the "so
 
 Content audit (2026-03-27) identified 30 of 194 beaches (15%) missing the `length` field. This degrades the sort-by-length feature on the homepage.
 
-See full list in `docs/dev/content-audit.md` section 3.
+See [`docs/dev/content-audit.md`](../content-audit.md#3-beach-length) §3 for completion snapshot.
 
 ## Acceptance Criteria
 

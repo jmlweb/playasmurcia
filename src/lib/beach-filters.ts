@@ -10,6 +10,16 @@ export interface BeachSearchParams {
   sort?: "name" | "municipality" | "length" | "occupancy"
 }
 
+export function countActiveFilters(filters: BeachSearchParams): number {
+  return (
+    (filters.municipality?.length ?? 0) +
+    (filters.sea?.length ?? 0) +
+    (filters.services?.length ?? 0) +
+    (filters.activities?.length ?? 0) +
+    (filters.tags?.length ?? 0)
+  )
+}
+
 const OccupancyOrder = { low: 0, medium: 1, high: 2 } as const
 
 function normalizeText(text: string): string {

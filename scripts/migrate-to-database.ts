@@ -38,6 +38,7 @@ type JsonBeach = {
   realUrl?: string
   waves?: string
   pictures?: Array<string>
+  pictureQualityScore?: 0 | 1 | 2 | 3
   aemetId?: string
   accessDifficulty?: string
   childSafe?: boolean
@@ -269,6 +270,10 @@ async function main() {
           realUrl: beach.realUrl || null,
           waves: beach.waves || null,
           pictures: serializeArray(beach.pictures) || null,
+          pictureQualityScore:
+            typeof beach.pictureQualityScore === 'number'
+              ? beach.pictureQualityScore
+              : null,
           aemetId: beach.aemetId || null,
           length: beach.length || null,
           accessDifficulty: beach.accessDifficulty || null,

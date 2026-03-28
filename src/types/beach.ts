@@ -31,6 +31,7 @@ export interface Beach {
   realUrl?: string
   waves?: string
   pictures?: Array<string>
+  pictureQualityScore?: 0 | 1 | 2 | 3
   aemetId?: string
   length?: number
   accessDifficulty?: 'easy' | 'moderate' | 'hard'

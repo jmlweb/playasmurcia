@@ -2,10 +2,10 @@
 
 ## Metadata
 - **Status**: pending
-- **Priority**: P2 - Next
+- **Priority**: P4 - Later
 - **Slice**: Content
 - **Created**: 2026-03-27
-- **Started**: -
+- **Started**: 2026-03-28
 - **Blocked by**: -
 
 ## User Story
@@ -16,7 +16,7 @@ As a visitor, I want to see photos of every beach so that I can visually evaluat
 
 Content audit (2026-03-27) identified 79 of 194 beaches (41%) have no pictures. Worst coverage: Cartagena (30), Águilas (17), Mazarrón (14), Lorca (11).
 
-See full list in `docs/dev/content-audit.md` section 1.
+See municipality counts in [`docs/dev/content-audit.md`](../content-audit.md#1-beaches-missing-pictures-79) §1.
 
 ## Acceptance Criteria
 
@@ -35,3 +35,7 @@ Skipped by Ralph Loop (2026-03-27): Requires manual research to source, verify l
 - Prioritize municipalities with worst coverage: Cartagena, Águilas, Mazarrón, Lorca
 - Verify license compatibility before using any photo
 - Consider using a script to batch-download and optimize from approved sources
+
+## Progress Log
+
+- [2026-03-28 11:00] Started task: Building Wikimedia Commons search + semi-automated workflow

@@ -8,6 +8,27 @@ export interface Collection {
   filterFn: (beach: Beach) => boolean
 }
 
+export const seaCollections: Array<Collection> = [
+  {
+    slug: 'mar-mediterraneo',
+    title: 'Mar Mediterraneo',
+    description:
+      'Aguas cristalinas y profundas, calas espectaculares entre acantilados y oleaje moderado ideal para deportes acuaticos.',
+    metaDescription:
+      'Playas del Mediterraneo en Murcia. Calas, acantilados y aguas cristalinas en la Costa Calida.',
+    filterFn: (b) => b.sea === 0,
+  },
+  {
+    slug: 'mar-menor',
+    title: 'Mar Menor',
+    description:
+      'La laguna salada mas grande de Europa. Aguas calidas, poco profundas y sin oleaje, perfectas para familias y deportes de vela.',
+    metaDescription:
+      'Playas del Mar Menor en Murcia. Aguas calidas y tranquilas, ideales para familias.',
+    filterFn: (b) => b.sea === 1,
+  },
+]
+
 export const collections: Array<Collection> = [
   {
     slug: 'calas-escondidas',
@@ -145,10 +166,12 @@ export const collections: Array<Collection> = [
   },
 ]
 
+export const allCollections: Array<Collection> = [...seaCollections, ...collections]
+
 export function getCollectionBySlug(
   slug: string,
 ): Collection | undefined {
-  return collections.find((c) => c.slug === slug)
+  return allCollections.find((c) => c.slug === slug)
 }
 
 export function filterBeachesByCollection(
