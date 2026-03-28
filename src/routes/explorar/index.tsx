@@ -1,16 +1,16 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
-import { useCallback, useMemo } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 
 import { BeachCard } from '@/components/beach-card'
 import { Breadcrumb } from '@/components/breadcrumb'
-import { FilterPanel } from '@/components/filter-panel'
+import { FilterPanel, FilterToggleButton } from '@/components/filter-panel'
 import { PageHero } from '@/components/page-hero'
 import { Pagination } from '@/components/pagination'
 import { SearchBar } from '@/components/search-bar'
 import { SortSelect } from '@/components/sort-select'
 import type { BeachSearchParams } from '@/lib/beach-filters'
-import { applyFiltersAndSort } from '@/lib/beach-filters'
+import { applyFiltersAndSort, countActiveFilters } from '@/lib/beach-filters'
 import { beachToSlug } from '@/lib/slugs'
 
 type ExplorerSearchParams = BeachSearchParams & { page?: number }
@@ -192,6 +192,8 @@ function ExplorerPage() {
     (filters.activities?.length ?? 0) > 0 ||
     (filters.tags?.length ?? 0) > 0
 
+  const [mobileFilterOpen, setMobileFilterOpen] = useState(false)
+
   const activeChips = useMemo(() => {
     const chips: { key: string; label: string; onRemove: () => void }[] = []
     if (filters.municipality) {
@@ -297,11 +299,13 @@ function ExplorerPage() {
           <FilterPanel
             activities={activities}
             filters={filters}
+            mobileOpen={mobileFilterOpen}
             municipalities={municipalities}
             seas={seas}
             services={services}
             tags={tags}
             onChange={handleFiltersChange}
+            onMobileClose={() => setMobileFilterOpen(false)}
           />
 
           {/* Main content */}
@@ -309,6 +313,10 @@ function ExplorerPage() {
             {/* Toolbar */}
             <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-3">
+                <FilterToggleButton
+                  activeCount={countActiveFilters(filters)}
+                  onClick={() => setMobileFilterOpen(true)}
+                />
                 <span className="text-sm text-gray-500">
                   <strong className="font-semibold text-gray-900">
                     {allFiltered.length}
@@ -347,7 +355,7 @@ function ExplorerPage() {
                   </button>
                 ))}
                 <button
-                  className="text-sm text-gray-500 hover:text-gray-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-1 rounded-full"
+                  className="text-sm text-gray-500 underline underline-offset-2 hover:text-gray-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-1 rounded-full"
                   type="button"
                   onClick={clearAllFilters}
                 >

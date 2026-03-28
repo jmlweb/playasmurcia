@@ -133,7 +133,7 @@ function FilterContent({
         <h2 className="text-base font-semibold text-gray-900">Filtros</h2>
         {totalActive > 0 && (
           <button
-            className="text-ocean-600 text-sm hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-1 rounded"
+            className="text-ocean-600 text-sm underline underline-offset-2 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-1 rounded"
             type="button"
             onClick={clearAll}
           >
@@ -220,43 +220,52 @@ function FilterContent({
   )
 }
 
-export function FilterPanel(props: FilterPanelProps) {
-  const [mobileOpen, setMobileOpen] = useState(false)
+export function FilterToggleButton({
+  activeCount,
+  onClick,
+}: {
+  activeCount: number
+  onClick: () => void
+}) {
+  return (
+    <button
+      className="hover:border-ocean-300 hover:text-ocean-700 focus-visible:ring-ocean-500 flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-colors focus-visible:ring-2 focus-visible:outline-none lg:hidden"
+      type="button"
+      onClick={onClick}
+    >
+      <svg
+        aria-hidden="true"
+        className="h-4 w-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M3 4h18M6 8h12M9 12h6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+        />
+      </svg>
+      Filtros
+      {activeCount > 0 && (
+        <span className="bg-ocean-500 flex h-5 min-w-5 items-center justify-center rounded-full px-1.5 text-[11px] font-semibold text-white">
+          {activeCount}
+        </span>
+      )}
+    </button>
+  )
+}
 
-  const totalActive = countActiveFilters(props.filters)
+export function FilterPanel(
+  props: FilterPanelProps & { mobileOpen: boolean; onMobileClose: () => void },
+) {
+  const { mobileOpen, onMobileClose } = props
 
   return (
     <>
-      {/* Mobile toggle button (positioned in toolbar via parent) */}
+      {/* Mobile modal */}
       <div className="lg:hidden">
-        <button
-          className="hover:border-ocean-300 hover:text-ocean-700 focus-visible:ring-ocean-500 flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-colors focus-visible:ring-2 focus-visible:outline-none"
-          type="button"
-          onClick={() => {
-            setMobileOpen(true)
-          }}
-        >
-          <svg
-            aria-hidden="true"
-            className="h-4 w-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M3 4h18M6 8h12M9 12h6"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-            />
-          </svg>
-          Filtros
-          {totalActive > 0 && (
-            <span className="bg-ocean-500 flex h-5 min-w-5 items-center justify-center rounded-full px-1.5 text-[11px] font-semibold text-white">
-              {totalActive}
-            </span>
-          )}
-        </button>
 
         {/* Mobile modal overlay */}
         {mobileOpen && (
@@ -265,7 +274,7 @@ export function FilterPanel(props: FilterPanelProps) {
               aria-hidden="true"
               className="fixed inset-0 bg-black/50 backdrop-blur-sm"
               onClick={() => {
-                setMobileOpen(false)
+                onMobileClose()
               }}
             />
             <div className="animate-slide-in-left fixed inset-y-0 left-0 w-80 max-w-[85vw] overflow-y-auto bg-white p-6 shadow-2xl">
@@ -278,7 +287,7 @@ export function FilterPanel(props: FilterPanelProps) {
                   className="rounded-full p-1.5 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean-500"
                   type="button"
                   onClick={() => {
-                    setMobileOpen(false)
+                    onMobileClose()
                   }}
                 >
                   <svg
@@ -302,7 +311,7 @@ export function FilterPanel(props: FilterPanelProps) {
                   className="bg-ocean-600 hover:bg-ocean-700 focus-visible:ring-ocean-500 w-full rounded-full px-4 py-3 text-sm font-semibold text-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
                   type="button"
                   onClick={() => {
-                    setMobileOpen(false)
+                    onMobileClose()
                   }}
                 >
                   Ver resultados
