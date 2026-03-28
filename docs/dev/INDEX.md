@@ -4,20 +4,19 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 7 tasks
+- **Pending**: 6 tasks
 - **In progress**: 0 tasks
-- **Completed**: 32 tasks
+- **Completed**: 33 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
 
-> No active task. Next up: Task #036 (Collections Page Visual Consistency)
+> No active task. Next up: Task #037 (Explorer UX Improvements)
 
 ## Backlog
 
 | # | Task | Slice | Priority | Blocked by |
 |---|------|-------|----------|------------|
-| 036 | Collections Page Visual Consistency | Styling | P3 | - |
 | 037 | Explorer UX Improvements | Styling | P3 | - |
 | 038 | Large List Pagination | Styling | P3 | - |
 | 035 | Add Imagery and Visual Hierarchy to Municipality Cards | Styling | P3 | 017 |
@@ -29,6 +28,7 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 | # | Task | Completed |
 |---|------|-----------|
+| 036 | Collections Page Visual Consistency | 2026-03-28 |
 | 032 | Add Reduced Motion Support | 2026-03-28 |
 | 034 | Beach Detail Layout and Hierarchy Fixes | 2026-03-28 |
 | 033 | Homepage Visual Polish | 2026-03-28 |

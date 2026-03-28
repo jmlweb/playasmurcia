@@ -46,6 +46,21 @@ export const Route = createFileRoute('/colecciones/')({
   component: ColeccionesPage,
 })
 
+const ThematicIcons: Record<string, { icon: string; bg: string; text: string; bar: string }> = {
+  'calas-escondidas': { icon: '🏝️', bg: 'bg-teal-50', text: 'text-teal-600', bar: 'bg-teal-500' },
+  'playas-familiares': { icon: '👨‍👩‍👧‍👦', bg: 'bg-amber-50', text: 'text-amber-600', bar: 'bg-amber-500' },
+  'playas-para-perros': { icon: '🐕', bg: 'bg-orange-50', text: 'text-orange-600', bar: 'bg-orange-500' },
+  'playas-nudistas': { icon: '☀️', bg: 'bg-rose-50', text: 'text-rose-600', bar: 'bg-rose-500' },
+  'con-chiringuito': { icon: '🍹', bg: 'bg-purple-50', text: 'text-purple-600', bar: 'bg-purple-500' },
+  'bandera-azul': { icon: '🏳️', bg: 'bg-sky-50', text: 'text-sky-600', bar: 'bg-sky-500' },
+  snorkel: { icon: '🤿', bg: 'bg-cyan-50', text: 'text-cyan-600', bar: 'bg-cyan-500' },
+  'deportes-acuaticos': { icon: '🏄', bg: 'bg-indigo-50', text: 'text-indigo-600', bar: 'bg-indigo-500' },
+  'mejores-atardeceres': { icon: '🌅', bg: 'bg-amber-50', text: 'text-amber-600', bar: 'bg-amber-500' },
+  'playas-tranquilas': { icon: '🧘', bg: 'bg-green-50', text: 'text-green-600', bar: 'bg-green-500' },
+  accesibles: { icon: '♿', bg: 'bg-blue-50', text: 'text-blue-600', bar: 'bg-blue-500' },
+  'playas-fotogenicas': { icon: '📸', bg: 'bg-pink-50', text: 'text-pink-600', bar: 'bg-pink-500' },
+}
+
 function CollectionCard({
   slug,
   title,
@@ -57,15 +72,30 @@ function CollectionCard({
   description: string
   beachCount: number
 }) {
+  const theme = ThematicIcons[slug] ?? {
+    icon: '🏖️',
+    bg: 'bg-gray-50',
+    text: 'text-gray-600',
+    bar: 'bg-gray-500',
+  }
+
   return (
     <a
-      className="group hover:ring-ocean-200 focus:ring-ocean-500 flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg focus:ring-2 focus:outline-none"
+      className="group hover:ring-ocean-200 focus:ring-ocean-500 relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg focus:ring-2 focus:outline-none"
       href={`/colecciones/${slug}`}
     >
+      <div className={`h-2 ${theme.bar}`} />
       <div className="flex flex-1 flex-col p-6">
-        <h2 className="group-hover:text-ocean-600 mb-2 text-xl font-semibold text-gray-900 transition-colors">
-          {title}
-        </h2>
+        <div className="mb-3 flex items-center gap-3">
+          <div
+            className={`flex h-10 w-10 items-center justify-center rounded-xl text-lg ${theme.bg}`}
+          >
+            {theme.icon}
+          </div>
+          <h3 className="group-hover:text-ocean-600 text-xl font-bold text-gray-900 transition-colors">
+            {title}
+          </h3>
+        </div>
         <p className="mb-4 text-sm leading-relaxed text-gray-500">
           {description}
         </p>
@@ -126,9 +156,9 @@ function SeaCollectionCard({
               />
             </svg>
           </div>
-          <h2 className="group-hover:text-ocean-600 text-xl font-bold text-gray-900 transition-colors">
+          <h3 className="group-hover:text-ocean-600 text-xl font-bold text-gray-900 transition-colors">
             {title}
-          </h2>
+          </h3>
         </div>
         <p className="mb-4 text-sm leading-relaxed text-gray-500">
           {description}
@@ -172,8 +202,13 @@ function ColeccionesPage() {
         />
 
         {/* Seas — featured */}
-        <div className="mb-10">
-          <h2 className="mb-4 text-lg font-semibold text-gray-900">Por mar</h2>
+        <section className="mb-14">
+          <p className="text-ocean-600 mb-1 text-sm font-semibold tracking-wider uppercase">
+            Por mar
+          </p>
+          <h2 className="mb-5 text-2xl font-bold text-gray-900">
+            Segun su mar
+          </h2>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             {seas.map((sea) => (
               <SeaCollectionCard
@@ -185,23 +220,28 @@ function ColeccionesPage() {
               />
             ))}
           </div>
-        </div>
+        </section>
 
         {/* Thematic collections */}
-        <h2 className="mb-4 text-lg font-semibold text-gray-900">
-          Por tematica
-        </h2>
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
-          {items.map((item) => (
-            <CollectionCard
-              key={item.slug}
-              beachCount={item.beachCount}
-              description={item.description}
-              slug={item.slug}
-              title={item.title}
-            />
-          ))}
-        </div>
+        <section className="border-t border-gray-200 pt-10">
+          <p className="text-ocean-600 mb-1 text-sm font-semibold tracking-wider uppercase">
+            Por tematica
+          </p>
+          <h2 className="mb-5 text-2xl font-bold text-gray-900">
+            Segun tus preferencias
+          </h2>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
+            {items.map((item) => (
+              <CollectionCard
+                key={item.slug}
+                beachCount={item.beachCount}
+                description={item.description}
+                slug={item.slug}
+                title={item.title}
+              />
+            ))}
+          </div>
+        </section>
       </div>
     </main>
   )

@@ -1,45 +1,58 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
+
+import { BeachCard } from '@/components/beach-card'
+import { Breadcrumb } from '@/components/breadcrumb'
+import { PageHero } from '@/components/page-hero'
 import {
   allCollections,
   filterBeachesByCollection,
   getCollectionBySlug,
 } from '@/lib/collections'
-import { BeachCard } from '@/components/beach-card'
 
-const fetchCollectionData = createServerFn({ method: 'GET' }).handler(async (ctx: { data: { slug: string } }) => {
-  const { beachToSlug: toSlug, getAllBeaches, getAllTags, getMunicipalityMap } = await import('@/lib/db-data')
-  const { fetchBatchCardWeather } = await import('@/lib/open-meteo')
-  const collection = getCollectionBySlug(ctx.data.slug)
-  if (!collection) return null
+const fetchCollectionData = createServerFn({ method: 'GET' }).handler(
+  async (ctx: { data: { slug: string } }) => {
+    const {
+      beachToSlug: toSlug,
+      getAllBeaches,
+      getAllTags,
+      getMunicipalityMap,
+    } = await import('@/lib/db-data')
+    const { fetchBatchCardWeather } = await import('@/lib/open-meteo')
+    const collection = getCollectionBySlug(ctx.data.slug)
+    if (!collection) return null
 
-  const [beaches, tags, municipalityMap] = await Promise.all([
-    getAllBeaches(),
-    getAllTags(),
-    getMunicipalityMap(),
-  ])
+    const [beaches, tags, municipalityMap] = await Promise.all([
+      getAllBeaches(),
+      getAllTags(),
+      getMunicipalityMap(),
+    ])
 
-  const filtered = filterBeachesByCollection(beaches, collection)
-  const weatherMap = await fetchBatchCardWeather(filtered)
-  const weatherData = Object.fromEntries(weatherMap)
-  const items = filtered.map((beach) => ({
-    beach,
-    municipality: municipalityMap.get(beach.municipality) ?? { name: '', id: '' },
-    slug: toSlug(beach),
-  }))
+    const filtered = filterBeachesByCollection(beaches, collection)
+    const weatherMap = await fetchBatchCardWeather(filtered)
+    const weatherData = Object.fromEntries(weatherMap)
+    const items = filtered.map((beach) => ({
+      beach,
+      municipality: municipalityMap.get(beach.municipality) ?? {
+        name: '',
+        id: '',
+      },
+      slug: toSlug(beach),
+    }))
 
-  return {
-    collection: {
-      slug: collection.slug,
-      title: collection.title,
-      description: collection.description,
-      metaDescription: collection.metaDescription,
-    },
-    items,
-    tags,
-    weatherData,
-  }
-})
+    return {
+      collection: {
+        slug: collection.slug,
+        title: collection.title,
+        description: collection.description,
+        metaDescription: collection.metaDescription,
+      },
+      items,
+      tags,
+      weatherData,
+    }
+  },
+)
 
 export const Route = createFileRoute('/colecciones/$slug')({
   loader: async ({ params }) => {
@@ -71,59 +84,53 @@ function CollectionPage() {
 
   return (
     <main className="bg-sand-50 min-h-screen">
-      <section className="relative overflow-hidden bg-ocean-800 px-4 py-20 sm:py-24 lg:py-28">
-        <div className="absolute inset-0 bg-linear-to-br from-ocean-900 via-ocean-800 to-ocean-700" />
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/3 rounded-full bg-ocean-400 blur-3xl" />
-        </div>
-        <div className="relative mx-auto max-w-3xl text-center">
-          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-ocean-300">
-            Coleccion
-          </p>
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-            {collection.title}
-          </h1>
-          <p className="text-lg text-ocean-200">
-            {collection.description}
-          </p>
-          <p className="mt-4 text-sm text-ocean-300">
+      <PageHero>
+        <p className="text-ocean-300 mb-3 text-sm font-medium tracking-widest uppercase">
+          Colecciones de playas
+        </p>
+        <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+          {collection.title}
+        </h1>
+        <p className="text-ocean-200 text-lg">{collection.description}</p>
+        <p className="mt-4">
+          <span className="bg-ocean-800/60 text-ocean-100 inline-flex items-center rounded-full px-4 py-1.5 text-sm font-semibold backdrop-blur-sm">
             {items.length} {items.length === 1 ? 'playa' : 'playas'}
-          </p>
-        </div>
-      </section>
+          </span>
+        </p>
+      </PageHero>
 
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <nav
-          className="mb-8 text-sm text-gray-500"
-          aria-label="Ruta de navegacion"
-        >
-          <a
-            href="/"
-            className="transition-colors hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:underline focus:outline-none"
-          >
-            Inicio
-          </a>
-          <span className="mx-2" aria-hidden="true">
-            /
-          </span>
-          <a
-            href="/colecciones"
-            className="transition-colors hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:underline focus:outline-none"
-          >
-            Colecciones
-          </a>
-          <span className="mx-2" aria-hidden="true">
-            /
-          </span>
-          <span className="text-gray-600" aria-current="page">
-            {collection.title}
-          </span>
-        </nav>
+        <Breadcrumb
+          items={[
+            { label: 'Inicio', href: '/' },
+            { label: 'Colecciones', href: '/colecciones' },
+            { label: collection.title },
+          ]}
+        />
 
         {items.length === 0 ? (
-          <p className="text-center text-gray-500">
-            No se encontraron playas en esta coleccion.
-          </p>
+          <div className="flex flex-col items-center rounded-2xl border-2 border-dashed border-gray-300 px-6 py-16 text-center">
+            <svg
+              aria-hidden="true"
+              className="mb-4 h-12 w-12 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+              />
+            </svg>
+            <h3 className="mb-1 text-lg font-semibold text-gray-900">
+              Sin resultados
+            </h3>
+            <p className="text-sm text-gray-500">
+              No se encontraron playas en esta coleccion.
+            </p>
+          </div>
         ) : (
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
             {items.map(({ beach, municipality, slug }) => (
@@ -131,8 +138,8 @@ function CollectionPage() {
                 key={beach.code}
                 beach={beach}
                 municipality={municipality}
-                tags={tags}
                 slug={slug}
+                tags={tags}
                 weather={weatherData[beach.code]}
               />
             ))}
@@ -141,8 +148,8 @@ function CollectionPage() {
 
         <div className="mt-12 text-center">
           <a
+            className="text-ocean-600 hover:text-ocean-700 text-sm font-medium transition-colors focus:outline-none focus-visible:underline"
             href="/colecciones"
-            className="text-sm font-medium text-ocean-600 transition-colors hover:text-ocean-700 focus-visible:underline focus:outline-none"
           >
             ← Volver a colecciones
           </a>
