@@ -1,18 +1,76 @@
 import { createServerFn } from '@tanstack/react-start'
 import { useEffect, useState } from 'react'
-import type { AemetBeachForecast, AemetForecastDay } from '@/lib/aemet'
-import { getDaySkyDescription, getDayWind } from '@/lib/aemet'
 
 // ---------------------------------------------------------------------------
-// Server function
+// Unified forecast types
 // ---------------------------------------------------------------------------
 
-const fetchWeather = createServerFn({ method: 'GET' }).handler(
+interface UnifiedDay {
+  fecha: number
+  skyDescription: string
+  skyIcon: string
+  tMaxima: number
+  tMinima: number
+  windSpeed: number
+  windDirection: string
+  uvIndex: number
+}
+
+interface UnifiedForecast {
+  source: 'aemet' | 'open-meteo'
+  days: Array<UnifiedDay>
+}
+
+// ---------------------------------------------------------------------------
+// Server functions
+// ---------------------------------------------------------------------------
+
+const fetchAemetWeather = createServerFn({ method: 'GET' }).handler(
   async (ctx: { data: { aemetId: string } }) => {
-    const { fetchAemetForecast } = await import('@/lib/aemet')
+    const { fetchAemetForecast, getDaySkyDescription: getSky, getDayWind: getWind } = await import('@/lib/aemet')
     const apiKey = process.env.AEMET_API_KEY ?? ''
     if (!apiKey) return null
-    return fetchAemetForecast(ctx.data.aemetId, apiKey)
+    const forecast = await fetchAemetForecast(ctx.data.aemetId, apiKey)
+    if (!forecast) return null
+
+    const days: Array<UnifiedDay> = forecast.dias.map((d) => {
+      const sky = getSky(d.estadoCielo)
+      const wind = getWind(d.viento)
+      return {
+        fecha: d.fecha,
+        skyDescription: sky?.descripcion ?? '',
+        skyIcon: '', // resolved client-side via getSkyIconType
+        tMaxima: d.tMaxima,
+        tMinima: d.tMinima,
+        windSpeed: wind?.velocidad ?? 0,
+        windDirection: wind?.direccion ?? '',
+        uvIndex: d.indiceUV,
+      }
+    })
+
+    return { source: 'aemet' as const, days }
+  },
+)
+
+const fetchOpenMeteoWeather = createServerFn({ method: 'GET' }).handler(
+  async (ctx: { data: { latitude: number; longitude: number } }) => {
+    const { fetchOpenMeteoForecast } = await import('@/lib/open-meteo')
+    const forecast = await fetchOpenMeteoForecast(ctx.data.latitude, ctx.data.longitude)
+    if (!forecast) return null
+
+    return {
+      source: 'open-meteo' as const,
+      days: forecast.days.map((d) => ({
+        fecha: d.fecha,
+        skyDescription: d.skyDescription,
+        skyIcon: d.skyIcon,
+        tMaxima: d.tMaxima,
+        tMinima: d.tMinima,
+        windSpeed: d.windSpeed,
+        windDirection: d.windDirection,
+        uvIndex: d.uvIndex,
+      })),
+    }
   },
 )
 
@@ -214,15 +272,13 @@ function formatDayLabel(timestamp: number): string {
 // ---------------------------------------------------------------------------
 
 interface TodayCardProps {
-  day: AemetForecastDay
+  day: UnifiedDay
 }
 
 function TodayCard({ day }: TodayCardProps) {
-  const sky = getDaySkyDescription(day.estadoCielo)
-  const wind = getDayWind(day.viento)
-  const iconType = sky ? getSkyIconType(sky.descripcion) : 'unknown'
+  const iconType = day.skyIcon ? (day.skyIcon as SkyIconType) : getSkyIconType(day.skyDescription)
   const hasTemp = day.tMaxima !== -999
-  const hasUV = day.indiceUV !== -1
+  const hasUV = day.uvIndex > 0
 
   return (
     <div className="flex items-center gap-4">
@@ -230,9 +286,9 @@ function TodayCard({ day }: TodayCardProps) {
         <SkyIcon type={iconType} className="h-12 w-12" />
       </div>
       <div className="min-w-0 flex-1">
-        {sky && (
+        {day.skyDescription && (
           <p className="truncate text-sm font-medium capitalize text-gray-800">
-            {sky.descripcion}
+            {day.skyDescription}
           </p>
         )}
         <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
@@ -244,17 +300,17 @@ function TodayCard({ day }: TodayCardProps) {
               )}
             </span>
           )}
-          {wind && wind.velocidad > 0 && (
+          {day.windSpeed > 0 && (
             <span className="flex items-center gap-1 text-xs text-gray-500">
               <svg className="h-3 w-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              {wind.velocidad} km/h {formatWindDirection(wind.direccion)}
+              {day.windSpeed} km/h {formatWindDirection(day.windDirection)}
             </span>
           )}
           {hasUV && (
-            <span className={`rounded px-1.5 py-0.5 text-xs font-medium ${uvBadgeClass(day.indiceUV)}`}>
-              UV {day.indiceUV}
+            <span className={`rounded px-1.5 py-0.5 text-xs font-medium ${uvBadgeClass(day.uvIndex)}`}>
+              UV {day.uvIndex}
             </span>
           )}
         </div>
@@ -264,12 +320,11 @@ function TodayCard({ day }: TodayCardProps) {
 }
 
 interface ForecastDayCardProps {
-  day: AemetForecastDay
+  day: UnifiedDay
 }
 
 function ForecastDayCard({ day }: ForecastDayCardProps) {
-  const sky = getDaySkyDescription(day.estadoCielo)
-  const iconType = sky ? getSkyIconType(sky.descripcion) : 'unknown'
+  const iconType = day.skyIcon ? (day.skyIcon as SkyIconType) : getSkyIconType(day.skyDescription)
   const hasTemp = day.tMaxima !== -999
 
   return (
@@ -322,23 +377,28 @@ function WeatherSkeleton() {
 // ---------------------------------------------------------------------------
 
 interface WeatherWidgetProps {
-  aemetId: string
+  aemetId?: string
+  coordinates: [number, number]
 }
 
 type FetchState =
   | { status: 'idle' }
   | { status: 'loading' }
   | { status: 'error' }
-  | { status: 'success'; forecast: AemetBeachForecast }
+  | { status: 'success'; forecast: UnifiedForecast }
 
-export function WeatherWidget({ aemetId }: WeatherWidgetProps) {
+export function WeatherWidget({ aemetId, coordinates }: WeatherWidgetProps) {
   const [state, setState] = useState<FetchState>({ status: 'idle' })
 
   useEffect(() => {
     let cancelled = false
     setState({ status: 'loading' })
 
-    fetchWeather({ data: { aemetId } })
+    const promise = aemetId
+      ? fetchAemetWeather({ data: { aemetId } })
+      : fetchOpenMeteoWeather({ data: { latitude: coordinates[0], longitude: coordinates[1] } })
+
+    promise
       .then((forecast) => {
         if (cancelled) return
         if (!forecast) {
@@ -354,7 +414,7 @@ export function WeatherWidget({ aemetId }: WeatherWidgetProps) {
     return () => {
       cancelled = true
     }
-  }, [aemetId])
+  }, [aemetId, coordinates[0], coordinates[1]])
 
   if (state.status === 'idle' || state.status === 'loading') {
     return <WeatherSkeleton />
@@ -377,10 +437,12 @@ export function WeatherWidget({ aemetId }: WeatherWidgetProps) {
   }
 
   const { forecast } = state
-  const [today, ...rest] = forecast.dias
+  const [today, ...rest] = forecast.days
   const nextDays = rest.slice(0, 2)
 
   if (!today) return null
+
+  const sourceLabel = forecast.source === 'aemet' ? 'AEMET' : 'Open-Meteo'
 
   return (
     <section
@@ -400,7 +462,7 @@ export function WeatherWidget({ aemetId }: WeatherWidgetProps) {
       )}
 
       <p className="mt-3 text-right text-xs text-gray-400">
-        Fuente: AEMET
+        Fuente: {sourceLabel}
       </p>
     </section>
   )

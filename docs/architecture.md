@@ -17,6 +17,7 @@
 | **Turso (libSQL)** | Edge database |
 | **Drizzle ORM** | Type-safe SQL |
 | **Cloudflare Cache API** | Durable edge caching for external API calls |
+| **Open-Meteo API** | Coordinate-based weather forecasts for beaches without AEMET station |
 
 ## Current State
 

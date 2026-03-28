@@ -180,7 +180,7 @@ function BeachPage() {
 
           {/* Sidebar */}
           <div className="space-y-6 lg:sticky lg:top-20">
-            {beach.aemetId && <WeatherWidget aemetId={beach.aemetId} />}
+            <WeatherWidget aemetId={beach.aemetId} coordinates={beach.coordinates} />
 
             <BeachStatusWidget
               beachName={beach.name}
