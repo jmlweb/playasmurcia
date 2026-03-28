@@ -114,14 +114,12 @@ function CollectionPage() {
         <p className="text-ocean-300 mb-3 text-sm font-medium tracking-widest uppercase">
           Colecciones de playas
         </p>
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+        <h1 className="mb-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
           {collection.title}
         </h1>
-        <p className="text-ocean-200 text-lg">{collection.description}</p>
-        <p className="mt-4">
-          <span className="bg-ocean-800/60 text-ocean-100 inline-flex items-center rounded-full px-4 py-1.5 text-sm font-semibold backdrop-blur-sm">
-            {items.length} {items.length === 1 ? 'playa' : 'playas'}
-          </span>
+        <p className="text-ocean-200 text-lg">
+          {collection.description} · {items.length}{' '}
+          {items.length === 1 ? 'playa' : 'playas'}
         </p>
       </PageHero>
 

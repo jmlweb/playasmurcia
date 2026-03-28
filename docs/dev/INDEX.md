@@ -4,9 +4,9 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 12 tasks
+- **Pending**: 11 tasks
 - **In progress**: 0 tasks
-- **Completed**: 37 tasks
+- **Completed**: 38 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
@@ -21,7 +21,6 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 | 042 | Beach Detail Page Hero and Gallery Redesign | Styling | P2 - Next | - |
 | 048 | Restore Interactive Map on Beach Detail | Feature | P2 - Next | - |
 | 043 | Extract Shared UI Components and Standardize | Styling | P3 | - |
-| 044 | Standardize Hero Heading Size Tiers | Styling | P3 | - |
 | 045 | Homepage UX and Accessibility Fixes | Styling | P3 | - |
 | 046 | Explorer Filter Panel and UX Polish | Styling | P3 | - |
 | 047 | Colecciones Index Visual Improvements | Styling | P3 | - |
@@ -34,6 +33,7 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 | # | Task | Completed |
 |---|------|-----------|
+| 044 | Standardize Hero Heading Size Tiers | 2026-03-28 |
 | 041 | Fix focus-visible Consistency | 2026-03-28 |
 | 039 | Recommendation Score and "Recomendados" Sort | 2026-03-28 |
 | 038 | Large List Pagination | 2026-03-28 |
