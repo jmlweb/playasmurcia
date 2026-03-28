@@ -86,7 +86,7 @@ export const Route = createFileRoute('/colecciones/$slug')({
 function CollectionPage() {
   const { collection, items, tags, weatherData } = Route.useLoaderData()
   const PAGE_SIZE = 15
-  const [sort, setSort] = useState<NonNullable<BeachSearchParams['sort']>>('name')
+  const [sort, setSort] = useState<NonNullable<BeachSearchParams['sort']>>('recomendados')
   const sortedItems = useMemo(
     () =>
       sortBeaches(

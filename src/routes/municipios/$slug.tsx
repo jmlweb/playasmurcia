@@ -82,7 +82,7 @@ function MunicipalityPage() {
   const { municipality, beaches, tags, blueFlagCount, weatherData } =
     Route.useLoaderData()
   const PAGE_SIZE = 15
-  const [sort, setSort] = useState<NonNullable<BeachSearchParams['sort']>>('name')
+  const [sort, setSort] = useState<NonNullable<BeachSearchParams['sort']>>('recomendados')
   const sortedBeaches = useMemo(() => sortBeaches(beaches, sort), [beaches, sort])
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
   const visibleBeaches = sortedBeaches.slice(0, visibleCount)

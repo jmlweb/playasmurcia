@@ -7,6 +7,7 @@ import type { BeachSearchParams } from '@/lib/beach-filters'
 type SortOption = NonNullable<BeachSearchParams['sort']>
 
 const SORT_OPTIONS: { value: SortOption; label: string }[] = [
+  { value: 'recomendados', label: 'Recomendados' },
   { value: 'name', label: 'Nombre A-Z' },
   { value: 'municipality', label: 'Municipio' },
   { value: 'length', label: 'Longitud' },

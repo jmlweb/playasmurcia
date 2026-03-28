@@ -1,13 +1,13 @@
-import type { Beach } from "@/types/beach"
+import type { Beach } from '@/types/beach'
 
-export interface BeachSearchParams {
+export type BeachSearchParams = {
   q?: string
-  municipality?: Array<number>
-  sea?: Array<number>
-  services?: Array<number>
-  activities?: Array<number>
-  tags?: Array<number>
-  sort?: "name" | "municipality" | "length" | "occupancy"
+  municipality?: number[]
+  sea?: number[]
+  services?: number[]
+  activities?: number[]
+  tags?: number[]
+  sort?: 'recomendados' | 'name' | 'municipality' | 'length' | 'occupancy'
 }
 
 export function countActiveFilters(filters: BeachSearchParams): number {
@@ -25,14 +25,17 @@ const OccupancyOrder = { low: 0, medium: 1, high: 2 } as const
 function normalizeText(text: string): string {
   return text
     .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
 }
 
-export function filterBeaches(beaches: Array<Beach>, params: BeachSearchParams): Array<Beach> {
+export function filterBeaches(
+  beaches: Beach[],
+  params: BeachSearchParams,
+): Beach[] {
   let result = beaches
 
-  if (params.q && params.q.trim()) {
+  if (params.q?.trim()) {
     const query = normalizeText(params.q.trim())
     result = result.filter((beach) => normalizeText(beach.name).includes(query))
   }
@@ -49,12 +52,16 @@ export function filterBeaches(beaches: Array<Beach>, params: BeachSearchParams):
 
   if (params.services && params.services.length > 0) {
     const required = params.services
-    result = result.filter((beach) => required.every((s) => beach.services.includes(s)))
+    result = result.filter((beach) =>
+      required.every((s) => beach.services.includes(s)),
+    )
   }
 
   if (params.activities && params.activities.length > 0) {
     const required = params.activities
-    result = result.filter((beach) => required.every((a) => beach.activities.includes(a)))
+    result = result.filter((beach) =>
+      required.every((a) => beach.activities.includes(a)),
+    )
   }
 
   if (params.tags && params.tags.length > 0) {
@@ -67,35 +74,42 @@ export function filterBeaches(beaches: Array<Beach>, params: BeachSearchParams):
   return result
 }
 
-export function sortBeaches(beaches: Array<Beach>, sort: BeachSearchParams["sort"]): Array<Beach> {
+export function sortBeaches(
+  beaches: Beach[],
+  sort: BeachSearchParams['sort'],
+): Beach[] {
   const copy = [...beaches]
 
   switch (sort) {
-    case "name":
-      return copy.sort((a, b) => normalizeText(a.name).localeCompare(normalizeText(b.name)))
-    case "municipality":
+    case 'recomendados':
+      return copy.sort((a, b) => b.recommendationScore - a.recommendationScore)
+    case 'name':
+      return copy.sort((a, b) =>
+        normalizeText(a.name).localeCompare(normalizeText(b.name)),
+      )
+    case 'municipality':
       return copy.sort((a, b) => a.municipality - b.municipality)
-    case "length":
+    case 'length':
       return copy.sort((a, b) => {
         if (a.length == null && b.length == null) return 0
         if (a.length == null) return 1
         if (b.length == null) return -1
         return b.length - a.length
       })
-    case "occupancy":
+    case 'occupancy':
       return copy.sort((a, b) => {
         const aOrder = a.occupancyLevel ? OccupancyOrder[a.occupancyLevel] : -1
         const bOrder = b.occupancyLevel ? OccupancyOrder[b.occupancyLevel] : -1
         return aOrder - bOrder
       })
     default:
-      return copy.sort((a, b) => normalizeText(a.name).localeCompare(normalizeText(b.name)))
+      return copy.sort((a, b) => b.recommendationScore - a.recommendationScore)
   }
 }
 
 export function applyFiltersAndSort(
-  beaches: Array<Beach>,
+  beaches: Beach[],
   params: BeachSearchParams,
-): Array<Beach> {
+): Beach[] {
   return sortBeaches(filterBeaches(beaches, params), params.sort)
 }

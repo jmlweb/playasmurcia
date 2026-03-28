@@ -1,6 +1,6 @@
 export type Certification = 'blue-flag' | 'q-quality' | 'ecoplayas'
 
-export interface Beach {
+export type Beach = {
   code: string
   name: string
   municipality: number
@@ -12,25 +12,25 @@ export interface Beach {
   anchorageZone: boolean
   dogFriendly: boolean
   lifeguard: boolean
-  services: Array<number>
-  activities: Array<number>
+  services: number[]
+  activities: number[]
   description: string
   access: string
-  nearby: Array<string>
+  nearby: string[]
   orientation: string
   instagramHashtag: string
   occupancyLevel?: 'low' | 'medium' | 'high'
   campingNearby?: boolean
   metaDescription?: string
-  seoKeywords?: Array<string>
-  certifications?: Array<Certification>
-  bestSeason?: Array<'spring' | 'summer' | 'autumn' | 'winter'>
+  seoKeywords?: string[]
+  certifications?: Certification[]
+  bestSeason?: ('spring' | 'summer' | 'autumn' | 'winter')[]
   district?: string
   phone?: string
   email?: string
   realUrl?: string
   waves?: string
-  pictures?: Array<string>
+  pictures?: string[]
   pictureQualityScore?: 0 | 1 | 2 | 3
   aemetId?: string
   length?: number
@@ -38,32 +38,33 @@ export interface Beach {
   childSafe?: boolean
   naturalShade?: boolean
   waterQuality?: 'excellent' | 'good' | 'sufficient' | 'poor'
-  tags?: Array<number>
+  tags?: number[]
+  recommendationScore: number
 }
 
-export interface Service {
+export type Service = {
   id: string
   name: string
   icon: string
 }
 
-export interface Activity {
+export type Activity = {
   id: string
   name: string
   icon: string
 }
 
-export interface Tag {
+export type Tag = {
   id: string
   name: string
 }
 
-export interface Sea {
+export type Sea = {
   name: string
   jellyfishRisk: string
 }
 
-export interface Municipality {
+export type Municipality = {
   name: string
   id: string
 }

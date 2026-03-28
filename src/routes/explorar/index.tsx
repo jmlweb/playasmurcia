@@ -41,6 +41,7 @@ function validateSearch(search: Record<string, unknown>): BeachSearchParams {
         ? [Number(search.tags)].filter((n) => !isNaN(n))
         : undefined,
     sort:
+      search.sort === 'recomendados' ||
       search.sort === 'name' ||
       search.sort === 'municipality' ||
       search.sort === 'length' ||
@@ -113,7 +114,7 @@ function ExplorerPage() {
   const navigate = useNavigate({ from: '/explorar' })
 
   const filters: BeachSearchParams = search
-  const sort = filters.sort ?? 'name'
+  const sort = filters.sort ?? 'recomendados'
 
   const updateFilters = useCallback(
     (next: BeachSearchParams) => {

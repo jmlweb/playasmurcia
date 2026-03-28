@@ -1,4 +1,7 @@
 import { eq, inArray } from 'drizzle-orm'
+
+import { db } from '@/db/client'
+import * as schema from '@/db/schema'
 import type {
   Activity,
   Beach,
@@ -9,10 +12,63 @@ import type {
   Tag,
 } from '@/types/beach'
 
-import { db } from '@/db/client'
-import * as schema from '@/db/schema'
-
 type OccupancyLevel = 'low' | 'medium' | 'high'
+
+/**
+ * Computes a recommendation score (0-1) from internal beach data.
+ *
+ * Weights: services 30%, length 15%, photo quality 10%,
+ * accessibility 15%, blue flag 15%, child-safe 10%, natural shade 5%
+ */
+function computeRecommendationScore(beach: {
+  services: number[]
+  length: number | null
+  pictureQualityScore: number | null
+  accessDifficulty: string | null
+  certifications: string | null
+  childSafe: boolean | null
+  naturalShade: boolean | null
+}): number {
+  // Services: 0-1 normalized (cap at 8 services for max score)
+  const servicesScore = Math.min(beach.services.length / 8, 1)
+
+  // Length: 0-1 normalized (cap at 1000m for max score)
+  const lengthScore =
+    beach.length != null ? Math.min(beach.length / 1000, 1) : 0.3
+
+  // Photo quality: 0-1 from 0-3 score
+  const photoScore = (beach.pictureQualityScore ?? 0) / 3
+
+  // Accessibility: easy=1, moderate=0.6, hard=0.2, unknown=0.5
+  const accessMap: Record<string, number> = {
+    easy: 1,
+    moderate: 0.6,
+    hard: 0.2,
+  }
+  const accessScore = beach.accessDifficulty
+    ? (accessMap[beach.accessDifficulty] ?? 0.5)
+    : 0.5
+
+  // Blue flag: boolean
+  const certs = beach.certifications ? JSON.parse(beach.certifications) : []
+  const blueFlagScore = (certs as string[]).includes('blue-flag') ? 1 : 0
+
+  // Child-safe: boolean
+  const childSafeScore = beach.childSafe ? 1 : 0
+
+  // Natural shade: boolean
+  const shadeScore = beach.naturalShade ? 1 : 0
+
+  return (
+    servicesScore * 0.3 +
+    lengthScore * 0.15 +
+    photoScore * 0.1 +
+    accessScore * 0.15 +
+    blueFlagScore * 0.15 +
+    childSafeScore * 0.1 +
+    shadeScore * 0.05
+  )
+}
 
 function adjustOccupancy(stored: OccupancyLevel): OccupancyLevel {
   const month = new Date().getMonth() // 0-based
@@ -70,9 +126,9 @@ function mapBeachFromDB(dbBeach: {
   childSafe: boolean | null
   naturalShade: boolean | null
   waterQuality: string | null
-  services: Array<{ serviceId: number }>
-  activities: Array<{ activityId: number }>
-  tags: Array<{ tagId: number }>
+  services: { serviceId: number }[]
+  activities: { activityId: number }[]
+  tags: { tagId: number }[]
 }): Beach {
   return {
     code: dbBeach.code,
@@ -94,7 +150,9 @@ function mapBeachFromDB(dbBeach: {
     orientation: dbBeach.orientation,
     instagramHashtag: dbBeach.instagramHashtag,
     ...(dbBeach.occupancyLevel && {
-      occupancyLevel: adjustOccupancy(dbBeach.occupancyLevel as 'low' | 'medium' | 'high'),
+      occupancyLevel: adjustOccupancy(
+        dbBeach.occupancyLevel as 'low' | 'medium' | 'high',
+      ),
     }),
     ...(dbBeach.campingNearby !== null && {
       campingNearby: dbBeach.campingNearby,
@@ -106,14 +164,15 @@ function mapBeachFromDB(dbBeach: {
       seoKeywords: JSON.parse(dbBeach.seoKeywords),
     }),
     ...(dbBeach.certifications && {
-      certifications: JSON.parse(
-        dbBeach.certifications,
-      ) as Array<Certification>,
+      certifications: JSON.parse(dbBeach.certifications) as Certification[],
     }),
     ...(dbBeach.bestSeason && {
-      bestSeason: JSON.parse(dbBeach.bestSeason) as Array<
-        'spring' | 'summer' | 'autumn' | 'winter'
-      >,
+      bestSeason: JSON.parse(dbBeach.bestSeason) as (
+        | 'spring'
+        | 'summer'
+        | 'autumn'
+        | 'winter'
+      )[],
     }),
     ...(dbBeach.district && { district: dbBeach.district }),
     ...(dbBeach.phone && { phone: dbBeach.phone }),
@@ -146,13 +205,22 @@ function mapBeachFromDB(dbBeach: {
     ...(dbBeach.tags.length > 0 && {
       tags: dbBeach.tags.map((t) => t.tagId - 1), // Convert to 0-based index
     }),
+    recommendationScore: computeRecommendationScore({
+      services: dbBeach.services.map((s) => s.serviceId - 1),
+      length: dbBeach.length,
+      pictureQualityScore: dbBeach.pictureQualityScore,
+      accessDifficulty: dbBeach.accessDifficulty,
+      certifications: dbBeach.certifications,
+      childSafe: dbBeach.childSafe,
+      naturalShade: dbBeach.naturalShade,
+    }),
   }
 }
 
 /**
  * Retrieves all beaches from the database
  */
-export async function getAllBeaches(): Promise<Array<Beach>> {
+export async function getAllBeaches(): Promise<Beach[]> {
   const dbBeaches = await db.query.beaches.findMany({
     with: {
       services: true,
@@ -240,7 +308,7 @@ export async function getService(index: number): Promise<Service> {
 /**
  * Retrieves all municipalities from the database
  */
-export async function getAllMunicipalities(): Promise<Array<Municipality>> {
+export async function getAllMunicipalities(): Promise<Municipality[]> {
   const dbMunicipalities = await db.query.municipalities.findMany({
     orderBy: (municipalities, { asc }) => [asc(municipalities.id)],
   })
@@ -270,7 +338,7 @@ export async function getMunicipalityMap(): Promise<Map<number, Municipality>> {
 /**
  * Retrieves all services from the database
  */
-export async function getAllServices(): Promise<Array<Service>> {
+export async function getAllServices(): Promise<Service[]> {
   const dbServices = await db.query.services.findMany({
     orderBy: (services, { asc }) => [asc(services.id)],
   })
@@ -285,7 +353,7 @@ export async function getAllServices(): Promise<Array<Service>> {
 /**
  * Retrieves all activities from the database
  */
-export async function getAllActivities(): Promise<Array<Activity>> {
+export async function getAllActivities(): Promise<Activity[]> {
   const dbActivities = await db.query.activities.findMany({
     orderBy: (activities, { asc }) => [asc(activities.id)],
   })
@@ -300,7 +368,7 @@ export async function getAllActivities(): Promise<Array<Activity>> {
 /**
  * Retrieves all tags from the database
  */
-export async function getAllTags(): Promise<Array<Tag>> {
+export async function getAllTags(): Promise<Tag[]> {
   const dbTags = await db.query.tags.findMany({
     orderBy: (tags, { asc }) => [asc(tags.id)],
   })
@@ -314,9 +382,7 @@ export async function getAllTags(): Promise<Array<Tag>> {
 /**
  * Retrieves multiple beaches by their codes (used for nearby beaches)
  */
-export async function getNearbyBeaches(
-  codes: Array<string>,
-): Promise<Array<Beach>> {
+export async function getNearbyBeaches(codes: string[]): Promise<Beach[]> {
   if (codes.length === 0) {
     return []
   }
@@ -332,7 +398,6 @@ export async function getNearbyBeaches(
 
   return dbBeaches.map(mapBeachFromDB)
 }
-
 
 /**
  * Converts a municipality name to a URL-friendly slug
@@ -362,7 +427,7 @@ export async function getMunicipalityBySlug(
  */
 export async function getBeachesByMunicipality(
   municipalityIndex: number,
-): Promise<Array<Beach>> {
+): Promise<Beach[]> {
   const dbBeaches = await db.query.beaches.findMany({
     where: eq(schema.beaches.municipalityId, municipalityIndex + 1),
     with: { services: true, activities: true, tags: true },
@@ -373,7 +438,7 @@ export async function getBeachesByMunicipality(
 /**
  * Retrieves all seas from the database
  */
-export async function getAllSeas(): Promise<Array<Sea>> {
+export async function getAllSeas(): Promise<Sea[]> {
   const dbSeas = await db.query.seas.findMany({
     orderBy: (seas, { asc }) => [asc(seas.id)],
   })
@@ -389,12 +454,17 @@ export async function getAllSeas(): Promise<Array<Sea>> {
  * Picks the top-scoring beaches (pictureQualityScore >= 2) ensuring at most
  * 2 beaches per municipality for diversity, sorted by quality then name.
  */
-export async function getFeaturedBeaches(): Promise<Array<Beach>> {
+export async function getFeaturedBeaches(): Promise<Beach[]> {
   const allBeaches = await getAllBeaches()
 
   // Filter to beaches with good photos
   const withPhotos = allBeaches
-    .filter((b) => b.pictures && b.pictures.length > 0 && (b.pictureQualityScore ?? 0) >= 2)
+    .filter(
+      (b) =>
+        b.pictures &&
+        b.pictures.length > 0 &&
+        (b.pictureQualityScore ?? 0) >= 2,
+    )
     .sort((a, b) => {
       const scoreA = a.pictureQualityScore ?? 0
       const scoreB = b.pictureQualityScore ?? 0
@@ -404,7 +474,7 @@ export async function getFeaturedBeaches(): Promise<Array<Beach>> {
 
   // Limit per municipality for geographic spread
   const municipalityCounts = new Map<number, number>()
-  const featured: Array<Beach> = []
+  const featured: Beach[] = []
 
   for (const beach of withPhotos) {
     const count = municipalityCounts.get(beach.municipality) ?? 0

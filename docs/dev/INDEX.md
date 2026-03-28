@@ -4,14 +4,14 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 4 tasks
+- **Pending**: 3 tasks
 - **In progress**: 0 tasks
-- **Completed**: 35 tasks
+- **Completed**: 36 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
 
-> No active task. Next up: Task #039 (Recommendation Score and "Recomendados" Sort)
+> No active task. Remaining tasks require manual research or are blocked.
 
 ## Backlog
 
@@ -19,13 +19,13 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 |---|------|-------|----------|------------|
 | 035 | Add Imagery and Visual Hierarchy to Municipality Cards | Styling | P3 | 017 |
 | 017 | Source Missing Beach Pictures | Content | P4 - Later | - |
-| 039 | Recommendation Score and "Recomendados" Sort | Data + Frontend | P3 | - |
 | 021 | Add Missing Contact Info | Data | P4 - Later | - |
 
 ## Recently completed
 
 | # | Task | Completed |
 |---|------|-----------|
+| 039 | Recommendation Score and "Recomendados" Sort | 2026-03-28 |
 | 038 | Large List Pagination | 2026-03-28 |
 | 037 | Explorer UX Improvements | 2026-03-28 |
 | 036 | Collections Page Visual Consistency | 2026-03-28 |

@@ -176,42 +176,34 @@ Calculated once and stored in beach records. No recurring script.
 
 ## Camping Nearby
 
-Beaches within 3km of a verified campsite are flagged as `campingNearby: true`.
-
-| Municipality | Campsites |
-|--------------|-----------|
-| San Javier | Camping Mar Menor, Camping Pueblo |
-| Cartagena | Camping Los Madriles, Camping El Portús |
-| Mazarrón | Camping Playa de Mazarrón, Las Torres, Los Delfines |
-| Águilas | Camping Bellavista, Camperpark Duemo |
-| Lorca | Camping Playa Parazuelos |
-
-**Distribution:** 42 beaches (22%)
-
-Calculated once and stored in beach records. Script deleted after run.
+Beaches within 3km of a verified campsite are flagged as `campingNearby: true`. 42 beaches (22%). Precomputed once and stored in beach records.
 
 ## Meta Descriptions
 
-SEO-optimized descriptions generated with Ollama:
-
-| Requirement | Value |
-|-------------|-------|
-| Length | 140-170 characters |
-| Language | Spanish |
-| Keywords | Beach name, municipality, "Murcia", "Costa Cálida" |
-
-Script auto-corrects length by asking Ollama to expand/shorten until in range.
-
-Generated once with Ollama and stored in beach records. Script deleted after run.
+SEO meta descriptions (140-170 chars, Spanish, includes beach name + municipality + "Murcia" / "Costa Cálida"). Precomputed once with Ollama and stored in beach records.
 
 ## SEO Keywords
 
-Keywords extracted with Ollama for search optimization:
+5-10 lowercase keywords per beach (name, municipality, type, activities, characteristics). Precomputed once with Ollama and stored in beach records.
 
-| Requirement | Value |
-|-------------|-------|
-| Count | 5-10 keywords per beach |
-| Content | Beach name, municipality, type, activities, characteristics |
-| Format | Lowercase strings |
+## Recommendation Score
 
-Generated once with Ollama and stored in beach records. Script deleted after run.
+A `recommendationScore` (0-1) is computed at runtime from internal beach data. Used as default sort order ("Recomendados") in explorer, municipality, and collection pages.
+
+### Weights
+
+| Factor | Weight | Normalization |
+|--------|--------|---------------|
+| Services count | 30% | `min(count/8, 1)` |
+| Length | 15% | `min(length/1000, 1)`, default 0.3 if unknown |
+| Photo quality | 10% | `score/3` (0-3 scale) |
+| Accessibility | 15% | easy=1, moderate=0.6, hard=0.2, unknown=0.5 |
+| Blue Flag | 15% | 1 if certified, 0 otherwise |
+| Child-safe | 10% | 1 if true, 0 otherwise |
+| Natural shade | 5% | 1 if true, 0 otherwise |
+
+Beaches with missing data receive neutral defaults (not penalized).
+
+### Future: External popularity signals
+
+Phase 2-3 planned: Google Places API (rating + review count) and OSM Overpass (nearby amenities) to boost scores. Suggested split: 60% internal + 40% popularity. Requires `GOOGLE_PLACES_API_KEY` env var.
