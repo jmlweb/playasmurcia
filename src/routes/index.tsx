@@ -78,21 +78,21 @@ function HomePage() {
           src="/pictures/hero.png"
           width={1408}
         />
-        <div className="from-ocean-900/70 via-ocean-900/60 to-ocean-900/90 absolute inset-0 bg-gradient-to-b" />
+        <div className="from-ocean-900/70 via-ocean-900/75 to-ocean-900/90 absolute inset-0 bg-gradient-to-b" />
         <div className="relative mx-auto max-w-4xl text-center">
           <p className="text-ocean-300 animate-fade-up mb-4 text-sm font-semibold tracking-[0.2em] uppercase sm:text-base">
             Costa Calida &middot; Region de Murcia
           </p>
-          <h1 className="animate-fade-up mb-6 text-4xl font-extrabold tracking-tight text-white [animation-delay:100ms] sm:text-5xl lg:text-6xl xl:text-7xl">
+          <h1 className="animate-fade-up mb-6 text-4xl font-extrabold tracking-tight text-white [animation-delay:75ms] sm:text-5xl lg:text-6xl xl:text-7xl">
             Donde el Mediterraneo
             <br className="hidden sm:block" /> abraza la costa
           </h1>
-          <p className="text-ocean-100 animate-fade-up mx-auto mb-10 max-w-2xl text-lg leading-relaxed [animation-delay:200ms] sm:text-xl">
+          <p className="text-ocean-100 animate-fade-up mx-auto mb-10 max-w-2xl text-lg leading-relaxed [animation-delay:150ms] sm:text-xl">
             252 kilometros de litoral, {totalBeaches} playas y calas entre dos
             mares. Desde las aguas cristalinas de Cabo de Palos hasta las
             calidas orillas del Mar Menor, descubre tu playa ideal.
           </p>
-          <div className="animate-fade-up flex flex-col items-center gap-4 [animation-delay:300ms] sm:flex-row sm:justify-center">
+          <div className="animate-fade-up flex flex-col items-center gap-4 [animation-delay:225ms] sm:flex-row sm:justify-center">
             <Link
               className="bg-ocean-500 hover:bg-ocean-400 focus-visible:ring-ocean-400 focus-visible:ring-offset-ocean-900 inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-base font-semibold text-white shadow-lg transition-all hover:shadow-xl focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
               to="/explorar"
@@ -125,13 +125,21 @@ function HomePage() {
 
       {/* Featured beaches */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
-        <div className="mb-10">
-          <p className="text-ocean-600 mb-2 text-sm font-semibold tracking-wider uppercase">
-            Seleccion destacada
-          </p>
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Playas que no te puedes perder
-          </h2>
+        <div className="mb-10 flex items-end justify-between">
+          <div>
+            <p className="text-ocean-600 mb-2 text-sm font-semibold tracking-wider uppercase">
+              Seleccion destacada
+            </p>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Playas que no te puedes perder
+            </h2>
+          </div>
+          <Link
+            className="text-ocean-600 hover:text-ocean-700 hidden text-sm font-medium sm:block"
+            to="/explorar"
+          >
+            Ver todas las playas →
+          </Link>
         </div>
 
         <div className="grid gap-x-4 gap-y-6 pb-4 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-6 xl:gap-y-8 2xl:grid-cols-4">
@@ -176,7 +184,7 @@ function HomePage() {
       </section>
 
       {/* Municipalities */}
-      <section className="border-t border-gray-200 bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <section className="bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-10">
             <p className="text-ocean-600 mb-2 text-sm font-semibold tracking-wider uppercase">
@@ -186,7 +194,7 @@ function HomePage() {
               Municipios costeros
             </h2>
           </div>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {municipalityNav.map((m) => (
               <a
                 key={m.slug}
@@ -276,7 +284,7 @@ function HomePage() {
               </p>
             </Link>
             <Link
-              className="group text-center sm:col-span-2 lg:col-span-1"
+              className="group text-center"
               to="/colecciones/bandera-azul"
             >
               <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 transition-colors group-hover:bg-emerald-100">
