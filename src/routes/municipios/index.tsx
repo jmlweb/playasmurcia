@@ -168,7 +168,7 @@ function MunicipiosPage() {
           items={[{ label: 'Inicio', href: '/' }, { label: 'Municipios' }]}
         />
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
           {stats.map((s) => (
             <MunicipalityCard key={s.slug} services={services} stats={s} />
           ))}

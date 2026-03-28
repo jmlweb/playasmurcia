@@ -4,7 +4,9 @@ import { useCallback, useMemo, useState } from 'react'
 
 import { BeachCard } from '@/components/beach-card'
 import { Breadcrumb } from '@/components/breadcrumb'
+import { EmptyState } from '@/components/empty-state'
 import { FilterPanel, FilterToggleButton } from '@/components/filter-panel'
+import { PageInfo } from '@/components/page-info'
 import { PageHero } from '@/components/page-hero'
 import { Pagination } from '@/components/pagination'
 import { SearchBar } from '@/components/search-bar'
@@ -367,20 +369,12 @@ function ExplorerPage() {
             {/* Results */}
             {allFiltered.length > 0 ? (
               <>
-                {totalPages > 1 && (
-                  <p className="mb-4 text-sm text-gray-500">
-                    Pagina{' '}
-                    <strong className="font-semibold text-gray-900">
-                      {safePage}
-                    </strong>{' '}
-                    de{' '}
-                    <strong className="font-semibold text-gray-900">
-                      {totalPages}
-                    </strong>{' '}
-                    ({allFiltered.length} playas)
-                  </p>
-                )}
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-5 xl:grid-cols-3 xl:gap-6">
+                <PageInfo
+                  currentPage={safePage}
+                  totalItems={allFiltered.length}
+                  totalPages={totalPages}
+                />
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
                   {filteredBeaches.map((beach) => {
                     const slug = slugMap.get(beach.code) ?? beachToSlug(beach)
                     return (
@@ -402,37 +396,26 @@ function ExplorerPage() {
                 />
               </>
             ) : (
-              <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-300 py-24 text-center">
-                <svg
-                  aria-hidden="true"
-                  className="mb-5 h-14 w-14 text-gray-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                  />
-                </svg>
-                <p className="mb-1 text-lg font-semibold text-gray-900">
-                  No se encontraron playas
-                </p>
-                <p className="mb-5 text-sm text-gray-500">
-                  Prueba a modificar los filtros o el texto de busqueda
-                </p>
-                {hasActiveFilters && (
-                  <button
-                    className="bg-ocean-600 hover:bg-ocean-700 focus-visible:ring-ocean-500 rounded-full px-5 py-2.5 text-sm font-medium text-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
-                    type="button"
-                    onClick={clearAllFilters}
-                  >
-                    Limpiar filtros
-                  </button>
-                )}
-              </div>
+              <EmptyState
+                action={
+                  hasActiveFilters ? (
+                    <button
+                      className="bg-ocean-600 hover:bg-ocean-700 focus-visible:ring-ocean-500 rounded-full px-5 py-2.5 text-sm font-medium text-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+                      type="button"
+                      onClick={clearAllFilters}
+                    >
+                      Limpiar filtros
+                    </button>
+                  ) : undefined
+                }
+                description="Prueba a modificar los filtros o el texto de busqueda"
+                icon={
+                  <svg aria-hidden="true" className="h-14 w-14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} />
+                  </svg>
+                }
+                title="No se encontraron playas"
+              />
             )}
           </div>
         </div>

@@ -4,7 +4,9 @@ import { useMemo, useState } from 'react'
 
 import { BeachCard } from '@/components/beach-card'
 import { Breadcrumb } from '@/components/breadcrumb'
+import { EmptyState } from '@/components/empty-state'
 import { PageHero } from '@/components/page-hero'
+import { PageInfo } from '@/components/page-info'
 import { Pagination } from '@/components/pagination'
 import { SortSelect } from '@/components/sort-select'
 import type { BeachSearchParams } from '@/lib/beach-filters'
@@ -139,44 +141,18 @@ function CollectionPage() {
         )}
 
         {items.length === 0 ? (
-          <div className="flex flex-col items-center rounded-2xl border-2 border-dashed border-gray-300 px-6 py-16 text-center">
-            <svg
-              aria-hidden="true"
-              className="mb-4 h-12 w-12 text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-              />
-            </svg>
-            <h3 className="mb-1 text-lg font-semibold text-gray-900">
-              Sin resultados
-            </h3>
-            <p className="text-sm text-gray-500">
-              No se encontraron playas en esta coleccion.
-            </p>
-          </div>
+          <EmptyState
+            description="No se encontraron playas en esta coleccion."
+            title="Sin resultados"
+          />
         ) : (
           <>
-            {totalPages > 1 && (
-              <p className="mb-4 text-sm text-gray-500">
-                Pagina{' '}
-                <strong className="font-semibold text-gray-900">
-                  {currentPage}
-                </strong>{' '}
-                de{' '}
-                <strong className="font-semibold text-gray-900">
-                  {totalPages}
-                </strong>{' '}
-                ({sortedItems.length} playas)
-              </p>
-            )}
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+            <PageInfo
+              currentPage={currentPage}
+              totalItems={sortedItems.length}
+              totalPages={totalPages}
+            />
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
               {visibleItems.map(({ beach, municipality, slug }) => (
                 <BeachCard
                   key={beach.code}

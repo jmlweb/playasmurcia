@@ -4,9 +4,9 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 5 tasks
+- **Pending**: 4 tasks
 - **In progress**: 0 tasks
-- **Completed**: 44 tasks
+- **Completed**: 45 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
@@ -17,7 +17,6 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 | # | Task | Slice | Priority | Blocked by |
 |---|------|-------|----------|------------|
-| 043 | Extract Shared UI Components and Standardize | Styling | P3 | - |
 | 049 | Expand Weather Widget to 5-7 Day Forecast | Feature | P3 | - |
 | 035 | Add Imagery and Visual Hierarchy to Municipality Cards | Styling | P3 | 017 |
 | 017 | Source Missing Beach Pictures | Content | P4 - Later | - |
@@ -27,6 +26,7 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 | # | Task | Completed |
 |---|------|-----------|
+| 043 | Extract Shared UI Components | 2026-03-29 |
 | 047 | Colecciones Index Visual Improvements | 2026-03-29 |
 | 046 | Explorer Filter Panel and UX Polish | 2026-03-29 |
 | 045 | Homepage UX and Accessibility Fixes | 2026-03-29 |

@@ -4,7 +4,9 @@ import { useMemo, useState } from 'react'
 
 import { BeachCard } from '@/components/beach-card'
 import { Breadcrumb } from '@/components/breadcrumb'
+import { EmptyState } from '@/components/empty-state'
 import { PageHero } from '@/components/page-hero'
+import { PageInfo } from '@/components/page-info'
 import { Pagination } from '@/components/pagination'
 import { SortSelect } from '@/components/sort-select'
 import type { BeachSearchParams } from '@/lib/beach-filters'
@@ -142,20 +144,12 @@ function MunicipalityPage() {
               </span>
               <SortSelect value={sort} onChange={setSort} />
             </div>
-            {totalPages > 1 && (
-              <p className="mb-4 text-sm text-gray-500">
-                Pagina{' '}
-                <strong className="font-semibold text-gray-900">
-                  {currentPage}
-                </strong>{' '}
-                de{' '}
-                <strong className="font-semibold text-gray-900">
-                  {totalPages}
-                </strong>{' '}
-                ({sortedBeaches.length} playas)
-              </p>
-            )}
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-5 xl:grid-cols-3 xl:gap-6">
+            <PageInfo
+              currentPage={currentPage}
+              totalItems={sortedBeaches.length}
+              totalPages={totalPages}
+            />
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
               {visibleBeaches.map((beach) => (
                 <BeachCard
                   key={beach.code}
@@ -174,29 +168,10 @@ function MunicipalityPage() {
             />
           </>
         ) : (
-          <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-300 py-24 text-center">
-            <svg
-              aria-hidden="true"
-              className="text-ocean-300 mb-5 h-14 w-14"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-              />
-            </svg>
-            <p className="mb-1 text-lg font-semibold text-gray-900">
-              No hay playas registradas
-            </p>
-            <p className="text-sm text-gray-500">
-              Este municipio no tiene playas catalogadas en nuestra base de
-              datos.
-            </p>
-          </div>
+          <EmptyState
+            description="Este municipio no tiene playas catalogadas en nuestra base de datos."
+            title="No hay playas registradas"
+          />
         )}
 
         <div className="mt-12 text-center">
@@ -204,7 +179,7 @@ function MunicipalityPage() {
             className="text-ocean-600 hover:text-ocean-700 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:underline"
             href="/municipios"
           >
-            ← Ver todos los municipios
+            ← Volver a municipios
           </a>
         </div>
       </div>
