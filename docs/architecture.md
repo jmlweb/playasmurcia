@@ -44,6 +44,8 @@ playasmurcia/
 │   │   ├── data.ts         # Sync data access (JSON imports) — active
 │   │   ├── data.test.ts    # Tests for data.ts
 │   │   ├── db-data.ts      # Async data access (database queries) — not yet wired
+│   │   ├── edge-cache.ts   # Durable edge cache (Cache API + in-memory fallback)
+│   │   ├── images.ts       # Image filename parsing utilities
 │   │   ├── schema.ts       # JSON-LD schema generator for SEO
 │   │   └── schema.test.ts  # Tests for schema.ts
 │   ├── db/                 # Database layer

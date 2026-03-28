@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { parseImageFilename } from "@/lib/images"
+import { ResponsiveImage } from "@/components/responsive-image"
 
 interface PhotoGalleryProps {
   pictures: Array<string>
@@ -21,6 +23,7 @@ export function PhotoGallery({ pictures, beachName }: PhotoGalleryProps) {
   }
 
   const activePicture = pictures[activeIndex]
+  const { baseName: activeBaseName, ext: activeExt } = parseImageFilename(activePicture)
 
   function handlePrev() {
     setActiveIndex((prev) => (prev === 0 ? pictures.length - 1 : prev - 1))
@@ -43,12 +46,13 @@ export function PhotoGallery({ pictures, beachName }: PhotoGalleryProps) {
     >
       {/* Main image */}
       <div className="relative h-64 overflow-hidden rounded-2xl bg-gray-100 shadow-sm sm:h-80 lg:h-[480px]">
-        <img
-          src={`/pictures/${activePicture}`}
+        <ResponsiveImage
+          baseName={activeBaseName}
+          ext={activeExt}
+          variant="full"
+          priority="high"
           alt={`${beachName} - foto ${activeIndex + 1}`}
           className="h-full w-full object-cover transition-opacity duration-300"
-          loading="eager"
-          fetchPriority="high"
         />
         {pictures.length > 1 && (
           <>
@@ -87,28 +91,32 @@ export function PhotoGallery({ pictures, beachName }: PhotoGalleryProps) {
             role="tablist"
             aria-label="Miniaturas de fotos"
           >
-          {pictures.map((picture, index) => (
-            <button
-              key={picture}
-              type="button"
-              role="tab"
-              aria-selected={index === activeIndex}
-              aria-label={`Ver foto ${index + 1}`}
-              onClick={() => setActiveIndex(index)}
-              className={`h-16 w-24 flex-shrink-0 overflow-hidden rounded-lg border-2 transition-all focus:ring-2 focus:ring-ocean-500 focus:outline-none ${
-                index === activeIndex
-                  ? "border-ocean-500"
-                  : "border-transparent opacity-70 hover:opacity-100"
-              }`}
-            >
-              <img
-                src={`/pictures/${picture}`}
-                alt={`${beachName} - miniatura ${index + 1}`}
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </button>
-          ))}
+          {pictures.map((picture, index) => {
+            const { baseName, ext } = parseImageFilename(picture)
+            return (
+              <button
+                key={picture}
+                type="button"
+                role="tab"
+                aria-selected={index === activeIndex}
+                aria-label={`Ver foto ${index + 1}`}
+                onClick={() => setActiveIndex(index)}
+                className={`h-16 w-24 flex-shrink-0 overflow-hidden rounded-lg border-2 transition-all focus:ring-2 focus:ring-ocean-500 focus:outline-none ${
+                  index === activeIndex
+                    ? "border-ocean-500"
+                    : "border-transparent opacity-70 hover:opacity-100"
+                }`}
+              >
+                <ResponsiveImage
+                  baseName={baseName}
+                  ext={ext}
+                  variant="thumb"
+                  alt={`${beachName} - miniatura ${index + 1}`}
+                  className="h-full w-full object-cover"
+                />
+              </button>
+            )
+          })}
           </div>
           <div className="pointer-events-none absolute inset-y-0 left-0 w-8 bg-linear-to-r from-white to-transparent" aria-hidden="true" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-linear-to-l from-white to-transparent" aria-hidden="true" />

@@ -5,6 +5,11 @@
   "scripts": {
     "dev": "vite dev --port 3000",
     "generate:sitemap": "tsx scripts/generate-sitemap.ts",
+    "download:playas-nexo-images": "tsx scripts/download-playas-nexo-images.ts",
+    "score:picture-quality": "tsx scripts/score-beach-picture-quality.ts",
+    "prune:small-pictures": "tsx scripts/prune-small-beach-pictures.ts",
+    "fix:orthography": "node scripts/fix-orthography.js",
+    "optimize:images": "tsx scripts/optimize-images.ts",
     "build": "tsx scripts/generate-sitemap.ts && vite build",
     "preview": "vite preview",
     "test": "vitest run",
@@ -17,6 +22,7 @@
     "check": "tsc --noEmit && eslint src/ scripts/ && prettier --check ."
   },
   "dependencies": {
+    "@base-ui/react": "^1.3.0",
     "@libsql/client": "^0.15.15",
     "@tailwindcss/vite": "^4.0.6",
     "@tanstack/react-devtools": "^0.7.0",
@@ -33,6 +39,7 @@
     "vite-tsconfig-paths": "^5.1.4"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.30.1",
     "@tanstack/devtools-vite": "^0.3.11",
     "@tanstack/eslint-config": "^0.3.0",
     "@testing-library/dom": "^10.4.0",
@@ -40,13 +47,17 @@
     "@types/node": "^22.10.2",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
+    "@types/sharp": "^0.32.0",
     "@vitejs/plugin-react": "^5.0.4",
     "@vitest/coverage-v8": "^4.0.16",
+    "dotenv": "^17.3.1",
     "drizzle-kit": "^0.31.8",
     "eslint": "^9.39.2",
+    "image-size": "^2.0.2",
     "jsdom": "^27.0.0",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.12",
+    "sharp": "^0.34.5",
     "tsx": "^4.21.0",
     "typescript": "^5.7.2",
     "vite": "^7.1.7",

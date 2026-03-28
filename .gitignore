@@ -1,6 +1,7 @@
 # Environment
 .env
 .env.local
+.dev.vars
 *.local
 
 # Claude
@@ -31,6 +32,12 @@ public/sitemap.xml
 # Misc
 count.txt
 todos.json
+
+# Nexo beach image downloads (pnpm download:playas-nexo-images)
+data/source/playas-nexo-images/
+
+# Optimized image variants (pnpm optimize:images)
+public/pictures/optimized/
 
 # Database
 *.db

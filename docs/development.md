@@ -35,12 +35,19 @@ pnpm check         # Run type-check + lint + prettier check
 pnpm test          # Run tests
 pnpm test:watch    # Run tests in watch mode
 pnpm test:coverage # Run tests with coverage report
+pnpm score:picture-quality                  # Set beaches.json pictureQualityScore from public/pictures
+pnpm run score:picture-quality -- --dry-run # Preview counts without writing JSON
+pnpm run score:picture-quality -- --json-out /tmp/picture-quality-report.json
+pnpm run prune:small-pictures -- --dry-run  # List picture refs that would be removed (<600px short side)
+pnpm run prune:small-pictures               # Remove those refs from beaches.json
+pnpm run prune:small-pictures -- --delete-files  # Also delete unreferenced rasters from public/pictures
+pnpm optimize:images           # Generate WebP variants + thumbnails in public/pictures/optimized/
 ```
 
 ## Database Commands
 
 ```bash
-pnpm drizzle-kit push    # Push schema changes to local.db
+pnpm drizzle-kit push    # Push schema to the same DB the app uses (see env priority below)
 pnpm drizzle-kit studio  # Open Drizzle Studio (database viewer)
 pnpm tsx scripts/migrate-to-database.ts   # Migrate JSON to database
 pnpm tsx scripts/validate-migration.ts    # Validate migration
@@ -48,16 +55,44 @@ pnpm tsx scripts/validate-migration.ts    # Validate migration
 
 ### Environment Variables
 
-```bash
-# Local development (default)
-DATABASE_URL=file:./local.db
+Connection order matches [`src/db/client.ts`](../src/db/client.ts) and [`drizzle.config.ts`](../drizzle.config.ts): **`DATABASE_URL` wins over `TURSO_DATABASE_URL`**.
 
-# Production (Turso)
+```bash
+# Both dev and production use Turso remote
 TURSO_DATABASE_URL=libsql://your-db.turso.io
 TURSO_AUTH_TOKEN=your-token
 ```
 
-Copy `.env.example` to `.env` and configure for your environment.
+Copy `.env.example` to `.env` and set real Turso credentials.
+
+#### Important: Cloudflare Workers runtime constraints
+
+The Cloudflare Vite plugin runs SSR in a **workerd** runtime (not Node.js). This means:
+
+- `@libsql/client` resolves to the **web client** (not the Node client)
+- The web client **does not support `file:` URLs** — only `libsql:`, `wss:`, `ws:`, `https:`, `http:`
+- **Do not set `DATABASE_URL=file:./local.db`** — it will fail at runtime with `URL_SCHEME_NOT_SUPPORTED`
+- Both dev and production must use a network-accessible database (Turso remote)
+
+If you need offline dev, use `turso dev --db-file local.db --port 8181` and set `DATABASE_URL=http://127.0.0.1:8181`.
+
+#### Keeping remote DB in sync
+
+After modifying `src/db/schema.ts`, push the schema to Turso:
+
+```bash
+# Via drizzle-kit (may have auth issues)
+pnpm drizzle-kit push
+
+# Alternative: via turso CLI directly
+turso db shell playasmurcia "ALTER TABLE beaches ADD COLUMN new_column TEXT;"
+```
+
+After modifying `data/*.json`, re-run migration:
+
+```bash
+pnpm tsx scripts/migrate-to-database.ts
+```
 
 ## Workflow
 
@@ -90,9 +125,7 @@ Task files live in `docs/dev/backlog/` (pending) and `docs/dev/done/` (completed
 
 ### Backlog
 
-`backlog/` contains future ideas not yet integrated into the main plan:
-- `step-*.md`: Future enrichment steps
-- `service-*.md`: Backend service proposals
+All pending tasks live in `docs/dev/backlog/` — see `docs/dev/INDEX.md` for the full list.
 
 ## Scripts
 
@@ -114,6 +147,9 @@ pnpm tsx scripts/script-name.ts
 | `add-lifeguard-info.js` | Update COPLA lifeguard data | Seasonal (summer) |
 | `validate-beaches.js` | Validate all beach data | Before releases |
 | `generate-sitemap.ts` | Generate `public/sitemap.xml` from database | Every build (automatic) |
+| `score-beach-picture-quality.ts` | Set `pictureQualityScore` in `beaches.json` from image dimensions | After adding or replacing files in `public/pictures/` |
+| `prune-small-beach-pictures.ts` | Remove `pictures` entries with missing/unreadable or short side under 600px; optional file delete | After auditing thumbnails; then re-score + migrate |
+| `fix-orthography.js` | Proofread Markdown with local Ollama (`/api/chat`); default scope `docs/**/*.md` | Ad hoc (review diffs before `--write`) |
 
 ## Cost Optimization
 
@@ -128,6 +164,21 @@ Available models:
 - `gemma3:4b`: General text tasks
 - `llama3.2:latest`: Chat and general tasks
 - `nomic-embed-text:latest`: Embeddings
+
+#### Spell-check Markdown (`fix-orthography.js`)
+
+The Ollama CLI (`ollama run`) does not provide a `--stdin` flag on current versions; this script uses the HTTP API instead (`OLLAMA_HOST`, default `127.0.0.1:11434`).
+
+```bash
+ollama pull gemma3:4b
+pnpm run fix:orthography                    # dry-run: git-style diff on stdout
+pnpm run fix:orthography -- --write         # apply corrections in place
+pnpm run fix:orthography -- --lang es docs/dev/content-audit.md
+```
+
+Default behavior processes all `**/*.md` under `docs/`. Pass file paths or repeat `--root DIR` to include other trees. **Do not** use this on `data/beaches.json` or generated beach fields without a dedicated workflow—LLM output can break JSON or alter controlled copy.
+
+Options: `--model`, `--max-chunk`, `--delay-ms`. See `node scripts/fix-orthography.js --help`.
 
 ### Script Output
 
@@ -179,9 +230,26 @@ pnpm drizzle-kit push
 pnpm tsx scripts/migrate-to-database.ts
 ```
 
-### Turso connection errors
+### Turso connection errors / HTTP 401
 
-Verify credentials in `.env`. For local dev, `DATABASE_URL=file:./local.db` is sufficient — Turso credentials are only needed for production.
+Turso rejected the request. Common causes:
+
+1. **Expired token** — regenerate with `turso db tokens create playasmurcia` and update `.env`.
+2. **Missing token** — ensure `TURSO_AUTH_TOKEN` is set in `.env` (not the placeholder).
+
+### `Failed query` / missing column
+
+The remote Turso DB is missing a column from the Drizzle schema. Push the schema:
+
+```bash
+pnpm drizzle-kit push
+# If drizzle-kit has auth issues, use turso CLI:
+turso db shell playasmurcia "ALTER TABLE beaches ADD COLUMN column_name TYPE;"
+```
+
+### `URL_SCHEME_NOT_SUPPORTED` with `file:` URL
+
+The workerd runtime (Cloudflare Vite plugin) does not support `file:` URLs. Remove any `DATABASE_URL=file:./local.db` from `.env`. Use Turso remote or `turso dev` with an `http://` URL instead. See "Cloudflare Workers runtime constraints" above.
 
 ### Route type errors after changes
 
