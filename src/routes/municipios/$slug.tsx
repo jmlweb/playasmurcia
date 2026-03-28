@@ -1,28 +1,47 @@
-import { createFileRoute, notFound } from "@tanstack/react-router"
-import { createServerFn } from "@tanstack/react-start"
-import { beachToSlug } from "@/lib/slugs"
-import { generateMunicipalitySchema } from "@/lib/schema"
-import { BeachCard } from "@/components/beach-card"
+import { createFileRoute, notFound } from '@tanstack/react-router'
+import { createServerFn } from '@tanstack/react-start'
+import { useMemo, useState } from 'react'
 
-const fetchMunicipalityData = createServerFn({ method: 'GET' }).handler(async (ctx: { data: { slug: string } }) => {
-  const { getAllTags, getBeachesByMunicipality, getMunicipalityBySlug } = await import("@/lib/db-data")
-  const { fetchBatchCardWeather } = await import("@/lib/open-meteo")
-  const result = await getMunicipalityBySlug(ctx.data.slug)
-  if (!result) return null
+import { BeachCard } from '@/components/beach-card'
+import { Breadcrumb } from '@/components/breadcrumb'
+import { PageHero } from '@/components/page-hero'
+import { SortSelect } from '@/components/sort-select'
+import type { BeachSearchParams } from '@/lib/beach-filters'
+import { sortBeaches } from '@/lib/beach-filters'
+import { generateMunicipalitySchema } from '@/lib/schema'
+import { beachToSlug } from '@/lib/slugs'
 
-  const { municipality, index } = result
-  const [beaches, tags] = await Promise.all([
-    getBeachesByMunicipality(index),
-    getAllTags(),
-  ])
+const fetchMunicipalityData = createServerFn({ method: 'GET' }).handler(
+  async (ctx: { data: { slug: string } }) => {
+    const { getAllTags, getBeachesByMunicipality, getMunicipalityBySlug } =
+      await import('@/lib/db-data')
+    const { fetchBatchCardWeather } = await import('@/lib/open-meteo')
+    const result = await getMunicipalityBySlug(ctx.data.slug)
+    if (!result) return null
 
-  const weatherMap = await fetchBatchCardWeather(beaches)
-  const weatherData = Object.fromEntries(weatherMap)
-  const blueFlagCount = beaches.filter((b) => b.certifications?.includes("blue-flag")).length
-  return { municipality, beaches, tags, blueFlagCount, slug: ctx.data.slug, weatherData }
-})
+    const { municipality, index } = result
+    const [beaches, tags] = await Promise.all([
+      getBeachesByMunicipality(index),
+      getAllTags(),
+    ])
 
-export const Route = createFileRoute("/municipios/$slug")({
+    const weatherMap = await fetchBatchCardWeather(beaches)
+    const weatherData = Object.fromEntries(weatherMap)
+    const blueFlagCount = beaches.filter((b) =>
+      b.certifications?.includes('blue-flag'),
+    ).length
+    return {
+      municipality,
+      beaches,
+      tags,
+      blueFlagCount,
+      slug: ctx.data.slug,
+      weatherData,
+    }
+  },
+)
+
+export const Route = createFileRoute('/municipios/$slug')({
   loader: async ({ params }) => {
     const data = await fetchMunicipalityData({ data: { slug: params.slug } })
     if (!data) throw notFound()
@@ -30,23 +49,27 @@ export const Route = createFileRoute("/municipios/$slug")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Municipio no encontrado" }] }
+      return { meta: [{ title: 'Municipio no encontrado' }] }
     }
 
     const { municipality, beaches, blueFlagCount, slug } = loaderData
-    const schema = generateMunicipalitySchema(municipality, beaches.length, slug)
+    const schema = generateMunicipalitySchema(
+      municipality,
+      beaches.length,
+      slug,
+    )
 
     return {
       meta: [
         { title: `Playas de ${municipality.name} - Playas de Murcia` },
         {
-          name: "description",
-          content: `Descubre ${beaches.length === 1 ? "la playa" : `las ${beaches.length} playas`} de ${municipality.name}${blueFlagCount > 0 ? `, con ${blueFlagCount} ${blueFlagCount === 1 ? "bandera azul" : "banderas azules"}` : ""}, en la Región de Murcia.`,
+          name: 'description',
+          content: `Descubre ${beaches.length === 1 ? 'la playa' : `las ${beaches.length} playas`} de ${municipality.name}${blueFlagCount > 0 ? `, con ${blueFlagCount} ${blueFlagCount === 1 ? 'bandera azul' : 'banderas azules'}` : ''}, en la Región de Murcia.`,
         },
       ],
       scripts: [
         {
-          type: "application/ld+json",
+          type: 'application/ld+json',
           children: JSON.stringify(schema),
         },
       ],
@@ -56,78 +79,93 @@ export const Route = createFileRoute("/municipios/$slug")({
 })
 
 function MunicipalityPage() {
-  const { municipality, beaches, tags, blueFlagCount, weatherData } = Route.useLoaderData()
+  const { municipality, beaches, tags, blueFlagCount, weatherData } =
+    Route.useLoaderData()
+  const [sort, setSort] = useState<NonNullable<BeachSearchParams['sort']>>('name')
+  const sortedBeaches = useMemo(() => sortBeaches(beaches, sort), [beaches, sort])
 
   return (
-    <main className="min-h-screen bg-sand-50">
+    <main className="bg-sand-50 min-h-screen">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-ocean-800 px-4 py-12 sm:py-16">
-        <div className="absolute inset-0 bg-linear-to-br from-ocean-900 via-ocean-800 to-ocean-700" />
-        <div className="relative mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <nav className="mb-5 text-sm text-ocean-300" aria-label="Ruta de navegacion">
-            <a href="/" className="transition-colors hover:text-white focus-visible:text-white focus-visible:underline focus:outline-none">
-              Inicio
-            </a>
-            <span className="mx-2 text-ocean-500" aria-hidden="true">/</span>
-            <a href="/municipios" className="transition-colors hover:text-white focus-visible:text-white focus-visible:underline focus:outline-none">
-              Municipios
-            </a>
-            <span className="mx-2 text-ocean-500" aria-hidden="true">/</span>
-            <span className="text-white" aria-current="page">{municipality.name}</span>
-          </nav>
-
-          <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-            Playas de {municipality.name}
-          </h1>
-
-          <div className="mt-3 flex flex-wrap gap-4 text-sm text-ocean-200">
+      <PageHero>
+        <h1 className="mb-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+          Playas de {municipality.name}
+        </h1>
+        <div className="text-ocean-200 flex flex-wrap justify-center gap-4 text-sm">
+          <span>
+            <strong className="font-semibold text-white">
+              {beaches.length}
+            </strong>{' '}
+            {beaches.length === 1 ? 'playa' : 'playas'}
+          </span>
+          {blueFlagCount > 0 && (
             <span>
-              <strong className="font-semibold text-white">{beaches.length}</strong>{" "}
-              {beaches.length === 1 ? "playa" : "playas"}
+              <strong className="text-ocean-300 font-semibold">
+                {blueFlagCount}
+              </strong>{' '}
+              {blueFlagCount === 1 ? 'bandera azul' : 'banderas azules'}
             </span>
-            {blueFlagCount > 0 && (
-              <span>
-                <strong className="font-semibold text-ocean-300">{blueFlagCount}</strong>{" "}
-                {blueFlagCount === 1 ? "bandera azul" : "banderas azules"}
-              </span>
-            )}
-          </div>
+          )}
         </div>
-      </section>
+      </PageHero>
 
       {/* Beach grid */}
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <Breadcrumb
+          items={[
+            { label: 'Inicio', href: '/' },
+            { label: 'Municipios', href: '/municipios' },
+            { label: municipality.name },
+          ]}
+        />
         {beaches.length > 0 ? (
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-5 xl:grid-cols-3 xl:gap-6">
-            {beaches.map((beach) => (
-              <BeachCard
-                key={beach.code}
-                beach={beach}
-                municipality={municipality}
-                tags={tags}
-                slug={beachToSlug(beach)}
-                weather={weatherData[beach.code]}
-              />
-            ))}
-          </div>
+          <>
+            <div className="mb-6 flex justify-end">
+              <SortSelect value={sort} onChange={setSort} />
+            </div>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-5 xl:grid-cols-3 xl:gap-6">
+              {sortedBeaches.map((beach) => (
+                <BeachCard
+                  key={beach.code}
+                  beach={beach}
+                  municipality={municipality}
+                  slug={beachToSlug(beach)}
+                  tags={tags}
+                  weather={weatherData[beach.code]}
+                />
+              ))}
+            </div>
+          </>
         ) : (
           <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-300 py-24 text-center">
-            <svg className="mb-5 h-14 w-14 text-ocean-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            <svg
+              aria-hidden="true"
+              className="text-ocean-300 mb-5 h-14 w-14"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+              />
             </svg>
             <p className="mb-1 text-lg font-semibold text-gray-900">
               No hay playas registradas
             </p>
             <p className="text-sm text-gray-500">
-              Este municipio no tiene playas catalogadas en nuestra base de datos.
+              Este municipio no tiene playas catalogadas en nuestra base de
+              datos.
             </p>
           </div>
         )}
 
         <div className="mt-12 text-center">
           <a
+            className="text-ocean-600 hover:text-ocean-700 text-sm font-medium transition-colors focus:outline-none focus-visible:underline"
             href="/municipios"
-            className="text-sm font-medium text-ocean-600 transition-colors hover:text-ocean-700 focus-visible:underline focus:outline-none"
           >
             ← Ver todos los municipios
           </a>
@@ -136,4 +174,3 @@ function MunicipalityPage() {
     </main>
   )
 }
-

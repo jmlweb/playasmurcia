@@ -1,9 +1,13 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
+import { useMemo, useState } from 'react'
 
 import { BeachCard } from '@/components/beach-card'
 import { Breadcrumb } from '@/components/breadcrumb'
 import { PageHero } from '@/components/page-hero'
+import { SortSelect } from '@/components/sort-select'
+import type { BeachSearchParams } from '@/lib/beach-filters'
+import { sortBeaches } from '@/lib/beach-filters'
 import {
   allCollections,
   filterBeachesByCollection,
@@ -81,6 +85,15 @@ export const Route = createFileRoute('/colecciones/$slug')({
 
 function CollectionPage() {
   const { collection, items, tags, weatherData } = Route.useLoaderData()
+  const [sort, setSort] = useState<NonNullable<BeachSearchParams['sort']>>('name')
+  const sortedItems = useMemo(
+    () =>
+      sortBeaches(
+        items.map((i) => i.beach),
+        sort,
+      ).map((beach) => items.find((i) => i.beach.code === beach.code)!),
+    [items, sort],
+  )
 
   return (
     <main className="bg-sand-50 min-h-screen">
@@ -108,6 +121,12 @@ function CollectionPage() {
           ]}
         />
 
+        {items.length > 0 && (
+          <div className="mb-6 flex justify-end">
+            <SortSelect value={sort} onChange={setSort} />
+          </div>
+        )}
+
         {items.length === 0 ? (
           <div className="flex flex-col items-center rounded-2xl border-2 border-dashed border-gray-300 px-6 py-16 text-center">
             <svg
@@ -133,7 +152,7 @@ function CollectionPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
-            {items.map(({ beach, municipality, slug }) => (
+            {sortedItems.map(({ beach, municipality, slug }) => (
               <BeachCard
                 key={beach.code}
                 beach={beach}

@@ -4,20 +4,19 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 6 tasks
+- **Pending**: 5 tasks
 - **In progress**: 0 tasks
-- **Completed**: 33 tasks
+- **Completed**: 34 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
 
-> No active task. Next up: Task #037 (Explorer UX Improvements)
+> No active task. Next up: Task #038 (Large List Pagination)
 
 ## Backlog
 
 | # | Task | Slice | Priority | Blocked by |
 |---|------|-------|----------|------------|
-| 037 | Explorer UX Improvements | Styling | P3 | - |
 | 038 | Large List Pagination | Styling | P3 | - |
 | 035 | Add Imagery and Visual Hierarchy to Municipality Cards | Styling | P3 | 017 |
 | 017 | Source Missing Beach Pictures | Content | P4 - Later | - |
@@ -28,6 +27,7 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 | # | Task | Completed |
 |---|------|-----------|
+| 037 | Explorer UX Improvements | 2026-03-28 |
 | 036 | Collections Page Visual Consistency | 2026-03-28 |
 | 032 | Add Reduced Motion Support | 2026-03-28 |
 | 034 | Beach Detail Layout and Hierarchy Fixes | 2026-03-28 |
