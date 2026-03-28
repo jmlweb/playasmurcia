@@ -53,7 +53,7 @@ export function BeachCard({
 
   return (
     <a
-      className="group hover:ring-ocean-200 focus:ring-ocean-500 flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg focus:ring-2 focus:outline-none"
+      className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none"
       href={`/playas/${slug}`}
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">

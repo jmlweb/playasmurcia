@@ -6,13 +6,16 @@ import { BeachCard } from '@/components/beach-card'
 import { Breadcrumb } from '@/components/breadcrumb'
 import { FilterPanel } from '@/components/filter-panel'
 import { PageHero } from '@/components/page-hero'
+import { Pagination } from '@/components/pagination'
 import { SearchBar } from '@/components/search-bar'
 import { SortSelect } from '@/components/sort-select'
 import type { BeachSearchParams } from '@/lib/beach-filters'
 import { applyFiltersAndSort } from '@/lib/beach-filters'
 import { beachToSlug } from '@/lib/slugs'
 
-function validateSearch(search: Record<string, unknown>): BeachSearchParams {
+type ExplorerSearchParams = BeachSearchParams & { page?: number }
+
+function validateSearch(search: Record<string, unknown>): ExplorerSearchParams {
   return {
     q: typeof search.q === 'string' ? search.q : undefined,
     municipality: Array.isArray(search.municipality)
@@ -47,6 +50,10 @@ function validateSearch(search: Record<string, unknown>): BeachSearchParams {
       search.sort === 'length' ||
       search.sort === 'occupancy'
         ? search.sort
+        : undefined,
+    page:
+      typeof search.page === 'number' && search.page > 0
+        ? Math.floor(search.page)
         : undefined,
   }
 }
@@ -113,11 +120,13 @@ function ExplorerPage() {
   const search = Route.useSearch()
   const navigate = useNavigate({ from: '/explorar' })
 
+  const PAGE_SIZE = 15
   const filters: BeachSearchParams = search
   const sort = filters.sort ?? 'recomendados'
+  const currentPage = search.page ?? 1
 
   const updateFilters = useCallback(
-    (next: BeachSearchParams) => {
+    (next: BeachSearchParams, page?: number) => {
       void navigate({
         search: (prev) => ({
           ...prev,
@@ -130,6 +139,7 @@ function ExplorerPage() {
           activities: next.activities?.length ? next.activities : undefined,
           tags: next.tags?.length ? next.tags : undefined,
           q: next.q || undefined,
+          page: page && page > 1 ? page : undefined,
         }),
         replace: true,
       })
@@ -137,9 +147,20 @@ function ExplorerPage() {
     [navigate],
   )
 
-  const filteredBeaches = useMemo(
+  function handlePageChange(page: number) {
+    updateFilters({ ...filters, sort }, page)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  const allFiltered = useMemo(
     () => applyFiltersAndSort(beaches, { ...filters, sort }),
     [beaches, filters, sort],
+  )
+  const totalPages = Math.ceil(allFiltered.length / PAGE_SIZE)
+  const safePage = Math.min(currentPage, totalPages || 1)
+  const filteredBeaches = allFiltered.slice(
+    (safePage - 1) * PAGE_SIZE,
+    safePage * PAGE_SIZE,
   )
 
   const slugMap = useMemo(
@@ -290,7 +311,7 @@ function ExplorerPage() {
               <div className="flex items-center gap-3">
                 <span className="text-sm text-gray-500">
                   <strong className="font-semibold text-gray-900">
-                    {filteredBeaches.length}
+                    {allFiltered.length}
                   </strong>{' '}
                   playas encontradas
                 </span>
@@ -304,7 +325,7 @@ function ExplorerPage() {
                 {activeChips.map((chip) => (
                   <button
                     key={chip.key}
-                    className="bg-ocean-50 text-ocean-700 hover:bg-ocean-100 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-sm transition-colors focus:outline-none"
+                    className="bg-ocean-50 text-ocean-700 hover:bg-ocean-100 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-1"
                     type="button"
                     onClick={chip.onRemove}
                   >
@@ -326,7 +347,7 @@ function ExplorerPage() {
                   </button>
                 ))}
                 <button
-                  className="text-sm text-gray-500 hover:text-gray-700 focus:outline-none"
+                  className="text-sm text-gray-500 hover:text-gray-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-1 rounded-full"
                   type="button"
                   onClick={clearAllFilters}
                 >
@@ -336,22 +357,42 @@ function ExplorerPage() {
             )}
 
             {/* Results */}
-            {filteredBeaches.length > 0 ? (
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-5 xl:grid-cols-3 xl:gap-6">
-                {filteredBeaches.map((beach) => {
-                  const slug = slugMap.get(beach.code) ?? beachToSlug(beach)
-                  return (
-                    <BeachCard
-                      key={beach.code}
-                      beach={beach}
-                      municipality={municipalities[beach.municipality]}
-                      slug={slug}
-                      tags={tags}
-                      weather={weatherData[beach.code]}
-                    />
-                  )
-                })}
-              </div>
+            {allFiltered.length > 0 ? (
+              <>
+                {totalPages > 1 && (
+                  <p className="mb-4 text-sm text-gray-500">
+                    Pagina{' '}
+                    <strong className="font-semibold text-gray-900">
+                      {safePage}
+                    </strong>{' '}
+                    de{' '}
+                    <strong className="font-semibold text-gray-900">
+                      {totalPages}
+                    </strong>{' '}
+                    ({allFiltered.length} playas)
+                  </p>
+                )}
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-5 xl:grid-cols-3 xl:gap-6">
+                  {filteredBeaches.map((beach) => {
+                    const slug = slugMap.get(beach.code) ?? beachToSlug(beach)
+                    return (
+                      <BeachCard
+                        key={beach.code}
+                        beach={beach}
+                        municipality={municipalities[beach.municipality]}
+                        slug={slug}
+                        tags={tags}
+                        weather={weatherData[beach.code]}
+                      />
+                    )
+                  })}
+                </div>
+                <Pagination
+                  currentPage={safePage}
+                  totalPages={totalPages}
+                  onPageChange={handlePageChange}
+                />
+              </>
             ) : (
               <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-300 py-24 text-center">
                 <svg
@@ -376,7 +417,7 @@ function ExplorerPage() {
                 </p>
                 {hasActiveFilters && (
                   <button
-                    className="bg-ocean-600 hover:bg-ocean-700 focus:ring-ocean-500 rounded-full px-5 py-2.5 text-sm font-medium text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
+                    className="bg-ocean-600 hover:bg-ocean-700 focus-visible:ring-ocean-500 rounded-full px-5 py-2.5 text-sm font-medium text-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
                     type="button"
                     onClick={clearAllFilters}
                   >

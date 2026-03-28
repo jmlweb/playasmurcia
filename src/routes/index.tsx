@@ -94,7 +94,7 @@ function HomePage() {
           </p>
           <div className="animate-fade-up flex flex-col items-center gap-4 [animation-delay:300ms] sm:flex-row sm:justify-center">
             <Link
-              className="bg-ocean-500 hover:bg-ocean-400 focus:ring-ocean-400 focus:ring-offset-ocean-900 inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-base font-semibold text-white shadow-lg transition-all hover:shadow-xl focus:ring-2 focus:ring-offset-2 focus:outline-none"
+              className="bg-ocean-500 hover:bg-ocean-400 focus-visible:ring-ocean-400 focus-visible:ring-offset-ocean-900 inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-base font-semibold text-white shadow-lg transition-all hover:shadow-xl focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
               to="/explorar"
             >
               Explorar todas las playas
@@ -114,7 +114,7 @@ function HomePage() {
               </svg>
             </Link>
             <Link
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10 focus:ring-2 focus:ring-white/40 focus:outline-none"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
               to="/colecciones"
             >
               Ver colecciones
@@ -153,7 +153,7 @@ function HomePage() {
 
         <div className="mt-10 text-center">
           <Link
-            className="bg-ocean-500 hover:bg-ocean-600 focus:ring-ocean-500 inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-base font-semibold text-white shadow-sm transition-all hover:shadow-md focus:ring-2 focus:ring-offset-2 focus:outline-none"
+            className="bg-ocean-500 hover:bg-ocean-600 focus-visible:ring-ocean-500 inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-base font-semibold text-white shadow-sm transition-all hover:shadow-md focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
             to="/explorar"
           >
             Ver las {totalBeaches} playas

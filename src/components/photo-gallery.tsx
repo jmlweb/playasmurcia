@@ -60,7 +60,7 @@ export function PhotoGallery({ pictures, beachName }: PhotoGalleryProps) {
           <>
             <button
               aria-label="Foto anterior"
-              className="absolute top-1/2 left-3 -translate-y-1/2 rounded-full bg-black/40 p-2 text-white backdrop-blur-sm transition-colors hover:bg-black/60 focus:ring-2 focus:ring-white focus:outline-none"
+              className="absolute top-1/2 left-3 -translate-y-1/2 rounded-full bg-black/40 p-2 text-white backdrop-blur-sm transition-colors hover:bg-black/60 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
               type="button"
               onClick={handlePrev}
             >
@@ -81,7 +81,7 @@ export function PhotoGallery({ pictures, beachName }: PhotoGalleryProps) {
             </button>
             <button
               aria-label="Foto siguiente"
-              className="absolute top-1/2 right-3 -translate-y-1/2 rounded-full bg-black/40 p-2 text-white backdrop-blur-sm transition-colors hover:bg-black/60 focus:ring-2 focus:ring-white focus:outline-none"
+              className="absolute top-1/2 right-3 -translate-y-1/2 rounded-full bg-black/40 p-2 text-white backdrop-blur-sm transition-colors hover:bg-black/60 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
               type="button"
               onClick={handleNext}
             >
@@ -122,7 +122,7 @@ export function PhotoGallery({ pictures, beachName }: PhotoGalleryProps) {
                   key={picture}
                   aria-label={`Ver foto ${index + 1}`}
                   aria-selected={index === activeIndex}
-                  className={`focus:ring-ocean-500 h-16 w-24 flex-shrink-0 overflow-hidden rounded-lg border-2 transition-all focus:ring-2 focus:outline-none ${
+                  className={`focus-visible:ring-ocean-500 h-16 w-24 flex-shrink-0 overflow-hidden rounded-lg border-2 transition-all focus-visible:ring-2 focus-visible:outline-none ${
                     index === activeIndex
                       ? 'border-ocean-500'
                       : 'border-transparent opacity-70 hover:opacity-100'

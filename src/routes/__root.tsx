@@ -6,10 +6,11 @@ import {
   Link,
   Outlet,
   Scripts,
+  useRouterState,
 } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { createServerFn } from '@tanstack/react-start'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 
 import { SiteFooter } from '@/components/site-footer'
 
@@ -92,7 +93,7 @@ export const Route = createRootRoute({
         La pagina que buscas no existe o ha sido movida.
       </p>
       <a
-        className="bg-ocean-600 hover:bg-ocean-700 focus:ring-ocean-500 rounded-full px-6 py-2.5 text-sm font-semibold text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
+        className="bg-ocean-600 hover:bg-ocean-700 focus-visible:ring-ocean-500 rounded-full px-6 py-2.5 text-sm font-semibold text-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
         href="/"
       >
         Volver al inicio
@@ -166,43 +167,28 @@ function ChevronDownIcon({ className }: { className?: string }) {
 }
 
 function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
-  const [open, setOpen] = useState(false)
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-
-  function handleMouseEnter() {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current)
-    setOpen(true)
-  }
-
-  function handleMouseLeave() {
-    timeoutRef.current = setTimeout(() => {
-      setOpen(false)
-    }, 150)
-  }
+  const pathname = useRouterState({ select: (s) => s.location.pathname })
 
   return (
-    <Popover.Root open={open} onOpenChange={setOpen}>
-      <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        <Popover.Trigger className="text-ocean-200 inline-flex items-center gap-1 text-sm font-medium transition-colors hover:text-white focus-visible:text-white focus-visible:underline focus-visible:outline-none">
-          {label}
-          <ChevronDownIcon
-            className={`h-3.5 w-3.5 transition-transform ${open ? 'rotate-180' : ''}`}
-          />
-        </Popover.Trigger>
+    <Popover.Root>
+      <Popover.Trigger
+        className="group text-ocean-200 inline-flex items-center gap-1 text-sm font-medium transition-colors hover:text-white focus-visible:text-white focus-visible:underline focus-visible:outline-none"
+        closeDelay={150}
+        openOnHover
+      >
+        {label}
+        <ChevronDownIcon className="h-3.5 w-3.5 transition-transform group-data-[popup-open]:rotate-180" />
+      </Popover.Trigger>
 
-        <Popover.Portal>
-          <Popover.Positioner
-            align="center"
-            className="z-50"
-            collisionPadding={12}
-            side="bottom"
-            sideOffset={12}
-          >
-            <Popover.Popup
-              className="bg-ocean-800 w-[28rem] rounded-xl border border-white/10 p-5 shadow-2xl"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
+      <Popover.Portal>
+        <Popover.Positioner
+          align="center"
+          className="z-50"
+          collisionPadding={12}
+          side="bottom"
+          sideOffset={12}
+        >
+          <Popover.Popup className="bg-ocean-800 w-[28rem] rounded-xl border border-white/10 p-5 shadow-2xl">
               <div className="grid grid-cols-2 gap-6">
                 {/* Municipalities */}
                 <div>
@@ -210,22 +196,24 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
                     Municipios
                   </p>
                   <ul className="space-y-1">
-                    {navData.municipalities.map((m) => (
-                      <li key={m.slug}>
-                        <a
-                          className="text-ocean-100 hover:bg-ocean-700 focus-visible:bg-ocean-700 flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors hover:text-white focus-visible:text-white focus-visible:outline-none"
-                          href={`/municipios/${m.slug}`}
-                          onClick={() => {
-                            setOpen(false)
-                          }}
-                        >
-                          {m.name}
-                          <span className="bg-ocean-700/60 text-ocean-300 ml-2 rounded-full px-2 py-0.5 text-xs">
-                            {m.beachCount}
-                          </span>
-                        </a>
-                      </li>
-                    ))}
+                    {navData.municipalities.map((m) => {
+                      const href = `/municipios/${m.slug}`
+                      const active = pathname === href
+                      return (
+                        <li key={m.slug}>
+                          <a
+                            aria-current={active ? 'page' : undefined}
+                            className={`flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors focus-visible:outline-none ${active ? 'bg-ocean-700 font-semibold text-white' : 'text-ocean-100 hover:bg-ocean-700 focus-visible:bg-ocean-700 hover:text-white focus-visible:text-white'}`}
+                            href={href}
+                          >
+                            {m.name}
+                            <span className="bg-ocean-700/60 text-ocean-300 ml-2 rounded-full px-2 py-0.5 text-xs">
+                              {m.beachCount}
+                            </span>
+                          </a>
+                        </li>
+                      )
+                    })}
                   </ul>
                 </div>
 
@@ -235,30 +223,28 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
                     Caracteristicas
                   </p>
                   <ul className="space-y-1">
-                    {navData.characteristics.map((c) => (
-                      <li key={c.href}>
-                        <a
-                          className="text-ocean-100 hover:bg-ocean-700 focus-visible:bg-ocean-700 flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors hover:text-white focus-visible:text-white focus-visible:outline-none"
-                          href={c.href}
-                          onClick={() => {
-                            setOpen(false)
-                          }}
-                        >
-                          {c.label}
-                          <span className="bg-ocean-700/60 text-ocean-300 ml-2 rounded-full px-2 py-0.5 text-xs">
-                            {c.count}
-                          </span>
-                        </a>
-                      </li>
-                    ))}
+                    {navData.characteristics.map((c) => {
+                      const active = pathname === c.href
+                      return (
+                        <li key={c.href}>
+                          <a
+                            aria-current={active ? 'page' : undefined}
+                            className={`flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors focus-visible:outline-none ${active ? 'bg-ocean-700 font-semibold text-white' : 'text-ocean-100 hover:bg-ocean-700 focus-visible:bg-ocean-700 hover:text-white focus-visible:text-white'}`}
+                            href={c.href}
+                          >
+                            {c.label}
+                            <span className="bg-ocean-700/60 text-ocean-300 ml-2 rounded-full px-2 py-0.5 text-xs">
+                              {c.count}
+                            </span>
+                          </a>
+                        </li>
+                      )
+                    })}
                   </ul>
                   <div className="border-ocean-700 mt-4 border-t pt-3">
                     <a
                       className="text-ocean-300 hover:bg-ocean-700 flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium transition-colors hover:text-white"
                       href="/explorar"
-                      onClick={() => {
-                        setOpen(false)
-                      }}
                     >
                       Ver todas las playas
                       <svg
@@ -282,7 +268,6 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
             </Popover.Popup>
           </Popover.Positioner>
         </Popover.Portal>
-      </div>
     </Popover.Root>
   )
 }
@@ -297,6 +282,7 @@ function MobileDropdown({
   onNavigate: () => void
 }) {
   const [open, setOpen] = useState(false)
+  const pathname = useRouterState({ select: (s) => s.location.pathname })
 
   return (
     <div>
@@ -318,31 +304,40 @@ function MobileDropdown({
           <p className="text-ocean-400 mb-1.5 text-xs font-semibold tracking-wider uppercase">
             Municipios
           </p>
-          {navData.municipalities.map((m) => (
-            <a
-              key={m.slug}
-              className="text-ocean-200 flex items-center justify-between py-1.5 text-sm transition-colors hover:text-white"
-              href={`/municipios/${m.slug}`}
-              onClick={onNavigate}
-            >
-              {m.name}
-              <span className="text-ocean-400 text-xs">{m.beachCount}</span>
-            </a>
-          ))}
+          {navData.municipalities.map((m) => {
+            const href = `/municipios/${m.slug}`
+            const active = pathname === href
+            return (
+              <a
+                key={m.slug}
+                aria-current={active ? 'page' : undefined}
+                className={`flex items-center justify-between py-1.5 text-sm transition-colors hover:text-white ${active ? 'font-semibold text-white' : 'text-ocean-200'}`}
+                href={href}
+                onClick={onNavigate}
+              >
+                {m.name}
+                <span className="text-ocean-400 text-xs">{m.beachCount}</span>
+              </a>
+            )
+          })}
           <p className="text-ocean-400 mt-3 mb-1.5 text-xs font-semibold tracking-wider uppercase">
             Caracteristicas
           </p>
-          {navData.characteristics.map((c) => (
-            <a
-              key={c.href}
-              className="text-ocean-200 flex items-center justify-between py-1.5 text-sm transition-colors hover:text-white"
-              href={c.href}
-              onClick={onNavigate}
-            >
-              {c.label}
-              <span className="text-ocean-400 text-xs">{c.count}</span>
-            </a>
-          ))}
+          {navData.characteristics.map((c) => {
+            const active = pathname === c.href
+            return (
+              <a
+                key={c.href}
+                aria-current={active ? 'page' : undefined}
+                className={`flex items-center justify-between py-1.5 text-sm transition-colors hover:text-white ${active ? 'font-semibold text-white' : 'text-ocean-200'}`}
+                href={c.href}
+                onClick={onNavigate}
+              >
+                {c.label}
+                <span className="text-ocean-400 text-xs">{c.count}</span>
+              </a>
+            )
+          })}
         </div>
       )}
     </div>
@@ -384,7 +379,7 @@ function Navbar() {
         </div>
         <button
           aria-label={mobileOpen ? 'Cerrar menu' : 'Abrir menu'}
-          className="text-ocean-200 focus:ring-ocean-400 rounded-lg p-2 hover:text-white focus:ring-2 focus:outline-none sm:hidden"
+          className="text-ocean-200 focus-visible:ring-ocean-400 rounded-lg p-2 hover:text-white focus-visible:ring-2 focus-visible:outline-none sm:hidden"
           type="button"
           onClick={() => {
             setMobileOpen((prev) => !prev)

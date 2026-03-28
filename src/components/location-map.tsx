@@ -17,7 +17,7 @@ export function LocationMap({ coordinates, beachName }: LocationMapProps) {
       <div className="overflow-hidden rounded-2xl border border-gray-200/60 shadow-sm">
         <a
           aria-label={`Ver ${beachName} en Google Maps (abre en nueva pestaña)`}
-          className="group focus:ring-ocean-500 block focus:ring-2 focus:ring-offset-2 focus:outline-none"
+          className="group focus-visible:ring-ocean-500 block focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
           href={mapsUrl}
           rel="noopener noreferrer"
           target="_blank"

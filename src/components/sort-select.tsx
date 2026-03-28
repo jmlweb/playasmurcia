@@ -55,7 +55,7 @@ export function SortSelect({ value, onChange }: SortSelectProps) {
         <button
           aria-expanded={open}
           aria-haspopup="listbox"
-          className="focus:border-ocean-400 focus:ring-ocean-400 flex cursor-pointer items-center gap-1.5 rounded-full border border-gray-200 bg-white py-2 pr-3 pl-3.5 text-sm font-medium text-gray-700 transition-all hover:border-gray-300 focus:ring-2 focus:outline-none"
+          className="focus-visible:border-ocean-400 focus-visible:ring-ocean-400 flex cursor-pointer items-center gap-1.5 rounded-full border border-gray-200 bg-white py-2 pr-3 pl-3.5 text-sm font-medium text-gray-700 transition-all hover:border-gray-300 focus-visible:ring-2 focus-visible:outline-none"
           type="button"
           onClick={() => setOpen((prev) => !prev)}
         >

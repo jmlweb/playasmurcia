@@ -5,6 +5,7 @@ import { useMemo, useState } from 'react'
 import { BeachCard } from '@/components/beach-card'
 import { Breadcrumb } from '@/components/breadcrumb'
 import { PageHero } from '@/components/page-hero'
+import { Pagination } from '@/components/pagination'
 import { SortSelect } from '@/components/sort-select'
 import type { BeachSearchParams } from '@/lib/beach-filters'
 import { sortBeaches } from '@/lib/beach-filters'
@@ -84,9 +85,17 @@ function MunicipalityPage() {
   const PAGE_SIZE = 15
   const [sort, setSort] = useState<NonNullable<BeachSearchParams['sort']>>('recomendados')
   const sortedBeaches = useMemo(() => sortBeaches(beaches, sort), [beaches, sort])
-  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
-  const visibleBeaches = sortedBeaches.slice(0, visibleCount)
-  const hasMore = visibleCount < sortedBeaches.length
+  const [currentPage, setCurrentPage] = useState(1)
+  const totalPages = Math.ceil(sortedBeaches.length / PAGE_SIZE)
+  const visibleBeaches = sortedBeaches.slice(
+    (currentPage - 1) * PAGE_SIZE,
+    currentPage * PAGE_SIZE,
+  )
+
+  function handlePageChange(page: number) {
+    setCurrentPage(page)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   return (
     <main className="bg-sand-50 min-h-screen">
@@ -127,17 +136,17 @@ function MunicipalityPage() {
             <div className="mb-6 flex justify-end">
               <SortSelect value={sort} onChange={setSort} />
             </div>
-            {sortedBeaches.length > PAGE_SIZE && (
+            {totalPages > 1 && (
               <p className="mb-4 text-sm text-gray-500">
-                Mostrando{' '}
+                Pagina{' '}
                 <strong className="font-semibold text-gray-900">
-                  {Math.min(visibleCount, sortedBeaches.length)}
+                  {currentPage}
                 </strong>{' '}
                 de{' '}
                 <strong className="font-semibold text-gray-900">
-                  {sortedBeaches.length}
+                  {totalPages}
                 </strong>{' '}
-                playas
+                ({sortedBeaches.length} playas)
               </p>
             )}
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-5 xl:grid-cols-3 xl:gap-6">
@@ -152,17 +161,11 @@ function MunicipalityPage() {
                 />
               ))}
             </div>
-            {hasMore && (
-              <div className="mt-8 text-center">
-                <button
-                  className="bg-ocean-600 hover:bg-ocean-700 focus:ring-ocean-500 rounded-full px-6 py-3 text-sm font-semibold text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
-                  type="button"
-                  onClick={() => setVisibleCount((prev) => prev + PAGE_SIZE)}
-                >
-                  Cargar mas playas
-                </button>
-              </div>
-            )}
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
           </>
         ) : (
           <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-300 py-24 text-center">
@@ -192,7 +195,7 @@ function MunicipalityPage() {
 
         <div className="mt-12 text-center">
           <a
-            className="text-ocean-600 hover:text-ocean-700 text-sm font-medium transition-colors focus:outline-none focus-visible:underline"
+            className="text-ocean-600 hover:text-ocean-700 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:underline"
             href="/municipios"
           >
             ← Ver todos los municipios

@@ -4,19 +4,28 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 3 tasks
+- **Pending**: 12 tasks
 - **In progress**: 0 tasks
-- **Completed**: 36 tasks
+- **Completed**: 37 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
 
-> No active task. Remaining tasks require manual research or are blocked.
+> No active task. UI review completed 2026-03-28 — see `docs/dev/ui-review/` for directives. Report ↔ backlog linkage: [`reports/registry.json`](../reports/registry.json); run `pnpm reports:status`.
 
 ## Backlog
 
 | # | Task | Slice | Priority | Blocked by |
 |---|------|-------|----------|------------|
+| 040 | Replace Emoji Icons with SVG Icons | Styling | P2 - Next | - |
+| 042 | Beach Detail Page Hero and Gallery Redesign | Styling | P2 - Next | - |
+| 048 | Restore Interactive Map on Beach Detail | Feature | P2 - Next | - |
+| 043 | Extract Shared UI Components and Standardize | Styling | P3 | - |
+| 044 | Standardize Hero Heading Size Tiers | Styling | P3 | - |
+| 045 | Homepage UX and Accessibility Fixes | Styling | P3 | - |
+| 046 | Explorer Filter Panel and UX Polish | Styling | P3 | - |
+| 047 | Colecciones Index Visual Improvements | Styling | P3 | - |
+| 049 | Expand Weather Widget to 5-7 Day Forecast | Feature | P3 | - |
 | 035 | Add Imagery and Visual Hierarchy to Municipality Cards | Styling | P3 | 017 |
 | 017 | Source Missing Beach Pictures | Content | P4 - Later | - |
 | 021 | Add Missing Contact Info | Data | P4 - Later | - |
@@ -25,6 +34,7 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 | # | Task | Completed |
 |---|------|-----------|
+| 041 | Fix focus-visible Consistency | 2026-03-28 |
 | 039 | Recommendation Score and "Recomendados" Sort | 2026-03-28 |
 | 038 | Large List Pagination | 2026-03-28 |
 | 037 | Explorer UX Improvements | 2026-03-28 |

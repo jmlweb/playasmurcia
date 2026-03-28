@@ -15,7 +15,7 @@ export function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
           )}
           {item.href ? (
             <a
-              className="hover:text-ocean-600 focus-visible:text-ocean-600 transition-colors focus:outline-none focus-visible:underline"
+              className="hover:text-ocean-600 focus-visible:text-ocean-600 transition-colors focus-visible:outline-none focus-visible:underline"
               href={item.href}
             >
               {item.label}

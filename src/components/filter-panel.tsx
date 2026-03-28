@@ -32,7 +32,7 @@ function FilterGroup({
     <div className="border-b border-gray-100 last:border-0">
       <button
         aria-expanded={isOpen}
-        className="hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:ring-ocean-500 flex w-full items-center justify-between py-3.5 text-left text-sm font-medium text-gray-800 transition-colors focus:outline-none focus-visible:rounded focus-visible:ring-2"
+        className="hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:ring-ocean-500 flex w-full items-center justify-between py-3.5 text-left text-sm font-medium text-gray-800 transition-colors focus-visible:outline-none focus-visible:rounded focus-visible:ring-2"
         type="button"
         onClick={() => {
           setIsOpen((prev) => !prev)
@@ -84,7 +84,7 @@ function CheckboxItem({ label, checked, onChange }: CheckboxItemProps) {
     <label className="flex cursor-pointer items-center gap-2.5 rounded-lg px-1 py-0.5 text-sm text-gray-600 transition-colors hover:text-gray-900">
       <input
         checked={checked}
-        className="text-ocean-600 accent-ocean-600 focus:ring-ocean-500 h-4 w-4 rounded border-gray-300"
+        className="text-ocean-600 accent-ocean-600 focus-visible:ring-ocean-500 h-4 w-4 rounded border-gray-300"
         type="checkbox"
         onChange={(e) => {
           onChange(e.target.checked)
@@ -133,7 +133,7 @@ function FilterContent({
         <h2 className="text-base font-semibold text-gray-900">Filtros</h2>
         {totalActive > 0 && (
           <button
-            className="text-ocean-600 text-sm hover:underline focus:outline-none"
+            className="text-ocean-600 text-sm hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-1 rounded"
             type="button"
             onClick={clearAll}
           >
@@ -230,7 +230,7 @@ export function FilterPanel(props: FilterPanelProps) {
       {/* Mobile toggle button (positioned in toolbar via parent) */}
       <div className="lg:hidden">
         <button
-          className="hover:border-ocean-300 hover:text-ocean-700 focus:ring-ocean-500 flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-colors focus:ring-2 focus:outline-none"
+          className="hover:border-ocean-300 hover:text-ocean-700 focus-visible:ring-ocean-500 flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-colors focus-visible:ring-2 focus-visible:outline-none"
           type="button"
           onClick={() => {
             setMobileOpen(true)
@@ -275,7 +275,7 @@ export function FilterPanel(props: FilterPanelProps) {
                 </h2>
                 <button
                   aria-label="Cerrar filtros"
-                  className="rounded-full p-1.5 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-600 focus:outline-none"
+                  className="rounded-full p-1.5 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean-500"
                   type="button"
                   onClick={() => {
                     setMobileOpen(false)
@@ -299,7 +299,7 @@ export function FilterPanel(props: FilterPanelProps) {
               <FilterContent {...props} />
               <div className="sticky bottom-0 mt-8 bg-white pt-4 pb-2">
                 <button
-                  className="bg-ocean-600 hover:bg-ocean-700 focus:ring-ocean-500 w-full rounded-full px-4 py-3 text-sm font-semibold text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
+                  className="bg-ocean-600 hover:bg-ocean-700 focus-visible:ring-ocean-500 w-full rounded-full px-4 py-3 text-sm font-semibold text-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
                   type="button"
                   onClick={() => {
                     setMobileOpen(false)

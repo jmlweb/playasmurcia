@@ -33,7 +33,7 @@ export function NearbyCarousel({ items }: NearbyCarouselProps) {
             <a
               key={beach.code}
               aria-label={`Ver playa ${beach.name}`}
-              className="group hover:ring-ocean-200 focus:ring-ocean-500 flex w-48 flex-shrink-0 snap-start flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 motion-safe:hover:-translate-y-0.5 hover:shadow-md focus:ring-2 focus:outline-none sm:w-56"
+              className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 flex w-48 flex-shrink-0 snap-start flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 motion-safe:hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:outline-none sm:w-56"
               href={`/playas/${slug}`}
             >
               <div className="relative h-32 overflow-hidden bg-gray-100">
