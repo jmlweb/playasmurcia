@@ -1,52 +1,86 @@
-//  @ts-check
+// @ts-check
 
-import { tanstackConfig } from '@tanstack/eslint-config'
+import reactConfig from '@jmlweb/eslint-config-react'
 
 export default [
-  ...tanstackConfig,
-  // Override config for JavaScript scripts (must come after tanstackConfig)
   {
-    files: ['scripts/**/*.js'],
-    languageOptions: {
-      parserOptions: {
-        // Don't use TypeScript parser for JS files
-        project: null,
-      },
-      ecmaVersion: 'latest',
-      sourceType: 'script', // CommonJS scripts
-      globals: {
-        __dirname: 'readonly',
-        __filename: 'readonly',
-        console: 'readonly',
-        process: 'readonly',
-        Buffer: 'readonly',
-        require: 'readonly',
-        module: 'readonly',
-        exports: 'readonly',
+    ignores: [
+      'dist/**',
+      'node_modules/**',
+      'coverage/**',
+      '.output/**',
+      '.wrangler/**',
+      'data/**',
+      // Legacy CommonJS scripts — not compatible with typescript-eslint type-aware rules
+      'scripts/**/*.js',
+      '*.config.js',
+      '*.config.ts',
+      '*.config.mjs',
+    ],
+  },
+  ...reactConfig,
+  {
+    settings: {
+      react: {
+        version: '19.2',
       },
     },
+  },
+  {
+    files: ['src/**/*.{ts,tsx}'],
     rules: {
-      // Disable ALL TypeScript-specific rules for JS files
-      // This prevents errors from rules that require type information
-      '@typescript-eslint/no-require-imports': 'off',
-      '@typescript-eslint/no-var-requires': 'off',
-      '@typescript-eslint/no-unnecessary-condition': 'off',
-      '@typescript-eslint/no-unnecessary-type-assertion': 'off',
-      '@typescript-eslint/no-unsafe-assignment': 'off',
-      '@typescript-eslint/no-unsafe-call': 'off',
-      '@typescript-eslint/no-unsafe-member-access': 'off',
-      '@typescript-eslint/no-unsafe-return': 'off',
-      '@typescript-eslint/restrict-template-expressions': 'off',
-      '@typescript-eslint/unbound-method': 'off',
+      '@typescript-eslint/naming-convention': [
+        'error',
+        { selector: 'typeLike', format: ['PascalCase'] },
+        {
+          selector: 'variable',
+          filter: { regex: '^_', match: true },
+          format: null,
+        },
+        { selector: 'variable', format: ['camelCase', 'UPPER_CASE'] },
+        {
+          selector: 'variable',
+          modifiers: ['const'],
+          format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
+        },
+        {
+          selector: 'variable',
+          modifiers: ['const', 'exported'],
+          format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
+        },
+        { selector: 'function', format: ['camelCase', 'PascalCase'] },
+      ],
+      '@typescript-eslint/no-non-null-assertion': 'warn',
+      '@typescript-eslint/no-redundant-type-constituents': 'warn',
+      '@typescript-eslint/no-unnecessary-condition': 'warn',
+      '@typescript-eslint/no-unnecessary-type-parameters': 'off',
+      '@typescript-eslint/no-unsafe-assignment': 'warn',
+      '@typescript-eslint/no-unsafe-call': 'warn',
+      '@typescript-eslint/no-unsafe-member-access': 'warn',
+      '@typescript-eslint/no-unsafe-return': 'warn',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+        },
+      ],
+      '@typescript-eslint/only-throw-error': 'off',
+      '@typescript-eslint/prefer-nullish-coalescing': 'warn',
+      '@typescript-eslint/restrict-template-expressions': [
+        'error',
+        { allowNumber: true },
+      ],
+    },
+  },
+  {
+    files: ['**/*.{test,spec}.{ts,tsx}'],
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/require-await': 'off',
-      '@typescript-eslint/await-thenable': 'off',
-      '@typescript-eslint/no-floating-promises': 'off',
-      '@typescript-eslint/no-misused-promises': 'off',
-      '@typescript-eslint/return-await': 'off',
-      // Allow console in scripts
       'no-console': 'off',
-      // More relaxed rules for utility scripts
-      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      'react/display-name': 'off',
     },
   },
 ]

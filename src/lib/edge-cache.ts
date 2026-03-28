@@ -18,7 +18,10 @@ function isEdgeCacheAvailable(): boolean {
   return typeof caches !== 'undefined' && caches.default !== undefined
 }
 
-export async function edgeCacheGet<T>(namespace: string, key: string): Promise<T | undefined> {
+export async function edgeCacheGet<T>(
+  namespace: string,
+  key: string,
+): Promise<T | undefined> {
   const url = cacheKey(namespace, key)
 
   if (isEdgeCacheAvailable()) {
@@ -56,5 +59,8 @@ export async function edgeCacheSet<T>(
     return
   }
 
-  memoryCache.set(url, { data: body, expiresAt: Date.now() + ttlSeconds * 1000 })
+  memoryCache.set(url, {
+    data: body,
+    expiresAt: Date.now() + ttlSeconds * 1000,
+  })
 }

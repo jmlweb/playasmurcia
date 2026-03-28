@@ -4,61 +4,61 @@ const AEMET_BASE_URL = 'https://opendata.aemet.es/opendata/api'
 const CACHE_TTL_SECONDS = 30 * 60 // 30 minutes
 const CACHE_NS = 'aemet'
 
-export interface AemetSkyPeriod {
+export type AemetSkyPeriod = {
   periodo: '00-24' | '00-12' | '12-24' | string
   descripcion: string
   value: string
 }
 
-export interface AemetWindPeriod {
+export type AemetWindPeriod = {
   periodo: string
   velocidad: number
   direccion: string
 }
 
-export interface AemetWavePeriod {
+export type AemetWavePeriod = {
   periodo: string
   descripcion: string
   value: string
 }
 
-export interface AemetForecastDay {
+export type AemetForecastDay = {
   fecha: number
-  estadoCielo: Array<AemetSkyPeriod>
-  viento: Array<AemetWindPeriod>
-  oleaje: Array<AemetWavePeriod>
+  estadoCielo: AemetSkyPeriod[]
+  viento: AemetWindPeriod[]
+  oleaje: AemetWavePeriod[]
   tMaxima: number
   tMinima: number
   indiceUV: number
   sTermica: { tMaxima?: number; tMinima?: number }
 }
 
-export interface AemetBeachForecast {
+export type AemetBeachForecast = {
   elaborado: string
-  dias: Array<AemetForecastDay>
+  dias: AemetForecastDay[]
 }
 
-interface AemetMetaResponse {
+type AemetMetaResponse = {
   estado: number
   datos: string
   descripcion?: string
 }
 
-interface AemetRawDay {
+type AemetRawDay = {
   fecha: number
-  estadoCielo?: Array<AemetSkyPeriod>
-  viento?: Array<AemetWindPeriod>
-  oleaje?: Array<AemetWavePeriod>
+  estadoCielo?: AemetSkyPeriod[]
+  viento?: AemetWindPeriod[]
+  oleaje?: AemetWavePeriod[]
   tMaxima?: number
   tMinima?: number
   indiceUV?: number
   sTermica?: { tMaxima?: number; tMinima?: number }
 }
 
-interface AemetRawPrediction {
+type AemetRawPrediction = {
   elaborado: string
   prediccion: {
-    dia: Array<AemetRawDay>
+    dia: AemetRawDay[]
   }
 }
 
@@ -70,7 +70,10 @@ export async function fetchAemetForecast(
   aemetId: string,
   apiKey: string,
 ): Promise<AemetBeachForecast | null> {
-  const cached = await edgeCacheGet<AemetBeachForecast | null>(CACHE_NS, aemetId)
+  const cached = await edgeCacheGet<AemetBeachForecast | null>(
+    CACHE_NS,
+    aemetId,
+  )
   if (cached !== undefined) return cached
 
   try {
@@ -97,7 +100,7 @@ export async function fetchAemetForecast(
       return null
     }
 
-    const rawArray = (await dataRes.json()) as Array<AemetRawPrediction>
+    const rawArray = (await dataRes.json()) as AemetRawPrediction[]
     const raw = rawArray[0]
 
     if (!raw?.prediccion?.dia) {
@@ -132,7 +135,7 @@ export async function fetchAemetForecast(
  * back to the morning period ("00-12"), or the first available entry.
  */
 export function getDaySkyDescription(
-  estadoCielo: Array<AemetSkyPeriod>,
+  estadoCielo: AemetSkyPeriod[],
 ): AemetSkyPeriod | null {
   if (estadoCielo.length === 0) return null
   return (
@@ -145,9 +148,7 @@ export function getDaySkyDescription(
 /**
  * Returns the dominant wind period for the day (full-day or morning fallback).
  */
-export function getDayWind(
-  viento: Array<AemetWindPeriod>,
-): AemetWindPeriod | null {
+export function getDayWind(viento: AemetWindPeriod[]): AemetWindPeriod | null {
   if (viento.length === 0) return null
   return (
     viento.find((p) => p.periodo === '00-24') ??

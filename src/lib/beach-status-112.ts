@@ -12,7 +12,7 @@ const STALE_DAYS = 2
 export type BeachFlag = 'VERDE' | 'AMARILLA' | 'ROJA' | 'SIN BANDERA'
 export type SeaState = 'BUENO' | 'REGULAR' | 'MALO' | 'SIN ESTADO'
 
-export interface BeachStatus112 {
+export type BeachStatus112 = {
   flag: BeachFlag
   seaState: SeaState
   date: string
@@ -20,7 +20,7 @@ export interface BeachStatus112 {
   isOffSeason: boolean
 }
 
-interface CoplaEntry {
+type CoplaEntry = {
   id: string
   dia: string
   hora: string
@@ -79,7 +79,10 @@ function namesMatch(xmlName: string, dbName: string): boolean {
   return a === b || a.includes(b) || b.includes(a)
 }
 
-function municipalitiesMatch(xmlMunicipality: string, dbMunicipality: string): boolean {
+function municipalitiesMatch(
+  xmlMunicipality: string,
+  dbMunicipality: string,
+): boolean {
   const a = normalizeText(xmlMunicipality)
   const b = normalizeText(dbMunicipality)
   return a === b || a.includes(b) || b.includes(a)

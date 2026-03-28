@@ -1,6 +1,11 @@
 import { createServerFn } from '@tanstack/react-start'
 import { useEffect, useState } from 'react'
-import type { BeachStatus112, BeachFlag, SeaState } from '@/lib/beach-status-112'
+
+import type {
+  BeachFlag,
+  BeachStatus112,
+  SeaState,
+} from '@/lib/beach-status-112'
 
 // ---------------------------------------------------------------------------
 // Server function
@@ -31,7 +36,7 @@ const SeaStateLabels: Record<SeaState, string> = {
   'SIN ESTADO': 'Estado desconocido',
 }
 
-interface FlagCircleProps {
+type FlagCircleProps = {
   flag: BeachFlag
 }
 
@@ -44,9 +49,9 @@ function FlagCircle({ flag }: FlagCircleProps) {
   }
   return (
     <span
+      aria-label={FlagLabels[flag]}
       className={`inline-block h-4 w-4 flex-shrink-0 rounded-full ${colorMap[flag]}`}
       role="img"
-      aria-label={FlagLabels[flag]}
     />
   )
 }
@@ -58,18 +63,18 @@ function FlagCircle({ flag }: FlagCircleProps) {
 function BeachStatusSkeleton() {
   return (
     <section
-      className="rounded-2xl border border-ocean-100 bg-ocean-50/40 p-6 shadow-sm"
-      aria-label="Cargando estado de la playa"
       aria-busy="true"
+      aria-label="Cargando estado de la playa"
+      className="border-ocean-100 bg-ocean-50/40 rounded-2xl border p-6 shadow-sm"
     >
-      <div className="mb-4 h-5 w-40 animate-pulse rounded bg-ocean-200/60" />
+      <div className="bg-ocean-200/60 mb-4 h-5 w-40 animate-pulse rounded" />
       <div className="space-y-3">
         <div className="flex items-center gap-3">
-          <div className="h-4 w-4 animate-pulse rounded-full bg-ocean-200/60" />
-          <div className="h-4 w-28 animate-pulse rounded bg-ocean-200/60" />
+          <div className="bg-ocean-200/60 h-4 w-4 animate-pulse rounded-full" />
+          <div className="bg-ocean-200/60 h-4 w-28 animate-pulse rounded" />
         </div>
-        <div className="h-3 w-36 animate-pulse rounded bg-ocean-200/60" />
-        <div className="h-3 w-24 animate-pulse rounded bg-ocean-200/60" />
+        <div className="bg-ocean-200/60 h-3 w-36 animate-pulse rounded" />
+        <div className="bg-ocean-200/60 h-3 w-24 animate-pulse rounded" />
       </div>
     </section>
   )
@@ -79,7 +84,7 @@ function BeachStatusSkeleton() {
 // Main widget
 // ---------------------------------------------------------------------------
 
-interface BeachStatusWidgetProps {
+type BeachStatusWidgetProps = {
   beachName: string
   municipalityName: string
 }
@@ -91,7 +96,10 @@ type FetchState =
   | { status: 'error' }
   | { status: 'success'; data: BeachStatus112 }
 
-export function BeachStatusWidget({ beachName, municipalityName }: BeachStatusWidgetProps) {
+export function BeachStatusWidget({
+  beachName,
+  municipalityName,
+}: BeachStatusWidgetProps) {
   const [state, setState] = useState<FetchState>({ status: 'idle' })
 
   useEffect(() => {
@@ -130,16 +138,16 @@ export function BeachStatusWidget({ beachName, municipalityName }: BeachStatusWi
   if (data.isOffSeason) {
     return (
       <section
-        className="rounded-2xl border border-ocean-100 bg-ocean-50/40 p-5 shadow-sm"
         aria-label="Estado de bandera de playa"
+        className="border-ocean-100 bg-ocean-50/40 rounded-2xl border p-5 shadow-sm"
       >
-        <h2 className="mb-2 text-base font-semibold text-ocean-800">
+        <h2 className="text-ocean-800 mb-2 text-base font-semibold">
           Estado de la playa
         </h2>
-        <p className="text-sm text-ocean-500/80">
+        <p className="text-ocean-500/80 text-sm">
           Datos no disponibles fuera de temporada
         </p>
-        <p className="mt-3 text-right text-xs text-ocean-400">
+        <p className="text-ocean-400 mt-3 text-right text-xs">
           Fuente: 112 Region de Murcia
         </p>
       </section>
@@ -148,10 +156,10 @@ export function BeachStatusWidget({ beachName, municipalityName }: BeachStatusWi
 
   return (
     <section
-      className="rounded-2xl border border-ocean-100 bg-ocean-50/40 p-5 shadow-sm"
       aria-label="Estado de bandera de playa"
+      className="border-ocean-100 bg-ocean-50/40 rounded-2xl border p-5 shadow-sm"
     >
-      <h2 className="mb-4 text-base font-semibold text-ocean-800">
+      <h2 className="text-ocean-800 mb-4 text-base font-semibold">
         Estado de la playa
       </h2>
 
@@ -167,24 +175,24 @@ export function BeachStatusWidget({ beachName, municipalityName }: BeachStatusWi
         {/* Sea state */}
         <div className="flex items-center gap-2.5">
           <svg
-            className="h-4 w-4 flex-shrink-0 text-ocean-400"
-            viewBox="0 0 24 24"
-            fill="none"
             aria-hidden="true"
+            className="text-ocean-400 h-4 w-4 flex-shrink-0"
+            fill="none"
+            viewBox="0 0 24 24"
           >
             <path
               d="M3 12c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0 3 2 4.5 0"
               stroke="currentColor"
-              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
+              strokeWidth="2"
             />
             <path
               d="M3 17c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0 3 2 4.5 0"
               stroke="currentColor"
-              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
+              strokeWidth="2"
             />
           </svg>
           <span className="text-sm text-gray-600">
@@ -198,7 +206,7 @@ export function BeachStatusWidget({ beachName, municipalityName }: BeachStatusWi
         </p>
       </div>
 
-      <p className="mt-3 text-right text-xs text-ocean-400">
+      <p className="text-ocean-400 mt-3 text-right text-xs">
         Fuente: 112 Region de Murcia
       </p>
     </section>

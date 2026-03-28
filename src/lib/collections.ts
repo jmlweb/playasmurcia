@@ -1,6 +1,6 @@
 import type { Beach } from '@/types/beach'
 
-export interface Collection {
+export type Collection = {
   slug: string
   title: string
   description: string
@@ -8,7 +8,7 @@ export interface Collection {
   filterFn: (beach: Beach) => boolean
 }
 
-export const seaCollections: Array<Collection> = [
+export const seaCollections: Collection[] = [
   {
     slug: 'mar-mediterraneo',
     title: 'Mar Mediterraneo',
@@ -29,7 +29,7 @@ export const seaCollections: Array<Collection> = [
   },
 ]
 
-export const collections: Array<Collection> = [
+export const collections: Collection[] = [
   {
     slug: 'calas-escondidas',
     title: 'Calas Escondidas',
@@ -166,17 +166,15 @@ export const collections: Array<Collection> = [
   },
 ]
 
-export const allCollections: Array<Collection> = [...seaCollections, ...collections]
+export const allCollections: Collection[] = [...seaCollections, ...collections]
 
-export function getCollectionBySlug(
-  slug: string,
-): Collection | undefined {
+export function getCollectionBySlug(slug: string): Collection | undefined {
   return allCollections.find((c) => c.slug === slug)
 }
 
 export function filterBeachesByCollection(
-  beaches: Array<Beach>,
+  beaches: Beach[],
   collection: Collection,
-): Array<Beach> {
+): Beach[] {
   return beaches.filter(collection.filterFn)
 }

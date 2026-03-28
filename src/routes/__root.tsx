@@ -1,90 +1,99 @@
+import { Popover } from '@base-ui/react/popover'
+import { TanStackDevtools } from '@tanstack/react-devtools'
 import {
+  createRootRoute,
   HeadContent,
   Link,
   Outlet,
   Scripts,
-  createRootRoute,
 } from '@tanstack/react-router'
-import { createServerFn } from '@tanstack/react-start'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
-import { TanStackDevtools } from '@tanstack/react-devtools'
+import { createServerFn } from '@tanstack/react-start'
 import { useRef, useState } from 'react'
-import { Popover } from '@base-ui/react/popover'
 
-import appCss from '../styles.css?url'
 import { SiteFooter } from '@/components/site-footer'
 
-interface NavMunicipality {
+import appCss from '../styles.css?url'
+
+type NavMunicipality = {
   name: string
   slug: string
   beachCount: number
 }
 
-interface NavCharacteristic {
+type NavCharacteristic = {
   label: string
   href: string
   count: number
 }
 
-interface NavData {
-  municipalities: Array<NavMunicipality>
-  characteristics: Array<NavCharacteristic>
+type NavData = {
+  municipalities: NavMunicipality[]
+  characteristics: NavCharacteristic[]
 }
 
-const fetchNavData = createServerFn({ method: 'GET' }).handler(async (): Promise<NavData> => {
-  const { getAllBeaches, getAllMunicipalities } = await import('@/lib/db-data')
-  const { municipalityToSlug } = await import('@/lib/slugs')
-  const [beaches, municipalities] = await Promise.all([
-    getAllBeaches(),
-    getAllMunicipalities(),
-  ])
+const fetchNavData = createServerFn({ method: 'GET' }).handler(
+  async (): Promise<NavData> => {
+    const { getAllBeaches, getAllMunicipalities } =
+      await import('@/lib/db-data')
+    const { municipalityToSlug } = await import('@/lib/slugs')
+    const [beaches, municipalities] = await Promise.all([
+      getAllBeaches(),
+      getAllMunicipalities(),
+    ])
 
-  const municipalityNav = municipalities.map((m, i) => {
-    const count = beaches.filter((b) => b.municipality === i).length
-    return { name: m.name, slug: municipalityToSlug(m), beachCount: count }
-  })
+    const municipalityNav = municipalities.map((m, i) => {
+      const count = beaches.filter((b) => b.municipality === i).length
+      return { name: m.name, slug: municipalityToSlug(m), beachCount: count }
+    })
 
-  const characteristics: Array<NavCharacteristic> = [
-    {
-      label: 'Bandera azul',
-      href: '/colecciones/bandera-azul',
-      count: beaches.filter((b) => b.certifications?.includes('blue-flag')).length,
-    },
-    {
-      label: 'Accesible',
-      href: '/colecciones/accesibles',
-      count: beaches.filter((b) => b.accessDifficulty === 'easy').length,
-    },
-    {
-      label: 'Nudista',
-      href: '/colecciones/playas-nudistas',
-      count: beaches.filter((b) => b.nudist).length,
-    },
-    {
-      label: 'Pet friendly',
-      href: '/colecciones/playas-para-perros',
-      count: beaches.filter((b) => b.dogFriendly).length,
-    },
-    {
-      label: 'Familiares',
-      href: '/colecciones/playas-familiares',
-      count: beaches.filter((b) => b.childSafe).length,
-    },
-  ]
+    const characteristics: NavCharacteristic[] = [
+      {
+        label: 'Bandera azul',
+        href: '/colecciones/bandera-azul',
+        count: beaches.filter((b) => b.certifications?.includes('blue-flag'))
+          .length,
+      },
+      {
+        label: 'Accesible',
+        href: '/colecciones/accesibles',
+        count: beaches.filter((b) => b.accessDifficulty === 'easy').length,
+      },
+      {
+        label: 'Nudista',
+        href: '/colecciones/playas-nudistas',
+        count: beaches.filter((b) => b.nudist).length,
+      },
+      {
+        label: 'Pet friendly',
+        href: '/colecciones/playas-para-perros',
+        count: beaches.filter((b) => b.dogFriendly).length,
+      },
+      {
+        label: 'Familiares',
+        href: '/colecciones/playas-familiares',
+        count: beaches.filter((b) => b.childSafe).length,
+      },
+    ]
 
-  return { municipalities: municipalityNav, characteristics }
-})
+    return { municipalities: municipalityNav, characteristics }
+  },
+)
 
 export const Route = createRootRoute({
   loader: () => fetchNavData(),
   notFoundComponent: () => (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-sand-50 px-4 text-center">
-      <p className="mb-3 text-7xl font-extrabold text-ocean-200">404</p>
-      <h1 className="mb-2 text-2xl font-semibold text-gray-900">Pagina no encontrada</h1>
-      <p className="mb-8 text-gray-500">La pagina que buscas no existe o ha sido movida.</p>
+    <div className="bg-sand-50 flex min-h-screen flex-col items-center justify-center px-4 text-center">
+      <p className="text-ocean-200 mb-3 text-7xl font-extrabold">404</p>
+      <h1 className="mb-2 text-2xl font-semibold text-gray-900">
+        Pagina no encontrada
+      </h1>
+      <p className="mb-8 text-gray-500">
+        La pagina que buscas no existe o ha sido movida.
+      </p>
       <a
+        className="bg-ocean-600 hover:bg-ocean-700 focus:ring-ocean-500 rounded-full px-6 py-2.5 text-sm font-semibold text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
         href="/"
-        className="rounded-full bg-ocean-600 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-ocean-700 focus:ring-2 focus:ring-ocean-500 focus:ring-offset-2 focus:outline-none"
       >
         Volver al inicio
       </a>
@@ -139,19 +148,24 @@ const simpleNavLinks = [
 
 function ChevronDownIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+    <svg
+      aria-hidden="true"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M19 9l-7 7-7-7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+      />
     </svg>
   )
 }
 
-function NavDropdown({
-  label,
-  navData,
-}: {
-  label: string
-  navData: NavData
-}) {
+function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
   const [open, setOpen] = useState(false)
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
@@ -161,51 +175,52 @@ function NavDropdown({
   }
 
   function handleMouseLeave() {
-    timeoutRef.current = setTimeout(() => setOpen(false), 150)
+    timeoutRef.current = setTimeout(() => {
+      setOpen(false)
+    }, 150)
   }
 
   return (
     <Popover.Root open={open} onOpenChange={setOpen}>
-      <div
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <Popover.Trigger
-          className="inline-flex items-center gap-1 text-sm font-medium text-ocean-200 transition-colors hover:text-white focus-visible:text-white focus-visible:underline focus-visible:outline-none"
-        >
+      <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <Popover.Trigger className="text-ocean-200 inline-flex items-center gap-1 text-sm font-medium transition-colors hover:text-white focus-visible:text-white focus-visible:underline focus-visible:outline-none">
           {label}
-          <ChevronDownIcon className={`h-3.5 w-3.5 transition-transform ${open ? 'rotate-180' : ''}`} />
+          <ChevronDownIcon
+            className={`h-3.5 w-3.5 transition-transform ${open ? 'rotate-180' : ''}`}
+          />
         </Popover.Trigger>
 
         <Popover.Portal>
           <Popover.Positioner
-            sideOffset={12}
-            side="bottom"
             align="center"
-            collisionPadding={12}
             className="z-50"
+            collisionPadding={12}
+            side="bottom"
+            sideOffset={12}
           >
             <Popover.Popup
-              className="w-[28rem] rounded-xl border border-white/10 bg-ocean-800 p-5 shadow-2xl"
+              className="bg-ocean-800 w-[28rem] rounded-xl border border-white/10 p-5 shadow-2xl"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
               <div className="grid grid-cols-2 gap-6">
                 {/* Municipalities */}
                 <div>
-                  <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-ocean-400">
+                  <p className="text-ocean-400 mb-3 text-xs font-semibold tracking-wider uppercase">
                     Municipios
                   </p>
                   <ul className="space-y-1">
                     {navData.municipalities.map((m) => (
                       <li key={m.slug}>
                         <a
+                          className="text-ocean-100 hover:bg-ocean-700 focus-visible:bg-ocean-700 flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors hover:text-white focus-visible:text-white focus-visible:outline-none"
                           href={`/municipios/${m.slug}`}
-                          className="flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm text-ocean-100 transition-colors hover:bg-ocean-700 hover:text-white focus-visible:bg-ocean-700 focus-visible:text-white focus-visible:outline-none"
-                          onClick={() => setOpen(false)}
+                          onClick={() => {
+                            setOpen(false)
+                          }}
                         >
                           {m.name}
-                          <span className="ml-2 rounded-full bg-ocean-700/60 px-2 py-0.5 text-xs text-ocean-300">
+                          <span className="bg-ocean-700/60 text-ocean-300 ml-2 rounded-full px-2 py-0.5 text-xs">
                             {m.beachCount}
                           </span>
                         </a>
@@ -216,34 +231,49 @@ function NavDropdown({
 
                 {/* Characteristics */}
                 <div>
-                  <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-ocean-400">
+                  <p className="text-ocean-400 mb-3 text-xs font-semibold tracking-wider uppercase">
                     Caracteristicas
                   </p>
                   <ul className="space-y-1">
                     {navData.characteristics.map((c) => (
                       <li key={c.href}>
                         <a
+                          className="text-ocean-100 hover:bg-ocean-700 focus-visible:bg-ocean-700 flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors hover:text-white focus-visible:text-white focus-visible:outline-none"
                           href={c.href}
-                          className="flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm text-ocean-100 transition-colors hover:bg-ocean-700 hover:text-white focus-visible:bg-ocean-700 focus-visible:text-white focus-visible:outline-none"
-                          onClick={() => setOpen(false)}
+                          onClick={() => {
+                            setOpen(false)
+                          }}
                         >
                           {c.label}
-                          <span className="ml-2 rounded-full bg-ocean-700/60 px-2 py-0.5 text-xs text-ocean-300">
+                          <span className="bg-ocean-700/60 text-ocean-300 ml-2 rounded-full px-2 py-0.5 text-xs">
                             {c.count}
                           </span>
                         </a>
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-4 border-t border-ocean-700 pt-3">
+                  <div className="border-ocean-700 mt-4 border-t pt-3">
                     <a
+                      className="text-ocean-300 hover:bg-ocean-700 flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium transition-colors hover:text-white"
                       href="/explorar"
-                      className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-ocean-300 transition-colors hover:bg-ocean-700 hover:text-white"
-                      onClick={() => setOpen(false)}
+                      onClick={() => {
+                        setOpen(false)
+                      }}
                     >
                       Ver todas las playas
-                      <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      <svg
+                        aria-hidden="true"
+                        className="h-3.5 w-3.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M9 5l7 7-7 7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                        />
                       </svg>
                     </a>
                   </div>
@@ -271,42 +301,46 @@ function MobileDropdown({
   return (
     <div>
       <button
-        type="button"
-        className="flex w-full items-center justify-between py-2.5 text-sm font-medium text-ocean-200 transition-colors hover:text-white"
         aria-expanded={open}
-        onClick={() => setOpen((prev) => !prev)}
+        className="text-ocean-200 flex w-full items-center justify-between py-2.5 text-sm font-medium transition-colors hover:text-white"
+        type="button"
+        onClick={() => {
+          setOpen((prev) => !prev)
+        }}
       >
         {label}
-        <ChevronDownIcon className={`h-4 w-4 transition-transform ${open ? 'rotate-180' : ''}`} />
+        <ChevronDownIcon
+          className={`h-4 w-4 transition-transform ${open ? 'rotate-180' : ''}`}
+        />
       </button>
       {open && (
         <div className="pb-2 pl-3">
-          <p className="mb-1.5 text-xs font-semibold uppercase tracking-wider text-ocean-400">
+          <p className="text-ocean-400 mb-1.5 text-xs font-semibold tracking-wider uppercase">
             Municipios
           </p>
           {navData.municipalities.map((m) => (
             <a
               key={m.slug}
+              className="text-ocean-200 flex items-center justify-between py-1.5 text-sm transition-colors hover:text-white"
               href={`/municipios/${m.slug}`}
-              className="flex items-center justify-between py-1.5 text-sm text-ocean-200 transition-colors hover:text-white"
               onClick={onNavigate}
             >
               {m.name}
-              <span className="text-xs text-ocean-400">{m.beachCount}</span>
+              <span className="text-ocean-400 text-xs">{m.beachCount}</span>
             </a>
           ))}
-          <p className="mb-1.5 mt-3 text-xs font-semibold uppercase tracking-wider text-ocean-400">
+          <p className="text-ocean-400 mt-3 mb-1.5 text-xs font-semibold tracking-wider uppercase">
             Caracteristicas
           </p>
           {navData.characteristics.map((c) => (
             <a
               key={c.href}
+              className="text-ocean-200 flex items-center justify-between py-1.5 text-sm transition-colors hover:text-white"
               href={c.href}
-              className="flex items-center justify-between py-1.5 text-sm text-ocean-200 transition-colors hover:text-white"
               onClick={onNavigate}
             >
               {c.label}
-              <span className="text-xs text-ocean-400">{c.count}</span>
+              <span className="text-ocean-400 text-xs">{c.count}</span>
             </a>
           ))}
         </div>
@@ -320,23 +354,28 @@ function Navbar() {
   const navData = Route.useLoaderData()
 
   return (
-    <nav className="sticky top-0 z-40 border-b border-white/10 bg-nav sm:bg-nav/95 sm:backdrop-blur-md">
+    <nav className="bg-nav sm:bg-nav/95 sticky top-0 z-40 border-b border-white/10 sm:backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link
+          className="text-base font-bold tracking-tight text-white transition-opacity hover:opacity-80 sm:text-lg"
           to="/"
-          className="text-base sm:text-lg font-bold tracking-tight text-white transition-opacity hover:opacity-80"
         >
           Playas de Murcia
         </Link>
-        <div className="hidden sm:flex items-center gap-6">
+        <div className="hidden items-center gap-6 sm:flex">
           {simpleNavLinks.map(({ to, label, exact }) => (
             <Link
               key={to}
-              to={to}
               activeOptions={{ exact }}
+              activeProps={{
+                className: 'text-white border-b-2 border-ocean-400 pb-0.5',
+              }}
               className="text-sm font-medium transition-colors"
-              inactiveProps={{ className: 'text-ocean-200 hover:text-white focus-visible:text-white focus-visible:underline focus-visible:outline-none' }}
-              activeProps={{ className: 'text-white border-b-2 border-ocean-400 pb-0.5' }}
+              inactiveProps={{
+                className:
+                  'text-ocean-200 hover:text-white focus-visible:text-white focus-visible:underline focus-visible:outline-none',
+              }}
+              to={to}
             >
               {label}
             </Link>
@@ -344,33 +383,59 @@ function Navbar() {
           <NavDropdown label="Descubrir" navData={navData} />
         </div>
         <button
-          type="button"
-          className="sm:hidden rounded-lg p-2 text-ocean-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-ocean-400"
           aria-label={mobileOpen ? 'Cerrar menu' : 'Abrir menu'}
-          onClick={() => setMobileOpen((prev) => !prev)}
+          className="text-ocean-200 focus:ring-ocean-400 rounded-lg p-2 hover:text-white focus:ring-2 focus:outline-none sm:hidden"
+          type="button"
+          onClick={() => {
+            setMobileOpen((prev) => !prev)
+          }}
         >
           {mobileOpen ? (
-            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            <svg
+              aria-hidden="true"
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 18L18 6M6 6l12 12"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+              />
             </svg>
           ) : (
-            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            <svg
+              aria-hidden="true"
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M4 6h16M4 12h16M4 18h16"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+              />
             </svg>
           )}
         </button>
       </div>
       {mobileOpen && (
-        <div className="sm:hidden border-t border-white/10 px-4 pb-4 pt-2">
+        <div className="border-t border-white/10 px-4 pt-2 pb-4 sm:hidden">
           {simpleNavLinks.map(({ to, label, exact }) => (
             <Link
               key={to}
-              to={to}
               activeOptions={{ exact }}
+              activeProps={{ className: 'text-white' }}
               className="block py-2.5 text-sm font-medium transition-colors"
               inactiveProps={{ className: 'text-ocean-200 hover:text-white' }}
-              activeProps={{ className: 'text-white' }}
-              onClick={() => setMobileOpen(false)}
+              to={to}
+              onClick={() => {
+                setMobileOpen(false)
+              }}
             >
               {label}
             </Link>
@@ -378,7 +443,9 @@ function Navbar() {
           <MobileDropdown
             label="Descubrir"
             navData={navData}
-            onNavigate={() => setMobileOpen(false)}
+            onNavigate={() => {
+              setMobileOpen(false)
+            }}
           />
         </div>
       )}
@@ -396,8 +463,8 @@ function RootComponent() {
       </head>
       <body className="bg-sand-50">
         <a
+          className="focus:bg-ocean-600 sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:px-4 focus:py-2 focus:text-white focus:outline-none"
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-ocean-600 focus:px-4 focus:py-2 focus:text-white focus:outline-none"
         >
           Saltar al contenido
         </a>
@@ -406,8 +473,8 @@ function RootComponent() {
           <Outlet />
         </div>
         <SiteFooter
-          municipalities={navData.municipalities}
           characteristics={navData.characteristics}
+          municipalities={navData.municipalities}
         />
         {import.meta.env.DEV && (
           <TanStackDevtools

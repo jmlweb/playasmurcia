@@ -1,5 +1,7 @@
 # Plan Directory Rules
 
+General repository rules: [AGENTS.md](../AGENTS.md).
+
 This directory stores the different stages to execute a plan.
 
 ## Structure

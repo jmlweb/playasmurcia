@@ -54,7 +54,7 @@ const SeasonConfig = {
   winter: 'Invierno',
 } as const
 
-interface PracticalInfoCardProps {
+type PracticalInfoCardProps = {
   length?: number
   soilType?: string
   waves?: string
@@ -63,11 +63,11 @@ interface PracticalInfoCardProps {
   childSafe?: boolean
   naturalShade?: boolean
   waterQuality?: 'excellent' | 'good' | 'sufficient' | 'poor'
-  bestSeason?: Array<'spring' | 'summer' | 'autumn' | 'winter'>
+  bestSeason?: ('spring' | 'summer' | 'autumn' | 'winter')[]
   orientation?: string
 }
 
-interface InfoRowProps {
+type InfoRowProps = {
   label: string
   value: string
   valueClass?: string
@@ -113,8 +113,8 @@ export function PracticalInfoCard({
 
   return (
     <section
-      className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm"
       aria-label="Informacion practica"
+      className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm"
     >
       <h2 className="mb-4 text-xl font-semibold text-gray-900">
         Informacion practica
@@ -155,7 +155,7 @@ export function PracticalInfoCard({
             <dt className="text-sm text-gray-500">Apta para ninos</dt>
             <dd>
               <span
-                className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${childSafe ? 'text-emerald-700 bg-emerald-50 ring-1 ring-emerald-200' : 'text-gray-600 bg-gray-50 ring-1 ring-gray-200'}`}
+                className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${childSafe ? 'bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200' : 'bg-gray-50 text-gray-600 ring-1 ring-gray-200'}`}
               >
                 {childSafe ? 'Si' : 'No'}
               </span>
@@ -167,7 +167,7 @@ export function PracticalInfoCard({
             <dt className="text-sm text-gray-500">Sombra natural</dt>
             <dd>
               <span
-                className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${naturalShade ? 'text-emerald-700 bg-emerald-50 ring-1 ring-emerald-200' : 'text-gray-600 bg-gray-50 ring-1 ring-gray-200'}`}
+                className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${naturalShade ? 'bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200' : 'bg-gray-50 text-gray-600 ring-1 ring-gray-200'}`}
               >
                 {naturalShade ? 'Si' : 'No'}
               </span>

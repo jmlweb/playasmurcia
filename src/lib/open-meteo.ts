@@ -54,7 +54,7 @@ function degreesToDirection(deg: number): string {
 // Public types (unified with WeatherWidget expectations)
 // ---------------------------------------------------------------------------
 
-export interface OpenMeteoForecastDay {
+export type OpenMeteoForecastDay = {
   fecha: number
   skyDescription: string
   skyIcon: string
@@ -65,11 +65,11 @@ export interface OpenMeteoForecastDay {
   uvIndex: number
 }
 
-export interface OpenMeteoForecast {
-  days: Array<OpenMeteoForecastDay>
+export type OpenMeteoForecast = {
+  days: OpenMeteoForecastDay[]
 }
 
-export interface CardWeather {
+export type CardWeather = {
   temp: number
   icon: string
 }
@@ -78,29 +78,20 @@ export interface CardWeather {
 // API types
 // ---------------------------------------------------------------------------
 
-interface OpenMeteoResponse {
+type OpenMeteoResponse = {
   daily: {
-    time: Array<string>
-    weather_code: Array<number>
-    temperature_2m_max: Array<number>
-    temperature_2m_min: Array<number>
-    wind_speed_10m_max: Array<number>
-    wind_direction_10m_dominant: Array<number>
-    uv_index_max: Array<number>
+    time: string[]
+    weather_code: number[]
+    temperature_2m_max: number[]
+    temperature_2m_min: number[]
+    wind_speed_10m_max: number[]
+    wind_direction_10m_dominant: number[]
+    uv_index_max: number[]
   }
 }
 
-interface CurrentWeatherResponse {
-  latitude: Array<number>
-  longitude: Array<number>
-  current: Array<{
-    temperature_2m: number
-    weather_code: number
-  }>
-}
-
 // For the batch current weather endpoint
-interface MultiCurrentResponse {
+type MultiCurrentResponse = {
   latitude: number
   longitude: number
   current: {
@@ -122,14 +113,18 @@ export async function fetchOpenMeteoForecast(
   const lng = Math.round(longitude * 100) / 100
   const cacheKey = `${lat},${lng}`
 
-  const cached = await edgeCacheGet<OpenMeteoForecast | null>(CACHE_NS, cacheKey)
+  const cached = await edgeCacheGet<OpenMeteoForecast | null>(
+    CACHE_NS,
+    cacheKey,
+  )
   if (cached !== undefined) return cached
 
   try {
     const params = new URLSearchParams({
       latitude: String(lat),
       longitude: String(lng),
-      daily: 'weather_code,temperature_2m_max,temperature_2m_min,wind_speed_10m_max,wind_direction_10m_dominant,uv_index_max',
+      daily:
+        'weather_code,temperature_2m_max,temperature_2m_min,wind_speed_10m_max,wind_direction_10m_dominant,uv_index_max',
       timezone: 'Europe/Madrid',
       forecast_days: '3',
     })
@@ -183,20 +178,23 @@ const CARD_CACHE_TTL = 2 * 60 * 60 // 2 hours
  * Deduplicates by rounded coordinates — nearby beaches share one data point.
  */
 export async function fetchBatchCardWeather(
-  beaches: Array<{ code: string; coordinates: [number, number] }>,
+  beaches: { code: string; coordinates: [number, number] }[],
 ): Promise<Map<string, CardWeather>> {
   const result = new Map<string, CardWeather>()
   if (beaches.length === 0) return result
 
   // Check cache first
-  const cached = await edgeCacheGet<Array<[string, CardWeather]>>(CARD_CACHE_NS, 'batch')
+  const cached = await edgeCacheGet<[string, CardWeather][]>(
+    CARD_CACHE_NS,
+    'batch',
+  )
   if (cached) {
     return new Map(cached)
   }
 
   // Deduplicate by rounded coordinates
-  const coordMap = new Map<string, Array<string>>() // "lat,lng" -> [beachCode, ...]
-  const uniqueCoords: Array<{ lat: number; lng: number }> = []
+  const coordMap = new Map<string, string[]>() // "lat,lng" -> [beachCode, ...]
+  const uniqueCoords: { lat: number; lng: number }[] = []
 
   for (const beach of beaches) {
     const lat = Math.round(beach.coordinates[0] * 100) / 100
@@ -230,7 +228,9 @@ export async function fetchBatchCardWeather(
     // When multiple locations: response is an array
     // When single location: response is a single object
     const rawData = await res.json()
-    const responses: Array<MultiCurrentResponse> = Array.isArray(rawData) ? rawData : [rawData]
+    const responses: MultiCurrentResponse[] = Array.isArray(rawData)
+      ? rawData
+      : [rawData]
 
     for (let i = 0; i < uniqueCoords.length; i++) {
       const resp = responses[i]
@@ -249,7 +249,12 @@ export async function fetchBatchCardWeather(
     }
 
     // Cache the batch result
-    await edgeCacheSet(CARD_CACHE_NS, 'batch', Array.from(result.entries()), CARD_CACHE_TTL)
+    await edgeCacheSet(
+      CARD_CACHE_NS,
+      'batch',
+      Array.from(result.entries()),
+      CARD_CACHE_TTL,
+    )
   } catch {
     // Silent failure — cards just won't show weather
   }

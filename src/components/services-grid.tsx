@@ -1,11 +1,14 @@
-import type { Service } from "@/types/beach"
+import type { Service } from '@/types/beach'
 
-interface ServicesGridProps {
-  serviceIndices: Array<number>
-  allServices: Array<Service>
+type ServicesGridProps = {
+  serviceIndices: number[]
+  allServices: Service[]
 }
 
-export function ServicesGrid({ serviceIndices, allServices }: ServicesGridProps) {
+export function ServicesGrid({
+  serviceIndices,
+  allServices,
+}: ServicesGridProps) {
   const resolvedServices = serviceIndices
     .map((i) => allServices[i])
     .filter(Boolean)
@@ -21,9 +24,9 @@ export function ServicesGrid({ serviceIndices, allServices }: ServicesGridProps)
         {resolvedServices.map((service) => (
           <li
             key={service.id}
-            className="flex items-center gap-2.5 rounded-xl border border-gray-200/60 bg-white px-3.5 py-3 text-sm text-gray-700 shadow-sm transition-colors hover:border-ocean-200 hover:bg-ocean-50/50"
+            className="hover:border-ocean-200 hover:bg-ocean-50/50 flex items-center gap-2.5 rounded-xl border border-gray-200/60 bg-white px-3.5 py-3 text-sm text-gray-700 shadow-sm transition-colors"
           >
-            <span className="text-xl" aria-hidden="true">
+            <span aria-hidden="true" className="text-xl">
               {service.icon}
             </span>
             <span>{service.name}</span>

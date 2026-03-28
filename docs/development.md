@@ -2,6 +2,8 @@
 
 ## Environment Setup
 
+This repository uses **pnpm** (version in `package.json` → `packageManager`). With Node 20+, run `corepack enable` once so the correct pnpm is used. Do not commit or rely on `package-lock.json` (npm).
+
 ```bash
 # 1. Install dependencies
 pnpm install
@@ -98,19 +100,7 @@ pnpm tsx scripts/migrate-to-database.ts
 
 ### Task Management
 
-Tasks are tracked in `docs/dev/` using Claude Code slash commands:
-
-| Command | Description |
-|---------|-------------|
-| `/add-task` | Groom and add a new task to backlog |
-| `/start-task` | Mark a task as in-progress |
-| `/complete-task` | Complete a task, move to done |
-| `/block-task` | Mark a task as blocked |
-| `/check-task` | Verify task status matches reality |
-| `/next-task` | Suggest next priority task |
-| `/dev-status` | Show development status overview |
-| `/parallel-tasks` | Execute independent tasks in parallel |
-| `/add-learning` | Document a development insight |
+Tasks are tracked in `docs/dev/` using Claude Code slash commands — see [AGENTS.md](../AGENTS.md) for the full command table.
 
 Task files live in `docs/dev/backlog/` (pending) and `docs/dev/done/` (completed).
 `docs/dev/INDEX.md` tracks stats and current focus.
@@ -150,6 +140,7 @@ pnpm tsx scripts/script-name.ts
 | `score-beach-picture-quality.ts` | Set `pictureQualityScore` in `beaches.json` from image dimensions | After adding or replacing files in `public/pictures/` |
 | `prune-small-beach-pictures.ts` | Remove `pictures` entries with missing/unreadable or short side under 600px; optional file delete | After auditing thumbnails; then re-score + migrate |
 | `fix-orthography.js` | Proofread Markdown with local Ollama (`/api/chat`); default scope `docs/**/*.md` | Ad hoc (review diffs before `--write`) |
+| `screenshot.ts` | Capture page screenshots via Playwright (desktop/mobile, full-page) | Ad hoc (UI reviews) |
 
 ## Cost Optimization
 
@@ -212,12 +203,12 @@ See [ui-guidelines.md](./ui-guidelines.md). Image pipeline (`optimize:images`, `
 ## Code Style
 
 - TypeScript strict mode
-- ESLint with TanStack config
-- Prettier with Tailwind plugin
+- ESLint with [`@jmlweb/eslint-config-react`](https://www.npmjs.com/package/@jmlweb/eslint-config-react) (project overrides under `eslint.config.js`)
+- Prettier with [`@jmlweb/prettier-config-tailwind`](https://www.npmjs.com/package/@jmlweb/prettier-config-tailwind) (`semi: false` kept in `prettier.config.js`)
 - Functional approach (functions over classes)
 - Named exports only (no default exports)
 
-See the project root `CLAUDE.md` for detailed code style guidelines.
+See the project root [AGENTS.md](../AGENTS.md) for project rules, task workflow, and the documentation checklist.
 
 ## Troubleshooting
 

@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 // ---------------------------------------------------------------------------
 // Helpers re-exported for testing via internal imports
@@ -20,15 +20,17 @@ async function freshModule() {
 // Fixtures
 // ---------------------------------------------------------------------------
 
-function buildXml(entries: Array<Partial<{
-  id: string
-  dia: string
-  hora: string
-  municipio: string
-  playa: string
-  bandera: string
-  estadoMar: string
-}>>) {
+function buildXml(
+  entries: Partial<{
+    id: string
+    dia: string
+    hora: string
+    municipio: string
+    playa: string
+    bandera: string
+    estadoMar: string
+  }>[],
+) {
   const blocks = entries
     .map(
       (e) => `
@@ -92,14 +94,16 @@ describe('getBeachStatus', () => {
   })
 
   it('matches beach by case-insensitive name', async () => {
-    const xml = buildXml([{
-      playa: 'CALABARDINA',
-      municipio: 'AGUILAS',
-      bandera: 'VERDE',
-      estadoMar: 'BUENO',
-      dia: recentDate(),
-      hora: '10:00',
-    }])
+    const xml = buildXml([
+      {
+        playa: 'CALABARDINA',
+        municipio: 'AGUILAS',
+        bandera: 'VERDE',
+        estadoMar: 'BUENO',
+        dia: recentDate(),
+        hora: '10:00',
+      },
+    ])
     mockFetch.mockResolvedValueOnce({ ok: true, text: async () => xml })
     const { getBeachStatus } = await freshModule()
     const result = await getBeachStatus('Calabardina', 'Aguilas')
@@ -110,14 +114,16 @@ describe('getBeachStatus', () => {
   })
 
   it('matches beach names with accents stripped', async () => {
-    const xml = buildXml([{
-      playa: 'BOLNUEVO',
-      municipio: 'MAZARRON',
-      bandera: 'AMARILLA',
-      estadoMar: 'REGULAR',
-      dia: recentDate(),
-      hora: '11:30',
-    }])
+    const xml = buildXml([
+      {
+        playa: 'BOLNUEVO',
+        municipio: 'MAZARRON',
+        bandera: 'AMARILLA',
+        estadoMar: 'REGULAR',
+        dia: recentDate(),
+        hora: '11:30',
+      },
+    ])
     mockFetch.mockResolvedValueOnce({ ok: true, text: async () => xml })
     const { getBeachStatus } = await freshModule()
     const result = await getBeachStatus('Bolnuevo', 'Mazarrón')
@@ -126,13 +132,15 @@ describe('getBeachStatus', () => {
   })
 
   it('marks stale data as off-season', async () => {
-    const xml = buildXml([{
-      playa: 'CALABARDINA',
-      municipio: 'AGUILAS',
-      bandera: 'VERDE',
-      estadoMar: 'BUENO',
-      dia: staleDate(),
-    }])
+    const xml = buildXml([
+      {
+        playa: 'CALABARDINA',
+        municipio: 'AGUILAS',
+        bandera: 'VERDE',
+        estadoMar: 'BUENO',
+        dia: staleDate(),
+      },
+    ])
     mockFetch.mockResolvedValueOnce({ ok: true, text: async () => xml })
     const { getBeachStatus } = await freshModule()
     const result = await getBeachStatus('Calabardina', 'Aguilas')
@@ -141,14 +149,16 @@ describe('getBeachStatus', () => {
   })
 
   it('returns red flag data correctly', async () => {
-    const xml = buildXml([{
-      playa: 'PLAYA DE LEVANTE',
-      municipio: 'CARTAGENA',
-      bandera: 'ROJA',
-      estadoMar: 'MALO',
-      dia: recentDate(),
-      hora: '09:00',
-    }])
+    const xml = buildXml([
+      {
+        playa: 'PLAYA DE LEVANTE',
+        municipio: 'CARTAGENA',
+        bandera: 'ROJA',
+        estadoMar: 'MALO',
+        dia: recentDate(),
+        hora: '09:00',
+      },
+    ])
     mockFetch.mockResolvedValueOnce({ ok: true, text: async () => xml })
     const { getBeachStatus } = await freshModule()
     const result = await getBeachStatus('Playa de Levante', 'Cartagena')
@@ -157,13 +167,15 @@ describe('getBeachStatus', () => {
   })
 
   it('handles SIN BANDERA entries', async () => {
-    const xml = buildXml([{
-      playa: 'CALA DEL PINO',
-      municipio: 'LOS ALCAZARES',
-      bandera: 'SIN BANDERA',
-      estadoMar: 'SIN ESTADO',
-      dia: recentDate(),
-    }])
+    const xml = buildXml([
+      {
+        playa: 'CALA DEL PINO',
+        municipio: 'LOS ALCAZARES',
+        bandera: 'SIN BANDERA',
+        estadoMar: 'SIN ESTADO',
+        dia: recentDate(),
+      },
+    ])
     mockFetch.mockResolvedValueOnce({ ok: true, text: async () => xml })
     const { getBeachStatus } = await freshModule()
     const result = await getBeachStatus('Cala del Pino', 'Los Alcázares')
@@ -180,8 +192,20 @@ describe('getBeachStatus', () => {
 
   it('matches multiple entries and returns the correct one', async () => {
     const xml = buildXml([
-      { playa: 'CALABARDINA', municipio: 'AGUILAS', bandera: 'VERDE', estadoMar: 'BUENO', dia: recentDate() },
-      { playa: 'LAS HIGUERICAS', municipio: 'AGUILAS', bandera: 'ROJA', estadoMar: 'MALO', dia: recentDate() },
+      {
+        playa: 'CALABARDINA',
+        municipio: 'AGUILAS',
+        bandera: 'VERDE',
+        estadoMar: 'BUENO',
+        dia: recentDate(),
+      },
+      {
+        playa: 'LAS HIGUERICAS',
+        municipio: 'AGUILAS',
+        bandera: 'ROJA',
+        estadoMar: 'MALO',
+        dia: recentDate(),
+      },
     ])
     mockFetch.mockResolvedValueOnce({ ok: true, text: async () => xml })
     const { getBeachStatus } = await freshModule()

@@ -1,10 +1,7 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
-import {
-  getDaySkyDescription,
-  getDayWind,
-  fetchAemetForecast,
-} from './aemet'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
+
 import type { AemetSkyPeriod, AemetWindPeriod } from './aemet'
+import { fetchAemetForecast, getDaySkyDescription, getDayWind } from './aemet'
 
 // ---------------------------------------------------------------------------
 // getDaySkyDescription
@@ -16,7 +13,7 @@ describe('getDaySkyDescription', () => {
   })
 
   it('prefers 00-24 period', () => {
-    const periods: Array<AemetSkyPeriod> = [
+    const periods: AemetSkyPeriod[] = [
       { periodo: '00-12', descripcion: 'Poco nuboso', value: '11' },
       { periodo: '00-24', descripcion: 'Despejado', value: '11n' },
       { periodo: '12-24', descripcion: 'Cubierto', value: '16' },
@@ -25,7 +22,7 @@ describe('getDaySkyDescription', () => {
   })
 
   it('falls back to 00-12 when no 00-24', () => {
-    const periods: Array<AemetSkyPeriod> = [
+    const periods: AemetSkyPeriod[] = [
       { periodo: '12-24', descripcion: 'Cubierto', value: '16' },
       { periodo: '00-12', descripcion: 'Poco nuboso', value: '11' },
     ]
@@ -33,7 +30,7 @@ describe('getDaySkyDescription', () => {
   })
 
   it('falls back to first entry when no 00-24 or 00-12', () => {
-    const periods: Array<AemetSkyPeriod> = [
+    const periods: AemetSkyPeriod[] = [
       { periodo: '12-24', descripcion: 'Cubierto', value: '16' },
     ]
     expect(getDaySkyDescription(periods)?.descripcion).toBe('Cubierto')
@@ -50,7 +47,7 @@ describe('getDayWind', () => {
   })
 
   it('prefers 00-24 period', () => {
-    const periods: Array<AemetWindPeriod> = [
+    const periods: AemetWindPeriod[] = [
       { periodo: '00-12', velocidad: 20, direccion: 'N' },
       { periodo: '00-24', velocidad: 15, direccion: 'NE' },
       { periodo: '12-24', velocidad: 25, direccion: 'S' },
@@ -60,7 +57,7 @@ describe('getDayWind', () => {
   })
 
   it('falls back to 00-12 when no 00-24', () => {
-    const periods: Array<AemetWindPeriod> = [
+    const periods: AemetWindPeriod[] = [
       { periodo: '12-24', velocidad: 25, direccion: 'S' },
       { periodo: '00-12', velocidad: 10, direccion: 'N' },
     ]
@@ -68,7 +65,7 @@ describe('getDayWind', () => {
   })
 
   it('falls back to first entry otherwise', () => {
-    const periods: Array<AemetWindPeriod> = [
+    const periods: AemetWindPeriod[] = [
       { periodo: '06-12', velocidad: 5, direccion: 'E' },
     ]
     expect(getDayWind(periods)?.direccion).toBe('E')
@@ -86,9 +83,13 @@ const MOCK_RAW_FORECAST = [
       dia: [
         {
           fecha: 1743033600000,
-          estadoCielo: [{ periodo: '00-24', descripcion: 'Despejado', value: '11n' }],
+          estadoCielo: [
+            { periodo: '00-24', descripcion: 'Despejado', value: '11n' },
+          ],
           viento: [{ periodo: '00-24', velocidad: 15, direccion: 'NE' }],
-          oleaje: [{ periodo: '00-24', descripcion: 'Marejadilla', value: '2' }],
+          oleaje: [
+            { periodo: '00-24', descripcion: 'Marejadilla', value: '2' },
+          ],
           tMaxima: 22,
           tMinima: 16,
           indiceUV: 7,
@@ -112,7 +113,9 @@ describe('fetchAemetForecast', () => {
   })
 
   it('returns null when meta fetch fails', async () => {
-    global.fetch = vi.fn().mockResolvedValueOnce({ ok: false, json: async () => ({}) })
+    global.fetch = vi
+      .fn()
+      .mockResolvedValueOnce({ ok: false, json: async () => ({}) })
     const result = await fetchAemetForecast('TEST_ID_FAIL', 'key123')
     expect(result).toBeNull()
   })

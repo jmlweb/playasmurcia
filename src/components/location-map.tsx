@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useState } from 'react'
 
-interface LocationMapProps {
+type LocationMapProps = {
   coordinates: [number, number]
   beachName: string
 }
@@ -16,24 +16,30 @@ export function LocationMap({ coordinates, beachName }: LocationMapProps) {
       <h2 className="mb-4 text-xl font-semibold text-gray-900">Ubicación</h2>
       <div className="overflow-hidden rounded-2xl border border-gray-200/60 shadow-sm">
         <a
-          href={mapsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
           aria-label={`Ver ${beachName} en Google Maps (abre en nueva pestaña)`}
-          className="group block focus:ring-2 focus:ring-ocean-500 focus:ring-offset-2 focus:outline-none"
+          className="group focus:ring-ocean-500 block focus:ring-2 focus:ring-offset-2 focus:outline-none"
+          href={mapsUrl}
+          rel="noopener noreferrer"
+          target="_blank"
         >
           <div className="relative">
             {imgError ? (
               <div className="flex h-48 w-full items-center justify-center bg-gray-100 sm:h-64">
-                <span className="text-sm text-gray-500">Ver en Google Maps</span>
+                <span className="text-sm text-gray-500">
+                  Ver en Google Maps
+                </span>
               </div>
             ) : (
               <img
-                src={staticMapUrl}
                 alt={`Mapa de ubicación de ${beachName}`}
                 className="h-48 w-full object-cover sm:h-64"
+                height={300}
                 loading="lazy"
-                onError={() => setImgError(true)}
+                src={staticMapUrl}
+                width={600}
+                onError={() => {
+                  setImgError(true)
+                }}
               />
             )}
             <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/10">

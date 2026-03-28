@@ -1,5 +1,6 @@
 ---
 description: Full UI review cycle — audit pages, generate backlog tasks, update guidelines
+model: sonnet
 ---
 
 # UI Review
@@ -10,6 +11,10 @@ Run a complete UI design review of the site, acting as the agent defined in `.cl
 
 - Dev server running on `http://localhost:3000`
 - Read `.claude/agents/ui-designer.md` and adopt its role, personality, and directive format for the entire session
+
+## Phase 0: Verify Server
+
+Fetch `http://localhost:3000` — if the request fails, tell the user to start the dev server (`pnpm dev`) and **stop**. Do not proceed without a running server.
 
 ## Phase 1: Discover Pages
 
@@ -37,8 +42,14 @@ For each page in the list, sequentially:
 2. **Read `docs/ui-guidelines.md`** (first iteration only, then reference as needed)
 3. **Read `src/styles.css`** for theme tokens (first iteration only)
 4. **Fetch the rendered page** from localhost:3000 to see the actual HTML output
-5. **Produce a Design Directive** following the format in the agent definition (Critical / Important / Refinement / What Works Well)
-6. **Write the directive** to `docs/dev/ui-review/{page-name}.md`
+5. **Take a screenshot** of the page using the screenshot script for visual reference:
+   ```bash
+   pnpm tsx scripts/screenshot.ts /path --out /tmp/ui-review-{page-name}.png --full-page
+   pnpm tsx scripts/screenshot.ts /path --out /tmp/ui-review-{page-name}-mobile.png --mobile --full-page
+   ```
+   Read the screenshot images to visually inspect the page.
+6. **Produce a Design Directive** following the format in the agent definition (Critical / Important / Refinement / What Works Well)
+7. **Write the directive** to `docs/dev/ui-review/{page-name}.md`
 
 ### Rules During Audit
 

@@ -1,3 +1,4 @@
+import { relations } from 'drizzle-orm'
 import {
   index,
   integer,
@@ -5,7 +6,6 @@ import {
   sqliteTable,
   text,
 } from 'drizzle-orm/sqlite-core'
-import { relations } from 'drizzle-orm'
 
 export const municipalities = sqliteTable('municipalities', {
   id: integer('id').primaryKey(),

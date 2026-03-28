@@ -4,35 +4,35 @@ const SITE_URL = process.env.SITE_URL ?? 'https://www.playasmurcia.com'
 const PICTURES_BASE_URL =
   'https://www.turismoregiondemurcia.es/webs/murciaturistica/fotos/1/playas/'
 
-export interface MunicipalitySchema {
-  "@context": "https://schema.org"
-  "@type": "Place"
+export type MunicipalitySchema = {
+  '@context': 'https://schema.org'
+  '@type': 'Place'
   name: string
   description: string
   address: PostalAddress
   url: string
 }
 
-interface GeoCoordinates {
-  "@type": "GeoCoordinates"
+type GeoCoordinates = {
+  '@type': 'GeoCoordinates'
   latitude: number
   longitude: number
 }
 
-interface PostalAddress {
-  "@type": "PostalAddress"
+type PostalAddress = {
+  '@type': 'PostalAddress'
   addressLocality: string
   addressRegion: string
   addressCountry: string
 }
 
-interface LocationFeatureSpecification {
-  "@type": "LocationFeatureSpecification"
+type LocationFeatureSpecification = {
+  '@type': 'LocationFeatureSpecification'
   name: string
   value: boolean
 }
 
-export interface BeachSchema {
+export type BeachSchema = {
   '@context': 'https://schema.org'
   '@type': 'Beach'
   name: string
@@ -40,27 +40,27 @@ export interface BeachSchema {
   url: string
   geo: GeoCoordinates
   address: PostalAddress
-  amenityFeature: Array<LocationFeatureSpecification>
+  amenityFeature: LocationFeatureSpecification[]
   isAccessibleForFree: boolean
   image?: string
 }
 
 const SERVICE_TO_AMENITY: Record<string, string> = {
-  parking: "Parking",
-  showers: "Shower",
-  toilets: "Restroom",
-  footwash: "Foot Wash Station",
-  umbrellas: "Beach Umbrella Rental",
-  sunbeds: "Sunbed Rental",
-  chiringuito: "Restaurant",
-  "first-aid": "First Aid",
-  "wheelchair-ramp": "Wheelchair Accessible",
+  parking: 'Parking',
+  showers: 'Shower',
+  toilets: 'Restroom',
+  footwash: 'Foot Wash Station',
+  umbrellas: 'Beach Umbrella Rental',
+  sunbeds: 'Sunbed Rental',
+  chiringuito: 'Restaurant',
+  'first-aid': 'First Aid',
+  'wheelchair-ramp': 'Wheelchair Accessible',
 }
 
 function mapServicesToAmenities(
-  serviceIndices: Array<number>,
-  services: Array<Service>,
-): Array<LocationFeatureSpecification> {
+  serviceIndices: number[],
+  services: Service[],
+): LocationFeatureSpecification[] {
   return serviceIndices
     .map((index) => {
       const service = services.at(index)
@@ -68,7 +68,7 @@ function mapServicesToAmenities(
       const amenityName = SERVICE_TO_AMENITY[service.id]
       if (!amenityName) return null
       return {
-        "@type": "LocationFeatureSpecification" as const,
+        '@type': 'LocationFeatureSpecification' as const,
         name: amenityName,
         value: true,
       }
@@ -82,15 +82,15 @@ export function generateMunicipalitySchema(
   slug: string,
 ): MunicipalitySchema {
   return {
-    "@context": "https://schema.org",
-    "@type": "Place",
+    '@context': 'https://schema.org',
+    '@type': 'Place',
     name: municipality.name,
-    description: `Descubre ${beachCount === 1 ? "la playa" : `las ${beachCount} playas`} de ${municipality.name} en la Región de Murcia.`,
+    description: `Descubre ${beachCount === 1 ? 'la playa' : `las ${beachCount} playas`} de ${municipality.name} en la Región de Murcia.`,
     address: {
-      "@type": "PostalAddress",
+      '@type': 'PostalAddress',
       addressLocality: municipality.name,
-      addressRegion: "Murcia",
-      addressCountry: "ES",
+      addressRegion: 'Murcia',
+      addressCountry: 'ES',
     },
     url: `${SITE_URL}/municipios/${slug}`,
   }
@@ -99,7 +99,7 @@ export function generateMunicipalitySchema(
 export function generateBeachSchema(
   beach: Beach,
   municipality: Municipality,
-  services: Array<Service>,
+  services: Service[],
   slug: string,
 ): BeachSchema {
   const pictures = beach.pictures ?? []

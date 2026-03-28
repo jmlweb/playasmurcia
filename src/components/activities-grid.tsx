@@ -1,11 +1,14 @@
-import type { Activity } from "@/types/beach"
+import type { Activity } from '@/types/beach'
 
-interface ActivitiesGridProps {
-  activityIndices: Array<number>
-  allActivities: Array<Activity>
+type ActivitiesGridProps = {
+  activityIndices: number[]
+  allActivities: Activity[]
 }
 
-export function ActivitiesGrid({ activityIndices, allActivities }: ActivitiesGridProps) {
+export function ActivitiesGrid({
+  activityIndices,
+  allActivities,
+}: ActivitiesGridProps) {
   const resolvedActivities = activityIndices
     .map((i) => allActivities[i])
     .filter(Boolean)
@@ -21,9 +24,9 @@ export function ActivitiesGrid({ activityIndices, allActivities }: ActivitiesGri
         {resolvedActivities.map((activity) => (
           <li
             key={activity.id}
-            className="flex items-center gap-2.5 rounded-xl border border-gray-200/60 bg-white px-3.5 py-3 text-sm text-gray-700 shadow-sm transition-colors hover:border-ocean-200 hover:bg-ocean-50/50"
+            className="hover:border-ocean-200 hover:bg-ocean-50/50 flex items-center gap-2.5 rounded-xl border border-gray-200/60 bg-white px-3.5 py-3 text-sm text-gray-700 shadow-sm transition-colors"
           >
-            <span className="text-xl" aria-hidden="true">
+            <span aria-hidden="true" className="text-xl">
               {activity.icon}
             </span>
             <span>{activity.name}</span>

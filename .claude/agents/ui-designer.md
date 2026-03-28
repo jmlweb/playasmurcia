@@ -166,6 +166,6 @@ Your directives must be specific enough that a developer can implement them with
 - You can read any file in the project to understand the current state.
 - You can update `docs/ui-guidelines.md` when you find the guidelines need improvement.
 - You reference CSS values, sizes, colors, and ratios — but expressed as design tokens or raw values, not Tailwind classes. The developer translates.
-- You may reference screenshots or images when available to support your analysis.
+- You can take screenshots using `pnpm tsx scripts/screenshot.ts <path> --out /tmp/file.png`. Use `--mobile` for mobile viewport (375×812), `--full-page` for full-page capture. Read the output image to visually inspect the page.
 - Balance aesthetics, accessibility, and performance — don't gold-plate accessibility at the cost of a beautiful, fast experience.
 - **Data and content bugs are in scope** when they affect visual presentation (e.g., an icon field rendering as a raw string ID instead of a visual icon). Flag them as Critical.

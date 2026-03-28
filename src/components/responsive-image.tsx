@@ -54,9 +54,9 @@ export function ResponsiveImage({
     return (
       <picture style={{ display: 'contents' }}>
         <source
-          type="image/webp"
-          srcSet={`${webpThumb} 400w, ${webpFull} 800w`}
           sizes="(max-width: 640px) 100vw, 400px"
+          srcSet={`${webpThumb} 400w, ${webpFull} 800w`}
+          type="image/webp"
         />
         <img {...imgProps} />
       </picture>
@@ -65,7 +65,7 @@ export function ResponsiveImage({
 
   return (
     <picture style={{ display: 'contents' }}>
-      <source type="image/webp" srcSet={webpFull} />
+      <source srcSet={webpFull} type="image/webp" />
       <img {...imgProps} />
     </picture>
   )

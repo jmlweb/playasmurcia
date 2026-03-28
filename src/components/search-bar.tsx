@@ -1,12 +1,16 @@
-import { type ChangeEvent, useEffect, useRef, useState } from "react"
+import { type ChangeEvent, useEffect, useRef, useState } from 'react'
 
-interface SearchBarProps {
+type SearchBarProps = {
   value: string
   onChange: (value: string) => void
   placeholder?: string
 }
 
-export function SearchBar({ value, onChange, placeholder = "Buscar playa..." }: SearchBarProps) {
+export function SearchBar({
+  value,
+  onChange,
+  placeholder = 'Buscar playa...',
+}: SearchBarProps) {
   const [localValue, setLocalValue] = useState(value)
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
@@ -25,12 +29,12 @@ export function SearchBar({ value, onChange, placeholder = "Buscar playa..." }: 
   }
 
   function handleClear() {
-    setLocalValue("")
-    onChange("")
+    setLocalValue('')
+    onChange('')
   }
 
   return (
-    <div role="search" className="relative w-full">
+    <div className="relative w-full" role="search">
       <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
         <svg
           aria-hidden="true"
@@ -40,34 +44,39 @@ export function SearchBar({ value, onChange, placeholder = "Buscar playa..." }: 
           viewBox="0 0 24 24"
         >
           <path
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
           />
         </svg>
       </div>
       <input
+        aria-label="Buscar playa por nombre"
+        className="focus:ring-ocean-400 w-full rounded-full border-0 bg-white/95 py-3.5 pr-10 pl-11 text-base text-gray-900 placeholder-gray-400 shadow-lg backdrop-blur-sm transition-shadow focus:bg-white focus:shadow-xl focus:ring-2 focus:outline-none"
+        placeholder={placeholder}
         type="search"
         value={localValue}
         onChange={handleChange}
-        placeholder={placeholder}
-        aria-label="Buscar playa por nombre"
-        className="w-full rounded-full border-0 bg-white/95 py-3.5 pr-10 pl-11 text-base text-gray-900 shadow-lg placeholder-gray-400 backdrop-blur-sm transition-shadow focus:bg-white focus:shadow-xl focus:ring-2 focus:ring-ocean-400 focus:outline-none"
       />
       {localValue && (
         <button
-          type="button"
-          onClick={handleClear}
           aria-label="Limpiar búsqueda"
           className="absolute inset-y-0 right-0 flex cursor-pointer items-center pr-3 text-gray-500 hover:text-gray-600"
+          type="button"
+          onClick={handleClear}
         >
-          <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg
+            className="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
             <path
+              d="M6 18L18 6M6 6l12 12"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
             />
           </svg>
         </button>

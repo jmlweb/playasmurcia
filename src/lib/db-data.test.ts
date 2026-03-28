@@ -1,4 +1,5 @@
-import { describe, expect, it } from "vitest"
+import { describe, expect, it } from 'vitest'
+
 import {
   beachToSlug,
   getAllBeaches,
@@ -11,59 +12,59 @@ import {
   getMunicipalityBySlug,
   getService,
   municipalityToSlug,
-} from "./db-data"
+} from './db-data'
 
-describe("db-data module", () => {
-  describe("getAllBeaches", () => {
-    it("returns beaches array with data", async () => {
+describe('db-data module', () => {
+  describe('getAllBeaches', () => {
+    it('returns beaches array with data', async () => {
       const beaches = await getAllBeaches()
 
       expect(Array.isArray(beaches)).toBe(true)
       expect(beaches.length).toBeGreaterThan(0)
     })
 
-    it("returns beaches with correct structure", async () => {
+    it('returns beaches with correct structure', async () => {
       const beaches = await getAllBeaches()
       const beach = beaches[0]
 
-      expect(beach).toHaveProperty("code")
-      expect(beach).toHaveProperty("name")
-      expect(beach).toHaveProperty("municipality")
-      expect(beach).toHaveProperty("sea")
-      expect(beach).toHaveProperty("coordinates")
-      expect(beach).toHaveProperty("soilType")
-      expect(beach).toHaveProperty("description")
-      expect(beach).toHaveProperty("services")
-      expect(beach).toHaveProperty("activities")
+      expect(beach).toHaveProperty('code')
+      expect(beach).toHaveProperty('name')
+      expect(beach).toHaveProperty('municipality')
+      expect(beach).toHaveProperty('sea')
+      expect(beach).toHaveProperty('coordinates')
+      expect(beach).toHaveProperty('soilType')
+      expect(beach).toHaveProperty('description')
+      expect(beach).toHaveProperty('services')
+      expect(beach).toHaveProperty('activities')
       expect(Array.isArray(beach.coordinates)).toBe(true)
       expect(beach.coordinates).toHaveLength(2)
     })
   })
 
-  describe("getBeachByCode", () => {
-    it("finds beach by code", async () => {
-      const beach = await getBeachByCode("575")
+  describe('getBeachByCode', () => {
+    it('finds beach by code', async () => {
+      const beach = await getBeachByCode('575')
 
       expect(beach).toBeDefined()
-      expect(beach?.code).toBe("575")
+      expect(beach?.code).toBe('575')
     })
 
-    it("returns undefined for non-existent code", async () => {
-      const beach = await getBeachByCode("999999")
+    it('returns undefined for non-existent code', async () => {
+      const beach = await getBeachByCode('999999')
 
       expect(beach).toBeUndefined()
     })
   })
 
-  describe("beachToSlug", () => {
-    it("converts to lowercase and replaces spaces", () => {
+  describe('beachToSlug', () => {
+    it('converts to lowercase and replaces spaces', () => {
       const slug = beachToSlug({
-        code: "1",
-        name: "PLAYA GRANDE",
+        code: '1',
+        name: 'PLAYA GRANDE',
         municipality: 0,
         sea: 0,
         coordinates: [0, 0],
-        soilType: "Arena",
+        soilType: 'Arena',
         nudist: false,
         promenade: false,
         anchorageZone: false,
@@ -71,24 +72,24 @@ describe("db-data module", () => {
         lifeguard: false,
         services: [],
         activities: [],
-        description: "",
-        access: "",
+        description: '',
+        access: '',
         nearby: [],
-        orientation: "",
-        instagramHashtag: "",
+        orientation: '',
+        instagramHashtag: '',
       })
 
-      expect(slug).toBe("playa-grande")
+      expect(slug).toBe('playa-grande')
     })
 
-    it("removes accents and diacritics", () => {
+    it('removes accents and diacritics', () => {
       const slug = beachToSlug({
-        code: "1",
-        name: "Playa de Cañón Águilas",
+        code: '1',
+        name: 'Playa de Cañón Águilas',
         municipality: 0,
         sea: 0,
         coordinates: [0, 0],
-        soilType: "Arena",
+        soilType: 'Arena',
         nudist: false,
         promenade: false,
         anchorageZone: false,
@@ -96,32 +97,32 @@ describe("db-data module", () => {
         lifeguard: false,
         services: [],
         activities: [],
-        description: "",
-        access: "",
+        description: '',
+        access: '',
         nearby: [],
-        orientation: "",
-        instagramHashtag: "",
+        orientation: '',
+        instagramHashtag: '',
       })
 
-      expect(slug).toBe("playa-de-canon-aguilas")
+      expect(slug).toBe('playa-de-canon-aguilas')
     })
   })
 
-  describe("getBeachBySlug", () => {
-    it("finds beach by normalized slug", async () => {
-      const beach = await getBeachBySlug("cala-abierta")
+  describe('getBeachBySlug', () => {
+    it('finds beach by normalized slug', async () => {
+      const beach = await getBeachBySlug('cala-abierta')
 
       expect(beach).toBeDefined()
-      expect(beach?.name).toBe("Cala Abierta")
+      expect(beach?.name).toBe('Cala Abierta')
     })
 
-    it("returns undefined for non-existent slug", async () => {
-      const beach = await getBeachBySlug("non-existent-beach")
+    it('returns undefined for non-existent slug', async () => {
+      const beach = await getBeachBySlug('non-existent-beach')
 
       expect(beach).toBeUndefined()
     })
 
-    it("slug lookup is consistent with beachToSlug", async () => {
+    it('slug lookup is consistent with beachToSlug', async () => {
       const beaches = await getAllBeaches()
       const testBeach = beaches[0]
       const slug = beachToSlug(testBeach)
@@ -132,64 +133,64 @@ describe("db-data module", () => {
     })
   })
 
-  describe("getMunicipality", () => {
-    it("returns correct municipality by index", async () => {
+  describe('getMunicipality', () => {
+    it('returns correct municipality by index', async () => {
       const municipality = await getMunicipality(0)
 
       expect(municipality).toBeDefined()
-      expect(municipality.name).toBe("Cartagena")
-      expect(municipality.id).toBe("30016")
+      expect(municipality.name).toBe('Cartagena')
+      expect(municipality.id).toBe('30016')
     })
 
-    it("returns correct municipality for different indices", async () => {
+    it('returns correct municipality for different indices', async () => {
       const municipality1 = await getMunicipality(1)
       const municipality2 = await getMunicipality(2)
 
-      expect(municipality1.name).toBe("Lorca")
-      expect(municipality2.name).toBe("Águilas")
+      expect(municipality1.name).toBe('Lorca')
+      expect(municipality2.name).toBe('Águilas')
     })
 
-    it("returns municipality with correct structure", async () => {
+    it('returns municipality with correct structure', async () => {
       const municipality = await getMunicipality(0)
 
-      expect(municipality).toHaveProperty("name")
-      expect(municipality).toHaveProperty("id")
-      expect(typeof municipality.name).toBe("string")
-      expect(typeof municipality.id).toBe("string")
+      expect(municipality).toHaveProperty('name')
+      expect(municipality).toHaveProperty('id')
+      expect(typeof municipality.name).toBe('string')
+      expect(typeof municipality.id).toBe('string')
     })
   })
 
-  describe("getService", () => {
-    it("returns correct service by index", async () => {
+  describe('getService', () => {
+    it('returns correct service by index', async () => {
       const service = await getService(0)
 
       expect(service).toBeDefined()
-      expect(service.id).toBe("parking")
-      expect(service.name).toBe("Parking")
+      expect(service.id).toBe('parking')
+      expect(service.name).toBe('Parking')
     })
 
-    it("returns correct service for different indices", async () => {
+    it('returns correct service for different indices', async () => {
       const service1 = await getService(1)
       const service2 = await getService(2)
 
-      expect(service1.id).toBe("showers")
-      expect(service2.id).toBe("toilets")
+      expect(service1.id).toBe('showers')
+      expect(service2.id).toBe('toilets')
     })
 
-    it("returns service with correct structure", async () => {
+    it('returns service with correct structure', async () => {
       const service = await getService(0)
 
-      expect(service).toHaveProperty("id")
-      expect(service).toHaveProperty("name")
-      expect(service).toHaveProperty("icon")
-      expect(typeof service.id).toBe("string")
-      expect(typeof service.name).toBe("string")
-      expect(typeof service.icon).toBe("string")
+      expect(service).toHaveProperty('id')
+      expect(service).toHaveProperty('name')
+      expect(service).toHaveProperty('icon')
+      expect(typeof service.id).toBe('string')
+      expect(typeof service.name).toBe('string')
+      expect(typeof service.icon).toBe('string')
     })
   })
 
-  describe("getAllMunicipalities", () => {
-    it("returns all municipalities", async () => {
+  describe('getAllMunicipalities', () => {
+    it('returns all municipalities', async () => {
       const municipalities = await getAllMunicipalities()
 
       expect(Array.isArray(municipalities)).toBe(true)
@@ -197,8 +198,8 @@ describe("db-data module", () => {
     })
   })
 
-  describe("getAllServices", () => {
-    it("returns all services", async () => {
+  describe('getAllServices', () => {
+    it('returns all services', async () => {
       const services = await getAllServices()
 
       expect(Array.isArray(services)).toBe(true)
@@ -206,43 +207,46 @@ describe("db-data module", () => {
     })
   })
 
-  describe("municipalityToSlug", () => {
-    it("converts name to lowercase slug with hyphens", () => {
-      const slug = municipalityToSlug({ name: "San Pedro del Pinatar", id: "30031" })
-      expect(slug).toBe("san-pedro-del-pinatar")
+  describe('municipalityToSlug', () => {
+    it('converts name to lowercase slug with hyphens', () => {
+      const slug = municipalityToSlug({
+        name: 'San Pedro del Pinatar',
+        id: '30031',
+      })
+      expect(slug).toBe('san-pedro-del-pinatar')
     })
 
-    it("removes accents and diacritics", () => {
-      const slug = municipalityToSlug({ name: "Águilas", id: "30003" })
-      expect(slug).toBe("aguilas")
+    it('removes accents and diacritics', () => {
+      const slug = municipalityToSlug({ name: 'Águilas', id: '30003' })
+      expect(slug).toBe('aguilas')
     })
 
-    it("handles already lowercase names", () => {
-      const slug = municipalityToSlug({ name: "Cartagena", id: "30016" })
-      expect(slug).toBe("cartagena")
+    it('handles already lowercase names', () => {
+      const slug = municipalityToSlug({ name: 'Cartagena', id: '30016' })
+      expect(slug).toBe('cartagena')
     })
   })
 
-  describe("getMunicipalityBySlug", () => {
-    it("finds municipality by slug", async () => {
-      const result = await getMunicipalityBySlug("cartagena")
+  describe('getMunicipalityBySlug', () => {
+    it('finds municipality by slug', async () => {
+      const result = await getMunicipalityBySlug('cartagena')
       expect(result).toBeDefined()
-      expect(result?.municipality.name).toBe("Cartagena")
+      expect(result?.municipality.name).toBe('Cartagena')
       expect(result?.index).toBe(0)
     })
 
-    it("finds municipality with accented name by slug", async () => {
-      const result = await getMunicipalityBySlug("aguilas")
+    it('finds municipality with accented name by slug', async () => {
+      const result = await getMunicipalityBySlug('aguilas')
       expect(result).toBeDefined()
-      expect(result?.municipality.name).toBe("Águilas")
+      expect(result?.municipality.name).toBe('Águilas')
     })
 
-    it("returns undefined for non-existent slug", async () => {
-      const result = await getMunicipalityBySlug("non-existent-municipality")
+    it('returns undefined for non-existent slug', async () => {
+      const result = await getMunicipalityBySlug('non-existent-municipality')
       expect(result).toBeUndefined()
     })
 
-    it("slug lookup is consistent with municipalityToSlug", async () => {
+    it('slug lookup is consistent with municipalityToSlug', async () => {
       const municipalities = await getAllMunicipalities()
       const testMunicipality = municipalities[0]
       const slug = municipalityToSlug(testMunicipality)
@@ -252,8 +256,8 @@ describe("db-data module", () => {
     })
   })
 
-  describe("getBeachesByMunicipality", () => {
-    it("returns beaches for a given municipality index", async () => {
+  describe('getBeachesByMunicipality', () => {
+    it('returns beaches for a given municipality index', async () => {
       const beaches = await getBeachesByMunicipality(0)
       expect(Array.isArray(beaches)).toBe(true)
       expect(beaches.length).toBeGreaterThan(0)
@@ -262,19 +266,19 @@ describe("db-data module", () => {
       }
     })
 
-    it("returns empty array for municipality with no beaches", async () => {
+    it('returns empty array for municipality with no beaches', async () => {
       const beaches = await getBeachesByMunicipality(999)
       expect(beaches).toEqual([])
     })
 
-    it("returns beaches that only belong to the requested municipality", async () => {
+    it('returns beaches that only belong to the requested municipality', async () => {
       const beaches = await getBeachesByMunicipality(2)
       for (const beach of beaches) {
         expect(beach.municipality).toBe(2)
       }
     })
 
-    it("total beaches across all municipalities equals total beaches count", async () => {
+    it('total beaches across all municipalities equals total beaches count', async () => {
       const allBeaches = await getAllBeaches()
       const municipalities = await getAllMunicipalities()
       let totalFromMunicipalities = 0
@@ -286,18 +290,20 @@ describe("db-data module", () => {
     })
   })
 
-  describe("data consistency with JSON source", () => {
-    it("returns the same number of beaches as JSON", async () => {
-      const jsonBeaches = (await import("../../data/beaches.json")).default
+  describe('data consistency with JSON source', () => {
+    it('returns the same number of beaches as JSON', async () => {
+      const jsonBeaches = (await import('../../data/beaches.json')).default
       const dbBeaches = await getAllBeaches()
 
       expect(dbBeaches.length).toBe(jsonBeaches.length)
     })
 
-    it("returns the same beach data for a known beach", async () => {
-      const jsonBeaches = (await import("../../data/beaches.json")).default
-      const jsonBeach = jsonBeaches.find((b: { code: string }) => b.code === "575")
-      const dbBeach = await getBeachByCode("575")
+    it('returns the same beach data for a known beach', async () => {
+      const jsonBeaches = (await import('../../data/beaches.json')).default
+      const jsonBeach = jsonBeaches.find(
+        (b: { code: string }) => b.code === '575',
+      )
+      const dbBeach = await getBeachByCode('575')
 
       expect(dbBeach).toBeDefined()
       expect(dbBeach?.name).toBe(jsonBeach?.name)
@@ -312,8 +318,10 @@ describe("db-data module", () => {
       expect(dbBeach?.coordinates[1]).toBeCloseTo(jsonBeach!.coordinates[1], 4)
     })
 
-    it("municipalities match between JSON and DB", async () => {
-      const jsonMunicipalities = (await import("../../data/municipalities.json")).default
+    it('municipalities match between JSON and DB', async () => {
+      const jsonMunicipalities = (
+        await import('../../data/municipalities.json')
+      ).default
       const dbMunicipalities = await getAllMunicipalities()
 
       expect(dbMunicipalities.length).toBe(jsonMunicipalities.length)
@@ -323,8 +331,8 @@ describe("db-data module", () => {
       }
     })
 
-    it("services match between JSON and DB", async () => {
-      const jsonServices = (await import("../../data/services.json")).default
+    it('services match between JSON and DB', async () => {
+      const jsonServices = (await import('../../data/services.json')).default
       const dbServices = await getAllServices()
 
       expect(dbServices.length).toBe(jsonServices.length)

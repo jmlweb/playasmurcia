@@ -9,9 +9,9 @@
 | **Vite** | Build tool |
 | **Tailwind CSS v4** | Styling |
 | **TypeScript** | Language (strict mode) |
-| **ESLint** | Linting (TanStack config) |
-| **Prettier** | Formatting (Tailwind plugin) |
-| **Vitest** | Testing |
+| **ESLint** | Linting ([`@jmlweb/eslint-config-react`](https://www.npmjs.com/package/@jmlweb/eslint-config-react)) |
+| **Prettier** | Formatting ([`@jmlweb/prettier-config-tailwind`](https://www.npmjs.com/package/@jmlweb/prettier-config-tailwind)) |
+| **Vitest** | Testing (extends [`@jmlweb/vitest-config`](https://www.npmjs.com/package/@jmlweb/vitest-config); coverage thresholds disabled for this repo) |
 | **Testing Library** | Component testing |
 | **pnpm** | Package manager |
 | **Turso (libSQL)** | Edge database (runtime data) |

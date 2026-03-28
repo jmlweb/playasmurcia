@@ -1,12 +1,9 @@
-//  @ts-check
+// @ts-check
+
+import tailwind from '@jmlweb/prettier-config-tailwind'
 
 /** @type {import('prettier').Config} */
-const config = {
+export default {
+  ...tailwind,
   semi: false,
-  singleQuote: true,
-  trailingComma: 'all',
-  tabWidth: 2,
-  plugins: ['prettier-plugin-tailwindcss'],
 }
-
-export default config

@@ -2,6 +2,8 @@
 
 This document describes the data structure for beaches in the Region of Murcia, Spain.
 
+> **Source of truth**: `src/db/schema.ts` (database) and `src/types/beach.ts` (TypeScript types). This document is a human-readable reference — always verify against source files when in doubt.
+
 ## Data Files
 
 | File | Description | Count |

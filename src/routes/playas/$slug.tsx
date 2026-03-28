@@ -1,40 +1,66 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
-import { beachToSlug } from '@/lib/slugs'
-import { generateBeachSchema } from '@/lib/schema'
-import { PhotoGallery } from '@/components/photo-gallery'
-import { ServicesGrid } from '@/components/services-grid'
+
 import { ActivitiesGrid } from '@/components/activities-grid'
+import { BeachStatusWidget } from '@/components/beach-status-widget'
+import { Breadcrumb } from '@/components/breadcrumb'
 import { CertificationsBadge } from '@/components/certifications-badge'
-import { PracticalInfoCard } from '@/components/practical-info-card'
-import { NearbyCarousel } from '@/components/nearby-carousel'
 import { ContactInfo } from '@/components/contact-info'
 import { LocationMap } from '@/components/location-map'
+import { NearbyCarousel } from '@/components/nearby-carousel'
+import { PhotoGallery } from '@/components/photo-gallery'
+import { PracticalInfoCard } from '@/components/practical-info-card'
+import { ServicesGrid } from '@/components/services-grid'
 import { TagsSection } from '@/components/tags-section'
 import { WeatherWidget } from '@/components/weather-widget'
-import { BeachStatusWidget } from '@/components/beach-status-widget'
+import { generateBeachSchema } from '@/lib/schema'
+import { beachToSlug, municipalityToSlug } from '@/lib/slugs'
 
-const fetchBeachData = createServerFn({ method: 'GET' }).handler(async (ctx: { data: { slug: string } }) => {
-  const { beachToSlug: toSlug, getBeachBySlug, getMunicipality, getAllServices, getAllActivities, getAllTags, getNearbyBeaches, getMunicipalityMap } = await import('@/lib/db-data')
-  const beach = await getBeachBySlug(ctx.data.slug)
-  if (!beach) return null
+const fetchBeachData = createServerFn({ method: 'GET' }).handler(
+  async (ctx: { data: { slug: string } }) => {
+    const {
+      beachToSlug: toSlug,
+      getBeachBySlug,
+      getMunicipality,
+      getAllServices,
+      getAllActivities,
+      getAllTags,
+      getNearbyBeaches,
+      getMunicipalityMap,
+    } = await import('@/lib/db-data')
+    const beach = await getBeachBySlug(ctx.data.slug)
+    if (!beach) return null
 
-  const [municipality, services, activities, tags, nearbyBeaches, municipalityMap] = await Promise.all([
-    getMunicipality(beach.municipality),
-    getAllServices(),
-    getAllActivities(),
-    getAllTags(),
-    getNearbyBeaches(beach.nearby),
-    getMunicipalityMap(),
-  ])
+    const [
+      municipality,
+      services,
+      activities,
+      tags,
+      nearbyBeaches,
+      municipalityMap,
+    ] = await Promise.all([
+      getMunicipality(beach.municipality),
+      getAllServices(),
+      getAllActivities(),
+      getAllTags(),
+      getNearbyBeaches(beach.nearby),
+      getMunicipalityMap(),
+    ])
 
-  const nearbyItems = nearbyBeaches.map((nearbyBeach) => {
-    const nearbyMunicipality = municipalityMap.get(nearbyBeach.municipality) ?? { name: '', id: '' }
-    return { beach: nearbyBeach, municipality: nearbyMunicipality, slug: toSlug(nearbyBeach) }
-  })
+    const nearbyItems = nearbyBeaches.map((nearbyBeach) => {
+      const nearbyMunicipality = municipalityMap.get(
+        nearbyBeach.municipality,
+      ) ?? { name: '', id: '' }
+      return {
+        beach: nearbyBeach,
+        municipality: nearbyMunicipality,
+        slug: toSlug(nearbyBeach),
+      }
+    })
 
-  return { beach, municipality, services, activities, tags, nearbyItems }
-})
+    return { beach, municipality, services, activities, tags, nearbyItems }
+  },
+)
 
 export const Route = createFileRoute('/playas/$slug')({
   loader: async ({ params }) => {
@@ -84,23 +110,16 @@ function BeachPage() {
       {/* Hero / Gallery */}
       <div className="bg-white">
         <div className="mx-auto max-w-7xl px-4 pt-6 pb-4 sm:px-6 lg:px-8">
-          <nav
-            className="mb-5 text-sm text-gray-500"
-            aria-label="Ruta de navegacion"
-          >
-            <a
-              href="/"
-              className="transition-colors hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:underline focus:outline-none"
-            >
-              Inicio
-            </a>
-            <span className="mx-2" aria-hidden="true">
-              /
-            </span>
-            <span className="text-gray-600" aria-current="page">
-              {beach.name}
-            </span>
-          </nav>
+          <Breadcrumb
+            items={[
+              { label: 'Inicio', href: '/' },
+              {
+                label: municipality.name,
+                href: `/municipios/${municipalityToSlug(municipality)}`,
+              },
+              { label: beach.name },
+            ]}
+          />
 
           <div className="mb-5 flex flex-wrap items-start gap-4">
             <div className="flex-1">
@@ -112,19 +131,19 @@ function BeachPage() {
               </p>
             </div>
             {beach.tags && beach.tags.length > 0 && (
-              <TagsSection tagIndices={beach.tags} allTags={tags} />
+              <TagsSection allTags={tags} tagIndices={beach.tags} />
             )}
           </div>
-
-          {beach.certifications && beach.certifications.length > 0 && (
-            <div className="mb-5">
-              <CertificationsBadge certifications={beach.certifications} />
-            </div>
-          )}
         </div>
 
         <div className="mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
-          <PhotoGallery pictures={pictures} beachName={beach.name} />
+          <PhotoGallery beachName={beach.name} pictures={pictures} />
+
+          {beach.certifications && beach.certifications.length > 0 && (
+            <div className="mt-5">
+              <CertificationsBadge certifications={beach.certifications} />
+            </div>
+          )}
         </div>
       </div>
 
@@ -134,7 +153,7 @@ function BeachPage() {
           <div className="space-y-8 lg:col-span-2">
             {/* Description */}
             <section className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm">
-              <h2 className="mb-3 text-2xl font-semibold text-gray-900">
+              <h2 className="mb-3 text-xl font-semibold text-gray-900">
                 Sobre esta playa
               </h2>
               <p className="leading-relaxed text-gray-600">
@@ -144,18 +163,22 @@ function BeachPage() {
 
             {/* Services */}
             {beach.services.length > 0 && (
-              <ServicesGrid
-                serviceIndices={beach.services}
-                allServices={services}
-              />
+              <div className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm">
+                <ServicesGrid
+                  allServices={services}
+                  serviceIndices={beach.services}
+                />
+              </div>
             )}
 
             {/* Activities */}
             {beach.activities.length > 0 && (
-              <ActivitiesGrid
-                activityIndices={beach.activities}
-                allActivities={activities}
-              />
+              <div className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm">
+                <ActivitiesGrid
+                  activityIndices={beach.activities}
+                  allActivities={activities}
+                />
+              </div>
             )}
 
             {/* How to get there */}
@@ -170,8 +193,8 @@ function BeachPage() {
 
             {/* Map */}
             <LocationMap
-              coordinates={beach.coordinates}
               beachName={beach.name}
+              coordinates={beach.coordinates}
             />
 
             {/* Nearby beaches */}
@@ -180,7 +203,10 @@ function BeachPage() {
 
           {/* Sidebar */}
           <div className="space-y-6 lg:sticky lg:top-20">
-            <WeatherWidget aemetId={beach.aemetId} coordinates={beach.coordinates} />
+            <WeatherWidget
+              aemetId={beach.aemetId}
+              coordinates={beach.coordinates}
+            />
 
             <BeachStatusWidget
               beachName={beach.name}
@@ -188,23 +214,23 @@ function BeachPage() {
             />
 
             <PracticalInfoCard
-              length={beach.length}
-              soilType={beach.soilType}
-              waves={beach.waves}
-              occupancyLevel={beach.occupancyLevel}
               accessDifficulty={beach.accessDifficulty}
-              childSafe={beach.childSafe}
-              naturalShade={beach.naturalShade}
-              waterQuality={beach.waterQuality}
               bestSeason={beach.bestSeason}
+              childSafe={beach.childSafe}
+              length={beach.length}
+              naturalShade={beach.naturalShade}
+              occupancyLevel={beach.occupancyLevel}
               orientation={beach.orientation}
+              soilType={beach.soilType}
+              waterQuality={beach.waterQuality}
+              waves={beach.waves}
             />
 
             <ContactInfo
-              phone={beach.phone}
               email={beach.email}
-              realUrl={beach.realUrl}
               instagramHashtag={beach.instagramHashtag}
+              phone={beach.phone}
+              realUrl={beach.realUrl}
             />
           </div>
         </div>
