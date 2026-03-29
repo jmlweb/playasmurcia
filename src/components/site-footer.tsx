@@ -1,3 +1,5 @@
+import { Link } from '@tanstack/react-router'
+
 type FooterMunicipality = {
   name: string
   slug: string
@@ -26,15 +28,15 @@ export function SiteFooter({
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {/* Branding */}
           <div>
-            <a
+            <Link
               className="text-lg font-bold text-white transition-opacity hover:opacity-80"
-              href="/"
+              to="/"
             >
               Playas de Murcia
-            </a>
+            </Link>
             <p className="text-ocean-300 mt-3 text-sm leading-relaxed">
-              Guia completa de las playas y calas de la Region de Murcia. Costa
-              Calida, entre el Mediterraneo y el Mar Menor.
+              Guía completa de las playas y calas de la Región de Murcia. Costa
+              Cálida, entre el Mediterráneo y el Mar Menor.
             </p>
           </div>
 
@@ -46,15 +48,16 @@ export function SiteFooter({
             <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
               {municipalities.map((m) => (
                 <li key={m.slug}>
-                  <a
+                  <Link
                     className="group text-ocean-200 flex items-center gap-1.5 text-sm transition-colors hover:text-white"
-                    href={`/municipios/${m.slug}`}
+                    params={{ slug: m.slug }}
+                    to="/municipios/$slug"
                   >
                     {m.name}
                     <span className="bg-ocean-800 text-ocean-400 group-hover:text-ocean-300 rounded-full px-1.5 py-0.5 text-[10px] font-medium transition-colors">
                       {m.beachCount}
                     </span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -68,31 +71,32 @@ export function SiteFooter({
             <ul className="space-y-2">
               {characteristics.map((c) => (
                 <li key={c.href}>
-                  <a
+                  <Link
                     className="group text-ocean-200 flex items-center gap-1.5 text-sm transition-colors hover:text-white"
-                    href={c.href}
+                    params={{ slug: c.href.split('/').pop()! }}
+                    to="/colecciones/$slug"
                   >
                     {c.label}
                     <span className="bg-ocean-800 text-ocean-400 group-hover:text-ocean-300 rounded-full px-1.5 py-0.5 text-[10px] font-medium transition-colors">
                       {c.count}
                     </span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
             <div className="border-ocean-800 mt-4 flex flex-col gap-2 border-t pt-4">
-              <a
+              <Link
                 className="text-ocean-200 text-sm transition-colors hover:text-white"
-                href="/explorar"
+                to="/explorar"
               >
                 Explorar playas
-              </a>
-              <a
+              </Link>
+              <Link
                 className="text-ocean-200 text-sm transition-colors hover:text-white"
-                href="/colecciones"
+                to="/colecciones"
               >
                 Colecciones
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -100,7 +104,7 @@ export function SiteFooter({
         {/* Bottom bar */}
         <div className="border-ocean-800 mt-10 flex flex-col items-center justify-between gap-3 border-t pt-6 sm:flex-row">
           <p className="text-ocean-400 text-xs">
-            Datos del Ministerio de Transicion Ecologica
+            Datos del Ministerio de Transición Ecológica
           </p>
           <p className="text-ocean-500 text-xs">
             &copy; {new Date().getFullYear()} Playas de Murcia

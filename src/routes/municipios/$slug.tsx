@@ -1,4 +1,4 @@
-import { createFileRoute, notFound } from '@tanstack/react-router'
+import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import { useMemo, useState } from 'react'
 
@@ -14,12 +14,18 @@ import { sortBeaches } from '@/lib/beach-filters'
 import { generateMunicipalitySchema } from '@/lib/schema'
 import { beachToSlug } from '@/lib/slugs'
 
-const fetchMunicipalityData = createServerFn({ method: 'GET' }).handler(
-  async (ctx: { data: { slug: string } }) => {
+const fetchMunicipalityData = createServerFn({ method: 'GET' })
+  .inputValidator((data: { slug: string }) => {
+    if (typeof data.slug !== 'string' || !data.slug.trim()) {
+      throw new Error('Invalid slug')
+    }
+    return { slug: data.slug.trim() }
+  })
+  .handler(async ({ data }) => {
     const { getAllTags, getBeachesByMunicipality, getMunicipalityBySlug } =
       await import('@/lib/db-data')
     const { fetchBatchCardWeather } = await import('@/lib/open-meteo')
-    const result = await getMunicipalityBySlug(ctx.data.slug)
+    const result = await getMunicipalityBySlug(data.slug)
     if (!result) return null
 
     const { municipality, index } = result
@@ -38,11 +44,10 @@ const fetchMunicipalityData = createServerFn({ method: 'GET' }).handler(
       beaches,
       tags,
       blueFlagCount,
-      slug: ctx.data.slug,
+      slug: data.slug,
       weatherData,
     }
-  },
-)
+  })
 
 export const Route = createFileRoute('/municipios/$slug')({
   loader: async ({ params }) => {
@@ -85,8 +90,12 @@ function MunicipalityPage() {
   const { municipality, beaches, tags, blueFlagCount, weatherData } =
     Route.useLoaderData()
   const PAGE_SIZE = 15
-  const [sort, setSort] = useState<NonNullable<BeachSearchParams['sort']>>('recomendados')
-  const sortedBeaches = useMemo(() => sortBeaches(beaches, sort), [beaches, sort])
+  const [sort, setSort] =
+    useState<NonNullable<BeachSearchParams['sort']>>('recomendados')
+  const sortedBeaches = useMemo(
+    () => sortBeaches(beaches, sort),
+    [beaches, sort],
+  )
   const [currentPage, setCurrentPage] = useState(1)
   const totalPages = Math.ceil(sortedBeaches.length / PAGE_SIZE)
   const visibleBeaches = sortedBeaches.slice(
@@ -175,12 +184,12 @@ function MunicipalityPage() {
         )}
 
         <div className="mt-12 text-center">
-          <a
-            className="text-ocean-600 hover:text-ocean-700 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:underline"
-            href="/municipios"
+          <Link
+            className="text-ocean-600 hover:text-ocean-700 text-sm font-medium transition-colors focus-visible:underline focus-visible:outline-none"
+            to="/municipios"
           >
             ← Volver a municipios
-          </a>
+          </Link>
         </div>
       </div>
     </main>

@@ -41,10 +41,10 @@ export const Route = createFileRoute('/')({
   loader: () => fetchHomeData(),
   head: ({ loaderData }) => ({
     meta: [
-      { title: 'Playas de Murcia - Descubre la Costa Calida' },
+      { title: 'Playas de Murcia - Descubre la Costa Cálida' },
       {
         name: 'description',
-        content: `Descubre las mejores playas de la Region de Murcia. ${loaderData?.totalBeaches ?? 194} playas y calas en la Costa Calida, entre el Mediterraneo y el Mar Menor.`,
+        content: `Descubre las mejores playas de la Región de Murcia. ${loaderData?.totalBeaches ?? 194} playas y calas en la Costa Cálida, entre el Mediterráneo y el Mar Menor.`,
       },
     ],
   }),
@@ -81,16 +81,16 @@ function HomePage() {
         <div className="from-ocean-900/70 via-ocean-900/75 to-ocean-900/90 absolute inset-0 bg-gradient-to-b" />
         <div className="relative mx-auto max-w-4xl text-center">
           <p className="text-ocean-300 animate-fade-up mb-4 text-sm font-semibold tracking-[0.2em] uppercase sm:text-base">
-            Costa Calida &middot; Region de Murcia
+            Costa Cálida &middot; Región de Murcia
           </p>
           <h1 className="animate-fade-up mb-6 text-4xl font-extrabold tracking-tight text-white [animation-delay:75ms] sm:text-5xl lg:text-6xl xl:text-7xl">
-            Donde el Mediterraneo
+            Donde el Mediterráneo
             <br className="hidden sm:block" /> abraza la costa
           </h1>
           <p className="text-ocean-100 animate-fade-up mx-auto mb-10 max-w-2xl text-lg leading-relaxed [animation-delay:150ms] sm:text-xl">
-            252 kilometros de litoral, {totalBeaches} playas y calas entre dos
+            252 kilómetros de litoral, {totalBeaches} playas y calas entre dos
             mares. Desde las aguas cristalinas de Cabo de Palos hasta las
-            calidas orillas del Mar Menor, descubre tu playa ideal.
+            cálidas orillas del Mar Menor, descubre tu playa ideal.
           </p>
           <div className="animate-fade-up flex flex-col items-center gap-4 [animation-delay:225ms] sm:flex-row sm:justify-center">
             <Link
@@ -128,7 +128,7 @@ function HomePage() {
         <div className="mb-10 flex items-end justify-between">
           <div>
             <p className="text-ocean-600 mb-2 text-sm font-semibold tracking-wider uppercase">
-              Seleccion destacada
+              Selección destacada
             </p>
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               Playas que no te puedes perder
@@ -196,10 +196,11 @@ function HomePage() {
           </div>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {municipalityNav.map((m) => (
-              <a
+              <Link
                 key={m.slug}
-                className="group bg-sand-50 hover:ring-ocean-200 flex items-center gap-4 rounded-xl px-5 py-6 ring-1 ring-gray-200/60 transition-all motion-safe:hover:-translate-y-0.5 hover:shadow-md"
-                href={`/municipios/${m.slug}`}
+                className="group bg-sand-50 hover:ring-ocean-200 flex items-center gap-4 rounded-xl px-5 py-6 ring-1 ring-gray-200/60 transition-all hover:shadow-md motion-safe:hover:-translate-y-0.5"
+                params={{ slug: m.slug }}
+                to="/municipios/$slug"
               >
                 <div className="bg-ocean-100 text-ocean-700 group-hover:bg-ocean-200 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-lg font-bold transition-colors">
                   {m.beachCount}
@@ -212,7 +213,7 @@ function HomePage() {
                     {m.beachCount === 1 ? 'playa' : 'playas'}
                   </span>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -223,10 +224,10 @@ function HomePage() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-10">
             <p className="text-ocean-600 mb-2 text-sm font-semibold tracking-wider uppercase">
-              Costa Calida
+              Costa Cálida
             </p>
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Lo que hace unica a nuestra costa
+              Lo que hace única a nuestra costa
             </h2>
           </div>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -251,13 +252,14 @@ function HomePage() {
                 Dos mares
               </h3>
               <p className="text-sm leading-relaxed text-gray-500">
-                El Mediterraneo y el Mar Menor ofrecen experiencias de playa
-                completamente diferentes en pocos kilometros.
+                El Mediterráneo y el Mar Menor ofrecen experiencias de playa
+                completamente diferentes en pocos kilómetros.
               </p>
             </Link>
             <Link
               className="group text-center"
-              to="/colecciones/mejores-atardeceres"
+              params={{ slug: 'mejores-atardeceres' }}
+              to="/colecciones/$slug"
             >
               <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-50 text-amber-600 transition-colors group-hover:bg-amber-100">
                 <svg
@@ -276,16 +278,17 @@ function HomePage() {
                 </svg>
               </div>
               <h3 className="group-hover:text-ocean-600 mb-2 text-lg font-semibold text-gray-900 transition-colors">
-                300 dias de sol
+                300 días de sol
               </h3>
               <p className="text-sm leading-relaxed text-gray-500">
-                Con una de las mejores climatologias de Europa, la Costa Calida
-                hace honor a su nombre durante todo el ano.
+                Con una de las mejores climatologías de Europa, la Costa Cálida
+                hace honor a su nombre durante todo el año.
               </p>
             </Link>
             <Link
               className="group text-center"
-              to="/colecciones/bandera-azul"
+              params={{ slug: 'bandera-azul' }}
+              to="/colecciones/$slug"
             >
               <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 transition-colors group-hover:bg-emerald-100">
                 <svg

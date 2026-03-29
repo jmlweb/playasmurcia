@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 
 import { Breadcrumb } from '@/components/breadcrumb'
@@ -40,26 +40,65 @@ export const Route = createFileRoute('/colecciones/')({
       {
         name: 'description',
         content:
-          'Explora nuestras colecciones tematicas de playas: familiares, nudistas, con chiringuito, bandera azul y mas.',
+          'Explora nuestras colecciones temáticas de playas: familiares, nudistas, con chiringuito, bandera azul y más.',
       },
     ],
   }),
   component: ColeccionesPage,
 })
 
-const ThematicThemes: Record<string, { bg: string; text: string; bar: string }> = {
-  'calas-escondidas': { bg: 'bg-teal-50', text: 'text-teal-600', bar: 'bg-teal-500' },
-  'playas-familiares': { bg: 'bg-amber-50', text: 'text-amber-600', bar: 'bg-amber-500' },
-  'playas-para-perros': { bg: 'bg-orange-50', text: 'text-orange-600', bar: 'bg-orange-500' },
-  'playas-nudistas': { bg: 'bg-rose-50', text: 'text-rose-600', bar: 'bg-rose-500' },
-  'con-chiringuito': { bg: 'bg-purple-50', text: 'text-purple-600', bar: 'bg-purple-500' },
+const ThematicThemes: Record<
+  string,
+  { bg: string; text: string; bar: string }
+> = {
+  'calas-escondidas': {
+    bg: 'bg-teal-50',
+    text: 'text-teal-600',
+    bar: 'bg-teal-500',
+  },
+  'playas-familiares': {
+    bg: 'bg-amber-50',
+    text: 'text-amber-600',
+    bar: 'bg-amber-500',
+  },
+  'playas-para-perros': {
+    bg: 'bg-orange-50',
+    text: 'text-orange-600',
+    bar: 'bg-orange-500',
+  },
+  'playas-nudistas': {
+    bg: 'bg-rose-50',
+    text: 'text-rose-600',
+    bar: 'bg-rose-500',
+  },
+  'con-chiringuito': {
+    bg: 'bg-purple-50',
+    text: 'text-purple-600',
+    bar: 'bg-purple-500',
+  },
   'bandera-azul': { bg: 'bg-sky-50', text: 'text-sky-600', bar: 'bg-sky-500' },
   snorkel: { bg: 'bg-cyan-50', text: 'text-cyan-600', bar: 'bg-cyan-500' },
-  'deportes-acuaticos': { bg: 'bg-indigo-50', text: 'text-indigo-600', bar: 'bg-indigo-500' },
-  'mejores-atardeceres': { bg: 'bg-amber-50', text: 'text-amber-600', bar: 'bg-amber-500' },
-  'playas-tranquilas': { bg: 'bg-green-50', text: 'text-green-600', bar: 'bg-green-500' },
+  'deportes-acuaticos': {
+    bg: 'bg-indigo-50',
+    text: 'text-indigo-600',
+    bar: 'bg-indigo-500',
+  },
+  'mejores-atardeceres': {
+    bg: 'bg-amber-50',
+    text: 'text-amber-600',
+    bar: 'bg-amber-500',
+  },
+  'playas-tranquilas': {
+    bg: 'bg-green-50',
+    text: 'text-green-600',
+    bar: 'bg-green-500',
+  },
   accesibles: { bg: 'bg-blue-50', text: 'text-blue-600', bar: 'bg-blue-500' },
-  'playas-fotogenicas': { bg: 'bg-pink-50', text: 'text-pink-600', bar: 'bg-pink-500' },
+  'playas-fotogenicas': {
+    bg: 'bg-pink-50',
+    text: 'text-pink-600',
+    bar: 'bg-pink-500',
+  },
 }
 
 function CollectionCard({
@@ -80,9 +119,10 @@ function CollectionCard({
   }
 
   return (
-    <a
-      className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none"
-      href={`/colecciones/${slug}`}
+    <Link
+      className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none motion-safe:hover:-translate-y-1"
+      params={{ slug }}
+      to="/colecciones/$slug"
     >
       <div className={`h-2.5 ${theme.bar}`} />
       <div className="flex flex-1 flex-col p-6">
@@ -107,11 +147,11 @@ function CollectionCard({
             {beachCount === 1 ? 'playa' : 'playas'}
           </span>
           <span className="text-ocean-600 group-hover:text-ocean-700 text-sm font-medium transition-colors">
-            Ver coleccion →
+            Ver colección →
           </span>
         </div>
       </div>
-    </a>
+    </Link>
   )
 }
 
@@ -129,9 +169,10 @@ function SeaCollectionCard({
   const isMediterraneo = slug === 'mar-mediterraneo'
 
   return (
-    <a
-      className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none"
-      href={`/colecciones/${slug}`}
+    <Link
+      className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none motion-safe:hover:-translate-y-1"
+      params={{ slug }}
+      to="/colecciones/$slug"
     >
       <div
         className={`h-2.5 ${isMediterraneo ? 'bg-ocean-500' : 'bg-emerald-500'}`}
@@ -175,7 +216,7 @@ function SeaCollectionCard({
           </span>
         </div>
       </div>
-    </a>
+    </Link>
   )
 }
 
@@ -192,7 +233,7 @@ function ColeccionesPage() {
           Colecciones de playas
         </h1>
         <p className="text-ocean-200 mx-auto max-w-xl text-lg">
-          Encuentra la playa perfecta segun tus preferencias
+          Encuentra la playa perfecta según tus preferencias
         </p>
       </PageHero>
 
@@ -222,7 +263,7 @@ function ColeccionesPage() {
         {/* Thematic collections */}
         <section className="border-t border-gray-200 pt-10">
           <h2 className="mb-5 text-2xl font-bold text-gray-900">
-            Colecciones tematicas
+            Colecciones temáticas
           </h2>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
             {items.map((item) => (

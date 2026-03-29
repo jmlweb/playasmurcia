@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 
 import { Breadcrumb } from '@/components/breadcrumb'
@@ -93,9 +93,10 @@ function MunicipalityCard({
     .filter(Boolean)
 
   return (
-    <a
-      className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none"
-      href={`/municipios/${stats.slug}`}
+    <Link
+      className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none motion-safe:hover:-translate-y-1"
+      params={{ slug: stats.slug }}
+      to="/municipios/$slug"
     >
       <div className="flex flex-1 flex-col p-6">
         <h2 className="group-hover:text-ocean-600 mb-1 text-xl font-semibold text-gray-900 transition-colors">
@@ -137,7 +138,7 @@ function MunicipalityCard({
           </span>
         </div>
       </div>
-    </a>
+    </Link>
   )
 }
 
@@ -157,7 +158,7 @@ function MunicipiosPage() {
           Municipios costeros
         </h1>
         <p className="text-ocean-200 mx-auto max-w-xl text-lg">
-          {stats.length} municipios con {totalBeaches} playas en la Region de
+          {stats.length} municipios con {totalBeaches} playas en la Región de
           Murcia
         </p>
       </PageHero>

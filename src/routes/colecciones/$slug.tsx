@@ -1,4 +1,4 @@
-import { createFileRoute, notFound } from '@tanstack/react-router'
+import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import { useMemo, useState } from 'react'
 
@@ -17,8 +17,14 @@ import {
   getCollectionBySlug,
 } from '@/lib/collections'
 
-const fetchCollectionData = createServerFn({ method: 'GET' }).handler(
-  async (ctx: { data: { slug: string } }) => {
+const fetchCollectionData = createServerFn({ method: 'GET' })
+  .inputValidator((data: { slug: string }) => {
+    if (typeof data.slug !== 'string' || !data.slug.trim()) {
+      throw new Error('Invalid slug')
+    }
+    return { slug: data.slug.trim() }
+  })
+  .handler(async ({ data }) => {
     const {
       beachToSlug: toSlug,
       getAllBeaches,
@@ -26,7 +32,7 @@ const fetchCollectionData = createServerFn({ method: 'GET' }).handler(
       getMunicipalityMap,
     } = await import('@/lib/db-data')
     const { fetchBatchCardWeather } = await import('@/lib/open-meteo')
-    const collection = getCollectionBySlug(ctx.data.slug)
+    const collection = getCollectionBySlug(data.slug)
     if (!collection) return null
 
     const [beaches, tags, municipalityMap] = await Promise.all([
@@ -58,8 +64,7 @@ const fetchCollectionData = createServerFn({ method: 'GET' }).handler(
       tags,
       weatherData,
     }
-  },
-)
+  })
 
 export const Route = createFileRoute('/colecciones/$slug')({
   loader: async ({ params }) => {
@@ -89,7 +94,8 @@ export const Route = createFileRoute('/colecciones/$slug')({
 function CollectionPage() {
   const { collection, items, tags, weatherData } = Route.useLoaderData()
   const PAGE_SIZE = 15
-  const [sort, setSort] = useState<NonNullable<BeachSearchParams['sort']>>('recomendados')
+  const [sort, setSort] =
+    useState<NonNullable<BeachSearchParams['sort']>>('recomendados')
   const sortedItems = useMemo(
     () =>
       sortBeaches(
@@ -173,12 +179,12 @@ function CollectionPage() {
         )}
 
         <div className="mt-12 text-center">
-          <a
-            className="text-ocean-600 hover:text-ocean-700 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:underline"
-            href="/colecciones"
+          <Link
+            className="text-ocean-600 hover:text-ocean-700 text-sm font-medium transition-colors focus-visible:underline focus-visible:outline-none"
+            to="/colecciones"
           >
             ← Volver a colecciones
-          </a>
+          </Link>
         </div>
       </div>
     </main>

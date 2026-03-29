@@ -87,17 +87,17 @@ export const Route = createRootRoute({
     <div className="bg-sand-50 flex min-h-screen flex-col items-center justify-center px-4 text-center">
       <p className="text-ocean-200 mb-3 text-7xl font-extrabold">404</p>
       <h1 className="mb-2 text-2xl font-semibold text-gray-900">
-        Pagina no encontrada
+        Página no encontrada
       </h1>
       <p className="mb-8 text-gray-500">
-        La pagina que buscas no existe o ha sido movida.
+        La página que buscas no existe o ha sido movida.
       </p>
-      <a
+      <Link
         className="bg-ocean-600 hover:bg-ocean-700 focus-visible:ring-ocean-500 rounded-full px-6 py-2.5 text-sm font-semibold text-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
-        href="/"
+        to="/"
       >
         Volver al inicio
-      </a>
+      </Link>
     </div>
   ),
   head: () => ({
@@ -172,9 +172,9 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
   return (
     <Popover.Root>
       <Popover.Trigger
+        openOnHover
         className="group text-ocean-200 inline-flex items-center gap-1 text-sm font-medium transition-colors hover:text-white focus-visible:text-white focus-visible:underline focus-visible:outline-none"
         closeDelay={150}
-        openOnHover
       >
         {label}
         <ChevronDownIcon className="h-3.5 w-3.5 transition-transform group-data-[popup-open]:rotate-180" />
@@ -189,85 +189,87 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
           sideOffset={12}
         >
           <Popover.Popup className="bg-ocean-800 w-[28rem] rounded-xl border border-white/10 p-5 shadow-2xl">
-              <div className="grid grid-cols-2 gap-6">
-                {/* Municipalities */}
-                <div>
-                  <p className="text-ocean-400 mb-3 text-xs font-semibold tracking-wider uppercase">
-                    Municipios
-                  </p>
-                  <ul className="space-y-1">
-                    {navData.municipalities.map((m) => {
-                      const href = `/municipios/${m.slug}`
-                      const active = pathname === href
-                      return (
-                        <li key={m.slug}>
-                          <a
-                            aria-current={active ? 'page' : undefined}
-                            className={`flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors focus-visible:outline-none ${active ? 'bg-ocean-700 font-semibold text-white' : 'text-ocean-100 hover:bg-ocean-700 focus-visible:bg-ocean-700 hover:text-white focus-visible:text-white'}`}
-                            href={href}
-                          >
-                            {m.name}
-                            <span className="bg-ocean-700/60 text-ocean-300 ml-2 rounded-full px-2 py-0.5 text-xs">
-                              {m.beachCount}
-                            </span>
-                          </a>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                </div>
+            <div className="grid grid-cols-2 gap-6">
+              {/* Municipalities */}
+              <div>
+                <p className="text-ocean-400 mb-3 text-xs font-semibold tracking-wider uppercase">
+                  Municipios
+                </p>
+                <ul className="space-y-1">
+                  {navData.municipalities.map((m) => {
+                    const href = `/municipios/${m.slug}`
+                    const active = pathname === href
+                    return (
+                      <li key={m.slug}>
+                        <Link
+                          aria-current={active ? 'page' : undefined}
+                          className={`flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors focus-visible:outline-none ${active ? 'bg-ocean-700 font-semibold text-white' : 'text-ocean-100 hover:bg-ocean-700 focus-visible:bg-ocean-700 hover:text-white focus-visible:text-white'}`}
+                          params={{ slug: m.slug }}
+                          to="/municipios/$slug"
+                        >
+                          {m.name}
+                          <span className="bg-ocean-700/60 text-ocean-300 ml-2 rounded-full px-2 py-0.5 text-xs">
+                            {m.beachCount}
+                          </span>
+                        </Link>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
 
-                {/* Characteristics */}
-                <div>
-                  <p className="text-ocean-400 mb-3 text-xs font-semibold tracking-wider uppercase">
-                    Caracteristicas
-                  </p>
-                  <ul className="space-y-1">
-                    {navData.characteristics.map((c) => {
-                      const active = pathname === c.href
-                      return (
-                        <li key={c.href}>
-                          <a
-                            aria-current={active ? 'page' : undefined}
-                            className={`flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors focus-visible:outline-none ${active ? 'bg-ocean-700 font-semibold text-white' : 'text-ocean-100 hover:bg-ocean-700 focus-visible:bg-ocean-700 hover:text-white focus-visible:text-white'}`}
-                            href={c.href}
-                          >
-                            {c.label}
-                            <span className="bg-ocean-700/60 text-ocean-300 ml-2 rounded-full px-2 py-0.5 text-xs">
-                              {c.count}
-                            </span>
-                          </a>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                  <div className="border-ocean-700 mt-4 border-t pt-3">
-                    <a
-                      className="text-ocean-300 hover:bg-ocean-700 flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium transition-colors hover:text-white"
-                      href="/explorar"
+              {/* Characteristics */}
+              <div>
+                <p className="text-ocean-400 mb-3 text-xs font-semibold tracking-wider uppercase">
+                  Características
+                </p>
+                <ul className="space-y-1">
+                  {navData.characteristics.map((c) => {
+                    const active = pathname === c.href
+                    return (
+                      <li key={c.href}>
+                        <Link
+                          aria-current={active ? 'page' : undefined}
+                          className={`flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors focus-visible:outline-none ${active ? 'bg-ocean-700 font-semibold text-white' : 'text-ocean-100 hover:bg-ocean-700 focus-visible:bg-ocean-700 hover:text-white focus-visible:text-white'}`}
+                          params={{ slug: c.href.split('/').pop()! }}
+                          to="/colecciones/$slug"
+                        >
+                          {c.label}
+                          <span className="bg-ocean-700/60 text-ocean-300 ml-2 rounded-full px-2 py-0.5 text-xs">
+                            {c.count}
+                          </span>
+                        </Link>
+                      </li>
+                    )
+                  })}
+                </ul>
+                <div className="border-ocean-700 mt-4 border-t pt-3">
+                  <Link
+                    className="text-ocean-300 hover:bg-ocean-700 flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium transition-colors hover:text-white"
+                    to="/explorar"
+                  >
+                    Ver todas las playas
+                    <svg
+                      aria-hidden="true"
+                      className="h-3.5 w-3.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
                     >
-                      Ver todas las playas
-                      <svg
-                        aria-hidden="true"
-                        className="h-3.5 w-3.5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M9 5l7 7-7 7"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                        />
-                      </svg>
-                    </a>
-                  </div>
+                      <path
+                        d="M9 5l7 7-7 7"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                      />
+                    </svg>
+                  </Link>
                 </div>
               </div>
-            </Popover.Popup>
-          </Popover.Positioner>
-        </Popover.Portal>
+            </div>
+          </Popover.Popup>
+        </Popover.Positioner>
+      </Popover.Portal>
     </Popover.Root>
   )
 }
@@ -308,34 +310,36 @@ function MobileDropdown({
             const href = `/municipios/${m.slug}`
             const active = pathname === href
             return (
-              <a
+              <Link
                 key={m.slug}
                 aria-current={active ? 'page' : undefined}
                 className={`flex items-center justify-between py-1.5 text-sm transition-colors hover:text-white ${active ? 'font-semibold text-white' : 'text-ocean-200'}`}
-                href={href}
+                params={{ slug: m.slug }}
+                to="/municipios/$slug"
                 onClick={onNavigate}
               >
                 {m.name}
                 <span className="text-ocean-400 text-xs">{m.beachCount}</span>
-              </a>
+              </Link>
             )
           })}
           <p className="text-ocean-400 mt-3 mb-1.5 text-xs font-semibold tracking-wider uppercase">
-            Caracteristicas
+            Características
           </p>
           {navData.characteristics.map((c) => {
             const active = pathname === c.href
             return (
-              <a
+              <Link
                 key={c.href}
                 aria-current={active ? 'page' : undefined}
                 className={`flex items-center justify-between py-1.5 text-sm transition-colors hover:text-white ${active ? 'font-semibold text-white' : 'text-ocean-200'}`}
-                href={c.href}
+                params={{ slug: c.href.split('/').pop()! }}
+                to="/colecciones/$slug"
                 onClick={onNavigate}
               >
                 {c.label}
                 <span className="text-ocean-400 text-xs">{c.count}</span>
-              </a>
+              </Link>
             )
           })}
         </div>
@@ -378,7 +382,7 @@ function Navbar() {
           <NavDropdown label="Descubrir" navData={navData} />
         </div>
         <button
-          aria-label={mobileOpen ? 'Cerrar menu' : 'Abrir menu'}
+          aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
           className="text-ocean-200 focus-visible:ring-ocean-400 rounded-lg p-2 hover:text-white focus-visible:ring-2 focus-visible:outline-none sm:hidden"
           type="button"
           onClick={() => {
