@@ -30,7 +30,7 @@ export function ResponsiveImage({
   const originalSrc = `/pictures/${baseName}.${ext}`
   const webpFull = `/pictures/optimized/${baseName}.webp`
   const webpThumb = `/pictures/optimized/${baseName}-thumb.webp`
-  const useWebp = import.meta.env.PLAYASMURCIA_OPTIMIZED_IMAGES
+  const useWebp = import.meta.env.PLAYASMURCIA_OPTIMIZED_IMAGES === 'true'
 
   const isHigh = priority === 'high'
 

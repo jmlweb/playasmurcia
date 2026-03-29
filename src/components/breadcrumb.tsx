@@ -1,3 +1,5 @@
+import { Link } from '@tanstack/react-router'
+
 type BreadcrumbItem = {
   label: string
   href?: string
@@ -5,21 +7,21 @@ type BreadcrumbItem = {
 
 export function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
   return (
-    <nav aria-label="Ruta de navegacion" className="mb-8 text-sm text-gray-500">
+    <nav aria-label="Ruta de navegación" className="mb-8 text-sm text-gray-500">
       {items.map((item, i) => (
-        <span key={i}>
+        <span key={item.href ?? item.label}>
           {i > 0 && (
             <span aria-hidden="true" className="mx-2">
               /
             </span>
           )}
           {item.href ? (
-            <a
-              className="hover:text-ocean-600 focus-visible:text-ocean-600 transition-colors focus-visible:outline-none focus-visible:underline"
-              href={item.href}
+            <Link
+              className="hover:text-ocean-600 focus-visible:text-ocean-600 transition-colors focus-visible:underline focus-visible:outline-none"
+              to={item.href}
             >
               {item.label}
-            </a>
+            </Link>
           ) : (
             <span aria-current="page" className="text-gray-600">
               {item.label}

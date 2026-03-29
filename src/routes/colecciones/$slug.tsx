@@ -96,14 +96,15 @@ function CollectionPage() {
   const PAGE_SIZE = 15
   const [sort, setSort] =
     useState<NonNullable<BeachSearchParams['sort']>>('recomendados')
-  const sortedItems = useMemo(
-    () =>
-      sortBeaches(
-        items.map((i) => i.beach),
-        sort,
-      ).map((beach) => items.find((i) => i.beach.code === beach.code)!),
-    [items, sort],
-  )
+  const sortedItems = useMemo(() => {
+    const itemByCode = new Map(items.map((i) => [i.beach.code, i]))
+    return sortBeaches(
+      items.map((i) => i.beach),
+      sort,
+    )
+      .map((beach) => itemByCode.get(beach.code))
+      .filter((item): item is NonNullable<typeof item> => item != null)
+  }, [items, sort])
   const [currentPage, setCurrentPage] = useState(1)
   const totalPages = Math.ceil(sortedItems.length / PAGE_SIZE)
   const visibleItems = sortedItems.slice(

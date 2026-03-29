@@ -12,6 +12,7 @@ import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { createServerFn } from '@tanstack/react-start'
 import { useState } from 'react'
 
+import { ChevronDownIcon } from '@/components/icons'
 import { SiteFooter } from '@/components/site-footer'
 
 import appCss from '../styles.css?url'
@@ -146,25 +147,6 @@ const simpleNavLinks = [
   { to: '/explorar' as const, label: 'Explorar' },
   { to: '/colecciones' as const, label: 'Colecciones' },
 ]
-
-function ChevronDownIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      aria-hidden="true"
-      className={className}
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path
-        d="M19 9l-7 7-7-7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-      />
-    </svg>
-  )
-}
 
 function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname })

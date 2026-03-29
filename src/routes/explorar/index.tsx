@@ -6,8 +6,8 @@ import { BeachCard } from '@/components/beach-card'
 import { Breadcrumb } from '@/components/breadcrumb'
 import { EmptyState } from '@/components/empty-state'
 import { FilterPanel, FilterToggleButton } from '@/components/filter-panel'
-import { PageInfo } from '@/components/page-info'
 import { PageHero } from '@/components/page-hero'
+import { PageInfo } from '@/components/page-info'
 import { Pagination } from '@/components/pagination'
 import { SearchBar } from '@/components/search-bar'
 import { SortSelect } from '@/components/sort-select'
@@ -17,34 +17,26 @@ import { beachToSlug } from '@/lib/slugs'
 
 type ExplorerSearchParams = BeachSearchParams & { page?: number }
 
+function parseNumberArray(value: unknown): number[] | undefined {
+  if (Array.isArray(value)) {
+    const nums = value.map(Number).filter((n) => !isNaN(n))
+    return nums.length > 0 ? nums : undefined
+  }
+  if (typeof value === 'string') {
+    const n = Number(value)
+    return isNaN(n) ? undefined : [n]
+  }
+  return undefined
+}
+
 function validateSearch(search: Record<string, unknown>): ExplorerSearchParams {
   return {
     q: typeof search.q === 'string' ? search.q : undefined,
-    municipality: Array.isArray(search.municipality)
-      ? search.municipality.map(Number).filter((n) => !isNaN(n))
-      : typeof search.municipality === 'string'
-        ? [Number(search.municipality)].filter((n) => !isNaN(n))
-        : undefined,
-    sea: Array.isArray(search.sea)
-      ? search.sea.map(Number).filter((n) => !isNaN(n))
-      : typeof search.sea === 'string'
-        ? [Number(search.sea)].filter((n) => !isNaN(n))
-        : undefined,
-    services: Array.isArray(search.services)
-      ? search.services.map(Number).filter((n) => !isNaN(n))
-      : typeof search.services === 'string'
-        ? [Number(search.services)].filter((n) => !isNaN(n))
-        : undefined,
-    activities: Array.isArray(search.activities)
-      ? search.activities.map(Number).filter((n) => !isNaN(n))
-      : typeof search.activities === 'string'
-        ? [Number(search.activities)].filter((n) => !isNaN(n))
-        : undefined,
-    tags: Array.isArray(search.tags)
-      ? search.tags.map(Number).filter((n) => !isNaN(n))
-      : typeof search.tags === 'string'
-        ? [Number(search.tags)].filter((n) => !isNaN(n))
-        : undefined,
+    municipality: parseNumberArray(search.municipality),
+    sea: parseNumberArray(search.sea),
+    services: parseNumberArray(search.services),
+    activities: parseNumberArray(search.activities),
+    tags: parseNumberArray(search.tags),
     sort:
       search.sort === 'recomendados' ||
       search.sort === 'name' ||
@@ -102,7 +94,7 @@ export const Route = createFileRoute('/explorar/')({
       { title: 'Explorar playas - Playas de Murcia' },
       {
         name: 'description',
-        content: `Explora y filtra las ${loaderData?.beaches.length ?? 194} playas de la Region de Murcia. Busca por municipio, mar, servicios, actividades y mas.`,
+        content: `Explora y filtra las ${loaderData?.beaches.length ?? 194} playas de la Región de Murcia. Busca por municipio, mar, servicios, actividades y más.`,
       },
     ],
   }),
@@ -205,11 +197,12 @@ function ExplorerPage() {
           chips.push({
             key: `m-${i}`,
             label: m.name,
-            onRemove: () =>
+            onRemove: () => {
               updateFilters({
                 ...filters,
                 municipality: filters.municipality?.filter((v) => v !== i),
-              }),
+              })
+            },
           })
       }
     }
@@ -220,11 +213,12 @@ function ExplorerPage() {
           chips.push({
             key: `s-${i}`,
             label: s.name,
-            onRemove: () =>
+            onRemove: () => {
               updateFilters({
                 ...filters,
                 sea: filters.sea?.filter((v) => v !== i),
-              }),
+              })
+            },
           })
       }
     }
@@ -235,11 +229,12 @@ function ExplorerPage() {
           chips.push({
             key: `sv-${i}`,
             label: s.name,
-            onRemove: () =>
+            onRemove: () => {
               updateFilters({
                 ...filters,
                 services: filters.services?.filter((v) => v !== i),
-              }),
+              })
+            },
           })
       }
     }
@@ -250,11 +245,12 @@ function ExplorerPage() {
           chips.push({
             key: `a-${i}`,
             label: a.name,
-            onRemove: () =>
+            onRemove: () => {
               updateFilters({
                 ...filters,
                 activities: filters.activities?.filter((v) => v !== i),
-              }),
+              })
+            },
           })
       }
     }
@@ -265,11 +261,12 @@ function ExplorerPage() {
           chips.push({
             key: `t-${i}`,
             label: t.name,
-            onRemove: () =>
+            onRemove: () => {
               updateFilters({
                 ...filters,
                 tags: filters.tags?.filter((v) => v !== i),
-              }),
+              })
+            },
           })
       }
     }
@@ -307,7 +304,9 @@ function ExplorerPage() {
             services={services}
             tags={tags}
             onChange={handleFiltersChange}
-            onMobileClose={() => setMobileFilterOpen(false)}
+            onMobileClose={() => {
+              setMobileFilterOpen(false)
+            }}
           />
 
           {/* Main content */}
@@ -317,7 +316,9 @@ function ExplorerPage() {
               <div className="flex items-center gap-3">
                 <FilterToggleButton
                   activeCount={countActiveFilters(filters)}
-                  onClick={() => setMobileFilterOpen(true)}
+                  onClick={() => {
+                    setMobileFilterOpen(true)
+                  }}
                 />
                 <span className="text-sm text-gray-500">
                   <strong className="font-semibold text-gray-900">
@@ -335,7 +336,7 @@ function ExplorerPage() {
                 {activeChips.map((chip) => (
                   <button
                     key={chip.key}
-                    className="bg-ocean-50 text-ocean-700 hover:bg-ocean-100 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-1"
+                    className="bg-ocean-50 text-ocean-700 hover:bg-ocean-100 focus-visible:ring-ocean-500 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:outline-none"
                     type="button"
                     onClick={chip.onRemove}
                   >
@@ -357,7 +358,7 @@ function ExplorerPage() {
                   </button>
                 ))}
                 <button
-                  className="text-sm text-gray-500 underline underline-offset-2 hover:text-gray-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-1 rounded-full"
+                  className="focus-visible:ring-ocean-500 rounded-full text-sm text-gray-500 underline underline-offset-2 hover:text-gray-700 focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:outline-none"
                   type="button"
                   onClick={clearAllFilters}
                 >
@@ -408,10 +409,21 @@ function ExplorerPage() {
                     </button>
                   ) : undefined
                 }
-                description="Prueba a modificar los filtros o el texto de busqueda"
+                description="Prueba a modificar los filtros o el texto de búsqueda"
                 icon={
-                  <svg aria-hidden="true" className="h-14 w-14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} />
+                  <svg
+                    aria-hidden="true"
+                    className="h-14 w-14"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                    />
                   </svg>
                 }
                 title="No se encontraron playas"

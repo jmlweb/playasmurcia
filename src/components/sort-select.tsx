@@ -1,7 +1,6 @@
-'use client'
-
 import { useEffect, useRef, useState } from 'react'
 
+import { ChevronDownIcon } from '@/components/icons'
 import type { BeachSearchParams } from '@/lib/beach-filters'
 
 type SortOption = NonNullable<BeachSearchParams['sort']>
@@ -57,23 +56,14 @@ export function SortSelect({ value, onChange }: SortSelectProps) {
           aria-haspopup="listbox"
           className="focus-visible:border-ocean-400 focus-visible:ring-ocean-400 flex cursor-pointer items-center gap-1.5 rounded-full border border-gray-200 bg-white py-2 pr-3 pl-3.5 text-sm font-medium text-gray-700 transition-all hover:border-gray-300 focus-visible:ring-2 focus-visible:outline-none"
           type="button"
-          onClick={() => setOpen((prev) => !prev)}
+          onClick={() => {
+            setOpen((prev) => !prev)
+          }}
         >
           {currentLabel}
-          <svg
-            aria-hidden="true"
+          <ChevronDownIcon
             className={`h-4 w-4 text-gray-500 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 9l-7 7-7-7"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-            />
-          </svg>
+          />
         </button>
       </div>
       {open && (

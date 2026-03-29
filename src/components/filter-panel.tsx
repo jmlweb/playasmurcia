@@ -1,5 +1,6 @@
 import { type ReactNode, useState } from 'react'
 
+import { ChevronDownIcon } from '@/components/icons'
 import { type BeachSearchParams, countActiveFilters } from '@/lib/beach-filters'
 import type { Activity, Municipality, Sea, Service, Tag } from '@/types/beach'
 
@@ -32,7 +33,7 @@ function FilterGroup({
     <div className="border-b border-gray-100 last:border-0">
       <button
         aria-expanded={isOpen}
-        className="hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:ring-ocean-500 flex w-full items-center justify-between py-3.5 text-left text-sm font-medium text-gray-800 transition-colors focus-visible:outline-none focus-visible:rounded focus-visible:ring-2"
+        className="hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:ring-ocean-500 flex w-full items-center justify-between py-3.5 text-left text-sm font-medium text-gray-800 transition-colors focus-visible:rounded focus-visible:ring-2 focus-visible:outline-none"
         type="button"
         onClick={() => {
           setIsOpen((prev) => !prev)
@@ -46,20 +47,9 @@ function FilterGroup({
             </span>
           )}
         </span>
-        <svg
-          aria-hidden="true"
+        <ChevronDownIcon
           className={`h-4 w-4 text-gray-500 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M19 9l-7 7-7-7"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-          />
-        </svg>
+        />
       </button>
       <div
         className="grid transition-[grid-template-rows] duration-200 ease-in-out"
@@ -133,7 +123,7 @@ function FilterContent({
         <h2 className="text-base font-semibold text-gray-900">Filtros</h2>
         {totalActive > 0 && (
           <button
-            className="text-ocean-600 text-sm underline underline-offset-2 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-1 rounded"
+            className="text-ocean-600 focus-visible:ring-ocean-500 rounded text-sm underline underline-offset-2 hover:no-underline focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:outline-none"
             type="button"
             onClick={clearAll}
           >
@@ -143,8 +133,8 @@ function FilterContent({
       </div>
 
       <FilterGroup
-        activeCount={filters.municipality?.length ?? 0}
         defaultOpen
+        activeCount={filters.municipality?.length ?? 0}
         label="Municipio"
       >
         {municipalities.map((m, i) => (
@@ -159,7 +149,11 @@ function FilterContent({
         ))}
       </FilterGroup>
 
-      <FilterGroup activeCount={filters.sea?.length ?? 0} defaultOpen label="Mar">
+      <FilterGroup
+        defaultOpen
+        activeCount={filters.sea?.length ?? 0}
+        label="Mar"
+      >
         {seas.map((s, i) => (
           <CheckboxItem
             key={s.name}
@@ -266,7 +260,6 @@ export function FilterPanel(
     <>
       {/* Mobile modal */}
       <div className="lg:hidden">
-
         {/* Mobile modal overlay */}
         {mobileOpen && (
           <div className="fixed inset-0 z-50">
@@ -279,12 +272,10 @@ export function FilterPanel(
             />
             <div className="animate-slide-in-left fixed inset-y-0 left-0 w-80 max-w-[85vw] overflow-y-auto bg-white p-6 shadow-2xl">
               <div className="mb-6 flex items-center justify-between">
-                <h2 className="text-lg font-semibold text-gray-900">
-                  Filtros
-                </h2>
+                <h2 className="text-lg font-semibold text-gray-900">Filtros</h2>
                 <button
                   aria-label="Cerrar filtros"
-                  className="rounded-full p-1.5 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean-500"
+                  className="focus-visible:ring-ocean-500 rounded-full p-1.5 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-600 focus-visible:ring-2 focus-visible:outline-none"
                   type="button"
                   onClick={() => {
                     onMobileClose()

@@ -1,5 +1,7 @@
-import { WeatherIcon } from '@/components/icons'
+import { Link } from '@tanstack/react-router'
+
 import type { WeatherIconType } from '@/components/icons'
+import { WeatherIcon } from '@/components/icons'
 import { ResponsiveImage } from '@/components/responsive-image'
 import { parseImageFilename } from '@/lib/images'
 import type { CardWeather } from '@/lib/open-meteo'
@@ -54,9 +56,10 @@ export function BeachCard({
     .filter(Boolean)
 
   return (
-    <a
-      className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none"
-      href={`/playas/${slug}`}
+    <Link
+      className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none motion-safe:hover:-translate-y-1"
+      params={{ slug }}
+      to="/playas/$slug"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
         <ResponsiveImage
@@ -107,6 +110,6 @@ export function BeachCard({
         </h3>
         <p className="text-sm text-gray-500">{municipality.name}</p>
       </div>
-    </a>
+    </Link>
   )
 }

@@ -2,7 +2,7 @@ import { eq, inArray } from 'drizzle-orm'
 
 import { db } from '@/db/client'
 import * as schema from '@/db/schema'
-import { beachToSlug, municipalityToSlug } from '@/lib/slugs'
+import { municipalityToSlug } from '@/lib/slugs'
 import type {
   Activity,
   Beach,
