@@ -23,7 +23,11 @@ const CertificationConfig: Record<
     description: 'Distintivo de calidad turística de las playas españolas',
     colorClass: 'bg-yellow-50 border-yellow-200 text-yellow-800',
     icon: ({ className }) => (
-      <span className={`font-bold ${className ?? ''}`}>Q</span>
+      <span
+        className={`flex items-center justify-center text-sm font-bold ${className ?? ''}`}
+      >
+        Q
+      </span>
     ),
   },
   ecoplayas: {

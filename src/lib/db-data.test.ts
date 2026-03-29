@@ -77,6 +77,7 @@ describe('db-data module', () => {
         nearby: [],
         orientation: '',
         instagramHashtag: '',
+        recommendationScore: 0,
       })
 
       expect(slug).toBe('playa-grande')
@@ -102,6 +103,7 @@ describe('db-data module', () => {
         nearby: [],
         orientation: '',
         instagramHashtag: '',
+        recommendationScore: 0,
       })
 
       expect(slug).toBe('playa-de-canon-aguilas')

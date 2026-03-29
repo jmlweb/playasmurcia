@@ -31,9 +31,9 @@ pnpm generate:sitemap  # Generate sitemap only
 pnpm preview       # Preview production build
 pnpm lint          # Run ESLint
 pnpm lint:fix      # Run ESLint with auto-fix
-pnpm format        # Format with Prettier
+pnpm format        # Prettier: `src/**/*.{ts,tsx,css}` and `scripts/**/*.js`
 pnpm type-check    # TypeScript type checking (tsc --noEmit)
-pnpm check         # Run type-check + lint + prettier check
+pnpm check         # Type-check + ESLint (`src/`) + Prettier on the same globs as `format`
 pnpm test          # Run tests
 pnpm test:watch    # Run tests in watch mode
 pnpm test:coverage # Run tests with coverage report
@@ -208,7 +208,7 @@ See [ui-guidelines.md](./ui-guidelines.md). Image pipeline (`optimize:images`, `
 
 - TypeScript strict mode
 - ESLint with [`@jmlweb/eslint-config-react`](https://www.npmjs.com/package/@jmlweb/eslint-config-react) (project overrides under `eslint.config.js`)
-- Prettier with [`@jmlweb/prettier-config-tailwind`](https://www.npmjs.com/package/@jmlweb/prettier-config-tailwind) (`semi: false` kept in `prettier.config.js`)
+- Prettier with [`@jmlweb/prettier-config-tailwind`](https://www.npmjs.com/package/@jmlweb/prettier-config-tailwind) (`semi: false` kept in `prettier.config.js`); `prettier-plugin-tailwindcss` is listed as a direct devDependency so Prettier can resolve the plugin from the project root under pnpm
 - Functional approach (functions over classes)
 - Named exports only (no default exports)
 

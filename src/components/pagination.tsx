@@ -52,15 +52,17 @@ export function Pagination({
   const pages = getPageNumbers(currentPage, totalPages)
 
   return (
-    <nav aria-label="Paginacion" className="mt-10 flex justify-center">
+    <nav aria-label="Paginación" className="mt-10 flex justify-center">
       <ul className="flex items-center gap-1">
         <li>
           <button
-            aria-label="Pagina anterior"
+            aria-label="Página anterior"
             className="flex h-10 items-center rounded-lg px-3 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-40"
             disabled={currentPage === 1}
             type="button"
-            onClick={() => onPageChange(currentPage - 1)}
+            onClick={() => {
+              onPageChange(currentPage - 1)
+            }}
           >
             <svg
               aria-hidden="true"
@@ -91,14 +93,16 @@ export function Pagination({
             <li key={page}>
               <button
                 aria-current={page === currentPage ? 'page' : undefined}
-                aria-label={`Pagina ${page}`}
+                aria-label={`Página ${page}`}
                 className={`flex h-10 w-10 items-center justify-center rounded-lg text-sm font-medium transition-colors ${
                   page === currentPage
                     ? 'bg-ocean-600 text-white'
                     : 'text-gray-700 hover:bg-gray-100'
                 }`}
                 type="button"
-                onClick={() => onPageChange(page)}
+                onClick={() => {
+                  onPageChange(page)
+                }}
               >
                 {page}
               </button>
@@ -108,11 +112,13 @@ export function Pagination({
 
         <li>
           <button
-            aria-label="Pagina siguiente"
+            aria-label="Página siguiente"
             className="flex h-10 items-center rounded-lg px-3 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-40"
             disabled={currentPage === totalPages}
             type="button"
-            onClick={() => onPageChange(currentPage + 1)}
+            onClick={() => {
+              onPageChange(currentPage + 1)
+            }}
           >
             Siguiente
             <svg

@@ -2,6 +2,7 @@ import { Popover } from '@base-ui/react/popover'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import {
   createRootRoute,
+  type ErrorComponentProps,
   HeadContent,
   Link,
   Outlet,
@@ -82,8 +83,39 @@ const fetchNavData = createServerFn({ method: 'GET' }).handler(
   },
 )
 
+function RootErrorComponent({ reset }: ErrorComponentProps) {
+  return (
+    <div className="bg-sand-50 flex min-h-screen flex-col items-center justify-center px-4 text-center">
+      <p className="text-ocean-200 mb-3 text-7xl font-extrabold">!</p>
+      <h1 className="mb-2 text-2xl font-semibold text-gray-900">
+        Algo ha ido mal
+      </h1>
+      <p className="mb-8 text-gray-500">
+        Ha ocurrido un error inesperado. Puedes intentarlo de nuevo o volver al
+        inicio.
+      </p>
+      <div className="flex gap-3">
+        <button
+          className="bg-ocean-600 hover:bg-ocean-700 focus-visible:ring-ocean-500 rounded-full px-6 py-2.5 text-sm font-semibold text-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+          type="button"
+          onClick={reset}
+        >
+          Reintentar
+        </button>
+        <Link
+          className="rounded-full border border-gray-300 px-6 py-2.5 text-sm font-semibold text-gray-700 transition-colors hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+          to="/"
+        >
+          Volver al inicio
+        </Link>
+      </div>
+    </div>
+  )
+}
+
 export const Route = createRootRoute({
   loader: () => fetchNavData(),
+  errorComponent: RootErrorComponent,
   notFoundComponent: () => (
     <div className="bg-sand-50 flex min-h-screen flex-col items-center justify-center px-4 text-center">
       <p className="text-ocean-200 mb-3 text-7xl font-extrabold">404</p>

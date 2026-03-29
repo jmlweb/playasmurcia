@@ -25,9 +25,12 @@ export function ActivitiesGrid({
         {resolvedActivities.map((activity) => (
           <li
             key={activity.id}
-            className="hover:border-ocean-200 hover:bg-ocean-50/50 flex items-center gap-2.5 rounded-xl border border-gray-200/60 bg-white px-3.5 py-3 text-sm text-gray-700 shadow-sm transition-colors"
+            className="flex items-center gap-2.5 rounded-xl border border-gray-200/60 bg-white px-3.5 py-3 text-sm text-gray-700 shadow-sm"
           >
-            <ActivityIcon className="text-ocean-500 h-5 w-5" emoji={activity.icon} />
+            <ActivityIcon
+              className="text-ocean-500 h-5 w-5"
+              emoji={activity.icon}
+            />
             <span>{activity.name}</span>
           </li>
         ))}

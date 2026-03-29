@@ -5,11 +5,16 @@ type LocationMapProps = {
   beachName: string
 }
 
-const LeafletMap = lazy(() => import('@/components/leaflet-map'))
+const LeafletMap = lazy(() =>
+  import('@/components/leaflet-map').then((m) => ({ default: m.LeafletMap })),
+)
 
 function MapPlaceholder() {
   return (
-    <div className="bg-ocean-50 flex items-center justify-center rounded-2xl" style={{ height: 'min(360px, 60vh)' }}>
+    <div
+      className="bg-ocean-50 flex items-center justify-center rounded-2xl"
+      style={{ height: 'min(360px, 60vh)' }}
+    >
       <div className="text-center">
         <svg
           aria-hidden="true"

@@ -1,4 +1,4 @@
-import { type ReactNode, useState } from 'react'
+import { type ReactNode, useEffect, useRef, useState } from 'react'
 
 import { ChevronDownIcon } from '@/components/icons'
 import { type BeachSearchParams, countActiveFilters } from '@/lib/beach-filters'
@@ -251,10 +251,72 @@ export function FilterToggleButton({
   )
 }
 
+const FOCUSABLE_SELECTOR =
+  'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+
 export function FilterPanel(
   props: FilterPanelProps & { mobileOpen: boolean; onMobileClose: () => void },
 ) {
   const { mobileOpen, onMobileClose } = props
+  const panelRef = useRef<HTMLDivElement>(null)
+  const previousFocusRef = useRef<HTMLElement | null>(null)
+
+  useEffect(() => {
+    if (!mobileOpen) return
+
+    // Save the element that had focus before the modal opened
+    previousFocusRef.current = document.activeElement as HTMLElement
+
+    // Lock body scroll
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    // Move focus into the modal
+    const panel = panelRef.current
+    if (panel) {
+      const firstFocusable =
+        panel.querySelector<HTMLElement>(FOCUSABLE_SELECTOR)
+      firstFocusable?.focus()
+    }
+
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === 'Escape') {
+        onMobileClose()
+        return
+      }
+
+      if (e.key !== 'Tab' || !panelRef.current) return
+
+      const focusableElements = Array.from(
+        panelRef.current.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR),
+      )
+
+      if (focusableElements.length === 0) return
+
+      const firstEl = focusableElements[0]
+      const lastEl = focusableElements[focusableElements.length - 1]
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstEl) {
+          e.preventDefault()
+          lastEl.focus()
+        }
+      } else {
+        if (document.activeElement === lastEl) {
+          e.preventDefault()
+          firstEl.focus()
+        }
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = previousOverflow
+      previousFocusRef.current?.focus()
+    }
+  }, [mobileOpen, onMobileClose])
 
   return (
     <>
@@ -262,7 +324,12 @@ export function FilterPanel(
       <div className="lg:hidden">
         {/* Mobile modal overlay */}
         {mobileOpen && (
-          <div className="fixed inset-0 z-50">
+          <div
+            aria-label="Filtros"
+            aria-modal="true"
+            className="fixed inset-0 z-50"
+            role="dialog"
+          >
             <div
               aria-hidden="true"
               className="fixed inset-0 bg-black/50 backdrop-blur-sm"
@@ -270,7 +337,10 @@ export function FilterPanel(
                 onMobileClose()
               }}
             />
-            <div className="animate-slide-in-left fixed inset-y-0 left-0 w-80 max-w-[85vw] overflow-y-auto bg-white p-6 shadow-2xl">
+            <div
+              ref={panelRef}
+              className="animate-slide-in-left fixed inset-y-0 left-0 w-80 max-w-[85vw] overflow-y-auto bg-white p-6 shadow-2xl"
+            >
               <div className="mb-6 flex items-center justify-between">
                 <h2 className="text-lg font-semibold text-gray-900">Filtros</h2>
                 <button

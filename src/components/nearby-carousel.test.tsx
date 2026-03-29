@@ -26,6 +26,7 @@ function makeBeach(overrides: Partial<Beach> = {}): Beach {
     orientation: 'Sur',
     instagramHashtag: '#test',
     ...overrides,
+    recommendationScore: overrides.recommendationScore ?? 0,
   }
 }
 

@@ -57,9 +57,6 @@ const ACCEPTED_LICENSES_WM = new Set([
   "cc-zero", "pd", "public domain",
 ])
 
-// Flickr license IDs: 1=CC-BY-NC-SA, 2=CC-BY-NC, 3=CC-BY-NC-ND, 4=CC-BY, 5=CC-BY-SA, 6=CC-BY-ND, 7=PDM, 9=CC0, 10=PDM
-const FLICKR_CC_LICENSES = "4,5,7,9,10" // CC-BY, CC-BY-SA, PDM, CC0
-
 type Beach = {
   code: string
   name: string

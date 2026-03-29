@@ -41,6 +41,7 @@ describe('generateBeachSchema', () => {
     nearby: [],
     orientation: 'southeast',
     instagramHashtag: '#CalaAbierta',
+    recommendationScore: 0,
   }
 
   it('returns valid Schema.org structure with required fields', () => {

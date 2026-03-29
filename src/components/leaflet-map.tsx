@@ -20,10 +20,7 @@ const markerIcon = L.icon({
   shadowSize: [41, 41],
 })
 
-export default function LeafletMap({
-  coordinates,
-  beachName,
-}: LeafletMapProps) {
+export function LeafletMap({ coordinates, beachName }: LeafletMapProps) {
   const mapRef = useRef<HTMLDivElement>(null)
   const mapInstance = useRef<L.Map | null>(null)
 
@@ -43,9 +40,7 @@ export default function LeafletMap({
       maxZoom: 19,
     }).addTo(map)
 
-    L.marker([lat, lng], { icon: markerIcon })
-      .addTo(map)
-      .bindPopup(beachName)
+    L.marker([lat, lng], { icon: markerIcon }).addTo(map).bindPopup(beachName)
 
     mapInstance.current = map
 

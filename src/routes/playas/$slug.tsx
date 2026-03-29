@@ -1,4 +1,9 @@
-import { createFileRoute, notFound } from '@tanstack/react-router'
+import {
+  createFileRoute,
+  type ErrorComponentProps,
+  Link,
+  notFound,
+} from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 
 import { ActivitiesGrid } from '@/components/activities-grid'
@@ -18,8 +23,14 @@ import { parseImageFilename } from '@/lib/images'
 import { generateBeachSchema } from '@/lib/schema'
 import { beachToSlug, municipalityToSlug } from '@/lib/slugs'
 
-const fetchBeachData = createServerFn({ method: 'GET' }).handler(
-  async (ctx: { data: { slug: string } }) => {
+const fetchBeachData = createServerFn({ method: 'GET' })
+  .inputValidator((data: { slug: string }) => {
+    if (typeof data.slug !== 'string' || !data.slug.trim()) {
+      throw new Error('Invalid slug')
+    }
+    return { slug: data.slug.trim() }
+  })
+  .handler(async ({ data }) => {
     const {
       beachToSlug: toSlug,
       getBeachBySlug,
@@ -30,7 +41,7 @@ const fetchBeachData = createServerFn({ method: 'GET' }).handler(
       getNearbyBeaches,
       getMunicipalityMap,
     } = await import('@/lib/db-data')
-    const beach = await getBeachBySlug(ctx.data.slug)
+    const beach = await getBeachBySlug(data.slug)
     if (!beach) return null
 
     const [
@@ -61,8 +72,37 @@ const fetchBeachData = createServerFn({ method: 'GET' }).handler(
     })
 
     return { beach, municipality, services, activities, tags, nearbyItems }
-  },
-)
+  })
+
+function BeachErrorComponent({ reset }: ErrorComponentProps) {
+  return (
+    <main className="bg-sand-50 flex min-h-screen flex-col items-center justify-center px-4 text-center">
+      <p className="text-ocean-200 mb-3 text-7xl font-extrabold">!</p>
+      <h1 className="mb-2 text-2xl font-semibold text-gray-900">
+        No pudimos cargar esta playa
+      </h1>
+      <p className="mb-8 text-gray-500">
+        Ha ocurrido un error al cargar la información. Puedes intentarlo de
+        nuevo o explorar otras playas.
+      </p>
+      <div className="flex gap-3">
+        <button
+          className="bg-ocean-600 hover:bg-ocean-700 focus-visible:ring-ocean-500 rounded-full px-6 py-2.5 text-sm font-semibold text-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+          type="button"
+          onClick={reset}
+        >
+          Reintentar
+        </button>
+        <Link
+          className="rounded-full border border-gray-300 px-6 py-2.5 text-sm font-semibold text-gray-700 transition-colors hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+          to="/explorar"
+        >
+          Ver todas las playas
+        </Link>
+      </div>
+    </main>
+  )
+}
 
 export const Route = createFileRoute('/playas/$slug')({
   loader: async ({ params }) => {
@@ -70,6 +110,7 @@ export const Route = createFileRoute('/playas/$slug')({
     if (!data) throw notFound()
     return data
   },
+  errorComponent: BeachErrorComponent,
   head: ({ loaderData }) => {
     if (!loaderData) {
       return { meta: [{ title: 'Playa no encontrada' }] }
@@ -126,12 +167,14 @@ function BeachPage() {
             <h1 className="text-3xl font-extrabold tracking-tight text-white drop-shadow-lg sm:text-4xl">
               {beach.name}
             </h1>
-            <p className="mt-1 text-lg text-white/80">
-              {municipality.name}
-            </p>
+            <p className="mt-1 text-lg text-white/80">{municipality.name}</p>
             {beach.tags && beach.tags.length > 0 && (
               <div className="mt-3">
-                <TagsSection allTags={tags} tagIndices={beach.tags} />
+                <TagsSection
+                  allTags={tags}
+                  tagIndices={beach.tags}
+                  variant="dark"
+                />
               </div>
             )}
           </div>
@@ -142,12 +185,14 @@ function BeachPage() {
             <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
               {beach.name}
             </h1>
-            <p className="mt-1 text-lg text-white/80">
-              {municipality.name}
-            </p>
+            <p className="mt-1 text-lg text-white/80">{municipality.name}</p>
             {beach.tags && beach.tags.length > 0 && (
               <div className="mt-3">
-                <TagsSection allTags={tags} tagIndices={beach.tags} />
+                <TagsSection
+                  allTags={tags}
+                  tagIndices={beach.tags}
+                  variant="dark"
+                />
               </div>
             )}
           </div>
@@ -169,7 +214,10 @@ function BeachPage() {
 
         {pictures.length > 1 ? (
           <div className="mt-6 mb-8">
-            <BeachGallery beachName={beach.name} pictures={pictures} />
+            <BeachGallery
+              beachName={beach.name}
+              pictures={heroImage ? pictures.slice(1) : pictures}
+            />
           </div>
         ) : pictures.length === 1 && !heroImage ? (
           <div className="mt-6 mb-8">
@@ -186,60 +234,16 @@ function BeachPage() {
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
-          {/* Main content column */}
-          <div className="space-y-8 lg:col-span-2">
-            {/* Description */}
-            <section className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm">
-              <h2 className="mb-3 text-xl font-semibold text-gray-900">
-                Sobre esta playa
-              </h2>
-              <p className="leading-relaxed text-gray-600">
-                {beach.description}
-              </p>
-            </section>
+          {/* Description — order 1 on mobile, col-span-2 row 1 on desktop */}
+          <section className="order-1 rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm lg:col-span-2 lg:row-start-1">
+            <h2 className="mb-3 text-xl font-semibold text-gray-900">
+              Sobre esta playa
+            </h2>
+            <p className="leading-relaxed text-gray-700">{beach.description}</p>
+          </section>
 
-            {/* Services */}
-            {beach.services.length > 0 && (
-              <div className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm">
-                <ServicesGrid
-                  allServices={services}
-                  serviceIndices={beach.services}
-                />
-              </div>
-            )}
-
-            {/* Activities */}
-            {beach.activities.length > 0 && (
-              <div className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm">
-                <ActivitiesGrid
-                  activityIndices={beach.activities}
-                  allActivities={activities}
-                />
-              </div>
-            )}
-
-            {/* How to get there */}
-            {beach.access && (
-              <section className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm">
-                <h2 className="mb-3 text-xl font-semibold text-gray-900">
-                  Como llegar
-                </h2>
-                <p className="leading-relaxed text-gray-600">{beach.access}</p>
-              </section>
-            )}
-
-            {/* Map */}
-            <LocationMap
-              beachName={beach.name}
-              coordinates={beach.coordinates}
-            />
-
-            {/* Nearby beaches */}
-            {nearbyItems.length > 0 && <NearbyCarousel items={nearbyItems} />}
-          </div>
-
-          {/* Sidebar */}
-          <div className="space-y-6 lg:sticky lg:top-20">
+          {/* Sidebar — order 2 on mobile (after description, before services), spans both rows on desktop */}
+          <div className="order-2 space-y-6 lg:sticky lg:top-20 lg:col-start-3 lg:row-span-2 lg:row-start-1 lg:self-start">
             <WeatherWidget
               aemetId={beach.aemetId}
               coordinates={beach.coordinates}
@@ -269,6 +273,52 @@ function BeachPage() {
               phone={beach.phone}
               realUrl={beach.realUrl}
             />
+          </div>
+
+          {/* Remaining main content — order 3 on mobile, col-span-2 row 2 on desktop */}
+          <div className="order-3 space-y-8 lg:col-span-2 lg:row-start-2">
+            {/* Services */}
+            {beach.services.length > 0 && (
+              <div className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm">
+                <ServicesGrid
+                  allServices={services}
+                  serviceIndices={beach.services}
+                />
+              </div>
+            )}
+
+            {/* Activities */}
+            {beach.activities.length > 0 && (
+              <div className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm">
+                <ActivitiesGrid
+                  activityIndices={beach.activities}
+                  allActivities={activities}
+                />
+              </div>
+            )}
+
+            {/* How to get there */}
+            {beach.access && (
+              <section className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm">
+                <h2 className="mb-3 text-xl font-semibold text-gray-900">
+                  Cómo llegar
+                </h2>
+                <p className="leading-relaxed text-gray-600">{beach.access}</p>
+              </section>
+            )}
+
+            {/* Map */}
+            <LocationMap
+              beachName={beach.name}
+              coordinates={beach.coordinates}
+            />
+
+            {/* Nearby beaches */}
+            {nearbyItems.length > 0 && (
+              <div className="border-t border-gray-100 pt-8">
+                <NearbyCarousel items={nearbyItems} />
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -305,7 +355,7 @@ function BeachGallery({
     <>
       {/* Desktop: grid layout */}
       <div className="hidden gap-3 md:grid md:grid-cols-3">
-        <div className="col-span-2 overflow-hidden rounded-2xl">
+        <div className="col-span-2 aspect-[16/9] overflow-hidden rounded-2xl">
           <ResponsiveImage
             alt={`${beachName} - foto principal`}
             baseName={first.baseName}
@@ -316,7 +366,7 @@ function BeachGallery({
         </div>
         <div className="flex flex-col gap-3">
           {second && (
-            <div className="flex-1 overflow-hidden rounded-2xl">
+            <div className="aspect-[4/3] flex-1 overflow-hidden rounded-2xl">
               <ResponsiveImage
                 alt={`${beachName} - foto 2`}
                 baseName={second.baseName}
@@ -327,7 +377,7 @@ function BeachGallery({
             </div>
           )}
           {third && (
-            <div className="flex-1 overflow-hidden rounded-2xl">
+            <div className="aspect-[4/3] flex-1 overflow-hidden rounded-2xl">
               <ResponsiveImage
                 alt={`${beachName} - foto 3`}
                 baseName={third.baseName}
@@ -364,7 +414,7 @@ function BeachGallery({
       {/* If more than 3 photos, show remaining count */}
       {pictures.length > 3 && (
         <p className="mt-2 hidden text-sm text-gray-500 md:block">
-          +{pictures.length - 3} fotos mas en la galeria
+          +{pictures.length - 3} fotos más en la galería
         </p>
       )}
     </>

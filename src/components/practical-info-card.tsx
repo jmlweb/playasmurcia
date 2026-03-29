@@ -113,11 +113,11 @@ export function PracticalInfoCard({
 
   return (
     <section
-      aria-label="Informacion practica"
+      aria-label="Información práctica"
       className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm"
     >
       <h2 className="mb-4 text-xl font-semibold text-gray-900">
-        Informacion practica
+        Información práctica
       </h2>
       <dl>
         {length !== undefined && (
@@ -152,12 +152,12 @@ export function PracticalInfoCard({
         )}
         {childSafe !== undefined && (
           <div className="flex items-start justify-between gap-4 border-b border-gray-100 py-3 last:border-0">
-            <dt className="text-sm text-gray-500">Apta para ninos</dt>
+            <dt className="text-sm text-gray-500">Apta para niños</dt>
             <dd>
               <span
                 className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${childSafe ? 'bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200' : 'bg-gray-50 text-gray-600 ring-1 ring-gray-200'}`}
               >
-                {childSafe ? 'Si' : 'No'}
+                {childSafe ? 'Sí' : 'No'}
               </span>
             </dd>
           </div>
@@ -169,7 +169,7 @@ export function PracticalInfoCard({
               <span
                 className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${naturalShade ? 'bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200' : 'bg-gray-50 text-gray-600 ring-1 ring-gray-200'}`}
               >
-                {naturalShade ? 'Si' : 'No'}
+                {naturalShade ? 'Sí' : 'No'}
               </span>
             </dd>
           </div>

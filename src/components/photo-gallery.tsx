@@ -38,7 +38,7 @@ export function PhotoGallery({ pictures, beachName }: PhotoGalleryProps) {
   return (
     <div
       aria-label="Galería de fotos"
-      className="space-y-3"
+      className="focus-visible:ring-ocean-500 space-y-3 rounded-2xl focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
       role="region"
       tabIndex={0}
       onKeyDown={(e) => {

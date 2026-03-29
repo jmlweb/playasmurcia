@@ -15,7 +15,7 @@ export function PageInfo({
 
   return (
     <p className="mb-4 text-sm text-gray-500">
-      Pagina{' '}
+      Página{' '}
       <strong className="font-semibold text-gray-900">{currentPage}</strong> de{' '}
       <strong className="font-semibold text-gray-900">{totalPages}</strong> (
       {totalItems} {itemLabel})

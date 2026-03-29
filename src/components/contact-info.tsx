@@ -42,7 +42,7 @@ export function ContactInfo({
               </svg>
             </span>
             <a
-              className="hover:text-ocean-600 focus-visible:ring-ocean-500 rounded text-sm text-gray-700 focus-visible:ring-2 focus-visible:outline-none"
+              className="text-ocean-600 hover:text-ocean-700 focus-visible:ring-ocean-500 rounded text-sm hover:underline focus-visible:ring-2 focus-visible:outline-none"
               href={`tel:${phone}`}
             >
               {phone}
@@ -67,7 +67,7 @@ export function ContactInfo({
               </svg>
             </span>
             <a
-              className="hover:text-ocean-600 focus-visible:ring-ocean-500 rounded text-sm text-gray-700 focus-visible:ring-2 focus-visible:outline-none"
+              className="text-ocean-600 hover:text-ocean-700 focus-visible:ring-ocean-500 rounded text-sm hover:underline focus-visible:ring-2 focus-visible:outline-none"
               href={`mailto:${email}`}
             >
               {email}
@@ -92,7 +92,7 @@ export function ContactInfo({
               </svg>
             </span>
             <a
-              className="text-ocean-600 focus-visible:ring-ocean-500 rounded text-sm hover:underline focus-visible:ring-2 focus-visible:outline-none"
+              className="text-ocean-600 hover:text-ocean-700 focus-visible:ring-ocean-500 rounded text-sm hover:underline focus-visible:ring-2 focus-visible:outline-none"
               href={realUrl}
               rel="noopener noreferrer"
               target="_blank"
@@ -114,7 +114,7 @@ export function ContactInfo({
               </svg>
             </span>
             <a
-              className="hover:text-ocean-600 focus-visible:ring-ocean-500 rounded text-sm text-gray-700 focus-visible:ring-2 focus-visible:outline-none"
+              className="text-ocean-600 hover:text-ocean-700 focus-visible:ring-ocean-500 rounded text-sm hover:underline focus-visible:ring-2 focus-visible:outline-none"
               href={`https://www.instagram.com/explore/tags/${instagramHashtag.replace('#', '')}/`}
               rel="noopener noreferrer"
               target="_blank"

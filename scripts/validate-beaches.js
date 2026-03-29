@@ -1,7 +1,9 @@
 import { readFileSync } from 'node:fs'
 
 const beaches = JSON.parse(readFileSync('./data/beaches.json', 'utf-8'))
-const municipalities = JSON.parse(readFileSync('./data/municipalities.json', 'utf-8'))
+const municipalities = JSON.parse(
+  readFileSync('./data/municipalities.json', 'utf-8'),
+)
 const seas = JSON.parse(readFileSync('./data/seas.json', 'utf-8'))
 
 const errors = []

@@ -1,8 +1,8 @@
 import { createServerFn } from '@tanstack/react-start'
 import { useEffect, useState } from 'react'
 
-import { WeatherIcon } from '@/components/icons'
 import type { WeatherIconType } from '@/components/icons'
+import { WeatherIcon } from '@/components/icons'
 
 // ---------------------------------------------------------------------------
 // Unified forecast types
@@ -28,8 +28,14 @@ type UnifiedForecast = {
 // Server functions
 // ---------------------------------------------------------------------------
 
-const fetchAemetWeather = createServerFn({ method: 'GET' }).handler(
-  async (ctx: { data: { aemetId: string } }) => {
+const fetchAemetWeather = createServerFn({ method: 'GET' })
+  .inputValidator((data: { aemetId: string }) => {
+    if (typeof data.aemetId !== 'string' || !data.aemetId.trim()) {
+      throw new Error('Invalid AEMET id')
+    }
+    return { aemetId: data.aemetId.trim() }
+  })
+  .handler(async ({ data }) => {
     const {
       fetchAemetForecast,
       getDaySkyDescription: getSky,
@@ -37,7 +43,7 @@ const fetchAemetWeather = createServerFn({ method: 'GET' }).handler(
     } = await import('@/lib/aemet')
     const apiKey = process.env.AEMET_API_KEY ?? ''
     if (!apiKey) return null
-    const forecast = await fetchAemetForecast(ctx.data.aemetId, apiKey)
+    const forecast = await fetchAemetForecast(data.aemetId, apiKey)
     if (!forecast) return null
 
     const days: UnifiedDay[] = forecast.dias.map((d) => {
@@ -56,16 +62,22 @@ const fetchAemetWeather = createServerFn({ method: 'GET' }).handler(
     })
 
     return { source: 'aemet' as const, days }
-  },
-)
+  })
 
-const fetchOpenMeteoWeather = createServerFn({ method: 'GET' }).handler(
-  async (ctx: { data: { latitude: number; longitude: number } }) => {
+const fetchOpenMeteoWeather = createServerFn({ method: 'GET' })
+  .inputValidator((data: { latitude: number; longitude: number }) => {
+    const { latitude, longitude } = data
+    if (typeof latitude !== 'number' || !Number.isFinite(latitude)) {
+      throw new Error('Invalid latitude')
+    }
+    if (typeof longitude !== 'number' || !Number.isFinite(longitude)) {
+      throw new Error('Invalid longitude')
+    }
+    return { latitude, longitude }
+  })
+  .handler(async ({ data }) => {
     const { fetchOpenMeteoForecast } = await import('@/lib/open-meteo')
-    const forecast = await fetchOpenMeteoForecast(
-      ctx.data.latitude,
-      ctx.data.longitude,
-    )
+    const forecast = await fetchOpenMeteoForecast(data.latitude, data.longitude)
     if (!forecast) return null
 
     return {
@@ -81,8 +93,7 @@ const fetchOpenMeteoWeather = createServerFn({ method: 'GET' }).handler(
         uvIndex: d.uvIndex,
       })),
     }
-  },
-)
+  })
 
 // ---------------------------------------------------------------------------
 // Sky condition helpers

@@ -44,8 +44,8 @@ function parseArgs(argv) {
     else if (a === '--root') {
       const r = argv[++i]
       if (r) roots.push(r)
-    }
-    else if (a === '--max-chunk') maxChunk = Number(argv[++i]) || DEFAULT_MAX_CHUNK
+    } else if (a === '--max-chunk')
+      maxChunk = Number(argv[++i]) || DEFAULT_MAX_CHUNK
     else if (a === '--delay-ms') delayMs = Number(argv[++i]) || DEFAULT_DELAY_MS
     else if (a === '--help' || a === '-h') {
       printHelp()
@@ -144,7 +144,9 @@ async function ollamaCorrect(baseUrl, model, system, userText) {
   const data = await res.json()
   const content = data?.message?.content
   if (typeof content !== 'string') {
-    throw new Error('Unexpected Ollama response shape (missing message.content)')
+    throw new Error(
+      'Unexpected Ollama response shape (missing message.content)',
+    )
   }
   return content.trimEnd()
 }
@@ -159,7 +161,7 @@ async function correctDocument(baseUrl, model, lang, text, maxChunk, delayMs) {
     const fixed = await ollamaCorrect(baseUrl, model, sys, userBody)
     out.push(fixed)
     if (p < parts.length - 1 && delayMs > 0) {
-      await new Promise(r => setTimeout(r, delayMs))
+      await new Promise((r) => setTimeout(r, delayMs))
     }
   }
   return out.join('')
@@ -194,15 +196,17 @@ async function collectTargets(roots, explicitFiles, cwd) {
 
 function gitDiffNoIndex(aPath, bPath, relPath) {
   try {
-    return execFileSync(
-      'git',
-      ['diff', '--no-index', '--', aPath, bPath],
-      { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 },
-    )
+    return execFileSync('git', ['diff', '--no-index', '--', aPath, bPath], {
+      encoding: 'utf8',
+      maxBuffer: 10 * 1024 * 1024,
+    })
   } catch (err) {
     if (err.status === 1 && typeof err.stdout === 'string') {
       let d = err.stdout
-      d = d.replace(/^diff --git a\/[^\s]+ b\/[^\s]+/m, `diff --git a/${relPath} b/${relPath}`)
+      d = d.replace(
+        /^diff --git a\/[^\s]+ b\/[^\s]+/m,
+        `diff --git a/${relPath} b/${relPath}`,
+      )
       d = d.replace(/^--- a\/[^\n]+/m, `--- a/${relPath}`)
       d = d.replace(/^\+\+\+ b\/[^\n]+/m, `+++ b/${relPath}`)
       return d
@@ -224,7 +228,9 @@ async function main() {
   }
 
   const baseUrl = getOllamaBase()
-  console.error(`Ollama: ${baseUrl}  model: ${model}  lang: ${lang}  files: ${targets.length}`)
+  console.error(
+    `Ollama: ${baseUrl}  model: ${model}  lang: ${lang}  files: ${targets.length}`,
+  )
 
   let changed = 0
   let failed = 0
@@ -242,7 +248,14 @@ async function main() {
 
     let corrected
     try {
-      corrected = await correctDocument(baseUrl, model, lang, original, maxChunk, delayMs)
+      corrected = await correctDocument(
+        baseUrl,
+        model,
+        lang,
+        original,
+        maxChunk,
+        delayMs,
+      )
     } catch (e) {
       console.error(`Fail: ${rel}`, e.message)
       failed++
@@ -273,7 +286,7 @@ async function main() {
     }
 
     if (delayMs > 0) {
-      await new Promise(r => setTimeout(r, delayMs))
+      await new Promise((r) => setTimeout(r, delayMs))
     }
   }
 
@@ -281,7 +294,7 @@ async function main() {
   if (failed > 0) process.exit(1)
 }
 
-main().catch(e => {
+main().catch((e) => {
   console.error(e)
   process.exit(1)
 })

@@ -11,12 +11,26 @@ import type {
 // Server function
 // ---------------------------------------------------------------------------
 
-const fetchBeachStatus = createServerFn({ method: 'GET' }).handler(
-  async (ctx: { data: { beachName: string; municipalityName: string } }) => {
+const fetchBeachStatus = createServerFn({ method: 'GET' })
+  .inputValidator((data: { beachName: string; municipalityName: string }) => {
+    if (typeof data.beachName !== 'string' || !data.beachName.trim()) {
+      throw new Error('Invalid beach name')
+    }
+    if (
+      typeof data.municipalityName !== 'string' ||
+      !data.municipalityName.trim()
+    ) {
+      throw new Error('Invalid municipality name')
+    }
+    return {
+      beachName: data.beachName.trim(),
+      municipalityName: data.municipalityName.trim(),
+    }
+  })
+  .handler(async ({ data }) => {
     const { getBeachStatus } = await import('@/lib/beach-status-112')
-    return getBeachStatus(ctx.data.beachName, ctx.data.municipalityName)
-  },
-)
+    return getBeachStatus(data.beachName, data.municipalityName)
+  })
 
 // ---------------------------------------------------------------------------
 // Flag helpers
@@ -128,9 +142,14 @@ export function BeachStatusWidget({
     return <BeachStatusSkeleton />
   }
 
-  // No match from 112 or fetch error — render nothing rather than an error card
+  // No match from 112 or fetch error — collapse smoothly to avoid layout shift
   if (state.status === 'notfound' || state.status === 'error') {
-    return null
+    return (
+      <div
+        aria-hidden="true"
+        className="max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-in-out"
+      />
+    )
   }
 
   const { data } = state
@@ -148,7 +167,7 @@ export function BeachStatusWidget({
           Datos no disponibles fuera de temporada
         </p>
         <p className="text-ocean-400 mt-3 text-right text-xs">
-          Fuente: 112 Region de Murcia
+          Fuente: 112 Región de Murcia
         </p>
       </section>
     )
@@ -207,7 +226,7 @@ export function BeachStatusWidget({
       </div>
 
       <p className="text-ocean-400 mt-3 text-right text-xs">
-        Fuente: 112 Region de Murcia
+        Fuente: 112 Región de Murcia
       </p>
     </section>
   )

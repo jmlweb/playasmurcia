@@ -116,6 +116,12 @@ Each major section follows a pattern:
 - **Functional UI icons** (services, activities, weather, collection themes) must use SVG with `currentColor` for fill/stroke, sized consistently (20×20 or 24×24). Never use emoji as functional icons — emoji rendering varies across OS and browser.
 - **Decorative/editorial emoji** (e.g. inside user-facing prose) are acceptable but not for interactive or branded UI elements.
 
+### Service amenity icons (`ServiceIcon`)
+
+- **Lookup key**: The SVG map for services must be keyed by **`service.id`** (stable string id from the database / `data/services.json`, e.g. `chiringuito`, `wheelchair-ramp`). That id selects the correct outline icon in the UI.
+- **`icon` field**: Treat the stored `icon` value as **legacy** (historical emoji or migration artifacts). Use it only as a fallback when no SVG exists for the id — never assume `icon` matches the map keys.
+- **User-visible text**: Always show the Spanish **`name`** from the service record next to the icon, not raw ids or English tokens.
+
 ### Stats Bar
 
 - Horizontal row of key metrics: icon + number + label
@@ -225,6 +231,15 @@ When a page or section has no results (empty search, empty collection, no beache
 
 Extract into a shared `EmptyState` component to avoid per-page drift.
 
+## Error and not-found pages
+
+Pages such as **404 Not Found** or route-level **not found** often sit on the default **`sand-50`** page background (same as the main shell). Light ocean tints (**`ocean-100`–`ocean-300`**) on that background fail WCAG contrast for text, including large display numerals.
+
+- **Display codes** (e.g. “404”): use **`text-gray-900`** or **`text-ocean-800` / `text-ocean-700`** — same emphasis band as empty-state titles.
+- **Primary heading** (e.g. “Página no encontrada”): **`text-gray-900`** with clear hierarchy above body copy.
+- **Supporting copy**: **`text-gray-500`** or **`text-gray-600`**; links and buttons follow normal button/link tokens (`ocean-600`, etc.).
+- **Consistency**: Error and not-found layouts should feel related to [Empty States](#empty-states) (spacing, typography scale) without reusing illegible hero-style pale blues on light sand.
+
 ## Back Navigation Links
 
 Pages that are children of an index (e.g. `/colecciones/$slug` → `/colecciones`) include a bottom back-link:
@@ -232,6 +247,14 @@ Pages that are children of an index (e.g. `/colecciones/$slug` → `/colecciones
 - Position: `mt-12 text-center` below the main content
 - Style: `text-ocean-600 hover:text-ocean-700 text-sm font-medium transition-colors focus:outline-none focus-visible:underline`
 - Copy: Use the pattern `← Volver a {section}` consistently (e.g. "← Volver a colecciones", "← Volver a municipios"). Do not mix with "Ver todos/as" or other verbs.
+
+## Data in the UI
+
+Editorial JSON and the database store **machine-oriented** values (English enums, internal codes, slugs). The site’s **public UI and metadata** are **Spanish** (see [AGENTS.md](../AGENTS.md) — spelling and orthography).
+
+- **Do not render raw schema values** in labels or paragraphs when they are not end-user Spanish — for example: compass **`orientation`** (`east`, `northeast` → **Este**, **Noreste**), **`waves`** enums, **`bestSeason`** keys, or similar. Map them through a small shared dictionary or helper at the presentation layer.
+- **Meta titles and descriptions**: Use correct Spanish spelling and accents (e.g. **Colección**, not `Coleccion` in user-visible strings and `<title>` / `description` where applicable).
+- **Single source of truth**: Prefer one mapping module or table per domain (orientation, seasons, wave labels) so listing pages, beach detail, and future tools stay aligned.
 
 ## Components
 

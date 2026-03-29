@@ -30,6 +30,7 @@ const makeBeach = (overrides: Partial<Beach> & Pick<Beach, 'name'>): Beach => {
     orientation: 'sur',
     instagramHashtag: '',
     ...rest,
+    recommendationScore: rest.recommendationScore ?? 0,
   }
 }
 

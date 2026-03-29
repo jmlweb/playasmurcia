@@ -25,6 +25,6 @@ export function getDb(): LibSQLDatabase<typeof schema> {
 // Keep backwards-compatible export that lazy-initializes
 export const db = new Proxy({} as LibSQLDatabase<typeof schema>, {
   get(_target, prop) {
-    return (getDb() as Record<string | symbol, unknown>)[prop]
+    return (getDb() as unknown as Record<string | symbol, unknown>)[prop]
   },
 })

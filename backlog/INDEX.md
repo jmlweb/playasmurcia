@@ -4,20 +4,21 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 7 tasks
+- **Pending**: 8 tasks
 - **In progress**: 0 tasks
 - **Completed**: 52 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
 
-> UI review 2026-03-29 — new directives in `reports/done/` (`cross-cutting.md`, `home.md`, `beach-detail.md`, listing pages). Tasks **#050–#052** track follow-up. **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
+> UI review 2026-03-29 (refresh) — directives in `reports/done/` (`cross-cutting.md`, `home.md`, `beach-detail.md`, listing pages, `explorar.md`). Follow-up: **#051–#052**, **#060** (global shell), **#056** / **#058** where noted. **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
 
 ## Backlog
 
 | #   | Task                                                   | Slice   | Priority   | Blocked by |
 | --- | ------------------------------------------------------ | ------- | ---------- | ---------- |
 | 056 | Add Error Boundaries and Validate External Data        | Infra   | P2 - High  | -          |
+| 060 | Global Shell UI Review Follow-up                       | Styling | P2 - Next  | -          |
 | 058 | Accessibility Fixes (Focus Trap, ARIA, Keyboard Nav)   | Styling | P3         | -          |
 | 051 | Beach Detail UI Review Follow-up                       | Styling | P3         | -          |
 | 052 | Listing Pages UI Nits (Post–UI Review)                 | Styling | P3         | -          |

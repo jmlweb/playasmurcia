@@ -105,23 +105,25 @@ function normalize(name) {
 function getKeyWords(name) {
   return normalize(name)
     .split(/\s+/)
-    .filter(word => word.length > 2 && !STOP_WORDS.includes(word))
+    .filter((word) => word.length > 2 && !STOP_WORDS.includes(word))
 }
 
 function hasLifeguard(beachName) {
   const beachKeywords = getKeyWords(beachName)
 
-  return COPLA_BEACHES.some(copla => {
+  return COPLA_BEACHES.some((copla) => {
     const coplaKeywords = getKeyWords(copla)
 
     // Must have at least one significant keyword match
-    return coplaKeywords.some(coplaWord =>
-      beachKeywords.some(beachWord =>
-        // Exact match or one contains the other (for partial names)
-        beachWord === coplaWord ||
-        (beachWord.length >= 5 && coplaWord.length >= 5 &&
-          (beachWord.includes(coplaWord) || coplaWord.includes(beachWord)))
-      )
+    return coplaKeywords.some((coplaWord) =>
+      beachKeywords.some(
+        (beachWord) =>
+          // Exact match or one contains the other (for partial names)
+          beachWord === coplaWord ||
+          (beachWord.length >= 5 &&
+            coplaWord.length >= 5 &&
+            (beachWord.includes(coplaWord) || coplaWord.includes(beachWord))),
+      ),
     )
   })
 }
@@ -132,7 +134,7 @@ function main() {
   let withLifeguard = 0
   let withoutLifeguard = 0
 
-  beaches.forEach(beach => {
+  beaches.forEach((beach) => {
     beach.lifeguard = hasLifeguard(beach.name)
     if (beach.lifeguard) {
       withLifeguard++
@@ -149,13 +151,13 @@ function main() {
 
   console.log('\nBeaches WITH lifeguard:')
   beaches
-    .filter(b => b.lifeguard)
-    .forEach(b => console.log(`  ✓ ${b.name}`))
+    .filter((b) => b.lifeguard)
+    .forEach((b) => console.log(`  ✓ ${b.name}`))
 
   console.log('\nBeaches WITHOUT lifeguard:')
   beaches
-    .filter(b => !b.lifeguard)
-    .forEach(b => console.log(`  ✗ ${b.name}`))
+    .filter((b) => !b.lifeguard)
+    .forEach((b) => console.log(`  ✗ ${b.name}`))
 }
 
 main()

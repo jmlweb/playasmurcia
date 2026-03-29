@@ -113,6 +113,38 @@ function isDataStale(dia: string): boolean {
 }
 
 // ---------------------------------------------------------------------------
+// Validation helpers
+// ---------------------------------------------------------------------------
+
+const VALID_FLAGS = new Set<BeachFlag>([
+  'VERDE',
+  'AMARILLA',
+  'ROJA',
+  'SIN BANDERA',
+])
+
+const VALID_SEA_STATES = new Set<SeaState>([
+  'BUENO',
+  'REGULAR',
+  'MALO',
+  'SIN ESTADO',
+])
+
+function toBeachFlag(value: string): BeachFlag {
+  const upper = value.toUpperCase()
+  return VALID_FLAGS.has(upper as BeachFlag)
+    ? (upper as BeachFlag)
+    : 'SIN BANDERA'
+}
+
+function toSeaState(value: string): SeaState {
+  const upper = value.toUpperCase()
+  return VALID_SEA_STATES.has(upper as SeaState)
+    ? (upper as SeaState)
+    : 'SIN ESTADO'
+}
+
+// ---------------------------------------------------------------------------
 // Fetch & cache
 // ---------------------------------------------------------------------------
 
@@ -161,8 +193,8 @@ export async function getBeachStatus(
   const offSeason = isDataStale(entry.dia)
 
   return {
-    flag: entry.bandera as BeachFlag,
-    seaState: entry.estadoMar as SeaState,
+    flag: toBeachFlag(entry.bandera),
+    seaState: toSeaState(entry.estadoMar),
     date: entry.dia,
     time: entry.hora,
     isOffSeason: offSeason,
