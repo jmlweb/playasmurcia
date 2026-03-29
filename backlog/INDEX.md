@@ -4,20 +4,19 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 4 tasks
+- **Pending**: 3 tasks
 - **In progress**: 0 tasks
-- **Completed**: 61 tasks
+- **Completed**: 62 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
 
-> All P1-P3 tasks done. Remaining P4: **#065** (home motion), **#035** (municipality card imagery, blocked by #017), **#017** (source pictures), **#021** (contact info). **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
+> All code tasks done through P4. Remaining P4 are content/data: **#035** (municipality card imagery, blocked by #017), **#017** (source pictures — requires manual sourcing), **#021** (add missing contact info — requires external data). **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
 
 ## Backlog
 
 | #   | Task                                                   | Slice   | Priority   | Blocked by |
 | --- | ------------------------------------------------------ | ------- | ---------- | ---------- |
-| 065 | Homepage Motion and Design Polish                      | Styling | P4 - Later | -          |
 | 035 | Add Imagery and Visual Hierarchy to Municipality Cards | Styling | P4 - Later | 017        |
 | 017 | Source Missing Beach Pictures                          | Content | P4 - Later | -          |
 | 021 | Add Missing Contact Info                               | Data    | P4 - Later | -          |
@@ -26,6 +25,7 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 | #   | Task                                                    | Completed  |
 | --- | ------------------------------------------------------- | ---------- |
+| 065 | Homepage Motion and Design Polish                       | 2026-03-29 |
 | 064 | TanStack Start Technical Cleanup                        | 2026-03-29 |
 | 052 | Listing Pages UI Nits (Post–UI Review)                  | 2026-03-29 |
 | 051 | Beach Detail UI Review Follow-up                        | 2026-03-29 |

@@ -3,6 +3,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { useMemo } from 'react'
 
 import { BeachCard } from '@/components/beach-card'
+import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 import { beachToSlug } from '@/lib/slugs'
 
 const fetchHomeData = createServerFn({ method: 'GET' }).handler(async () => {
@@ -66,6 +67,10 @@ function HomePage() {
     [featured],
   )
 
+  const featuredRef = useScrollReveal()
+  const municipalitiesRef = useScrollReveal()
+  const highlightsRef = useScrollReveal()
+
   return (
     <main className="bg-sand-50 min-h-screen">
       {/* Hero */}
@@ -100,7 +105,7 @@ function HomePage() {
               Explorar todas las playas
               <svg
                 aria-hidden="true"
-                className="h-5 w-5"
+                className="arrow-nudge h-5 w-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -124,7 +129,10 @@ function HomePage() {
       </section>
 
       {/* Featured beaches */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+      <section
+        ref={featuredRef}
+        className="reveal mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24"
+      >
         <div className="mb-10 flex items-end justify-between">
           <div>
             <p className="text-ocean-600 mb-2 text-sm font-semibold tracking-wider uppercase">
@@ -167,7 +175,7 @@ function HomePage() {
             Ver las {totalBeaches} playas
             <svg
               aria-hidden="true"
-              className="h-5 w-5"
+              className="arrow-nudge h-5 w-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -184,7 +192,10 @@ function HomePage() {
       </section>
 
       {/* Municipalities */}
-      <section className="bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <section
+        ref={municipalitiesRef}
+        className="reveal bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8"
+      >
         <div className="mx-auto max-w-7xl">
           <div className="mb-10">
             <p className="text-ocean-600 mb-2 text-sm font-semibold tracking-wider uppercase">
@@ -220,7 +231,10 @@ function HomePage() {
       </section>
 
       {/* Region highlights */}
-      <section className="bg-sand-50 border-t border-gray-200 px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <section
+        ref={highlightsRef}
+        className="reveal bg-sand-50 border-t border-gray-200 px-4 py-16 sm:px-6 sm:py-20 lg:px-8"
+      >
         <div className="mx-auto max-w-7xl">
           <div className="mb-10">
             <p className="text-ocean-600 mb-2 text-sm font-semibold tracking-wider uppercase">

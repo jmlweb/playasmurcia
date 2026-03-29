@@ -99,7 +99,35 @@
   }
 
   .animate-fade-up {
-    animation: fade-up 0.6s ease-out both;
+    animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  /* Scroll-triggered reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* CTA arrow hover nudge */
+  .arrow-nudge {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .group:hover .arrow-nudge,
+  .group:focus-visible .arrow-nudge,
+  a:hover > .arrow-nudge,
+  a:focus-visible > .arrow-nudge,
+  button:hover > .arrow-nudge,
+  button:focus-visible > .arrow-nudge {
+    transform: translateX(0.25rem);
   }
 
   @keyframes dropdown {
@@ -122,6 +150,16 @@
     .animate-slide-in-left,
     .animate-dropdown {
       animation: none;
+    }
+
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .arrow-nudge {
+      transition: none;
     }
   }
 
