@@ -1,9 +1,11 @@
 /**
- * Generates optimized WebP variants from source images in public/pictures/.
+ * Generates optimized WebP and AVIF variants from source images in public/pictures/.
  *
  * For each .png/.jpg source file, creates:
  *   - A WebP version at original size (quality 80)
- *   - A small WebP thumbnail (400w) for card grids
+ *   - An AVIF version at original size (quality 65)
+ *   - A 1200px "full" variant in WebP and AVIF for detail pages
+ *   - A 400px thumbnail in WebP and AVIF for card grids
  *
  * Output goes to public/pictures/optimized/ with the same base name.
  *
@@ -16,8 +18,10 @@ import { join, parse } from 'node:path'
 
 const SRC_DIR = join(import.meta.dirname, '..', 'public', 'pictures')
 const OUT_DIR = join(SRC_DIR, 'optimized')
+const FULL_WIDTH = 1200
 const THUMB_WIDTH = 400
 const WEBP_QUALITY = 80
+const AVIF_QUALITY = 65
 
 async function main() {
   await mkdir(OUT_DIR, { recursive: true })
@@ -33,24 +37,54 @@ async function main() {
   for (const file of images) {
     const srcPath = join(SRC_DIR, file)
     const { name } = parse(file)
-    const fullWebp = join(OUT_DIR, `${name}.webp`)
-    const thumbWebp = join(OUT_DIR, `${name}-thumb.webp`)
 
-    // Skip if both outputs already exist and are newer than source
+    const outputs = [
+      join(OUT_DIR, `${name}.webp`),
+      join(OUT_DIR, `${name}.avif`),
+      join(OUT_DIR, `${name}-full.webp`),
+      join(OUT_DIR, `${name}-full.avif`),
+      join(OUT_DIR, `${name}-thumb.webp`),
+      join(OUT_DIR, `${name}-thumb.avif`),
+    ]
+
+    // Skip if all outputs already exist and are newer than source
     const srcStat = await stat(srcPath)
-    const fullExists = await stat(fullWebp).catch(() => null)
-    const thumbExists = await stat(thumbWebp).catch(() => null)
+    const outputStats = await Promise.all(
+      outputs.map((o) => stat(o).catch(() => null)),
+    )
+    const allFresh = outputStats.every((s) => s && s.mtimeMs > srcStat.mtimeMs)
 
-    if (fullExists && thumbExists && fullExists.mtimeMs > srcStat.mtimeMs && thumbExists.mtimeMs > srcStat.mtimeMs) {
+    if (allFresh) {
       skipped++
       continue
     }
 
     const img = sharp(srcPath)
 
-    await img.clone().webp({ quality: WEBP_QUALITY }).toFile(fullWebp)
-
-    await img.clone().resize(THUMB_WIDTH).webp({ quality: WEBP_QUALITY }).toFile(thumbWebp)
+    await Promise.all([
+      img.clone().webp({ quality: WEBP_QUALITY }).toFile(outputs[0]),
+      img.clone().avif({ quality: AVIF_QUALITY }).toFile(outputs[1]),
+      img
+        .clone()
+        .resize(FULL_WIDTH)
+        .webp({ quality: WEBP_QUALITY })
+        .toFile(outputs[2]),
+      img
+        .clone()
+        .resize(FULL_WIDTH)
+        .avif({ quality: AVIF_QUALITY })
+        .toFile(outputs[3]),
+      img
+        .clone()
+        .resize(THUMB_WIDTH)
+        .webp({ quality: WEBP_QUALITY })
+        .toFile(outputs[4]),
+      img
+        .clone()
+        .resize(THUMB_WIDTH)
+        .avif({ quality: AVIF_QUALITY })
+        .toFile(outputs[5]),
+    ])
 
     created++
     if (created % 50 === 0) console.log(`  ${created} images processed...`)

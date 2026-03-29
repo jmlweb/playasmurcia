@@ -12,7 +12,9 @@ const rootDir = dirname(fileURLToPath(import.meta.url))
 const optimizedDir = resolve(rootDir, 'public/pictures/optimized')
 const playasmurciaOptimizedImages =
   existsSync(optimizedDir) &&
-  readdirSync(optimizedDir).some((name) => name.endsWith('.webp'))
+  readdirSync(optimizedDir).some(
+    (name) => name.endsWith('.webp') || name.endsWith('.avif'),
+  )
 
 const config = defineConfig({
   define: {

@@ -4,20 +4,19 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 10 tasks
+- **Pending**: 9 tasks
 - **In progress**: 0 tasks
-- **Completed**: 55 tasks
+- **Completed**: 56 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
 
-> **#061** (anti-scraping code) done. Next: **#062** (Cloudflare config + image pipeline) is P2. UI follow-ups **#051**, **#052**, **#060** remain queued. New tasks from reports: **#063** (nav restructure), **#064** (TanStack cleanup), **#065** (home motion). **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
+> **#061** + **#062** done (anti-scraping + image pipeline). Cloudflare dashboard steps in #062 remain manual. Next P2: **#060** (global shell UI). P3 queue: **#063**, **#051**, **#052**, **#064**. P4: **#065**, **#035**, **#017**, **#021**. **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
 
 ## Backlog
 
 | #   | Task                                                   | Slice   | Priority   | Blocked by |
 | --- | ------------------------------------------------------ | ------- | ---------- | ---------- |
-| 062 | Cloudflare Config & Image Pipeline Hardening           | Infra   | P2 - High  | -          |
 | 060 | Global Shell UI Review Follow-up                       | Styling | P2 - Next  | -          |
 | 063 | Navigation Menu Restructure                            | Styling | P3         | -          |
 | 051 | Beach Detail UI Review Follow-up                       | Styling | P3         | -          |
@@ -32,6 +31,7 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 | #   | Task                                                    | Completed  |
 | --- | ------------------------------------------------------- | ---------- |
+| 062 | Cloudflare Config & Image Pipeline Hardening            | 2026-03-29 |
 | 061 | Anti-Scraping Protection (Code Changes)                 | 2026-03-29 |
 | 058 | Accessibility Fixes (Focus Trap, ARIA, Keyboard Nav)    | 2026-03-29 |
 | 056 | Add Error Boundaries and Validate External Data         | 2026-03-29 |

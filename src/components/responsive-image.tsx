@@ -13,8 +13,8 @@ type ResponsiveImageProps = Omit<ImgHTMLAttributes<HTMLImageElement>, 'src'> & {
 
 /**
  * Renders beach photos. When `public/pictures/optimized/*.webp` exists (see `pnpm optimize:images`),
- * uses <picture> with WebP + original fallback. Otherwise uses only the original raster so missing
- * WebP files cannot hide the image (some browsers do not fall back from a failed <source>).
+ * uses <picture> with AVIF → WebP → original fallback. Otherwise uses only the original raster so
+ * missing optimized files cannot hide the image (some browsers do not fall back from a failed <source>).
  */
 export function ResponsiveImage({
   baseName,
@@ -28,9 +28,8 @@ export function ResponsiveImage({
   ...rest
 }: ResponsiveImageProps) {
   const originalSrc = `/pictures/${baseName}.${ext}`
-  const webpFull = `/pictures/optimized/${baseName}.webp`
-  const webpThumb = `/pictures/optimized/${baseName}-thumb.webp`
-  const useWebp = import.meta.env.PLAYASMURCIA_OPTIMIZED_IMAGES === 'true'
+  const opt = `/pictures/optimized/${baseName}`
+  const useOptimized = import.meta.env.PLAYASMURCIA_OPTIMIZED_IMAGES === 'true'
 
   const isHigh = priority === 'high'
 
@@ -46,7 +45,7 @@ export function ResponsiveImage({
     fetchPriority: isHigh ? 'high' : 'auto',
   }
 
-  if (!useWebp) {
+  if (!useOptimized) {
     return <img {...imgProps} />
   }
 
@@ -55,7 +54,12 @@ export function ResponsiveImage({
       <picture style={{ display: 'contents' }}>
         <source
           sizes="(max-width: 640px) 100vw, 400px"
-          srcSet={`${webpThumb} 400w, ${webpFull} 800w`}
+          srcSet={`${opt}-thumb.avif 400w, ${opt}-full.avif 1200w, ${opt}.avif 1600w`}
+          type="image/avif"
+        />
+        <source
+          sizes="(max-width: 640px) 100vw, 400px"
+          srcSet={`${opt}-thumb.webp 400w, ${opt}-full.webp 1200w, ${opt}.webp 1600w`}
           type="image/webp"
         />
         <img {...imgProps} />
@@ -65,7 +69,14 @@ export function ResponsiveImage({
 
   return (
     <picture style={{ display: 'contents' }}>
-      <source srcSet={webpFull} type="image/webp" />
+      <source
+        srcSet={`${opt}-full.avif 1200w, ${opt}.avif 1600w`}
+        type="image/avif"
+      />
+      <source
+        srcSet={`${opt}-full.webp 1200w, ${opt}.webp 1600w`}
+        type="image/webp"
+      />
       <img {...imgProps} />
     </picture>
   )
