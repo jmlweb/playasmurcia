@@ -1,11 +1,12 @@
 # Task #056: Add Error Boundaries and Validate External Data
 
 ## Metadata
-- **Status**: pending
+
+- **Status**: done
 - **Priority**: P2 - High
 - **Slice**: Infra
 - **Created**: 2026-03-29
-- **Started**: -
+- **Completed**: 2026-03-29
 - **Blocked by**: -
 
 ## User Story

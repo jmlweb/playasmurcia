@@ -1,11 +1,12 @@
 # Task #058: Accessibility Fixes (Focus Trap, ARIA, Keyboard Nav)
 
 ## Metadata
-- **Status**: pending
+
+- **Status**: done
 - **Priority**: P3
 - **Slice**: Styling
 - **Created**: 2026-03-29
-- **Started**: -
+- **Completed**: 2026-03-29
 - **Blocked by**: -
 
 ## User Story
