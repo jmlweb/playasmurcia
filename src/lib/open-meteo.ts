@@ -183,10 +183,15 @@ export async function fetchBatchCardWeather(
   const result = new Map<string, CardWeather>()
   if (beaches.length === 0) return result
 
-  // Check cache first
+  // Build a stable cache key from sorted beach codes
+  const cacheKey = beaches
+    .map((b) => b.code)
+    .sort()
+    .join(',')
+
   const cached = await edgeCacheGet<[string, CardWeather][]>(
     CARD_CACHE_NS,
-    'batch',
+    cacheKey,
   )
   if (cached) {
     return new Map(cached)
@@ -248,10 +253,10 @@ export async function fetchBatchCardWeather(
       }
     }
 
-    // Cache the batch result
+    // Cache the batch result keyed by the specific set of beaches
     await edgeCacheSet(
       CARD_CACHE_NS,
-      'batch',
+      cacheKey,
       Array.from(result.entries()),
       CARD_CACHE_TTL,
     )

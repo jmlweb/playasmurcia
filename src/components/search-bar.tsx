@@ -18,6 +18,12 @@ export function SearchBar({
     setLocalValue(value)
   }, [value])
 
+  useEffect(() => {
+    return () => {
+      if (debounceRef.current) clearTimeout(debounceRef.current)
+    }
+  }, [])
+
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     const next = e.target.value
     setLocalValue(next)

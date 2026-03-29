@@ -2,6 +2,7 @@ import { eq, inArray } from 'drizzle-orm'
 
 import { db } from '@/db/client'
 import * as schema from '@/db/schema'
+import { beachToSlug, municipalityToSlug } from '@/lib/slugs'
 import type {
   Activity,
   Beach,
@@ -257,16 +258,8 @@ export async function getBeachBySlug(slug: string): Promise<Beach | undefined> {
   return allBeaches.find((beach) => beachToSlug(beach) === slug)
 }
 
-/**
- * Converts a beach name to a URL-friendly slug
- */
-export function beachToSlug(beach: Beach): string {
-  return beach.name
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/\s+/g, '-')
-}
+// Re-export slug functions for backwards compatibility
+export { beachToSlug, municipalityToSlug } from '@/lib/slugs'
 
 /**
  * Retrieves a municipality by its index (0-based)
@@ -397,17 +390,6 @@ export async function getNearbyBeaches(codes: string[]): Promise<Beach[]> {
   })
 
   return dbBeaches.map(mapBeachFromDB)
-}
-
-/**
- * Converts a municipality name to a URL-friendly slug
- */
-export function municipalityToSlug(municipality: Municipality): string {
-  return municipality.name
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/\s+/g, '-')
 }
 
 /**
