@@ -66,7 +66,7 @@ export function SiteFooter({
           {/* Characteristics + Quick links */}
           <div>
             <p className="text-ocean-400 mb-4 text-xs font-semibold tracking-wider uppercase">
-              Descubrir
+              Colecciones
             </p>
             <ul className="space-y-2">
               {characteristics.map((c) => (
@@ -89,7 +89,7 @@ export function SiteFooter({
                 className="text-ocean-200 text-sm transition-colors hover:text-white"
                 to="/explorar"
               >
-                Explorar playas
+                Todas las playas
               </Link>
               <Link
                 className="text-ocean-200 text-sm transition-colors hover:text-white"

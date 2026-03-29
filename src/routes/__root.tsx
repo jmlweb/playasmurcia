@@ -179,8 +179,8 @@ export const Route = createRootRoute({
 })
 
 const simpleNavLinks = [
-  { to: '/' as const, label: 'Inicio', exact: true },
-  { to: '/explorar' as const, label: 'Explorar' },
+  { to: '/explorar' as const, label: 'Playas' },
+  { to: '/municipios' as const, label: 'Municipios' },
   { to: '/colecciones' as const, label: 'Colecciones' },
 ]
 
@@ -208,15 +208,15 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
         >
           <Popover.Popup className="bg-ocean-800 w-[28rem] rounded-xl border border-white/10 p-5 shadow-2xl">
             <div className="grid grid-cols-2 gap-6">
-              {/* Municipalities */}
+              {/* Municipalities — top 5 */}
               <div>
                 <p className="text-ocean-400 mb-3 text-xs font-semibold tracking-wider uppercase">
                   Municipios
                 </p>
                 <ul className="space-y-1">
-                  {navData.municipalities.map((m) => {
+                  {navData.municipalities.slice(0, 5).map((m) => {
                     const href = `/municipios/${m.slug}`
-                    const active = pathname === href
+                    const active = pathname.startsWith(href)
                     return (
                       <li key={m.slug}>
                         <Link
@@ -234,16 +234,24 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
                     )
                   })}
                 </ul>
+                <div className="border-ocean-700 mt-3 border-t pt-3">
+                  <Link
+                    className="text-ocean-300 hover:bg-ocean-700 flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium transition-colors hover:text-white"
+                    to="/municipios"
+                  >
+                    Ver todos →
+                  </Link>
+                </div>
               </div>
 
-              {/* Characteristics */}
+              {/* Collections — top 4 */}
               <div>
                 <p className="text-ocean-400 mb-3 text-xs font-semibold tracking-wider uppercase">
-                  Características
+                  Colecciones
                 </p>
                 <ul className="space-y-1">
-                  {navData.characteristics.map((c) => {
-                    const active = pathname === c.href
+                  {navData.characteristics.slice(0, 4).map((c) => {
+                    const active = pathname.startsWith(c.href)
                     return (
                       <li key={c.href}>
                         <Link
@@ -261,26 +269,12 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
                     )
                   })}
                 </ul>
-                <div className="border-ocean-700 mt-4 border-t pt-3">
+                <div className="border-ocean-700 mt-3 border-t pt-3">
                   <Link
                     className="text-ocean-300 hover:bg-ocean-700 flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium transition-colors hover:text-white"
-                    to="/explorar"
+                    to="/colecciones"
                   >
-                    Ver todas las playas
-                    <svg
-                      aria-hidden="true"
-                      className="h-3.5 w-3.5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M9 5l7 7-7 7"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                      />
-                    </svg>
+                    Ver todas →
                   </Link>
                 </div>
               </div>
@@ -380,10 +374,10 @@ function Navbar() {
           Playas de Murcia
         </Link>
         <div className="hidden items-center gap-6 sm:flex">
-          {simpleNavLinks.map(({ to, label, exact }) => (
+          {simpleNavLinks.map(({ to, label }) => (
             <Link
               key={to}
-              activeOptions={{ exact }}
+              activeOptions={{ exact: false }}
               activeProps={{
                 className: 'text-white border-b-2 border-ocean-400 pb-0.5',
               }}
@@ -442,10 +436,10 @@ function Navbar() {
       </div>
       {mobileOpen && (
         <div className="border-t border-white/10 px-4 pt-2 pb-4 sm:hidden">
-          {simpleNavLinks.map(({ to, label, exact }) => (
+          {simpleNavLinks.map(({ to, label }) => (
             <Link
               key={to}
-              activeOptions={{ exact }}
+              activeOptions={{ exact: false }}
               activeProps={{ className: 'text-white' }}
               className="block py-2.5 text-sm font-medium transition-colors"
               inactiveProps={{ className: 'text-ocean-200 hover:text-white' }}
