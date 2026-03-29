@@ -250,12 +250,40 @@ export async function getBeachByCode(code: string): Promise<Beach | undefined> {
 }
 
 /**
- * Finds a beach by its slug (normalized name)
+ * Returns a cached Map from slug to beach code.
+ * Only fetches name+code columns (lightweight) and caches for the process lifetime.
+ */
+let slugToCodeCache: Map<string, string> | null = null
+
+async function getSlugToCodeMap(): Promise<Map<string, string>> {
+  if (slugToCodeCache) return slugToCodeCache
+
+  const rows = await db
+    .select({ code: schema.beaches.code, name: schema.beaches.name })
+    .from(schema.beaches)
+
+  slugToCodeCache = new Map(
+    rows.map((r) => [
+      r.name
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/\s+/g, '-'),
+      r.code,
+    ]),
+  )
+  return slugToCodeCache
+}
+
+/**
+ * Finds a beach by its slug (normalized name).
+ * Uses a cached slug→code map + direct DB query instead of loading all beaches.
  */
 export async function getBeachBySlug(slug: string): Promise<Beach | undefined> {
-  const allBeaches = await getAllBeaches()
-
-  return allBeaches.find((beach) => beachToSlug(beach) === slug)
+  const map = await getSlugToCodeMap()
+  const code = map.get(slug)
+  if (!code) return undefined
+  return getBeachByCode(code)
 }
 
 // Re-export slug functions for backwards compatibility

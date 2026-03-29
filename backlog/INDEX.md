@@ -4,9 +4,9 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 10 tasks
+- **Pending**: 9 tasks
 - **In progress**: 0 tasks
-- **Completed**: 49 tasks
+- **Completed**: 50 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
@@ -17,7 +17,6 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 | #   | Task                                                   | Slice   | Priority   | Blocked by |
 | --- | ------------------------------------------------------ | ------- | ---------- | ---------- |
-| 055 | Optimize `getBeachBySlug` to Direct DB Query           | Data    | P2 - High  | -          |
 | 056 | Add Error Boundaries and Validate External Data        | Infra   | P2 - High  | -          |
 | 057 | Fix Magic Numbers in Collections                       | Data    | P3         | -          |
 | 058 | Accessibility Fixes (Focus Trap, ARIA, Keyboard Nav)   | Styling | P3         | -          |
@@ -32,6 +31,7 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 | #   | Task                                                    | Completed  |
 | --- | ------------------------------------------------------- | ---------- |
+| 055 | Optimize `getBeachBySlug` to Direct DB Query            | 2026-03-29 |
 | 054 | Replace `<a>` with `<Link>` for Client-Side Navigation  | 2026-03-29 |
 | 053 | Fix Production Bugs (Cache, Slug Duplication, Debounce) | 2026-03-29 |
 | 050 | Spanish Orthography and Pagination Copy                 | 2026-03-29 |
