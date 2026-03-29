@@ -78,25 +78,6 @@ type PracticalInfoCardProps = {
   orientation?: string
 }
 
-type InfoRowProps = {
-  label: string
-  value: string
-  valueClass?: string
-}
-
-function InfoRow({ label, value, valueClass }: InfoRowProps) {
-  return (
-    <div className="flex items-start justify-between gap-4 border-b border-gray-100 py-3 last:border-0">
-      <dt className="text-sm text-gray-500">{label}</dt>
-      <dd
-        className={`text-right text-sm font-medium text-gray-900 ${valueClass ?? ''}`}
-      >
-        {value}
-      </dd>
-    </div>
-  )
-}
-
 export function PracticalInfoCard({
   length,
   soilType,
@@ -122,6 +103,30 @@ export function PracticalInfoCard({
     return null
   }
 
+  const hasBadges =
+    waterQuality != null ||
+    occupancyLevel != null ||
+    accessDifficulty != null ||
+    childSafe !== undefined
+
+  const details: { label: string; value: string }[] = []
+  if (length !== undefined)
+    details.push({ label: 'Longitud', value: `${length} m` })
+  if (soilType) details.push({ label: 'Tipo de suelo', value: soilType })
+  if (waves) details.push({ label: 'Oleaje', value: waves })
+  if (orientation)
+    details.push({
+      label: 'Orientación',
+      value: OrientationLabels[orientation] ?? orientation,
+    })
+  if (naturalShade !== undefined)
+    details.push({ label: 'Sombra natural', value: naturalShade ? 'Sí' : 'No' })
+  if (bestSeason && bestSeason.length > 0)
+    details.push({
+      label: 'Mejor temporada',
+      value: bestSeason.map((s) => SeasonConfig[s]).join(', '),
+    })
+
   return (
     <section
       aria-label="Información práctica"
@@ -130,85 +135,62 @@ export function PracticalInfoCard({
       <h2 className="mb-4 text-xl font-semibold text-gray-900">
         Información práctica
       </h2>
-      <dl>
-        {length !== undefined && (
-          <InfoRow label="Longitud" value={`${length} m`} />
-        )}
-        {soilType && <InfoRow label="Tipo de suelo" value={soilType} />}
-        {waves && <InfoRow label="Oleaje" value={waves} />}
-        {orientation && (
-          <InfoRow
-            label="Orientación"
-            value={OrientationLabels[orientation] ?? orientation}
-          />
-        )}
-        {accessDifficulty && (
-          <div className="flex items-start justify-between gap-4 border-b border-gray-100 py-3 last:border-0">
-            <dt className="text-sm text-gray-500">Dificultad de acceso</dt>
-            <dd>
+
+      {hasBadges && (
+        <div className="mb-5 grid grid-cols-2 gap-3">
+          {waterQuality && (
+            <div className="rounded-xl bg-gray-50 p-3">
+              <p className="mb-1.5 text-xs text-gray-500">Calidad del agua</p>
               <span
-                className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${AccessDifficultyConfig[accessDifficulty].colorClass}`}
-              >
-                {AccessDifficultyConfig[accessDifficulty].label}
-              </span>
-            </dd>
-          </div>
-        )}
-        {occupancyLevel && (
-          <div className="flex items-start justify-between gap-4 border-b border-gray-100 py-3 last:border-0">
-            <dt className="text-sm text-gray-500">Ocupación habitual</dt>
-            <dd>
-              <span
-                className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${OccupancyConfig[occupancyLevel].colorClass}`}
-              >
-                {OccupancyConfig[occupancyLevel].label}
-              </span>
-            </dd>
-          </div>
-        )}
-        {childSafe !== undefined && (
-          <div className="flex items-start justify-between gap-4 border-b border-gray-100 py-3 last:border-0">
-            <dt className="text-sm text-gray-500">Apta para niños</dt>
-            <dd>
-              <span
-                className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${childSafe ? 'bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200' : 'bg-gray-50 text-gray-600 ring-1 ring-gray-200'}`}
-              >
-                {childSafe ? 'Sí' : 'No'}
-              </span>
-            </dd>
-          </div>
-        )}
-        {naturalShade !== undefined && (
-          <div className="flex items-start justify-between gap-4 border-b border-gray-100 py-3 last:border-0">
-            <dt className="text-sm text-gray-500">Sombra natural</dt>
-            <dd>
-              <span
-                className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${naturalShade ? 'bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200' : 'bg-gray-50 text-gray-600 ring-1 ring-gray-200'}`}
-              >
-                {naturalShade ? 'Sí' : 'No'}
-              </span>
-            </dd>
-          </div>
-        )}
-        {waterQuality && (
-          <div className="flex items-start justify-between gap-4 border-b border-gray-100 py-3 last:border-0">
-            <dt className="text-sm text-gray-500">Calidad del agua</dt>
-            <dd>
-              <span
-                className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${WaterQualityConfig[waterQuality].colorClass}`}
+                className={`inline-block rounded-full px-3 py-1 text-sm font-medium ${WaterQualityConfig[waterQuality].colorClass}`}
               >
                 {WaterQualityConfig[waterQuality].label}
               </span>
-            </dd>
-          </div>
-        )}
-        {bestSeason && bestSeason.length > 0 && (
-          <InfoRow
-            label="Mejor temporada"
-            value={bestSeason.map((s) => SeasonConfig[s]).join(', ')}
-          />
-        )}
-      </dl>
+            </div>
+          )}
+          {occupancyLevel && (
+            <div className="rounded-xl bg-gray-50 p-3">
+              <p className="mb-1.5 text-xs text-gray-500">Ocupación habitual</p>
+              <span
+                className={`inline-block rounded-full px-3 py-1 text-sm font-medium ${OccupancyConfig[occupancyLevel].colorClass}`}
+              >
+                {OccupancyConfig[occupancyLevel].label}
+              </span>
+            </div>
+          )}
+          {accessDifficulty && (
+            <div className="rounded-xl bg-gray-50 p-3">
+              <p className="mb-1.5 text-xs text-gray-500">Acceso</p>
+              <span
+                className={`inline-block rounded-full px-3 py-1 text-sm font-medium ${AccessDifficultyConfig[accessDifficulty].colorClass}`}
+              >
+                {AccessDifficultyConfig[accessDifficulty].label}
+              </span>
+            </div>
+          )}
+          {childSafe !== undefined && (
+            <div className="rounded-xl bg-gray-50 p-3">
+              <p className="mb-1.5 text-xs text-gray-500">Apta para niños</p>
+              <span
+                className={`inline-block rounded-full px-3 py-1 text-sm font-medium ${childSafe ? 'bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200' : 'bg-gray-100 text-gray-600 ring-1 ring-gray-200'}`}
+              >
+                {childSafe ? 'Sí' : 'No'}
+              </span>
+            </div>
+          )}
+        </div>
+      )}
+
+      {details.length > 0 && (
+        <dl className="grid grid-cols-2 gap-x-6 gap-y-3">
+          {details.map((d) => (
+            <div key={d.label}>
+              <dt className="text-xs text-gray-500">{d.label}</dt>
+              <dd className="text-sm font-medium text-gray-900">{d.value}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
     </section>
   )
 }

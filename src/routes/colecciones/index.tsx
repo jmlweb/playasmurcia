@@ -120,7 +120,7 @@ function CollectionCard({
 
   return (
     <Link
-      className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none motion-safe:hover:-translate-y-1"
+      className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-500 ease-out hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none motion-safe:hover:-translate-y-1"
       params={{ slug }}
       to="/colecciones/$slug"
     >
@@ -128,7 +128,7 @@ function CollectionCard({
       <div className="flex flex-1 flex-col p-6">
         <div className="mb-3 flex items-center gap-3">
           <div
-            className={`flex h-10 w-10 items-center justify-center rounded-xl ${theme.bg} ${theme.text}`}
+            className={`flex h-12 w-12 items-center justify-center rounded-xl ${theme.bg} ${theme.text}`}
           >
             <CollectionIcon className="h-6 w-6" slug={slug} />
           </div>
@@ -170,17 +170,17 @@ function SeaCollectionCard({
 
   return (
     <Link
-      className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none motion-safe:hover:-translate-y-1"
+      className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-500 ease-out hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none motion-safe:hover:-translate-y-1"
       params={{ slug }}
       to="/colecciones/$slug"
     >
       <div
-        className={`h-2.5 ${isMediterraneo ? 'bg-ocean-500' : 'bg-emerald-500'}`}
+        className={`absolute inset-0 opacity-[0.07] ${isMediterraneo ? 'from-ocean-500 to-ocean-700 bg-gradient-to-br' : 'bg-gradient-to-br from-emerald-500 to-emerald-700'}`}
       />
-      <div className="flex flex-1 flex-col p-6">
+      <div className="relative flex flex-1 flex-col p-6">
         <div className="mb-3 flex items-center gap-3">
           <div
-            className={`flex h-14 w-14 items-center justify-center rounded-xl ${isMediterraneo ? 'bg-ocean-50 text-ocean-600' : 'bg-emerald-50 text-emerald-600'}`}
+            className={`flex h-12 w-12 items-center justify-center rounded-xl ${isMediterraneo ? 'bg-ocean-50 text-ocean-600' : 'bg-emerald-50 text-emerald-600'}`}
           >
             <svg
               aria-hidden="true"
@@ -212,7 +212,7 @@ function SeaCollectionCard({
             playas
           </span>
           <span className="text-ocean-600 group-hover:text-ocean-700 text-sm font-medium transition-colors">
-            Explorar →
+            Ver colección →
           </span>
         </div>
       </div>
@@ -225,11 +225,14 @@ function ColeccionesPage() {
 
   return (
     <main className="bg-sand-50 min-h-screen">
-      <PageHero>
+      <PageHero
+        backgroundImage="/pictures/PLAYAS_1_645_3_g.jpg"
+        backgroundAlt="Playas de la Región de Murcia"
+      >
         <p className="text-ocean-300 mb-3 text-sm font-medium tracking-widest uppercase">
           Costa de Murcia
         </p>
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+        <h1 className="mb-4 text-4xl font-normal tracking-tight text-white sm:text-5xl">
           Colecciones de playas
         </h1>
         <p className="text-ocean-200 mx-auto max-w-xl text-lg">
@@ -237,14 +240,14 @@ function ColeccionesPage() {
         </p>
       </PageHero>
 
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <Breadcrumb
           items={[{ label: 'Inicio', href: '/' }, { label: 'Colecciones' }]}
         />
 
         {/* Seas — featured */}
         <section className="mb-10">
-          <h2 className="mb-5 text-2xl font-bold text-gray-900">
+          <h2 className="mb-5 text-2xl font-semibold text-gray-900">
             Playas por mar
           </h2>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:gap-6">
@@ -262,7 +265,7 @@ function ColeccionesPage() {
 
         {/* Thematic collections */}
         <section className="border-t border-gray-200 pt-10">
-          <h2 className="mb-5 text-2xl font-bold text-gray-900">
+          <h2 className="mb-5 text-2xl font-semibold text-gray-900">
             Colecciones temáticas
           </h2>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">

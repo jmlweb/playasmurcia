@@ -86,7 +86,7 @@ const fetchNavData = createServerFn({ method: 'GET' }).handler(
 function RootErrorComponent({ reset }: ErrorComponentProps) {
   return (
     <div className="bg-sand-50 flex min-h-screen flex-col items-center justify-center px-4 text-center">
-      <p className="text-ocean-200 mb-3 text-7xl font-extrabold">!</p>
+      <p className="text-ocean-200 mb-3 text-7xl font-normal">!</p>
       <h1 className="mb-2 text-2xl font-semibold text-gray-900">
         Algo ha ido mal
       </h1>
@@ -118,7 +118,7 @@ export const Route = createRootRoute({
   errorComponent: RootErrorComponent,
   notFoundComponent: () => (
     <div className="bg-sand-50 flex min-h-screen flex-col items-center justify-center px-4 text-center">
-      <p className="text-ocean-700 mb-3 text-7xl font-extrabold">404</p>
+      <p className="text-ocean-700 mb-3 text-7xl font-normal">404</p>
       <h1 className="mb-2 text-2xl font-semibold text-gray-900">
         Página no encontrada
       </h1>
@@ -166,7 +166,7 @@ export const Route = createRootRoute({
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap',
       },
       {
         rel: 'stylesheet',

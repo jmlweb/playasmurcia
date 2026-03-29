@@ -4,6 +4,7 @@
   --default-font-family:
     'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, sans-serif;
+  --font-family-display: 'DM Serif Display', Georgia, 'Times New Roman', serif;
 
   /* Coastal palette */
   --color-ocean-50: #f0f7fa;
@@ -45,6 +46,11 @@
     html {
       scroll-behavior: auto;
     }
+  }
+
+  h1,
+  h2 {
+    font-family: var(--font-family-display);
   }
 
   /* Scrollbar styling for carousels */

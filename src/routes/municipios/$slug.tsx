@@ -111,8 +111,11 @@ function MunicipalityPage() {
   return (
     <main className="bg-sand-50 min-h-screen">
       {/* Hero */}
-      <PageHero>
-        <h1 className="mb-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+      <PageHero
+        backgroundImage="/pictures/PLAYAS_1_654_1_g.jpg"
+        backgroundAlt="Costa de Murcia"
+      >
+        <h1 className="mb-4 text-3xl font-normal tracking-tight text-white sm:text-4xl">
           Playas de {municipality.name}
         </h1>
         <div className="text-ocean-200 flex flex-wrap justify-center gap-4 text-sm">
@@ -134,7 +137,7 @@ function MunicipalityPage() {
       </PageHero>
 
       {/* Beach grid */}
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <Breadcrumb
           items={[
             { label: 'Inicio', href: '/' },

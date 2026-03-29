@@ -67,14 +67,14 @@ function HomePage() {
     [featured],
   )
 
-  const featuredRef = useScrollReveal()
+  const featuredRef = useScrollReveal(0.05)
   const municipalitiesRef = useScrollReveal()
   const highlightsRef = useScrollReveal()
 
   return (
     <main className="bg-sand-50 min-h-screen">
       {/* Hero */}
-      <section className="bg-ocean-900 relative overflow-hidden px-4 py-16 sm:py-20 lg:py-28">
+      <section className="bg-ocean-900 relative overflow-hidden px-4 py-20 sm:py-28 lg:py-36">
         <img
           alt="Vista aerea de la costa de Murcia"
           className="absolute inset-0 h-full w-full object-cover"
@@ -83,12 +83,12 @@ function HomePage() {
           src="/pictures/hero.png"
           width={1408}
         />
-        <div className="from-ocean-900/70 via-ocean-900/75 to-ocean-900/90 absolute inset-0 bg-gradient-to-b" />
+        <div className="via-ocean-900/30 to-ocean-900/80 absolute inset-0 bg-gradient-to-b from-transparent" />
         <div className="relative mx-auto max-w-4xl text-center">
           <p className="text-ocean-300 animate-fade-up mb-4 text-sm font-semibold tracking-[0.2em] uppercase sm:text-base">
             Costa Cálida &middot; Región de Murcia
           </p>
-          <h1 className="animate-fade-up mb-6 text-4xl font-extrabold tracking-tight text-white [animation-delay:75ms] sm:text-5xl lg:text-6xl xl:text-7xl">
+          <h1 className="animate-fade-up mb-6 text-4xl font-normal tracking-tight text-white [animation-delay:75ms] sm:text-5xl lg:text-6xl xl:text-7xl">
             Donde el Mediterráneo
             <br className="hidden sm:block" /> abraza la costa
           </h1>
@@ -119,7 +119,7 @@ function HomePage() {
               </svg>
             </Link>
             <Link
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
+              className="inline-flex items-center gap-2 rounded-full border border-white/30 px-8 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
               to="/colecciones"
             >
               Ver colecciones
@@ -131,14 +131,14 @@ function HomePage() {
       {/* Featured beaches */}
       <section
         ref={featuredRef}
-        className="reveal mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24"
+        className="reveal mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
       >
         <div className="mb-10 flex items-end justify-between">
           <div>
             <p className="text-ocean-600 mb-2 text-sm font-semibold tracking-wider uppercase">
               Selección destacada
             </p>
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
               Playas que no te puedes perder
             </h2>
           </div>
@@ -150,7 +150,7 @@ function HomePage() {
           </Link>
         </div>
 
-        <div className="grid gap-x-4 gap-y-6 pb-4 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-6 xl:gap-y-8 2xl:grid-cols-4">
+        <div className="grid gap-6 pb-4 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8 2xl:grid-cols-4">
           {featured.map((beach, i) => {
             const slug = slugMap.get(beach.code) ?? beachToSlug(beach)
             return (
@@ -194,14 +194,14 @@ function HomePage() {
       {/* Municipalities */}
       <section
         ref={municipalitiesRef}
-        className="reveal bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8"
+        className="reveal bg-white px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
       >
         <div className="mx-auto max-w-7xl">
           <div className="mb-10">
             <p className="text-ocean-600 mb-2 text-sm font-semibold tracking-wider uppercase">
               Explora por zona
             </p>
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
               Municipios costeros
             </h2>
           </div>
@@ -233,20 +233,31 @@ function HomePage() {
       {/* Region highlights */}
       <section
         ref={highlightsRef}
-        className="reveal bg-sand-50 border-t border-gray-200 px-4 py-16 sm:px-6 sm:py-20 lg:px-8"
+        className="reveal bg-ocean-900 relative overflow-hidden px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
       >
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-10">
-            <p className="text-ocean-600 mb-2 text-sm font-semibold tracking-wider uppercase">
+        <img
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover opacity-20"
+          loading="lazy"
+          src="/pictures/PLAYAS_1_675_4_g.jpg"
+        />
+        <div className="from-ocean-900/60 to-ocean-900/90 absolute inset-0 bg-gradient-to-b" />
+        <div className="relative mx-auto max-w-7xl">
+          <div className="mb-12 text-center">
+            <p className="text-ocean-300 mb-2 text-sm font-semibold tracking-wider uppercase">
               Costa Cálida
             </p>
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
               Lo que hace única a nuestra costa
             </h2>
           </div>
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            <Link className="group text-center" to="/colecciones">
-              <div className="bg-ocean-50 text-ocean-600 group-hover:bg-ocean-100 mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl transition-colors">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+            <Link
+              className="group rounded-2xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur-sm transition-all hover:bg-white/10"
+              to="/colecciones"
+            >
+              <div className="bg-ocean-500/20 text-ocean-300 mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl">
                 <svg
                   aria-hidden="true"
                   className="h-7 w-7"
@@ -262,20 +273,20 @@ function HomePage() {
                   />
                 </svg>
               </div>
-              <h3 className="group-hover:text-ocean-600 mb-2 text-lg font-semibold text-gray-900 transition-colors">
+              <h3 className="mb-2 text-lg font-semibold text-white">
                 Dos mares
               </h3>
-              <p className="text-sm leading-relaxed text-gray-500">
+              <p className="text-ocean-200 text-sm leading-relaxed">
                 El Mediterráneo y el Mar Menor ofrecen experiencias de playa
                 completamente diferentes en pocos kilómetros.
               </p>
             </Link>
             <Link
-              className="group text-center"
+              className="group rounded-2xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur-sm transition-all hover:bg-white/10"
               params={{ slug: 'mejores-atardeceres' }}
               to="/colecciones/$slug"
             >
-              <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-50 text-amber-600 transition-colors group-hover:bg-amber-100">
+              <div className="bg-coral-500/20 text-coral-400 mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl">
                 <svg
                   aria-hidden="true"
                   className="h-7 w-7"
@@ -291,20 +302,20 @@ function HomePage() {
                   />
                 </svg>
               </div>
-              <h3 className="group-hover:text-ocean-600 mb-2 text-lg font-semibold text-gray-900 transition-colors">
+              <h3 className="mb-2 text-lg font-semibold text-white">
                 300 días de sol
               </h3>
-              <p className="text-sm leading-relaxed text-gray-500">
+              <p className="text-ocean-200 text-sm leading-relaxed">
                 Con una de las mejores climatologías de Europa, la Costa Cálida
                 hace honor a su nombre durante todo el año.
               </p>
             </Link>
             <Link
-              className="group text-center"
+              className="group rounded-2xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur-sm transition-all hover:bg-white/10"
               params={{ slug: 'bandera-azul' }}
               to="/colecciones/$slug"
             >
-              <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 transition-colors group-hover:bg-emerald-100">
+              <div className="bg-ocean-500/20 text-ocean-300 mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl">
                 <svg
                   aria-hidden="true"
                   className="h-7 w-7"
@@ -320,10 +331,10 @@ function HomePage() {
                   />
                 </svg>
               </div>
-              <h3 className="group-hover:text-ocean-600 mb-2 text-lg font-semibold text-gray-900 transition-colors">
+              <h3 className="mb-2 text-lg font-semibold text-white">
                 Aguas cristalinas
               </h3>
-              <p className="text-sm leading-relaxed text-gray-500">
+              <p className="text-ocean-200 text-sm leading-relaxed">
                 Reservas marinas, calas protegidas y banderas azules que
                 certifican la calidad de nuestro litoral.
               </p>

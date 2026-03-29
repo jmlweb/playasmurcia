@@ -25,7 +25,7 @@ export function ActivitiesGrid({
         {resolvedActivities.map((activity) => (
           <li
             key={activity.id}
-            className="flex items-center gap-2.5 rounded-xl border border-gray-200/60 bg-white px-3.5 py-3 text-sm text-gray-700 shadow-sm"
+            className="bg-sand-100 flex items-center gap-2.5 rounded-xl px-3.5 py-3 text-sm text-gray-700"
           >
             <ActivityIcon
               className="text-ocean-500 h-5 w-5"

@@ -2,10 +2,10 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 
 import { Breadcrumb } from '@/components/breadcrumb'
-import { BlueFlagBadgeIcon, ServiceIcon } from '@/components/icons'
+import { BlueFlagBadgeIcon } from '@/components/icons'
 import { PageHero } from '@/components/page-hero'
 import { municipalityToSlug } from '@/lib/slugs'
-import type { Beach, Municipality, Service } from '@/types/beach'
+import type { Beach, Municipality } from '@/types/beach'
 
 type MunicipalityStats = {
   municipality: Municipality
@@ -81,62 +81,36 @@ export const Route = createFileRoute('/municipios/')({
   component: MunicipiosPage,
 })
 
-function MunicipalityCard({
-  stats,
-  services,
-}: {
-  stats: MunicipalityStats
-  services: Service[]
-}) {
-  const topServices = stats.topServiceIndices
-    .map((i) => services[i])
-    .filter(Boolean)
-
+function MunicipalityCard({ stats }: { stats: MunicipalityStats }) {
   return (
     <Link
-      className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none motion-safe:hover:-translate-y-1"
+      className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-500 ease-out hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none motion-safe:hover:-translate-y-1"
       params={{ slug: stats.slug }}
       to="/municipios/$slug"
     >
       <div className="flex flex-1 flex-col p-6">
-        <h2 className="group-hover:text-ocean-600 mb-1 text-xl font-semibold text-gray-900 transition-colors">
-          {stats.municipality.name}
-        </h2>
-        <div className="mb-4 flex flex-wrap gap-3 text-sm text-gray-500">
-          <span>
-            <strong className="font-semibold text-gray-900">
-              {stats.beachCount}
-            </strong>{' '}
-            {stats.beachCount === 1 ? 'playa' : 'playas'}
-          </span>
-          {stats.blueFlagCount > 0 && (
-            <span className="flex items-center gap-1">
-              <BlueFlagBadgeIcon className="text-ocean-500 h-4 w-4" />
-              <strong className="text-ocean-700 font-semibold">
-                {stats.blueFlagCount}
-              </strong>{' '}
-              bandera{stats.blueFlagCount === 1 ? '' : 's'} azul
-            </span>
-          )}
-        </div>
-        {topServices.length > 0 && (
-          <div className="mb-4 flex flex-wrap gap-2">
-            {topServices.map((service) => (
-              <span
-                key={service.id}
-                className="bg-ocean-50 text-ocean-700 flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium"
-              >
-                <ServiceIcon
-                  className="h-3.5 w-3.5"
-                  emoji={service.icon}
-                  id={service.id}
-                />
-                <span>{service.name}</span>
-              </span>
-            ))}
+        <div className="mb-4 flex items-start justify-between">
+          <h2 className="group-hover:text-ocean-600 text-xl font-semibold text-gray-900 transition-colors">
+            {stats.municipality.name}
+          </h2>
+          <div className="bg-ocean-50 text-ocean-700 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-lg font-bold">
+            {stats.beachCount}
           </div>
-        )}
-        <div className="mt-auto flex items-center justify-between">
+        </div>
+        <p className="mb-4 text-sm leading-relaxed text-gray-500">
+          {stats.beachCount} {stats.beachCount === 1 ? 'playa' : 'playas'}
+          {stats.blueFlagCount > 0 && (
+            <>
+              {' · '}
+              <span className="text-ocean-600 inline-flex items-center gap-1">
+                <BlueFlagBadgeIcon className="inline h-3.5 w-3.5" />
+                {stats.blueFlagCount} bandera
+                {stats.blueFlagCount === 1 ? '' : 's'} azul
+              </span>
+            </>
+          )}
+        </p>
+        <div className="mt-auto">
           <span className="text-ocean-600 group-hover:text-ocean-700 text-sm font-medium transition-colors">
             Ver playas →
           </span>
@@ -147,18 +121,21 @@ function MunicipalityCard({
 }
 
 function MunicipiosPage() {
-  const { stats, services } = Route.useLoaderData()
+  const { stats } = Route.useLoaderData()
 
   const totalBeaches = stats.reduce((sum, s) => sum + s.beachCount, 0)
 
   return (
     <main className="bg-sand-50 min-h-screen">
       {/* Hero */}
-      <PageHero>
+      <PageHero
+        backgroundImage="/pictures/PLAYAS_1_654_1_g.jpg"
+        backgroundAlt="Costa de los municipios de Murcia"
+      >
         <p className="text-ocean-300 mb-3 text-sm font-medium tracking-widest uppercase">
           Costa de Murcia
         </p>
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+        <h1 className="mb-4 text-4xl font-normal tracking-tight text-white sm:text-5xl">
           Municipios costeros
         </h1>
         <p className="text-ocean-200 mx-auto max-w-xl text-lg">
@@ -168,14 +145,14 @@ function MunicipiosPage() {
       </PageHero>
 
       {/* Content */}
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <Breadcrumb
           items={[{ label: 'Inicio', href: '/' }, { label: 'Municipios' }]}
         />
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
           {stats.map((s) => (
-            <MunicipalityCard key={s.slug} services={services} stats={s} />
+            <MunicipalityCard key={s.slug} stats={s} />
           ))}
         </div>
       </div>

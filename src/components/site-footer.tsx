@@ -23,7 +23,7 @@ export function SiteFooter({
 }: SiteFooterProps) {
   return (
     <footer className="bg-ocean-900 text-ocean-200">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         {/* Link grid */}
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {/* Branding */}
@@ -54,7 +54,7 @@ export function SiteFooter({
                     to="/municipios/$slug"
                   >
                     {m.name}
-                    <span className="bg-ocean-800 text-ocean-400 group-hover:text-ocean-300 rounded-full px-1.5 py-0.5 text-[10px] font-medium transition-colors">
+                    <span className="bg-ocean-800 text-ocean-400 group-hover:text-ocean-300 rounded-full px-1.5 py-0.5 text-xs font-medium transition-colors">
                       {m.beachCount}
                     </span>
                   </Link>
@@ -77,7 +77,7 @@ export function SiteFooter({
                     to="/colecciones/$slug"
                   >
                     {c.label}
-                    <span className="bg-ocean-800 text-ocean-400 group-hover:text-ocean-300 rounded-full px-1.5 py-0.5 text-[10px] font-medium transition-colors">
+                    <span className="bg-ocean-800 text-ocean-400 group-hover:text-ocean-300 rounded-full px-1.5 py-0.5 text-xs font-medium transition-colors">
                       {c.count}
                     </span>
                   </Link>

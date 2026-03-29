@@ -276,20 +276,23 @@ function ExplorerPage() {
   return (
     <main className="bg-sand-50 min-h-screen">
       {/* Header */}
-      <PageHero>
-        <h1 className="mb-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+      <PageHero
+        backgroundImage="/pictures/PLAYAS_1_638_3_g.jpg"
+        backgroundAlt="Costa de Murcia"
+      >
+        <h1 className="mb-4 text-3xl font-normal tracking-tight text-white sm:text-4xl">
           Explorar playas
         </h1>
         <p className="text-ocean-200 mx-auto mb-8 max-w-xl text-lg">
           Filtra entre {beaches.length} playas y calas del litoral murciano
         </p>
-        <div className="mx-auto max-w-lg">
+        <div className="mx-auto max-w-2xl">
           <SearchBar value={filters.q ?? ''} onChange={handleSearchChange} />
         </div>
       </PageHero>
 
       {/* Explorer */}
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <Breadcrumb
           items={[{ label: 'Inicio', href: '/' }, { label: 'Explorar playas' }]}
         />

@@ -25,7 +25,7 @@ export function ServicesGrid({
         {resolvedServices.map((service) => (
           <li
             key={service.id}
-            className="flex items-center gap-2.5 rounded-xl border border-gray-200/60 bg-white px-3.5 py-3 text-sm text-gray-700 shadow-sm"
+            className="bg-ocean-50/60 flex items-center gap-2.5 rounded-xl px-3.5 py-3 text-sm text-gray-700"
           >
             <ServiceIcon
               className="text-ocean-500 h-5 w-5"

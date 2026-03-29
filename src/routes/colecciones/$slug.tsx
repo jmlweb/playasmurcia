@@ -119,11 +119,14 @@ function CollectionPage() {
 
   return (
     <main className="bg-sand-50 min-h-screen">
-      <PageHero>
+      <PageHero
+        backgroundImage="/pictures/PLAYAS_1_645_3_g.jpg"
+        backgroundAlt="Playas de la Región de Murcia"
+      >
         <p className="text-ocean-300 mb-3 text-sm font-medium tracking-widest uppercase">
           Colecciones de playas
         </p>
-        <h1 className="mb-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+        <h1 className="mb-4 text-3xl font-normal tracking-tight text-white sm:text-4xl">
           {collection.title}
         </h1>
         <p className="text-ocean-200 text-lg">
@@ -132,7 +135,7 @@ function CollectionPage() {
         </p>
       </PageHero>
 
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <Breadcrumb
           items={[
             { label: 'Inicio', href: '/' },

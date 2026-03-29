@@ -57,7 +57,7 @@ export function BeachCard({
 
   return (
     <Link
-      className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none motion-safe:hover:-translate-y-1"
+      className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-500 ease-out hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none motion-safe:hover:-translate-y-1"
       params={{ slug }}
       to="/playas/$slug"
     >
@@ -72,7 +72,7 @@ export function BeachCard({
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
         {weather && (
-          <span className="absolute top-3 left-3 flex items-center gap-1 rounded-full bg-white/80 px-2 py-0.5 text-xs font-medium text-gray-800 backdrop-blur-sm">
+          <span className="absolute top-3 left-3 flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-sm font-medium text-gray-800 shadow-sm backdrop-blur-sm">
             <WeatherIcon
               className="h-4 w-4"
               type={
@@ -104,7 +104,7 @@ export function BeachCard({
           </div>
         )}
       </div>
-      <div className="flex flex-1 flex-col p-5">
+      <div className="flex flex-1 flex-col p-6">
         <h3 className="group-hover:text-ocean-600 mb-1 text-lg font-semibold text-gray-900 transition-colors">
           {beach.name}
         </h3>

@@ -153,7 +153,7 @@ function BeachPage() {
     <main className="bg-sand-50 min-h-screen">
       {/* Hero section */}
       {heroImage ? (
-        <section className="relative h-64 overflow-hidden sm:h-80 lg:h-96">
+        <section className="relative h-72 overflow-hidden sm:h-96 lg:h-[32rem]">
           <ResponsiveImage
             alt={beach.name}
             baseName={heroImage.baseName}
@@ -164,7 +164,7 @@ function BeachPage() {
           />
           <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-extrabold tracking-tight text-white drop-shadow-lg sm:text-4xl">
+            <h1 className="text-3xl font-normal tracking-tight text-white drop-shadow-lg sm:text-4xl">
               {beach.name}
             </h1>
             <p className="mt-1 text-lg text-white/80">{municipality.name}</p>
@@ -182,7 +182,7 @@ function BeachPage() {
       ) : (
         <section className="bg-ocean-700 relative py-12">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+            <h1 className="text-3xl font-normal tracking-tight text-white sm:text-4xl">
               {beach.name}
             </h1>
             <p className="mt-1 text-lg text-white/80">{municipality.name}</p>
