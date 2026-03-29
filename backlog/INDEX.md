@@ -4,9 +4,9 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 9 tasks
+- **Pending**: 8 tasks
 - **In progress**: 0 tasks
-- **Completed**: 50 tasks
+- **Completed**: 51 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
@@ -18,7 +18,6 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 | #   | Task                                                   | Slice   | Priority   | Blocked by |
 | --- | ------------------------------------------------------ | ------- | ---------- | ---------- |
 | 056 | Add Error Boundaries and Validate External Data        | Infra   | P2 - High  | -          |
-| 057 | Fix Magic Numbers in Collections                       | Data    | P3         | -          |
 | 058 | Accessibility Fixes (Focus Trap, ARIA, Keyboard Nav)   | Styling | P3         | -          |
 | 059 | Code Consistency Cleanup                               | Infra   | P3         | -          |
 | 051 | Beach Detail UI Review Follow-up                       | Styling | P3         | -          |
@@ -31,6 +30,7 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 | #   | Task                                                    | Completed  |
 | --- | ------------------------------------------------------- | ---------- |
+| 057 | Fix Magic Numbers in Collections                        | 2026-03-29 |
 | 055 | Optimize `getBeachBySlug` to Direct DB Query            | 2026-03-29 |
 | 054 | Replace `<a>` with `<Link>` for Client-Side Navigation  | 2026-03-29 |
 | 053 | Fix Production Bugs (Cache, Slug Duplication, Debounce) | 2026-03-29 |
