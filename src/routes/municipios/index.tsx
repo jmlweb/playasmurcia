@@ -126,7 +126,11 @@ function MunicipalityCard({
                 key={service.id}
                 className="bg-ocean-50 text-ocean-700 flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium"
               >
-                <ServiceIcon className="h-3.5 w-3.5" emoji={service.icon} />
+                <ServiceIcon
+                  className="h-3.5 w-3.5"
+                  emoji={service.icon}
+                  id={service.id}
+                />
                 <span>{service.name}</span>
               </span>
             ))}

@@ -74,7 +74,7 @@ export const Route = createFileRoute('/colecciones/$slug')({
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
-      return { meta: [{ title: 'Coleccion no encontrada' }] }
+      return { meta: [{ title: 'Colección no encontrada' }] }
     }
     return {
       meta: [

@@ -203,10 +203,11 @@ const serviceIconMap: Record<string, (p: IconProps) => JSX.Element> = {
 }
 
 export function ServiceIcon({
+  id,
   emoji,
   className = 'h-4 w-4',
-}: IconProps & { emoji: string }) {
-  const Comp = serviceIconMap[emoji]
+}: IconProps & { id?: string; emoji: string }) {
+  const Comp = (id && serviceIconMap[id]) || serviceIconMap[emoji]
   if (Comp) return <Comp className={className} />
   return <span aria-hidden="true">{emoji}</span>
 }

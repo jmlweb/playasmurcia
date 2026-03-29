@@ -1,3 +1,14 @@
+const OrientationLabels: Record<string, string> = {
+  north: 'Norte',
+  south: 'Sur',
+  east: 'Este',
+  west: 'Oeste',
+  northeast: 'Noreste',
+  northwest: 'Noroeste',
+  southeast: 'Sureste',
+  southwest: 'Suroeste',
+} as const
+
 const OccupancyConfig = {
   low: {
     label: 'Baja',
@@ -125,7 +136,12 @@ export function PracticalInfoCard({
         )}
         {soilType && <InfoRow label="Tipo de suelo" value={soilType} />}
         {waves && <InfoRow label="Oleaje" value={waves} />}
-        {orientation && <InfoRow label="Orientación" value={orientation} />}
+        {orientation && (
+          <InfoRow
+            label="Orientación"
+            value={OrientationLabels[orientation] ?? orientation}
+          />
+        )}
         {accessDifficulty && (
           <div className="flex items-start justify-between gap-4 border-b border-gray-100 py-3 last:border-0">
             <dt className="text-sm text-gray-500">Dificultad de acceso</dt>

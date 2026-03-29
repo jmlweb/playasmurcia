@@ -30,6 +30,7 @@ export function ServicesGrid({
             <ServiceIcon
               className="text-ocean-500 h-5 w-5"
               emoji={service.icon}
+              id={service.id}
             />
             <span>{service.name}</span>
           </li>

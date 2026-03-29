@@ -118,7 +118,7 @@ export const Route = createRootRoute({
   errorComponent: RootErrorComponent,
   notFoundComponent: () => (
     <div className="bg-sand-50 flex min-h-screen flex-col items-center justify-center px-4 text-center">
-      <p className="text-ocean-200 mb-3 text-7xl font-extrabold">404</p>
+      <p className="text-ocean-700 mb-3 text-7xl font-extrabold">404</p>
       <h1 className="mb-2 text-2xl font-semibold text-gray-900">
         Página no encontrada
       </h1>
@@ -191,7 +191,7 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
     <Popover.Root>
       <Popover.Trigger
         openOnHover
-        className="group text-ocean-200 inline-flex items-center gap-1 text-sm font-medium transition-colors hover:text-white focus-visible:text-white focus-visible:underline focus-visible:outline-none"
+        className="group text-ocean-200 focus-visible:ring-offset-ocean-900 inline-flex items-center gap-1 text-sm font-medium transition-colors hover:text-white focus-visible:rounded focus-visible:text-white focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:outline-none"
         closeDelay={150}
       >
         {label}
