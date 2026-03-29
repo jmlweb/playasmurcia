@@ -72,6 +72,23 @@
     border-radius: 9999px;
   }
 
+  /* Overline accent bar */
+  .overline-accent {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .overline-accent::before {
+    content: '';
+    display: inline-block;
+    width: 1.5rem;
+    height: 2px;
+    background-color: var(--color-coral-400);
+    border-radius: 1px;
+    flex-shrink: 0;
+  }
+
   /* Selection color */
   ::selection {
     background-color: var(--color-ocean-200);

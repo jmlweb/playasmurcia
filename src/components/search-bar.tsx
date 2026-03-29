@@ -59,7 +59,7 @@ export function SearchBar({
       </div>
       <input
         aria-label="Buscar playa por nombre"
-        className="focus-visible:ring-ocean-400 w-full rounded-full border-0 bg-white/95 py-3.5 pr-10 pl-11 text-base text-gray-900 placeholder-gray-400 shadow-lg backdrop-blur-sm transition-shadow focus:bg-white focus:shadow-xl focus-visible:ring-2 focus-visible:outline-none"
+        className="focus-visible:ring-ocean-400 w-full rounded-full border border-white/30 bg-white/85 py-3.5 pr-10 pl-11 text-base text-gray-900 placeholder-gray-400 shadow-lg backdrop-blur-xl transition-shadow focus:bg-white/95 focus:shadow-xl focus-visible:ring-2 focus-visible:outline-none"
         placeholder={placeholder}
         type="search"
         value={localValue}

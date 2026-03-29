@@ -135,7 +135,7 @@ function HomePage() {
       >
         <div className="mb-10 flex items-end justify-between">
           <div>
-            <p className="text-ocean-600 mb-2 text-sm font-semibold tracking-wider uppercase">
+            <p className="overline-accent text-ocean-600 mb-2 text-sm font-semibold tracking-wider uppercase">
               Selección destacada
             </p>
             <h2 className="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
@@ -198,7 +198,7 @@ function HomePage() {
       >
         <div className="mx-auto max-w-7xl">
           <div className="mb-10">
-            <p className="text-ocean-600 mb-2 text-sm font-semibold tracking-wider uppercase">
+            <p className="overline-accent text-ocean-600 mb-2 text-sm font-semibold tracking-wider uppercase">
               Explora por zona
             </p>
             <h2 className="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
