@@ -4,20 +4,19 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 7 tasks
+- **Pending**: 6 tasks
 - **In progress**: 0 tasks
-- **Completed**: 58 tasks
+- **Completed**: 59 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
 
-> P1-P3 progress: **#061**, **#062**, **#060**, **#063** done. Next P3: **#051** (beach detail UI), **#052** (listing nits), **#064** (TanStack cleanup). P4: **#065**, **#035**, **#017**, **#021**. **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
+> **#051** done. Next P3: **#052** (listing nits), **#064** (TanStack cleanup). P4: **#065**, **#035**, **#017**, **#021**. **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
 
 ## Backlog
 
 | #   | Task                                                   | Slice   | Priority   | Blocked by |
 | --- | ------------------------------------------------------ | ------- | ---------- | ---------- |
-| 051 | Beach Detail UI Review Follow-up                       | Styling | P3         | -          |
 | 052 | Listing Pages UI Nits (Post–UI Review)                 | Styling | P3         | -          |
 | 064 | TanStack Start Technical Cleanup                       | Infra   | P3         | -          |
 | 065 | Homepage Motion and Design Polish                      | Styling | P4 - Later | -          |
@@ -29,6 +28,7 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 | #   | Task                                                    | Completed  |
 | --- | ------------------------------------------------------- | ---------- |
+| 051 | Beach Detail UI Review Follow-up                        | 2026-03-29 |
 | 063 | Navigation Menu Restructure                             | 2026-03-29 |
 | 060 | Global Shell UI Review Follow-up                        | 2026-03-29 |
 | 062 | Cloudflare Config & Image Pipeline Hardening            | 2026-03-29 |

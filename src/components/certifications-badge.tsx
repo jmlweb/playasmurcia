@@ -24,7 +24,7 @@ const CertificationConfig: Record<
     colorClass: 'bg-yellow-50 border-yellow-200 text-yellow-800',
     icon: ({ className }) => (
       <span
-        className={`flex items-center justify-center text-sm font-bold ${className ?? ''}`}
+        className={`flex h-5 w-5 shrink-0 items-center justify-center text-sm font-bold ${className ?? ''}`}
       >
         Q
       </span>
