@@ -149,6 +149,10 @@ export const Route = createRootRoute({
         name: 'description',
         content: 'Descubre las mejores playas de la Región de Murcia',
       },
+      {
+        name: 'robots',
+        content: 'noai, noimageai',
+      },
     ],
     links: [
       {

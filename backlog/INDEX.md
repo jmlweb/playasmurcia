@@ -4,25 +4,27 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 8 tasks
+- **Pending**: 10 tasks
 - **In progress**: 0 tasks
-- **Completed**: 52 tasks
+- **Completed**: 55 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
 
-> UI review 2026-03-29 (refresh) — directives in `reports/done/` (`cross-cutting.md`, `home.md`, `beach-detail.md`, listing pages, `explorar.md`). Follow-up: **#051–#052**, **#060** (global shell), **#056** / **#058** where noted. **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
+> **#061** (anti-scraping code) done. Next: **#062** (Cloudflare config + image pipeline) is P2. UI follow-ups **#051**, **#052**, **#060** remain queued. New tasks from reports: **#063** (nav restructure), **#064** (TanStack cleanup), **#065** (home motion). **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
 
 ## Backlog
 
 | #   | Task                                                   | Slice   | Priority   | Blocked by |
 | --- | ------------------------------------------------------ | ------- | ---------- | ---------- |
-| 056 | Add Error Boundaries and Validate External Data        | Infra   | P2 - High  | -          |
+| 062 | Cloudflare Config & Image Pipeline Hardening           | Infra   | P2 - High  | -          |
 | 060 | Global Shell UI Review Follow-up                       | Styling | P2 - Next  | -          |
-| 058 | Accessibility Fixes (Focus Trap, ARIA, Keyboard Nav)   | Styling | P3         | -          |
+| 063 | Navigation Menu Restructure                            | Styling | P3         | -          |
 | 051 | Beach Detail UI Review Follow-up                       | Styling | P3         | -          |
 | 052 | Listing Pages UI Nits (Post–UI Review)                 | Styling | P3         | -          |
-| 035 | Add Imagery and Visual Hierarchy to Municipality Cards | Styling | P3         | 017        |
+| 064 | TanStack Start Technical Cleanup                       | Infra   | P3         | -          |
+| 065 | Homepage Motion and Design Polish                      | Styling | P4 - Later | -          |
+| 035 | Add Imagery and Visual Hierarchy to Municipality Cards | Styling | P4 - Later | 017        |
 | 017 | Source Missing Beach Pictures                          | Content | P4 - Later | -          |
 | 021 | Add Missing Contact Info                               | Data    | P4 - Later | -          |
 
@@ -30,6 +32,9 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 | #   | Task                                                    | Completed  |
 | --- | ------------------------------------------------------- | ---------- |
+| 061 | Anti-Scraping Protection (Code Changes)                 | 2026-03-29 |
+| 058 | Accessibility Fixes (Focus Trap, ARIA, Keyboard Nav)    | 2026-03-29 |
+| 056 | Add Error Boundaries and Validate External Data         | 2026-03-29 |
 | 059 | Code Consistency Cleanup                                | 2026-03-29 |
 | 057 | Fix Magic Numbers in Collections                        | 2026-03-29 |
 | 055 | Optimize `getBeachBySlug` to Direct DB Query            | 2026-03-29 |
