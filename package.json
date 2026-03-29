@@ -34,7 +34,6 @@
     "@tanstack/router-plugin": "^1.132.0",
     "drizzle-orm": "^0.45.1",
     "leaflet": "^1.9.4",
-    "nitro": "latest",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-leaflet": "^5.0.0",
