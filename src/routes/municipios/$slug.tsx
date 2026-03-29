@@ -144,7 +144,7 @@ function MunicipalityPage() {
         />
         {beaches.length > 0 ? (
           <>
-            <div className="mb-6 flex items-center justify-between">
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
               <span className="text-sm text-gray-500">
                 <strong className="font-semibold text-gray-900">
                   {beaches.length}
