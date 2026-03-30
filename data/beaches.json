@@ -387,7 +387,9 @@
     "sea": 0,
     "promenade": false,
     "access": "Cala Blanca, una joya de la costa de Lorca en la Región de Murcia, se encuentra a 3 km de la RM-20. Para llegar, se recomienda acceder a través de un sendero natural y sin asfaltar, que requiere una caminata desde los accesos orientales (desde Ramonete, tomando la RM-332) o occidentales (desde Pinilla y Garrobillo, pasando por Águilas). No dispone de parking cercano y el acceso se realiza a pie, por lo que se recomienda calzado adecuado.",
-    "pictures": [],
+    "pictures": [
+      "cala-blanca-lorca_g.jpg"
+    ],
     "coordinates": [
       37.483338,
       -1.462284
@@ -6851,7 +6853,10 @@
       "recurso-1-614-6p_g.jpg",
       "recurso-1-614-4p_g.jpg",
       "recurso-1-614-2p_g.jpg",
-      "recurso-1-614-5p_g.jpg"
+      "recurso-1-614-5p_g.jpg",
+      "hornillo-aguilas-7_g.jpg",
+      "hornillo-aguilas-8_g.jpg",
+      "hornillo-aguilas-9_g.jpg"
     ],
     "coordinates": [
       37.412991243605234,
@@ -7673,7 +7678,10 @@
     "sea": 0,
     "promenade": false,
     "access": "La Playa de La Cañada del Negro está ubicada a lo largo de la Carretera de Vera (km 2) en Águilas, Región de Murcia. Para llegar, se requiere caminar a través de un camino sin asfaltar, por lo que se recomienda calzado cómodo. El acceso es gratuito, pero hay un parking público cercano. Debido al tipo de acceso, se considera un nivel de dificultad moderado.",
-    "pictures": [],
+    "pictures": [
+      "playa-blanca-aguilas_g.jpg",
+      "playa-blanca-aguilas-2_g.jpg"
+    ],
     "coordinates": [
       37.396731258183614,
       -1.603135929687188
@@ -7965,7 +7973,9 @@
     "sea": 0,
     "promenade": false,
     "access": "Playa de La Cola, ubicada en la carretera de Calabardina, km 6,5 en Águilas (Región de Murcia). El estacionamiento está disponible en la zona de playa. Se llega a la primera línea de costa a través de un sendero. El acceso requiere una caminata.",
-    "pictures": [],
+    "pictures": [
+      "cola-cope-aguilas_g.jpg"
+    ],
     "coordinates": [
       37.434182869227456,
       -1.5117591041422849
@@ -10635,7 +10645,8 @@
     "access": "La Playa de Levante, ubicada en el corazón de Águilas, junto al puerto. Cuenta con un parking disponible en la calzada y en la zona del puerto frente al Monumento al Ferrocarril, facilitando el acceso a esta playa urbana.",
     "pictures": [
       "recurso-1-693-1p_g.jpg",
-      "recurso-1-693-2p_g.jpg"
+      "recurso-1-693-2p_g.jpg",
+      "levante-aguilas-3_g.jpg"
     ],
     "coordinates": [
       37.408536843847926,
@@ -10946,7 +10957,9 @@
     "promenade": false,
     "access": "La Playa de Los Cocedores, ubicada en el Paraje de El Hornillo, en Águilas, Región de Murcia. Se llega principalmente en autobús desde El Campillo. Se requiere caminar para llegar a la playa. Cuenta con aparcamiento cercano y un acceso sin barreras.",
     "pictures": [
-      "recurso-1-566-1p_g.jpg"
+      "recurso-1-566-1p_g.jpg",
+      "cocedores-aguilas-2_g.jpg",
+      "cocedores-aguilas-3_g.jpg"
     ],
     "coordinates": [
       37.377302,
@@ -16236,7 +16249,9 @@
       "recurso-1-619-5p_g.jpg",
       "recurso-1-619-6p_g.jpg",
       "recurso-1-619-4p_g.jpg",
-      "recurso-1-619-2p_g.jpg"
+      "recurso-1-619-2p_g.jpg",
+      "calabardina-aguilas-6_g.jpg",
+      "calabardina-aguilas-7_g.jpg"
     ],
     "coordinates": [
       37.43454194142763,
