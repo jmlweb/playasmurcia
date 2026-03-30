@@ -221,7 +221,7 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
                       <li key={m.slug}>
                         <Link
                           aria-current={active ? 'page' : undefined}
-                          className={`flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors focus-visible:outline-none ${active ? 'bg-ocean-700 font-semibold text-white' : 'text-ocean-100 hover:bg-ocean-700 focus-visible:bg-ocean-700 hover:text-white focus-visible:text-white'}`}
+                          className={`focus-visible:ring-offset-ocean-800 flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:outline-none ${active ? 'bg-ocean-700 font-semibold text-white' : 'text-ocean-100 hover:bg-ocean-700 focus-visible:bg-ocean-700 hover:text-white focus-visible:text-white'}`}
                           params={{ slug: m.slug }}
                           to="/municipios/$slug"
                         >
@@ -256,7 +256,7 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
                       <li key={c.href}>
                         <Link
                           aria-current={active ? 'page' : undefined}
-                          className={`flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors focus-visible:outline-none ${active ? 'bg-ocean-700 font-semibold text-white' : 'text-ocean-100 hover:bg-ocean-700 focus-visible:bg-ocean-700 hover:text-white focus-visible:text-white'}`}
+                          className={`focus-visible:ring-offset-ocean-800 flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:outline-none ${active ? 'bg-ocean-700 font-semibold text-white' : 'text-ocean-100 hover:bg-ocean-700 focus-visible:bg-ocean-700 hover:text-white focus-visible:text-white'}`}
                           params={{ slug: c.href.split('/').pop()! }}
                           to="/colecciones/$slug"
                         >

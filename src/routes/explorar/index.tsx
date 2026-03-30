@@ -277,8 +277,9 @@ function ExplorerPage() {
     <main className="bg-sand-50 min-h-screen">
       {/* Header */}
       <PageHero
-        backgroundImage="/pictures/PLAYAS_1_638_3_g.jpg"
         backgroundAlt="Costa de Murcia"
+        backgroundImage="/pictures/hero-explorar.png"
+        optimizedName="hero-explorar"
       >
         <h1 className="mb-4 text-3xl font-normal tracking-tight text-white sm:text-4xl">
           Explorar playas

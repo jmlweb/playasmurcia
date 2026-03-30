@@ -1,14 +1,22 @@
-import { writeFileSync } from "node:fs"
-import { resolve } from "node:path"
+import { writeFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 
-import { beachToSlug, getAllBeaches, getAllMunicipalities, municipalityToSlug } from "../src/lib/db-data"
-import { collections } from "../src/lib/collections"
+import {
+  beachToSlug,
+  getAllBeaches,
+  getAllMunicipalities,
+  municipalityToSlug,
+} from '../src/lib/db-data'
+import { collections } from '../src/lib/collections'
 
-const BASE_URL = "https://www.playasmurcia.com"
+const BASE_URL = 'https://www.playasmurcia.com'
 
 async function generateSitemap() {
-  const [beaches, municipalities] = await Promise.all([getAllBeaches(), getAllMunicipalities()])
-  const today = new Date().toISOString().split("T")[0]
+  const [beaches, municipalities] = await Promise.all([
+    getAllBeaches(),
+    getAllMunicipalities(),
+  ])
+  const today = new Date().toISOString().split('T')[0]
 
   const urls = [
     `  <url>
@@ -29,19 +37,13 @@ async function generateSitemap() {
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>`
+  </url>`,
     ),
     `  <url>
-    <loc>${BASE_URL}/comparar</loc>
+    <loc>${BASE_URL}/explorar</loc>
     <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>`,
-    `  <url>
-    <loc>${BASE_URL}/mares</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>`,
     `  <url>
     <loc>${BASE_URL}/colecciones</loc>
@@ -55,7 +57,7 @@ async function generateSitemap() {
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>`
+  </url>`,
     ),
     ...beaches.map(
       (beach) => `  <url>
@@ -63,18 +65,18 @@ async function generateSitemap() {
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>`
+  </url>`,
     ),
   ]
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.join("\n")}
+${urls.join('\n')}
 </urlset>
 `
 
-  const outputPath = resolve(import.meta.dirname, "../public/sitemap.xml")
-  writeFileSync(outputPath, xml, "utf-8")
+  const outputPath = resolve(import.meta.dirname, '../public/sitemap.xml')
+  writeFileSync(outputPath, xml, 'utf-8')
 
   console.log(`Sitemap generated with ${urls.length} URLs → public/sitemap.xml`)
 }
@@ -82,6 +84,6 @@ ${urls.join("\n")}
 generateSitemap()
   .then(() => process.exit(0))
   .catch((err) => {
-    console.error("Failed to generate sitemap:", err)
+    console.error('Failed to generate sitemap:', err)
     process.exit(1)
   })

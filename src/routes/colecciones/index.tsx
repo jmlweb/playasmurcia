@@ -226,8 +226,9 @@ function ColeccionesPage() {
   return (
     <main className="bg-sand-50 min-h-screen">
       <PageHero
-        backgroundImage="/pictures/PLAYAS_1_645_3_g.jpg"
         backgroundAlt="Playas de la Región de Murcia"
+        backgroundImage="/pictures/hero-colecciones.png"
+        optimizedName="hero-colecciones"
       >
         <p className="text-ocean-300 mb-3 text-sm font-medium tracking-widest uppercase">
           Costa de Murcia

@@ -112,8 +112,9 @@ function MunicipalityPage() {
     <main className="bg-sand-50 min-h-screen">
       {/* Hero */}
       <PageHero
-        backgroundImage="/pictures/PLAYAS_1_654_1_g.jpg"
         backgroundAlt="Costa de Murcia"
+        backgroundImage="/pictures/hero-municipios.png"
+        optimizedName="hero-municipios"
       >
         <h1 className="mb-4 text-3xl font-normal tracking-tight text-white sm:text-4xl">
           Playas de {municipality.name}
@@ -188,7 +189,7 @@ function MunicipalityPage() {
 
         <div className="mt-12 text-center">
           <Link
-            className="text-ocean-600 hover:text-ocean-700 text-sm font-medium transition-colors focus-visible:underline focus-visible:outline-none"
+            className="border-ocean-200 text-ocean-600 hover:bg-ocean-50 hover:text-ocean-700 focus-visible:ring-ocean-500 inline-flex items-center gap-1.5 rounded-full border px-5 py-2.5 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
             to="/municipios"
           >
             ← Volver a municipios

@@ -129,8 +129,9 @@ function MunicipiosPage() {
     <main className="bg-sand-50 min-h-screen">
       {/* Hero */}
       <PageHero
-        backgroundImage="/pictures/PLAYAS_1_654_1_g.jpg"
         backgroundAlt="Costa de los municipios de Murcia"
+        backgroundImage="/pictures/hero-municipios.png"
+        optimizedName="hero-municipios"
       >
         <p className="text-ocean-300 mb-3 text-sm font-medium tracking-widest uppercase">
           Costa de Murcia

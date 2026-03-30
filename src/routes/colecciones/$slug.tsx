@@ -120,8 +120,9 @@ function CollectionPage() {
   return (
     <main className="bg-sand-50 min-h-screen">
       <PageHero
-        backgroundImage="/pictures/PLAYAS_1_645_3_g.jpg"
         backgroundAlt="Playas de la Región de Murcia"
+        backgroundImage="/pictures/hero-colecciones.png"
+        optimizedName="hero-colecciones"
       >
         <p className="text-ocean-300 mb-3 text-sm font-medium tracking-widest uppercase">
           Colecciones de playas
@@ -152,7 +153,7 @@ function CollectionPage() {
 
         {items.length === 0 ? (
           <EmptyState
-            description="No se encontraron playas en esta coleccion."
+            description="No se encontraron playas en esta colección."
             title="Sin resultados"
           />
         ) : (
@@ -184,7 +185,7 @@ function CollectionPage() {
 
         <div className="mt-12 text-center">
           <Link
-            className="text-ocean-600 hover:text-ocean-700 text-sm font-medium transition-colors focus-visible:underline focus-visible:outline-none"
+            className="border-ocean-200 text-ocean-600 hover:bg-ocean-50 hover:text-ocean-700 focus-visible:ring-ocean-500 inline-flex items-center gap-1.5 rounded-full border px-5 py-2.5 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
             to="/colecciones"
           >
             ← Volver a colecciones
