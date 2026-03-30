@@ -28,7 +28,7 @@ export function ContactInfo({
           <li className="flex items-center gap-3">
             <span aria-hidden="true" className="text-ocean-400">
               <svg
-                className="h-4 w-4"
+                className="h-5 w-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -53,7 +53,7 @@ export function ContactInfo({
           <li className="flex items-center gap-3">
             <span aria-hidden="true" className="text-ocean-400">
               <svg
-                className="h-4 w-4"
+                className="h-5 w-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -78,7 +78,7 @@ export function ContactInfo({
           <li className="flex items-center gap-3">
             <span aria-hidden="true" className="text-ocean-400">
               <svg
-                className="h-4 w-4"
+                className="h-5 w-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -106,7 +106,7 @@ export function ContactInfo({
             <span aria-hidden="true" className="text-ocean-400">
               <svg
                 aria-hidden="true"
-                className="h-4 w-4"
+                className="h-5 w-5"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >

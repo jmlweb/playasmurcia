@@ -5,6 +5,7 @@ import {
   notFound,
 } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
+import { useEffect, useRef, useState } from 'react'
 
 import { ActivitiesGrid } from '@/components/activities-grid'
 import { BeachStatusWidget } from '@/components/beach-status-widget'
@@ -164,7 +165,7 @@ function BeachPage() {
           />
           <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-normal tracking-tight text-white drop-shadow-lg sm:text-4xl">
+            <h1 className="max-w-3xl text-3xl font-normal tracking-tight text-white drop-shadow-lg sm:text-4xl">
               {beach.name}
             </h1>
             <p className="mt-1 text-lg text-white/80">{municipality.name}</p>
@@ -182,7 +183,7 @@ function BeachPage() {
       ) : (
         <section className="bg-ocean-700 relative py-12">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-normal tracking-tight text-white sm:text-4xl">
+            <h1 className="max-w-3xl text-3xl font-normal tracking-tight text-white sm:text-4xl">
               {beach.name}
             </h1>
             <p className="mt-1 text-lg text-white/80">{municipality.name}</p>
@@ -224,22 +225,18 @@ function BeachPage() {
             <PhotoGallery beachName={beach.name} pictures={pictures} />
           </div>
         ) : null}
-
-        {beach.certifications && beach.certifications.length > 0 && (
-          <div className="mb-8">
-            <CertificationsBadge certifications={beach.certifications} />
-          </div>
-        )}
       </div>
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           {/* Description — order 1 on mobile, col-span-2 row 1 on desktop */}
           <section className="order-1 rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm lg:col-span-2 lg:row-start-1">
-            <h2 className="mb-3 text-xl font-semibold text-gray-900">
-              Sobre esta playa
-            </h2>
             <p className="leading-relaxed text-gray-700">{beach.description}</p>
+            {beach.certifications && beach.certifications.length > 0 && (
+              <div className="mt-5 border-t border-gray-100 pt-5">
+                <CertificationsBadge certifications={beach.certifications} />
+              </div>
+            )}
           </section>
 
           {/* Sidebar — order 2 on mobile (after description, before services), spans both rows on desktop */}
@@ -326,6 +323,8 @@ function BeachPage() {
   )
 }
 
+type LightboxImage = { baseName: string; ext: string; alt: string }
+
 function BeachGallery({
   beachName,
   pictures,
@@ -333,18 +332,69 @@ function BeachGallery({
   beachName: string
   pictures: string[]
 }) {
+  const [lightbox, setLightbox] = useState<LightboxImage | null>(null)
+  const dialogRef = useRef<HTMLDialogElement>(null)
+
+  useEffect(() => {
+    const el = dialogRef.current
+    if (!el) return
+    if (lightbox) {
+      el.showModal()
+    } else {
+      el.close()
+    }
+  }, [lightbox])
+
+  useEffect(() => {
+    const el = dialogRef.current
+    if (!el) return
+    const handleClose = () => {
+      setLightbox(null)
+    }
+    el.addEventListener('close', handleClose)
+    return () => {
+      el.removeEventListener('close', handleClose)
+    }
+  }, [])
+
+  const openLightbox = (img: LightboxImage) => {
+    setLightbox(img)
+  }
+  const closeLightbox = () => {
+    setLightbox(null)
+  }
+
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDialogElement>) => {
+    if (e.target === e.currentTarget) closeLightbox()
+  }
+
   if (pictures.length === 1) {
     const { baseName, ext } = parseImageFilename(pictures[0])
     return (
-      <div className="aspect-[16/9] overflow-hidden rounded-2xl">
-        <ResponsiveImage
-          alt={beachName}
-          baseName={baseName}
-          className="h-full w-full object-cover"
-          ext={ext}
-          variant="full"
+      <>
+        <button
+          aria-label={`Ver foto de ${beachName} en grande`}
+          className="focus-visible:ring-ocean-500 aspect-[16/9] w-full cursor-zoom-in overflow-hidden rounded-2xl focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+          type="button"
+          onClick={() => {
+            openLightbox({ baseName, ext, alt: beachName })
+          }}
+        >
+          <ResponsiveImage
+            alt={beachName}
+            baseName={baseName}
+            className="h-full w-full object-cover transition-transform duration-500 motion-safe:hover:scale-105"
+            ext={ext}
+            variant="full"
+          />
+        </button>
+        <Lightbox
+          dialogRef={dialogRef}
+          image={lightbox}
+          onBackdropClick={handleBackdropClick}
+          onClose={closeLightbox}
         />
-      </div>
+      </>
     )
   }
 
@@ -355,37 +405,70 @@ function BeachGallery({
     <>
       {/* Desktop: grid layout */}
       <div className="hidden gap-3 md:grid md:grid-cols-3">
-        <div className="col-span-2 aspect-[16/9] overflow-hidden rounded-2xl">
+        <button
+          aria-label={`Ver foto principal de ${beachName} en grande`}
+          className="focus-visible:ring-ocean-500 col-span-2 aspect-[16/9] cursor-zoom-in overflow-hidden rounded-2xl focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+          type="button"
+          onClick={() => {
+            openLightbox({
+              alt: `${beachName} - foto principal`,
+              baseName: first.baseName,
+              ext: first.ext,
+            })
+          }}
+        >
           <ResponsiveImage
             alt={`${beachName} - foto principal`}
             baseName={first.baseName}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover transition-transform duration-500 motion-safe:hover:scale-105"
             ext={first.ext}
             variant="full"
           />
-        </div>
+        </button>
         <div className="flex flex-col gap-3">
           {second && (
-            <div className="aspect-[4/3] flex-1 overflow-hidden rounded-2xl">
+            <button
+              aria-label={`Ver foto 2 de ${beachName} en grande`}
+              className="focus-visible:ring-ocean-500 aspect-[4/3] flex-1 cursor-zoom-in overflow-hidden rounded-2xl focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+              type="button"
+              onClick={() => {
+                openLightbox({
+                  alt: `${beachName} - foto 2`,
+                  baseName: second.baseName,
+                  ext: second.ext,
+                })
+              }}
+            >
               <ResponsiveImage
                 alt={`${beachName} - foto 2`}
                 baseName={second.baseName}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition-transform duration-500 motion-safe:hover:scale-105"
                 ext={second.ext}
                 variant="full"
               />
-            </div>
+            </button>
           )}
           {third && (
-            <div className="aspect-[4/3] flex-1 overflow-hidden rounded-2xl">
+            <button
+              aria-label={`Ver foto 3 de ${beachName} en grande`}
+              className="focus-visible:ring-ocean-500 aspect-[4/3] flex-1 cursor-zoom-in overflow-hidden rounded-2xl focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+              type="button"
+              onClick={() => {
+                openLightbox({
+                  alt: `${beachName} - foto 3`,
+                  baseName: third.baseName,
+                  ext: third.ext,
+                })
+              }}
+            >
               <ResponsiveImage
                 alt={`${beachName} - foto 3`}
                 baseName={third.baseName}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition-transform duration-500 motion-safe:hover:scale-105"
                 ext={third.ext}
                 variant="full"
               />
-            </div>
+            </button>
           )}
         </div>
       </div>
@@ -395,9 +478,18 @@ function BeachGallery({
         {pictures.map((pic, i) => {
           const { baseName, ext } = parseImageFilename(pic)
           return (
-            <div
+            <button
               key={pic}
-              className="aspect-[4/3] w-72 flex-shrink-0 snap-start overflow-hidden rounded-2xl"
+              aria-label={`Ver foto ${i + 1} de ${beachName} en grande`}
+              className="focus-visible:ring-ocean-500 aspect-[4/3] w-72 flex-shrink-0 cursor-zoom-in snap-start overflow-hidden rounded-2xl focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+              type="button"
+              onClick={() => {
+                openLightbox({
+                  alt: `${beachName} - foto ${i + 1}`,
+                  baseName,
+                  ext,
+                })
+              }}
             >
               <ResponsiveImage
                 alt={`${beachName} - foto ${i + 1}`}
@@ -406,7 +498,7 @@ function BeachGallery({
                 ext={ext}
                 variant="thumb"
               />
-            </div>
+            </button>
           )
         })}
       </div>
@@ -417,7 +509,68 @@ function BeachGallery({
           +{pictures.length - 3} fotos más en la galería
         </p>
       )}
+
+      <Lightbox
+        dialogRef={dialogRef}
+        image={lightbox}
+        onBackdropClick={handleBackdropClick}
+        onClose={closeLightbox}
+      />
     </>
+  )
+}
+
+function Lightbox({
+  dialogRef,
+  image,
+  onClose,
+  onBackdropClick,
+}: {
+  dialogRef: React.RefObject<HTMLDialogElement | null>
+  image: LightboxImage | null
+  onClose: () => void
+  onBackdropClick: (e: React.MouseEvent<HTMLDialogElement>) => void
+}) {
+  return (
+    <dialog
+      ref={dialogRef}
+      aria-label="Visor de imagen"
+      className="m-0 h-full max-h-none w-full max-w-none overflow-hidden bg-black/90 p-0 backdrop:bg-black/70 open:flex open:items-center open:justify-center"
+      onClick={onBackdropClick}
+    >
+      {image && (
+        <div className="relative flex max-h-[90vh] max-w-[90vw] items-center justify-center">
+          <button
+            aria-label="Cerrar visor"
+            className="absolute top-2 right-2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-black/80 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+            type="button"
+            onClick={onClose}
+          >
+            <svg
+              aria-hidden="true"
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 18L18 6M6 6l12 12"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+              />
+            </svg>
+          </button>
+          <ResponsiveImage
+            alt={image.alt}
+            baseName={image.baseName}
+            className="max-h-[90vh] max-w-[90vw] rounded-lg object-contain"
+            ext={image.ext}
+            variant="full"
+          />
+        </div>
+      )}
+    </dialog>
   )
 }
 

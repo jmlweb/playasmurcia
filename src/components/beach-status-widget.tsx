@@ -64,7 +64,7 @@ function FlagCircle({ flag }: FlagCircleProps) {
   return (
     <span
       aria-label={FlagLabels[flag]}
-      className={`inline-block h-4 w-4 flex-shrink-0 rounded-full ${colorMap[flag]}`}
+      className={`inline-block h-5 w-5 flex-shrink-0 rounded-full ${colorMap[flag]}`}
       role="img"
     />
   )
@@ -195,7 +195,7 @@ export function BeachStatusWidget({
         <div className="flex items-center gap-2.5">
           <svg
             aria-hidden="true"
-            className="text-ocean-400 h-4 w-4 flex-shrink-0"
+            className="text-ocean-400 h-5 w-5 flex-shrink-0"
             fill="none"
             viewBox="0 0 24 24"
           >
