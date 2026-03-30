@@ -4,9 +4,9 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 7 tasks
+- **Pending**: 6 tasks
 - **In progress**: 0 tasks
-- **Completed**: 85 tasks
+- **Completed**: 86 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
@@ -15,20 +15,20 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Backlog
 
-| #   | Task                                                   | Slice     | Priority   | Blocked by |
-| --- | ------------------------------------------------------ | --------- | ---------- | ---------- |
-| 075 | Municipalities Index Visual Upgrade                    | Styling   | P3 - Nice  | 017        |
-| 035 | Add Imagery and Visual Hierarchy to Municipality Cards | Styling   | P4 - Later | 017        |
-| 017 | Source Missing Beach Pictures                          | Content   | P4 - Later | -          |
-| 021 | Add Missing Contact Info                               | Data      | P4 - Later | -          |
-| 085 | Content Data Enrichment                                | Data      | P4 - Later | -          |
-| 086 | TanStack Start Technical Alignment                     | Tech Debt | P4 - Later | -          |
-| 087 | Dynamic Open Graph Image Generation                    | SEO       | P4 - Later | -          |
+| #   | Task                                                   | Slice   | Priority   | Blocked by |
+| --- | ------------------------------------------------------ | ------- | ---------- | ---------- |
+| 075 | Municipalities Index Visual Upgrade                    | Styling | P3 - Nice  | 017        |
+| 035 | Add Imagery and Visual Hierarchy to Municipality Cards | Styling | P4 - Later | 017        |
+| 017 | Source Missing Beach Pictures                          | Content | P4 - Later | -          |
+| 021 | Add Missing Contact Info                               | Data    | P4 - Later | -          |
+| 085 | Content Data Enrichment                                | Data    | P4 - Later | -          |
+| 087 | Dynamic Open Graph Image Generation                    | SEO     | P4 - Later | -          |
 
 ## Recently completed
 
 | #   | Task                                                    | Completed  |
 | --- | ------------------------------------------------------- | ---------- |
+| 086 | TanStack Start Technical Alignment                      | 2026-03-30 |
 | 083 | Motion and Animation Polish                             | 2026-03-30 |
 | 082 | Image Pipeline Optimization                             | 2026-03-30 |
 | 092 | System States, 404 Recovery, and Nav Label Consistency  | 2026-03-30 |
