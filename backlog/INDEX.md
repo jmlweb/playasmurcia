@@ -4,33 +4,33 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 9 tasks
+- **Pending**: 8 tasks
 - **In progress**: 0 tasks
-- **Completed**: 83 tasks
+- **Completed**: 84 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
 
-> Visual polish phase (P3) complete. Remaining: blocked or P4 tasks. **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
+> All P3 tasks complete. Remaining: P4 tasks (content/data) and tasks blocked by #017. **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
 
 ## Backlog
 
-| #   | Task                                                   | Slice       | Priority   | Blocked by |
-| --- | ------------------------------------------------------ | ----------- | ---------- | ---------- |
-| 075 | Municipalities Index Visual Upgrade                    | Styling     | P3 - Nice  | 017        |
-| 082 | Image Pipeline Optimization                            | Performance | P3 - Nice  | -          |
-| 035 | Add Imagery and Visual Hierarchy to Municipality Cards | Styling     | P4 - Later | 017        |
-| 017 | Source Missing Beach Pictures                          | Content     | P4 - Later | -          |
-| 021 | Add Missing Contact Info                               | Data        | P4 - Later | -          |
-| 083 | Motion and Animation Polish                            | Styling     | P4 - Later | -          |
-| 085 | Content Data Enrichment                                | Data        | P4 - Later | -          |
-| 086 | TanStack Start Technical Alignment                     | Tech Debt   | P4 - Later | -          |
-| 087 | Dynamic Open Graph Image Generation                    | SEO         | P4 - Later | -          |
+| #   | Task                                                   | Slice     | Priority   | Blocked by |
+| --- | ------------------------------------------------------ | --------- | ---------- | ---------- |
+| 075 | Municipalities Index Visual Upgrade                    | Styling   | P3 - Nice  | 017        |
+| 035 | Add Imagery and Visual Hierarchy to Municipality Cards | Styling   | P4 - Later | 017        |
+| 017 | Source Missing Beach Pictures                          | Content   | P4 - Later | -          |
+| 021 | Add Missing Contact Info                               | Data      | P4 - Later | -          |
+| 083 | Motion and Animation Polish                            | Styling   | P4 - Later | -          |
+| 085 | Content Data Enrichment                                | Data      | P4 - Later | -          |
+| 086 | TanStack Start Technical Alignment                     | Tech Debt | P4 - Later | -          |
+| 087 | Dynamic Open Graph Image Generation                    | SEO       | P4 - Later | -          |
 
 ## Recently completed
 
 | #   | Task                                                    | Completed  |
 | --- | ------------------------------------------------------- | ---------- |
+| 082 | Image Pipeline Optimization                             | 2026-03-30 |
 | 092 | System States, 404 Recovery, and Nav Label Consistency  | 2026-03-30 |
 | 080 | Navigation Menu Improvements                            | 2026-03-30 |
 | 078 | BeachCard Visual Enhancements                           | 2026-03-30 |

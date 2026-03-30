@@ -53,13 +53,13 @@ export function ResponsiveImage({
     return (
       <picture style={{ display: 'contents' }}>
         <source
-          sizes="(max-width: 640px) 100vw, 400px"
-          srcSet={`${opt}-thumb.avif 400w, ${opt}-full.avif 1200w, ${opt}.avif 1600w`}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+          srcSet={`${opt}-thumb.avif 400w, ${opt}-medium.avif 800w, ${opt}-full.avif 1200w`}
           type="image/avif"
         />
         <source
-          sizes="(max-width: 640px) 100vw, 400px"
-          srcSet={`${opt}-thumb.webp 400w, ${opt}-full.webp 1200w, ${opt}.webp 1600w`}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+          srcSet={`${opt}-thumb.webp 400w, ${opt}-medium.webp 800w, ${opt}-full.webp 1200w`}
           type="image/webp"
         />
         <img {...imgProps} />
@@ -70,11 +70,13 @@ export function ResponsiveImage({
   return (
     <picture style={{ display: 'contents' }}>
       <source
-        srcSet={`${opt}-full.avif 1200w, ${opt}.avif 1600w`}
+        sizes="(max-width: 1024px) 100vw, 1200px"
+        srcSet={`${opt}-medium.avif 800w, ${opt}-full.avif 1200w, ${opt}.avif 1600w`}
         type="image/avif"
       />
       <source
-        srcSet={`${opt}-full.webp 1200w, ${opt}.webp 1600w`}
+        sizes="(max-width: 1024px) 100vw, 1200px"
+        srcSet={`${opt}-medium.webp 800w, ${opt}-full.webp 1200w, ${opt}.webp 1600w`}
         type="image/webp"
       />
       <img {...imgProps} />

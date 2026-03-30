@@ -5,7 +5,8 @@
  *   - A WebP version at original size (quality 80)
  *   - An AVIF version at original size (quality 65)
  *   - A 1200px "full" variant in WebP and AVIF for detail pages
- *   - A 400px thumbnail in WebP and AVIF for card grids
+ *   - An 800px "medium" variant in WebP and AVIF for mid-size contexts
+ *   - A 400px "thumb" variant in WebP and AVIF for card grids
  *
  * Output goes to public/pictures/optimized/ with the same base name.
  *
@@ -19,6 +20,7 @@ import { join, parse } from 'node:path'
 const SRC_DIR = join(import.meta.dirname, '..', 'public', 'pictures')
 const OUT_DIR = join(SRC_DIR, 'optimized')
 const FULL_WIDTH = 1200
+const MEDIUM_WIDTH = 800
 const THUMB_WIDTH = 400
 const WEBP_QUALITY = 80
 const AVIF_QUALITY = 65
@@ -43,6 +45,8 @@ async function main() {
       join(OUT_DIR, `${name}.avif`),
       join(OUT_DIR, `${name}-full.webp`),
       join(OUT_DIR, `${name}-full.avif`),
+      join(OUT_DIR, `${name}-medium.webp`),
+      join(OUT_DIR, `${name}-medium.avif`),
       join(OUT_DIR, `${name}-thumb.webp`),
       join(OUT_DIR, `${name}-thumb.avif`),
     ]
@@ -76,14 +80,24 @@ async function main() {
         .toFile(outputs[3]),
       img
         .clone()
-        .resize(THUMB_WIDTH)
+        .resize(MEDIUM_WIDTH)
         .webp({ quality: WEBP_QUALITY })
         .toFile(outputs[4]),
       img
         .clone()
-        .resize(THUMB_WIDTH)
+        .resize(MEDIUM_WIDTH)
         .avif({ quality: AVIF_QUALITY })
         .toFile(outputs[5]),
+      img
+        .clone()
+        .resize(THUMB_WIDTH)
+        .webp({ quality: WEBP_QUALITY })
+        .toFile(outputs[6]),
+      img
+        .clone()
+        .resize(THUMB_WIDTH)
+        .avif({ quality: AVIF_QUALITY })
+        .toFile(outputs[7]),
     ])
 
     created++
