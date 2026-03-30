@@ -6,23 +6,23 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 - **Pending**: 14 tasks
 - **In progress**: 0 tasks
-- **Completed**: 77 tasks
+- **Completed**: 78 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
 
-> Visual polish phase continuing (P3). Next: #073 (Explorer UX Enhancements). **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
+> Visual polish phase continuing (P3). Next: #074 (Collections Visual Upgrade). **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
 
 ## Backlog
 
 | #   | Task                                                   | Slice       | Priority   | Blocked by |
 | --- | ------------------------------------------------------ | ----------- | ---------- | ---------- |
-| 073 | Explorer UX Enhancements                               | UI          | P3 - Nice  | -          |
 | 074 | Collections Visual Upgrade                             | Styling     | P3 - Nice  | -          |
 | 075 | Municipalities Index Visual Upgrade                    | Styling     | P3 - Nice  | 017        |
 | 077 | Homepage Visual Refinements                            | Styling     | P3 - Nice  | -          |
 | 078 | BeachCard Visual Enhancements                          | Styling     | P3 - Nice  | -          |
 | 080 | Navigation Menu Improvements                           | UI          | P3 - Nice  | -          |
+| 092 | System States, 404 Recovery, and Nav Label Consistency | UI          | P3 - Nice  | -          |
 | 082 | Image Pipeline Optimization                            | Performance | P3 - Nice  | -          |
 | 035 | Add Imagery and Visual Hierarchy to Municipality Cards | Styling     | P4 - Later | 017        |
 | 017 | Source Missing Beach Pictures                          | Content     | P4 - Later | -          |
@@ -36,6 +36,7 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 | #   | Task                                                    | Completed  |
 | --- | ------------------------------------------------------- | ---------- |
+| 073 | Explorer UX Enhancements                                | 2026-03-30 |
 | 091 | Explorer Copy and Colecciones Contrast                  | 2026-03-30 |
 | 090 | Reposition TanStack Devtools in Development             | 2026-03-30 |
 | 089 | Homepage Scroll-Reveal Visibility                       | 2026-03-30 |

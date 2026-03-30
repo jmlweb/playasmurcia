@@ -2,6 +2,7 @@ import { type ReactNode, useEffect, useRef, useState } from 'react'
 
 import { ChevronDownIcon } from '@/components/icons'
 import { type BeachSearchParams, countActiveFilters } from '@/lib/beach-filters'
+import { cn } from '@/lib/cn'
 import type { Activity, Municipality, Sea, Service, Tag } from '@/types/beach'
 
 type FilterPanelProps = {
@@ -48,7 +49,10 @@ function FilterGroup({
           )}
         </span>
         <ChevronDownIcon
-          className={`h-4 w-4 text-gray-500 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+          className={cn(
+            'h-4 w-4 text-gray-500 transition-transform duration-200',
+            isOpen && 'rotate-180',
+          )}
         />
       </button>
       <div
@@ -385,10 +389,54 @@ export function FilterPanel(
 
       {/* Desktop sidebar */}
       <aside className="hidden w-64 shrink-0 lg:block">
-        <div className="sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm">
+        <DesktopSidebar>
           <FilterContent {...props} />
-        </div>
+        </DesktopSidebar>
       </aside>
     </>
+  )
+}
+
+function DesktopSidebar({ children }: { children: ReactNode }) {
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [showGradient, setShowGradient] = useState(true)
+
+  useEffect(() => {
+    const el = scrollRef.current
+    if (!el) return
+
+    function update() {
+      if (!el) return
+      const atBottom = el.scrollHeight - el.scrollTop <= el.clientHeight + 4
+      setShowGradient(!atBottom && el.scrollHeight > el.clientHeight)
+    }
+
+    update()
+    el.addEventListener('scroll', update, { passive: true })
+    const ro = new ResizeObserver(update)
+    ro.observe(el)
+
+    return () => {
+      el.removeEventListener('scroll', update)
+      ro.disconnect()
+    }
+  }, [])
+
+  return (
+    <div className="relative sticky top-20 max-h-[calc(100vh-6rem)]">
+      <div
+        ref={scrollRef}
+        className="overflow-y-auto rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm"
+        style={{ maxHeight: 'calc(100vh - 6rem)' }}
+      >
+        {children}
+      </div>
+      {showGradient && (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute right-0 bottom-0 left-0 h-12 rounded-b-2xl bg-gradient-to-t from-white to-transparent"
+        />
+      )}
+    </div>
   )
 }
