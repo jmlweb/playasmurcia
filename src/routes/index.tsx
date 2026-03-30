@@ -75,16 +75,37 @@ function HomePage() {
     <main className="bg-sand-50 min-h-screen">
       {/* Hero */}
       <section className="bg-ocean-900 relative overflow-hidden px-4 py-20 sm:py-28 lg:py-36">
-        <img
-          alt="Vista aerea de la costa de Murcia"
-          className="absolute inset-0 h-full w-full object-cover"
-          fetchPriority="high"
-          height={768}
-          src="/pictures/hero.png"
-          width={1408}
-        />
+        {import.meta.env.PLAYASMURCIA_OPTIMIZED_IMAGES === 'true' ? (
+          <picture style={{ display: 'contents' }}>
+            <source
+              srcSet="/pictures/optimized/hero-full.avif 1200w, /pictures/optimized/hero.avif 2816w"
+              type="image/avif"
+            />
+            <source
+              srcSet="/pictures/optimized/hero-full.webp 1200w, /pictures/optimized/hero.webp 2816w"
+              type="image/webp"
+            />
+            <img
+              alt="Vista aerea de la costa de Murcia"
+              className="absolute inset-0 h-full w-full object-cover"
+              fetchPriority="high"
+              height={768}
+              src="/pictures/hero.png"
+              width={1408}
+            />
+          </picture>
+        ) : (
+          <img
+            alt="Vista aerea de la costa de Murcia"
+            className="absolute inset-0 h-full w-full object-cover"
+            fetchPriority="high"
+            height={768}
+            src="/pictures/hero.png"
+            width={1408}
+          />
+        )}
         <div className="via-ocean-900/30 to-ocean-900/80 absolute inset-0 bg-gradient-to-b from-transparent" />
-        <div className="relative mx-auto max-w-4xl text-center">
+        <div className="hero-text-scrim relative z-10 mx-auto max-w-4xl px-6 py-10 text-center sm:px-8 sm:py-12">
           <p className="text-ocean-300 animate-fade-up mb-4 text-sm font-semibold tracking-[0.2em] uppercase sm:text-base">
             Costa Cálida &middot; Región de Murcia
           </p>
@@ -197,23 +218,31 @@ function HomePage() {
         className="reveal bg-white px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
       >
         <div className="mx-auto max-w-7xl">
-          <div className="mb-10">
-            <p className="overline-accent text-ocean-600 mb-2 text-sm font-semibold tracking-wider uppercase">
-              Explora por zona
-            </p>
-            <h2 className="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
-              Municipios costeros
-            </h2>
+          <div className="mb-10 flex items-end justify-between">
+            <div>
+              <span className="bg-ocean-50 text-ocean-700 mb-3 inline-block rounded-full px-3 py-1 text-xs font-semibold tracking-widest uppercase">
+                Explora por zona
+              </span>
+              <h2 className="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
+                Municipios costeros
+              </h2>
+            </div>
+            <Link
+              className="text-ocean-600 hover:text-ocean-700 hidden text-sm font-medium sm:block"
+              to="/municipios"
+            >
+              Ver todos →
+            </Link>
           </div>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {municipalityNav.map((m) => (
               <Link
                 key={m.slug}
-                className="group bg-sand-50 hover:ring-ocean-200 flex items-center gap-4 rounded-xl px-5 py-6 ring-1 ring-gray-200/60 transition-all hover:shadow-md motion-safe:hover:-translate-y-0.5"
+                className="group bg-sand-50 hover:ring-ocean-200 flex items-center gap-4 rounded-xl px-5 py-5 ring-2 ring-transparent transition-all duration-200 hover:shadow-md hover:ring-2 motion-safe:hover:-translate-y-0.5"
                 params={{ slug: m.slug }}
                 to="/municipios/$slug"
               >
-                <div className="bg-ocean-100 text-ocean-700 group-hover:bg-ocean-200 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-lg font-bold transition-colors">
+                <div className="bg-ocean-100 text-ocean-700 group-hover:bg-ocean-600 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-lg font-bold transition-colors duration-200 group-hover:text-white">
                   {m.beachCount}
                 </div>
                 <div>
