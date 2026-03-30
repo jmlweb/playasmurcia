@@ -120,17 +120,26 @@ export const Route = createFileRoute('/playas/$slug')({
     const slug = beachToSlug(beach)
 
     const schema = generateBeachSchema(beach, municipality, services, slug)
+    const description = beach.metaDescription ?? beach.description
+    const ogImage = beach.pictures?.[0]
+      ? `/pictures/${parseImageFilename(beach.pictures[0]).baseName}.${parseImageFilename(beach.pictures[0]).ext}`
+      : '/pictures/hero.png'
 
     return {
       meta: [
         { title: `${beach.name} - Playas de Murcia` },
-        {
-          name: 'description',
-          content: beach.metaDescription ?? beach.description,
-        },
+        { name: 'description', content: description },
         ...(beach.seoKeywords
           ? [{ name: 'keywords', content: beach.seoKeywords.join(', ') }]
           : []),
+        { property: 'og:type', content: 'website' },
+        { property: 'og:title', content: `${beach.name} - Playas de Murcia` },
+        { property: 'og:description', content: description },
+        { property: 'og:image', content: ogImage },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: `${beach.name} - Playas de Murcia` },
+        { name: 'twitter:description', content: description },
+        { name: 'twitter:image', content: ogImage },
       ],
       scripts: [
         {

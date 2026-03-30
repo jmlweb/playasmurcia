@@ -173,6 +173,10 @@ export const Route = createRootRoute({
         name: 'robots',
         content: 'noai, noimageai',
       },
+      { property: 'og:site_name', content: 'Playas de Murcia' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:image', content: '/pictures/hero.png' },
+      { name: 'twitter:card', content: 'summary_large_image' },
     ],
     links: [
       {

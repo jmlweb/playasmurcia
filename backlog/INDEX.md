@@ -4,9 +4,9 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 6 tasks
+- **Pending**: 5 tasks
 - **In progress**: 0 tasks
-- **Completed**: 86 tasks
+- **Completed**: 87 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
@@ -22,12 +22,12 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 | 017 | Source Missing Beach Pictures                          | Content | P4 - Later | -          |
 | 021 | Add Missing Contact Info                               | Data    | P4 - Later | -          |
 | 085 | Content Data Enrichment                                | Data    | P4 - Later | -          |
-| 087 | Dynamic Open Graph Image Generation                    | SEO     | P4 - Later | -          |
 
 ## Recently completed
 
 | #   | Task                                                    | Completed  |
 | --- | ------------------------------------------------------- | ---------- |
+| 087 | Dynamic Open Graph Image Generation                     | 2026-03-30 |
 | 086 | TanStack Start Technical Alignment                      | 2026-03-30 |
 | 083 | Motion and Animation Polish                             | 2026-03-30 |
 | 082 | Image Pipeline Optimization                             | 2026-03-30 |
