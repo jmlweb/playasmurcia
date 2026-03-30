@@ -5,19 +5,8 @@ import { WeatherIcon } from '@/components/icons'
 import { ResponsiveImage } from '@/components/responsive-image'
 import { parseImageFilename } from '@/lib/images'
 import type { CardWeather } from '@/lib/open-meteo'
+import { OccupancyStyles } from '@/lib/status-styles'
 import type { Beach, Municipality, Tag } from '@/types/beach'
-
-const OccupancyConfig = {
-  low: {
-    label: 'Baja ocupación',
-    className: 'bg-emerald-700 text-emerald-100',
-  },
-  medium: {
-    label: 'Ocupación media',
-    className: 'bg-amber-700 text-amber-100',
-  },
-  high: { label: 'Alta ocupación', className: 'bg-rose-700 text-rose-100' },
-} as const
 
 const validWeatherIcons = new Set([
   'sunny',
@@ -61,7 +50,7 @@ export function BeachCard({
       params={{ slug }}
       to="/playas/$slug"
     >
-      <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
+      <div className="relative aspect-3/2 overflow-hidden bg-gray-100">
         <ResponsiveImage
           alt={beach.name}
           baseName={baseName}
@@ -70,7 +59,7 @@ export function BeachCard({
           priority={eager ? 'high' : 'low'}
           variant="thumb"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" />
         {weather && (
           <span className="absolute top-3 left-3 flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-sm font-medium text-gray-800 shadow-sm backdrop-blur-sm">
             <WeatherIcon
@@ -86,9 +75,9 @@ export function BeachCard({
         )}
         {beach.occupancyLevel && (
           <span
-            className={`absolute top-3 right-3 rounded-full px-2.5 py-1 text-xs font-medium backdrop-blur-sm ${OccupancyConfig[beach.occupancyLevel].className}`}
+            className={`absolute top-3 right-3 rounded-full px-2.5 py-1 text-xs font-medium backdrop-blur-sm ${OccupancyStyles[beach.occupancyLevel].solid}`}
           >
-            {OccupancyConfig[beach.occupancyLevel].label}
+            {OccupancyStyles[beach.occupancyLevel].label}
           </span>
         )}
         {visibleTags.length > 0 && (
@@ -109,6 +98,13 @@ export function BeachCard({
           {beach.name}
         </h3>
         <p className="text-sm text-gray-500">{municipality.name}</p>
+        {(beach.length ?? beach.soilType) && (
+          <p className="mt-1 truncate text-xs text-gray-400">
+            {beach.length
+              ? `${beach.length} m · ${beach.soilType}`
+              : beach.soilType}
+          </p>
+        )}
       </div>
     </Link>
   )
