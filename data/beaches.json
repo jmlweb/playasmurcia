@@ -880,7 +880,9 @@
     "pictures": [
       "recurso-1-663-5p_g.jpg",
       "recurso-1-663-3p_g.jpg",
-      "recurso-1-663-2p_g.jpg"
+      "recurso-1-663-2p_g.jpg",
+      "cala-calnegre-lorca-4_g.jpg",
+      "cala-calnegre-lorca-5_g.jpg"
     ],
     "coordinates": [
       37.5067891,
@@ -989,7 +991,9 @@
     "sea": 0,
     "promenade": false,
     "access": "Cala de La Gruta, ubicada en las playas orientales de Lorca, Región de Murcia, se puede acceder siguiendo la autovía RM-11 hasta el desvío RM-332 (KM 15) o RM-D21 si se dirigen a Ramonete. El acceso implica caminar por un sendero natural hasta la primera línea de playa. No dispone de parking cercano y el acceso implica una caminata de dificultad moderada.",
-    "pictures": [],
+    "pictures": [
+      "cala-gruta-lorca_g.jpg"
+    ],
     "coordinates": [
       37.490493,
       -1.454182
@@ -1684,7 +1688,9 @@
     "sea": 0,
     "promenade": false,
     "access": "La Cala del Ciscal, situada en la costa oriental de Lorca (Región de Murcia), se puede acceder a través de un sendero sin asfaltar y, en parte, por un camino de tierra, desde la RM-D20. No dispone de aparcamiento cercano. Para llegar, se puede seguir la RM-11 hasta la RM-D21, y desde allí continuar por el camino que da acceso a las playas. El acceso es considerado de dificultad moderada.",
-    "pictures": [],
+    "pictures": [
+      "cala-ciscal-lorca_g.jpg"
+    ],
     "coordinates": [
       37.503961,
       -1.424609
@@ -2565,7 +2571,9 @@
     "sea": 0,
     "promenade": false,
     "access": "La Cala Honda, situada en Lorca, Región de Murcia, ofrece acceso a sus playas orientales y occidentales a través de caminos de tierra. Para llegar, proceda por la autovía RM-11 hacia Águilas y siga las indicaciones para las playas de Ramonete o Pinilla. El acceso implica caminar, siendo necesario un sendero natural desde la Cala del Siscar para acceder directamente a la primera línea de playa, y cuenta con un parking cercano.",
-    "pictures": [],
+    "pictures": [
+      "cala-honda-lorca_g.jpg"
+    ],
     "coordinates": [
       37.501073,
       -1.432871
@@ -2862,7 +2870,9 @@
     "sea": 0,
     "promenade": false,
     "access": "Cala Leña, situada en Lorca (Región de Murcia), ofrece un acceso directo a sus hermosas playas y calas. Para llegar, se recomienda tomar la autovía RM-11 en dirección a Águilas, o bien, si se encuentra en Pinilla y Garrobillo, seguir hasta Águilas. El acceso se realiza a través de un sendero natural sin asfaltar, requiriendo un paseo de aproximadamente 4 km desde la RM-D20 y con un nivel de dificultad moderado. No dispone de parking cercano, por lo que se recomienda llegar en vehículo y aparcar en puntos habilitados en el entorno.",
-    "pictures": [],
+    "pictures": [
+      "cala-lena-lorca_g.jpg"
+    ],
     "coordinates": [
       37.488959,
       -1.456763
@@ -4445,7 +4455,9 @@
     "pictures": [
       "recurso-1-632-1p_g.jpg",
       "recurso-1-632-2p_g.jpg",
-      "recurso-1-632-3p_g.jpg"
+      "recurso-1-632-3p_g.jpg",
+      "bano-mujeres-lorca-4_g.jpg",
+      "bano-mujeres-lorca-5_g.jpg"
     ],
     "coordinates": [
       37.5055745,
@@ -11036,7 +11048,9 @@
     "sea": 0,
     "promenade": false,
     "access": "Playa de los Hierros, ubicada en Lorca (Región de Murcia), se encuentra a unos 2,5 km de la RM-D20. Para llegar, se requiere caminar a través de un sendero natural y un camino sin asfaltar. Existe un parking limitado cerca de la entrada del sendero. El acceso es de dificultad moderada debido a su terreno. Se recomienda llevar calzado cómodo.",
-    "pictures": [],
+    "pictures": [
+      "playa-hierros-lorca_g.jpg"
+    ],
     "coordinates": [
       37.486467,
       -1.459903
@@ -15305,7 +15319,8 @@
     "promenade": false,
     "access": "Para llegar a Playa El Siscal, deberás acceder a través de un sendero natural y un camino sin asfaltar, comenzando desde la RM-D21, a unos 2 km de distancia. Se recomienda coche para acceder al inicio del sendero. Una vez en la playa, el acceso directo a primera línea de arena es a través de un sendero natural.",
     "pictures": [
-      "recurso-1-5906-1_g.jpg"
+      "recurso-1-5906-1_g.jpg",
+      "playa-siscal-lorca-2_g.jpg"
     ],
     "coordinates": [
       37.5040299,
@@ -19206,7 +19221,11 @@
     "sea": 0,
     "promenade": false,
     "access": "Disfrute de la Playa Puntas de Calnegre, ubicada en Lorca, Región de Murcia, accesible a pie desde la RM-D21, a 7 km de la RM-332 y a 8 km de la AP-7. Para llegar, siga las indicaciones desde Lorca o Águilas, tomando el desvío hacia Puntas de Calnegre. El acceso a las playas requiere una caminata y hay un parking disponible cerca de la carretera.",
-    "pictures": [],
+    "pictures": [
+      "puntas-calnegre-lorca_g.jpg",
+      "puntas-calnegre-lorca-2_g.jpg",
+      "puntas-calnegre-lorca-3_g.jpg"
+    ],
     "coordinates": [
       37.5094107,
       -1.4023527
