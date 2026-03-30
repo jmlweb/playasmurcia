@@ -4,21 +4,20 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 11 tasks
+- **Pending**: 10 tasks
 - **In progress**: 0 tasks
-- **Completed**: 81 tasks
+- **Completed**: 82 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
 
-> Visual polish phase continuing (P3). Next: #080 (Navigation Menu Improvements). **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
+> Visual polish phase continuing (P3). Next: #092 (System States, 404 Recovery, and Nav Label Consistency). **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
 
 ## Backlog
 
 | #   | Task                                                   | Slice       | Priority   | Blocked by |
 | --- | ------------------------------------------------------ | ----------- | ---------- | ---------- |
 | 075 | Municipalities Index Visual Upgrade                    | Styling     | P3 - Nice  | 017        |
-| 080 | Navigation Menu Improvements                           | UI          | P3 - Nice  | -          |
 | 092 | System States, 404 Recovery, and Nav Label Consistency | UI          | P3 - Nice  | -          |
 | 082 | Image Pipeline Optimization                            | Performance | P3 - Nice  | -          |
 | 035 | Add Imagery and Visual Hierarchy to Municipality Cards | Styling     | P4 - Later | 017        |
@@ -33,6 +32,7 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 | #   | Task                                                    | Completed  |
 | --- | ------------------------------------------------------- | ---------- |
+| 080 | Navigation Menu Improvements                            | 2026-03-30 |
 | 078 | BeachCard Visual Enhancements                           | 2026-03-30 |
 | 077 | Homepage Visual Refinements                             | 2026-03-30 |
 | 074 | Collections Visual Upgrade                              | 2026-03-30 |

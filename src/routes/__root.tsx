@@ -368,9 +368,23 @@ function Navbar() {
     <nav className="bg-nav sm:bg-nav/95 sticky top-0 z-40 border-b border-white/10 sm:backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link
-          className="text-base font-bold tracking-tight text-white transition-opacity hover:opacity-80 sm:text-lg"
+          className="flex items-center gap-2 text-base font-bold tracking-tight text-white transition-opacity hover:opacity-80 sm:text-lg"
           to="/"
         >
+          <svg
+            aria-hidden="true"
+            className="text-ocean-400 h-6 w-6 shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 15c0 0 2-2 4-2s4 2 6 2 4-2 4-2M3 10c0 0 2-2 4-2s4 2 6 2 4-2 4-2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+            />
+          </svg>
           Playas de Murcia
         </Link>
         <div className="hidden items-center gap-6 sm:flex">
@@ -392,6 +406,26 @@ function Navbar() {
             </Link>
           ))}
           <NavDropdown label="Descubrir" navData={navData} />
+          <Link
+            aria-label="Buscar playas"
+            className="text-ocean-300 focus-visible:ring-ocean-400 rounded-md p-1 transition-colors hover:text-white focus-visible:text-white focus-visible:ring-2 focus-visible:outline-none"
+            to="/explorar"
+          >
+            <svg
+              aria-hidden="true"
+              className="h-4.5 w-4.5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+              />
+            </svg>
+          </Link>
         </div>
         <button
           aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
