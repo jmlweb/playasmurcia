@@ -5,20 +5,14 @@ type PageInfoProps = {
   itemLabel?: string
 }
 
-export function PageInfo({
-  currentPage,
-  totalPages,
-  totalItems,
-  itemLabel = 'playas',
-}: PageInfoProps) {
+export function PageInfo({ currentPage, totalPages }: PageInfoProps) {
   if (totalPages <= 1) return null
 
   return (
     <p className="mb-4 text-sm text-gray-500">
       Página{' '}
       <strong className="font-semibold text-gray-900">{currentPage}</strong> de{' '}
-      <strong className="font-semibold text-gray-900">{totalPages}</strong> (
-      {totalItems} {itemLabel})
+      <strong className="font-semibold text-gray-900">{totalPages}</strong>
     </p>
   )
 }

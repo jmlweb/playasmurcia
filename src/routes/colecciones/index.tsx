@@ -136,11 +136,11 @@ function CollectionCard({
             {title}
           </h3>
         </div>
-        <p className="mb-4 text-sm leading-relaxed text-gray-500">
+        <p className="mb-4 text-sm leading-relaxed text-gray-600">
           {description}
         </p>
         <div className="mt-auto flex items-center justify-between">
-          <span className="text-sm text-gray-500">
+          <span className="text-sm text-gray-600">
             <strong className="font-semibold text-gray-900">
               {beachCount}
             </strong>{' '}
@@ -201,11 +201,11 @@ function SeaCollectionCard({
             {title}
           </h3>
         </div>
-        <p className="mb-4 text-sm leading-relaxed text-gray-500">
+        <p className="mb-4 text-sm leading-relaxed text-gray-600">
           {description}
         </p>
         <div className="mt-auto flex items-center justify-between">
-          <span className="text-sm text-gray-500">
+          <span className="text-sm text-gray-600">
             <strong className="font-semibold text-gray-900">
               {beachCount}
             </strong>{' '}
