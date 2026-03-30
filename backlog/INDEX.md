@@ -4,20 +4,19 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 17 tasks
+- **Pending**: 16 tasks
 - **In progress**: 0 tasks
-- **Completed**: 74 tasks
+- **Completed**: 75 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
 
-> **Next:** #089 (Homepage scroll-reveal visibility — P2). Then visual polish (#073+). **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
+> Visual polish phase continuing (P3). Next: #090 or #091. **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
 
 ## Backlog
 
 | #   | Task                                                    | Slice       | Priority   | Blocked by |
 | --- | ------------------------------------------------------- | ----------- | ---------- | ---------- |
-| 089 | Homepage Scroll-Reveal Must Not Hide Primary Content    | Styling     | P2 - Next  | -          |
 | 090 | Reposition TanStack Devtools in Development             | Tech Debt   | P3 - Nice  | -          |
 | 091 | Explorer Results Copy and Colecciones Thematic Contrast | UI          | P3 - Nice  | -          |
 | 073 | Explorer UX Enhancements                                | UI          | P3 - Nice  | -          |
@@ -39,6 +38,7 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 | #   | Task                                                    | Completed  |
 | --- | ------------------------------------------------------- | ---------- |
+| 089 | Homepage Scroll-Reveal Visibility                       | 2026-03-30 |
 | 072 | Beach Detail Visual Polish                              | 2026-03-30 |
 | 071 | PracticalInfoCard Redesign                              | 2026-03-30 |
 | 070 | Weather Widget Redesign                                 | 2026-03-30 |
