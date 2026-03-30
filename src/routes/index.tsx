@@ -74,7 +74,7 @@ function HomePage() {
   return (
     <main className="bg-sand-50 min-h-screen">
       {/* Hero */}
-      <section className="bg-ocean-900 relative overflow-hidden px-4 py-20 sm:py-28 lg:py-36">
+      <section className="hero-noise bg-ocean-900 relative overflow-hidden px-4 py-20 sm:py-28 lg:py-36">
         {import.meta.env.PLAYASMURCIA_OPTIMIZED_IMAGES === 'true' ? (
           <picture style={{ display: 'contents' }}>
             <source
@@ -87,7 +87,7 @@ function HomePage() {
             />
             <img
               alt="Vista aerea de la costa de Murcia"
-              className="absolute inset-0 h-full w-full object-cover"
+              className="motion-safe:animate-ken-burns absolute inset-0 h-full w-full object-cover"
               fetchPriority="high"
               height={768}
               src="/pictures/hero.png"
@@ -97,7 +97,7 @@ function HomePage() {
         ) : (
           <img
             alt="Vista aerea de la costa de Murcia"
-            className="absolute inset-0 h-full w-full object-cover"
+            className="motion-safe:animate-ken-burns absolute inset-0 h-full w-full object-cover"
             fetchPriority="high"
             height={768}
             src="/pictures/hero.png"

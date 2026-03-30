@@ -4,9 +4,9 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 8 tasks
+- **Pending**: 7 tasks
 - **In progress**: 0 tasks
-- **Completed**: 84 tasks
+- **Completed**: 85 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
@@ -21,7 +21,6 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 | 035 | Add Imagery and Visual Hierarchy to Municipality Cards | Styling   | P4 - Later | 017        |
 | 017 | Source Missing Beach Pictures                          | Content   | P4 - Later | -          |
 | 021 | Add Missing Contact Info                               | Data      | P4 - Later | -          |
-| 083 | Motion and Animation Polish                            | Styling   | P4 - Later | -          |
 | 085 | Content Data Enrichment                                | Data      | P4 - Later | -          |
 | 086 | TanStack Start Technical Alignment                     | Tech Debt | P4 - Later | -          |
 | 087 | Dynamic Open Graph Image Generation                    | SEO       | P4 - Later | -          |
@@ -30,6 +29,7 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 | #   | Task                                                    | Completed  |
 | --- | ------------------------------------------------------- | ---------- |
+| 083 | Motion and Animation Polish                             | 2026-03-30 |
 | 082 | Image Pipeline Optimization                             | 2026-03-30 |
 | 092 | System States, 404 Recovery, and Nav Label Consistency  | 2026-03-30 |
 | 080 | Navigation Menu Improvements                            | 2026-03-30 |

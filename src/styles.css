@@ -229,4 +229,37 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  /* Ken Burns — slow zoom on hero photos */
+  @keyframes ken-burns {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.06);
+    }
+  }
+
+  .animate-ken-burns {
+    animation: ken-burns 20s ease-in-out infinite alternate;
+    transform-origin: center center;
+  }
+
+  /* Primary button active (tap) feedback */
+  .btn-primary:active {
+    transform: scale(0.97);
+    opacity: 0.92;
+    transition-duration: 0.08s;
+  }
+
+  /* Noise texture overlay for hero gradients (reduces OLED banding) */
+  .hero-noise::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
 }
