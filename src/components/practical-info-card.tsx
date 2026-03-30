@@ -1,3 +1,10 @@
+import { cn } from '@/lib/cn'
+import {
+  AccessDifficultyStyles,
+  OccupancyStyles,
+  WaterQualityStyles,
+} from '@/lib/status-styles'
+
 const OrientationLabels: Record<string, string> = {
   north: 'Norte',
   south: 'Sur',
@@ -7,55 +14,6 @@ const OrientationLabels: Record<string, string> = {
   northwest: 'Noroeste',
   southeast: 'Sureste',
   southwest: 'Suroeste',
-} as const
-
-const OccupancyConfig = {
-  low: {
-    label: 'Baja',
-    colorClass: 'text-emerald-700 bg-emerald-50 ring-1 ring-emerald-200',
-  },
-  medium: {
-    label: 'Media',
-    colorClass: 'text-amber-700 bg-amber-50 ring-1 ring-amber-200',
-  },
-  high: {
-    label: 'Alta',
-    colorClass: 'text-rose-700 bg-rose-50 ring-1 ring-rose-200',
-  },
-} as const
-
-const AccessDifficultyConfig = {
-  easy: {
-    label: 'Fácil',
-    colorClass: 'text-emerald-700 bg-emerald-50 ring-1 ring-emerald-200',
-  },
-  moderate: {
-    label: 'Moderado',
-    colorClass: 'text-amber-700 bg-amber-50 ring-1 ring-amber-200',
-  },
-  hard: {
-    label: 'Difícil',
-    colorClass: 'text-rose-700 bg-rose-50 ring-1 ring-rose-200',
-  },
-} as const
-
-const WaterQualityConfig = {
-  excellent: {
-    label: 'Excelente',
-    colorClass: 'text-blue-700 bg-blue-50 ring-1 ring-blue-200',
-  },
-  good: {
-    label: 'Buena',
-    colorClass: 'text-emerald-700 bg-emerald-50 ring-1 ring-emerald-200',
-  },
-  sufficient: {
-    label: 'Suficiente',
-    colorClass: 'text-amber-700 bg-amber-50 ring-1 ring-amber-200',
-  },
-  poor: {
-    label: 'Insuficiente',
-    colorClass: 'text-rose-700 bg-rose-50 ring-1 ring-rose-200',
-  },
 } as const
 
 const SeasonConfig = {
@@ -109,22 +67,29 @@ export function PracticalInfoCard({
     accessDifficulty != null ||
     childSafe !== undefined
 
-  const details: { label: string; value: string }[] = []
+  const details: { label: string; value: string; icon: string }[] = []
   if (length !== undefined)
-    details.push({ label: 'Longitud', value: `${length} m` })
-  if (soilType) details.push({ label: 'Tipo de suelo', value: soilType })
-  if (waves) details.push({ label: 'Oleaje', value: waves })
+    details.push({ label: 'Longitud', value: `${length} m`, icon: '📏' })
+  if (soilType)
+    details.push({ label: 'Tipo de suelo', value: soilType, icon: '🏖' })
+  if (waves) details.push({ label: 'Oleaje', value: waves, icon: '🌊' })
   if (orientation)
     details.push({
       label: 'Orientación',
       value: OrientationLabels[orientation] ?? orientation,
+      icon: '🧭',
     })
   if (naturalShade !== undefined)
-    details.push({ label: 'Sombra natural', value: naturalShade ? 'Sí' : 'No' })
+    details.push({
+      label: 'Sombra natural',
+      value: naturalShade ? 'Sí' : 'No',
+      icon: '🌳',
+    })
   if (bestSeason && bestSeason.length > 0)
     details.push({
       label: 'Mejor temporada',
       value: bestSeason.map((s) => SeasonConfig[s]).join(', '),
+      icon: '☀️',
     })
 
   return (
@@ -139,40 +104,53 @@ export function PracticalInfoCard({
       {hasBadges && (
         <div className="mb-5 grid grid-cols-2 gap-3">
           {waterQuality && (
-            <div className="rounded-xl bg-gray-50 p-3">
-              <p className="mb-1.5 text-xs text-gray-500">Calidad del agua</p>
+            <div className="rounded-xl bg-gray-50 p-3.5">
+              <p className="mb-1.5 text-xs font-medium tracking-wide text-gray-400 uppercase">
+                Calidad del agua
+              </p>
               <span
-                className={`inline-block rounded-full px-3 py-1 text-sm font-medium ${WaterQualityConfig[waterQuality].colorClass}`}
+                className={`inline-block rounded-full px-3 py-1 text-sm font-semibold ${WaterQualityStyles[waterQuality].subtle}`}
               >
-                {WaterQualityConfig[waterQuality].label}
+                {WaterQualityStyles[waterQuality].label}
               </span>
             </div>
           )}
           {occupancyLevel && (
-            <div className="rounded-xl bg-gray-50 p-3">
-              <p className="mb-1.5 text-xs text-gray-500">Ocupación habitual</p>
+            <div className="rounded-xl bg-gray-50 p-3.5">
+              <p className="mb-1.5 text-xs font-medium tracking-wide text-gray-400 uppercase">
+                Ocupación
+              </p>
               <span
-                className={`inline-block rounded-full px-3 py-1 text-sm font-medium ${OccupancyConfig[occupancyLevel].colorClass}`}
+                className={`inline-block rounded-full px-3 py-1 text-sm font-semibold ${OccupancyStyles[occupancyLevel].subtle}`}
               >
-                {OccupancyConfig[occupancyLevel].label}
+                {OccupancyStyles[occupancyLevel].shortLabel}
               </span>
             </div>
           )}
           {accessDifficulty && (
-            <div className="rounded-xl bg-gray-50 p-3">
-              <p className="mb-1.5 text-xs text-gray-500">Acceso</p>
+            <div className="rounded-xl bg-gray-50 p-3.5">
+              <p className="mb-1.5 text-xs font-medium tracking-wide text-gray-400 uppercase">
+                Acceso
+              </p>
               <span
-                className={`inline-block rounded-full px-3 py-1 text-sm font-medium ${AccessDifficultyConfig[accessDifficulty].colorClass}`}
+                className={`inline-block rounded-full px-3 py-1 text-sm font-semibold ${AccessDifficultyStyles[accessDifficulty].subtle}`}
               >
-                {AccessDifficultyConfig[accessDifficulty].label}
+                {AccessDifficultyStyles[accessDifficulty].label}
               </span>
             </div>
           )}
           {childSafe !== undefined && (
-            <div className="rounded-xl bg-gray-50 p-3">
-              <p className="mb-1.5 text-xs text-gray-500">Apta para niños</p>
+            <div className="rounded-xl bg-gray-50 p-3.5">
+              <p className="mb-1.5 text-xs font-medium tracking-wide text-gray-400 uppercase">
+                Apta para niños
+              </p>
               <span
-                className={`inline-block rounded-full px-3 py-1 text-sm font-medium ${childSafe ? 'bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200' : 'bg-gray-100 text-gray-600 ring-1 ring-gray-200'}`}
+                className={cn(
+                  'inline-block rounded-full px-3 py-1 text-sm font-semibold',
+                  childSafe
+                    ? 'bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200'
+                    : 'bg-gray-100 text-gray-600 ring-1 ring-gray-200',
+                )}
               >
                 {childSafe ? 'Sí' : 'No'}
               </span>
@@ -182,14 +160,37 @@ export function PracticalInfoCard({
       )}
 
       {details.length > 0 && (
-        <dl className="grid grid-cols-2 gap-x-6 gap-y-3">
-          {details.map((d) => (
-            <div key={d.label}>
-              <dt className="text-xs text-gray-500">{d.label}</dt>
-              <dd className="text-sm font-medium text-gray-900">{d.value}</dd>
-            </div>
-          ))}
-        </dl>
+        <details className="group">
+          <summary className="focus-visible:ring-ocean-500 flex cursor-pointer items-center justify-between rounded-lg py-2 text-sm font-medium text-gray-600 transition-colors select-none hover:text-gray-900 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none">
+            <span>Más detalles</span>
+            <svg
+              aria-hidden="true"
+              className="h-4 w-4 shrink-0 transition-transform duration-200 ease-out group-open:rotate-180"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 9l-7 7-7-7"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+              />
+            </svg>
+          </summary>
+          <dl className="mt-3 grid grid-cols-2 gap-3">
+            {details.map((d) => (
+              <div key={d.label} className="rounded-xl bg-gray-50 px-3.5 py-3">
+                <dt className="text-xs font-medium tracking-wide text-gray-400 uppercase">
+                  {d.label}
+                </dt>
+                <dd className="mt-1 text-sm font-semibold text-gray-900">
+                  {d.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </details>
       )}
     </section>
   )

@@ -266,13 +266,6 @@ function BeachPage() {
               waterQuality={beach.waterQuality}
               waves={beach.waves}
             />
-
-            <ContactInfo
-              email={beach.email}
-              instagramHashtag={beach.instagramHashtag}
-              phone={beach.phone}
-              realUrl={beach.realUrl}
-            />
           </div>
 
           {/* Remaining main content — order 3 on mobile, col-span-2 row 2 on desktop */}
@@ -307,10 +300,17 @@ function BeachPage() {
               </section>
             )}
 
-            {/* Map */}
+            {/* Map + Contact */}
             <LocationMap
               beachName={beach.name}
               coordinates={beach.coordinates}
+            />
+
+            <ContactInfo
+              email={beach.email}
+              instagramHashtag={beach.instagramHashtag}
+              phone={beach.phone}
+              realUrl={beach.realUrl}
             />
 
             {/* Nearby beaches */}

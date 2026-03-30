@@ -16,9 +16,10 @@ describe('PracticalInfoCard', () => {
     ).toBeTruthy()
   })
 
-  it('renders length with meters unit', () => {
+  it('renders length with meters unit inside accordion', () => {
     render(<PracticalInfoCard length={750} />)
     expect(screen.getByText('750 m')).toBeTruthy()
+    expect(screen.getByText('Más detalles')).toBeTruthy()
   })
 
   it('renders soil type', () => {
@@ -49,5 +50,19 @@ describe('PracticalInfoCard', () => {
   it('does not render best season when empty array is passed', () => {
     render(<PracticalInfoCard bestSeason={[]} />)
     expect(screen.queryByText('Mejor temporada')).toBeNull()
+  })
+
+  it('renders badges without accordion when only badge data is present', () => {
+    render(<PracticalInfoCard childSafe waterQuality="excellent" />)
+    expect(screen.queryByText('Más detalles')).toBeNull()
+  })
+
+  it('renders both badges and accordion when both types of data exist', () => {
+    render(
+      <PracticalInfoCard length={500} occupancyLevel="low" waves="Moderado" />,
+    )
+    expect(screen.getByText('Baja')).toBeTruthy()
+    expect(screen.getByText('Más detalles')).toBeTruthy()
+    expect(screen.getByText('500 m')).toBeTruthy()
   })
 })
