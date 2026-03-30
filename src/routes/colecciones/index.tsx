@@ -235,13 +235,17 @@ function SeaCollectionCard({
       params={{ slug }}
       to="/colecciones/$slug"
     >
-      {/* Background photo */}
+      {/* Background photo — real beach from each sea */}
       <img
         alt=""
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         loading="lazy"
-        src="/pictures/hero-colecciones.png"
+        src={
+          isMediterraneo
+            ? '/pictures/recurso-1-524-1p_g.jpg'
+            : '/pictures/recurso-1-687-8p_g.jpg'
+        }
       />
       {/* Gradient overlay */}
       <div

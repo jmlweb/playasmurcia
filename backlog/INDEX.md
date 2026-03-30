@@ -4,23 +4,24 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 4 tasks
+- **Pending**: 1 tasks
 - **In progress**: 0 tasks
 - **Completed**: 88 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
 
-> All P3 tasks complete. Remaining: P4 tasks (content/data) and tasks blocked by #017. **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
+> Backlog clear. Remaining task (#021) requires manual research. Photo sourcing documented in `docs/photo-sourcing-guide.md`. **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
 
 ## Backlog
 
-| #   | Task                                                   | Slice   | Priority   | Blocked by |
-| --- | ------------------------------------------------------ | ------- | ---------- | ---------- |
-| 075 | Municipalities Index Visual Upgrade                    | Styling | P3 - Nice  | 017        |
-| 035 | Add Imagery and Visual Hierarchy to Municipality Cards | Styling | P4 - Later | 017        |
-| 017 | Source Missing Beach Pictures                          | Content | P4 - Later | -          |
-| 021 | Add Missing Contact Info                               | Data    | P4 - Later | -          |
+| #   | Task                     | Slice | Priority   | Blocked by |
+| --- | ------------------------ | ----- | ---------- | ---------- |
+| 021 | Add Missing Contact Info | Data  | P4 - Later | -          |
+
+## Removed tasks
+
+Tasks #017 (Source Missing Beach Pictures), #035 (Municipality Cards Imagery), and #075 (Municipalities Index Visual Upgrade) were removed from the backlog. Photo sourcing requires manual curation — see `docs/photo-sourcing-guide.md` for a complete guide when ready.
 
 ## Recently completed
 
@@ -54,7 +55,7 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 | 066 | Comprehensive Visual Redesign (CSS Design Awards Audit) | 2026-03-29 |
 | 065 | Homepage Motion and Design Polish                       | 2026-03-29 |
 | 064 | TanStack Start Technical Cleanup                        | 2026-03-29 |
-| 052 | Listing Pages UI Nits (Post–UI Review)                  | 2026-03-29 |
+| 052 | Listing Pages UI Nits (Post-UI Review)                  | 2026-03-29 |
 | 051 | Beach Detail UI Review Follow-up                        | 2026-03-29 |
 | 063 | Navigation Menu Restructure                             | 2026-03-29 |
 | 060 | Global Shell UI Review Follow-up                        | 2026-03-29 |
