@@ -4,9 +4,9 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 5 tasks
+- **Pending**: 4 tasks
 - **In progress**: 0 tasks
-- **Completed**: 87 tasks
+- **Completed**: 88 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
@@ -21,12 +21,12 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 | 035 | Add Imagery and Visual Hierarchy to Municipality Cards | Styling | P4 - Later | 017        |
 | 017 | Source Missing Beach Pictures                          | Content | P4 - Later | -          |
 | 021 | Add Missing Contact Info                               | Data    | P4 - Later | -          |
-| 085 | Content Data Enrichment                                | Data    | P4 - Later | -          |
 
 ## Recently completed
 
 | #   | Task                                                    | Completed  |
 | --- | ------------------------------------------------------- | ---------- |
+| 085 | Content Data Enrichment                                 | 2026-03-30 |
 | 087 | Dynamic Open Graph Image Generation                     | 2026-03-30 |
 | 086 | TanStack Start Technical Alignment                      | 2026-03-30 |
 | 083 | Motion and Animation Polish                             | 2026-03-30 |
