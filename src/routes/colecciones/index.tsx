@@ -47,57 +47,76 @@ export const Route = createFileRoute('/colecciones/')({
   component: ColeccionesPage,
 })
 
+const FEATURED_SLUGS = new Set([
+  'calas-escondidas',
+  'playas-familiares',
+  'bandera-azul',
+  'snorkel',
+])
+
 const ThematicThemes: Record<
   string,
-  { bg: string; text: string; bar: string }
+  { bg: string; text: string; gradient: string }
 > = {
   'calas-escondidas': {
     bg: 'bg-teal-50',
     text: 'text-teal-600',
-    bar: 'bg-teal-500',
+    gradient: 'from-teal-100 to-teal-200',
   },
   'playas-familiares': {
     bg: 'bg-amber-50',
     text: 'text-amber-600',
-    bar: 'bg-amber-500',
+    gradient: 'from-amber-100 to-amber-200',
   },
   'playas-para-perros': {
     bg: 'bg-orange-50',
     text: 'text-orange-600',
-    bar: 'bg-orange-500',
+    gradient: 'from-orange-100 to-orange-200',
   },
   'playas-nudistas': {
     bg: 'bg-rose-50',
     text: 'text-rose-600',
-    bar: 'bg-rose-500',
+    gradient: 'from-rose-100 to-rose-200',
   },
   'con-chiringuito': {
     bg: 'bg-purple-50',
     text: 'text-purple-600',
-    bar: 'bg-purple-500',
+    gradient: 'from-purple-100 to-purple-200',
   },
-  'bandera-azul': { bg: 'bg-sky-50', text: 'text-sky-600', bar: 'bg-sky-500' },
-  snorkel: { bg: 'bg-cyan-50', text: 'text-cyan-600', bar: 'bg-cyan-500' },
+  'bandera-azul': {
+    bg: 'bg-sky-50',
+    text: 'text-sky-600',
+    gradient: 'from-sky-100 to-sky-200',
+  },
+  snorkel: {
+    bg: 'bg-cyan-50',
+    text: 'text-cyan-600',
+    gradient: 'from-cyan-100 to-cyan-200',
+  },
   'deportes-acuaticos': {
     bg: 'bg-indigo-50',
     text: 'text-indigo-600',
-    bar: 'bg-indigo-500',
+    gradient: 'from-indigo-100 to-indigo-200',
   },
   'mejores-atardeceres': {
-    bg: 'bg-amber-50',
-    text: 'text-amber-600',
-    bar: 'bg-amber-500',
+    bg: 'bg-yellow-50',
+    text: 'text-yellow-600',
+    gradient: 'from-yellow-100 to-yellow-200',
   },
   'playas-tranquilas': {
     bg: 'bg-green-50',
     text: 'text-green-600',
-    bar: 'bg-green-500',
+    gradient: 'from-green-100 to-green-200',
   },
-  accesibles: { bg: 'bg-blue-50', text: 'text-blue-600', bar: 'bg-blue-500' },
+  accesibles: {
+    bg: 'bg-blue-50',
+    text: 'text-blue-600',
+    gradient: 'from-blue-100 to-blue-200',
+  },
   'playas-fotogenicas': {
     bg: 'bg-pink-50',
     text: 'text-pink-600',
-    bar: 'bg-pink-500',
+    gradient: 'from-pink-100 to-pink-200',
   },
 }
 
@@ -115,7 +134,48 @@ function CollectionCard({
   const theme = ThematicThemes[slug] ?? {
     bg: 'bg-gray-50',
     text: 'text-gray-600',
-    bar: 'bg-gray-500',
+    gradient: 'from-gray-100 to-gray-200',
+  }
+  const isFeatured = FEATURED_SLUGS.has(slug)
+
+  if (isFeatured) {
+    return (
+      <Link
+        className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-500 ease-out hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none motion-safe:hover:-translate-y-1"
+        params={{ slug }}
+        to="/colecciones/$slug"
+      >
+        {/* Hero gradient area */}
+        <div
+          className={`relative flex h-28 items-end bg-gradient-to-br p-4 ${theme.gradient}`}
+        >
+          <div
+            className={`flex h-14 w-14 items-center justify-center rounded-2xl ${theme.bg} ${theme.text} shadow-sm`}
+          >
+            <CollectionIcon className="h-7 w-7" slug={slug} />
+          </div>
+        </div>
+        <div className="flex flex-1 flex-col p-5">
+          <h3 className="group-hover:text-ocean-600 mb-2 text-xl font-bold text-gray-900 transition-colors">
+            {title}
+          </h3>
+          <p className="mb-4 text-sm leading-relaxed text-gray-600">
+            {description}
+          </p>
+          <div className="mt-auto flex items-center justify-between">
+            <span className="text-sm text-gray-600">
+              <strong className="font-semibold text-gray-900">
+                {beachCount}
+              </strong>{' '}
+              {beachCount === 1 ? 'playa' : 'playas'}
+            </span>
+            <span className="text-ocean-600 group-hover:text-ocean-700 text-sm font-medium transition-colors">
+              Ver colección →
+            </span>
+          </div>
+        </div>
+      </Link>
+    )
   }
 
   return (
@@ -124,15 +184,16 @@ function CollectionCard({
       params={{ slug }}
       to="/colecciones/$slug"
     >
-      <div className={`h-2.5 ${theme.bar}`} />
-      <div className="flex flex-1 flex-col p-6">
+      {/* Compact colour band */}
+      <div className={`h-16 bg-gradient-to-br ${theme.gradient}`} />
+      <div className="flex flex-1 flex-col p-5">
         <div className="mb-3 flex items-center gap-3">
           <div
-            className={`flex h-12 w-12 items-center justify-center rounded-xl ${theme.bg} ${theme.text}`}
+            className={`flex h-10 w-10 items-center justify-center rounded-xl ${theme.bg} ${theme.text}`}
           >
-            <CollectionIcon className="h-6 w-6" slug={slug} />
+            <CollectionIcon className="h-5 w-5" slug={slug} />
           </div>
-          <h3 className="group-hover:text-ocean-600 text-xl font-bold text-gray-900 transition-colors">
+          <h3 className="group-hover:text-ocean-600 text-base font-bold text-gray-900 transition-colors">
             {title}
           </h3>
         </div>
@@ -170,17 +231,27 @@ function SeaCollectionCard({
 
   return (
     <Link
-      className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-500 ease-out hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none motion-safe:hover:-translate-y-1"
+      className="group focus-visible:ring-ocean-500 relative flex h-44 items-end overflow-hidden rounded-2xl shadow-sm ring-1 ring-gray-200/60 transition-all duration-500 ease-out hover:shadow-xl focus-visible:ring-2 focus-visible:outline-none motion-safe:hover:-translate-y-1"
       params={{ slug }}
       to="/colecciones/$slug"
     >
-      <div
-        className={`absolute inset-0 opacity-[0.07] ${isMediterraneo ? 'from-ocean-500 to-ocean-700 bg-gradient-to-br' : 'bg-gradient-to-br from-emerald-500 to-emerald-700'}`}
+      {/* Background photo */}
+      <img
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+        loading="lazy"
+        src="/pictures/hero-colecciones.png"
       />
-      <div className="relative flex flex-1 flex-col p-6">
-        <div className="mb-3 flex items-center gap-3">
+      {/* Gradient overlay */}
+      <div
+        className={`absolute inset-0 bg-gradient-to-t ${isMediterraneo ? 'from-ocean-900/80 via-ocean-800/30' : 'from-emerald-900/80 via-emerald-800/30'} to-transparent`}
+      />
+      {/* Content */}
+      <div className="relative flex w-full items-end justify-between p-5">
+        <div className="flex items-center gap-3">
           <div
-            className={`flex h-12 w-12 items-center justify-center rounded-xl ${isMediterraneo ? 'bg-ocean-50 text-ocean-600' : 'bg-emerald-50 text-emerald-600'}`}
+            className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${isMediterraneo ? 'bg-ocean-500/30 text-white' : 'bg-emerald-500/30 text-white'} backdrop-blur-sm`}
           >
             <svg
               aria-hidden="true"
@@ -197,24 +268,16 @@ function SeaCollectionCard({
               />
             </svg>
           </div>
-          <h3 className="group-hover:text-ocean-600 text-xl font-bold text-gray-900 transition-colors">
-            {title}
-          </h3>
+          <div>
+            <h3 className="text-lg font-bold text-white">{title}</h3>
+            <p className="text-sm text-white/80">
+              <strong className="font-semibold">{beachCount}</strong> playas
+            </p>
+          </div>
         </div>
-        <p className="mb-4 text-sm leading-relaxed text-gray-600">
-          {description}
-        </p>
-        <div className="mt-auto flex items-center justify-between">
-          <span className="text-sm text-gray-600">
-            <strong className="font-semibold text-gray-900">
-              {beachCount}
-            </strong>{' '}
-            playas
-          </span>
-          <span className="text-ocean-600 group-hover:text-ocean-700 text-sm font-medium transition-colors">
-            Ver colección →
-          </span>
-        </div>
+        <span className="shrink-0 text-sm font-medium text-white/90 transition-colors group-hover:text-white">
+          Ver colección →
+        </span>
       </div>
     </Link>
   )
@@ -222,6 +285,9 @@ function SeaCollectionCard({
 
 function ColeccionesPage() {
   const { items, seas } = Route.useLoaderData()
+
+  const featured = items.filter((item) => FEATURED_SLUGS.has(item.slug))
+  const compact = items.filter((item) => !FEATURED_SLUGS.has(item.slug))
 
   return (
     <main className="bg-sand-50 min-h-screen">
@@ -246,7 +312,7 @@ function ColeccionesPage() {
           items={[{ label: 'Inicio', href: '/' }, { label: 'Colecciones' }]}
         />
 
-        {/* Seas — featured */}
+        {/* Seas — horizontal banners */}
         <section className="mb-10">
           <h2 className="mb-5 text-2xl font-semibold text-gray-900">
             Playas por mar
@@ -265,12 +331,27 @@ function ColeccionesPage() {
         </section>
 
         {/* Thematic collections */}
-        <section className="border-t border-gray-200 pt-10">
-          <h2 className="mb-5 text-2xl font-semibold text-gray-900">
+        <section className="bg-sand-100 rounded-3xl p-6 sm:p-8">
+          <h2 className="mb-6 text-2xl font-semibold text-gray-900">
             Colecciones temáticas
           </h2>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
-            {items.map((item) => (
+
+          {/* Featured (larger) */}
+          <div className="mb-6 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:gap-6">
+            {featured.map((item) => (
+              <CollectionCard
+                key={item.slug}
+                beachCount={item.beachCount}
+                description={item.description}
+                slug={item.slug}
+                title={item.title}
+              />
+            ))}
+          </div>
+
+          {/* Compact */}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4 xl:gap-5">
+            {compact.map((item) => (
               <CollectionCard
                 key={item.slug}
                 beachCount={item.beachCount}
