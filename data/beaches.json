@@ -670,7 +670,8 @@
     "access": "Cala Cerrada es una playa ubicada en la comarcal Cartagena - Mazarrón, en la Región de Murcia. Para acceder, diríjase por la carretera comarcal. También se puede acceder mediante un camino de tierra que parte desde la carretera principal. Existe un parking público disponible en la zona y el acceso se considera de dificultad moderada debido a la carretera y camino de tierra.",
     "pictures": [
       "recurso-1-658-2p_g.jpg",
-      "recurso-1-658-1p_g.jpg"
+      "recurso-1-658-1p_g.jpg",
+      "cerrada-cartagena-3_g.jpg"
     ],
     "coordinates": [
       37.5440417791123,
@@ -885,7 +886,8 @@
       "recurso-1-663-3p_g.jpg",
       "recurso-1-663-2p_g.jpg",
       "cala-calnegre-lorca-4_g.jpg",
-      "cala-calnegre-lorca-5_g.jpg"
+      "cala-calnegre-lorca-5_g.jpg",
+      "calnegre-lorca-6_g.jpg"
     ],
     "coordinates": [
       37.5067891,
@@ -1394,7 +1396,9 @@
     "sea": 0,
     "promenade": false,
     "access": "La Cala de los Abejorros, situada en Águilas, Región de Murcia, se accede caminando por un camino de tierra sin asfaltar. La distancia a pie desde el parking público más cercano es de aproximadamente 30-45 minutos, con cierta pendiente. No hay parking público dentro de la cala. No hay transporte público disponible.",
-    "pictures": [],
+    "pictures": [
+      "abejorros-mazarron_g.jpg"
+    ],
     "coordinates": [
       37.469241,
       -1.471169
@@ -1592,7 +1596,9 @@
     "pictures": [
       "recurso-1-556-1p_g.jpg",
       "recurso-1-556-3p_g.jpg",
-      "recurso-1-556-2p_g.jpg"
+      "recurso-1-556-2p_g.jpg",
+      "barco-calblanque-4_g.jpg",
+      "barco-calblanque-5_g.jpg"
     ],
     "coordinates": [
       37.58922765157792,
@@ -3458,7 +3464,13 @@
       "recurso-1-518-6p_g.jpg",
       "recurso-1-518-5p_g.jpg",
       "recurso-1-518-3p_g.jpg",
-      "reona-cartagena-8_g.jpg"
+      "reona-cartagena-8_g.jpg",
+      "reona-cartagena-9_g.jpg",
+      "reona-cartagena-10_g.jpg",
+      "reona-cartagena-11_g.jpg",
+      "reona-cartagena-12_g.jpg",
+      "reona-cartagena-13_g.jpg",
+      "reona-cartagena-14_g.jpg"
     ],
     "coordinates": [
       37.620197252492865,
@@ -4150,7 +4162,8 @@
     "promenade": false,
     "access": "Playa Amarilla, ubicada en Mazarrón, Región de Murcia, ofrece un acceso directo a su arena. Para llegar, se requiere caminar a través de un camino de tierra sin asfaltar, siendo el acceso para vehículos motorizados restringido. Dispone de un parking cercano.",
     "pictures": [
-      "PLAYAS_1_586_1_g.jpg"
+      "PLAYAS_1_586_1_g.jpg",
+      "amarilla-mazarron-2_g.jpg"
     ],
     "coordinates": [
       37.560294,
@@ -4564,7 +4577,8 @@
     "pictures": [
       "recurso-1-667-2p_g.jpg",
       "recurso-1-667-3p_g.jpg",
-      "recurso-1-667-1p_g.jpg"
+      "recurso-1-667-1p_g.jpg",
+      "barnuevo-sanjavier-4_g.jpg"
     ],
     "coordinates": [
       37.79760794214085,
@@ -4672,7 +4686,9 @@
     "sea": 0,
     "promenade": false,
     "access": "Playa Cabezo de la Pelea, situada en la localidad de Mazarrón, Región de Murcia, ofrece un acceso natural a la costa. Para llegar, se debe acceder a través de un camino sin asfaltar, restringido al acceso de vehículos a motor. El acceso implica una caminata y, debido a la naturaleza del camino, se recomienda llevar calzado adecuado. No dispone de parking cercano y el acceso es de nivel moderado, considerando la necesidad de caminar por un camino de tierra.",
-    "pictures": [],
+    "pictures": [
+      "cabezo-pelea-mazarron_g.jpg"
+    ],
     "coordinates": [
       37.544527,
       -1.363548
@@ -4967,7 +4983,12 @@
     "sea": 0,
     "promenade": false,
     "access": "Playa Cala Flores es una playa urbana situada en la popular zona de las Playas del Mar Menor, cerca de La Manga y Cabo de Palos en Cartagena, Región de Murcia. Se accede fácilmente desde la Autopista A-37, salida 800, y la playa cuenta con acceso directo a la arena a través de rampas. Existe parking disponible en la zona y el acceso a la playa es sencillo y accesible.",
-    "pictures": [],
+    "pictures": [
+      "cala-flores-cartagena_g.jpg",
+      "cala-flores-cartagena-2_g.jpg",
+      "cala-flores-cartagena-3_g.jpg",
+      "cala-flores-cartagena-4_g.jpg"
+    ],
     "coordinates": [
       37.62615368106458,
       -0.7047096111234166
@@ -5699,7 +5720,8 @@
     "pictures": [
       "PLAYAS_1_643_5_g.jpg",
       "PLAYAS_1_643_2_g.jpg",
-      "PLAYAS_1_643_3_g.jpg"
+      "PLAYAS_1_643_3_g.jpg",
+      "cueva-lobos-mazarron-4_g.jpg"
     ],
     "coordinates": [
       37.561711,
@@ -5897,7 +5919,8 @@
     "promenade": false,
     "access": "La Playa de Bahía, ubicada en el punto kilométrico 1,610 de la carretera comarcal Puerto de Mazarrón a Bolnuevo, es accesible desde el casco urbano del Puerto de Mazarrón. Se puede llegar en autobús y, una vez en el puerto, hay parking disponible en sus inmediaciones. El acceso a la playa es relativamente sencillo.",
     "pictures": [
-      "wikimedia-662.jpg"
+      "wikimedia-662.jpg",
+      "bahia-mazarron-2_g.jpg"
     ],
     "coordinates": [
       37.558255,
@@ -6008,7 +6031,8 @@
       "recurso-1-646-4p_g.jpg",
       "recurso-1-646-3p_g.jpg",
       "recurso-1-646-7p_g.jpg",
-      "recurso-1-646-6p_g.jpg"
+      "recurso-1-646-6p_g.jpg",
+      "bolnuevo-mazarron-8_g.jpg"
     ],
     "coordinates": [
       37.562678,
@@ -8293,7 +8317,9 @@
     "promenade": true,
     "access": "La Playa de La Ermita está ubicada en el punto kilométrico 1,610 de la carretera comarcal Puerto de Mazarrón a Bolnuevo. El acceso a la primera línea de arena se realiza a pie, mediante una combinación de escaleras y rampas. Hay parking disponible en las inmediaciones. El acceso es apto para personas con movilidad reducida gracias a la disponibilidad de rampas.",
     "pictures": [
-      "PLAYAS_1_649_2_g.jpg"
+      "PLAYAS_1_649_2_g.jpg",
+      "ermita-mazarron-2_g.jpg",
+      "ermita-mazarron-3_g.jpg"
     ],
     "coordinates": [
       37.559182,
@@ -8803,7 +8829,8 @@
     "promenade": false,
     "access": "Playa de La Isla, situada en Mazarrón, Región de Murcia, ofrece acceso a pie. Para llegar a la playa, se requiere caminar desde la carretera urbana local. Dispone de un parking cercano y el acceso a la playa es moderadamente sencillo, aunque implica una pendiente suave.",
     "pictures": [
-      "PLAYAS_1_680_3_g.jpg"
+      "PLAYAS_1_680_3_g.jpg",
+      "isla-mazarron_g.jpg"
     ],
     "coordinates": [
       37.560278,
@@ -9192,7 +9219,10 @@
     "promenade": false,
     "access": "Playa de La Mota, ubicada en San Pedro del Pinatar, se accede a través de un agradable sendero peatonal desde la carretera que conecta San Pedro del Pinatar con Lo Pagán (Avda. del Puerto), pasando por el Molino Quintín. El acceso es fácil y está situado a unos 3 km del centro de San Pedro del Pinatar. Existe un parking cercano, aunque puede ser limitado en temporada alta.",
     "pictures": [
-      "recurso-1-682-2p_g.jpg"
+      "recurso-1-682-2p_g.jpg",
+      "mota-sanpedro-2_g.jpg",
+      "mota-sanpedro-3_g.jpg",
+      "mota-sanpedro-4_g.jpg"
     ],
     "coordinates": [
       37.818541882775286,
@@ -10079,7 +10109,9 @@
     "sea": 0,
     "promenade": false,
     "access": "La Playa de las Chapas, en Mazarrón (Región de Murcia), ofrece un acceso natural y tranquilo. Para llegar, se requiere caminar desde el punto kilométrico 3,950 de la A-42, o bien acceder en vehículo 4x4. El acceso es por un camino sin asfaltar y no dispone de parking cercano; se recomienda llevar todo el equipamiento necesario.",
-    "pictures": [],
+    "pictures": [
+      "ballenato-chapas-mazarron_g.jpg"
+    ],
     "coordinates": [
       37.532225,
       -1.373645
@@ -10169,7 +10201,9 @@
     "sea": 0,
     "promenade": false,
     "access": "La Playa de las Minas, situada cerca de la Playa de Percheles (punto kilométrico 3,900 de la A-42), ofrece un acceso directo a la costa. Para llegar a la playa, se requiere caminar a pie desde el punto kilométrico 3,900 de la A-42, siguiendo un camino sin asfaltar de fácil acceso. Existe un parking disponible en la zona de Percheles, facilitando el acceso a esta hermosa playa.",
-    "pictures": [],
+    "pictures": [
+      "minas-mazarron_g.jpg"
+    ],
     "coordinates": [
       37.528342,
       -1.384026
@@ -10363,7 +10397,8 @@
     "access": "Playa de Las Palmeras está situada en Los Alcázares, Región de Murcia. Se encuentra en el punto kilométrico 2,370 y 2,490 de la comarcal de Los Alcázares. El acceso es fácil desde la autovía que conecta con Santiago de La Ribera. Hay disponibilidad de aparcamiento en la zona.",
     "pictures": [
       "recurso-1-534-3p_g.jpg",
-      "recurso-1-534-2p_g.jpg"
+      "recurso-1-534-2p_g.jpg",
+      "palmeras-alcazares-3_g.jpg"
     ],
     "coordinates": [
       37.74983814218372,
@@ -11169,7 +11204,9 @@
     "sea": 1,
     "promenade": false,
     "access": "La Playa de Los Narejos, situada en Los Alcázares, Región de Murcia, es fácilmente accesible desde la carretera principal, encontrándose en los puntos kilométricos 3,080 y 3,680 de la carretera que une Los Alcázares con Santiago de la Ribera. El acceso a la playa es sencillo y cómodo, con aparcamiento disponible en la zona circundante. Se puede llegar a la playa en autobús.",
-    "pictures": [],
+    "pictures": [
+      "narejos-alcazares_g.jpg"
+    ],
     "coordinates": [
       37.75642156474186,
       -0.8325331893053107
@@ -11589,7 +11626,10 @@
     "sea": 0,
     "promenade": false,
     "access": "La Playa de Percheles, situada en Mazarrón, Región de Murcia, ofrece un acceso directo a la costa a través de un camino sin asfaltar. Se encuentra en el punto kilométrico 3,900 de la A-42. Existe un parking público disponible en la zona.",
-    "pictures": [],
+    "pictures": [
+      "percheles-mazarron_g.jpg",
+      "percheles-mazarron-2_g.jpg"
+    ],
     "coordinates": [
       37.5529873,
       -1.381302
@@ -12079,7 +12119,8 @@
     "promenade": false,
     "access": "La Playa de Villananitos, situada en San Pedro del Pinatar, Región de Murcia, se puede acceder desde la AP-7 (Salida 774) o la N-332, siguiendo la carretera que va de San Pedro a Lo Pagán. El acceso a la playa implica caminar desde el aparcamiento más cercano. Se recomienda llegar en autobús. Aunque no dispone de acceso directo para personas con movilidad reducida, es fácilmente accesible a pie.",
     "pictures": [
-      "recurso-1-681-4p_g.jpg"
+      "recurso-1-681-4p_g.jpg",
+      "villananitos-sanpedro-2_g.jpg"
     ],
     "coordinates": [
       37.82145072620041,
@@ -12283,7 +12324,9 @@
     "sea": 0,
     "promenade": false,
     "access": "La Playa del Ballenato, situada en Mazarrón (Región de Murcia), ofrece acceso a pie desde el punto kilométrico 3,950 de la A-42, o mediante un vehículo 4x4. El acceso es a través de un camino sin asfaltar, lo que implica una caminata y una dificultad moderada. No dispone de parking cercano.",
-    "pictures": [],
+    "pictures": [
+      "ballenato-chapas-mazarron_g.jpg"
+    ],
     "coordinates": [
       37.531631,
       -1.375605
@@ -12572,7 +12615,9 @@
     "sea": 0,
     "promenade": false,
     "access": "Playa del Barranco Ancho, situada en Mazarrón, Región de Murcia. Para llegar a esta playa, se requiere caminar desde la red básica a través de un camino sin asfaltar. Se recomienda llevar calzado cómodo y estar preparado para un paseo de acceso. Existe un parking público en la zona cercana al inicio del camino.",
-    "pictures": [],
+    "pictures": [
+      "barranco-ancho-mazarron_g.jpg"
+    ],
     "coordinates": [
       37.555624,
       -1.343723
@@ -12951,7 +12996,10 @@
     "pictures": [
       "recurso-1-690-4p_g.jpg",
       "recurso-1-690-3p_g.jpg",
-      "recurso-1-690-2p_g.jpg"
+      "recurso-1-690-2p_g.jpg",
+      "espejo-alcazares-4_g.jpg",
+      "espejo-alcazares-5_g.jpg",
+      "espejo-alcazares-6_g.jpg"
     ],
     "coordinates": [
       37.74541076193193,
@@ -13734,7 +13782,8 @@
     "pictures": [
       "recurso-1-650-7p_g.jpg",
       "recurso-1-650-6p_g.jpg",
-      "PLAYAS_1_650_2_g.jpg"
+      "PLAYAS_1_650_2_g.jpg",
+      "puerto-mazarron-4_g.jpg"
     ],
     "coordinates": [
       37.565939,
@@ -14731,7 +14780,10 @@
     "promenade": false,
     "access": "Playa El Mojón, situada en San Pedro del Pinatar (Región de Murcia), es fácilmente accesible desde la AP7 (Salida 774) o la N-332 que conecta Cartagena con San Pedro del Pinatar. Para llegar, se requiere desplazarse a pie desde las inmediaciones de El Mojón. Aunque hay un parking disponible en la zona, el acceso a la playa implica un trayecto a pie, por lo que se recomienda calzado cómodo.",
     "pictures": [
-      "recurso-1-666-1p_g.jpg"
+      "recurso-1-666-1p_g.jpg",
+      "mojon-sanpedro-2_g.jpg",
+      "mojon-sanpedro-3_g.jpg",
+      "mojon-sanpedro-4_g.jpg"
     ],
     "coordinates": [
       37.84638380330269,
@@ -16678,7 +16730,9 @@
     "sea": 0,
     "promenade": false,
     "access": "Playa La Galera, situada en La Manga, Cartagena, es un destino de playa accesible a pie. Para llegar, toma la Autopista AP-7, salida 800, dirección La Manga-Cartagena-El Algar, y continúa por el desvío MU-312 hacia Cabo de Palos. El acceso a la playa implica una caminata, y existe un parking público disponible en la zona.",
-    "pictures": [],
+    "pictures": [
+      "galera-aguilas_g.jpg"
+    ],
     "coordinates": [
       37.63543150608914,
       -0.6938743389565918
@@ -17445,7 +17499,8 @@
     "promenade": false,
     "access": "Playa Las Antillas está situada en el punto kilométrico 8,5 al 8,9 de la Gran Vía de La Manga, en San Javier, Región de Murcia. Para llegar, se encuentra a lo largo de esta autovía principal. Cuenta con un parking público disponible en la zona. El acceso a la playa es mediante una pendiente suave.",
     "pictures": [
-      "recurso-1-541-6p_g.jpg"
+      "recurso-1-541-6p_g.jpg",
+      "antillas-sanjavier-2_g.jpg"
     ],
     "coordinates": [
       37.71054681195668,
@@ -17852,7 +17907,8 @@
     "access": "Playa Manzanares, ubicada en Los Alcázares, Región de Murcia, ofrece un fácil acceso. Cuenta con buen acceso a través de la autovía. Hay un parking público disponible. El acceso es sin complicaciones.  La playa es fácilmente accesible.",
     "pictures": [
       "recurso-1-691-2p_g.jpg",
-      "recurso-1-691-3p_g.jpg"
+      "recurso-1-691-3p_g.jpg",
+      "manzanares-alcazares-3_g.jpg"
     ],
     "coordinates": [
       37.74115350824285,
@@ -18669,7 +18725,9 @@
     "sea": 0,
     "promenade": false,
     "access": "Playa Parazuelos, situada en el punto kilométrico 15,150 de la N-332 Almería-Valencia, cerca de Puntas de Calnegre en Mazarrón (Región de Murcia). Para llegar a esta playa, se requiere caminar desde la carretera. No dispone de aparcamiento cercano y el acceso es por senderismo, por lo que se recomienda llevar calzado cómodo y agua.",
-    "pictures": [],
+    "pictures": [
+      "parazuelos-mazarron_g.jpg"
+    ],
     "coordinates": [
       37.521276,
       -1.394159
@@ -18870,7 +18928,8 @@
       "recurso-1-672-10p_g.jpg",
       "recurso-1-672-3p_g.jpg",
       "recurso-1-672-11p_g.jpg",
-      "recurso-1-672-9p_g.jpg"
+      "recurso-1-672-9p_g.jpg",
+      "pedrucho-manga-8_g.jpg"
     ],
     "coordinates": [
       37.70724157230249,
