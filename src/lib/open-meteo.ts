@@ -63,10 +63,26 @@ export type OpenMeteoForecastDay = {
   windSpeed: number
   windDirection: string
   uvIndex: number
+  precipitationProbability: number
+}
+
+export type OpenMeteoCurrent = {
+  temp: number
+  apparentTemp: number
+  skyDescription: string
+  skyIcon: string
+  windSpeed: number
+  windDirection: string
+  uvIndex: number
 }
 
 export type OpenMeteoForecast = {
   days: OpenMeteoForecastDay[]
+  current?: OpenMeteoCurrent
+}
+
+export type MarineWeather = {
+  currentTemp: number
 }
 
 export type CardWeather = {
@@ -79,6 +95,14 @@ export type CardWeather = {
 // ---------------------------------------------------------------------------
 
 type OpenMeteoResponse = {
+  current?: {
+    temperature_2m: number
+    apparent_temperature: number
+    weather_code: number
+    wind_speed_10m: number
+    wind_direction_10m: number
+    uv_index: number
+  }
   daily: {
     time: string[]
     weather_code: number[]
@@ -87,6 +111,7 @@ type OpenMeteoResponse = {
     wind_speed_10m_max: number[]
     wind_direction_10m_dominant: number[]
     uv_index_max: number[]
+    precipitation_probability_max: number[]
   }
 }
 
@@ -123,8 +148,10 @@ export async function fetchOpenMeteoForecast(
     const params = new URLSearchParams({
       latitude: String(lat),
       longitude: String(lng),
+      current:
+        'temperature_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m,uv_index',
       daily:
-        'weather_code,temperature_2m_max,temperature_2m_min,wind_speed_10m_max,wind_direction_10m_dominant,uv_index_max',
+        'weather_code,temperature_2m_max,temperature_2m_min,wind_speed_10m_max,wind_direction_10m_dominant,uv_index_max,precipitation_probability_max',
       timezone: 'Europe/Madrid',
       forecast_days: '7',
     })
@@ -153,7 +180,21 @@ export async function fetchOpenMeteoForecast(
         windSpeed: Math.round(daily.wind_speed_10m_max[i]),
         windDirection: degreesToDirection(daily.wind_direction_10m_dominant[i]),
         uvIndex: Math.round(daily.uv_index_max[i]),
+        precipitationProbability: daily.precipitation_probability_max[i] ?? 0,
       })),
+    }
+
+    if (data.current) {
+      const c = data.current
+      forecast.current = {
+        temp: Math.round(c.temperature_2m),
+        apparentTemp: Math.round(c.apparent_temperature),
+        skyDescription: wmoToDescription(c.weather_code),
+        skyIcon: wmoToIcon(c.weather_code),
+        windSpeed: Math.round(c.wind_speed_10m),
+        windDirection: degreesToDirection(c.wind_direction_10m),
+        uvIndex: Math.round(c.uv_index),
+      }
     }
 
     await edgeCacheSet(CACHE_NS, cacheKey, forecast, CACHE_TTL_SECONDS)
@@ -265,4 +306,62 @@ export async function fetchBatchCardWeather(
   }
 
   return result
+}
+
+// ---------------------------------------------------------------------------
+// Marine weather (sea water temperature)
+// ---------------------------------------------------------------------------
+
+const MARINE_BASE_URL = 'https://marine-api.open-meteo.com/v1/marine'
+const MARINE_CACHE_NS = 'open-meteo-marine'
+
+type MarineResponse = {
+  current?: { sea_surface_temperature: number }
+}
+
+export async function fetchMarineWeather(
+  latitude: number,
+  longitude: number,
+): Promise<MarineWeather | null> {
+  const lat = Math.round(latitude * 100) / 100
+  const lng = Math.round(longitude * 100) / 100
+  const cacheKey = `${lat},${lng}`
+
+  const cached = await edgeCacheGet<MarineWeather | null>(
+    MARINE_CACHE_NS,
+    cacheKey,
+  )
+  if (cached !== undefined) return cached
+
+  try {
+    const params = new URLSearchParams({
+      latitude: String(lat),
+      longitude: String(lng),
+      current: 'sea_surface_temperature',
+      timezone: 'Europe/Madrid',
+      forecast_days: '1',
+    })
+
+    const res = await fetch(`${MARINE_BASE_URL}?${params}`)
+    if (!res.ok) {
+      await edgeCacheSet(MARINE_CACHE_NS, cacheKey, null, CACHE_TTL_SECONDS)
+      return null
+    }
+
+    const data = (await res.json()) as MarineResponse
+    if (!data.current) {
+      await edgeCacheSet(MARINE_CACHE_NS, cacheKey, null, CACHE_TTL_SECONDS)
+      return null
+    }
+
+    const result: MarineWeather = {
+      currentTemp: Math.round(data.current.sea_surface_temperature),
+    }
+
+    await edgeCacheSet(MARINE_CACHE_NS, cacheKey, result, CACHE_TTL_SECONDS)
+    return result
+  } catch {
+    await edgeCacheSet(MARINE_CACHE_NS, cacheKey, null, CACHE_TTL_SECONDS)
+    return null
+  }
 }
