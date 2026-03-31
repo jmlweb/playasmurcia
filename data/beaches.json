@@ -770,7 +770,8 @@
       "recurso-1-512-3p_g.jpg",
       "recurso-1-512-1p_g.jpg",
       "recurso-1-512-2p_g.jpg",
-      "recurso-1-512-10p_g.jpg"
+      "recurso-1-512-10p_g.jpg",
+      "cortina-cartagena-5_g.jpg"
     ],
     "coordinates": [
       37.58346704814301,
@@ -1983,7 +1984,11 @@
       "recurso-1-577-2p_g.jpg",
       "recurso-1-577-3p_g.jpg",
       "recurso-1-577-4p_g.jpg",
-      "recurso-1-577-10p_g.jpg"
+      "recurso-1-577-10p_g.jpg",
+      "cala-pino-cartagena-5_g.jpg",
+      "cala-pino-cartagena-6_g.jpg",
+      "cala-pino-cartagena-7_g.jpg",
+      "cala-pino-cartagena-8_g.jpg"
     ],
     "coordinates": [
       37.668560281294674,
@@ -3452,7 +3457,8 @@
       "recurso-1-518-2p_g.jpg",
       "recurso-1-518-6p_g.jpg",
       "recurso-1-518-5p_g.jpg",
-      "recurso-1-518-3p_g.jpg"
+      "recurso-1-518-3p_g.jpg",
+      "reona-cartagena-8_g.jpg"
     ],
     "coordinates": [
       37.620197252492865,
@@ -5587,7 +5593,8 @@
       "PLAYAS_1_638_3_g.jpg",
       "PLAYAS_1_638_4_g.jpg",
       "cobaticas_g.jpg",
-      "PLAYAS_1_638_6_g.jpg"
+      "PLAYAS_1_638_6_g.jpg",
+      "cobaticas-mazarron-6_g.jpg"
     ],
     "coordinates": [
       37.538644,
@@ -6420,7 +6427,12 @@
       "recurso-1-590-4p_g.jpg",
       "recurso-1-590-3p_g.jpg",
       "recurso-1-590-7p_g.jpg",
-      "recurso-1-590-1p_g.jpg"
+      "recurso-1-590-1p_g.jpg",
+      "calblanque-cartagena-10_g.jpg",
+      "calblanque-cartagena-11_g.jpg",
+      "calblanque-cartagena-12_g.jpg",
+      "calblanque-cartagena-13_g.jpg",
+      "calblanque-cartagena-14_g.jpg"
     ],
     "coordinates": [
       37.6055453173988,
@@ -7473,7 +7485,8 @@
       "recurso-1-530-6p_g.jpg",
       "recurso-1-530-4p_g.jpg",
       "recurso-1-530-2p_g.jpg",
-      "recurso-1-530-5p_g.jpg"
+      "recurso-1-530-5p_g.jpg",
+      "islas-menores-cartagena-9_g.jpg"
     ],
     "coordinates": [
       37.648485055599245,
@@ -7579,7 +7592,8 @@
     "pictures": [
       "recurso-1-582-1p_g.jpg",
       "recurso-1-582-2p_g.jpg",
-      "recurso-1-582-3p_g.jpg"
+      "recurso-1-582-3p_g.jpg",
+      "azohia-cuartel-cartagena-4_g.jpg"
     ],
     "coordinates": [
       37.553811682249034,
@@ -10546,7 +10560,8 @@
     "sea": 1,
     "promenade": false,
     "pictures": [
-      "recurso-1-585-1p_g.jpg"
+      "recurso-1-585-1p_g.jpg",
+      "salinas-sanpedro-2_g.jpg"
     ],
     "coordinates": [
       37.77032088554895,
@@ -11256,7 +11271,8 @@
     "promenade": false,
     "access": "La Playa de Los Urrutias, ubicada en Cartagena, Región de Murcia, ofrece acceso desde la autovía con un desvío a la N-332. Es fácilmente accesible en autobús. Existen opciones de aparcamiento en la zona y el acceso a la playa es considerado fácil para personas de movilidad reducida.",
     "pictures": [
-      "recurso-1-677-1p_g.jpg"
+      "recurso-1-677-1p_g.jpg",
+      "urrutias-cartagena-2_g.jpg"
     ],
     "coordinates": [
       37.68667198444632,
@@ -11359,7 +11375,8 @@
     "pictures": [
       "recurso-1-676-2p_g.jpg",
       "recurso-1-676-3p_g.jpg",
-      "recurso-1-676-1p_g.jpg"
+      "recurso-1-676-1p_g.jpg",
+      "mar-cristal-cartagena-4_g.jpg"
     ],
     "coordinates": [
       37.64365046151846,
@@ -15027,7 +15044,14 @@
     "promenade": false,
     "access": "Playa El Portús, ubicada en el punto kilométrico 2,000 de la RM-332, conectando Cartagena con Playa del Portús, Isla Plana y La Azohía. Para llegar, debes seguir la RM-332 y recorrer un sendero pecuario. No dispone de aparcamiento cercano y el acceso implica una caminata de aproximadamente 300 metros. El sendero es de superficie irregular y puede ser complicado en determinadas épocas del año.",
     "pictures": [
-      "recurso-1-606-6p_g.jpg"
+      "recurso-1-606-6p_g.jpg",
+      "portus-cartagena-2_g.jpg",
+      "portus-cartagena-3_g.jpg",
+      "portus-cartagena-4_g.jpg",
+      "portus-cartagena-5_g.jpg",
+      "portus-cartagena-6_g.jpg",
+      "portus-cartagena-7_g.jpg",
+      "portus-cartagena-8_g.jpg"
     ],
     "coordinates": [
       37.584072,
@@ -15637,7 +15661,13 @@
     "sea": 0,
     "promenade": false,
     "access": "Playa Fatares, situada en la zona rural de Cartagena, Murcia. El acceso se realiza a pie siguiendo un sendero desde el aparcamiento cercano. El sendero es de dificultad fácil. No dispone de transporte público conocido. El aparcamiento está disponible.",
-    "pictures": [],
+    "pictures": [
+      "fatares-cartagena_g.jpg",
+      "fatares-cartagena-2_g.jpg",
+      "fatares-cartagena-3_g.jpg",
+      "fatares-cartagena-4_g.jpg",
+      "fatares-cartagena-5_g.jpg"
+    ],
     "coordinates": [
       37.5813169386285,
       -1.0300827003992241
@@ -15841,7 +15871,8 @@
       "recurso-1-688-1p_g.jpg",
       "recurso-1-688-6p_g.jpg",
       "recurso-1-688-5p_g.jpg",
-      "recurso-1-688-4p_g.jpg"
+      "recurso-1-688-4p_g.jpg",
+      "honda-cartagena-5_g.jpg"
     ],
     "coordinates": [
       37.63378305935843,
@@ -17228,7 +17259,9 @@
     "sea": 0,
     "promenade": false,
     "access": "Playa Larga, situada en el punto kilométrico 3,200 de la carretera comarcal Cabo de Palos al Albujón. Para llegar, se requiere un paseo a través de un camino de tierra bien acondicionado. Cuenta con un parking disponible cercano. El acceso es de nivel fácil.",
-    "pictures": [],
+    "pictures": [
+      "playa-larga-calblanque_g.jpg"
+    ],
     "coordinates": [
       37.599897598847924,
       -0.7550128447454396
@@ -18328,7 +18361,11 @@
     "promenade": false,
     "access": "Playa Negrete, ubicada en el Parque Natural de Calblanque, Cartagena, es un destino accesible a través de un camino de tierra. El acceso a la playa requiere una caminata de aproximadamente 3 km desde el punto de aparcamiento más cercano, por un sendero sin asfaltar. El aparcamiento disponible es limitado.",
     "pictures": [
-      "recurso-1-514-2p_g.jpg"
+      "recurso-1-514-2p_g.jpg",
+      "negrete-cartagena-2_g.jpg",
+      "negrete-cartagena-3_g.jpg",
+      "negrete-cartagena-4_g.jpg",
+      "negrete-cartagena-5_g.jpg"
     ],
     "coordinates": [
       37.59965330958514,
@@ -18420,7 +18457,9 @@
     "access": "Playa Paraiso, ubicada en Cartagena, Región de Murcia, ofrece un acceso directo a sus playas a través de un camino asfaltado que requiere una caminata corta. Dispone de un parking cercano. El acceso es sencillo para todos los públicos.",
     "pictures": [
       "recurso-1-529-3p_g.jpg",
-      "recurso-1-529-2p_g.jpg"
+      "recurso-1-529-2p_g.jpg",
+      "paraiso-cartagena-3_g.jpg",
+      "paraiso-cartagena-4_g.jpg"
     ],
     "coordinates": [
       37.63513071923549,
@@ -18727,7 +18766,9 @@
     "sea": 0,
     "promenade": false,
     "access": "Playa Parreño, ubicada en Cartagena, Región de Murcia, ofrece un acceso a través de un sendero que parte desde el área de Cobaticas. El acceso es considerado difícil debido a la naturaleza del sendero, y se recomienda llevar calzado adecuado para caminar. No dispone de parking cercano, por lo que se debe llegar en vehículo y caminar hasta el inicio del sendero.",
-    "pictures": [],
+    "pictures": [
+      "parreno-cartagena_g.png"
+    ],
     "coordinates": [
       37.59916249120392,
       -0.7670860797324863
