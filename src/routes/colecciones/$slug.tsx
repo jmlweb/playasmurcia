@@ -2,13 +2,13 @@ import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import { useMemo, useState } from 'react'
 
-import { BeachCard } from '@/components/beach-card'
-import { Breadcrumb } from '@/components/breadcrumb'
-import { EmptyState } from '@/components/empty-state'
-import { PageHero } from '@/components/page-hero'
-import { PageInfo } from '@/components/page-info'
-import { Pagination } from '@/components/pagination'
-import { SortSelect } from '@/components/sort-select'
+import { Breadcrumb } from '@/components/layout/breadcrumb'
+import { PageHero } from '@/components/layout/page-hero'
+import { EmptyState } from '@/components/ui/empty-state'
+import { BeachCard } from '@/features/beaches/beach-card'
+import { PageInfo } from '@/features/listing/page-info'
+import { Pagination } from '@/features/listing/pagination'
+import { SortSelect } from '@/features/listing/sort-select'
 import type { BeachSearchParams } from '@/lib/beach-filters'
 import { sortBeaches } from '@/lib/beach-filters'
 import {
@@ -124,16 +124,13 @@ function CollectionPage() {
         backgroundImage="/pictures/hero-colecciones.png"
         optimizedName="hero-colecciones"
       >
-        <p className="text-ocean-300 mb-3 text-sm font-medium tracking-widest uppercase">
-          Colecciones de playas
-        </p>
         <h1 className="mb-4 text-3xl font-normal tracking-tight text-white sm:text-4xl">
           {collection.title}
         </h1>
-        <p className="text-ocean-200 text-lg">
-          {collection.description} · {items.length}{' '}
-          {items.length === 1 ? 'playa' : 'playas'}
-        </p>
+        <p className="text-ocean-200 mb-4 text-lg">{collection.description}</p>
+        <span className="bg-ocean-500/30 text-ocean-100 inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-medium backdrop-blur-sm">
+          {items.length} {items.length === 1 ? 'playa' : 'playas'}
+        </span>
       </PageHero>
 
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">

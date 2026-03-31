@@ -7,19 +7,18 @@ import {
 import { createServerFn } from '@tanstack/react-start'
 import { useEffect, useRef, useState } from 'react'
 
-import { ActivitiesGrid } from '@/components/activities-grid'
-import { BeachStatusWidget } from '@/components/beach-status-widget'
-import { Breadcrumb } from '@/components/breadcrumb'
-import { CertificationsBadge } from '@/components/certifications-badge'
-import { ContactInfo } from '@/components/contact-info'
-import { LocationMap } from '@/components/location-map'
-import { NearbyCarousel } from '@/components/nearby-carousel'
-import { PhotoGallery } from '@/components/photo-gallery'
-import { PracticalInfoCard } from '@/components/practical-info-card'
-import { ResponsiveImage } from '@/components/responsive-image'
-import { ServicesGrid } from '@/components/services-grid'
-import { TagsSection } from '@/components/tags-section'
-import { WeatherWidget } from '@/components/weather-widget'
+import { Breadcrumb } from '@/components/layout/breadcrumb'
+import { ResponsiveImage } from '@/components/ui/responsive-image'
+import { ActivitiesGrid } from '@/features/beaches/activities-grid'
+import { BeachStatusWidget } from '@/features/beaches/beach-status-widget'
+import { CertificationsBadge } from '@/features/beaches/certifications-badge'
+import { ContactInfo } from '@/features/beaches/contact-info'
+import { LocationMap } from '@/features/beaches/location-map'
+import { NearbyCarousel } from '@/features/beaches/nearby-carousel'
+import { PracticalInfoCard } from '@/features/beaches/practical-info-card'
+import { ServicesGrid } from '@/features/beaches/services-grid'
+import { TagsSection } from '@/features/beaches/tags-section'
+import { WeatherWidget } from '@/features/beaches/weather-widget'
 import { parseImageFilename } from '@/lib/images'
 import { generateBeachSchema } from '@/lib/schema'
 import { beachToSlug, municipalityToSlug } from '@/lib/slugs'
@@ -157,57 +156,27 @@ function BeachPage() {
     Route.useLoaderData()
 
   const pictures = beach.pictures ?? []
-  const heroImage = pictures[0] ? parseImageFilename(pictures[0]) : null
 
   return (
     <main className="bg-sand-50 min-h-screen">
-      {/* Hero section */}
-      {heroImage ? (
-        <section className="relative h-72 overflow-hidden sm:h-96 lg:h-[32rem]">
-          <ResponsiveImage
-            alt={beach.name}
-            baseName={heroImage.baseName}
-            className="absolute inset-0 h-full w-full object-cover"
-            ext={heroImage.ext}
-            priority="high"
-            variant="full"
-          />
-          <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
-            <h1 className="max-w-3xl text-3xl font-normal tracking-tight text-white drop-shadow-lg sm:text-4xl">
-              {beach.name}
-            </h1>
-            <p className="mt-1 text-lg text-white/80">{municipality.name}</p>
-            {beach.tags && beach.tags.length > 0 && (
-              <div className="mt-3">
-                <TagsSection
-                  allTags={tags}
-                  tagIndices={beach.tags}
-                  variant="dark"
-                />
-              </div>
-            )}
-          </div>
-        </section>
-      ) : (
-        <section className="bg-ocean-700 relative py-12">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h1 className="max-w-3xl text-3xl font-normal tracking-tight text-white sm:text-4xl">
-              {beach.name}
-            </h1>
-            <p className="mt-1 text-lg text-white/80">{municipality.name}</p>
-            {beach.tags && beach.tags.length > 0 && (
-              <div className="mt-3">
-                <TagsSection
-                  allTags={tags}
-                  tagIndices={beach.tags}
-                  variant="dark"
-                />
-              </div>
-            )}
-          </div>
-        </section>
-      )}
+      {/* Hero section — gradient, no photo */}
+      <section className="from-ocean-800 via-ocean-700 to-ocean-600 relative bg-gradient-to-br py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h1 className="max-w-3xl text-3xl font-normal tracking-tight text-white sm:text-4xl">
+            {beach.name}
+          </h1>
+          <p className="mt-1 text-lg text-white/80">{municipality.name}</p>
+          {beach.tags && beach.tags.length > 0 && (
+            <div className="mt-3">
+              <TagsSection
+                allTags={tags}
+                tagIndices={beach.tags}
+                variant="dark"
+              />
+            </div>
+          )}
+        </div>
+      </section>
 
       {/* Breadcrumb + Gallery */}
       <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
@@ -222,18 +191,11 @@ function BeachPage() {
           ]}
         />
 
-        {pictures.length > 1 ? (
+        {pictures.length > 0 && (
           <div className="mt-6 mb-8">
-            <BeachGallery
-              beachName={beach.name}
-              pictures={heroImage ? pictures.slice(1) : pictures}
-            />
+            <BeachGallery beachName={beach.name} pictures={pictures} />
           </div>
-        ) : pictures.length === 1 && !heroImage ? (
-          <div className="mt-6 mb-8">
-            <PhotoGallery beachName={beach.name} pictures={pictures} />
-          </div>
-        ) : null}
+        )}
       </div>
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
@@ -332,8 +294,6 @@ function BeachPage() {
   )
 }
 
-type LightboxImage = { baseName: string; ext: string; alt: string }
-
 function BeachGallery({
   beachName,
   pictures,
@@ -341,24 +301,30 @@ function BeachGallery({
   beachName: string
   pictures: string[]
 }) {
-  const [lightbox, setLightbox] = useState<LightboxImage | null>(null)
+  const parsedPictures = pictures.map((p, i) => ({
+    ...parseImageFilename(p),
+    alt: `${beachName} - foto ${i + 1}`,
+  }))
+
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+  const [expanded, setExpanded] = useState(false)
   const dialogRef = useRef<HTMLDialogElement>(null)
 
   useEffect(() => {
     const el = dialogRef.current
     if (!el) return
-    if (lightbox) {
+    if (lightboxIndex !== null) {
       el.showModal()
     } else {
       el.close()
     }
-  }, [lightbox])
+  }, [lightboxIndex])
 
   useEffect(() => {
     const el = dialogRef.current
     if (!el) return
     const handleClose = () => {
-      setLightbox(null)
+      setLightboxIndex(null)
     }
     el.addEventListener('close', handleClose)
     return () => {
@@ -366,164 +332,146 @@ function BeachGallery({
     }
   }, [])
 
-  const openLightbox = (img: LightboxImage) => {
-    setLightbox(img)
+  useEffect(() => {
+    if (lightboxIndex === null) return
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        setLightboxIndex((i) => (i !== null && i > 0 ? i - 1 : i))
+      }
+      if (e.key === 'ArrowRight') {
+        setLightboxIndex((i) =>
+          i !== null && i < parsedPictures.length - 1 ? i + 1 : i,
+        )
+      }
+    }
+    document.addEventListener('keydown', handler)
+    return () => {
+      document.removeEventListener('keydown', handler)
+    }
+  }, [lightboxIndex, parsedPictures.length])
+
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index)
   }
   const closeLightbox = () => {
-    setLightbox(null)
+    setLightboxIndex(null)
+  }
+  const handlePrev = () => {
+    setLightboxIndex((i) => (i !== null && i > 0 ? i - 1 : i))
+  }
+  const handleNext = () => {
+    setLightboxIndex((i) =>
+      i !== null && i < parsedPictures.length - 1 ? i + 1 : i,
+    )
   }
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDialogElement>) => {
     if (e.target === e.currentTarget) closeLightbox()
   }
 
-  if (pictures.length === 1) {
-    const { baseName, ext } = parseImageFilename(pictures[0])
+  const imageButton = (index: number, className: string, lazy?: boolean) => {
+    const img = parsedPictures[index]
     return (
-      <>
-        <button
-          aria-label={`Ver foto de ${beachName} en grande`}
-          className="focus-visible:ring-ocean-500 aspect-[16/9] w-full cursor-zoom-in overflow-hidden rounded-2xl focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
-          type="button"
-          onClick={() => {
-            openLightbox({ baseName, ext, alt: beachName })
-          }}
-        >
-          <ResponsiveImage
-            alt={beachName}
-            baseName={baseName}
-            className="h-full w-full object-cover transition-transform duration-500 motion-safe:hover:scale-105"
-            ext={ext}
-            variant="full"
-          />
-        </button>
-        <Lightbox
-          dialogRef={dialogRef}
-          image={lightbox}
-          onBackdropClick={handleBackdropClick}
-          onClose={closeLightbox}
+      <button
+        key={img.baseName}
+        aria-label={`Ver ${img.alt} en grande`}
+        className={`focus-visible:ring-ocean-500 cursor-zoom-in overflow-hidden rounded-2xl focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none ${className}`}
+        type="button"
+        onClick={() => {
+          openLightbox(index)
+        }}
+      >
+        <ResponsiveImage
+          alt={img.alt}
+          baseName={img.baseName}
+          className="h-full w-full object-cover transition-transform duration-500 motion-safe:hover:scale-105"
+          ext={img.ext}
+          priority={lazy ? 'low' : 'high'}
+          variant="full"
         />
-      </>
+      </button>
     )
   }
 
-  const galleryPics = pictures.slice(0, 3)
-  const [first, second, third] = galleryPics.map((p) => parseImageFilename(p))
+  const firstRowCount =
+    parsedPictures.length === 1 ? 1 : parsedPictures.length === 2 ? 2 : 3
+  const hasMore = parsedPictures.length > firstRowCount
+  const cols =
+    firstRowCount === 1
+      ? ''
+      : firstRowCount === 2
+        ? 'md:grid-cols-2'
+        : 'md:grid-cols-3'
 
   return (
     <>
-      {/* Desktop: grid layout */}
-      <div className="hidden gap-3 md:grid md:grid-cols-3">
-        <button
-          aria-label={`Ver foto principal de ${beachName} en grande`}
-          className="focus-visible:ring-ocean-500 col-span-2 aspect-[16/9] cursor-zoom-in overflow-hidden rounded-2xl focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
-          type="button"
-          onClick={() => {
-            openLightbox({
-              alt: `${beachName} - foto principal`,
-              baseName: first.baseName,
-              ext: first.ext,
-            })
-          }}
-        >
-          <ResponsiveImage
-            alt={`${beachName} - foto principal`}
-            baseName={first.baseName}
-            className="h-full w-full object-cover transition-transform duration-500 motion-safe:hover:scale-105"
-            ext={first.ext}
-            variant="full"
-          />
-        </button>
-        <div className="flex flex-col gap-3">
-          {second && (
-            <button
-              aria-label={`Ver foto 2 de ${beachName} en grande`}
-              className="focus-visible:ring-ocean-500 aspect-[4/3] flex-1 cursor-zoom-in overflow-hidden rounded-2xl focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
-              type="button"
-              onClick={() => {
-                openLightbox({
-                  alt: `${beachName} - foto 2`,
-                  baseName: second.baseName,
-                  ext: second.ext,
-                })
-              }}
-            >
-              <ResponsiveImage
-                alt={`${beachName} - foto 2`}
-                baseName={second.baseName}
-                className="h-full w-full object-cover transition-transform duration-500 motion-safe:hover:scale-105"
-                ext={second.ext}
-                variant="full"
-              />
-            </button>
-          )}
-          {third && (
-            <button
-              aria-label={`Ver foto 3 de ${beachName} en grande`}
-              className="focus-visible:ring-ocean-500 aspect-[4/3] flex-1 cursor-zoom-in overflow-hidden rounded-2xl focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
-              type="button"
-              onClick={() => {
-                openLightbox({
-                  alt: `${beachName} - foto 3`,
-                  baseName: third.baseName,
-                  ext: third.ext,
-                })
-              }}
-            >
-              <ResponsiveImage
-                alt={`${beachName} - foto 3`}
-                baseName={third.baseName}
-                className="h-full w-full object-cover transition-transform duration-500 motion-safe:hover:scale-105"
-                ext={third.ext}
-                variant="full"
-              />
-            </button>
-          )}
+      {/* Desktop grid */}
+      <div className="hidden md:block">
+        <div className={`gap-3 ${cols ? `grid ${cols}` : ''}`}>
+          {parsedPictures
+            .slice(0, firstRowCount)
+            .map((_, i) =>
+              imageButton(
+                i,
+                firstRowCount === 1 ? 'aspect-[4/3] w-full' : 'aspect-[4/3]',
+              ),
+            )}
         </div>
+
+        {hasMore && expanded && (
+          <div className={`mt-3 grid gap-3 ${cols}`}>
+            {parsedPictures
+              .slice(firstRowCount)
+              .map((_, i) =>
+                imageButton(i + firstRowCount, 'aspect-[4/3]', true),
+              )}
+          </div>
+        )}
+
+        {hasMore && (
+          <button
+            className="text-ocean-600 hover:text-ocean-700 mt-3 text-sm font-medium transition-colors"
+            type="button"
+            onClick={() => {
+              setExpanded((v) => !v)
+            }}
+          >
+            {expanded ? 'Ver menos' : `Ver las ${parsedPictures.length} fotos`}
+          </button>
+        )}
       </div>
 
       {/* Mobile: horizontal scroll */}
       <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 md:hidden">
-        {pictures.map((pic, i) => {
-          const { baseName, ext } = parseImageFilename(pic)
-          return (
-            <button
-              key={pic}
-              aria-label={`Ver foto ${i + 1} de ${beachName} en grande`}
-              className="focus-visible:ring-ocean-500 aspect-[4/3] w-72 flex-shrink-0 cursor-zoom-in snap-start overflow-hidden rounded-2xl focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
-              type="button"
-              onClick={() => {
-                openLightbox({
-                  alt: `${beachName} - foto ${i + 1}`,
-                  baseName,
-                  ext,
-                })
-              }}
-            >
-              <ResponsiveImage
-                alt={`${beachName} - foto ${i + 1}`}
-                baseName={baseName}
-                className="h-full w-full object-cover"
-                ext={ext}
-                variant="thumb"
-              />
-            </button>
-          )
-        })}
+        {parsedPictures.map((img, i) => (
+          <button
+            key={img.baseName}
+            aria-label={`Ver ${img.alt} en grande`}
+            className="focus-visible:ring-ocean-500 aspect-[4/3] w-72 flex-shrink-0 cursor-zoom-in snap-start overflow-hidden rounded-2xl focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+            type="button"
+            onClick={() => {
+              openLightbox(i)
+            }}
+          >
+            <ResponsiveImage
+              alt={img.alt}
+              baseName={img.baseName}
+              className="h-full w-full object-cover"
+              ext={img.ext}
+              variant="thumb"
+            />
+          </button>
+        ))}
       </div>
 
-      {/* If more than 3 photos, show remaining count */}
-      {pictures.length > 3 && (
-        <p className="mt-2 hidden text-sm text-gray-500 md:block">
-          +{pictures.length - 3} fotos más en la galería
-        </p>
-      )}
-
       <Lightbox
+        currentIndex={lightboxIndex}
         dialogRef={dialogRef}
-        image={lightbox}
+        images={parsedPictures}
         onBackdropClick={handleBackdropClick}
         onClose={closeLightbox}
+        onNext={handleNext}
+        onPrev={handlePrev}
       />
     </>
   )
@@ -531,24 +479,37 @@ function BeachGallery({
 
 function Lightbox({
   dialogRef,
-  image,
+  images,
+  currentIndex,
   onClose,
   onBackdropClick,
+  onPrev,
+  onNext,
 }: {
   dialogRef: React.RefObject<HTMLDialogElement | null>
-  image: LightboxImage | null
+  images: { baseName: string; ext: string; alt: string }[]
+  currentIndex: number | null
   onClose: () => void
   onBackdropClick: (e: React.MouseEvent<HTMLDialogElement>) => void
+  onPrev: () => void
+  onNext: () => void
 }) {
+  const image = currentIndex !== null ? images[currentIndex] : null
+
   return (
     <dialog
       ref={dialogRef}
-      aria-label="Visor de imagen"
+      aria-label={
+        currentIndex !== null
+          ? `Imagen ${currentIndex + 1} de ${images.length}`
+          : 'Visor de imagen'
+      }
       className="m-0 h-full max-h-none w-full max-w-none overflow-hidden bg-black/90 p-0 backdrop:bg-black/70 open:flex open:items-center open:justify-center"
       onClick={onBackdropClick}
     >
       {image && (
         <div className="relative flex max-h-[90vh] max-w-[90vw] items-center justify-center">
+          {/* Close */}
           <button
             aria-label="Cerrar visor"
             className="absolute top-2 right-2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-black/80 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
@@ -570,6 +531,64 @@ function Lightbox({
               />
             </svg>
           </button>
+
+          {/* Previous */}
+          {currentIndex !== null && currentIndex > 0 && (
+            <button
+              aria-label="Foto anterior"
+              className="absolute top-1/2 left-3 z-10 -translate-y-1/2 rounded-full bg-black/40 p-2 text-white backdrop-blur-sm transition-colors hover:bg-black/60 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+              type="button"
+              onClick={onPrev}
+            >
+              <svg
+                aria-hidden="true"
+                className="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15 19l-7-7 7-7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                />
+              </svg>
+            </button>
+          )}
+
+          {/* Next */}
+          {currentIndex !== null && currentIndex < images.length - 1 && (
+            <button
+              aria-label="Foto siguiente"
+              className="absolute top-1/2 right-3 z-10 -translate-y-1/2 rounded-full bg-black/40 p-2 text-white backdrop-blur-sm transition-colors hover:bg-black/60 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+              type="button"
+              onClick={onNext}
+            >
+              <svg
+                aria-hidden="true"
+                className="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                />
+              </svg>
+            </button>
+          )}
+
+          {/* Counter */}
+          {images.length > 1 && currentIndex !== null && (
+            <div className="absolute bottom-3 left-1/2 z-10 -translate-x-1/2 rounded-full bg-black/40 px-3 py-1 text-xs text-white backdrop-blur-sm">
+              {currentIndex + 1} / {images.length}
+            </div>
+          )}
+
           <ResponsiveImage
             alt={image.alt}
             baseName={image.baseName}

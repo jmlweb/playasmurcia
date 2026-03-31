@@ -1,8 +1,8 @@
 import { Link } from '@tanstack/react-router'
 
-import type { WeatherIconType } from '@/components/icons'
-import { WeatherIcon } from '@/components/icons'
-import { ResponsiveImage } from '@/components/responsive-image'
+import type { WeatherIconType } from '@/components/ui/icons'
+import { WeatherIcon } from '@/components/ui/icons'
+import { ResponsiveImage } from '@/components/ui/responsive-image'
 import { parseImageFilename } from '@/lib/images'
 import type { CardWeather } from '@/lib/open-meteo'
 import { OccupancyStyles } from '@/lib/status-styles'

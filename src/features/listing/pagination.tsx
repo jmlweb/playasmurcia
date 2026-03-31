@@ -1,3 +1,5 @@
+import { cn } from '@/lib/cn'
+
 const SIBLING_COUNT = 1
 
 function range(start: number, end: number): number[] {
@@ -94,11 +96,12 @@ export function Pagination({
               <button
                 aria-current={page === currentPage ? 'page' : undefined}
                 aria-label={`Página ${page}`}
-                className={`flex h-10 w-10 items-center justify-center rounded-lg text-sm font-medium transition-colors ${
+                className={cn(
+                  'flex h-10 w-10 items-center justify-center rounded-lg text-sm font-medium transition-colors',
                   page === currentPage
                     ? 'bg-ocean-600 text-white'
-                    : 'text-gray-700 hover:bg-gray-100'
-                }`}
+                    : 'text-gray-700 hover:bg-gray-100',
+                )}
                 type="button"
                 onClick={() => {
                   onPageChange(page)

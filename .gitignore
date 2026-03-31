@@ -8,6 +8,9 @@
 .claude/*
 !.claude/agents/
 !.claude/commands/
+!.claude/hooks/
+!.claude/templates/
+!.claude/settings.json
 !.claude/ralph-*.md
 .claude/settings.local.json
 

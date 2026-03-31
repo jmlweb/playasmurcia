@@ -1,4 +1,4 @@
-import { ResponsiveImage } from '@/components/responsive-image'
+import { ResponsiveImage } from '@/components/ui/responsive-image'
 import { parseImageFilename } from '@/lib/images'
 import type { Beach, Municipality } from '@/types/beach'
 

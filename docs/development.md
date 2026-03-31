@@ -48,7 +48,7 @@ pnpm optimize:images           # Generate WebP variants + thumbnails in public/p
 
 ### Dev reports and UI reviews
 
-No registry file or `pnpm reports:status`. **Authoritative workflow and paths:** [AGENTS.md](../AGENTS.md) — *Reports, UI reviews, and audits (mandatory for agents)*. Short layout: [`dev/reports/README.md`](dev/reports/README.md), [`dev/ui-review/README.md`](dev/ui-review/README.md).
+No registry file or `pnpm reports:status`. **Authoritative workflow and paths:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits (mandatory for agents)_.
 
 ## Database Commands
 
@@ -133,29 +133,31 @@ pnpm tsx scripts/script-name.ts
 
 ### Available Scripts
 
-| Script | Purpose | Frequency |
-|--------|---------|-----------|
-| `migrate-to-database.ts` | Migrate JSON data to SQLite/Turso | Once (or after JSON changes) |
-| `validate-migration.ts` | Validate database migration | After migration |
-| `add-certifications.js` | Update Blue Flag, Q Quality, Ecoplayas | Annual (spring) |
-| `add-lifeguard-info.js` | Update COPLA lifeguard data | Seasonal (summer) |
-| `validate-beaches.js` | Validate all beach data | Before releases |
-| `generate-sitemap.ts` | Generate `public/sitemap.xml` from database | Every build (automatic) |
-| `score-beach-picture-quality.ts` | Set `pictureQualityScore` in `beaches.json` from image dimensions | After adding or replacing files in `public/pictures/` |
-| `prune-small-beach-pictures.ts` | Remove `pictures` entries with missing/unreadable or short side under 600px; optional file delete | After auditing thumbnails; then re-score + migrate |
-| `fix-orthography.js` | Proofread Markdown with local Ollama (`/api/chat`); default scope `docs/**/*.md` | Ad hoc (review diffs before `--write`) |
-| `screenshot.ts` | Capture page screenshots via Playwright (desktop/mobile, full-page) | Ad hoc (UI reviews) |
+| Script                           | Purpose                                                                                           | Frequency                                             |
+| -------------------------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| `migrate-to-database.ts`         | Migrate JSON data to SQLite/Turso                                                                 | Once (or after JSON changes)                          |
+| `validate-migration.ts`          | Validate database migration                                                                       | After migration                                       |
+| `add-certifications.js`          | Update Blue Flag, Q Quality, Ecoplayas                                                            | Annual (spring)                                       |
+| `add-lifeguard-info.js`          | Update COPLA lifeguard data                                                                       | Seasonal (summer)                                     |
+| `validate-beaches.js`            | Validate all beach data                                                                           | Before releases                                       |
+| `generate-sitemap.ts`            | Generate `public/sitemap.xml` from database                                                       | Every build (automatic)                               |
+| `score-beach-picture-quality.ts` | Set `pictureQualityScore` in `beaches.json` from image dimensions                                 | After adding or replacing files in `public/pictures/` |
+| `prune-small-beach-pictures.ts`  | Remove `pictures` entries with missing/unreadable or short side under 600px; optional file delete | After auditing thumbnails; then re-score + migrate    |
+| `fix-orthography.js`             | Proofread Markdown with local Ollama (`/api/chat`); default scope `docs/**/*.md`                  | Ad hoc (review diffs before `--write`)                |
+| `screenshot.ts`                  | Capture page screenshots via Playwright (desktop/mobile, full-page)                               | Ad hoc (UI reviews)                                   |
 
 ## Cost Optimization
 
 ### Ollama for AI Tasks
 
 Use Ollama instead of paid APIs for:
+
 - Text generation
 - Description writing
 - Data extraction
 
 Available models:
+
 - `gemma3:4b`: General text tasks
 - `llama3.2:latest`: Chat and general tasks
 - `nomic-embed-text:latest`: Embeddings

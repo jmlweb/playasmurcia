@@ -1,7 +1,7 @@
 ---
 argument-hint: [task number]
 description: Complete a task, move to done, update INDEX
-model: sonnet
+model: haiku
 ---
 
 # Complete Task

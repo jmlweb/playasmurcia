@@ -6,7 +6,9 @@ type LocationMapProps = {
 }
 
 const LeafletMap = lazy(() =>
-  import('@/components/leaflet-map').then((m) => ({ default: m.LeafletMap })),
+  import('@/features/beaches/leaflet-map').then((m) => ({
+    default: m.LeafletMap,
+  })),
 )
 
 function MapPlaceholder() {

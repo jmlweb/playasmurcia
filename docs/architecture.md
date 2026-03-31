@@ -45,7 +45,12 @@ playasmurcia/
 │   │   ├── playas/$slug.tsx
 │   │   ├── municipios/
 │   │   └── colecciones/
-│   ├── components/         # UI (e.g. responsive-image.tsx, site-footer.tsx)
+│   ├── components/
+│   │   ├── layout/         # Shell chrome (breadcrumb, page-hero, site-footer)
+│   │   └── ui/             # Generic UI (icons, responsive-image, empty-state)
+│   ├── features/
+│   │   ├── beaches/        # Beach domain (cards, detail widgets, gallery, maps)
+│   │   └── listing/        # Shared list/explorer (pagination, filters, search)
 │   ├── lib/
 │   │   ├── db-data.ts      # Async loaders (primary)
 │   │   ├── edge-cache.ts
@@ -90,6 +95,8 @@ TanStack Router — files under `src/routes/`:
 
 Root layout in `__root.tsx` provides document shell, meta, and global styles.
 
+Route files stay thin; reusable UI lives under `src/components/` (layout + generic `ui/`) and cross-route features under `src/features/` (`beaches/`, `listing/`).
+
 ### SEO
 
 Beach pages inject JSON-LD from `src/lib/schema.ts`. `scripts/generate-sitemap.ts` writes `public/sitemap.xml` from the database (home, section indexes, municipalities, collections, beach URLs). `robots.txt` references the sitemap.
@@ -100,7 +107,7 @@ Tailwind CSS v4; global tokens and rules in `src/styles.css`.
 
 ### Images
 
-Beach photos live under `public/pictures/`. The build can add WebP variants and thumbnails under `public/pictures/optimized/` via `pnpm optimize:images` (see [development.md](./development.md)). When `PLAYASMURCIA_OPTIMIZED_IMAGES` is enabled at build time, `ResponsiveImage` (`src/components/responsive-image.tsx`) emits `<picture>` with WebP sources and a raster fallback so missing optimized files do not hide the image.
+Beach photos live under `public/pictures/`. The build can add WebP variants and thumbnails under `public/pictures/optimized/` via `pnpm optimize:images` (see [development.md](./development.md)). When `PLAYASMURCIA_OPTIMIZED_IMAGES` is enabled at build time, `ResponsiveImage` (`src/components/ui/responsive-image.tsx`) emits `<picture>` with WebP sources and a raster fallback so missing optimized files do not hide the image.
 
 **Optional next steps (not implemented):** a transforming image CDN (e.g. [Cloudflare Images](https://developers.cloudflare.com/images/)) for automatic format/quality and global caching; or [unpic](https://unpic.pics/) as a React layer on top of such a CDN. Until then, delivery is static files from the worker’s origin (or configured asset hosting).
 

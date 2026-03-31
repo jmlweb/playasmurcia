@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 
-import { Breadcrumb } from '@/components/breadcrumb'
-import { CollectionIcon } from '@/components/icons'
-import { PageHero } from '@/components/page-hero'
+import { Breadcrumb } from '@/components/layout/breadcrumb'
+import { PageHero } from '@/components/layout/page-hero'
+import { CollectionIcon } from '@/components/ui/icons'
 import {
   collections,
   filterBeachesByCollection,
@@ -219,12 +219,10 @@ function CollectionCard({
 function SeaCollectionCard({
   slug,
   title,
-  description,
   beachCount,
 }: {
   slug: string
   title: string
-  description: string
   beachCount: number
 }) {
   const isMediterraneo = slug === 'mar-mediterraneo'
@@ -326,7 +324,6 @@ function ColeccionesPage() {
               <SeaCollectionCard
                 key={sea.slug}
                 beachCount={sea.beachCount}
-                description={sea.description}
                 slug={sea.slug}
                 title={sea.title}
               />

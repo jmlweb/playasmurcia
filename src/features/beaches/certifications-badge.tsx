@@ -1,6 +1,6 @@
 import type { JSX } from 'react'
 
-import { BlueFlagCertIcon, LeafIcon } from '@/components/icons'
+import { BlueFlagCertIcon, LeafIcon } from '@/components/ui/icons'
 import type { Certification } from '@/types/beach'
 
 const CertificationConfig: Record<

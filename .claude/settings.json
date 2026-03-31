@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "deny": [
+      "Edit(src/routeTree.gen.ts)",
+      "Write(src/routeTree.gen.ts)",
+      "Bash(npm install:*)",
+      "Bash(npm ci:*)",
+      "Bash(rm -rf:*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/validate-data-json.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

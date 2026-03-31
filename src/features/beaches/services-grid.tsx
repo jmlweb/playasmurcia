@@ -1,4 +1,4 @@
-import { ServiceIcon } from '@/components/icons'
+import { ServiceIcon } from '@/components/ui/icons'
 import type { Service } from '@/types/beach'
 
 type ServicesGridProps = {

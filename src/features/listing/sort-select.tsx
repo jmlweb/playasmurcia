@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 
-import { ChevronDownIcon } from '@/components/icons'
+import { ChevronDownIcon } from '@/components/ui/icons'
 import type { BeachSearchParams } from '@/lib/beach-filters'
+import { cn } from '@/lib/cn'
 
 type SortOption = NonNullable<BeachSearchParams['sort']>
 
@@ -104,7 +105,10 @@ export function SortSelect({ value, onChange }: SortSelectProps) {
         >
           {currentLabel}
           <ChevronDownIcon
-            className={`h-4 w-4 text-gray-500 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+            className={cn(
+              'h-4 w-4 text-gray-500 transition-transform duration-200',
+              open && 'rotate-180',
+            )}
           />
         </button>
       </div>
@@ -119,11 +123,12 @@ export function SortSelect({ value, onChange }: SortSelectProps) {
             <li
               key={option.value}
               aria-current={option.value === value ? true : undefined}
-              className={`focus-visible:ring-ocean-500 cursor-pointer px-4 py-2 text-sm transition-colors focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-inset ${
+              className={cn(
+                'focus-visible:ring-ocean-500 cursor-pointer px-4 py-2 text-sm transition-colors focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-inset',
                 option.value === value
                   ? 'bg-ocean-50 text-ocean-700 font-medium'
-                  : 'text-gray-700 hover:bg-gray-50'
-              }`}
+                  : 'text-gray-700 hover:bg-gray-50',
+              )}
               role="menuitem"
               tabIndex={-1}
               onClick={() => {

@@ -13,8 +13,8 @@ import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { createServerFn } from '@tanstack/react-start'
 import { useState } from 'react'
 
-import { ChevronDownIcon } from '@/components/icons'
-import { SiteFooter } from '@/components/site-footer'
+import { SiteFooter } from '@/components/layout/site-footer'
+import { ChevronDownIcon } from '@/components/ui/icons'
 
 import appCss from '../styles.css?url'
 

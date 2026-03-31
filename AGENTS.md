@@ -1,6 +1,11 @@
+---
+description:
+alwaysApply: true
+---
+
 # PlayasMurcia — agent and contributor rules
 
-This file is the single source of truth for how humans and AI coding agents should work in this repository. Technical documentation under `docs/` is in **English**. Public URLs and much of the UI copy are **Spanish**; follow existing patterns when adding user-facing text.
+This file is the single source of truth for how humans and AI coding agents should work in this repository. **Contributor-facing documentation** — everything under `docs/`, [`backlog/LEARNINGS.md`](./backlog/LEARNINGS.md), and other agent-oriented reference markdown in `backlog/` — is in **English**. Public URLs and much of the UI copy are **Spanish**; follow existing patterns when adding user-facing text.
 
 ## Spelling and orthography (all languages)
 
@@ -8,7 +13,7 @@ AI agents and contributors must keep **correct spelling, punctuation, and diacri
 
 - **Do not** strip diacritics or use ASCII stand-ins (e.g. `año` must not become `ano`; `más` must not become `mas` when it means "more").
 - **Spanish**: follow standard orthography; when in doubt, prefer forms consistent with nearby copy and authoritative references for place names and common UI terms.
-- **English** (`docs/`, comments where English is used): use standard spelling and typography (hyphens, apostrophes, not “smart punctuation” hacks that break code—only in prose/markdown).
+- **English** (`docs/`, `backlog/LEARNINGS.md`, comments where English is used): use standard spelling and typography (hyphens, apostrophes, not “smart punctuation” hacks that break code—only in prose/markdown).
 - When changing existing strings, **fix** obvious typos you touch; avoid introducing new ones. Re-read **only the lines you edited** before finishing (or the full visible string if the change is small).
 
 ## Documentation map
@@ -25,7 +30,7 @@ Project documentation is in `docs/`:
 ## Project state
 
 - **Branch**: `v3`
-- **Package manager**: **pnpm** only (`package.json` → `packageManager`). Enable with `corepack enable` (Node 20+). Do not use `npm install` in this repo — `package-lock.json` is gitignored.
+- **Package manager**: **pnpm** only — see [docs/development.md](./docs/development.md) for setup.
 - **Data access**: Route loaders use async queries via `src/lib/db-data.ts` against Turso (libSQL). There is **no** runtime JSON loader in `src/lib/`; `data/*.json` is the **editorial source** — edit JSON, then migrate (see `docs/architecture.md` and `docs/development.md`).
 - **Local DB**: `local.db` is created locally (not committed); use Drizzle push + migration script as documented.
 - **Next steps**: [backlog/INDEX.md](./backlog/INDEX.md) for the backlog; [reports/done/github-main-feature-gap-analysis.md](./reports/done/github-main-feature-gap-analysis.md) for product parity vs `main`.
@@ -45,10 +50,10 @@ Tasks live under `backlog/`; reports under `reports/`:
 
 **AI agents must read and follow this subsection** before creating, moving, or linking any UI review directive, standalone report, or data audit markdown. There is **no** central JSON registry and **no** `pnpm reports:status` command — traceability is **task files + paths**.
 
-| Location | Use |
-|----------|-----|
-| `reports/pending/{name}.md` | **Active** reports and UI directives while a review is in progress (before backlog tasks exist). |
-| `reports/done/{name}.md` | Reports and directives **after** backlog tasks reference them. Split files if only part of a directive was task-backed. |
+| Location                    | Use                                                                                                                     |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `reports/pending/{name}.md` | **Active** reports and UI directives while a review is in progress (before backlog tasks exist).                        |
+| `reports/done/{name}.md`    | Reports and directives **after** backlog tasks reference them. Split files if only part of a directive was task-backed. |
 
 **Required behavior**
 
@@ -57,20 +62,27 @@ Tasks live under `backlog/`; reports under `reports/`:
 3. **Moves/renames**: Search the repo for the old path and update `backlog/pending/`, `backlog/done/`, and any doc that linked to it.
 4. **Guidelines**: UI work still defers to [`docs/ui-guidelines.md`](./docs/ui-guidelines.md); propose updates per the UI review template Phase 4 when appropriate.
 
-### Slash-style commands (Claude Code / similar)
+### Slash-style commands
 
-| Command | Description |
-|---------|-------------|
-| `/add-task` | Groom and add a new task to backlog |
-| `/start-task` | Mark a task as in-progress |
-| `/complete-task` | Complete a task, move to done |
-| `/block-task` | Mark a task as blocked |
-| `/check-task` | Verify task status matches reality |
-| `/next-task` | Suggest next priority task |
-| `/dev-status` | Show development status overview |
-| `/parallel-tasks` | Execute independent tasks in parallel |
-| `/add-learning` | Document a development insight |
-| `/ui-review` | Full UI review cycle with design audit |
+Workflow commands (usable in any agent tool):
+
+| Command          | Description                         |
+| ---------------- | ----------------------------------- |
+| `/add-task`      | Groom and add a new task to backlog |
+| `/start-task`    | Mark a task as in-progress          |
+| `/complete-task` | Complete a task, move to done       |
+| `/block-task`    | Mark a task as blocked              |
+| `/check-task`    | Verify task status matches reality  |
+| `/next-task`     | Suggest next priority task          |
+| `/dev-status`    | Show development status overview    |
+| `/add-learning`  | Document a development insight      |
+
+Claude Code specific (require `.claude/commands/`):
+
+| Command             | Description                                      |
+| ------------------- | ------------------------------------------------ |
+| `/parallel-tasks`   | Execute independent tasks in parallel            |
+| `/ui-review`        | Full UI review cycle with design audit           |
 | `/complete-backlog` | Work through backlog autonomously via Ralph Loop |
 
 Command definitions: `.claude/commands/`.
@@ -81,16 +93,22 @@ Execution plans under `plan/` follow [plan/AGENTS.md](./plan/AGENTS.md) (step fi
 
 ## Runtime constraints
 
-- **Cloudflare Workers (workerd)**: no `file:` URLs, no Node.js built-ins (`fs`, `path`, `child_process`), no native binaries
-- **Database**: Turso remote only (`libsql` web client) — `file:` URLs will fail at runtime
-- **See** `docs/development.md` for full environment setup and troubleshooting
+See [docs/development.md](./docs/development.md) for full environment setup, troubleshooting, and workerd limitations. Key rules for agents:
+
+- **No Node built-ins** (`fs`, `path`, `child_process`) — workerd is not Node.js
+- **No `file:` database URLs** — use Turso remote or `turso dev` with `http://`
+
+## Code conventions
+
+- **Named exports only** — no default exports (better tree-shaking, clearer imports)
+- **Do not edit generated files** — `src/routeTree.gen.ts` is generated by TanStack Router; restart `pnpm dev` to regenerate
 
 ## Complexity routing
 
-| Scope | Approach |
-|-------|----------|
-| Single-file, obvious change | Implement directly |
-| 2-5 files, multiple valid approaches | Use Plan mode (`EnterPlanMode`) |
+| Scope                                                | Approach                                |
+| ---------------------------------------------------- | --------------------------------------- |
+| Single-file, obvious change                          | Implement directly                      |
+| 2-5 files, multiple valid approaches                 | Use Plan mode (`EnterPlanMode`)         |
 | 6+ files or multi-domain (frontend + backend + data) | Use `/do-task` with agent orchestration |
 
 ## Verification before completing any task
@@ -103,26 +121,26 @@ All three must pass before a task can be marked complete:
 
 ## Testing rules
 
-| Change type | Test required |
-|-------------|---------------|
-| New utility/lib function | Unit test (Vitest) |
-| New component with logic | Component test (Testing Library) |
-| Data-only changes (JSON edits) | Run `node scripts/validate-beaches.js` |
-| Styling-only changes | Visual verification (screenshot or manual) |
-| Bug fix | Regression test if feasible |
+| Change type                    | Test required                                                                    |
+| ------------------------------ | -------------------------------------------------------------------------------- |
+| New utility/lib function       | Unit test (Vitest)                                                               |
+| New component with logic       | Component test (Testing Library)                                                 |
+| Data-only changes (JSON edits) | Run `node scripts/validate-beaches.js`                                           |
+| Styling-only changes           | Visual verification — use `pnpm tsx scripts/screenshot.ts <url>` or manual check |
+| Bug fix                        | Regression test if feasible                                                      |
 
 ## Agent orchestration
 
 When implementing features (e.g. via a global `/do-task` skill), prefer this workflow:
 
-| Role | Responsibility |
-|------|----------------|
-| Explore | Understand codebase structure before implementation |
-| Plan | Design approach for complex features |
-| frontend-developer | Implement UI + unit/integration tests for that code |
-| backend-developer | Implement APIs + unit/integration tests for that code |
-| qa-engineer | Verify coverage; E2E when infrastructure exists; quality audit |
-| code-reviewer | Final review before merge |
+| Role               | Responsibility                                                 |
+| ------------------ | -------------------------------------------------------------- |
+| Explore            | Understand codebase structure before implementation            |
+| Plan               | Design approach for complex features                           |
+| frontend-developer | Implement UI + unit/integration tests for that code            |
+| backend-developer  | Implement APIs + unit/integration tests for that code          |
+| qa-engineer        | Verify coverage; E2E when infrastructure exists; quality audit |
+| code-reviewer      | Final review before merge                                      |
 
 **Testing**
 
@@ -151,27 +169,17 @@ Retained scripts must be documented in `docs/development.md` with purpose, when 
 - Do not hand-edit generated fields (e.g. `description`, `access` where generated); use the appropriate script.
 - Validation rules: [docs/data-schema.md](./docs/data-schema.md).
 
-## Documentation maintenance
+## Pre-completion checklist
 
-After structural or behavioral changes, update the matching doc:
+Before marking any task as done, verify each applies and update accordingly:
 
-| Change type | Update |
-|-------------|--------|
-| New/modified data fields | `docs/data-schema.md` |
-| New data files (JSON) | `docs/data-schema.md` — file table, relationships |
-| New scripts | `docs/business-rules.md` and `docs/development.md` |
-| Business logic | `docs/business-rules.md` |
-| New dependencies / tech | `docs/architecture.md` — tech stack |
-| Project structure | `docs/architecture.md` — directory tree |
-| New commands | `docs/development.md` |
-| New routes/pages | `docs/architecture.md` — routing |
-| New or moved UI directives / dev reports | This file — [Reports, UI reviews, and audits](#reports-ui-reviews-and-audits-mandatory-for-agents) |
-
-**Checklist before completing a task**
-
-1. Data schema changed? → `data-schema.md`
-2. Business logic changed? → `business-rules.md`
-3. Structure or stack changed? → `architecture.md`
-4. Workflow or commands changed? → `development.md`
-5. Report / UI review layout or rules changed? → this file (`AGENTS.md`)
-6. User-facing copy, docs prose, or editorial JSON text changed? → [Spelling and orthography](#spelling-and-orthography-all-languages) — verify diacritics and spelling in each target language
+- [ ] Data schema changed? → update `docs/data-schema.md`
+- [ ] New data files (JSON)? → update `docs/data-schema.md` (file table, relationships)
+- [ ] Business logic changed? → update `docs/business-rules.md`
+- [ ] New scripts? → update `docs/business-rules.md` and `docs/development.md`
+- [ ] New dependencies / tech? → update `docs/architecture.md` (tech stack)
+- [ ] Project structure changed? → update `docs/architecture.md` (directory tree)
+- [ ] New routes/pages? → update `docs/architecture.md` (routing)
+- [ ] New commands? → update `docs/development.md`
+- [ ] Report / UI review layout changed? → update this file — [Reports, UI reviews, and audits](#reports-ui-reviews-and-audits-mandatory-for-agents)
+- [ ] User-facing copy or editorial JSON text changed? → verify diacritics and spelling per [Spelling and orthography](#spelling-and-orthography-all-languages)

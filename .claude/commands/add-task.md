@@ -41,14 +41,14 @@ Ask the user for:
 
 4. **Slice** (suggest based on description)
 
-   | Slice | Description | Typical Files |
-   |-------|-------------|---------------|
-   | Data | Beach data, JSON, scripts | `data/`, `scripts/` |
-   | Database | Schema, queries, migrations | `src/lib/db-*`, `src/db/` |
-   | Frontend | UI components, pages | `src/routes/`, `src/components/` |
-   | SEO | Metadata, sitemap, structured data | `src/routes/__root.tsx`, `scripts/generate-sitemap.ts` |
-   | Infra | Deploy, env, CI/CD | `.env`, `app.config.ts` |
-   | Styling | CSS, Tailwind, design | `src/styles/`, component styles |
+   | Slice    | Description                        | Typical Files                                          |
+   | -------- | ---------------------------------- | ------------------------------------------------------ |
+   | Data     | Beach data, JSON, scripts          | `data/`, `scripts/`                                    |
+   | Database | Schema, queries, migrations        | `src/lib/db-*`, `src/db/`                              |
+   | Frontend | UI components, pages               | `src/routes/`, `src/components/`                       |
+   | SEO      | Metadata, sitemap, structured data | `src/routes/__root.tsx`, `scripts/generate-sitemap.ts` |
+   | Infra    | Deploy, env, CI/CD                 | `.env`, `app.config.ts`                                |
+   | Styling  | CSS, Tailwind, design              | `src/styles/`, component styles                        |
 
 5. **Dependencies**
    - "Does this task depend on any existing tasks?"
@@ -56,59 +56,17 @@ Ask the user for:
 
 ### 3. Suggest Priority
 
-| Priority | Criteria |
-|----------|----------|
+| Priority  | Criteria                                  |
+| --------- | ----------------------------------------- |
 | P2 - Next | No blockers, small scope, unblocks others |
-| P3 | Normal backlog item |
-| P4 | Nice-to-have, future consideration |
+| P3        | Normal backlog item                       |
+| P4        | Nice-to-have, future consideration        |
 
 **Note**: P1 is reserved for the single active task.
 
 ### 4. Generate Task File
 
-Create `backlog/pending/XXX-task-name.md`:
-
-```markdown
-# Task #XXX: Task Title
-
-## Metadata
-- **Status**: pending
-- **Priority**: P3
-- **Slice**: [detected slice]
-- **Created**: [today's date]
-- **Started**: -
-- **Blocked by**: -
-
-## User Story
-
-[user story]
-
-## Acceptance Criteria
-
-- [ ] [criterion 1]
-- [ ] [criterion 2]
-- [ ] [criterion 3]
-
-## Implementation Notes
-
-[relevant notes]
-
-## Files to Modify
-
-- [suggest based on slice]
-
-## Dependencies
-
-[list or "-"]
-
-## Progress Log
-
-(No progress yet)
-
-## Learnings
-
-(None yet)
-```
+Read `.claude/templates/task.md` and fill in all `{{PLACEHOLDER}}` values. Save to `backlog/pending/XXX-task-name.md`.
 
 ### 5. Update INDEX.md
 

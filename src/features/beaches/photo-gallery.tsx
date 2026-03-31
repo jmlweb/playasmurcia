@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
-import { ResponsiveImage } from '@/components/responsive-image'
+import { ResponsiveImage } from '@/components/ui/responsive-image'
+import { cn } from '@/lib/cn'
 import { parseImageFilename } from '@/lib/images'
 
 type PhotoGalleryProps = {
@@ -122,11 +123,12 @@ export function PhotoGallery({ pictures, beachName }: PhotoGalleryProps) {
                   key={picture}
                   aria-label={`Ver foto ${index + 1}`}
                   aria-selected={index === activeIndex}
-                  className={`focus-visible:ring-ocean-500 h-16 w-24 flex-shrink-0 overflow-hidden rounded-lg border-2 transition-all focus-visible:ring-2 focus-visible:outline-none ${
+                  className={cn(
+                    'focus-visible:ring-ocean-500 h-16 w-24 flex-shrink-0 overflow-hidden rounded-lg border-2 transition-all focus-visible:ring-2 focus-visible:outline-none',
                     index === activeIndex
                       ? 'border-ocean-500'
-                      : 'border-transparent opacity-70 hover:opacity-100'
-                  }`}
+                      : 'border-transparent opacity-70 hover:opacity-100',
+                  )}
                   role="tab"
                   type="button"
                   onClick={() => {

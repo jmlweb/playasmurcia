@@ -2,7 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import { useMemo } from 'react'
 
-import { BeachCard } from '@/components/beach-card'
+import { BeachCard } from '@/features/beaches/beach-card'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 import { beachToSlug } from '@/lib/slugs'
 

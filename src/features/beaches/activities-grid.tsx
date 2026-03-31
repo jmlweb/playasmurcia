@@ -1,4 +1,4 @@
-import { ActivityIcon } from '@/components/icons'
+import { ActivityIcon } from '@/components/ui/icons'
 import type { Activity } from '@/types/beach'
 
 type ActivitiesGridProps = {

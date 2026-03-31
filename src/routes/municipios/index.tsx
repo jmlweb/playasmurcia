@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 
-import { Breadcrumb } from '@/components/breadcrumb'
-import { BlueFlagBadgeIcon } from '@/components/icons'
-import { PageHero } from '@/components/page-hero'
+import { Breadcrumb } from '@/components/layout/breadcrumb'
+import { PageHero } from '@/components/layout/page-hero'
+import { BlueFlagBadgeIcon } from '@/components/ui/icons'
 import { municipalityToSlug } from '@/lib/slugs'
 import type { Beach, Municipality } from '@/types/beach'
 

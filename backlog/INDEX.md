@@ -4,20 +4,18 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 1 tasks
+- **Pending**: 0 tasks
 - **In progress**: 0 tasks
-- **Completed**: 88 tasks
+- **Completed**: 89 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
 
-> Backlog clear. Remaining task (#021) requires manual research. Photo sourcing documented in `docs/photo-sourcing-guide.md`. **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
+> Backlog clear. Photo sourcing documented in `docs/photo-sourcing-guide.md`. **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
 
 ## Backlog
 
-| #   | Task                     | Slice | Priority   | Blocked by |
-| --- | ------------------------ | ----- | ---------- | ---------- |
-| 021 | Add Missing Contact Info | Data  | P4 - Later | -          |
+_No pending tasks._
 
 ## Removed tasks
 
@@ -27,6 +25,7 @@ Tasks #017 (Source Missing Beach Pictures), #035 (Municipality Cards Imagery), a
 
 | #   | Task                                                    | Completed  |
 | --- | ------------------------------------------------------- | ---------- |
+| 021 | Add Missing Contact Info                                | 2026-03-31 |
 | 085 | Content Data Enrichment                                 | 2026-03-30 |
 | 087 | Dynamic Open Graph Image Generation                     | 2026-03-30 |
 | 086 | TanStack Start Technical Alignment                      | 2026-03-30 |

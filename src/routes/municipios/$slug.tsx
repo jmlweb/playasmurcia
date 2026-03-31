@@ -2,15 +2,16 @@ import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import { useMemo, useState } from 'react'
 
-import { BeachCard } from '@/components/beach-card'
-import { Breadcrumb } from '@/components/breadcrumb'
-import { EmptyState } from '@/components/empty-state'
-import { PageHero } from '@/components/page-hero'
-import { PageInfo } from '@/components/page-info'
-import { Pagination } from '@/components/pagination'
-import { SortSelect } from '@/components/sort-select'
+import { Breadcrumb } from '@/components/layout/breadcrumb'
+import { PageHero } from '@/components/layout/page-hero'
+import { EmptyState } from '@/components/ui/empty-state'
+import { BeachCard } from '@/features/beaches/beach-card'
+import { PageInfo } from '@/features/listing/page-info'
+import { Pagination } from '@/features/listing/pagination'
+import { SortSelect } from '@/features/listing/sort-select'
 import type { BeachSearchParams } from '@/lib/beach-filters'
 import { sortBeaches } from '@/lib/beach-filters'
+import { parseImageFilename } from '@/lib/images'
 import { generateMunicipalitySchema } from '@/lib/schema'
 import { beachToSlug } from '@/lib/slugs'
 
@@ -39,6 +40,21 @@ const fetchMunicipalityData = createServerFn({ method: 'GET' })
     const blueFlagCount = beaches.filter((b) =>
       b.certifications?.includes('blue-flag'),
     ).length
+
+    const beachesWithPics = beaches.filter(
+      (b): b is typeof b & { pictures: [string, ...string[]] } =>
+        Array.isArray(b.pictures) && b.pictures.length > 0,
+    )
+    const bestBeach = beachesWithPics.sort(
+      (a, b) =>
+        (b.pictureQualityScore ?? 0) - (a.pictureQualityScore ?? 0) ||
+        b.pictures.length - a.pictures.length,
+    )[0]
+
+    const heroImage = bestBeach
+      ? `/pictures/${parseImageFilename(bestBeach.pictures[0]).baseName}.${parseImageFilename(bestBeach.pictures[0]).ext}`
+      : '/pictures/hero-municipios.png'
+
     return {
       municipality,
       beaches,
@@ -46,6 +62,7 @@ const fetchMunicipalityData = createServerFn({ method: 'GET' })
       blueFlagCount,
       slug: data.slug,
       weatherData,
+      heroImage,
     }
   })
 
@@ -87,7 +104,7 @@ export const Route = createFileRoute('/municipios/$slug')({
 })
 
 function MunicipalityPage() {
-  const { municipality, beaches, tags, blueFlagCount, weatherData } =
+  const { municipality, beaches, tags, blueFlagCount, weatherData, heroImage } =
     Route.useLoaderData()
   const PAGE_SIZE = 15
   const [sort, setSort] =
@@ -112,9 +129,8 @@ function MunicipalityPage() {
     <main className="bg-sand-50 min-h-screen">
       {/* Hero */}
       <PageHero
-        backgroundAlt="Costa de Murcia"
-        backgroundImage="/pictures/hero-municipios.png"
-        optimizedName="hero-municipios"
+        backgroundAlt={`Costa de ${municipality.name}`}
+        backgroundImage={heroImage}
       >
         <h1 className="mb-4 text-3xl font-normal tracking-tight text-white sm:text-4xl">
           Playas de {municipality.name}

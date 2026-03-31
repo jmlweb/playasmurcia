@@ -1,6 +1,6 @@
 import { type ReactNode, useEffect, useRef, useState } from 'react'
 
-import { ChevronDownIcon } from '@/components/icons'
+import { ChevronDownIcon } from '@/components/ui/icons'
 import { type BeachSearchParams, countActiveFilters } from '@/lib/beach-filters'
 import { cn } from '@/lib/cn'
 import type { Activity, Municipality, Sea, Service, Tag } from '@/types/beach'

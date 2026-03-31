@@ -18,13 +18,14 @@ Launch multiple independent backlog tasks in parallel using subagents.
 ### 1. Identify Independent Tasks
 
 Read all tasks from `backlog/pending/`. For each, check:
+
 - `Blocked by: -` (no dependencies)
 - `Status: pending` (not already in progress)
 - No file conflicts with other selected tasks
 
-### 2. Detect File Conflicts
+### 2. Detect File Conflicts (informational)
 
-Parse "Files to Modify" from each task. Tasks modifying the same files CANNOT run in parallel.
+Parse "Files to Modify" from each task. Note overlapping files — worktree isolation prevents runtime conflicts, but overlapping changes will need manual merge after completion.
 
 ### 3. Present Selection
 
@@ -46,6 +47,7 @@ Which tasks? (comma-separated)
 ### 4. Update Task Status
 
 For each selected task:
+
 1. Set status to `in_progress`, started date
 2. Add Progress Log: `[timestamp] Started (parallel execution)`
 
@@ -53,7 +55,9 @@ For each selected task:
 
 ```markdown
 ## Current Focus
+
 > **Parallel Execution Active**
+>
 > - Task #003: Turso setup (backend-developer)
 > - Task #004: Beach filters (frontend-developer)
 ```
@@ -62,15 +66,18 @@ For each selected task:
 
 Use the Agent tool to launch subagents in parallel. Select agent type by slice:
 
-| Slice | Agent |
-|-------|-------|
-| Frontend, Styling | frontend-developer |
-| Database, Data, Infra | backend-developer |
-| SEO | frontend-developer |
+| Slice                 | Agent              |
+| --------------------- | ------------------ |
+| Frontend, Styling     | frontend-developer |
+| Database, Data, Infra | backend-developer  |
+| SEO                   | frontend-developer |
 
 **CRITICAL**: Launch ALL subagents in a SINGLE message for true parallel execution.
 
+**Use `isolation: "worktree"`** for each agent so they work on isolated copies and cannot have file conflicts. This removes the file-conflict limitation from step 2 — any combination of tasks can run in parallel as long as they are unblocked.
+
 Subagent prompt template:
+
 ```
 Complete Task #XXX: [title]
 
@@ -81,10 +88,11 @@ Complete Task #XXX: [title]
 [from task file]
 
 ## Instructions
-1. Read existing files first
-2. Implement each criterion
-3. Update the task file with progress
-4. Mark checkboxes as you complete them
+1. Read AGENTS.md for project rules
+2. Read existing files before modifying
+3. Implement each criterion
+4. Run pnpm build && pnpm check to verify
+5. Create a commit following Conventional Commits
 ```
 
 ### 7. Collect Results

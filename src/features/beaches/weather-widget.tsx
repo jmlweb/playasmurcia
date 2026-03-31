@@ -1,8 +1,8 @@
 import { createServerFn } from '@tanstack/react-start'
 import { useEffect, useState } from 'react'
 
-import type { WeatherIconType } from '@/components/icons'
-import { WeatherIcon } from '@/components/icons'
+import type { WeatherIconType } from '@/components/ui/icons'
+import { WeatherIcon } from '@/components/ui/icons'
 
 // ---------------------------------------------------------------------------
 // Unified forecast types
