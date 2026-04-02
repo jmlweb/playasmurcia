@@ -158,15 +158,15 @@ export function BeachStatusWidget({
     return (
       <section
         aria-label="Estado de bandera de playa"
-        className="border-ocean-100 bg-ocean-50/40 rounded-2xl border p-5 shadow-sm"
+        className="border-ocean-200 bg-ocean-50/30 rounded-2xl border border-dashed p-5"
       >
-        <h2 className="text-ocean-800 mb-2 text-base font-semibold">
+        <h2 className="text-ocean-600 mb-2 text-base font-semibold">
           Estado de la playa
         </h2>
-        <p className="text-ocean-500/80 text-sm">
+        <p className="text-ocean-400 text-sm">
           Datos no disponibles fuera de temporada
         </p>
-        <p className="text-ocean-400 mt-3 text-right text-xs">
+        <p className="text-ocean-300 mt-3 text-right text-xs">
           Fuente: 112 Región de Murcia
         </p>
       </section>

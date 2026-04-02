@@ -6,16 +6,18 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 - **Pending**: 0 tasks
 - **In progress**: 0 tasks
-- **Completed**: 89 tasks
+- **Completed**: 92 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
 
-> Backlog clear. Photo sourcing documented in `docs/photo-sourcing-guide.md`. **Agent rules:** [AGENTS.md](../AGENTS.md) — _Reports, UI reviews, and audits_.
+> All pending tasks completed. Backlog clear for next review cycle.
 
 ## Backlog
 
-_No pending tasks._
+| #                  | Task | Priority | Slice |
+| ------------------ | ---- | -------- | ----- |
+| _No pending tasks_ |
 
 ## Removed tasks
 
@@ -25,6 +27,9 @@ Tasks #017 (Source Missing Beach Pictures), #035 (Municipality Cards Imagery), a
 
 | #   | Task                                                    | Completed  |
 | --- | ------------------------------------------------------- | ---------- |
+| 095 | Layout and Assets UI Review Follow-up                   | 2026-04-02 |
+| 094 | Beach Detail Empty States and Trust Polish              | 2026-04-02 |
+| 093 | Listing Image Fallbacks and Explorer Count Copy         | 2026-04-02 |
 | 021 | Add Missing Contact Info                                | 2026-03-31 |
 | 085 | Content Data Enrichment                                 | 2026-03-30 |
 | 087 | Dynamic Open Graph Image Generation                     | 2026-03-30 |

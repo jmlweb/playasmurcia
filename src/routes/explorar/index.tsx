@@ -288,7 +288,9 @@ function ExplorerPage() {
           Explorar playas
         </h1>
         <p className="text-ocean-200 mx-auto mb-8 max-w-xl text-lg">
-          Filtra entre {beaches.length} playas y calas del litoral murciano
+          {hasActiveFilters
+            ? `Mostrando ${allFiltered.length} de ${beaches.length} playas`
+            : `Filtra entre ${beaches.length} playas y calas del litoral murciano`}
         </p>
         <div className="mx-auto max-w-2xl">
           <SearchBar value={filters.q ?? ''} onChange={handleSearchChange} />

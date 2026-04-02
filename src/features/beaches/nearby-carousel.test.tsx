@@ -86,7 +86,7 @@ describe('NearbyCarousel', () => {
     expect(img.getAttribute('src')).toBe('/pictures/foto.jpg')
   })
 
-  it('renders the default image when no pictures are available', () => {
+  it('renders a placeholder when no pictures are available', () => {
     render(
       <NearbyCarousel
         items={[
@@ -98,8 +98,8 @@ describe('NearbyCarousel', () => {
         ]}
       />,
     )
-    const img = screen.getByRole('img', { name: 'Sin Foto' })
-    expect(img.getAttribute('src')).toBe('/pictures/default-beach.png')
+    expect(screen.getByText('Sin foto')).toBeTruthy()
+    expect(screen.queryByRole('img', { name: 'Sin Foto' })).toBeNull()
   })
 
   it('renders the municipality name', () => {

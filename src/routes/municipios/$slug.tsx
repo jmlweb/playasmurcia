@@ -164,13 +164,7 @@ function MunicipalityPage() {
         />
         {beaches.length > 0 ? (
           <>
-            <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-              <span className="text-sm text-gray-500">
-                <strong className="font-semibold text-gray-900">
-                  {beaches.length}
-                </strong>{' '}
-                {beaches.length === 1 ? 'playa' : 'playas'}
-              </span>
+            <div className="mb-6 flex flex-wrap items-center justify-end gap-3">
               <SortSelect value={sort} onChange={setSort} />
             </div>
             <PageInfo

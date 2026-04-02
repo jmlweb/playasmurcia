@@ -25,6 +25,7 @@ export function NearbyCarousel({ items }: NearbyCarouselProps) {
       <div className="scrollbar-hide flex snap-x snap-mandatory scroll-pl-4 gap-4 overflow-x-auto pb-3">
         {items.map(({ beach, municipality, slug }) => {
           const firstPicture = beach.pictures?.[0]
+          const hasPicture = Boolean(firstPicture)
           const { baseName, ext } = parseImageFilename(
             firstPicture ?? 'default-beach.png',
           )
@@ -37,13 +38,39 @@ export function NearbyCarousel({ items }: NearbyCarouselProps) {
               href={`/playas/${slug}`}
             >
               <div className="relative h-32 overflow-hidden bg-gray-100">
-                <ResponsiveImage
-                  alt={beach.name}
-                  baseName={baseName}
-                  className="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105"
-                  ext={ext}
-                  variant="thumb"
-                />
+                {hasPicture ? (
+                  <ResponsiveImage
+                    alt={beach.name}
+                    baseName={baseName}
+                    className="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105"
+                    ext={ext}
+                    variant="thumb"
+                  />
+                ) : (
+                  <div className="from-ocean-50 to-sand-100 flex h-full w-full flex-col items-center justify-center bg-gradient-to-br">
+                    <svg
+                      aria-hidden="true"
+                      className="text-ocean-200 mb-1 h-8 w-8"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M3 15c2.483 0 4.345-3 4.345-3s1.862 3 4.345 3c2.483 0 4.345-3 4.345-3s1.862 3 4.345 3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                      />
+                      <path
+                        d="M3 19c2.483 0 4.345-3 4.345-3s1.862 3 4.345 3c2.483 0 4.345-3 4.345-3s1.862 3 4.345 3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                      />
+                    </svg>
+                    <span className="text-xs text-gray-400">Sin foto</span>
+                  </div>
+                )}
               </div>
               <div className="p-3">
                 <p className="group-hover:text-ocean-600 line-clamp-1 text-sm font-semibold text-gray-900">

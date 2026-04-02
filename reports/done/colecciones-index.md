@@ -1,23 +1,27 @@
-# Colecciones index design directive (UI review 2026-03-29)
+# Colecciones index (`/colecciones`) — UI review directive
 
-**URL**: `/colecciones` — `src/routes/colecciones/index.tsx`
+Screenshot: `/tmp/ui-review-colecciones.png`, `/tmp/ui-review-colecciones-mobile.png`. Route: `src/routes/colecciones/index.tsx`.
 
 ## Design Directive: Colecciones index
 
 ### Critical (must fix)
 
-- None.
+_None._
 
 ### Important (should fix)
 
-- **Adjacent hue discrimination**: Row 1 pairs teal (`calas-escondidas`) with amber (`playas-familiares`) and orange (`playas-para-perros`) — acceptable. If user testing flags confusion between amber/orange, nudge one bar toward a cooler hue while staying in the thematic system.
+- **Third-party watermark on imagery**: If any collection card background shows a **Tripadvisor** (or similar) watermark, replace the asset — it reads as unlicensed stock and undermines institutional trust.
+  **Fix**: Curate replacement photos from approved sources per `docs/photo-sourcing-guide.md`.
 
 ### Refinement (nice to have)
 
-- **“Playas por mar” vs thematic blocks**: Strong visual hierarchy; optional subtle `sand-100` section background behind “Colecciones temáticas” only, to separate from sea cards without new brand colors.
+- **Thematic pastel headers**: The per-slug theme map (`ThematicThemes` ~57+) produces many neighboring hues; it is acceptable for wayfinding but **document token pairs** in `docs/ui-guidelines.md` so new collections do not invent clashing pastels.
+
+- **“Playas por mar” two-up**: Strong pattern; ensure both cards share **identical min-height** at `md` so the row does not stagger when copy length differs.
 
 ### What works well
 
-- Top border + icon circle pattern scales well; copy and counts are scannable.
+- **Hierarchy**: Sea collections first, then thematic grid — matches user mental model.
+- **Icon + title + count + CTA** pattern is repeatable and scannable.
 
-**Severity summary**: Critical: 0, Important: 1, Refinement: 1
+**Severity summary:** Critical: 0, Important: 1, Refinement: 2

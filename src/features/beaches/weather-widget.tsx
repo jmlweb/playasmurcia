@@ -453,9 +453,9 @@ export function WeatherWidget({ aemetId, coordinates }: WeatherWidgetProps) {
     return (
       <section
         aria-label="Previsión meteorológica"
-        className="border-ocean-100 to-ocean-50/40 rounded-2xl border bg-gradient-to-br from-sky-50/80 p-6 shadow-sm"
+        className="border-ocean-200 bg-ocean-50/30 rounded-2xl border border-dashed p-6"
       >
-        <h2 className="mb-3 text-xl font-semibold text-gray-900">
+        <h2 className="text-ocean-600 mb-3 text-xl font-semibold">
           Previsión meteorológica
         </h2>
         <p className="text-sm text-gray-400">

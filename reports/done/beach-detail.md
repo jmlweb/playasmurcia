@@ -1,29 +1,30 @@
-# Beach detail design directive (UI review 2026-03-29)
+# Beach detail (`/playas/$slug`) — UI review directive
 
-**URL**: `/playas/cala-aguilar` (representative beach with hero image) — `src/routes/playas/$slug.tsx`
+Screenshot: `/tmp/ui-review-playa-detail.png`, `/tmp/ui-review-playa-detail-mobile.png`. Route: `src/routes/playas/$slug.tsx`.
 
 ## Design Directive: Beach detail
 
 ### Critical (must fix)
 
-- **Raw orientation value in UI**: `PracticalInfoCard` shows `Orientación` with value `east` (screenshot: Cala Aguilar). Data stores English enum-like strings; users expect Spanish (`Este`).
-  **Fix**: Map `beach.orientation` through a small label map (es copy) in the card or route; do not render API/raw schema strings.
+_None._
 
 ### Important (should fix)
 
-- **Body copy tone**: Long description remains very dark grey on white — acceptable; task **#051** already asks for `text-gray-700` on “Sobre esta playa” for optimal reading. Keep aligned with that task.
+- **“Playas cercanas” thumbnails**: Same gray empty frame issue as listing cards (`nearby-carousel.tsx`). On a detail page, empty strips **hurt credibility** more than on an index.
+  **Fix**: Reuse the shared listing fallback art; if a nearby beach has no photo, still show municipality name clearly and consider a **smaller fixed height** with centered icon so the strip height stays even.
 
-- **Sidebar vs main column on small viewports**: **#051** covers mobile ordering (weather/practical info not stranded below map). No additional directive beyond executing that task.
+- **Secondary column empty states**: Weather “no disponible” and beach status “fuera de temporada” stack as white cards with similar visual weight to `PracticalInfoCard`.
+  **Fix**: Differentiate **degraded** states: slightly reduced shadow, `border-dashed border-gray-200`, or a muted icon so primary practical info remains the focal card.
 
 ### Refinement (nice to have)
 
-- **Hero h1**: Slightly tighter line-length on ultra-wide viewports by constraining max-width of the title block in the hero overlay.
+- **Tag pills in hero**: Ensure `text-gray-800` on light pills over `ocean` gradient hero meets **4.5:1** when the hero uses a photo variant; if not, darken pill text to `text-gray-900` or increase pill opacity.
+
+- **Gallery row**: Three-up gallery is clean; add consistent `gap` equal to section spacing scale (e.g. `gap-4` → `gap-5` to match card grids) if side-by-side feels tight.
 
 ### What works well
 
-- Photo hero + gradient, breadcrumb placement, and two-column desktop layout match guidelines.
-- Activities row with SVG icons reads as modern and consistent.
+- **Two-column narrative + facts**: Description, certifications, services/activities grids, map, and contact read in a clear scan order.
+- **Service/activity icon treatment**: Outline icons in soft tinted tiles match guidelines for functional SVG use.
 
-**Severity summary**: Critical: 1, Important: 2, Refinement: 1
-
-**Note**: Gallery de-duplication (`slice(1)` when hero uses `pictures[0]`) is already implemented in code (`$slug.tsx` approx. 179–184). Remaining beach-detail work is tracked in backlog **#051**.
+**Severity summary:** Critical: 0, Important: 2, Refinement: 2

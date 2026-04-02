@@ -171,7 +171,7 @@ function HomePage() {
           </Link>
         </div>
 
-        <div className="grid gap-6 pb-4 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8 2xl:grid-cols-4">
+        <div className="grid gap-6 pb-4 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
           {featured.map((beach, i) => {
             const slug = slugMap.get(beach.code) ?? beachToSlug(beach)
             return (

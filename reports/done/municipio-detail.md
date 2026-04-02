@@ -1,24 +1,27 @@
-# Municipio detail design directive (UI review 2026-03-29)
+# Municipality detail (`/municipios/$slug`) — UI review directive
 
-**URL**: `/municipios/cartagena` — `src/routes/municipios/$slug.tsx`
+Screenshot: `/tmp/ui-review-municipios-cartagena.png`, `/tmp/ui-review-municipios-cartagena-mobile.png`. Route: `src/routes/municipios/$slug.tsx`.
 
 ## Design Directive: Municipio detail
 
 ### Critical (must fix)
 
-- None beyond listing/grid patterns shared with explorer and collections.
+_None._
 
 ### Important (should fix)
 
-- **Breadcrumb + sort row at ~375px**: Backlog **#052** already requires verifying no overlap between breadcrumbs and “Ordenar por”. Desktop screenshot shows comfortable spacing; verify in browser at 375px after **#052**.
+- **Beach grid photo gaps**: Same missing-image gray blocks as explorer/collections — covered in `reports/done/cross-cutting.md`.
+  **Fix**: Shared `BeachCard` media fallback.
+
+- **Toolbar duplication**: “69 playas” appears near hero context and again above the grid next to sort — acceptable if typographic levels differ; if both use the same weight, **merge** into one strong count next to sort and drop the redundant line.
 
 ### Refinement (nice to have)
 
-- **Pagination + back link**: Spacing between pagination and “← Volver a municipios” is adequate; align `mt-*` with collection detail for pixel parity.
+- **“Volver a municipios”**: Outlined button is clear; align horizontal padding with primary ocean pills elsewhere (`px-8`) for button family consistency.
 
 ### What works well
 
-- Inner hero tier (`text-3xl` / `sm:text-4xl`) matches `docs/ui-guidelines.md` detail sub-tier.
-- Beach card grid matches explorer/collection visual language.
+- **Photo hero** with municipality name and aggregate stats feels **local and authoritative**.
+- **Pagination** matches explorer styling — good cross-page consistency.
 
-**Severity summary**: Critical: 0, Important: 1, Refinement: 1
+**Severity summary:** Critical: 0, Important: 2, Refinement: 1

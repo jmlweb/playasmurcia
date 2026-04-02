@@ -103,10 +103,10 @@ export function SiteFooter({
 
         {/* Bottom bar */}
         <div className="border-ocean-800 mt-10 flex flex-col items-center justify-between gap-3 border-t pt-6 sm:flex-row">
-          <p className="text-ocean-400 text-xs">
+          <p className="text-ocean-200 text-xs">
             Datos del Ministerio de Transición Ecológica
           </p>
-          <p className="text-ocean-500 text-xs">
+          <p className="text-ocean-200 text-xs">
             &copy; {new Date().getFullYear()} Playas de Murcia
           </p>
         </div>

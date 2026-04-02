@@ -128,7 +128,10 @@ function CollectionPage() {
           {collection.title}
         </h1>
         <p className="text-ocean-200 mb-4 text-lg">{collection.description}</p>
-        <span className="bg-ocean-500/30 text-ocean-100 inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-medium backdrop-blur-sm">
+        <span
+          className="bg-ocean-500/30 text-ocean-100 inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-medium backdrop-blur-sm"
+          role="text"
+        >
           {items.length} {items.length === 1 ? 'playa' : 'playas'}
         </span>
       </PageHero>

@@ -442,7 +442,7 @@ function BeachGallery({
       </div>
 
       {/* Mobile: horizontal scroll */}
-      <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 md:hidden">
+      <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 md:hidden">
         {parsedPictures.map((img, i) => (
           <button
             key={img.baseName}

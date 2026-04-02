@@ -36,6 +36,7 @@ export function BeachCard({
   weather,
 }: BeachCardProps) {
   const firstPicture = beach.pictures?.[0]
+  const hasPicture = Boolean(firstPicture)
   const { baseName, ext } = parseImageFilename(
     firstPicture ?? 'default-beach.png',
   )
@@ -51,14 +52,40 @@ export function BeachCard({
       to="/playas/$slug"
     >
       <div className="relative aspect-3/2 overflow-hidden bg-gray-100">
-        <ResponsiveImage
-          alt={beach.name}
-          baseName={baseName}
-          className="h-full w-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-105"
-          ext={ext}
-          priority={eager ? 'high' : 'low'}
-          variant="thumb"
-        />
+        {hasPicture ? (
+          <ResponsiveImage
+            alt={beach.name}
+            baseName={baseName}
+            className="h-full w-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-105"
+            ext={ext}
+            priority={eager ? 'high' : 'low'}
+            variant="thumb"
+          />
+        ) : (
+          <div className="from-ocean-50 to-sand-100 flex h-full w-full flex-col items-center justify-center bg-gradient-to-br">
+            <svg
+              aria-hidden="true"
+              className="text-ocean-200 mb-1.5 h-10 w-10"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 15c2.483 0 4.345-3 4.345-3s1.862 3 4.345 3c2.483 0 4.345-3 4.345-3s1.862 3 4.345 3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+              />
+              <path
+                d="M3 19c2.483 0 4.345-3 4.345-3s1.862 3 4.345 3c2.483 0 4.345-3 4.345-3s1.862 3 4.345 3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+              />
+            </svg>
+            <span className="text-xs text-gray-400">Sin foto</span>
+          </div>
+        )}
         <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" />
         {weather && (
           <span className="absolute top-3 left-3 flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-sm font-medium text-gray-800 shadow-sm backdrop-blur-sm">

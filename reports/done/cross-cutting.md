@@ -1,33 +1,30 @@
-# Cross-cutting design directive (UI review 2026-03-29)
+# Cross-cutting design directives — PlayasMurcia UI review (2026-04-02)
 
-Scope: patterns that appear on multiple routes or in the global shell (`__root.tsx`, shared components).
+Audited with desktop + mobile full-page screenshots against `http://localhost:3000`. Sources: `src/features/beaches/beach-card.tsx`, `src/features/beaches/nearby-carousel.tsx`, `src/routes/explorar/index.tsx`, `docs/ui-guidelines.md`.
 
-## Design Directive: Global shell & shared components
+## Design Directive: Cross-cutting
 
 ### Critical (must fix)
 
-- **404 numeric headline contrast**: `notFoundComponent` in `src/routes/__root.tsx` (approx. lines 88–95) uses `text-ocean-200` for the large “404” glyph on `bg-sand-50`. Light cyan on warm off-white is far below WCAG AA for text of any practical size. The error state reads as “washed out” and fails the same contrast bar as body copy.
-  **Fix**: Use at least `text-ocean-700` or `text-gray-900` for the “404” display value; keep supporting copy at `text-gray-500` / `text-gray-900` per empty-state patterns in `docs/ui-guidelines.md`. Ensure the primary heading (`Página no encontrada`) stays the dominant semantic and visual focus.
-
-- **Service chips show raw machine tokens**: On `src/routes/municipios/index.tsx` (approx. 122–131), `ServiceIcon` is called with `emoji={service.icon}`. The SVG map in `src/components/icons.tsx` (`serviceIconMap`, approx. 188–203) is keyed by **logical ids** (e.g. `chiringuito`, `wheelchair-ramp`), while `data/services.json` stores **emoji** in `icon`. Turso rows may store ids or mixed values in `icon`, producing visible strings such as `wheelchair` next to “Rampa Accesible” (full-page screenshot, municipios index cards).
-  **Fix**: Resolve icons by **`service.id`** (maps to `service_id` in DB) first; use `icon` only as a deprecated fallback for migration. Align all seed/migration data so `icon` is either emoji or empty, and document the single source of truth in `docs/data-schema.md` if needed.
+_None identified in this pass — no broken navigation or illegible primary copy site-wide._
 
 ### Important (should fix)
 
-- **“Descubrir” popover trigger focus**: `Popover.Trigger` in `src/routes/__root.tsx` (`NavDropdown`, approx. 156–159) uses `focus-visible:underline` only. `docs/ui-guidelines.md` requires `focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2` (with offset tuned for dark nav) for interactive controls.
-  **Fix**: Add a ring + `outline-none` on the trigger; match offset to `bg-nav` so the ring remains visible.
+- **Listing cards with missing photos read as “broken”**: On `/explorar`, `/municipios/cartagena`, `/colecciones/mar-mediterraneo`, many `BeachCard` tiles show a flat `bg-gray-100` area (`beach-card.tsx` ~53–61) because `ResponsiveImage` has no asset. The grid looks like failed loads, not intentional empty states.
+  **Fix**: Introduce a **designed fallback** inside the 3:2 media frame: subtle wave/sand pattern or low-contrast illustration, optional “Sin foto” caption in `text-xs text-gray-500`, keep exact aspect ratio so the grid does not jump. Apply the same treatment in `nearby-carousel.tsx` (~39–46) where thumbnails are especially prominent on the beach detail page.
 
-- **Dropdown panel links**: Inner `Link` items use `focus-visible:outline-none` with background change only (approx. 218–221, 245–248). Consider a 2px ring or clear inset outline so keyboard focus is visible on `bg-ocean-800` panels.
+- **Explorer hero count vs toolbar count can disagree**: Hero copy uses `beaches.length` (`explorar/index.tsx` ~290–291) while the toolbar shows `allFiltered.length` (~330–334). When the user types in `SearchBar`, the hero still claims the full catalogue size.
+  **Fix**: If `filters.q?.trim()` or any facet filter is active, either (a) change hero to “Mostrando **N** de **total** playas” or (b) keep “Filtra entre {total}” but add a second line under the search field with the current result count. Do not show two different numbers without explanation.
 
 ### Refinement (nice to have)
 
-- **TanStack devtools**: Only rendered when `import.meta.env.DEV` (`__root.tsx` approx. 492–504). Screenshot overlap during review is expected in dev; no production change.
+- **Dev-only overlays in screenshots**: TanStack Router Devtools can sit above content (e.g. first municipality card on `/municipios`). Ensure z-index/position does not compete with primary content in production builds; document for QA screenshots.
 
-- **Footer copyright year**: `SiteFooter` uses `new Date().getFullYear()` (`site-footer.tsx` approx. 109–110) — correct; ignore static year noise in cached screenshots.
+- **Footer data attribution contrast**: `site-footer.tsx` ~106–107 uses `text-ocean-400` / `text-ocean-500` on `bg-ocean-900`. Verify combined contrast ≥ 4.5:1 for the legal line; bump to `text-ocean-200` if measurement fails.
 
 ### What works well
 
-- Skip link, sticky nav, and coastal palette remain coherent across pages.
-- Breadcrumbs consistently sit below hero on light background, matching guidelines.
+- **Card system** is consistent: ring, radius, hover lift, tag pills, and weather/occupancy chips match `docs/ui-guidelines.md` motion and hierarchy.
+- **Nav + footer** structure repeats predictably across routes; breadcrumb placement below hero matches guidelines.
 
-**Severity summary**: Critical: 2, Important: 2, Refinement: 2
+**Severity summary:** Critical: 0, Important: 2, Refinement: 2
