@@ -263,7 +263,9 @@ export async function getAllSeas(): Promise<Sea[]> {
 export async function getFeaturedBeaches(): Promise<Beach[]> {
   const allBeaches = await getAllBeaches()
 
-  // Filter to beaches with good photos
+  const TARGET = 12
+
+  // Filter to beaches with good photos (score >= 2)
   const withPhotos = allBeaches
     .filter(
       (b) =>
@@ -287,7 +289,34 @@ export async function getFeaturedBeaches(): Promise<Beach[]> {
     if (count >= 2) continue
     municipalityCounts.set(beach.municipality, count + 1)
     featured.push(beach)
-    if (featured.length >= 12) break
+    if (featured.length >= TARGET) break
+  }
+
+  // Fallback: if fewer than TARGET qualify with score >= 2, fill with any
+  // beach that has at least one picture (lower quality is better than no photo)
+  if (featured.length < TARGET) {
+    const fallback = allBeaches
+      .filter(
+        (b) =>
+          b.pictures &&
+          b.pictures.length > 0 &&
+          (b.pictureQualityScore ?? 0) < 2 &&
+          !featured.includes(b),
+      )
+      .sort((a, b) => {
+        const scoreA = a.pictureQualityScore ?? 0
+        const scoreB = b.pictureQualityScore ?? 0
+        if (scoreB !== scoreA) return scoreB - scoreA
+        return a.name.localeCompare(b.name)
+      })
+
+    for (const beach of fallback) {
+      const count = municipalityCounts.get(beach.municipality) ?? 0
+      if (count >= 2) continue
+      municipalityCounts.set(beach.municipality, count + 1)
+      featured.push(beach)
+      if (featured.length >= TARGET) break
+    }
   }
 
   return featured

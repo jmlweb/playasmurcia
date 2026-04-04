@@ -4,21 +4,22 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 2 tasks
+- **Pending**: 3 tasks
 - **In progress**: 0 tasks
-- **Completed**: 96 tasks
+- **Completed**: 97 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
 
-> No active task. Next up: Task #099
+> No active task. Next up: Task #100
 
 ## Backlog
 
-| #   | Task                                      | Priority  | Slice   |
-| --- | ----------------------------------------- | --------- | ------- |
-| 099 | Beach Card Legibility and Featured Images | P2 - Next | Styling |
-| 100 | Municipality Listing Home Link Affordance | P3        | Styling |
+| #   | Task                                        | Priority  | Slice   |
+| --- | ------------------------------------------- | --------- | ------- |
+| 100 | Municipality Listing Home Link Affordance   | P3        | Styling |
+| 101 | Collections Index — Thematic Colors (Brand) | P2 - Next | Styling |
+| 102 | Navbar Mobile Active Color Indicator        | P3        | Styling |
 
 ## Removed tasks
 
@@ -28,6 +29,7 @@ Tasks #017 (Source Missing Beach Pictures), #035 (Municipality Cards Imagery), a
 
 | #   | Task                                                    | Completed  |
 | --- | ------------------------------------------------------- | ---------- |
+| 099 | Beach Card Legibility and Featured Images               | 2026-04-04 |
 | 098 | Decompose Heavy Route Files                             | 2026-04-04 |
 | 097 | Split db-data.ts into Cohesive Modules                  | 2026-04-04 |
 | 096 | Deduplicate Nav and Statistics Builders                 | 2026-04-04 |

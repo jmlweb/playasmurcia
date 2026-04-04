@@ -62,10 +62,10 @@ export function BeachCard({
             variant="thumb"
           />
         ) : (
-          <div className="from-ocean-50 to-sand-100 flex h-full w-full flex-col items-center justify-center bg-gradient-to-br">
+          <div className="from-ocean-50/60 to-sand-100/60 flex h-full w-full items-center justify-center bg-gradient-to-br">
             <svg
               aria-hidden="true"
-              className="text-ocean-200 mb-1.5 h-10 w-10"
+              className="text-ocean-200/60 h-8 w-8"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -83,10 +83,9 @@ export function BeachCard({
                 strokeWidth={1.5}
               />
             </svg>
-            <span className="text-xs text-gray-400">Sin foto</span>
           </div>
         )}
-        <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent" />
         {weather && (
           <span className="absolute top-3 left-3 flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-sm font-medium text-gray-800 shadow-sm backdrop-blur-sm">
             <WeatherIcon
@@ -112,7 +111,7 @@ export function BeachCard({
             {visibleTags.map((tag) => (
               <span
                 key={tag.id}
-                className="rounded-full bg-white/80 px-2.5 py-0.5 text-xs font-medium text-gray-800 backdrop-blur-sm"
+                className="rounded-full bg-white/95 px-2.5 py-0.5 text-sm font-medium text-gray-900 shadow-sm backdrop-blur-sm"
               >
                 {tag.name}
               </span>
