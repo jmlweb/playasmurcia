@@ -1,7 +1,17 @@
 import { render, screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { LocationMap } from './location-map'
+
+class MockIntersectionObserver {
+  observe = vi.fn()
+  disconnect = vi.fn()
+  unobserve = vi.fn()
+}
+
+beforeEach(() => {
+  vi.stubGlobal('IntersectionObserver', MockIntersectionObserver)
+})
 
 describe('LocationMap', () => {
   const coords: [number, number] = [37.6894, -0.9812]
@@ -11,9 +21,12 @@ describe('LocationMap', () => {
     expect(screen.getByRole('heading', { name: 'Ubicación' })).toBeTruthy()
   })
 
-  it('renders a loading placeholder while map loads', () => {
+  it('renders a static map image as placeholder', () => {
     render(<LocationMap beachName="Playa Test" coordinates={coords} />)
-    expect(screen.getByText('Cargando mapa...')).toBeTruthy()
+    const img = screen.getByAltText('Mapa estático de la ubicación')
+    expect(img).toBeTruthy()
+    expect(img.getAttribute('src')).toContain('37.6894')
+    expect(img.getAttribute('src')).toContain('-0.9812')
   })
 
   it('renders a Google Maps link with correct coordinates', () => {

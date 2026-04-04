@@ -2,6 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import { useMemo } from 'react'
 
+import { BlueFlagBadgeIcon } from '@/components/ui/icons'
 import { BeachCard } from '@/features/beaches/beach-card'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 import { beachToSlug } from '@/lib/slugs'
@@ -12,8 +13,9 @@ const fetchHomeData = createServerFn({ method: 'GET' }).handler(async () => {
     getAllBeaches,
     getAllMunicipalities,
     getAllTags,
-  } = await import('@/lib/db-data')
-  const { municipalityToSlug } = await import('@/lib/slugs')
+  } = await import('@/lib/db-data/beach-queries')
+  const { buildMunicipalityNavWithBlueFlag } =
+    await import('@/lib/nav-builders')
   const { fetchBatchCardWeather } = await import('@/lib/open-meteo')
   const [featured, beaches, municipalities, tags] = await Promise.all([
     getFeaturedBeaches(),
@@ -23,11 +25,10 @@ const fetchHomeData = createServerFn({ method: 'GET' }).handler(async () => {
   ])
   const weatherMap = await fetchBatchCardWeather(featured)
   const weatherData = Object.fromEntries(weatherMap)
-  const municipalityNav = municipalities.map((m, i) => ({
-    name: m.name,
-    slug: municipalityToSlug(m),
-    beachCount: beaches.filter((b) => b.municipality === i).length,
-  }))
+  const municipalityNav = buildMunicipalityNavWithBlueFlag(
+    beaches,
+    municipalities,
+  )
   return {
     featured,
     municipalities,
@@ -104,19 +105,21 @@ function HomePage() {
             width={1408}
           />
         )}
-        <div className="via-ocean-900/30 to-ocean-900/80 absolute inset-0 bg-gradient-to-b from-transparent" />
+        <div className="via-ocean-900/30 to-ocean-900/80 absolute inset-0 bg-linear-to-b from-transparent" />
         <div className="hero-text-scrim relative z-10 mx-auto max-w-4xl px-6 py-10 text-center sm:px-8 sm:py-12">
-          <p className="text-ocean-300 animate-fade-up mb-4 text-sm font-semibold tracking-[0.2em] uppercase sm:text-base">
+          <p className="text-ocean-300 animate-fade-up mb-4 text-xs font-semibold tracking-[0.2em] uppercase sm:text-sm">
             Costa Cálida &middot; Región de Murcia
           </p>
-          <h1 className="animate-fade-up mb-6 text-4xl font-normal tracking-tight text-white [animation-delay:75ms] sm:text-5xl lg:text-6xl xl:text-7xl">
-            Donde el Mediterráneo
-            <br className="hidden sm:block" /> abraza la costa
+          <h1 className="animate-fade-up mb-6 text-4xl font-normal tracking-tight text-white [animation-delay:75ms] sm:text-5xl lg:text-6xl">
+            Encuentra tu playa ideal
           </h1>
+          <p className="text-ocean-100 animate-fade-up mx-auto mb-2 max-w-2xl text-lg leading-relaxed [animation-delay:150ms] sm:text-xl">
+            <b>252</b> kilómetros de litoral, <b>{totalBeaches}</b> playas y
+            calas entre dos mares.
+          </p>
           <p className="text-ocean-100 animate-fade-up mx-auto mb-10 max-w-2xl text-lg leading-relaxed [animation-delay:150ms] sm:text-xl">
-            252 kilómetros de litoral, {totalBeaches} playas y calas entre dos
-            mares. Desde las aguas cristalinas de Cabo de Palos hasta las
-            cálidas orillas del Mar Menor, descubre tu playa ideal.
+            Desde las aguas cristalinas de Cabo de Palos hasta las cálidas
+            orillas del Mar Menor, tenemos la playa que necesitas.
           </p>
           <div className="animate-fade-up flex flex-col items-center gap-4 [animation-delay:225ms] sm:flex-row sm:justify-center">
             <Link
@@ -215,43 +218,64 @@ function HomePage() {
       {/* Municipalities */}
       <section
         ref={municipalitiesRef}
-        className="reveal bg-white px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
+        className="reveal bg-sand-50 px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24"
       >
         <div className="mx-auto max-w-7xl">
           <div className="mb-10 flex items-end justify-between">
             <div>
-              <span className="bg-ocean-50 text-ocean-700 mb-3 inline-block rounded-full px-3 py-1 text-xs font-semibold tracking-widest uppercase">
+              <p className="overline-accent text-ocean-600 mb-2 text-sm font-semibold tracking-wider uppercase">
                 Explora por zona
-              </span>
+              </p>
               <h2 className="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
                 Municipios costeros
               </h2>
             </div>
-            <Link
-              className="text-ocean-600 hover:text-ocean-700 hidden text-sm font-medium sm:block"
-              to="/municipios"
-            >
-              Ver todos →
-            </Link>
           </div>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
             {municipalityNav.map((m) => (
               <Link
                 key={m.slug}
-                className="group bg-sand-50 hover:ring-ocean-200 flex items-center gap-4 rounded-xl px-5 py-5 ring-2 ring-transparent transition-all duration-200 hover:shadow-md hover:ring-2 motion-safe:hover:-translate-y-0.5"
+                className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-500 ease-out hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none motion-safe:hover:-translate-y-1"
                 params={{ slug: m.slug }}
                 to="/municipios/$slug"
               >
-                <div className="bg-ocean-100 text-ocean-700 group-hover:bg-ocean-600 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-lg font-bold transition-colors duration-200 group-hover:text-white">
-                  {m.beachCount}
-                </div>
-                <div>
-                  <span className="group-hover:text-ocean-600 text-base font-semibold text-gray-900 transition-colors">
-                    {m.name}
-                  </span>
-                  <span className="block text-sm text-gray-500">
-                    {m.beachCount === 1 ? 'playa' : 'playas'}
-                  </span>
+                <div className="flex flex-1 flex-col p-6">
+                  <div className="mb-4 flex items-start justify-between">
+                    <h3 className="group-hover:text-ocean-600 text-xl font-semibold text-gray-900 transition-colors">
+                      {m.name}
+                    </h3>
+                    <div className="bg-ocean-50 text-ocean-700 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-lg font-bold">
+                      {m.beachCount}
+                    </div>
+                  </div>
+                  {m.blueFlagCount > 0 && (
+                    <p className="mb-4 text-sm leading-relaxed text-gray-500">
+                      <span className="text-ocean-600 inline-flex items-center gap-1">
+                        <BlueFlagBadgeIcon className="inline h-3.5 w-3.5" />
+                        {m.blueFlagCount} bandera
+                        {m.blueFlagCount === 1 ? '' : 's'} azul
+                      </span>
+                    </p>
+                  )}
+                  <div className="mt-auto">
+                    <span className="text-ocean-600 group-hover:text-ocean-700 inline-flex items-center gap-1 text-sm font-medium transition-colors">
+                      Ver playas
+                      <svg
+                        aria-hidden="true"
+                        className="h-4 w-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                        />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
               </Link>
             ))}

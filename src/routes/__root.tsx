@@ -15,20 +15,9 @@ import { useState } from 'react'
 
 import { SiteFooter } from '@/components/layout/site-footer'
 import { ChevronDownIcon } from '@/components/ui/icons'
+import type { NavCharacteristic, NavMunicipality } from '@/lib/nav-builders'
 
 import appCss from '../styles.css?url'
-
-type NavMunicipality = {
-  name: string
-  slug: string
-  beachCount: number
-}
-
-type NavCharacteristic = {
-  label: string
-  href: string
-  count: number
-}
 
 type NavData = {
   municipalities: NavMunicipality[]
@@ -38,48 +27,18 @@ type NavData = {
 const fetchNavData = createServerFn({ method: 'GET' }).handler(
   async (): Promise<NavData> => {
     const { getAllBeaches, getAllMunicipalities } =
-      await import('@/lib/db-data')
-    const { municipalityToSlug } = await import('@/lib/slugs')
+      await import('@/lib/db-data/beach-queries')
+    const { buildMunicipalityNav, buildCharacteristicCounts } =
+      await import('@/lib/nav-builders')
     const [beaches, municipalities] = await Promise.all([
       getAllBeaches(),
       getAllMunicipalities(),
     ])
 
-    const municipalityNav = municipalities.map((m, i) => {
-      const count = beaches.filter((b) => b.municipality === i).length
-      return { name: m.name, slug: municipalityToSlug(m), beachCount: count }
-    })
-
-    const characteristics: NavCharacteristic[] = [
-      {
-        label: 'Bandera azul',
-        href: '/colecciones/bandera-azul',
-        count: beaches.filter((b) => b.certifications?.includes('blue-flag'))
-          .length,
-      },
-      {
-        label: 'Accesible',
-        href: '/colecciones/accesibles',
-        count: beaches.filter((b) => b.accessDifficulty === 'easy').length,
-      },
-      {
-        label: 'Nudista',
-        href: '/colecciones/playas-nudistas',
-        count: beaches.filter((b) => b.nudist).length,
-      },
-      {
-        label: 'Pet friendly',
-        href: '/colecciones/playas-para-perros',
-        count: beaches.filter((b) => b.dogFriendly).length,
-      },
-      {
-        label: 'Familiares',
-        href: '/colecciones/playas-familiares',
-        count: beaches.filter((b) => b.childSafe).length,
-      },
-    ]
-
-    return { municipalities: municipalityNav, characteristics }
+    return {
+      municipalities: buildMunicipalityNav(beaches, municipalities),
+      characteristics: buildCharacteristicCounts(beaches),
+    }
   },
 )
 
@@ -204,7 +163,6 @@ export const Route = createRootRoute({
 
 const simpleNavLinks = [
   { to: '/explorar' as const, label: 'Playas' },
-  { to: '/municipios' as const, label: 'Municipios' },
   { to: '/colecciones' as const, label: 'Colecciones' },
 ]
 
@@ -258,14 +216,6 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
                     )
                   })}
                 </ul>
-                <div className="border-ocean-700 mt-3 border-t pt-3">
-                  <Link
-                    className="text-ocean-300 hover:bg-ocean-700 flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium transition-colors hover:text-white"
-                    to="/municipios"
-                  >
-                    Ver todos →
-                  </Link>
-                </div>
               </div>
 
               {/* Collections — top 4 */}

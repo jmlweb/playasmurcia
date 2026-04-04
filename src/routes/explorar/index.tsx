@@ -64,7 +64,7 @@ const fetchExplorerData = createServerFn({ method: 'GET' }).handler(
       getAllActivities,
       getAllTags,
       getAllSeas,
-    } = await import('@/lib/db-data')
+    } = await import('@/lib/db-data/beach-queries')
     const { fetchBatchCardWeather } = await import('@/lib/open-meteo')
     const [beaches, municipalities, services, activities, tags, seas] =
       await Promise.all([

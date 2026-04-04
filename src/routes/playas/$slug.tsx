@@ -40,7 +40,7 @@ const fetchBeachData = createServerFn({ method: 'GET' })
       getAllTags,
       getNearbyBeaches,
       getMunicipalityMap,
-    } = await import('@/lib/db-data')
+    } = await import('@/lib/db-data/beach-queries')
     const beach = await getBeachBySlug(data.slug)
     if (!beach) return null
 
@@ -603,7 +603,7 @@ function Lightbox({
 }
 
 export async function getStaticPaths() {
-  const { getAllBeaches } = await import('@/lib/db-data')
+  const { getAllBeaches } = await import('@/lib/db-data/beach-queries')
   const beaches = await getAllBeaches()
   return beaches.map((beach) => ({
     params: { slug: beachToSlug(beach) },

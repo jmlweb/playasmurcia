@@ -30,7 +30,7 @@ const fetchCollectionData = createServerFn({ method: 'GET' })
       getAllBeaches,
       getAllTags,
       getMunicipalityMap,
-    } = await import('@/lib/db-data')
+    } = await import('@/lib/db-data/beach-queries')
     const { fetchBatchCardWeather } = await import('@/lib/open-meteo')
     const collection = getCollectionBySlug(data.slug)
     if (!collection) return null

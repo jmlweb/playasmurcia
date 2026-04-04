@@ -57,7 +57,7 @@ Tasks live under `backlog/`; reports under `reports/`:
 
 **Required behavior**
 
-1. **`/ui-review`**: Run the workflow in [`.claude/templates/ui-review.md`](./.claude/templates/ui-review.md) under the role in [`.claude/agents/ui-designer.md`](./.claude/agents/ui-designer.md). Write directives under `reports/pending/` during the audit; after creating backlog tasks, **move** covered files to `reports/done/` and ensure every new task links to the **final** path (`reports/done/…`).
+1. **`/ui-review`**: Run the workflow in [`.claude/templates/ui-review.md`](./.claude/templates/ui-review.md) under the role in [`.claude/agents/ui-designer.md`](./.claude/agents/ui-designer.md). **Visual audit evidence** must use **Playwright** via `pnpm tsx scripts/screenshot.ts` (desktop + `--mobile`, both `--full-page` per page) — see the template’s *Screenshots: Playwright only* section. Write directives under `reports/pending/` during the audit; after creating backlog tasks, **move** covered files to `reports/done/` and ensure every new task links to the **final** path (`reports/done/…`).
 2. **Other reports**: Add markdown under `reports/pending/` first if no tasks yet; when tasks reference the report, **move** it to `reports/done/` and put the repo-relative path in the task body (see existing tasks for tone).
 3. **Moves/renames**: Search the repo for the old path and update `backlog/pending/`, `backlog/done/`, and any doc that linked to it.
 4. **Guidelines**: UI work still defers to [`docs/ui-guidelines.md`](./docs/ui-guidelines.md); propose updates per the UI review template Phase 4 when appropriate.
@@ -126,7 +126,7 @@ All three must pass before a task can be marked complete:
 | New utility/lib function       | Unit test (Vitest)                                                               |
 | New component with logic       | Component test (Testing Library)                                                 |
 | Data-only changes (JSON edits) | Run `node scripts/validate-beaches.js`                                           |
-| Styling-only changes           | Visual verification — use `pnpm tsx scripts/screenshot.ts <url>` or manual check |
+| Styling-only changes           | Visual verification — use `pnpm tsx scripts/screenshot.ts <path>` (Playwright Chromium; see `scripts/screenshot.ts`) or manual check |
 | Bug fix                        | Regression test if feasible                                                      |
 
 ## Agent orchestration

@@ -11,20 +11,20 @@
 
 Custom coastal palette defined in `src/styles.css` via `@theme` (Tailwind v4 CSS theme):
 
-| Token | Hex | Usage |
-|-------|-----|-------|
-| `ocean-500` | `#1a7d9e` | Primary CTAs, buttons |
-| `ocean-600` | `#14637e` | Links, interactive elements, accents |
-| `ocean-700` | `#104f65` | Hover states |
-| `ocean-800` | `#0c3c4d` | Hero gradients, section backgrounds |
-| `ocean-900` | `#082935` | Dark backgrounds, footer |
-| `ocean-950` | `#041a23` | Deepest dark tone |
-| `nav` | mix of ocean-950 + slate-900 | Navigation bar |
-| `sand-50` | `#fefcf8` | Default page background |
-| `sand-100` | `#fdf6eb` | Card/section alt background |
-| `white` | — | Card backgrounds |
-| `gray-500` | — | Secondary text, captions |
-| `gray-900` | — | Headings, high-emphasis text |
+| Token       | Hex                          | Usage                                |
+| ----------- | ---------------------------- | ------------------------------------ |
+| `ocean-500` | `#1a7d9e`                    | Primary CTAs, buttons                |
+| `ocean-600` | `#14637e`                    | Links, interactive elements, accents |
+| `ocean-700` | `#104f65`                    | Hover states                         |
+| `ocean-800` | `#0c3c4d`                    | Hero gradients, section backgrounds  |
+| `ocean-900` | `#082935`                    | Dark backgrounds, footer             |
+| `ocean-950` | `#041a23`                    | Deepest dark tone                    |
+| `nav`       | mix of ocean-950 + slate-900 | Navigation bar                       |
+| `sand-50`   | `#fefcf8`                    | Default page background              |
+| `sand-100`  | `#fdf6eb`                    | Card/section alt background          |
+| `white`     | —                            | Card backgrounds                     |
+| `gray-500`  | —                            | Secondary text, captions             |
+| `gray-900`  | —                            | Headings, high-emphasis text         |
 
 **Gradients and accents**:
 
@@ -39,13 +39,13 @@ Custom coastal palette defined in `src/styles.css` via `@theme` (Tailwind v4 CSS
 
 **Size hierarchy**:
 
-| Level | Size | Usage |
-|-------|------|-------|
-| `text-5xl` | Hero | Page titles, hero headings |
-| `text-3xl` / `text-4xl` | Section | Section headings |
-| `text-xl` / `text-2xl` | Subsection | Card titles, subsection headings |
-| `text-base` / `text-lg` | Body | Paragraphs, descriptions |
-| `text-sm` | Caption | Metadata, labels, secondary info |
+| Level                   | Size       | Usage                            |
+| ----------------------- | ---------- | -------------------------------- |
+| `text-5xl`              | Hero       | Page titles, hero headings       |
+| `text-3xl` / `text-4xl` | Section    | Section headings                 |
+| `text-xl` / `text-2xl`  | Subsection | Card titles, subsection headings |
+| `text-base` / `text-lg` | Body       | Paragraphs, descriptions         |
+| `text-sm`               | Caption    | Metadata, labels, secondary info |
 
 **Weight usage**: Bold (`font-bold`) for headings and emphasis, regular for body text. Avoid light weights for body text.
 
@@ -138,18 +138,18 @@ Each major section follows a pattern:
 
 Two height tiers to create visual hierarchy between the homepage and inner pages:
 
-| Tier | Padding | Usage |
-|------|---------|-------|
+| Tier                     | Padding                   | Usage                                                      |
+| ------------------------ | ------------------------- | ---------------------------------------------------------- |
 | **Homepage** (immersive) | `py-16 sm:py-20 lg:py-28` | Homepage hero only — full-bleed image, staggered animation |
-| **Inner page** (compact) | `py-14 sm:py-18 lg:py-20` | All other pages — gradient background, functional header |
+| **Inner page** (compact) | `py-14 sm:py-18 lg:py-20` | All other pages — gradient background, functional header   |
 
 ### Heading size tiers
 
 Inner pages follow two sub-tiers for `h1` size:
 
-| Sub-tier | Size | Usage |
-|----------|------|-------|
-| **Index** | `text-4xl font-extrabold tracking-tight text-white sm:text-5xl` | Index/listing pages (`/municipios`, `/colecciones`) |
+| Sub-tier          | Size                                                            | Usage                                                                                 |
+| ----------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| **Index**         | `text-4xl font-extrabold tracking-tight text-white sm:text-5xl` | Index/listing pages (`/colecciones`)                                                  |
 | **Detail / tool** | `text-3xl font-extrabold tracking-tight text-white sm:text-4xl` | Detail pages (`/municipios/$slug`, `/colecciones/$slug`) and tool pages (`/explorar`) |
 
 **Structure** (inner pages):
@@ -170,7 +170,7 @@ Present on every page except the homepage. Always placed **below the hero**, ins
 **Spacing**: `mb-8` below the breadcrumb, before main content.
 
 **Depth**: Mirror the site hierarchy. Examples:
-- `/municipios` → Inicio / Municipios
+
 - `/municipios/cartagena` → Inicio / Municipios / Cartagena
 - `/playas/playa-x` → Inicio / {Municipality} / {Beach name}
 - `/colecciones/slug` → Inicio / Colecciones / {Collection title}
@@ -184,12 +184,12 @@ All animations and hover transforms **must** respect `prefers-reduced-motion: re
 
 ### Transitions
 
-| Context | Duration | Easing |
-|---------|----------|--------|
-| Micro-interactions (hover, focus) | 150-200ms | `ease-out` |
-| Color/opacity changes | 200-300ms | `ease` (default `transition-colors`) |
-| Layout changes (accordion, modal) | 200-300ms | `ease-out` |
-| Page entrance animations | 400-600ms | `ease-out` |
+| Context                           | Duration  | Easing                               |
+| --------------------------------- | --------- | ------------------------------------ |
+| Micro-interactions (hover, focus) | 150-200ms | `ease-out`                           |
+| Color/opacity changes             | 200-300ms | `ease` (default `transition-colors`) |
+| Layout changes (accordion, modal) | 200-300ms | `ease-out`                           |
+| Page entrance animations          | 400-600ms | `ease-out`                           |
 
 ### Hover effects
 
@@ -212,10 +212,10 @@ All animations and hover transforms **must** respect `prefers-reduced-motion: re
 
 Two patterns, applied consistently:
 
-| Element type | Focus style |
-|-------------|-------------|
+| Element type                           | Focus style                                                                                                |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | Buttons, cards, interactive containers | `focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none` |
-| Inline text links | `focus-visible:text-ocean-600 focus-visible:underline focus-visible:outline-none` |
+| Inline text links                      | `focus-visible:text-ocean-600 focus-visible:underline focus-visible:outline-none`                          |
 
 Always use `focus-visible` (not `focus`) to avoid showing focus rings on mouse clicks.
 

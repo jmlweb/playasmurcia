@@ -6,217 +6,16 @@ import { municipalityToSlug } from '@/lib/slugs'
 import type {
   Activity,
   Beach,
-  Certification,
   Municipality,
   Sea,
   Service,
   Tag,
 } from '@/types/beach'
 
-type OccupancyLevel = 'low' | 'medium' | 'high'
+import { mapBeachFromDB } from './beach-mapper'
 
-/**
- * Computes a recommendation score (0-1) from internal beach data.
- *
- * Weights: services 30%, length 15%, photo quality 10%,
- * accessibility 15%, blue flag 15%, child-safe 10%, natural shade 5%
- */
-function computeRecommendationScore(beach: {
-  services: number[]
-  length: number | null
-  pictureQualityScore: number | null
-  accessDifficulty: string | null
-  certifications: string | null
-  childSafe: boolean | null
-  naturalShade: boolean | null
-}): number {
-  // Services: 0-1 normalized (cap at 8 services for max score)
-  const servicesScore = Math.min(beach.services.length / 8, 1)
-
-  // Length: 0-1 normalized (cap at 1000m for max score)
-  const lengthScore =
-    beach.length != null ? Math.min(beach.length / 1000, 1) : 0.3
-
-  // Photo quality: 0-1 from 0-3 score
-  const photoScore = (beach.pictureQualityScore ?? 0) / 3
-
-  // Accessibility: easy=1, moderate=0.6, hard=0.2, unknown=0.5
-  const accessMap: Record<string, number> = {
-    easy: 1,
-    moderate: 0.6,
-    hard: 0.2,
-  }
-  const accessScore = beach.accessDifficulty
-    ? (accessMap[beach.accessDifficulty] ?? 0.5)
-    : 0.5
-
-  // Blue flag: boolean
-  const certs = beach.certifications ? JSON.parse(beach.certifications) : []
-  const blueFlagScore = (certs as string[]).includes('blue-flag') ? 1 : 0
-
-  // Child-safe: boolean
-  const childSafeScore = beach.childSafe ? 1 : 0
-
-  // Natural shade: boolean
-  const shadeScore = beach.naturalShade ? 1 : 0
-
-  return (
-    servicesScore * 0.3 +
-    lengthScore * 0.15 +
-    photoScore * 0.1 +
-    accessScore * 0.15 +
-    blueFlagScore * 0.15 +
-    childSafeScore * 0.1 +
-    shadeScore * 0.05
-  )
-}
-
-function adjustOccupancy(stored: OccupancyLevel): OccupancyLevel {
-  const month = new Date().getMonth() // 0-based
-
-  // July–August: use stored value as-is
-  if (month === 6 || month === 7) return stored
-
-  // June and September: cap at medium
-  if (month === 5 || month === 8) {
-    return stored === 'high' ? 'medium' : stored
-  }
-
-  // Rest of the year: always low
-  return 'low'
-}
-
-/**
- * Maps a database beach record with its relations to the Beach type
- */
-function mapBeachFromDB(dbBeach: {
-  id: number
-  code: string
-  name: string
-  municipalityId: number
-  seaId: number
-  latitude: number
-  longitude: number
-  soilType: string
-  nudist: boolean
-  promenade: boolean
-  anchorageZone: boolean
-  dogFriendly: boolean
-  lifeguard: boolean
-  description: string
-  access: string
-  nearby: string
-  orientation: string
-  instagramHashtag: string
-  occupancyLevel: string | null
-  campingNearby: boolean | null
-  metaDescription: string | null
-  seoKeywords: string | null
-  certifications: string | null
-  bestSeason: string | null
-  district: string | null
-  phone: string | null
-  email: string | null
-  realUrl: string | null
-  waves: string | null
-  pictures: string | null
-  pictureQualityScore: number | null
-  aemetId: string | null
-  length: number | null
-  accessDifficulty: string | null
-  childSafe: boolean | null
-  naturalShade: boolean | null
-  waterQuality: string | null
-  services: { serviceId: number }[]
-  activities: { activityId: number }[]
-  tags: { tagId: number }[]
-}): Beach {
-  return {
-    code: dbBeach.code,
-    name: dbBeach.name,
-    municipality: dbBeach.municipalityId - 1, // Convert to 0-based index
-    sea: dbBeach.seaId - 1, // Convert to 0-based index
-    coordinates: [dbBeach.latitude, dbBeach.longitude],
-    soilType: dbBeach.soilType,
-    nudist: dbBeach.nudist,
-    promenade: dbBeach.promenade,
-    anchorageZone: dbBeach.anchorageZone,
-    dogFriendly: dbBeach.dogFriendly,
-    lifeguard: dbBeach.lifeguard,
-    services: dbBeach.services.map((s) => s.serviceId - 1), // Convert to 0-based index
-    activities: dbBeach.activities.map((a) => a.activityId - 1), // Convert to 0-based index
-    description: dbBeach.description,
-    access: dbBeach.access,
-    nearby: JSON.parse(dbBeach.nearby),
-    orientation: dbBeach.orientation,
-    instagramHashtag: dbBeach.instagramHashtag,
-    ...(dbBeach.occupancyLevel && {
-      occupancyLevel: adjustOccupancy(
-        dbBeach.occupancyLevel as 'low' | 'medium' | 'high',
-      ),
-    }),
-    ...(dbBeach.campingNearby !== null && {
-      campingNearby: dbBeach.campingNearby,
-    }),
-    ...(dbBeach.metaDescription && {
-      metaDescription: dbBeach.metaDescription,
-    }),
-    ...(dbBeach.seoKeywords && {
-      seoKeywords: JSON.parse(dbBeach.seoKeywords),
-    }),
-    ...(dbBeach.certifications && {
-      certifications: JSON.parse(dbBeach.certifications) as Certification[],
-    }),
-    ...(dbBeach.bestSeason && {
-      bestSeason: JSON.parse(dbBeach.bestSeason) as (
-        | 'spring'
-        | 'summer'
-        | 'autumn'
-        | 'winter'
-      )[],
-    }),
-    ...(dbBeach.district && { district: dbBeach.district }),
-    ...(dbBeach.phone && { phone: dbBeach.phone }),
-    ...(dbBeach.email && { email: dbBeach.email }),
-    ...(dbBeach.realUrl && { realUrl: dbBeach.realUrl }),
-    ...(dbBeach.waves && { waves: dbBeach.waves }),
-    ...(dbBeach.pictures && { pictures: JSON.parse(dbBeach.pictures) }),
-    ...(dbBeach.pictureQualityScore != null && {
-      pictureQualityScore: dbBeach.pictureQualityScore as 0 | 1 | 2 | 3,
-    }),
-    ...(dbBeach.aemetId && { aemetId: dbBeach.aemetId }),
-    ...(dbBeach.length !== null && { length: dbBeach.length }),
-    ...(dbBeach.accessDifficulty && {
-      accessDifficulty: dbBeach.accessDifficulty as
-        | 'easy'
-        | 'moderate'
-        | 'hard',
-    }),
-    ...(dbBeach.childSafe !== null && { childSafe: dbBeach.childSafe }),
-    ...(dbBeach.naturalShade !== null && {
-      naturalShade: dbBeach.naturalShade,
-    }),
-    ...(dbBeach.waterQuality && {
-      waterQuality: dbBeach.waterQuality as
-        | 'excellent'
-        | 'good'
-        | 'sufficient'
-        | 'poor',
-    }),
-    ...(dbBeach.tags.length > 0 && {
-      tags: dbBeach.tags.map((t) => t.tagId - 1), // Convert to 0-based index
-    }),
-    recommendationScore: computeRecommendationScore({
-      services: dbBeach.services.map((s) => s.serviceId - 1),
-      length: dbBeach.length,
-      pictureQualityScore: dbBeach.pictureQualityScore,
-      accessDifficulty: dbBeach.accessDifficulty,
-      certifications: dbBeach.certifications,
-      childSafe: dbBeach.childSafe,
-      naturalShade: dbBeach.naturalShade,
-    }),
-  }
-}
+// Re-export slug functions for backwards compatibility
+export { beachToSlug, municipalityToSlug } from '@/lib/slugs'
 
 /**
  * Retrieves all beaches from the database
@@ -285,9 +84,6 @@ export async function getBeachBySlug(slug: string): Promise<Beach | undefined> {
   if (!code) return undefined
   return getBeachByCode(code)
 }
-
-// Re-export slug functions for backwards compatibility
-export { beachToSlug, municipalityToSlug } from '@/lib/slugs'
 
 /**
  * Retrieves a municipality by its index (0-based)

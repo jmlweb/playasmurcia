@@ -1,13 +1,13 @@
 import { writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
+import { collections } from '../src/lib/collections'
 import {
   beachToSlug,
   getAllBeaches,
   getAllMunicipalities,
   municipalityToSlug,
-} from '../src/lib/db-data'
-import { collections } from '../src/lib/collections'
+} from '../src/lib/db-data/beach-queries'
 
 const BASE_URL = 'https://www.playasmurcia.com'
 

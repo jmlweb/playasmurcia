@@ -520,7 +520,9 @@ const activityIconMap: Record<string, (p: IconProps) => JSX.Element> = {
   '🪁': KitesurfIcon,
   '🏐': VolleyballIcon,
   // string ID keys (DB values)
+  swim: SwimmingIcon,
   swimming: SwimmingIcon,
+  snorkel: SnorkelIcon,
   snorkeling: SnorkelIcon,
   kayak: KayakIcon,
   paddleboard: SurfIcon,

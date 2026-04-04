@@ -12,7 +12,7 @@ import {
   getMunicipalityBySlug,
   getService,
   municipalityToSlug,
-} from './db-data'
+} from './db-data/beach-queries'
 
 describe('db-data module', () => {
   describe('getAllBeaches', () => {

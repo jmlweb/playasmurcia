@@ -1,7 +1,7 @@
 ---
 argument-hint: [task description]
 description: Groom and add a new task to the backlog
-model: sonnet
+model: haiku
 ---
 
 # Add Task
@@ -63,6 +63,12 @@ Ask the user for:
 | P4        | Nice-to-have, future consideration        |
 
 **Note**: P1 is reserved for the single active task.
+
+6. **Position within priority** (if multiple tasks share the same priority)
+   - Within the same priority level, row order in the Backlog table = execution order
+   - Ask: "There are N other P[X] tasks. Should this go before or after them?"
+   - Show existing tasks at that priority for reference
+   - Place the task row accordingly in the Backlog table
 
 ### 4. Generate Task File
 

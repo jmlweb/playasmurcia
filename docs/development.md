@@ -145,6 +145,12 @@ pnpm tsx scripts/script-name.ts
 | `prune-small-beach-pictures.ts`  | Remove `pictures` entries with missing/unreadable or short side under 600px; optional file delete | After auditing thumbnails; then re-score + migrate    |
 | `fix-orthography.js`             | Proofread Markdown with local Ollama (`/api/chat`); default scope `docs/**/*.md`                  | Ad hoc (review diffs before `--write`)                |
 | `screenshot.ts`                  | Capture page screenshots via Playwright (desktop/mobile, full-page)                               | Ad hoc (UI reviews)                                   |
+| `add-water-quality.ts`           | Assign water quality ratings from certifications and location heuristics                          | Annual (after certification update)                   |
+| `optimize-images.ts`             | Generate WebP/AVIF variants and responsive thumbnails in `public/pictures/optimized/`             | After adding or replacing source images               |
+| `normalize-brightness.ts`        | Normalize brightness/contrast of source photos via histogram stretching (in-place)                | Before `optimize:images`, after new source images     |
+| `sort-pictures-by-resolution.ts` | Sort `pictures` arrays in `beaches.json` by image resolution (highest first)                      | After adding new pictures; then migrate               |
+| `source-wikimedia-pictures.ts`   | Search and review Wikimedia Commons / Flickr CC photos for beaches                                | Ad hoc (when beaches need photos)                     |
+| `download-playas-nexo-images.ts` | Download beach images from CARM Nexo open data portal                                             | One-off (initial image sourcing)                      |
 
 ## Cost Optimization
 

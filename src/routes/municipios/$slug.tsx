@@ -24,7 +24,7 @@ const fetchMunicipalityData = createServerFn({ method: 'GET' })
   })
   .handler(async ({ data }) => {
     const { getAllTags, getBeachesByMunicipality, getMunicipalityBySlug } =
-      await import('@/lib/db-data')
+      await import('@/lib/db-data/beach-queries')
     const { fetchBatchCardWeather } = await import('@/lib/open-meteo')
     const result = await getMunicipalityBySlug(data.slug)
     if (!result) return null
@@ -35,11 +35,10 @@ const fetchMunicipalityData = createServerFn({ method: 'GET' })
       getAllTags(),
     ])
 
+    const { countBlueFlag } = await import('@/lib/nav-builders')
     const weatherMap = await fetchBatchCardWeather(beaches)
     const weatherData = Object.fromEntries(weatherMap)
-    const blueFlagCount = beaches.filter((b) =>
-      b.certifications?.includes('blue-flag'),
-    ).length
+    const blueFlagCount = countBlueFlag(beaches)
 
     const beachesWithPics = beaches.filter(
       (b): b is typeof b & { pictures: [string, ...string[]] } =>
@@ -200,9 +199,9 @@ function MunicipalityPage() {
         <div className="mt-12 text-center">
           <Link
             className="border-ocean-200 text-ocean-600 hover:bg-ocean-50 hover:text-ocean-700 focus-visible:ring-ocean-500 inline-flex items-center gap-1.5 rounded-full border px-5 py-2.5 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
-            to="/municipios"
+            to="/"
           >
-            ← Volver a municipios
+            ← Volver al inicio
           </Link>
         </div>
       </div>

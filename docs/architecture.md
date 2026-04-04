@@ -2,36 +2,37 @@
 
 ## Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| **TanStack Start** | Full-stack React framework |
-| **TanStack Router** | File-based routing |
-| **Vite** | Build tool |
-| **Tailwind CSS v4** | Styling |
-| **TypeScript** | Language (strict mode) |
-| **ESLint** | Linting ([`@jmlweb/eslint-config-react`](https://www.npmjs.com/package/@jmlweb/eslint-config-react)) |
-| **Prettier** | Formatting ([`@jmlweb/prettier-config-tailwind`](https://www.npmjs.com/package/@jmlweb/prettier-config-tailwind)) |
-| **Vitest** | Testing (extends [`@jmlweb/vitest-config`](https://www.npmjs.com/package/@jmlweb/vitest-config); coverage thresholds disabled for this repo) |
-| **Testing Library** | Component testing |
-| **pnpm** | Package manager |
-| **Turso (libSQL)** | Edge database (runtime data) |
-| **Drizzle ORM** | Type-safe SQL |
-| **Cloudflare Cache API** | Durable edge caching for external API calls |
-| **Open-Meteo API** | Coordinate-based weather (cards and detail when AEMET is unavailable) |
-| **AEMET Open Data** | Official beach forecasts where `aemetId` is set |
-| **Leaflet + react-leaflet** | Interactive maps on beach detail (lazy-loaded, client-only) |
+| Technology                    | Purpose                                                                                                                                      |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| **TanStack Start**            | Full-stack React framework                                                                                                                   |
+| **TanStack Router**           | File-based routing                                                                                                                           |
+| **Vite**                      | Build tool                                                                                                                                   |
+| **Tailwind CSS v4**           | Styling                                                                                                                                      |
+| **TypeScript**                | Language (strict mode)                                                                                                                       |
+| **ESLint**                    | Linting ([`@jmlweb/eslint-config-react`](https://www.npmjs.com/package/@jmlweb/eslint-config-react))                                         |
+| **Prettier**                  | Formatting ([`@jmlweb/prettier-config-tailwind`](https://www.npmjs.com/package/@jmlweb/prettier-config-tailwind))                            |
+| **Vitest**                    | Testing (extends [`@jmlweb/vitest-config`](https://www.npmjs.com/package/@jmlweb/vitest-config); coverage thresholds disabled for this repo) |
+| **Testing Library**           | Component testing                                                                                                                            |
+| **pnpm**                      | Package manager                                                                                                                              |
+| **Turso (libSQL)**            | Edge database (runtime data)                                                                                                                 |
+| **Drizzle ORM**               | Type-safe SQL                                                                                                                                |
+| **Cloudflare Cache API**      | Durable edge caching for external API calls                                                                                                  |
+| **Open-Meteo API**            | Coordinate-based weather (cards and detail when AEMET is unavailable)                                                                        |
+| **AEMET Open Data**           | Official beach forecasts where `aemetId` is set                                                                                              |
+| **112 COPLA (112rmurcia.es)** | Live beach flag color and sea state                                                                                                          |
+| **Leaflet + react-leaflet**   | Interactive maps on beach detail (lazy-loaded, client-only)                                                                                  |
 
 ## Current State
 
 The project is on the `v3` branch. Route loaders use async database access via `src/lib/db-data.ts`.
 
-| Layer | Status | File(s) |
-|-------|--------|---------|
-| Database schema | Active | `src/db/schema.ts` |
-| Database client | Active | `src/db/client.ts` |
-| Data access (async) | **Active** — used by routes | `src/lib/db-data.ts` |
-| JSON source files | **Source for migration** — edit then migrate to DB | `data/*.json` |
-| Migration / validation | Ready | `scripts/migrate-to-database.ts`, `scripts/validate-migration.ts` |
+| Layer                  | Status                                             | File(s)                                                           |
+| ---------------------- | -------------------------------------------------- | ----------------------------------------------------------------- |
+| Database schema        | Active                                             | `src/db/schema.ts`                                                |
+| Database client        | Active                                             | `src/db/client.ts`                                                |
+| Data access (async)    | **Active** — used by routes                        | `src/lib/db-data.ts`                                              |
+| JSON source files      | **Source for migration** — edit then migrate to DB | `data/*.json`                                                     |
+| Migration / validation | Ready                                              | `scripts/migrate-to-database.ts`, `scripts/validate-migration.ts` |
 
 ## Project Structure
 
@@ -56,9 +57,16 @@ playasmurcia/
 │   │   ├── edge-cache.ts
 │   │   ├── aemet.ts
 │   │   ├── open-meteo.ts   # Coordinate-based weather
+│   │   ├── beach-status-112.ts  # 112 COPLA live flag/sea state
+│   │   ├── beach-filters.ts     # Filter/sort pure functions
+│   │   ├── cn.ts           # clsx + tailwind-merge helper
+│   │   ├── slugs.ts        # Slug generation
+│   │   ├── status-styles.ts     # Badge Tailwind class maps
 │   │   ├── images.ts
 │   │   ├── schema.ts       # JSON-LD
 │   │   └── collections.ts
+│   ├── hooks/
+│   │   └── use-scroll-reveal.ts  # IntersectionObserver scroll reveal
 │   ├── db/
 │   ├── types/
 │   ├── router.tsx
@@ -83,15 +91,14 @@ playasmurcia/
 
 TanStack Router — files under `src/routes/`:
 
-| Route | File | Description |
-|-------|------|-------------|
-| `/` | `index.tsx` | Home: featured beaches, hero, entry to explorer |
-| `/explorar` | `explorar/index.tsx` | Full list with search and filters |
-| `/playas/:slug` | `playas/$slug.tsx` | Beach detail |
-| `/municipios` | `municipios/index.tsx` | Municipality index |
-| `/municipios/:slug` | `municipios/$slug.tsx` | Beaches in one municipality |
-| `/colecciones` | `colecciones/index.tsx` | Thematic collections index |
-| `/colecciones/:slug` | `colecciones/$slug.tsx` | One collection |
+| Route                | File                    | Description                                     |
+| -------------------- | ----------------------- | ----------------------------------------------- |
+| `/`                  | `index.tsx`             | Home: featured beaches, hero, entry to explorer |
+| `/explorar`          | `explorar/index.tsx`    | Full list with search and filters               |
+| `/playas/:slug`      | `playas/$slug.tsx`      | Beach detail                                    |
+| `/municipios/:slug`  | `municipios/$slug.tsx`  | Beaches in one municipality                     |
+| `/colecciones`       | `colecciones/index.tsx` | Thematic collections index                      |
+| `/colecciones/:slug` | `colecciones/$slug.tsx` | One collection                                  |
 
 Root layout in `__root.tsx` provides document shell, meta, and global styles.
 
@@ -141,17 +148,17 @@ Runtime reads use a network-accessible libSQL URL (`TURSO_DATABASE_URL` / `DATAB
 
 #### Tables
 
-| Table | Records | Description |
-|-------|---------|-------------|
-| beaches | 194 | Main beach data |
-| municipalities | 9 | Coastal municipalities |
-| seas | 2 | Water bodies |
-| services | 9 | Available services |
-| activities | 10 | Beach activities |
-| tags | 17 | Categorical tags |
-| beach_services | ~700 | Junction |
-| beach_activities | ~900 | Junction |
-| beach_tags | ~750 | Junction |
+| Table            | Records | Description            |
+| ---------------- | ------- | ---------------------- |
+| beaches          | 194     | Main beach data        |
+| municipalities   | 9       | Coastal municipalities |
+| seas             | 2       | Water bodies           |
+| services         | 9       | Available services     |
+| activities       | 10      | Beach activities       |
+| tags             | 17      | Categorical tags       |
+| beach_services   | ~700    | Junction               |
+| beach_activities | ~900    | Junction               |
+| beach_tags       | ~750    | Junction               |
 
 ### JSON files (`data/`)
 
@@ -161,10 +168,10 @@ Authoritative **editorial source** for bulk fields; after edits, run migration s
 
 Maintenance and data scripts are listed in [development.md](./development.md).
 
-| Component | Technology |
-|-----------|------------|
-| **Hosting** | Cloudflare Workers |
-| **Database** | Turso (libSQL) |
+| Component       | Technology                              |
+| --------------- | --------------------------------------- |
+| **Hosting**     | Cloudflare Workers                      |
+| **Database**    | Turso (libSQL)                          |
 | **Vite plugin** | `@cloudflare/vite-plugin` (workerd SSR) |
 
 The workerd runtime is not Node.js: `@libsql/client` uses the web client and does not support `file:` database URLs. See [development.md](./development.md) for environment setup.

@@ -17,7 +17,7 @@ You are working through the PlayasMurcia backlog. Each iteration you pick ONE ta
 
 ### 2. If no automatable tasks remain
 
-Delete `plan/ralph-backlog.md` (cleanup), then output <promise>BACKLOG_COMPLETE</promise> and stop.
+Delete `plan/ralph-backlog.md` and `plan/ralph-checkpoint.md` (cleanup), then output <promise>BACKLOG_COMPLETE</promise> and stop.
 
 ### 3. Implement the task
 
@@ -31,6 +31,7 @@ Delete `plan/ralph-backlog.md` (cleanup), then output <promise>BACKLOG_COMPLETE<
 ### 4. Update docs if needed
 
 Per `AGENTS.md` checklist:
+
 - New/modified data fields → `docs/data-schema.md`
 - New business logic → `docs/business-rules.md`
 - New dependencies/structure → `docs/architecture.md`
@@ -41,6 +42,14 @@ Per `AGENTS.md` checklist:
 - Move the task file from `backlog/pending/` to `backlog/done/`
 - Update `backlog/INDEX.md`: move task from Backlog to Recently Completed with today's date, update stats
 - Create a git commit following Conventional Commits: `feat|fix|refactor(scope): description`
+
+### 5b. Update checkpoint
+
+After completing (or skipping) a task, update `plan/ralph-checkpoint.md`:
+
+- Move the task from **Remaining** to **Completed** (or **Skipped** if blocked/failed)
+- Update the `Last updated` timestamp
+- This ensures the loop can be resumed from where it left off if interrupted
 
 ### 6. Exit this iteration
 

@@ -6,6 +6,15 @@
 
 Fetch `http://localhost:3000` — if the request fails, tell the user to start the dev server (`pnpm dev`) and **stop**.
 
+### Screenshots: Playwright only (mandatory)
+
+All **visual evidence** for this workflow must come from **Playwright**, via the repo script — not from `curl`, static HTML dumps, or IDE browser MCP alone.
+
+- **Implementation**: [`scripts/screenshot.ts`](../../scripts/screenshot.ts) launches **Chromium** (`playwright` package) against `http://localhost:3000`, waits for `networkidle`, then writes PNGs.
+- **Per audited page**, run **both** commands (desktop default viewport 1280×800, mobile 375×812 with `--mobile`) with `--full-page`, then **read the image files** (e.g. with the image read tool) before writing directives.
+- **`curl` / HTML fetch** (Phase 2 step 4) is optional and **supplementary** — it does not replace Playwright screenshots.
+- If Playwright fails (browser not installed, etc.), run `pnpm exec playwright install chromium` from the project root and retry; only if it still fails, document the error and stop rather than faking a visual audit.
+
 ## Phase 1: Discover Pages
 
 Read `src/routes/` to build a page inventory. Select **one representative URL per route type**:
@@ -14,7 +23,7 @@ Read `src/routes/` to build a page inventory. Select **one representative URL pe
 |------------|------|-------------|
 | Homepage | `src/routes/index.tsx` | `/` |
 | Beach detail | `src/routes/playas/$slug.tsx` | Pick a beach with a photo |
-| Municipality list | `src/routes/municipios/index.tsx` | `/municipios` |
+| Municipality list | `src/routes/municipios/index.tsx` (if it exists) | `/municipios` |
 | Municipality detail | `src/routes/municipios/$slug.tsx` | Pick one with multiple beaches |
 | Collection index | `src/routes/colecciones/index.tsx` | `/colecciones` |
 | Collection detail | `src/routes/colecciones/$slug.tsx` | Pick one |
@@ -32,12 +41,12 @@ For each page in the list, sequentially:
 2. **Read `docs/ui-guidelines.md`** (first iteration only, then reference as needed)
 3. **Read `src/styles.css`** for theme tokens (first iteration only)
 4. **Fetch the rendered page** from localhost:3000 to see the actual HTML output
-5. **Take a screenshot** of the page using the screenshot script for visual reference:
+5. **Take Playwright screenshots** via `scripts/screenshot.ts` (see *Screenshots: Playwright only* above). Required commands per page:
    ```bash
    pnpm tsx scripts/screenshot.ts /path --out /tmp/ui-review-{page-name}.png --full-page
    pnpm tsx scripts/screenshot.ts /path --out /tmp/ui-review-{page-name}-mobile.png --mobile --full-page
    ```
-   Read the screenshot images to visually inspect the page.
+   Read the PNG outputs to visually inspect the page before drafting the directive.
 6. **Produce a Design Directive** following the format in the agent definition (Critical / Important / Refinement / What Works Well)
 7. **Write the directive** to `reports/pending/{page-name}.md`
 

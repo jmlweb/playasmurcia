@@ -4,20 +4,23 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 0 tasks
-- **In progress**: 0 tasks
-- **Completed**: 92 tasks
+- **Pending**: 3 tasks
+- **In progress**: 1 task
+- **Completed**: 94 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
 
-> All pending tasks completed. Backlog clear for next review cycle.
+> Task #097: Split db-data.ts into Cohesive Modules
 
 ## Backlog
 
-| #                  | Task | Priority | Slice |
-| ------------------ | ---- | -------- | ----- |
-| _No pending tasks_ |
+| #   | Task                                    | Priority    | Slice    |
+| --- | --------------------------------------- | ----------- | -------- |
+| 097 | Split db-data.ts into Cohesive Modules  | P2 - Active | Refactor |
+| 098 | Decompose Heavy Route Files             | P2          | Refactor |
+| 099 | Beach Card Legibility and Featured Images | P2 - Next | Styling |
+| 100 | Municipality Listing Home Link Affordance | P3      | Styling |
 
 ## Removed tasks
 
@@ -27,6 +30,7 @@ Tasks #017 (Source Missing Beach Pictures), #035 (Municipality Cards Imagery), a
 
 | #   | Task                                                    | Completed  |
 | --- | ------------------------------------------------------- | ---------- |
+| 096 | Deduplicate Nav and Statistics Builders                 | 2026-04-04 |
 | 095 | Layout and Assets UI Review Follow-up                   | 2026-04-02 |
 | 094 | Beach Detail Empty States and Trust Polish              | 2026-04-02 |
 | 093 | Listing Image Fallbacks and Explorer Count Copy         | 2026-04-02 |

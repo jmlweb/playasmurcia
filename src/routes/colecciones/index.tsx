@@ -12,7 +12,7 @@ import {
 
 const fetchCollectionsData = createServerFn({ method: 'GET' }).handler(
   async () => {
-    const { getAllBeaches } = await import('@/lib/db-data')
+    const { getAllBeaches } = await import('@/lib/db-data/beach-queries')
     const beaches = await getAllBeaches()
     const items = collections.map((collection) => ({
       slug: collection.slug,
