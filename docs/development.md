@@ -110,13 +110,6 @@ Task files live in `backlog/pending/` (pending) and `backlog/done/` (completed).
 `backlog/INDEX.md` tracks stats and current focus.
 `backlog/LEARNINGS.md` collects insights from development.
 
-### Plan-Based Development
-
-1. `plan/main.md` contains the master plan with all pending steps
-2. Each step has its own file: `plan/step-XX-description.md`
-3. Before starting: Mark step as "in progress" in `main.md`
-4. After completing: Delete the step file and mark as done in `main.md`
-
 ### Backlog
 
 All pending tasks live in `backlog/pending/` — see `backlog/INDEX.md` for the full list.

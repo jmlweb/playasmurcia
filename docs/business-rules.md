@@ -209,7 +209,3 @@ A `recommendationScore` (0-1) is computed at runtime from internal beach data. U
 | Natural shade  | 5%     | 1 if true, 0 otherwise                        |
 
 Beaches with missing data receive neutral defaults (not penalized).
-
-### Future: External popularity signals
-
-Phase 2-3 planned: Google Places API (rating + review count) and OSM Overpass (nearby amenities) to boost scores. Suggested split: 60% internal + 40% popularity. Requires `GOOGLE_PLACES_API_KEY` env var.

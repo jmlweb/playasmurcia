@@ -2,8 +2,9 @@
 
 ## Metadata
 
-- **Status**: in_progress
+- **Status**: completed
 - **Priority**: P1 - Active
+- **Completed**: 2026-04-04
 - **Slice**: Refactor
 - **Created**: 2026-04-04
 - **Blocked by**: -
@@ -51,3 +52,4 @@ Architecture report ([reports/pending/architecture-modularity-solid-improvements
 
 - [2026-04-04 20:10] Started task
 - [2026-04-04] Task created from architecture report.
+- [2026-04-04 21:40] Task completed — all criteria verified

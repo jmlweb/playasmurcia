@@ -97,11 +97,13 @@
 }
 
 @layer components {
-  /* Hero copy: full-box frosted scrim on ::after (backdrop blur), text above stays sharp. */
+  /* Hero copy: tinted panel on the box; ::after adds frosted blur only. */
   .hero-text-scrim {
     position: relative;
     z-index: 1;
     isolation: isolate;
+    border-radius: 1rem;
+    background: rgb(from var(--color-ocean-950) r g b / 0.4);
   }
 
   .hero-text-scrim::after {
@@ -258,7 +260,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.04;
+    opacity: 0.2;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     background-size: 200px 200px;
   }

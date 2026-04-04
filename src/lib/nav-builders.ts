@@ -17,6 +17,11 @@ export type NavCharacteristic = {
   count: number
 }
 
+export type NavData = {
+  municipalities: NavMunicipality[]
+  characteristics: NavCharacteristic[]
+}
+
 export function buildMunicipalityNav(
   beaches: Beach[],
   municipalities: Municipality[],

@@ -84,75 +84,17 @@ When asked to review a single page, still spot-check 1-2 related pages for consi
 
 ### Review Checklist
 
-For every piece of UI you review, evaluate:
+For every piece of UI you review, evaluate these dimensions. For detailed tokens, values, and patterns, cross-reference `docs/ui-guidelines.md` — it is the design system source of truth.
 
-**Typography**
-
-- [ ] Font sizes follow a consistent scale (not arbitrary values)
-- [ ] Line heights are appropriate for the font size and context
-- [ ] Font weights create clear hierarchy (not everything bold, not everything regular)
-- [ ] Text is readable at all breakpoints
-- [ ] No orphaned words or awkward line breaks in key headings
-
-**Color & Contrast**
-
-- [ ] Text contrast meets WCAG AA (4.5:1 normal text, 3:1 large text)
-- [ ] Interactive elements are visually distinguishable
-- [ ] Color is not the only indicator of state (icons, underlines, etc.)
-- [ ] Palette usage is consistent with the design system
-- [ ] No clashing or muddy color combinations
-
-**Spacing & Layout**
-
-- [ ] Consistent use of spacing scale (no magic numbers)
-- [ ] Adequate whitespace between sections (content breathes)
-- [ ] Alignment is pixel-perfect (no visual misalignments)
-- [ ] Grid is consistent and responsive
-- [ ] Content density is appropriate for the context
-
-**Visual Hierarchy**
-
-- [ ] The eye knows where to go first
-- [ ] Primary actions are visually dominant
-- [ ] Secondary information is appropriately subdued
-- [ ] Grouping and proximity communicate relationships
-- [ ] Nothing competes for attention unnecessarily
-
-**Accessibility**
-
-- [ ] Focus states are visible and consistent
-- [ ] Semantic heading structure (h1 > h2 > h3, no skips)
-- [ ] Interactive elements have sufficient touch/click targets (44px min)
-- [ ] Images have meaningful alt text
-- [ ] Keyboard navigation works logically
-
-**Animation & Transitions**
-
-- [ ] Hover/focus transitions are smooth (not instant snap)
-- [ ] Duration is appropriate (150-300ms for micro-interactions, 300-500ms for layout changes)
-- [ ] Easing feels natural (ease-out for entrances, ease-in for exits)
-- [ ] No animation that causes layout shifts
-- [ ] Respects `prefers-reduced-motion`
-
-**Responsive**
-
-- [ ] Mobile layout is not just a squeezed desktop
-- [ ] Touch targets are adequate on mobile
-- [ ] Typography scales appropriately across breakpoints
-- [ ] No horizontal overflow at any breakpoint
-- [ ] Images adapt to viewport
-
-**Contemporary & professional fit**
-
-- [ ] Overall impression is current and credible (not dated template or “admin panel pasted on marketing”)
-- [ ] Surfaces, borders, and shadows feel deliberate and consistent as a system
-- [ ] Interactive affordances match expectations of polished consumer web (clear states, no ambiguous click targets)
-- [ ] Brand voice (coastal, content-first per guidelines) is preserved while execution feels fresh
-
-**Color scheme**
-
-- [ ] If the project supports dark mode or `prefers-color-scheme`, verify both themes
-- [ ] Semantic color tokens work correctly in all supported schemes (no hardcoded values that break in dark mode)
+- **Typography**: consistent scale, appropriate line-heights, clear weight hierarchy, readability at all breakpoints
+- **Color & Contrast**: WCAG AA compliance (4.5:1 / 3:1), consistent palette usage, state not conveyed by color alone
+- **Spacing & Layout**: consistent spacing scale, adequate whitespace, pixel-perfect alignment, responsive grid
+- **Visual Hierarchy**: clear focal point, dominant primary actions, subdued secondary info, proximity-based grouping
+- **Accessibility**: visible focus states, semantic heading structure, 44px+ touch targets, meaningful alt text, logical keyboard nav
+- **Animation & Transitions**: smooth transitions (150-500ms), natural easing, no layout shifts, `prefers-reduced-motion` respected
+- **Responsive**: mobile-first (not squeezed desktop), adaptive typography, no horizontal overflow
+- **Contemporary fit**: current and credible impression, deliberate surfaces/borders/shadows, polished interactive states, brand voice preserved
+- **Color scheme**: verify both themes if dark mode supported, no hardcoded values breaking in alternate scheme
 
 ## Proactive Behavior
 

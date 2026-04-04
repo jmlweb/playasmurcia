@@ -4,23 +4,21 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 3 tasks
-- **In progress**: 1 task
-- **Completed**: 94 tasks
+- **Pending**: 2 tasks
+- **In progress**: 0 tasks
+- **Completed**: 96 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
 
-> Task #097: Split db-data.ts into Cohesive Modules
+> No active task. Next up: Task #099
 
 ## Backlog
 
-| #   | Task                                    | Priority    | Slice    |
-| --- | --------------------------------------- | ----------- | -------- |
-| 097 | Split db-data.ts into Cohesive Modules  | P2 - Active | Refactor |
-| 098 | Decompose Heavy Route Files             | P2          | Refactor |
+| #   | Task                                      | Priority  | Slice   |
+| --- | ----------------------------------------- | --------- | ------- |
 | 099 | Beach Card Legibility and Featured Images | P2 - Next | Styling |
-| 100 | Municipality Listing Home Link Affordance | P3      | Styling |
+| 100 | Municipality Listing Home Link Affordance | P3        | Styling |
 
 ## Removed tasks
 
@@ -30,6 +28,8 @@ Tasks #017 (Source Missing Beach Pictures), #035 (Municipality Cards Imagery), a
 
 | #   | Task                                                    | Completed  |
 | --- | ------------------------------------------------------- | ---------- |
+| 098 | Decompose Heavy Route Files                             | 2026-04-04 |
+| 097 | Split db-data.ts into Cohesive Modules                  | 2026-04-04 |
 | 096 | Deduplicate Nav and Statistics Builders                 | 2026-04-04 |
 | 095 | Layout and Assets UI Review Follow-up                   | 2026-04-02 |
 | 094 | Beach Detail Empty States and Trust Polish              | 2026-04-02 |

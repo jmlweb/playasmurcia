@@ -6,6 +6,7 @@ import { Breadcrumb } from '@/components/layout/breadcrumb'
 import { PageHero } from '@/components/layout/page-hero'
 import { EmptyState } from '@/components/ui/empty-state'
 import { BeachCard } from '@/features/beaches/beach-card'
+import { ActiveFilterChips } from '@/features/explorer/active-filter-chips'
 import {
   FilterPanel,
   FilterToggleButton,
@@ -16,44 +17,8 @@ import { SearchBar } from '@/features/listing/search-bar'
 import { SortSelect } from '@/features/listing/sort-select'
 import type { BeachSearchParams } from '@/lib/beach-filters'
 import { applyFiltersAndSort, countActiveFilters } from '@/lib/beach-filters'
+import { validateSearch } from '@/lib/explorer-search'
 import { beachToSlug } from '@/lib/slugs'
-
-type ExplorerSearchParams = BeachSearchParams & { page?: number }
-
-function parseNumberArray(value: unknown): number[] | undefined {
-  if (Array.isArray(value)) {
-    const nums = value.map(Number).filter((n) => !isNaN(n))
-    return nums.length > 0 ? nums : undefined
-  }
-  if (typeof value === 'string') {
-    const n = Number(value)
-    return isNaN(n) ? undefined : [n]
-  }
-  return undefined
-}
-
-function validateSearch(search: Record<string, unknown>): ExplorerSearchParams {
-  return {
-    q: typeof search.q === 'string' ? search.q : undefined,
-    municipality: parseNumberArray(search.municipality),
-    sea: parseNumberArray(search.sea),
-    services: parseNumberArray(search.services),
-    activities: parseNumberArray(search.activities),
-    tags: parseNumberArray(search.tags),
-    sort:
-      search.sort === 'recomendados' ||
-      search.sort === 'name' ||
-      search.sort === 'municipality' ||
-      search.sort === 'length' ||
-      search.sort === 'occupancy'
-        ? search.sort
-        : undefined,
-    page:
-      typeof search.page === 'number' && search.page > 0
-        ? Math.floor(search.page)
-        : undefined,
-  }
-}
 
 const fetchExplorerData = createServerFn({ method: 'GET' }).handler(
   async () => {
@@ -165,22 +130,6 @@ function ExplorerPage() {
     [beaches],
   )
 
-  function handleSearchChange(q: string) {
-    updateFilters({ ...filters, q: q || undefined })
-  }
-
-  function handleSortChange(nextSort: BeachSearchParams['sort']) {
-    updateFilters({ ...filters, sort: nextSort })
-  }
-
-  function handleFiltersChange(next: BeachSearchParams) {
-    updateFilters({ ...next, sort })
-  }
-
-  function clearAllFilters() {
-    updateFilters({ sort })
-  }
-
   const hasActiveFilters =
     filters.q?.trim() ||
     (filters.municipality?.length ?? 0) > 0 ||
@@ -191,100 +140,17 @@ function ExplorerPage() {
 
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false)
 
-  const activeChips = useMemo(() => {
-    const chips: { key: string; label: string; onRemove: () => void }[] = []
-    if (filters.municipality) {
-      for (const i of filters.municipality) {
-        const m = municipalities[i]
-        if (m)
-          chips.push({
-            key: `m-${i}`,
-            label: m.name,
-            onRemove: () => {
-              updateFilters({
-                ...filters,
-                municipality: filters.municipality?.filter((v) => v !== i),
-              })
-            },
-          })
-      }
-    }
-    if (filters.sea) {
-      for (const i of filters.sea) {
-        const s = seas[i]
-        if (s)
-          chips.push({
-            key: `s-${i}`,
-            label: s.name,
-            onRemove: () => {
-              updateFilters({
-                ...filters,
-                sea: filters.sea?.filter((v) => v !== i),
-              })
-            },
-          })
-      }
-    }
-    if (filters.services) {
-      for (const i of filters.services) {
-        const s = services[i]
-        if (s)
-          chips.push({
-            key: `sv-${i}`,
-            label: s.name,
-            onRemove: () => {
-              updateFilters({
-                ...filters,
-                services: filters.services?.filter((v) => v !== i),
-              })
-            },
-          })
-      }
-    }
-    if (filters.activities) {
-      for (const i of filters.activities) {
-        const a = activities[i]
-        if (a)
-          chips.push({
-            key: `a-${i}`,
-            label: a.name,
-            onRemove: () => {
-              updateFilters({
-                ...filters,
-                activities: filters.activities?.filter((v) => v !== i),
-              })
-            },
-          })
-      }
-    }
-    if (filters.tags) {
-      for (const i of filters.tags) {
-        const t = tags[i]
-        if (t)
-          chips.push({
-            key: `t-${i}`,
-            label: t.name,
-            onRemove: () => {
-              updateFilters({
-                ...filters,
-                tags: filters.tags?.filter((v) => v !== i),
-              })
-            },
-          })
-      }
-    }
-    return chips
-  }, [filters, municipalities, seas, services, activities, tags, updateFilters])
-
   return (
     <main className="bg-sand-50 min-h-screen">
-      {/* Header */}
       <PageHero
         backgroundAlt="Costa de Murcia"
         backgroundImage="/pictures/hero-explorar.png"
         optimizedName="hero-explorar"
       >
-        <h1 className="mb-4 text-3xl font-normal tracking-tight text-white sm:text-4xl">
+        <p className="text-ocean-300 mb-3 text-sm font-medium tracking-widest uppercase">
+          Costa de Murcia
+        </p>
+        <h1 className="mb-4 text-4xl font-normal tracking-tight text-white sm:text-5xl">
           Explorar playas
         </h1>
         <p className="text-ocean-200 mx-auto mb-8 max-w-xl text-lg">
@@ -293,17 +159,20 @@ function ExplorerPage() {
             : `Filtra entre ${beaches.length} playas y calas del litoral murciano`}
         </p>
         <div className="mx-auto max-w-2xl">
-          <SearchBar value={filters.q ?? ''} onChange={handleSearchChange} />
+          <SearchBar
+            value={filters.q ?? ''}
+            onChange={(q: string) => {
+              updateFilters({ ...filters, q: q || undefined })
+            }}
+          />
         </div>
       </PageHero>
 
-      {/* Explorer */}
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <Breadcrumb
           items={[{ label: 'Inicio', href: '/' }, { label: 'Explorar playas' }]}
         />
         <div className="flex gap-10">
-          {/* Sidebar filters (single instance handles both mobile + desktop) */}
           <FilterPanel
             activities={activities}
             filters={filters}
@@ -312,15 +181,15 @@ function ExplorerPage() {
             seas={seas}
             services={services}
             tags={tags}
-            onChange={handleFiltersChange}
+            onChange={(next: BeachSearchParams) => {
+              updateFilters({ ...next, sort })
+            }}
             onMobileClose={() => {
               setMobileFilterOpen(false)
             }}
           />
 
-          {/* Main content */}
           <div className="min-w-0 flex-1">
-            {/* Toolbar */}
             <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-3">
                 <FilterToggleButton
@@ -336,47 +205,27 @@ function ExplorerPage() {
                   playas encontradas
                 </span>
               </div>
-              <SortSelect value={sort} onChange={handleSortChange} />
+              <SortSelect
+                value={sort}
+                onChange={(nextSort: BeachSearchParams['sort']) => {
+                  updateFilters({ ...filters, sort: nextSort })
+                }}
+              />
             </div>
 
-            {/* Active filter chips */}
-            {activeChips.length > 0 && (
-              <div className="mb-5 flex flex-wrap gap-2">
-                {activeChips.map((chip) => (
-                  <button
-                    key={chip.key}
-                    className="bg-ocean-50 text-ocean-700 hover:bg-ocean-100 focus-visible:ring-ocean-500 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:outline-none"
-                    type="button"
-                    onClick={chip.onRemove}
-                  >
-                    {chip.label}
-                    <svg
-                      aria-hidden="true"
-                      className="h-3.5 w-3.5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M6 18L18 6M6 6l12 12"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                      />
-                    </svg>
-                  </button>
-                ))}
-                <button
-                  className="focus-visible:ring-ocean-500 rounded-full text-sm text-gray-500 underline underline-offset-2 hover:text-gray-700 focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:outline-none"
-                  type="button"
-                  onClick={clearAllFilters}
-                >
-                  Limpiar todo
-                </button>
-              </div>
-            )}
+            <ActiveFilterChips
+              activities={activities}
+              filters={filters}
+              municipalities={municipalities}
+              seas={seas}
+              services={services}
+              tags={tags}
+              onClearAll={() => {
+                updateFilters({ sort })
+              }}
+              onUpdateFilters={updateFilters}
+            />
 
-            {/* Results */}
             {allFiltered.length > 0 ? (
               <>
                 <PageInfo
@@ -412,7 +261,9 @@ function ExplorerPage() {
                     <button
                       className="bg-ocean-600 hover:bg-ocean-700 focus-visible:ring-ocean-500 rounded-full px-5 py-2.5 text-sm font-medium text-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
                       type="button"
-                      onClick={clearAllFilters}
+                      onClick={() => {
+                        updateFilters({ sort })
+                      }}
                     >
                       Limpiar filtros
                     </button>
