@@ -23,6 +23,8 @@ Custom coastal palette defined in `src/styles.css` via `@theme` (Tailwind v4 CSS
 | `sand-50`   | `#fefcf8`                    | Default page background              |
 | `sand-100`  | `#fdf6eb`                    | Card/section alt background          |
 | `white`     | —                            | Card backgrounds                     |
+| `coral-400` | `#f0806e`                    | Warm accent (overlines, highlights)  |
+| `coral-500` | `#e8604d`                    | Warm accent (active states)          |
 | `gray-500`  | —                            | Secondary text, captions             |
 | `gray-900`  | —                            | Headings, high-emphasis text         |
 
@@ -31,7 +33,12 @@ Custom coastal palette defined in `src/styles.css` via `@theme` (Tailwind v4 CSS
 - Ocean gradient (`from-ocean-900 via-ocean-800 to-ocean-700`) for hero and section headers
 - Solid ocean (`ocean-600`) for accent sections
 - Nav color (`bg-nav`) for navigation bar (color-mix of ocean-950 and slate-900)
+- Coral (`coral-400`/`coral-500`) for warm accent highlights (sparingly)
 - Avoid introducing new brand colors without clear justification
+
+**Allowed thematic hues** (collections, category cards):
+
+Use only brand tokens (`ocean`, `sand`, `coral`) and these ocean-adjacent Tailwind families: `teal`, `cyan`, `sky`, `amber`. Differentiate categories via lightness/saturation steps within this set. Do not use `purple`, `pink`, `indigo`, `rose`, or other unrelated hues for thematic cards.
 
 ## Typography
 

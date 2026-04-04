@@ -54,6 +54,14 @@ const FEATURED_SLUGS = new Set([
   'snorkel',
 ])
 
+/**
+ * Thematic color map — restricted to brand-harmonized hues:
+ *   ocean (custom), teal, cyan, sky   → water/marine themes
+ *   sand (custom), amber              → warm/land themes
+ *   coral (custom via amber-warm)     → accent/highlight themes
+ *
+ * See docs/ui-guidelines.md § Color Palette for allowed tokens.
+ */
 const ThematicThemes: Record<
   string,
   { bg: string; text: string; gradient: string }
@@ -64,24 +72,24 @@ const ThematicThemes: Record<
     gradient: 'from-teal-100 to-teal-200',
   },
   'playas-familiares': {
+    bg: 'bg-sand-100',
+    text: 'text-sand-500',
+    gradient: 'from-sand-100 to-sand-200',
+  },
+  'playas-para-perros': {
     bg: 'bg-amber-50',
     text: 'text-amber-600',
     gradient: 'from-amber-100 to-amber-200',
   },
-  'playas-para-perros': {
-    bg: 'bg-orange-50',
-    text: 'text-orange-600',
-    gradient: 'from-orange-100 to-orange-200',
-  },
   'playas-nudistas': {
-    bg: 'bg-rose-50',
-    text: 'text-rose-600',
-    gradient: 'from-rose-100 to-rose-200',
+    bg: 'bg-sand-50',
+    text: 'text-sand-500',
+    gradient: 'from-sand-200 to-sand-300',
   },
   'con-chiringuito': {
-    bg: 'bg-purple-50',
-    text: 'text-purple-600',
-    gradient: 'from-purple-100 to-purple-200',
+    bg: 'bg-amber-50',
+    text: 'text-amber-700',
+    gradient: 'from-amber-50 to-amber-100',
   },
   'bandera-azul': {
     bg: 'bg-sky-50',
@@ -94,29 +102,29 @@ const ThematicThemes: Record<
     gradient: 'from-cyan-100 to-cyan-200',
   },
   'deportes-acuaticos': {
-    bg: 'bg-indigo-50',
-    text: 'text-indigo-600',
-    gradient: 'from-indigo-100 to-indigo-200',
+    bg: 'bg-ocean-50',
+    text: 'text-ocean-600',
+    gradient: 'from-ocean-100 to-ocean-200',
   },
   'mejores-atardeceres': {
-    bg: 'bg-yellow-50',
-    text: 'text-yellow-600',
-    gradient: 'from-yellow-100 to-yellow-200',
+    bg: 'bg-amber-50',
+    text: 'text-amber-600',
+    gradient: 'from-amber-100 to-sand-200',
   },
   'playas-tranquilas': {
-    bg: 'bg-green-50',
-    text: 'text-green-600',
-    gradient: 'from-green-100 to-green-200',
+    bg: 'bg-teal-50',
+    text: 'text-teal-700',
+    gradient: 'from-teal-50 to-teal-100',
   },
   accesibles: {
-    bg: 'bg-blue-50',
-    text: 'text-blue-600',
-    gradient: 'from-blue-100 to-blue-200',
+    bg: 'bg-sky-50',
+    text: 'text-sky-700',
+    gradient: 'from-sky-50 to-sky-100',
   },
   'playas-fotogenicas': {
-    bg: 'bg-pink-50',
-    text: 'text-pink-600',
-    gradient: 'from-pink-100 to-pink-200',
+    bg: 'bg-ocean-50',
+    text: 'text-ocean-500',
+    gradient: 'from-ocean-50 to-ocean-100',
   },
 }
 
