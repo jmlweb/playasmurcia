@@ -291,7 +291,9 @@ export function Navbar({ navData }: { navData: NavData }) {
             <Link
               key={to}
               activeOptions={{ exact: false }}
-              activeProps={{ className: 'text-white' }}
+              activeProps={{
+                className: 'text-white border-l-2 border-ocean-400 pl-2',
+              }}
               className="block py-2.5 text-sm font-medium transition-colors"
               inactiveProps={{ className: 'text-ocean-200 hover:text-white' }}
               to={to}

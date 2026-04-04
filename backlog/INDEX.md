@@ -4,20 +4,19 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 1 tasks
+- **Pending**: 0 tasks
 - **In progress**: 0 tasks
-- **Completed**: 99 tasks
+- **Completed**: 100 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
 
-> No active task. Next up: Task #102
+> No active task. Backlog empty.
 
 ## Backlog
 
-| #   | Task                                 | Priority | Slice   |
-| --- | ------------------------------------ | -------- | ------- |
-| 102 | Navbar Mobile Active Color Indicator | P3       | Styling |
+| #   | Task | Priority | Slice |
+| --- | ---- | -------- | ----- |
 
 ## Removed tasks
 
@@ -27,6 +26,7 @@ Tasks #017 (Source Missing Beach Pictures), #035 (Municipality Cards Imagery), a
 
 | #   | Task                                                    | Completed  |
 | --- | ------------------------------------------------------- | ---------- |
+| 102 | Navbar Mobile Active Color Indicator                    | 2026-04-04 |
 | 101 | Collections Index — Thematic Colors (Brand)             | 2026-04-04 |
 | 100 | Municipality Listing Home Link Affordance               | 2026-04-04 |
 | 099 | Beach Card Legibility and Featured Images               | 2026-04-04 |
