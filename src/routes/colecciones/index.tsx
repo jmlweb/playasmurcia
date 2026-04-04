@@ -158,9 +158,9 @@ function CollectionCard({
           className={`relative flex h-28 items-end bg-gradient-to-br p-4 ${theme.gradient}`}
         >
           <div
-            className={`flex h-14 w-14 items-center justify-center rounded-2xl ${theme.bg} ${theme.text} shadow-sm`}
+            className={`flex h-16 w-16 items-center justify-center rounded-2xl ${theme.bg} ${theme.text} shadow-sm`}
           >
-            <CollectionIcon className="h-7 w-7" slug={slug} />
+            <CollectionIcon className="h-8 w-8" slug={slug} />
           </div>
         </div>
         <div className="flex flex-1 flex-col p-5">
@@ -193,7 +193,7 @@ function CollectionCard({
       to="/colecciones/$slug"
     >
       {/* Compact colour band */}
-      <div className={`h-16 bg-gradient-to-br ${theme.gradient}`} />
+      <div className={`h-2 bg-gradient-to-br ${theme.gradient}`} />
       <div className="flex flex-1 flex-col p-5">
         <div className="mb-3 flex items-center gap-3">
           <div
@@ -324,7 +324,7 @@ function ColeccionesPage() {
 
         {/* Seas — horizontal banners */}
         <section className="mb-10">
-          <h2 className="mb-5 text-2xl font-semibold text-gray-900">
+          <h2 className="mb-5 text-3xl font-semibold text-gray-900">
             Playas por mar
           </h2>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:gap-6">
@@ -340,8 +340,8 @@ function ColeccionesPage() {
         </section>
 
         {/* Thematic collections */}
-        <section className="bg-sand-100 rounded-3xl p-6 sm:p-8">
-          <h2 className="mb-6 text-2xl font-semibold text-gray-900">
+        <section className="bg-sand-100 rounded-3xl p-4 sm:p-6 lg:p-8">
+          <h2 className="mb-6 text-3xl font-semibold text-gray-900">
             Colecciones temáticas
           </h2>
 

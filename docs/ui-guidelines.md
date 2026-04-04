@@ -149,15 +149,16 @@ Two height tiers to create visual hierarchy between the homepage and inner pages
 | ------------------------ | ------------------------- | ---------------------------------------------------------- |
 | **Homepage** (immersive) | `py-16 sm:py-20 lg:py-28` | Homepage hero only — full-bleed image, staggered animation |
 | **Inner page** (compact) | `py-14 sm:py-18 lg:py-20` | All other pages — gradient background, functional header   |
+| **Photo inner**          | `py-16 sm:py-24 lg:py-32` | Inner pages with photo hero background (e.g. colecciones)  |
 
 ### Heading size tiers
 
 Inner pages follow two sub-tiers for `h1` size:
 
-| Sub-tier          | Size                                                            | Usage                                                                                 |
-| ----------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| **Index**         | `text-4xl font-extrabold tracking-tight text-white sm:text-5xl` | Index/listing pages (`/colecciones`)                                                  |
-| **Detail / tool** | `text-3xl font-extrabold tracking-tight text-white sm:text-4xl` | Detail pages (`/municipios/$slug`, `/colecciones/$slug`) and tool pages (`/explorar`) |
+| Sub-tier          | Size                                                         | Usage                                                                                                                                        |
+| ----------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Index**         | `text-4xl font-normal tracking-tight text-white sm:text-5xl` | Index/listing pages (`/colecciones`). Uses `font-normal` because DM Serif Display only ships Regular (400) weight.                           |
+| **Detail / tool** | `text-3xl font-normal tracking-tight text-white sm:text-4xl` | Detail pages (`/municipios/$slug`, `/colecciones/$slug`) and tool pages (`/explorar`). Uses `font-normal` — same DM Serif Display rationale. |
 
 **Structure** (inner pages):
 
@@ -252,7 +253,7 @@ Pages such as **404 Not Found** or route-level **not found** often sit on the de
 Pages that are children of an index (e.g. `/colecciones/$slug` → `/colecciones`) include a bottom back-link:
 
 - Position: `mt-12 text-center` below the main content
-- Style: `text-ocean-600 hover:text-ocean-700 text-sm font-medium transition-colors focus:outline-none focus-visible:underline`
+- Style: **bordered pill button** — `border-ocean-200 text-ocean-600 hover:bg-ocean-50 hover:text-ocean-700 inline-flex items-center gap-1.5 rounded-full border px-5 py-2.5 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none`. The pill button provides better affordance and visual consistency than a plain text link.
 - Copy: Use the pattern `← Volver a {section}` consistently (e.g. "← Volver a colecciones", "← Volver a municipios"). Do not mix with "Ver todos/as" or other verbs.
 
 ## Data in the UI

@@ -91,8 +91,26 @@ export const Route = createFileRoute('/colecciones/$slug')({
   component: CollectionPage,
 })
 
+const badgeTheme: Record<string, { bg: string; text: string }> = {
+  'calas-escondidas': { bg: 'bg-teal-500/30', text: 'text-teal-100' },
+  'playas-familiares': { bg: 'bg-sand-500/30', text: 'text-sand-100' },
+  'playas-para-perros': { bg: 'bg-amber-500/30', text: 'text-amber-100' },
+  'playas-nudistas': { bg: 'bg-sand-500/30', text: 'text-sand-100' },
+  'con-chiringuito': { bg: 'bg-amber-500/30', text: 'text-amber-100' },
+  'bandera-azul': { bg: 'bg-sky-500/30', text: 'text-sky-100' },
+  snorkel: { bg: 'bg-cyan-500/30', text: 'text-cyan-100' },
+  'deportes-acuaticos': { bg: 'bg-ocean-500/30', text: 'text-ocean-100' },
+  'mejores-atardeceres': { bg: 'bg-amber-500/30', text: 'text-amber-100' },
+  'playas-tranquilas': { bg: 'bg-teal-500/30', text: 'text-teal-100' },
+  accesibles: { bg: 'bg-sky-500/30', text: 'text-sky-100' },
+  'playas-fotogenicas': { bg: 'bg-ocean-500/30', text: 'text-ocean-100' },
+}
+
+const defaultBadge = { bg: 'bg-ocean-500/30', text: 'text-ocean-100' }
+
 function CollectionPage() {
   const { collection, items, tags, weatherData } = Route.useLoaderData()
+  const badge = badgeTheme[collection.slug] ?? defaultBadge
   const PAGE_SIZE = 15
   const [sort, setSort] =
     useState<NonNullable<BeachSearchParams['sort']>>('recomendados')
@@ -127,10 +145,11 @@ function CollectionPage() {
         <h1 className="mb-4 text-3xl font-normal tracking-tight text-white sm:text-4xl">
           {collection.title}
         </h1>
-        <p className="text-ocean-200 mb-4 text-lg">{collection.description}</p>
+        <p className="text-ocean-200 mx-auto mb-4 max-w-xl text-lg">
+          {collection.description}
+        </p>
         <span
-          className="bg-ocean-500/30 text-ocean-100 inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-medium backdrop-blur-sm"
-          role="text"
+          className={`${badge.bg} ${badge.text} inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-medium backdrop-blur-sm`}
         >
           {items.length} {items.length === 1 ? 'playa' : 'playas'}
         </span>
@@ -146,7 +165,11 @@ function CollectionPage() {
         />
 
         {items.length > 0 && (
-          <div className="mb-6 flex justify-end">
+          <div className="mb-6 flex items-center justify-between">
+            <span className="text-sm text-gray-500">
+              {sortedItems.length}{' '}
+              {sortedItems.length === 1 ? 'playa' : 'playas'}
+            </span>
             <SortSelect value={sort} onChange={setSort} />
           </div>
         )}
