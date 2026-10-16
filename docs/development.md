@@ -71,6 +71,8 @@ TURSO_AUTH_TOKEN=your-token
 
 Copy `.env.example` to `.env` and set real Turso credentials.
 
+`VITE_MAPBOX_TOKEN` (Mapbox public `pk.*` token) powers the beach maps. Vite inlines it into the client bundle at build time, so it must also be set in the Cloudflare build environment, and it should be URL-restricted in the Mapbox dashboard. Never hardcode it: GitHub push protection rejects commits that contain it.
+
 #### Important: Cloudflare Workers runtime constraints
 
 The Cloudflare Vite plugin runs SSR in a **workerd** runtime (not Node.js). This means:

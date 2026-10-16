@@ -1,7 +1,6 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 
-const MAPBOX_TOKEN =
-  import.meta.env.VITE_MAPBOX_TOKEN
+const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN
 
 const IDLE_TIMEOUT_MS = 8_000
 const OBSERVER_MARGIN = '400px'
