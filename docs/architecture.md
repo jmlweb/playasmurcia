@@ -24,7 +24,7 @@
 
 ## Current State
 
-The project is on the `v3` branch. Route loaders use async database access via `src/lib/db-data.ts`.
+Development happens on `main`; every push deploys to www.playasmurcia.com. Route loaders use async database access via `src/lib/db-data.ts`.
 
 | Layer                  | Status                                             | File(s)                                                           |
 | ---------------------- | -------------------------------------------------- | ----------------------------------------------------------------- |

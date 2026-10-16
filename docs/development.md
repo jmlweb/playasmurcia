@@ -114,11 +114,13 @@ pnpm drizzle-kit push
 turso db shell playasmurcia "ALTER TABLE beaches ADD COLUMN new_column TEXT;"
 ```
 
-After modifying `data/*.json`, re-run migration:
+After modifying `data/*.json`, re-run migration against Turso:
 
 ```bash
-pnpm tsx scripts/migrate-to-database.ts
+NODE_ENV=production pnpm tsx --env-file=.env scripts/migrate-to-database.ts
 ```
+
+Both parts are required. Without `NODE_ENV=production` the script writes to `DATABASE_URL` or `file:./local.db`, never to Turso, and tsx does not load `.env` on its own (`URL_INVALID: The URL 'undefined'`). The script clears and reinserts every table without a transaction, so the live site may briefly show partial data.
 
 ## Workflow
 
@@ -277,9 +279,9 @@ TanStack Router generates `src/routeTree.gen.ts` automatically. If types are sta
 
 ### Stale data after JSON edits
 
-If you edit JSON files in `data/`, re-run the migration to sync the database:
+If you edit JSON files in `data/`, re-run the migration to sync the database. `pnpm dev` and production read Turso, so target it (see [Keeping remote DB in sync](#keeping-remote-db-in-sync)):
 
 ```bash
-pnpm tsx scripts/migrate-to-database.ts
-pnpm tsx scripts/validate-migration.ts
+NODE_ENV=production pnpm tsx --env-file=.env scripts/migrate-to-database.ts
+pnpm tsx --env-file=.env scripts/validate-migration.ts
 ```

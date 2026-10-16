@@ -29,7 +29,7 @@ Project documentation is in `docs/`:
 
 ## Project state
 
-- **Branch**: `v3`
+- **Branch**: `main` — every push deploys to production (www.playasmurcia.com) through `.github/workflows/ci.yml`
 - **Package manager**: **pnpm** only — see [docs/development.md](./docs/development.md) for setup.
 - **Data access**: Route loaders use async queries via `src/lib/db-data.ts` against Turso (libSQL). There is **no** runtime JSON loader in `src/lib/`; `data/*.json` is the **editorial source** — edit JSON, then migrate (see `docs/architecture.md` and `docs/development.md`).
 - **Local DB**: `local.db` is created locally (not committed); use Drizzle push + migration script as documented.
