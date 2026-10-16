@@ -12,23 +12,23 @@ export function HeroSection({ totalBeaches }: { totalBeaches: number }) {
       optimizedMaxWidth={2816}
       optimizedName="hero"
     >
-      <p className="text-ocean-300 animate-fade-up mb-4 text-xs font-semibold tracking-[0.2em] uppercase sm:text-sm">
+      <p className="animate-fade-up mb-4 text-xs font-semibold tracking-[0.2em] text-ocean-300 uppercase sm:text-sm">
         Costa Cálida &middot; Región de Murcia
       </p>
       <h1 className="animate-fade-up mb-6 text-4xl font-normal tracking-tight text-white [animation-delay:75ms] sm:text-5xl lg:text-6xl">
         Encuentra tu playa ideal
       </h1>
-      <p className="text-ocean-100 animate-fade-up mx-auto mb-2 max-w-2xl text-lg leading-relaxed [animation-delay:150ms] sm:text-xl">
+      <p className="animate-fade-up mx-auto mb-2 max-w-2xl text-lg leading-relaxed text-ocean-100 [animation-delay:150ms] sm:text-xl">
         <b>252</b> kilómetros de litoral, <b>{totalBeaches}</b> playas y calas
         entre dos mares.
       </p>
-      <p className="text-ocean-100 animate-fade-up mx-auto mb-10 max-w-2xl text-lg leading-relaxed [animation-delay:150ms] sm:text-xl">
+      <p className="animate-fade-up mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-ocean-100 [animation-delay:150ms] sm:text-xl">
         Desde las aguas cristalinas de Cabo de Palos hasta las cálidas orillas
         del Mar Menor, tenemos la playa que necesitas.
       </p>
       <div className="animate-fade-up flex flex-col items-center gap-4 [animation-delay:225ms] sm:flex-row sm:justify-center">
         <Link
-          className="bg-ocean-500 hover:bg-ocean-400 focus-visible:ring-ocean-400 focus-visible:ring-offset-ocean-900 inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-base font-semibold text-white shadow-lg transition-all hover:shadow-xl focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+          className="inline-flex items-center gap-2 rounded-full bg-ocean-500 px-8 py-3.5 text-base font-semibold text-white shadow-lg transition-all hover:bg-ocean-400 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-ocean-400 focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-900 focus-visible:outline-none"
           to="/explorar"
         >
           Explorar todas las playas

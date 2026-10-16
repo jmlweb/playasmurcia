@@ -2,8 +2,8 @@ import { type ErrorComponentProps, Link } from '@tanstack/react-router'
 
 export function RootErrorComponent({ reset }: ErrorComponentProps) {
   return (
-    <main className="bg-sand-50 flex min-h-screen flex-col items-center justify-center px-4 text-center">
-      <p className="text-ocean-200 mb-3 text-7xl font-normal">!</p>
+    <main className="flex min-h-screen flex-col items-center justify-center bg-sand-50 px-4 text-center">
+      <p className="mb-3 text-7xl font-normal text-ocean-200">!</p>
       <h1 className="mb-2 text-2xl font-semibold text-gray-900">
         Algo ha ido mal
       </h1>
@@ -13,7 +13,7 @@ export function RootErrorComponent({ reset }: ErrorComponentProps) {
       </p>
       <div className="flex flex-wrap justify-center gap-3">
         <button
-          className="bg-ocean-600 hover:bg-ocean-700 focus-visible:ring-ocean-500 rounded-full px-6 py-2.5 text-sm font-semibold text-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+          className="rounded-full bg-ocean-600 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-ocean-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
           type="button"
           onClick={reset}
         >

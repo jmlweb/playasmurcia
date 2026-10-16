@@ -1,9 +1,10 @@
 import { type ReactNode, useEffect, useRef, useState } from 'react'
 
+import type { Activity, Municipality, Sea, Service, Tag } from '@/types/beach'
+
 import { ChevronDownIcon } from '@/components/ui/icons'
 import { type BeachSearchParams, countActiveFilters } from '@/lib/beach-filters'
 import { cn } from '@/lib/cn'
-import type { Activity, Municipality, Sea, Service, Tag } from '@/types/beach'
 
 type FilterPanelProps = {
   municipalities: Municipality[]
@@ -34,7 +35,7 @@ function FilterGroup({
     <div className="border-b border-gray-100 last:border-0">
       <button
         aria-expanded={isOpen}
-        className="hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:ring-ocean-500 flex w-full items-center justify-between py-3.5 text-left text-sm font-medium text-gray-800 transition-colors focus-visible:rounded focus-visible:ring-2 focus-visible:outline-none"
+        className="flex w-full items-center justify-between py-3.5 text-left text-sm font-medium text-gray-800 transition-colors hover:text-ocean-600 focus-visible:rounded focus-visible:text-ocean-600 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none"
         type="button"
         onClick={() => {
           setIsOpen((prev) => !prev)
@@ -43,7 +44,7 @@ function FilterGroup({
         <span className="flex items-center gap-2">
           {label}
           {activeCount > 0 && (
-            <span className="bg-ocean-500 flex h-5 min-w-5 items-center justify-center rounded-full px-1.5 text-[11px] font-semibold text-white">
+            <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-ocean-500 px-1.5 text-[11px] font-semibold text-white">
               {activeCount}
             </span>
           )}
@@ -78,7 +79,7 @@ function CheckboxItem({ label, checked, onChange }: CheckboxItemProps) {
     <label className="flex cursor-pointer items-center gap-2.5 rounded-lg px-1 py-0.5 text-sm text-gray-600 transition-colors hover:text-gray-900">
       <input
         checked={checked}
-        className="text-ocean-600 accent-ocean-600 focus-visible:ring-ocean-500 h-4 w-4 rounded border-gray-300"
+        className="h-4 w-4 rounded border-gray-300 text-ocean-600 accent-ocean-600 focus-visible:ring-ocean-500"
         type="checkbox"
         onChange={(e) => {
           onChange(e.target.checked)
@@ -127,7 +128,7 @@ function FilterContent({
         <h2 className="text-base font-semibold text-gray-900">Filtros</h2>
         {totalActive > 0 && (
           <button
-            className="text-ocean-600 focus-visible:ring-ocean-500 rounded text-sm underline underline-offset-2 hover:no-underline focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:outline-none"
+            className="rounded text-sm text-ocean-600 underline underline-offset-2 hover:no-underline focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-1 focus-visible:outline-none"
             type="button"
             onClick={clearAll}
           >
@@ -227,7 +228,7 @@ export function FilterToggleButton({
 }) {
   return (
     <button
-      className="hover:border-ocean-300 hover:text-ocean-700 focus-visible:ring-ocean-500 flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-colors focus-visible:ring-2 focus-visible:outline-none lg:hidden"
+      className="flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:border-ocean-300 hover:text-ocean-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none lg:hidden"
       type="button"
       onClick={onClick}
     >
@@ -247,7 +248,7 @@ export function FilterToggleButton({
       </svg>
       Filtros
       {activeCount > 0 && (
-        <span className="bg-ocean-500 flex h-5 min-w-5 items-center justify-center rounded-full px-1.5 text-[11px] font-semibold text-white">
+        <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-ocean-500 px-1.5 text-[11px] font-semibold text-white">
           {activeCount}
         </span>
       )}
@@ -349,7 +350,7 @@ export function FilterPanel(
                 <h2 className="text-lg font-semibold text-gray-900">Filtros</h2>
                 <button
                   aria-label="Cerrar filtros"
-                  className="focus-visible:ring-ocean-500 rounded-full p-1.5 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-600 focus-visible:ring-2 focus-visible:outline-none"
+                  className="rounded-full p-1.5 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-600 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none"
                   type="button"
                   onClick={() => {
                     onMobileClose()
@@ -373,7 +374,7 @@ export function FilterPanel(
               <FilterContent {...props} />
               <div className="sticky bottom-0 mt-8 bg-white pt-4 pb-2">
                 <button
-                  className="bg-ocean-600 hover:bg-ocean-700 focus-visible:ring-ocean-500 w-full rounded-full px-4 py-3 text-sm font-semibold text-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+                  className="w-full rounded-full bg-ocean-600 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-ocean-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
                   type="button"
                   onClick={() => {
                     onMobileClose()

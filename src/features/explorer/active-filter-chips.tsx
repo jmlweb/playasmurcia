@@ -124,7 +124,7 @@ export function ActiveFilterChips({
       {chips.map((chip) => (
         <button
           key={chip.key}
-          className="bg-ocean-50 text-ocean-700 hover:bg-ocean-100 focus-visible:ring-ocean-500 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:outline-none"
+          className="inline-flex items-center gap-1.5 rounded-full bg-ocean-50 px-3 py-1 text-sm text-ocean-700 transition-colors hover:bg-ocean-100 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-1 focus-visible:outline-none"
           type="button"
           onClick={chip.onRemove}
         >
@@ -146,7 +146,7 @@ export function ActiveFilterChips({
         </button>
       ))}
       <button
-        className="focus-visible:ring-ocean-500 rounded-full text-sm text-gray-500 underline underline-offset-2 hover:text-gray-700 focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:outline-none"
+        className="rounded-full text-sm text-gray-500 underline underline-offset-2 hover:text-gray-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-1 focus-visible:outline-none"
         type="button"
         onClick={onClearAll}
       >

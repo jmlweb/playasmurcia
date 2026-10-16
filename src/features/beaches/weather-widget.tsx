@@ -2,6 +2,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { useEffect, useState } from 'react'
 
 import type { WeatherIconType } from '@/components/ui/icons'
+
 import { WeatherIcon } from '@/components/ui/icons'
 
 // ---------------------------------------------------------------------------
@@ -42,7 +43,7 @@ type UnifiedForecast = {
 // ---------------------------------------------------------------------------
 
 const fetchAemetWeather = createServerFn({ method: 'GET' })
-  .inputValidator((data: { aemetId: string }) => {
+  .validator((data: { aemetId: string }) => {
     if (typeof data.aemetId !== 'string' || !data.aemetId.trim()) {
       throw new Error('Invalid AEMET id')
     }
@@ -78,7 +79,7 @@ const fetchAemetWeather = createServerFn({ method: 'GET' })
   })
 
 const fetchOpenMeteoWeather = createServerFn({ method: 'GET' })
-  .inputValidator((data: { latitude: number; longitude: number }) => {
+  .validator((data: { latitude: number; longitude: number }) => {
     const { latitude, longitude } = data
     if (typeof latitude !== 'number' || !Number.isFinite(latitude)) {
       throw new Error('Invalid latitude')
@@ -111,7 +112,7 @@ const fetchOpenMeteoWeather = createServerFn({ method: 'GET' })
   })
 
 const fetchMarineWeatherFn = createServerFn({ method: 'GET' })
-  .inputValidator((data: { latitude: number; longitude: number }) => {
+  .validator((data: { latitude: number; longitude: number }) => {
     const { latitude, longitude } = data
     if (typeof latitude !== 'number' || !Number.isFinite(latitude)) {
       throw new Error('Invalid latitude')
@@ -326,7 +327,7 @@ function ForecastDayCard({ day }: ForecastDayCardProps) {
     day.precipitationProbability != null && day.precipitationProbability > 0
 
   return (
-    <div className="border-ocean-200/60 bg-ocean-50/70 flex min-w-[5.5rem] flex-col items-center gap-1.5 rounded-xl border p-3 text-center">
+    <div className="flex min-w-[5.5rem] flex-col items-center gap-1.5 rounded-xl border border-ocean-200/60 bg-ocean-50/70 p-3 text-center">
       <span className="text-xs font-medium tracking-wide text-gray-500 uppercase">
         {formatDayLabel(day.fecha)}
       </span>
@@ -357,20 +358,20 @@ function WeatherSkeleton() {
     <section
       aria-busy="true"
       aria-label="Cargando previsión meteorológica"
-      className="border-ocean-100 to-ocean-50/40 rounded-2xl border bg-gradient-to-br from-sky-50/80 p-6 shadow-sm"
+      className="rounded-2xl border border-ocean-100 bg-gradient-to-br from-sky-50/80 to-ocean-50/40 p-6 shadow-sm"
     >
-      <div className="bg-ocean-100/60 mb-4 h-5 w-36 animate-pulse rounded" />
+      <div className="mb-4 h-5 w-36 animate-pulse rounded bg-ocean-100/60" />
       <div className="flex items-center gap-4">
-        <div className="bg-ocean-100/60 h-12 w-12 flex-shrink-0 animate-pulse rounded-full" />
+        <div className="h-12 w-12 flex-shrink-0 animate-pulse rounded-full bg-ocean-100/60" />
         <div className="flex-1 space-y-2">
-          <div className="bg-ocean-100/60 h-4 w-28 animate-pulse rounded" />
-          <div className="bg-ocean-100/60 h-3 w-40 animate-pulse rounded" />
+          <div className="h-4 w-28 animate-pulse rounded bg-ocean-100/60" />
+          <div className="h-3 w-40 animate-pulse rounded bg-ocean-100/60" />
         </div>
       </div>
       <div className="mt-4 flex gap-2 overflow-hidden">
-        <div className="bg-ocean-100/40 h-20 w-24 flex-shrink-0 animate-pulse rounded-xl" />
-        <div className="bg-ocean-100/40 h-20 w-24 flex-shrink-0 animate-pulse rounded-xl" />
-        <div className="bg-ocean-100/40 h-20 w-24 flex-shrink-0 animate-pulse rounded-xl" />
+        <div className="h-20 w-24 flex-shrink-0 animate-pulse rounded-xl bg-ocean-100/40" />
+        <div className="h-20 w-24 flex-shrink-0 animate-pulse rounded-xl bg-ocean-100/40" />
+        <div className="h-20 w-24 flex-shrink-0 animate-pulse rounded-xl bg-ocean-100/40" />
       </div>
     </section>
   )
@@ -394,9 +395,16 @@ type FetchState =
 export function WeatherWidget({ aemetId, coordinates }: WeatherWidgetProps) {
   const [state, setState] = useState<FetchState>({ status: 'idle' })
 
+  // Reset to loading during render (not in an effect) when the location changes
+  const requestKey = `${aemetId ?? ''}|${coordinates[0]}|${coordinates[1]}`
+  const [prevRequestKey, setPrevRequestKey] = useState(requestKey)
+  if (requestKey !== prevRequestKey) {
+    setPrevRequestKey(requestKey)
+    setState({ status: 'loading' })
+  }
+
   useEffect(() => {
     let cancelled = false
-    setState({ status: 'loading' })
 
     const coordData = { latitude: coordinates[0], longitude: coordinates[1] }
     const marinePromise = fetchMarineWeatherFn({ data: coordData }).catch(
@@ -414,7 +422,7 @@ export function WeatherWidget({ aemetId, coordinates }: WeatherWidgetProps) {
             ...aemet,
             current: om?.current,
             waterTemp: marine?.currentTemp,
-          } as UnifiedForecast
+          }
         })
       : Promise.all([
           fetchOpenMeteoWeather({ data: coordData }),
@@ -424,7 +432,7 @@ export function WeatherWidget({ aemetId, coordinates }: WeatherWidgetProps) {
           return {
             ...om,
             waterTemp: marine?.currentTemp,
-          } as UnifiedForecast
+          }
         })
 
     buildForecast
@@ -453,9 +461,9 @@ export function WeatherWidget({ aemetId, coordinates }: WeatherWidgetProps) {
     return (
       <section
         aria-label="Previsión meteorológica"
-        className="border-ocean-200 bg-ocean-50/30 rounded-2xl border border-dashed p-6"
+        className="rounded-2xl border border-dashed border-ocean-200 bg-ocean-50/30 p-6"
       >
-        <h2 className="text-ocean-600 mb-3 text-xl font-semibold">
+        <h2 className="mb-3 text-xl font-semibold text-ocean-600">
           Previsión meteorológica
         </h2>
         <p className="text-sm text-gray-400">
@@ -476,7 +484,7 @@ export function WeatherWidget({ aemetId, coordinates }: WeatherWidgetProps) {
   return (
     <section
       aria-label="Previsión meteorológica"
-      className="border-ocean-100 to-ocean-50/40 rounded-2xl border bg-gradient-to-br from-sky-50/80 p-6 shadow-sm"
+      className="rounded-2xl border border-ocean-100 bg-gradient-to-br from-sky-50/80 to-ocean-50/40 p-6 shadow-sm"
     >
       <h2 className="mb-4 text-xl font-semibold text-gray-900">
         Previsión meteorológica
@@ -496,7 +504,7 @@ export function WeatherWidget({ aemetId, coordinates }: WeatherWidgetProps) {
         </div>
       )}
 
-      <footer className="border-ocean-100 mt-4 border-t pt-3">
+      <footer className="mt-4 border-t border-ocean-100 pt-3">
         <p className="text-xs text-gray-400">Fuente: {sourceLabel}</p>
       </footer>
     </section>

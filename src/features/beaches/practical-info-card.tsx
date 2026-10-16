@@ -161,7 +161,7 @@ export function PracticalInfoCard({
 
       {details.length > 0 && (
         <details className="group">
-          <summary className="focus-visible:ring-ocean-500 flex cursor-pointer items-center justify-between rounded-lg py-2 text-sm font-medium text-gray-600 transition-colors select-none hover:text-gray-900 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none">
+          <summary className="flex cursor-pointer items-center justify-between rounded-lg py-2 text-sm font-medium text-gray-600 transition-colors select-none hover:text-gray-900 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none">
             <span>Más detalles</span>
             <svg
               aria-hidden="true"

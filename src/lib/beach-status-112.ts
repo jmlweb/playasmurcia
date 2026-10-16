@@ -35,7 +35,7 @@ type CoplaEntry = {
 // ---------------------------------------------------------------------------
 
 function extractTagValue(xml: string, tag: string): string {
-  const match = new RegExp(`<${tag}>([^<]*)<\/${tag}>`, 'i').exec(xml)
+  const match = new RegExp(`<${tag}>([^<]*)</${tag}>`, 'i').exec(xml)
   return match ? match[1].trim() : ''
 }
 

@@ -12,7 +12,7 @@ import type {
 // ---------------------------------------------------------------------------
 
 const fetchBeachStatus = createServerFn({ method: 'GET' })
-  .inputValidator((data: { beachName: string; municipalityName: string }) => {
+  .validator((data: { beachName: string; municipalityName: string }) => {
     if (typeof data.beachName !== 'string' || !data.beachName.trim()) {
       throw new Error('Invalid beach name')
     }
@@ -79,16 +79,16 @@ function BeachStatusSkeleton() {
     <section
       aria-busy="true"
       aria-label="Cargando estado de la playa"
-      className="border-ocean-100 bg-ocean-50/40 rounded-2xl border p-6 shadow-sm"
+      className="rounded-2xl border border-ocean-100 bg-ocean-50/40 p-6 shadow-sm"
     >
-      <div className="bg-ocean-200/60 mb-4 h-5 w-40 animate-pulse rounded" />
+      <div className="mb-4 h-5 w-40 animate-pulse rounded bg-ocean-200/60" />
       <div className="space-y-3">
         <div className="flex items-center gap-3">
-          <div className="bg-ocean-200/60 h-4 w-4 animate-pulse rounded-full" />
-          <div className="bg-ocean-200/60 h-4 w-28 animate-pulse rounded" />
+          <div className="h-4 w-4 animate-pulse rounded-full bg-ocean-200/60" />
+          <div className="h-4 w-28 animate-pulse rounded bg-ocean-200/60" />
         </div>
-        <div className="bg-ocean-200/60 h-3 w-36 animate-pulse rounded" />
-        <div className="bg-ocean-200/60 h-3 w-24 animate-pulse rounded" />
+        <div className="h-3 w-36 animate-pulse rounded bg-ocean-200/60" />
+        <div className="h-3 w-24 animate-pulse rounded bg-ocean-200/60" />
       </div>
     </section>
   )
@@ -116,9 +116,16 @@ export function BeachStatusWidget({
 }: BeachStatusWidgetProps) {
   const [state, setState] = useState<FetchState>({ status: 'idle' })
 
+  // Reset to loading during render (not in an effect) when the target beach changes
+  const requestKey = `${beachName}|${municipalityName}`
+  const [prevRequestKey, setPrevRequestKey] = useState(requestKey)
+  if (requestKey !== prevRequestKey) {
+    setPrevRequestKey(requestKey)
+    setState({ status: 'loading' })
+  }
+
   useEffect(() => {
     let cancelled = false
-    setState({ status: 'loading' })
 
     fetchBeachStatus({ data: { beachName, municipalityName } })
       .then((data) => {
@@ -158,15 +165,15 @@ export function BeachStatusWidget({
     return (
       <section
         aria-label="Estado de bandera de playa"
-        className="border-ocean-200 bg-ocean-50/30 rounded-2xl border border-dashed p-5"
+        className="rounded-2xl border border-dashed border-ocean-200 bg-ocean-50/30 p-5"
       >
-        <h2 className="text-ocean-600 mb-2 text-base font-semibold">
+        <h2 className="mb-2 text-base font-semibold text-ocean-600">
           Estado de la playa
         </h2>
-        <p className="text-ocean-400 text-sm">
+        <p className="text-sm text-ocean-400">
           Datos no disponibles fuera de temporada
         </p>
-        <p className="text-ocean-300 mt-3 text-right text-xs">
+        <p className="mt-3 text-right text-xs text-ocean-300">
           Fuente: 112 Región de Murcia
         </p>
       </section>
@@ -176,9 +183,9 @@ export function BeachStatusWidget({
   return (
     <section
       aria-label="Estado de bandera de playa"
-      className="border-ocean-100 bg-ocean-50/40 rounded-2xl border p-5 shadow-sm"
+      className="rounded-2xl border border-ocean-100 bg-ocean-50/40 p-5 shadow-sm"
     >
-      <h2 className="text-ocean-800 mb-4 text-base font-semibold">
+      <h2 className="mb-4 text-base font-semibold text-ocean-800">
         Estado de la playa
       </h2>
 
@@ -195,7 +202,7 @@ export function BeachStatusWidget({
         <div className="flex items-center gap-2.5">
           <svg
             aria-hidden="true"
-            className="text-ocean-400 h-5 w-5 flex-shrink-0"
+            className="h-5 w-5 flex-shrink-0 text-ocean-400"
             fill="none"
             viewBox="0 0 24 24"
           >
@@ -225,7 +232,7 @@ export function BeachStatusWidget({
         </p>
       </div>
 
-      <p className="text-ocean-400 mt-3 text-right text-xs">
+      <p className="mt-3 text-right text-xs text-ocean-400">
         Fuente: 112 Región de Murcia
       </p>
     </section>

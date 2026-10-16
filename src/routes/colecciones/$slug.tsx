@@ -2,6 +2,8 @@ import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import { useMemo, useState } from 'react'
 
+import type { BeachSearchParams } from '@/lib/beach-filters'
+
 import { Breadcrumb } from '@/components/layout/breadcrumb'
 import { PageHero } from '@/components/layout/page-hero'
 import { EmptyState } from '@/components/ui/empty-state'
@@ -9,7 +11,6 @@ import { BeachCard } from '@/features/beaches/beach-card'
 import { PageInfo } from '@/features/listing/page-info'
 import { Pagination } from '@/features/listing/pagination'
 import { SortSelect } from '@/features/listing/sort-select'
-import type { BeachSearchParams } from '@/lib/beach-filters'
 import { sortBeaches } from '@/lib/beach-filters'
 import {
   allCollections,
@@ -18,7 +19,7 @@ import {
 } from '@/lib/collections'
 
 const fetchCollectionData = createServerFn({ method: 'GET' })
-  .inputValidator((data: { slug: string }) => {
+  .validator((data: { slug: string }) => {
     if (typeof data.slug !== 'string' || !data.slug.trim()) {
       throw new Error('Invalid slug')
     }
@@ -136,7 +137,7 @@ function CollectionPage() {
   }
 
   return (
-    <main className="bg-sand-50 min-h-screen">
+    <main className="min-h-screen bg-sand-50">
       <PageHero
         backgroundAlt="Playas de la Región de Murcia"
         backgroundImage="/pictures/hero-colecciones.png"
@@ -145,7 +146,7 @@ function CollectionPage() {
         <h1 className="mb-4 text-3xl font-normal tracking-tight text-white sm:text-4xl">
           {collection.title}
         </h1>
-        <p className="text-ocean-200 mx-auto mb-4 max-w-xl text-lg">
+        <p className="mx-auto mb-4 max-w-xl text-lg text-ocean-200">
           {collection.description}
         </p>
         <span
@@ -208,7 +209,7 @@ function CollectionPage() {
 
         <div className="mt-12 text-center">
           <Link
-            className="border-ocean-200 text-ocean-600 hover:bg-ocean-50 hover:text-ocean-700 focus-visible:ring-ocean-500 inline-flex items-center gap-1.5 rounded-full border px-5 py-2.5 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+            className="inline-flex items-center gap-1.5 rounded-full border border-ocean-200 px-5 py-2.5 text-sm font-medium text-ocean-600 transition-colors hover:bg-ocean-50 hover:text-ocean-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
             to="/colecciones"
           >
             ← Volver a colecciones

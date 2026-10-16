@@ -12,8 +12,8 @@
 
 import { execFileSync } from 'node:child_process'
 import { mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises'
-import { join, relative, resolve } from 'node:path'
 import { tmpdir } from 'node:os'
+import { join, relative, resolve } from 'node:path'
 
 const DEFAULT_MODEL = 'gemma3:4b'
 const DEFAULT_MAX_CHUNK = 16_000

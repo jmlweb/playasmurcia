@@ -1,5 +1,6 @@
-import { municipalityToSlug } from '@/lib/slugs'
 import type { Beach, Municipality } from '@/types/beach'
+
+import { municipalityToSlug } from '@/lib/slugs'
 
 export type NavMunicipality = {
   name: string

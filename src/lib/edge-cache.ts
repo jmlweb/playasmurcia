@@ -15,6 +15,7 @@ function cacheKey(namespace: string, key: string): string {
 }
 
 function isEdgeCacheAvailable(): boolean {
+  // oxlint-disable-next-line typescript/prefer-optional-chain -- `caches?.` would throw a ReferenceError where the global is undeclared
   return typeof caches !== 'undefined' && caches.default !== undefined
 }
 

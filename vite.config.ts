@@ -4,7 +4,6 @@ import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
 import { cloudflare } from '@cloudflare/vite-plugin'
 import tailwindcss from '@tailwindcss/vite'
-import viteTsConfigPaths from 'vite-tsconfig-paths'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import viteReact from '@vitejs/plugin-react'
 
@@ -17,6 +16,9 @@ const playasmurciaOptimizedImages =
   )
 
 const config = defineConfig({
+  resolve: {
+    tsconfigPaths: true,
+  },
   define: {
     'import.meta.env.PLAYASMURCIA_OPTIMIZED_IMAGES': JSON.stringify(
       playasmurciaOptimizedImages,
@@ -25,9 +27,6 @@ const config = defineConfig({
   plugins: [
     cloudflare({ viteEnvironment: { name: 'ssr' } }),
     tailwindcss(),
-    viteTsConfigPaths({
-      projects: ['./tsconfig.json'],
-    }),
     tanstackStart(),
     viteReact(),
   ],

@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import type { AemetSkyPeriod, AemetWindPeriod } from './aemet'
+
 import { fetchAemetForecast, getDaySkyDescription, getDayWind } from './aemet'
 
 // ---------------------------------------------------------------------------

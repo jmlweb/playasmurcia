@@ -33,9 +33,9 @@ function StaticMapPlaceholder({
   return (
     <button
       className="group relative w-full cursor-pointer overflow-hidden"
-      onClick={onActivate}
       style={{ height: 'min(360px, 60vh)' }}
       type="button"
+      onClick={onActivate}
     >
       <img
         alt="Mapa estático de la ubicación"
@@ -56,7 +56,9 @@ function useLoadTrigger(
   ref: React.RefObject<HTMLElement | null>,
 ): [boolean, () => void] {
   const [shouldLoad, setShouldLoad] = useState(false)
-  const activate = () => setShouldLoad(true)
+  const activate = () => {
+    setShouldLoad(true)
+  }
 
   useEffect(() => {
     if (shouldLoad) return
@@ -74,7 +76,9 @@ function useLoadTrigger(
     observer.observe(el)
 
     // Trigger 2: idle timeout — preload after inactivity
-    const timer = setTimeout(() => setShouldLoad(true), IDLE_TIMEOUT_MS)
+    const timer = setTimeout(() => {
+      setShouldLoad(true)
+    }, IDLE_TIMEOUT_MS)
 
     return () => {
       observer.disconnect()
@@ -92,7 +96,7 @@ export function LocationMap({ coordinates, beachName }: LocationMapProps) {
   const [shouldLoad, activate] = useLoadTrigger(sectionRef)
 
   return (
-    <section aria-label="Ubicación" ref={sectionRef}>
+    <section ref={sectionRef} aria-label="Ubicación">
       <h2 className="mb-4 text-xl font-semibold text-gray-900">Ubicación</h2>
       <div className="overflow-hidden rounded-2xl border border-gray-200/60 shadow-sm">
         {shouldLoad ? (
@@ -111,7 +115,7 @@ export function LocationMap({ coordinates, beachName }: LocationMapProps) {
             {lat.toFixed(5)}, {lng.toFixed(5)}
           </p>
           <a
-            className="text-ocean-600 hover:text-ocean-700 text-xs font-medium hover:underline"
+            className="text-xs font-medium text-ocean-600 hover:text-ocean-700 hover:underline"
             href={mapsUrl}
             rel="noopener noreferrer"
             target="_blank"

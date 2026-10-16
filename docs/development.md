@@ -29,11 +29,11 @@ pnpm dev           # Start dev server at http://localhost:3000
 pnpm build         # Generate sitemap + build for production
 pnpm generate:sitemap  # Generate sitemap only
 pnpm preview       # Preview production build
-pnpm lint          # Run ESLint
-pnpm lint:fix      # Run ESLint with auto-fix
-pnpm format        # Prettier: `src/**/*.{ts,tsx,css}` and `scripts/**/*.js`
+pnpm lint          # Run Oxlint (type-aware)
+pnpm lint:fix      # Run Oxlint with auto-fix
+pnpm format        # Oxfmt: `src/**/*.{ts,tsx,css}` and `scripts/**/*.js`
 pnpm type-check    # TypeScript type checking (tsc --noEmit)
-pnpm check         # Type-check + ESLint (`src/`) + Prettier on the same globs as `format`
+pnpm check         # Type-check + Oxlint (`src/`) + Oxfmt on the same globs as `format`
 pnpm test          # Run tests
 pnpm test:watch    # Run tests in watch mode
 pnpm test:coverage # Run tests with coverage report
@@ -208,8 +208,9 @@ See [ui-guidelines.md](./ui-guidelines.md). Image pipeline (`optimize:images`, `
 ## Code Style
 
 - TypeScript strict mode
-- ESLint with [`@jmlweb/eslint-config-react`](https://www.npmjs.com/package/@jmlweb/eslint-config-react) (project overrides under `eslint.config.js`)
-- Prettier with [`@jmlweb/prettier-config-tailwind`](https://www.npmjs.com/package/@jmlweb/prettier-config-tailwind) (`semi: false` kept in `prettier.config.js`); `prettier-plugin-tailwindcss` is listed as a direct devDependency so Prettier can resolve the plugin from the project root under pnpm
+- Oxlint with [`@jmlweb/oxlint-config-react`](https://www.npmjs.com/package/@jmlweb/oxlint-config-react) (project overrides and `options.typeAware` in `oxlint.config.ts`). `@typescript-eslint/naming-convention` has no Oxlint port, so naming is no longer linted
+- Oxfmt with [`@jmlweb/oxfmt-config-base`](https://www.npmjs.com/package/@jmlweb/oxfmt-config-base) (`semi: false` and Tailwind class sorting against `src/styles.css` in `oxfmt.config.ts`). Oxfmt also sorts imports
+- TypeScript stays on 6.x: the `@eslint-react` plugin depends on typescript-eslint, which needs the classic TypeScript JS API that TypeScript 7 no longer ships
 - Functional approach (functions over classes)
 - Named exports only (no default exports)
 

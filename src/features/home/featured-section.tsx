@@ -1,9 +1,11 @@
-import { Link } from '@tanstack/react-router'
 import type { RefObject } from 'react'
 
-import { BeachCard } from '@/features/beaches/beach-card'
+import { Link } from '@tanstack/react-router'
+
 import type { CardWeather } from '@/lib/open-meteo'
 import type { Beach, Municipality, Tag } from '@/types/beach'
+
+import { BeachCard } from '@/features/beaches/beach-card'
 
 type FeaturedSectionProps = {
   ref: RefObject<HTMLElement | null>
@@ -31,7 +33,7 @@ export function FeaturedSection({
     >
       <div className="mb-10 flex items-end justify-between">
         <div>
-          <p className="overline-accent text-ocean-600 mb-2 text-sm font-semibold tracking-wider uppercase">
+          <p className="overline-accent mb-2 text-sm font-semibold tracking-wider text-ocean-600 uppercase">
             Selección destacada
           </p>
           <h2 className="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
@@ -39,7 +41,7 @@ export function FeaturedSection({
           </h2>
         </div>
         <Link
-          className="text-ocean-600 hover:text-ocean-700 hidden text-sm font-medium sm:block"
+          className="hidden text-sm font-medium text-ocean-600 hover:text-ocean-700 sm:block"
           to="/explorar"
         >
           Ver todas las playas →
@@ -65,7 +67,7 @@ export function FeaturedSection({
 
       <div className="mt-10 text-center">
         <Link
-          className="bg-ocean-500 hover:bg-ocean-600 focus-visible:ring-ocean-500 inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-base font-semibold text-white shadow-sm transition-all hover:shadow-md focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+          className="inline-flex items-center gap-2 rounded-full bg-ocean-500 px-8 py-3.5 text-base font-semibold text-white shadow-sm transition-all hover:bg-ocean-600 hover:shadow-md focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
           to="/explorar"
         >
           Ver las {totalBeaches} playas

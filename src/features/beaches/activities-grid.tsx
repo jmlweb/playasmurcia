@@ -1,5 +1,6 @@
-import { ActivityIcon } from '@/components/ui/icons'
 import type { Activity } from '@/types/beach'
+
+import { ActivityIcon } from '@/components/ui/icons'
 
 type ActivitiesGridProps = {
   activityIndices: number[]
@@ -25,10 +26,10 @@ export function ActivitiesGrid({
         {resolvedActivities.map((activity) => (
           <li
             key={activity.id}
-            className="bg-sand-100 flex items-center gap-2.5 rounded-xl px-3.5 py-3 text-sm text-gray-700"
+            className="flex items-center gap-2.5 rounded-xl bg-sand-100 px-3.5 py-3 text-sm text-gray-700"
           >
             <ActivityIcon
-              className="text-ocean-500 h-5 w-5"
+              className="h-5 w-5 text-ocean-500"
               emoji={activity.icon}
             />
             <span>{activity.name}</span>

@@ -2,8 +2,9 @@ import { Popover } from '@base-ui/react/popover'
 import { Link, useRouterState } from '@tanstack/react-router'
 import { useState } from 'react'
 
-import { ChevronDownIcon } from '@/components/ui/icons'
 import type { NavData } from '@/lib/nav-builders'
+
+import { ChevronDownIcon } from '@/components/ui/icons'
 
 const simpleNavLinks = [
   { to: '/explorar' as const, label: 'Playas' },
@@ -17,7 +18,7 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
     <Popover.Root>
       <Popover.Trigger
         openOnHover
-        className="group text-ocean-200 focus-visible:ring-offset-ocean-900 inline-flex items-center gap-1 text-sm font-medium transition-colors hover:text-white focus-visible:rounded focus-visible:text-white focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:outline-none"
+        className="group inline-flex items-center gap-1 text-sm font-medium text-ocean-200 transition-colors hover:text-white focus-visible:rounded focus-visible:text-white focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-900 focus-visible:outline-none"
         closeDelay={150}
       >
         {label}
@@ -32,11 +33,11 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
           side="bottom"
           sideOffset={12}
         >
-          <Popover.Popup className="bg-ocean-800 w-[28rem] rounded-xl border border-white/10 p-5 shadow-2xl">
+          <Popover.Popup className="w-[28rem] rounded-xl border border-white/10 bg-ocean-800 p-5 shadow-2xl">
             <div className="grid grid-cols-2 gap-6">
               {/* Municipalities — top 5 */}
               <div>
-                <p className="text-ocean-400 mb-3 text-xs font-semibold tracking-wider uppercase">
+                <p className="mb-3 text-xs font-semibold tracking-wider text-ocean-400 uppercase">
                   Municipios
                 </p>
                 <ul className="space-y-1">
@@ -47,12 +48,12 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
                       <li key={m.slug}>
                         <Link
                           aria-current={active ? 'page' : undefined}
-                          className={`focus-visible:ring-offset-ocean-800 flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:outline-none ${active ? 'bg-ocean-700 font-semibold text-white' : 'text-ocean-100 hover:bg-ocean-700 focus-visible:bg-ocean-700 hover:text-white focus-visible:text-white'}`}
+                          className={`flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-800 focus-visible:outline-none ${active ? 'bg-ocean-700 font-semibold text-white' : 'text-ocean-100 hover:bg-ocean-700 hover:text-white focus-visible:bg-ocean-700 focus-visible:text-white'}`}
                           params={{ slug: m.slug }}
                           to="/municipios/$slug"
                         >
                           {m.name}
-                          <span className="bg-ocean-700/60 text-ocean-300 ml-2 rounded-full px-2 py-0.5 text-xs">
+                          <span className="ml-2 rounded-full bg-ocean-700/60 px-2 py-0.5 text-xs text-ocean-300">
                             {m.beachCount}
                           </span>
                         </Link>
@@ -64,7 +65,7 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
 
               {/* Collections — top 4 */}
               <div>
-                <p className="text-ocean-400 mb-3 text-xs font-semibold tracking-wider uppercase">
+                <p className="mb-3 text-xs font-semibold tracking-wider text-ocean-400 uppercase">
                   Colecciones
                 </p>
                 <ul className="space-y-1">
@@ -74,12 +75,12 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
                       <li key={c.href}>
                         <Link
                           aria-current={active ? 'page' : undefined}
-                          className={`focus-visible:ring-offset-ocean-800 flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:outline-none ${active ? 'bg-ocean-700 font-semibold text-white' : 'text-ocean-100 hover:bg-ocean-700 focus-visible:bg-ocean-700 hover:text-white focus-visible:text-white'}`}
+                          className={`flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-800 focus-visible:outline-none ${active ? 'bg-ocean-700 font-semibold text-white' : 'text-ocean-100 hover:bg-ocean-700 hover:text-white focus-visible:bg-ocean-700 focus-visible:text-white'}`}
                           params={{ slug: c.href.split('/').pop()! }}
                           to="/colecciones/$slug"
                         >
                           {c.label}
-                          <span className="bg-ocean-700/60 text-ocean-300 ml-2 rounded-full px-2 py-0.5 text-xs">
+                          <span className="ml-2 rounded-full bg-ocean-700/60 px-2 py-0.5 text-xs text-ocean-300">
                             {c.count}
                           </span>
                         </Link>
@@ -87,9 +88,9 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
                     )
                   })}
                 </ul>
-                <div className="border-ocean-700 mt-3 border-t pt-3">
+                <div className="mt-3 border-t border-ocean-700 pt-3">
                   <Link
-                    className="text-ocean-300 hover:bg-ocean-700 flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium transition-colors hover:text-white"
+                    className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-ocean-300 transition-colors hover:bg-ocean-700 hover:text-white"
                     to="/colecciones"
                   >
                     Ver todas →
@@ -120,7 +121,7 @@ function MobileDropdown({
     <div>
       <button
         aria-expanded={open}
-        className="text-ocean-200 flex w-full items-center justify-between py-2.5 text-sm font-medium transition-colors hover:text-white"
+        className="flex w-full items-center justify-between py-2.5 text-sm font-medium text-ocean-200 transition-colors hover:text-white"
         type="button"
         onClick={() => {
           setOpen((prev) => !prev)
@@ -133,7 +134,7 @@ function MobileDropdown({
       </button>
       {open && (
         <div className="pb-2 pl-3">
-          <p className="text-ocean-400 mb-1.5 text-xs font-semibold tracking-wider uppercase">
+          <p className="mb-1.5 text-xs font-semibold tracking-wider text-ocean-400 uppercase">
             Municipios
           </p>
           {navData.municipalities.map((m) => {
@@ -149,11 +150,11 @@ function MobileDropdown({
                 onClick={onNavigate}
               >
                 {m.name}
-                <span className="text-ocean-400 text-xs">{m.beachCount}</span>
+                <span className="text-xs text-ocean-400">{m.beachCount}</span>
               </Link>
             )
           })}
-          <p className="text-ocean-400 mt-3 mb-1.5 text-xs font-semibold tracking-wider uppercase">
+          <p className="mt-3 mb-1.5 text-xs font-semibold tracking-wider text-ocean-400 uppercase">
             Colecciones
           </p>
           {navData.characteristics.map((c) => {
@@ -168,7 +169,7 @@ function MobileDropdown({
                 onClick={onNavigate}
               >
                 {c.label}
-                <span className="text-ocean-400 text-xs">{c.count}</span>
+                <span className="text-xs text-ocean-400">{c.count}</span>
               </Link>
             )
           })}
@@ -182,7 +183,7 @@ export function Navbar({ navData }: { navData: NavData }) {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <nav className="bg-nav sm:bg-nav/95 sticky top-0 z-40 border-b border-white/10 sm:backdrop-blur-md">
+    <nav className="sticky top-0 z-40 border-b border-white/10 bg-nav sm:bg-nav/95 sm:backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link
           className="flex items-center gap-2 text-base font-bold tracking-tight text-white transition-opacity hover:opacity-80 sm:text-lg"
@@ -190,7 +191,7 @@ export function Navbar({ navData }: { navData: NavData }) {
         >
           <svg
             aria-hidden="true"
-            className="text-ocean-400 h-6 w-6 shrink-0"
+            className="h-6 w-6 shrink-0 text-ocean-400"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -225,7 +226,7 @@ export function Navbar({ navData }: { navData: NavData }) {
           <NavDropdown label="Descubrir" navData={navData} />
           <Link
             aria-label="Buscar playas"
-            className="text-ocean-300 focus-visible:ring-ocean-400 rounded-md p-1 transition-colors hover:text-white focus-visible:text-white focus-visible:ring-2 focus-visible:outline-none"
+            className="rounded-md p-1 text-ocean-300 transition-colors hover:text-white focus-visible:text-white focus-visible:ring-2 focus-visible:ring-ocean-400 focus-visible:outline-none"
             to="/explorar"
           >
             <svg
@@ -246,7 +247,7 @@ export function Navbar({ navData }: { navData: NavData }) {
         </div>
         <button
           aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
-          className="text-ocean-200 focus-visible:ring-ocean-400 rounded-lg p-2 hover:text-white focus-visible:ring-2 focus-visible:outline-none sm:hidden"
+          className="rounded-lg p-2 text-ocean-200 hover:text-white focus-visible:ring-2 focus-visible:ring-ocean-400 focus-visible:outline-none sm:hidden"
           type="button"
           onClick={() => {
             setMobileOpen((prev) => !prev)

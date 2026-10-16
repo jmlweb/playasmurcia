@@ -1,8 +1,5 @@
 import { eq, inArray } from 'drizzle-orm'
 
-import { db } from '@/db/client'
-import * as schema from '@/db/schema'
-import { municipalityToSlug } from '@/lib/slugs'
 import type {
   Activity,
   Beach,
@@ -11,6 +8,10 @@ import type {
   Service,
   Tag,
 } from '@/types/beach'
+
+import { db } from '@/db/client'
+import * as schema from '@/db/schema'
+import { municipalityToSlug } from '@/lib/slugs'
 
 import { mapBeachFromDB } from './beach-mapper'
 

@@ -1,12 +1,13 @@
 import { Link } from '@tanstack/react-router'
 
 import type { WeatherIconType } from '@/components/ui/icons'
+import type { CardWeather } from '@/lib/open-meteo'
+import type { Beach, Municipality, Tag } from '@/types/beach'
+
 import { WeatherIcon } from '@/components/ui/icons'
 import { ResponsiveImage } from '@/components/ui/responsive-image'
 import { parseImageFilename } from '@/lib/images'
-import type { CardWeather } from '@/lib/open-meteo'
 import { OccupancyStyles } from '@/lib/status-styles'
-import type { Beach, Municipality, Tag } from '@/types/beach'
 
 const validWeatherIcons = new Set([
   'sunny',
@@ -47,7 +48,7 @@ export function BeachCard({
 
   return (
     <Link
-      className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-500 ease-out hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none motion-safe:hover:-translate-y-1"
+      className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-500 ease-out hover:shadow-lg hover:ring-ocean-200 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none motion-safe:hover:-translate-y-1"
       params={{ slug }}
       to="/playas/$slug"
     >
@@ -62,10 +63,10 @@ export function BeachCard({
             variant="thumb"
           />
         ) : (
-          <div className="from-ocean-50/60 to-sand-100/60 flex h-full w-full items-center justify-center bg-gradient-to-br">
+          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-ocean-50/60 to-sand-100/60">
             <svg
               aria-hidden="true"
-              className="text-ocean-200/60 h-8 w-8"
+              className="h-8 w-8 text-ocean-200/60"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -120,7 +121,7 @@ export function BeachCard({
         )}
       </div>
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="group-hover:text-ocean-600 mb-1 text-lg font-semibold text-gray-900 transition-colors">
+        <h3 className="mb-1 text-lg font-semibold text-gray-900 transition-colors group-hover:text-ocean-600">
           {beach.name}
         </h3>
         <p className="text-sm text-gray-500">{municipality.name}</p>

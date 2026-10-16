@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 
-import { ChevronDownIcon } from '@/components/ui/icons'
 import type { BeachSearchParams } from '@/lib/beach-filters'
+
+import { ChevronDownIcon } from '@/components/ui/icons'
 import { cn } from '@/lib/cn'
 
 type SortOption = NonNullable<BeachSearchParams['sort']>
@@ -28,16 +29,19 @@ export function SortSelect({ value, onChange }: SortSelectProps) {
   const currentLabel =
     SORT_OPTIONS.find((o) => o.value === value)?.label ?? 'Nombre A-Z'
 
-  useEffect(() => {
-    if (!open) {
-      setFocusedIndex(-1)
-      return
-    }
-
+  // Reset focus during render (not in an effect) to avoid a cascading re-render
+  const [prevOpen, setPrevOpen] = useState(open)
+  const [prevValue, setPrevValue] = useState(value)
+  if (open !== prevOpen || value !== prevValue) {
+    setPrevOpen(open)
+    setPrevValue(value)
     // Focus the currently selected item (or first) when opening
     const activeIndex = SORT_OPTIONS.findIndex((o) => o.value === value)
-    const initialIndex = activeIndex >= 0 ? activeIndex : 0
-    setFocusedIndex(initialIndex)
+    setFocusedIndex(open ? Math.max(activeIndex, 0) : -1)
+  }
+
+  useEffect(() => {
+    if (!open) return
 
     function handleClick(e: MouseEvent) {
       if (
@@ -97,7 +101,7 @@ export function SortSelect({ value, onChange }: SortSelectProps) {
           ref={triggerRef}
           aria-expanded={open}
           aria-haspopup="menu"
-          className="focus-visible:border-ocean-400 focus-visible:ring-ocean-400 flex cursor-pointer items-center gap-1.5 rounded-full border border-gray-200 bg-white py-2 pr-3 pl-3.5 text-sm font-medium text-gray-700 transition-all hover:border-gray-300 focus-visible:ring-2 focus-visible:outline-none"
+          className="flex cursor-pointer items-center gap-1.5 rounded-full border border-gray-200 bg-white py-2 pr-3 pl-3.5 text-sm font-medium text-gray-700 transition-all hover:border-gray-300 focus-visible:border-ocean-400 focus-visible:ring-2 focus-visible:ring-ocean-400 focus-visible:outline-none"
           type="button"
           onClick={() => {
             setOpen((prev) => !prev)

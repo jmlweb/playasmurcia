@@ -2,8 +2,8 @@ import { Link } from '@tanstack/react-router'
 
 export function NotFound() {
   return (
-    <main className="bg-sand-50 flex min-h-screen flex-col items-center justify-center px-4 text-center">
-      <p className="text-ocean-700 mb-3 text-7xl font-normal">404</p>
+    <main className="flex min-h-screen flex-col items-center justify-center bg-sand-50 px-4 text-center">
+      <p className="mb-3 text-7xl font-normal text-ocean-700">404</p>
       <h1 className="mb-2 text-2xl font-semibold text-gray-900">
         Página no encontrada
       </h1>
@@ -12,7 +12,7 @@ export function NotFound() {
       </p>
       <div className="flex flex-wrap justify-center gap-3">
         <Link
-          className="bg-ocean-600 hover:bg-ocean-700 focus-visible:ring-ocean-500 rounded-full px-6 py-2.5 text-sm font-semibold text-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+          className="rounded-full bg-ocean-600 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-ocean-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
           to="/"
         >
           Volver al inicio

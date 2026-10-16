@@ -149,7 +149,7 @@ function CollectionCard({
   if (isFeatured) {
     return (
       <Link
-        className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-500 ease-out hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none motion-safe:hover:-translate-y-1"
+        className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-500 ease-out hover:shadow-lg hover:ring-ocean-200 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none motion-safe:hover:-translate-y-1"
         params={{ slug }}
         to="/colecciones/$slug"
       >
@@ -164,7 +164,7 @@ function CollectionCard({
           </div>
         </div>
         <div className="flex flex-1 flex-col p-5">
-          <h3 className="group-hover:text-ocean-600 mb-2 text-xl font-bold text-gray-900 transition-colors">
+          <h3 className="mb-2 text-xl font-bold text-gray-900 transition-colors group-hover:text-ocean-600">
             {title}
           </h3>
           <p className="mb-4 text-sm leading-relaxed text-gray-600">
@@ -177,7 +177,7 @@ function CollectionCard({
               </strong>{' '}
               {beachCount === 1 ? 'playa' : 'playas'}
             </span>
-            <span className="text-ocean-600 group-hover:text-ocean-700 text-sm font-medium transition-colors">
+            <span className="text-sm font-medium text-ocean-600 transition-colors group-hover:text-ocean-700">
               Ver colección →
             </span>
           </div>
@@ -188,7 +188,7 @@ function CollectionCard({
 
   return (
     <Link
-      className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-500 ease-out hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none motion-safe:hover:-translate-y-1"
+      className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-500 ease-out hover:shadow-lg hover:ring-ocean-200 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none motion-safe:hover:-translate-y-1"
       params={{ slug }}
       to="/colecciones/$slug"
     >
@@ -201,7 +201,7 @@ function CollectionCard({
           >
             <CollectionIcon className="h-5 w-5" slug={slug} />
           </div>
-          <h3 className="group-hover:text-ocean-600 text-base font-bold text-gray-900 transition-colors">
+          <h3 className="text-base font-bold text-gray-900 transition-colors group-hover:text-ocean-600">
             {title}
           </h3>
         </div>
@@ -215,7 +215,7 @@ function CollectionCard({
             </strong>{' '}
             {beachCount === 1 ? 'playa' : 'playas'}
           </span>
-          <span className="text-ocean-600 group-hover:text-ocean-700 text-sm font-medium transition-colors">
+          <span className="text-sm font-medium text-ocean-600 transition-colors group-hover:text-ocean-700">
             Ver colección →
           </span>
         </div>
@@ -237,7 +237,7 @@ function SeaCollectionCard({
 
   return (
     <Link
-      className="group focus-visible:ring-ocean-500 relative flex h-44 items-end overflow-hidden rounded-2xl shadow-sm ring-1 ring-gray-200/60 transition-all duration-500 ease-out hover:shadow-xl focus-visible:ring-2 focus-visible:outline-none motion-safe:hover:-translate-y-1"
+      className="group relative flex h-44 items-end overflow-hidden rounded-2xl shadow-sm ring-1 ring-gray-200/60 transition-all duration-500 ease-out hover:shadow-xl focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none motion-safe:hover:-translate-y-1"
       params={{ slug }}
       to="/colecciones/$slug"
     >
@@ -300,19 +300,19 @@ function ColeccionesPage() {
   const compact = items.filter((item) => !FEATURED_SLUGS.has(item.slug))
 
   return (
-    <main className="bg-sand-50 min-h-screen">
+    <main className="min-h-screen bg-sand-50">
       <PageHero
         backgroundAlt="Playas de la Región de Murcia"
         backgroundImage="/pictures/hero-colecciones.png"
         optimizedName="hero-colecciones"
       >
-        <p className="text-ocean-300 mb-3 text-sm font-medium tracking-widest uppercase">
+        <p className="mb-3 text-sm font-medium tracking-widest text-ocean-300 uppercase">
           Costa de Murcia
         </p>
         <h1 className="mb-4 text-4xl font-normal tracking-tight text-white sm:text-5xl">
           Colecciones de playas
         </h1>
-        <p className="text-ocean-200 mx-auto max-w-xl text-lg">
+        <p className="mx-auto max-w-xl text-lg text-ocean-200">
           Encuentra la playa perfecta según tus preferencias
         </p>
       </PageHero>
@@ -340,7 +340,7 @@ function ColeccionesPage() {
         </section>
 
         {/* Thematic collections */}
-        <section className="bg-sand-100 rounded-3xl p-4 sm:p-6 lg:p-8">
+        <section className="rounded-3xl bg-sand-100 p-4 sm:p-6 lg:p-8">
           <h2 className="mb-6 text-3xl font-semibold text-gray-900">
             Colecciones temáticas
           </h2>

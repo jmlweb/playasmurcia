@@ -1,5 +1,4 @@
 import 'leaflet/dist/leaflet.css'
-
 import L from 'leaflet'
 import { useEffect, useRef } from 'react'
 
@@ -40,10 +39,10 @@ export function LeafletMap({ coordinates, beachName }: LeafletMapProps) {
     })
 
     const FullscreenControl = L.Control.extend({
-      options: { position: 'topleft' as L.ControlPosition },
+      options: { position: 'topleft' },
       onAdd() {
         const btn = L.DomUtil.create('div', 'leaflet-bar leaflet-control')
-        const a = L.DomUtil.create('a', '', btn) as HTMLAnchorElement
+        const a = L.DomUtil.create('a', '', btn)
         a.href = '#'
         a.title = 'Pantalla completa'
         a.setAttribute('role', 'button')
@@ -58,9 +57,9 @@ export function LeafletMap({ coordinates, beachName }: LeafletMapProps) {
           L.DomEvent.preventDefault(e)
           const container = map.getContainer()
           if (document.fullscreenElement) {
-            document.exitFullscreen()
+            void document.exitFullscreen()
           } else {
-            container.requestFullscreen()
+            void container.requestFullscreen()
           }
         })
         return btn

@@ -24,7 +24,7 @@ import { generateBeachSchema } from '@/lib/schema'
 import { beachToSlug, municipalityToSlug } from '@/lib/slugs'
 
 const fetchBeachData = createServerFn({ method: 'GET' })
-  .inputValidator((data: { slug: string }) => {
+  .validator((data: { slug: string }) => {
     if (typeof data.slug !== 'string' || !data.slug.trim()) {
       throw new Error('Invalid slug')
     }
@@ -76,8 +76,8 @@ const fetchBeachData = createServerFn({ method: 'GET' })
 
 function BeachErrorComponent({ reset }: ErrorComponentProps) {
   return (
-    <main className="bg-sand-50 flex min-h-screen flex-col items-center justify-center px-4 text-center">
-      <p className="text-ocean-200 mb-3 text-7xl font-extrabold">!</p>
+    <main className="flex min-h-screen flex-col items-center justify-center bg-sand-50 px-4 text-center">
+      <p className="mb-3 text-7xl font-extrabold text-ocean-200">!</p>
       <h1 className="mb-2 text-2xl font-semibold text-gray-900">
         No pudimos cargar esta playa
       </h1>
@@ -87,7 +87,7 @@ function BeachErrorComponent({ reset }: ErrorComponentProps) {
       </p>
       <div className="flex gap-3">
         <button
-          className="bg-ocean-600 hover:bg-ocean-700 focus-visible:ring-ocean-500 rounded-full px-6 py-2.5 text-sm font-semibold text-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+          className="rounded-full bg-ocean-600 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-ocean-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
           type="button"
           onClick={reset}
         >
@@ -158,9 +158,9 @@ function BeachPage() {
   const pictures = beach.pictures ?? []
 
   return (
-    <main className="bg-sand-50 min-h-screen">
+    <main className="min-h-screen bg-sand-50">
       {/* Hero section — gradient, no photo */}
-      <section className="from-ocean-800 via-ocean-700 to-ocean-600 relative bg-gradient-to-br py-12">
+      <section className="relative bg-gradient-to-br from-ocean-800 via-ocean-700 to-ocean-600 py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="max-w-3xl text-3xl font-normal tracking-tight text-white sm:text-4xl">
             {beach.name}
@@ -375,7 +375,7 @@ function BeachGallery({
       <button
         key={img.baseName}
         aria-label={`Ver ${img.alt} en grande`}
-        className={`focus-visible:ring-ocean-500 cursor-zoom-in overflow-hidden rounded-2xl focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none ${className}`}
+        className={`cursor-zoom-in overflow-hidden rounded-2xl focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none ${className}`}
         type="button"
         onClick={() => {
           openLightbox(index)
@@ -430,7 +430,7 @@ function BeachGallery({
 
         {hasMore && (
           <button
-            className="text-ocean-600 hover:text-ocean-700 mt-3 text-sm font-medium transition-colors"
+            className="mt-3 text-sm font-medium text-ocean-600 transition-colors hover:text-ocean-700"
             type="button"
             onClick={() => {
               setExpanded((v) => !v)
@@ -447,7 +447,7 @@ function BeachGallery({
           <button
             key={img.baseName}
             aria-label={`Ver ${img.alt} en grande`}
-            className="focus-visible:ring-ocean-500 aspect-[4/3] w-72 flex-shrink-0 cursor-zoom-in snap-start overflow-hidden rounded-2xl focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+            className="aspect-[4/3] w-72 flex-shrink-0 cursor-zoom-in snap-start overflow-hidden rounded-2xl focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
             type="button"
             onClick={() => {
               openLightbox(i)

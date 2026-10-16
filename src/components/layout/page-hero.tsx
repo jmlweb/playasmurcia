@@ -98,13 +98,13 @@ export function PageHero({
             optimizedName={optimizedName}
             src={backgroundImage}
           />
-          <div className="via-ocean-900/30 to-ocean-900/80 absolute inset-0 bg-linear-to-b from-transparent" />
+          <div className="absolute inset-0 bg-linear-to-b from-transparent via-ocean-900/30 to-ocean-900/80" />
         </>
       ) : (
         <>
-          <div className="from-ocean-900 via-ocean-800 to-ocean-700 absolute inset-0 bg-linear-to-br" />
+          <div className="absolute inset-0 bg-linear-to-br from-ocean-900 via-ocean-800 to-ocean-700" />
           <div className="absolute inset-0 opacity-20">
-            <div className="bg-ocean-400 absolute top-0 left-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/3 rounded-full blur-3xl" />
+            <div className="absolute top-0 left-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/3 rounded-full bg-ocean-400 blur-3xl" />
           </div>
         </>
       )}

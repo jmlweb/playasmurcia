@@ -14,9 +14,12 @@ export function SearchBar({
   const [localValue, setLocalValue] = useState(value)
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  useEffect(() => {
+  // Sync from props during render (not in an effect) to avoid a cascading re-render
+  const [prevValue, setPrevValue] = useState(value)
+  if (value !== prevValue) {
+    setPrevValue(value)
     setLocalValue(value)
-  }, [value])
+  }
 
   useEffect(() => {
     return () => {
@@ -59,7 +62,7 @@ export function SearchBar({
       </div>
       <input
         aria-label="Buscar playa por nombre"
-        className="focus-visible:ring-ocean-400 w-full rounded-full border border-white/30 bg-white/85 py-3.5 pr-10 pl-11 text-base text-gray-900 placeholder-gray-400 shadow-lg backdrop-blur-xl transition-shadow focus:bg-white/95 focus:shadow-xl focus-visible:ring-2 focus-visible:outline-none"
+        className="w-full rounded-full border border-white/30 bg-white/85 py-3.5 pr-10 pl-11 text-base text-gray-900 placeholder-gray-400 shadow-lg backdrop-blur-xl transition-shadow focus:bg-white/95 focus:shadow-xl focus-visible:ring-2 focus-visible:ring-ocean-400 focus-visible:outline-none"
         placeholder={placeholder}
         type="search"
         value={localValue}

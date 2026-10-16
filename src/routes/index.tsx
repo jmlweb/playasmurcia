@@ -75,7 +75,7 @@ function HomePage() {
   const highlightsRef = useScrollReveal()
 
   return (
-    <main className="bg-sand-50 min-h-screen">
+    <main className="min-h-screen bg-sand-50">
       <HeroSection totalBeaches={totalBeaches} />
       <FeaturedSection
         ref={featuredRef}

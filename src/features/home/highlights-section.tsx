@@ -1,5 +1,6 @@
-import { Link } from '@tanstack/react-router'
 import type { RefObject } from 'react'
+
+import { Link } from '@tanstack/react-router'
 
 export function HighlightsSection({
   ref,
@@ -9,7 +10,7 @@ export function HighlightsSection({
   return (
     <section
       ref={ref}
-      className="reveal bg-ocean-900 relative overflow-hidden px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
+      className="reveal relative overflow-hidden bg-ocean-900 px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
     >
       <img
         alt=""
@@ -18,10 +19,10 @@ export function HighlightsSection({
         loading="lazy"
         src="/pictures/PLAYAS_1_675_4_g.jpg"
       />
-      <div className="from-ocean-900/60 to-ocean-900/90 absolute inset-0 bg-gradient-to-b" />
+      <div className="absolute inset-0 bg-gradient-to-b from-ocean-900/60 to-ocean-900/90" />
       <div className="relative mx-auto max-w-7xl">
         <div className="mb-12 text-center">
-          <p className="text-ocean-300 mb-2 text-sm font-semibold tracking-wider uppercase">
+          <p className="mb-2 text-sm font-semibold tracking-wider text-ocean-300 uppercase">
             Costa Cálida
           </p>
           <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
@@ -33,7 +34,7 @@ export function HighlightsSection({
             className="group rounded-2xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur-sm transition-all hover:bg-white/10"
             to="/colecciones"
           >
-            <div className="bg-ocean-500/20 text-ocean-300 mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl">
+            <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-ocean-500/20 text-ocean-300">
               <svg
                 aria-hidden="true"
                 className="h-7 w-7"
@@ -50,7 +51,7 @@ export function HighlightsSection({
               </svg>
             </div>
             <h3 className="mb-2 text-lg font-semibold text-white">Dos mares</h3>
-            <p className="text-ocean-200 text-sm leading-relaxed">
+            <p className="text-sm leading-relaxed text-ocean-200">
               El Mediterráneo y el Mar Menor ofrecen experiencias de playa
               completamente diferentes en pocos kilómetros.
             </p>
@@ -60,7 +61,7 @@ export function HighlightsSection({
             params={{ slug: 'mejores-atardeceres' }}
             to="/colecciones/$slug"
           >
-            <div className="bg-coral-500/20 text-coral-400 mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl">
+            <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-coral-500/20 text-coral-400">
               <svg
                 aria-hidden="true"
                 className="h-7 w-7"
@@ -79,7 +80,7 @@ export function HighlightsSection({
             <h3 className="mb-2 text-lg font-semibold text-white">
               300 días de sol
             </h3>
-            <p className="text-ocean-200 text-sm leading-relaxed">
+            <p className="text-sm leading-relaxed text-ocean-200">
               Con una de las mejores climatologías de Europa, la Costa Cálida
               hace honor a su nombre durante todo el año.
             </p>
@@ -89,7 +90,7 @@ export function HighlightsSection({
             params={{ slug: 'bandera-azul' }}
             to="/colecciones/$slug"
           >
-            <div className="bg-ocean-500/20 text-ocean-300 mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl">
+            <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-ocean-500/20 text-ocean-300">
               <svg
                 aria-hidden="true"
                 className="h-7 w-7"
@@ -108,7 +109,7 @@ export function HighlightsSection({
             <h3 className="mb-2 text-lg font-semibold text-white">
               Aguas cristalinas
             </h3>
-            <p className="text-ocean-200 text-sm leading-relaxed">
+            <p className="text-sm leading-relaxed text-ocean-200">
               Reservas marinas, calas protegidas y banderas azules que
               certifican la calidad de nuestro litoral.
             </p>

@@ -9,8 +9,8 @@
 | **Vite**                      | Build tool                                                                                                                                   |
 | **Tailwind CSS v4**           | Styling                                                                                                                                      |
 | **TypeScript**                | Language (strict mode)                                                                                                                       |
-| **ESLint**                    | Linting ([`@jmlweb/eslint-config-react`](https://www.npmjs.com/package/@jmlweb/eslint-config-react))                                         |
-| **Prettier**                  | Formatting ([`@jmlweb/prettier-config-tailwind`](https://www.npmjs.com/package/@jmlweb/prettier-config-tailwind))                            |
+| **Oxlint**                    | Linting, type-aware ([`@jmlweb/oxlint-config-react`](https://www.npmjs.com/package/@jmlweb/oxlint-config-react))                             |
+| **Oxfmt**                     | Formatting + Tailwind class sorting ([`@jmlweb/oxfmt-config-base`](https://www.npmjs.com/package/@jmlweb/oxfmt-config-base))                 |
 | **Vitest**                    | Testing (extends [`@jmlweb/vitest-config`](https://www.npmjs.com/package/@jmlweb/vitest-config); coverage thresholds disabled for this repo) |
 | **Testing Library**           | Component testing                                                                                                                            |
 | **pnpm**                      | Package manager                                                                                                                              |

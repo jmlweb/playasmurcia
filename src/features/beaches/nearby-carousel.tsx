@@ -1,6 +1,7 @@
+import type { Beach, Municipality } from '@/types/beach'
+
 import { ResponsiveImage } from '@/components/ui/responsive-image'
 import { parseImageFilename } from '@/lib/images'
-import type { Beach, Municipality } from '@/types/beach'
 
 type NearbyBeachItem = {
   beach: Beach
@@ -34,7 +35,7 @@ export function NearbyCarousel({ items }: NearbyCarouselProps) {
             <a
               key={beach.code}
               aria-label={`Ver playa ${beach.name}`}
-              className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 flex w-48 flex-shrink-0 snap-start flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 hover:shadow-md focus-visible:ring-2 focus-visible:outline-none motion-safe:hover:-translate-y-0.5 sm:w-56"
+              className="group flex w-48 flex-shrink-0 snap-start flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 hover:shadow-md hover:ring-ocean-200 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none motion-safe:hover:-translate-y-0.5 sm:w-56"
               href={`/playas/${slug}`}
             >
               <div className="relative h-32 overflow-hidden bg-gray-100">
@@ -47,10 +48,10 @@ export function NearbyCarousel({ items }: NearbyCarouselProps) {
                     variant="thumb"
                   />
                 ) : (
-                  <div className="from-ocean-50 to-sand-100 flex h-full w-full flex-col items-center justify-center bg-gradient-to-br">
+                  <div className="flex h-full w-full flex-col items-center justify-center bg-gradient-to-br from-ocean-50 to-sand-100">
                     <svg
                       aria-hidden="true"
-                      className="text-ocean-200 mb-1 h-8 w-8"
+                      className="mb-1 h-8 w-8 text-ocean-200"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -73,7 +74,7 @@ export function NearbyCarousel({ items }: NearbyCarouselProps) {
                 )}
               </div>
               <div className="p-3">
-                <p className="group-hover:text-ocean-600 line-clamp-1 text-sm font-semibold text-gray-900">
+                <p className="line-clamp-1 text-sm font-semibold text-gray-900 group-hover:text-ocean-600">
                   {beach.name}
                 </p>
                 <p className="text-xs text-gray-500">{municipality.name}</p>

@@ -8,11 +8,12 @@ import {
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { createServerFn } from '@tanstack/react-start'
 
+import type { NavData } from '@/lib/nav-builders'
+
 import { Navbar } from '@/components/layout/navbar'
 import { NotFound } from '@/components/layout/not-found'
 import { RootErrorComponent } from '@/components/layout/root-error'
 import { SiteFooter } from '@/components/layout/site-footer'
-import type { NavData } from '@/lib/nav-builders'
 
 import appCss from '../styles.css?url'
 
@@ -97,7 +98,7 @@ function RootComponent() {
       </head>
       <body className="bg-sand-50">
         <a
-          className="focus:bg-ocean-600 sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:px-4 focus:py-2 focus:text-white focus:outline-none"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:bg-ocean-600 focus:px-4 focus:py-2 focus:text-white focus:outline-none"
           href="#main-content"
         >
           Saltar al contenido

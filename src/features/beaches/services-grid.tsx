@@ -1,5 +1,6 @@
-import { ServiceIcon } from '@/components/ui/icons'
 import type { Service } from '@/types/beach'
+
+import { ServiceIcon } from '@/components/ui/icons'
 
 type ServicesGridProps = {
   serviceIndices: number[]
@@ -25,10 +26,10 @@ export function ServicesGrid({
         {resolvedServices.map((service) => (
           <li
             key={service.id}
-            className="bg-ocean-50/60 flex items-center gap-2.5 rounded-xl px-3.5 py-3 text-sm text-gray-700"
+            className="flex items-center gap-2.5 rounded-xl bg-ocean-50/60 px-3.5 py-3 text-sm text-gray-700"
           >
             <ServiceIcon
-              className="text-ocean-500 h-5 w-5"
+              className="h-5 w-5 text-ocean-500"
               emoji={service.icon}
               id={service.id}
             />

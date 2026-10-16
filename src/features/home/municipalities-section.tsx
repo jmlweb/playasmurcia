@@ -1,8 +1,10 @@
-import { Link } from '@tanstack/react-router'
 import type { RefObject } from 'react'
 
-import { BlueFlagBadgeIcon } from '@/components/ui/icons'
+import { Link } from '@tanstack/react-router'
+
 import type { NavMunicipalityWithBlueFlag } from '@/lib/nav-builders'
+
+import { BlueFlagBadgeIcon } from '@/components/ui/icons'
 
 type MunicipalitiesSectionProps = {
   ref: RefObject<HTMLElement | null>
@@ -21,7 +23,7 @@ export function MunicipalitiesSection({
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 flex items-end justify-between">
           <div>
-            <p className="overline-accent text-ocean-600 mb-2 text-sm font-semibold tracking-wider uppercase">
+            <p className="overline-accent mb-2 text-sm font-semibold tracking-wider text-ocean-600 uppercase">
               Explora por zona
             </p>
             <h2 className="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
@@ -33,22 +35,22 @@ export function MunicipalitiesSection({
           {municipalityNav.map((m) => (
             <Link
               key={m.slug}
-              className="group hover:ring-ocean-200 focus-visible:ring-ocean-500 flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-500 ease-out hover:shadow-lg focus-visible:ring-2 focus-visible:outline-none motion-safe:hover:-translate-y-1"
+              className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-500 ease-out hover:shadow-lg hover:ring-ocean-200 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none motion-safe:hover:-translate-y-1"
               params={{ slug: m.slug }}
               to="/municipios/$slug"
             >
               <div className="flex flex-1 flex-col p-6">
                 <div className="mb-4 flex items-start justify-between">
-                  <h3 className="group-hover:text-ocean-600 text-xl font-semibold text-gray-900 transition-colors">
+                  <h3 className="text-xl font-semibold text-gray-900 transition-colors group-hover:text-ocean-600">
                     {m.name}
                   </h3>
-                  <div className="bg-ocean-50 text-ocean-700 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-lg font-bold">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-ocean-50 text-lg font-bold text-ocean-700">
                     {m.beachCount}
                   </div>
                 </div>
                 {m.blueFlagCount > 0 && (
                   <p className="mb-4 text-sm leading-relaxed text-gray-500">
-                    <span className="text-ocean-600 inline-flex items-center gap-1">
+                    <span className="inline-flex items-center gap-1 text-ocean-600">
                       <BlueFlagBadgeIcon className="inline h-3.5 w-3.5" />
                       {m.blueFlagCount} bandera
                       {m.blueFlagCount === 1 ? '' : 's'} azul
@@ -56,7 +58,7 @@ export function MunicipalitiesSection({
                   </p>
                 )}
                 <div className="mt-auto">
-                  <span className="text-ocean-600 group-hover:text-ocean-700 inline-flex items-center gap-1 text-sm font-medium transition-colors">
+                  <span className="inline-flex items-center gap-1 text-sm font-medium text-ocean-600 transition-colors group-hover:text-ocean-700">
                     Ver playas
                     <svg
                       aria-hidden="true"

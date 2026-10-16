@@ -2,6 +2,8 @@ import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import { useCallback, useMemo, useState } from 'react'
 
+import type { BeachSearchParams } from '@/lib/beach-filters'
+
 import { Breadcrumb } from '@/components/layout/breadcrumb'
 import { PageHero } from '@/components/layout/page-hero'
 import { EmptyState } from '@/components/ui/empty-state'
@@ -15,7 +17,6 @@ import { PageInfo } from '@/features/listing/page-info'
 import { Pagination } from '@/features/listing/pagination'
 import { SearchBar } from '@/features/listing/search-bar'
 import { SortSelect } from '@/features/listing/sort-select'
-import type { BeachSearchParams } from '@/lib/beach-filters'
 import { applyFiltersAndSort, countActiveFilters } from '@/lib/beach-filters'
 import { validateSearch } from '@/lib/explorer-search'
 import { beachToSlug } from '@/lib/slugs'
@@ -80,7 +81,7 @@ function ExplorerPage() {
     weatherData,
   } = Route.useLoaderData()
   const search = Route.useSearch()
-  const navigate = useNavigate({ from: '/explorar' })
+  const navigate = useNavigate({ from: Route.fullPath })
 
   const PAGE_SIZE = 15
   const filters: BeachSearchParams = search
@@ -141,19 +142,19 @@ function ExplorerPage() {
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false)
 
   return (
-    <main className="bg-sand-50 min-h-screen">
+    <main className="min-h-screen bg-sand-50">
       <PageHero
         backgroundAlt="Costa de Murcia"
         backgroundImage="/pictures/hero-explorar.png"
         optimizedName="hero-explorar"
       >
-        <p className="text-ocean-300 mb-3 text-sm font-medium tracking-widest uppercase">
+        <p className="mb-3 text-sm font-medium tracking-widest text-ocean-300 uppercase">
           Costa de Murcia
         </p>
         <h1 className="mb-4 text-4xl font-normal tracking-tight text-white sm:text-5xl">
           Explorar playas
         </h1>
-        <p className="text-ocean-200 mx-auto mb-8 max-w-xl text-lg">
+        <p className="mx-auto mb-8 max-w-xl text-lg text-ocean-200">
           {hasActiveFilters
             ? `Mostrando ${allFiltered.length} de ${beaches.length} playas`
             : `Filtra entre ${beaches.length} playas y calas del litoral murciano`}
@@ -259,7 +260,7 @@ function ExplorerPage() {
                 action={
                   hasActiveFilters ? (
                     <button
-                      className="bg-ocean-600 hover:bg-ocean-700 focus-visible:ring-ocean-500 rounded-full px-5 py-2.5 text-sm font-medium text-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+                      className="rounded-full bg-ocean-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-ocean-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
                       type="button"
                       onClick={() => {
                         updateFilters({ sort })
