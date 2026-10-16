@@ -3,8 +3,8 @@ import { describe, expect, it } from 'vitest'
 import { parseImageFilename, pictureUrl } from './images'
 
 describe('pictureUrl', () => {
-  it('falls back to the local /pictures path when no base URL is set', () => {
-    expect(pictureUrl('hero.png', undefined)).toBe('/pictures/hero.png')
+  // An explicit '' rather than undefined: undefined would fall through to the env default
+  it('falls back to the local /pictures path when the base URL is empty', () => {
     expect(pictureUrl('hero.png', '')).toBe('/pictures/hero.png')
   })
 
