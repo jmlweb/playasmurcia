@@ -4,19 +4,22 @@ Product-wide feature parity vs production / GitHub `main`: [github-main-feature-
 
 ## Quick stats
 
-- **Pending**: 0 tasks
+- **Pending**: 3 tasks
 - **In progress**: 0 tasks
 - **Completed**: 103 tasks
 - **Blocked**: 0 tasks
 
 ## Current focus
 
-> No active task. Backlog empty.
+> No active task.
 
 ## Backlog
 
-| #   | Task | Priority | Slice |
-| --- | ---- | -------- | ----- |
+| #   | Task                                                                                            | Priority | Slice    |
+| --- | ----------------------------------------------------------------------------------------------- | -------- | -------- |
+| 106 | [Explorer Practical Filters](./pending/106-explorer-practical-filters.md)                       | P2       | Frontend |
+| 107 | [Explorer "Near Me" Sort and Map](./pending/107-explorer-near-me-and-map.md)                    | P3       | Frontend |
+| 108 | [Wind and Flag on Cards, "Cómo llegar" Button](./pending/108-card-conditions-and-directions.md) | P3       | Frontend |
 
 ## Removed tasks
 
