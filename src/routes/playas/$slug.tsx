@@ -19,7 +19,7 @@ import { PracticalInfoCard } from '@/features/beaches/practical-info-card'
 import { ServicesGrid } from '@/features/beaches/services-grid'
 import { TagsSection } from '@/features/beaches/tags-section'
 import { WeatherWidget } from '@/features/beaches/weather-widget'
-import { parseImageFilename } from '@/lib/images'
+import { parseImageFilename, pictureUrl } from '@/lib/images'
 import { generateBeachSchema } from '@/lib/schema'
 import { beachToSlug, municipalityToSlug } from '@/lib/slugs'
 
@@ -121,8 +121,10 @@ export const Route = createFileRoute('/playas/$slug')({
     const schema = generateBeachSchema(beach, municipality, services, slug)
     const description = beach.metaDescription ?? beach.description
     const ogImage = beach.pictures?.[0]
-      ? `/pictures/${parseImageFilename(beach.pictures[0]).baseName}.${parseImageFilename(beach.pictures[0]).ext}`
-      : '/pictures/hero.png'
+      ? pictureUrl(
+          `${parseImageFilename(beach.pictures[0]).baseName}.${parseImageFilename(beach.pictures[0]).ext}`,
+        )
+      : pictureUrl('hero.png')
 
     return {
       meta: [

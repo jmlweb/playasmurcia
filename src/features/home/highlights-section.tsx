@@ -2,6 +2,8 @@ import type { RefObject } from 'react'
 
 import { Link } from '@tanstack/react-router'
 
+import { pictureUrl } from '@/lib/images'
+
 export function HighlightsSection({
   ref,
 }: {
@@ -17,7 +19,7 @@ export function HighlightsSection({
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover opacity-20"
         loading="lazy"
-        src="/pictures/PLAYAS_1_675_4_g.jpg"
+        src={pictureUrl('PLAYAS_1_675_4_g.jpg')}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-ocean-900/60 to-ocean-900/90" />
       <div className="relative mx-auto max-w-7xl">

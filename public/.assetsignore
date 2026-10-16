@@ -1,0 +1,2 @@
+# Pictures are served from the R2 bucket (img.playasmurcia.com), not as Worker assets
+pictures/

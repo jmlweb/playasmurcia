@@ -44,6 +44,9 @@ pnpm run prune:small-pictures -- --dry-run  # List picture refs that would be re
 pnpm run prune:small-pictures               # Remove those refs from beaches.json
 pnpm run prune:small-pictures -- --delete-files  # Also delete unreferenced rasters from public/pictures
 pnpm optimize:images           # Generate WebP variants + thumbnails in public/pictures/optimized/
+pnpm sync:pictures -- --dry-run  # Preview what would be uploaded to / deleted from R2
+pnpm sync:pictures             # Mirror public/pictures/ to the R2 bucket (img.playasmurcia.com)
+pnpm run deploy                # Build and deploy to Cloudflare Workers from this machine (`pnpm deploy` is a pnpm built-in)
 ```
 
 ### Dev reports and UI reviews
@@ -70,6 +73,21 @@ TURSO_AUTH_TOKEN=your-token
 ```
 
 Copy `.env.example` to `.env` and set real Turso credentials.
+
+#### CI and deployment
+
+`.github/workflows/ci.yml` runs on pull requests (check, test, build) and on pushes to `main` (same, then `wrangler deploy`). It needs these GitHub repository settings:
+
+| Name                     | Kind     | Purpose                                                       |
+| ------------------------ | -------- | ------------------------------------------------------------- |
+| `CLOUDFLARE_API_TOKEN`   | Secret   | Deploy (Cloudflare "Edit Cloudflare Workers" token template)  |
+| `CLOUDFLARE_ACCOUNT_ID`  | Secret   | Deploy                                                        |
+| `VITE_MAPBOX_TOKEN`      | Secret   | Inlined into the client bundle at build time                  |
+| `TURSO_DATABASE_URL`     | Secret   | The sitemap step of `pnpm build` queries the database         |
+| `TURSO_AUTH_TOKEN`       | Secret   | Same                                                          |
+| `VITE_PICTURES_BASE_URL` | Variable | `https://img.playasmurcia.com`                                |
+
+Runtime secrets of the Worker (`TURSO_*`, `AEMET_API_KEY`) live in Cloudflare (`wrangler secret put`), not in GitHub.
 
 `VITE_MAPBOX_TOKEN` (Mapbox public `pk.*` token) powers the beach maps. Vite inlines it into the client bundle at build time, so it must also be set in the Cloudflare build environment, and it should be URL-restricted in the Mapbox dashboard. Never hardcode it: GitHub push protection rejects commits that contain it.
 
@@ -146,6 +164,9 @@ pnpm tsx scripts/script-name.ts
 | `sort-pictures-by-resolution.ts` | Sort `pictures` arrays in `beaches.json` by image resolution (highest first)                      | After adding new pictures; then migrate               |
 | `source-wikimedia-pictures.ts`   | Search and review Wikimedia Commons / Flickr CC photos for beaches                                | Ad hoc (when beaches need photos)                     |
 | `download-playas-nexo-images.ts` | Download beach images from CARM Nexo open data portal                                             | One-off (initial image sourcing)                      |
+| `sync-pictures-to-r2.sh`         | Mirror `public/pictures/` to the R2 bucket with rclone (uploads changes, deletes removed files)    | After any script that adds, prunes or re-encodes pictures |
+
+`sync-pictures-to-r2.sh` needs `rclone` (`brew install rclone`) and `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY` in `.env`. Create the keys as a bucket-scoped R2 API token (Object Read & Write) in the Cloudflare dashboard. Run it **before** deploying code that references new pictures. Uploads get `Cache-Control: public, max-age=604800`, so a picture replaced in place can take up to a week to refresh for returning visitors. Prefer new file names for replacements.
 
 ## Cost Optimization
 

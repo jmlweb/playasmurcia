@@ -1,12 +1,13 @@
 import { Link } from '@tanstack/react-router'
 
 import { PageHero } from '@/components/layout/page-hero'
+import { pictureUrl } from '@/lib/images'
 
 export function HeroSection({ totalBeaches }: { totalBeaches: number }) {
   return (
     <PageHero
       backgroundAlt="Vista aerea de la costa de Murcia"
-      backgroundImage="/pictures/hero.png"
+      backgroundImage={pictureUrl('hero.png')}
       imageHeight={768}
       imageWidth={1408}
       optimizedMaxWidth={2816}

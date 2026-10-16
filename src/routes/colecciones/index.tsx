@@ -9,6 +9,7 @@ import {
   filterBeachesByCollection,
   seaCollections,
 } from '@/lib/collections'
+import { pictureUrl } from '@/lib/images'
 
 const fetchCollectionsData = createServerFn({ method: 'GET' }).handler(
   async () => {
@@ -249,8 +250,8 @@ function SeaCollectionCard({
         loading="lazy"
         src={
           isMediterraneo
-            ? '/pictures/recurso-1-524-1p_g.jpg'
-            : '/pictures/recurso-1-687-8p_g.jpg'
+            ? pictureUrl('recurso-1-524-1p_g.jpg')
+            : pictureUrl('recurso-1-687-8p_g.jpg')
         }
       />
       {/* Gradient overlay */}
@@ -303,7 +304,7 @@ function ColeccionesPage() {
     <main className="min-h-screen bg-sand-50">
       <PageHero
         backgroundAlt="Playas de la Región de Murcia"
-        backgroundImage="/pictures/hero-colecciones.png"
+        backgroundImage={pictureUrl('hero-colecciones.png')}
         optimizedName="hero-colecciones"
       >
         <p className="mb-3 text-sm font-medium tracking-widest text-ocean-300 uppercase">

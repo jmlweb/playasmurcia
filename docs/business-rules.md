@@ -14,6 +14,7 @@ Scripts that exist in `scripts/` and require periodic execution:
 | `validate-beaches.js`    | Validate all beach data integrity                                       | Before releases                     |
 | `migrate-to-database.ts` | Migrate JSON data to SQLite/Turso                                       | Once (or after JSON changes)        |
 | `validate-migration.ts`  | Validate database matches JSON source                                   | After migration                     |
+| `sync-pictures-to-r2.sh` | Mirror `public/pictures/` to the R2 bucket serving `img.playasmurcia.com` | After picture changes, before deploy |
 
 ## Beach Orientation
 

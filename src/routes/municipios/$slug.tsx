@@ -12,7 +12,7 @@ import { PageInfo } from '@/features/listing/page-info'
 import { Pagination } from '@/features/listing/pagination'
 import { SortSelect } from '@/features/listing/sort-select'
 import { sortBeaches } from '@/lib/beach-filters'
-import { parseImageFilename } from '@/lib/images'
+import { parseImageFilename, pictureUrl } from '@/lib/images'
 import { generateMunicipalitySchema } from '@/lib/schema'
 import { beachToSlug } from '@/lib/slugs'
 
@@ -52,8 +52,10 @@ const fetchMunicipalityData = createServerFn({ method: 'GET' })
     )[0]
 
     const heroImage = bestBeach
-      ? `/pictures/${parseImageFilename(bestBeach.pictures[0]).baseName}.${parseImageFilename(bestBeach.pictures[0]).ext}`
-      : '/pictures/hero-municipios.png'
+      ? pictureUrl(
+          `${parseImageFilename(bestBeach.pictures[0]).baseName}.${parseImageFilename(bestBeach.pictures[0]).ext}`,
+        )
+      : pictureUrl('hero-municipios.png')
 
     return {
       municipality,

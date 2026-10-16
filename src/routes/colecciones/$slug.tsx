@@ -17,6 +17,7 @@ import {
   filterBeachesByCollection,
   getCollectionBySlug,
 } from '@/lib/collections'
+import { pictureUrl } from '@/lib/images'
 
 const fetchCollectionData = createServerFn({ method: 'GET' })
   .validator((data: { slug: string }) => {
@@ -140,7 +141,7 @@ function CollectionPage() {
     <main className="min-h-screen bg-sand-50">
       <PageHero
         backgroundAlt="Playas de la Región de Murcia"
-        backgroundImage="/pictures/hero-colecciones.png"
+        backgroundImage={pictureUrl('hero-colecciones.png')}
         optimizedName="hero-colecciones"
       >
         <h1 className="mb-4 text-3xl font-normal tracking-tight text-white sm:text-4xl">

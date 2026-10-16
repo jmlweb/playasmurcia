@@ -1,5 +1,7 @@
 import { type ImgHTMLAttributes } from 'react'
 
+import { pictureUrl } from '@/lib/images'
+
 type ResponsiveImageProps = Omit<ImgHTMLAttributes<HTMLImageElement>, 'src'> & {
   /** Path relative to /pictures/ without extension, e.g. "arturo2_g" */
   baseName: string
@@ -27,9 +29,9 @@ export function ResponsiveImage({
   height,
   ...rest
 }: ResponsiveImageProps) {
-  const originalSrc = `/pictures/${baseName}.${ext}`
-  const opt = `/pictures/optimized/${baseName}`
-  const useOptimized = import.meta.env.PLAYASMURCIA_OPTIMIZED_IMAGES === 'true'
+  const originalSrc = pictureUrl(`${baseName}.${ext}`)
+  const opt = pictureUrl(`optimized/${baseName}`)
+  const useOptimized = import.meta.env.PLAYASMURCIA_OPTIMIZED_IMAGES
 
   const isHigh = priority === 'high'
 

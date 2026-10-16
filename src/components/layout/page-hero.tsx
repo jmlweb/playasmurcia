@@ -1,8 +1,10 @@
 import type { ReactNode } from 'react'
 
+import { pictureUrl } from '@/lib/images'
+
 type PageHeroProps = {
   children: ReactNode
-  /** Original raster path, e.g. "/pictures/hero.png" */
+  /** Original raster URL, e.g. `pictureUrl('hero.png')` */
   backgroundImage?: string
   backgroundAlt?: string
   /** Base name inside optimized/, e.g. "hero-municipios" */
@@ -14,7 +16,7 @@ type PageHeroProps = {
   imageHeight?: number
 }
 
-const useOptimized = import.meta.env.PLAYASMURCIA_OPTIMIZED_IMAGES === 'true'
+const useOptimized = import.meta.env.PLAYASMURCIA_OPTIMIZED_IMAGES
 
 const photoHeroImgClass =
   'motion-safe:animate-ken-burns absolute inset-0 h-full w-full object-cover'
@@ -34,7 +36,9 @@ function HeroImage({
   imageWidth?: number
   imageHeight?: number
 }) {
-  const opt = optimizedName ? `/pictures/optimized/${optimizedName}` : undefined
+  const opt = optimizedName
+    ? pictureUrl(`optimized/${optimizedName}`)
+    : undefined
   const imgDims =
     imageWidth !== undefined && imageHeight !== undefined
       ? { height: imageHeight, width: imageWidth }

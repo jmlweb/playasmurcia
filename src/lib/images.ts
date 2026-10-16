@@ -9,3 +9,17 @@ export function parseImageFilename(filename: string): {
     ext: filename.substring(lastDot + 1),
   }
 }
+
+const LOCAL_PICTURES_BASE = '/pictures'
+
+/**
+ * Builds a picture URL. Production serves pictures from the R2 bucket domain set in
+ * `VITE_PICTURES_BASE_URL`; local dev falls back to `public/pictures/` served by Vite.
+ */
+export function pictureUrl(
+  path: string,
+  baseUrl: string | undefined = import.meta.env.VITE_PICTURES_BASE_URL,
+): string {
+  const base = (baseUrl || LOCAL_PICTURES_BASE).replace(/\/+$/, '')
+  return `${base}/${path.replace(/^\/+/, '')}`
+}

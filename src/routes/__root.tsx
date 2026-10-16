@@ -14,6 +14,7 @@ import { Navbar } from '@/components/layout/navbar'
 import { NotFound } from '@/components/layout/not-found'
 import { RootErrorComponent } from '@/components/layout/root-error'
 import { SiteFooter } from '@/components/layout/site-footer'
+import { pictureUrl } from '@/lib/images'
 
 import appCss from '../styles.css?url'
 
@@ -61,7 +62,7 @@ export const Route = createRootRoute({
       },
       { property: 'og:site_name', content: 'Playas de Murcia' },
       { property: 'og:type', content: 'website' },
-      { property: 'og:image', content: '/pictures/hero.png' },
+      { property: 'og:image', content: pictureUrl('hero.png') },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
     links: [

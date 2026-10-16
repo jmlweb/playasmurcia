@@ -9,11 +9,13 @@ import viteReact from '@vitejs/plugin-react'
 
 const rootDir = dirname(fileURLToPath(import.meta.url))
 const optimizedDir = resolve(rootDir, 'public/pictures/optimized')
+// CI has no local pictures (they live in R2), so it opts in explicitly via env
 const playasmurciaOptimizedImages =
-  existsSync(optimizedDir) &&
-  readdirSync(optimizedDir).some(
-    (name) => name.endsWith('.webp') || name.endsWith('.avif'),
-  )
+  process.env.PLAYASMURCIA_OPTIMIZED_IMAGES === 'true' ||
+  (existsSync(optimizedDir) &&
+    readdirSync(optimizedDir).some(
+      (name) => name.endsWith('.webp') || name.endsWith('.avif'),
+    ))
 
 const config = defineConfig({
   resolve: {

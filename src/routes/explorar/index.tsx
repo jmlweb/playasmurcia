@@ -19,6 +19,7 @@ import { SearchBar } from '@/features/listing/search-bar'
 import { SortSelect } from '@/features/listing/sort-select'
 import { applyFiltersAndSort, countActiveFilters } from '@/lib/beach-filters'
 import { validateSearch } from '@/lib/explorer-search'
+import { pictureUrl } from '@/lib/images'
 import { beachToSlug } from '@/lib/slugs'
 
 const fetchExplorerData = createServerFn({ method: 'GET' }).handler(
@@ -145,7 +146,7 @@ function ExplorerPage() {
     <main className="min-h-screen bg-sand-50">
       <PageHero
         backgroundAlt="Costa de Murcia"
-        backgroundImage="/pictures/hero-explorar.png"
+        backgroundImage={pictureUrl('hero-explorar.png')}
         optimizedName="hero-explorar"
       >
         <p className="mb-3 text-sm font-medium tracking-widest text-ocean-300 uppercase">

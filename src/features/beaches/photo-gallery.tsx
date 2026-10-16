@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import { ResponsiveImage } from '@/components/ui/responsive-image'
 import { cn } from '@/lib/cn'
-import { parseImageFilename } from '@/lib/images'
+import { parseImageFilename, pictureUrl } from '@/lib/images'
 
 type PhotoGalleryProps = {
   pictures: string[]
@@ -18,7 +18,7 @@ export function PhotoGallery({ pictures, beachName }: PhotoGalleryProps) {
         <img
           alt={beachName}
           className="h-full w-full object-cover"
-          src="/pictures/default-beach.png"
+          src={pictureUrl('default-beach.png')}
         />
       </div>
     )
