@@ -179,7 +179,7 @@ function ExplorerPage() {
         backgroundImage={pictureUrl('hero-explorar.png')}
         optimizedName="hero-explorar"
       >
-        <p className="mb-3 text-sm font-medium tracking-widest text-ocean-300 uppercase">
+        <p className="mb-3 text-sm font-semibold tracking-widest text-coral-400 uppercase">
           Costa de Murcia
         </p>
         <h1 className="mb-4 text-4xl font-normal tracking-tight text-white sm:text-5xl">
@@ -204,7 +204,8 @@ function ExplorerPage() {
         <Breadcrumb
           items={[{ label: 'Inicio', href: '/' }, { label: 'Explorar playas' }]}
         />
-        <div className="flex gap-10">
+        {/* Flex only on desktop: on mobile FilterPanel leaves an empty wrapper that the gap would indent the results by */}
+        <div className="lg:flex lg:gap-10">
           <FilterPanel
             activities={activities}
             filters={filters}
