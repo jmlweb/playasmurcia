@@ -252,7 +252,9 @@ function TodayCard({ day, current, waterTemp }: TodayCardProps) {
             )
           )}
           {skyDesc && (
-            <p className="text-sm text-gray-500 capitalize">{skyDesc}</p>
+            <p className="text-sm text-gray-500 first-letter:uppercase">
+              {skyDesc}
+            </p>
           )}
         </div>
       </div>

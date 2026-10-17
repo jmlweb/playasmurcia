@@ -193,7 +193,8 @@ export async function getAllTags(): Promise<Tag[]> {
 
   return dbTags.map((t) => ({
     id: t.tagId,
-    name: t.name,
+    // Production rows predate the switch to Spanish sentence case
+    name: t.name.charAt(0) + t.name.slice(1).toLowerCase(),
   }))
 }
 

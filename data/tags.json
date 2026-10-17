@@ -1,10 +1,10 @@
 [
-  { "id": "arena-fina", "name": "Arena Fina" },
+  { "id": "arena-fina", "name": "Arena fina" },
   { "id": "calas", "name": "Calas" },
   { "id": "familiar", "name": "Familiar" },
-  { "id": "aguas-tranquilas", "name": "Aguas Tranquilas" },
+  { "id": "aguas-tranquilas", "name": "Aguas tranquilas" },
   { "id": "urbana", "name": "Urbana" },
-  { "id": "paseo-maritimo", "name": "Paseo Marítimo" },
+  { "id": "paseo-maritimo", "name": "Paseo marítimo" },
   { "id": "accesible", "name": "Accesible" },
   { "id": "chiringuito", "name": "Chiringuito" },
   { "id": "snorkel", "name": "Snorkel" },
@@ -13,7 +13,7 @@
   { "id": "rocosa", "name": "Rocosa" },
   { "id": "acantilados", "name": "Acantilados" },
   { "id": "nudista", "name": "Nudista" },
-  { "id": "canina", "name": "Playa Canina" },
+  { "id": "canina", "name": "Playa canina" },
   { "id": "fotogenica", "name": "Fotogénica" },
-  { "id": "puesta-sol", "name": "Puesta de Sol" }
+  { "id": "puesta-sol", "name": "Puesta de sol" }
 ]

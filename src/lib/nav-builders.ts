@@ -55,10 +55,10 @@ export function buildMunicipalityNavWithBlueFlag(
 // Footer counts must match the collection pages they link to, so they reuse
 // each collection's filter instead of duplicating the criteria here.
 const FOOTER_COLLECTIONS = [
-  { label: 'Bandera azul', slug: 'bandera-azul' },
-  { label: 'Accesible', slug: 'accesibles' },
-  { label: 'Nudista', slug: 'playas-nudistas' },
-  { label: 'Pet friendly', slug: 'playas-para-perros' },
+  { label: 'Bandera Azul', slug: 'bandera-azul' },
+  { label: 'Accesibles', slug: 'accesibles' },
+  { label: 'Nudistas', slug: 'playas-nudistas' },
+  { label: 'Para perros', slug: 'playas-para-perros' },
   { label: 'Familiares', slug: 'playas-familiares' },
 ] as const
 

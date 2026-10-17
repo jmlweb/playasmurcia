@@ -102,10 +102,10 @@ describe('nav-builders', () => {
     it('returns correct counts for each characteristic', () => {
       const result = buildCharacteristicCounts(beaches)
       const byLabel = new Map(result.map((c) => [c.label, c.count]))
-      expect(byLabel.get('Bandera azul')).toBe(2)
-      expect(byLabel.get('Accesible')).toBe(1)
-      expect(byLabel.get('Nudista')).toBe(1)
-      expect(byLabel.get('Pet friendly')).toBe(1)
+      expect(byLabel.get('Bandera Azul')).toBe(2)
+      expect(byLabel.get('Accesibles')).toBe(1)
+      expect(byLabel.get('Nudistas')).toBe(1)
+      expect(byLabel.get('Para perros')).toBe(1)
       expect(byLabel.get('Familiares')).toBe(1)
     })
 
