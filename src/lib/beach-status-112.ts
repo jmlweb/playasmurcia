@@ -200,3 +200,32 @@ export async function getBeachStatus(
     isOffSeason: offSeason,
   }
 }
+
+/**
+ * Current flag for many beaches from a single (cached) COPLA fetch, for
+ * listing cards. Beaches with no match, stale data or no flag are omitted so
+ * cards render nothing for them.
+ */
+export async function getBatchBeachFlags(
+  beaches: { code: string; name: string; municipalityName: string }[],
+): Promise<Map<string, BeachFlag>> {
+  const result = new Map<string, BeachFlag>()
+  let entries: CoplaEntry[]
+  try {
+    entries = await fetchAndCacheEntries()
+  } catch {
+    return result
+  }
+
+  for (const beach of beaches) {
+    const entry = entries.find(
+      (e) =>
+        namesMatch(e.playa, beach.name) &&
+        municipalitiesMatch(e.municipio, beach.municipalityName),
+    )
+    if (!entry || isDataStale(entry.dia)) continue
+    const flag = toBeachFlag(entry.bandera)
+    if (flag !== 'SIN BANDERA') result.set(beach.code, flag)
+  }
+  return result
+}

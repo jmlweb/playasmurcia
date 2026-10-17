@@ -4,6 +4,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { Breadcrumb } from '@/components/layout/breadcrumb'
 import { PageHero } from '@/components/layout/page-hero'
 import { CollectionIcon } from '@/components/ui/icons'
+import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
 import {
   collections,
   filterBeachesByCollection,
@@ -43,7 +44,9 @@ export const Route = createFileRoute('/colecciones/')({
         content:
           'Explora nuestras colecciones temáticas de playas: familiares, nudistas, con chiringuito, bandera azul y más.',
       },
+      ogUrlMeta('/colecciones'),
     ],
+    links: [canonicalLink('/colecciones')],
   }),
   component: ColeccionesPage,
 })

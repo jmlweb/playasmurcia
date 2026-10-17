@@ -1,12 +1,14 @@
 ---
 id: TSK-106
 title: Explorer Practical Filters (Dogs, Lifeguard, Accessibility, Shade, Crowds)
-status: pending
+status: complete
 priority: P2
 tags: [frontend]
 created: 2026-10-16
 source: manual
 depends-on: []
+started: 2026-10-17
+completed: 2026-10-17
 ---
 
 # Explorer Practical Filters (Dogs, Lifeguard, Accessibility, Shade, Crowds)
@@ -17,12 +19,12 @@ As a visitor with a specific need (a dog, small children, reduced mobility, want
 
 ## Acceptance Criteria
 
-- [ ] `BeachSearchParams` supports boolean filters `dogFriendly`, `lifeguard`, `childSafe`, `naturalShade`, `nudist`, validated in `src/lib/explorer-search.ts` and kept in the URL
-- [ ] `BeachSearchParams` supports `accessDifficulty` (`easy` | `moderate` | `hard`, multi-select) and `occupancy` (`low` | `medium` | `high`, multi-select)
-- [ ] Filter panel shows a "Necesidades" (or similar) group with these options; active filters appear as chips and count in `countActiveFilters`
-- [ ] Beaches with a missing optional field (`undefined`) are excluded when that filter is active, not treated as matches
-- [ ] Unit tests in Vitest cover each new filter, including the `undefined` case and combination with existing filters
-- [ ] Spanish labels use correct diacritics (e.g. "Accesibilidad", "Socorrista", "Sombra natural", "Poca ocupación")
+- [x] `BeachSearchParams` supports boolean filters `dogFriendly`, `lifeguard`, `childSafe`, `naturalShade`, `nudist`, validated in `src/lib/explorer-search.ts` and kept in the URL
+- [x] `BeachSearchParams` supports `accessDifficulty` (`easy` | `moderate` | `hard`, multi-select) and `occupancy` (`low` | `medium` | `high`, multi-select)
+- [x] Filter panel shows a "Necesidades" (or similar) group with these options; active filters appear as chips and count in `countActiveFilters`
+- [x] Beaches with a missing optional field (`undefined`) are excluded when that filter is active, not treated as matches
+- [x] Unit tests in Vitest cover each new filter, including the `undefined` case and combination with existing filters
+- [x] Spanish labels use correct diacritics (e.g. "Accesibilidad", "Socorrista", "Sombra natural", "Poca ocupación")
 
 ## Notes
 
@@ -50,3 +52,6 @@ Origin: visitor-perspective UX brainstorm (2026-10-16), top-3 suggestion #2.
 
 (No progress yet)
 - [2026-10-17] Migrated from legacy backlog/ (originally task #106)
+- [2026-10-17] Implemented need filters, access/occupancy multi-select, chips, tests. pnpm check/test/build pass.
+- [2026-10-17] Started
+- [2026-10-17] Completed

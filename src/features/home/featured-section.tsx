@@ -2,6 +2,7 @@ import type { RefObject } from 'react'
 
 import { Link } from '@tanstack/react-router'
 
+import type { BeachFlag } from '@/lib/beach-status-112'
 import type { CardWeather } from '@/lib/open-meteo'
 import type { Beach, Municipality, Tag } from '@/types/beach'
 
@@ -14,6 +15,7 @@ type FeaturedSectionProps = {
   tags: Tag[]
   slugMap: Map<string, string>
   weatherData: Record<string, CardWeather>
+  flagData: Record<string, BeachFlag>
   totalBeaches: number
 }
 
@@ -24,6 +26,7 @@ export function FeaturedSection({
   tags,
   slugMap,
   weatherData,
+  flagData,
   totalBeaches,
 }: FeaturedSectionProps) {
   return (
@@ -56,6 +59,7 @@ export function FeaturedSection({
               key={beach.code}
               beach={beach}
               eager={i < 4}
+              flag={flagData[beach.code]}
               municipality={municipalities[beach.municipality]}
               slug={slug}
               tags={tags}

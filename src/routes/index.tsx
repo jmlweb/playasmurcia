@@ -2,12 +2,14 @@ import { createFileRoute } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import { useMemo } from 'react'
 
+import { useCardFlags } from '@/features/beaches/use-card-flags'
 import { useCardWeather } from '@/features/beaches/use-card-weather'
 import { FeaturedSection } from '@/features/home/featured-section'
 import { HeroSection } from '@/features/home/hero-section'
 import { HighlightsSection } from '@/features/home/highlights-section'
 import { MunicipalitiesSection } from '@/features/home/municipalities-section'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
+import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
 import { beachToSlug } from '@/lib/slugs'
 
 const fetchHomeData = createServerFn({ method: 'GET' }).handler(async () => {
@@ -47,7 +49,9 @@ export const Route = createFileRoute('/')({
         name: 'description',
         content: `Descubre las mejores playas de la Región de Murcia. ${loaderData?.totalBeaches ?? 194} playas y calas en la Costa Cálida, entre el Mediterráneo y el Mar Menor.`,
       },
+      ogUrlMeta('/'),
     ],
+    links: [canonicalLink('/')],
   }),
   component: HomePage,
 })
@@ -56,6 +60,7 @@ function HomePage() {
   const { featured, municipalities, municipalityNav, tags, totalBeaches } =
     Route.useLoaderData()
   const weatherData = useCardWeather(featured)
+  const flagData = useCardFlags(featured)
 
   const slugMap = useMemo(
     () => new Map(featured.map((b) => [b.code, beachToSlug(b)])),
@@ -72,6 +77,7 @@ function HomePage() {
       <FeaturedSection
         ref={featuredRef}
         featured={featured}
+        flagData={flagData}
         municipalities={municipalities}
         slugMap={slugMap}
         tags={tags}

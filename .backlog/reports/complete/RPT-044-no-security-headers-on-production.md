@@ -3,8 +3,10 @@ id: RPT-044
 title: No security headers on production responses
 type: security
 severity: medium
-status: pending
+status: triaged
 created: 2026-10-17
+triaged: 2026-10-17
+task-id: TSK-114
 ---
 
 - **Found**: 2026-10-17, against https://www.playasmurcia.com/

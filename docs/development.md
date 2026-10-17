@@ -91,6 +91,11 @@ Runtime secrets of the Worker (`TURSO_*`, `AEMET_API_KEY`) live in Cloudflare (`
 
 `VITE_MAPBOX_TOKEN` (Mapbox public `pk.*` token) powers the beach maps. Vite inlines it into the client bundle at build time, so it must also be set in the Cloudflare build environment, and it should be URL-restricted in the Mapbox dashboard. Never hardcode it: GitHub push protection rejects commits that contain it.
 
+#### HTTPS and security headers
+
+- The Cloudflare zone setting **SSL/TLS → Edge Certificates → Always Use HTTPS** is on, so plain HTTP requests get a 301 to HTTPS. Re-check with `curl -sI http://www.playasmurcia.com/` after any zone change
+- SSR responses get their security headers from `src/server.ts` (the Worker entry named in `wrangler.jsonc`) through `src/lib/security-headers.ts`; static assets get theirs from `public/_headers`. The CSP is **report-only**: watch the browser console for violations before turning it into an enforcing `Content-Security-Policy`
+
 #### Important: Cloudflare Workers runtime constraints
 
 The Cloudflare Vite plugin runs SSR in a **workerd** runtime (not Node.js). This means:

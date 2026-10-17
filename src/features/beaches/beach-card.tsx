@@ -1,13 +1,21 @@
 import { Link } from '@tanstack/react-router'
 
 import type { WeatherIconType } from '@/components/ui/icons'
+import type { BeachFlag } from '@/lib/beach-status-112'
 import type { CardWeather } from '@/lib/open-meteo'
 import type { Beach, Municipality, Tag } from '@/types/beach'
 
 import { WeatherIcon } from '@/components/ui/icons'
 import { ResponsiveImage } from '@/components/ui/responsive-image'
+import { formatDistance } from '@/lib/geo'
 import { parseImageFilename } from '@/lib/images'
 import { OccupancyStyles } from '@/lib/status-styles'
+
+const FlagBadges: Partial<Record<BeachFlag, { label: string; dot: string }>> = {
+  VERDE: { label: 'Bandera verde', dot: 'bg-emerald-500' },
+  AMARILLA: { label: 'Bandera amarilla', dot: 'bg-yellow-400' },
+  ROJA: { label: 'Bandera roja', dot: 'bg-red-500' },
+}
 
 const validWeatherIcons = new Set([
   'sunny',
@@ -26,6 +34,8 @@ type BeachCardProps = {
   slug: string
   eager?: boolean
   weather?: CardWeather
+  distanceKm?: number
+  flag?: BeachFlag
 }
 
 export function BeachCard({
@@ -35,6 +45,8 @@ export function BeachCard({
   slug,
   eager,
   weather,
+  distanceKm,
+  flag,
 }: BeachCardProps) {
   const firstPicture = beach.pictures?.[0]
   const hasPicture = Boolean(firstPicture)
@@ -98,6 +110,14 @@ export function BeachCard({
               }
             />
             {weather.temp}°
+            {weather.windSpeed !== undefined && weather.windDirection && (
+              <span
+                aria-label={`Viento ${String(weather.windSpeed)} kilómetros por hora, dirección ${weather.windDirection}`}
+                className="border-l border-gray-300 pl-1.5 text-xs font-normal text-gray-600"
+              >
+                {weather.windSpeed} km/h {weather.windDirection}
+              </span>
+            )}
           </span>
         )}
         {beach.occupancyLevel && (
@@ -105,6 +125,15 @@ export function BeachCard({
             className={`absolute top-3 right-3 rounded-full px-2.5 py-1 text-xs font-medium backdrop-blur-sm ${OccupancyStyles[beach.occupancyLevel].solid}`}
           >
             {OccupancyStyles[beach.occupancyLevel].label}
+          </span>
+        )}
+        {flag && FlagBadges[flag] && (
+          <span className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-0.5 text-sm font-medium text-gray-900 shadow-sm backdrop-blur-sm">
+            <span
+              aria-hidden="true"
+              className={`h-2.5 w-2.5 rounded-full ${FlagBadges[flag].dot}`}
+            />
+            {FlagBadges[flag].label}
           </span>
         )}
         {visibleTags.length > 0 && (
@@ -124,7 +153,10 @@ export function BeachCard({
         <h3 className="mb-1 text-lg font-semibold text-gray-900 transition-colors group-hover:text-ocean-600">
           {beach.name}
         </h3>
-        <p className="text-sm text-gray-500">{municipality.name}</p>
+        <p className="text-sm text-gray-500">
+          {municipality.name}
+          {distanceKm !== undefined && ` · a ${formatDistance(distanceKm)}`}
+        </p>
         {(beach.length ?? beach.soilType) && (
           <p className="mt-1 truncate text-xs text-gray-400">
             {beach.length

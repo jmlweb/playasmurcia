@@ -213,3 +213,61 @@ describe('getBeachStatus', () => {
     expect(result?.flag).toBe('ROJA')
   })
 })
+
+describe('getBatchBeachFlags', () => {
+  beforeEach(() => {
+    mockFetch.mockReset()
+  })
+
+  afterEach(() => {
+    vi.resetModules()
+  })
+
+  const beaches = [
+    { code: 'A', name: 'Calabardina', municipalityName: 'Aguilas' },
+    { code: 'B', name: 'Las Higuericas', municipalityName: 'Aguilas' },
+    { code: 'C', name: 'Playa Inexistente', municipalityName: 'Aguilas' },
+  ]
+
+  it('returns flags for many beaches from one fetch', async () => {
+    const xml = buildXml([
+      { playa: 'CALABARDINA', municipio: 'AGUILAS', dia: recentDate() },
+      {
+        playa: 'LAS HIGUERICAS',
+        municipio: 'AGUILAS',
+        bandera: 'ROJA',
+        dia: recentDate(),
+      },
+    ])
+    mockFetch.mockResolvedValueOnce({ ok: true, text: async () => xml })
+    const { getBatchBeachFlags } = await freshModule()
+
+    const result = await getBatchBeachFlags(beaches)
+
+    expect(mockFetch).toHaveBeenCalledTimes(1)
+    expect(Object.fromEntries(result)).toEqual({ A: 'VERDE', B: 'ROJA' })
+  })
+
+  it('omits stale entries and beaches without a flag', async () => {
+    const xml = buildXml([
+      { playa: 'CALABARDINA', municipio: 'AGUILAS', dia: staleDate() },
+      {
+        playa: 'LAS HIGUERICAS',
+        municipio: 'AGUILAS',
+        bandera: 'SIN BANDERA',
+        dia: recentDate(),
+      },
+    ])
+    mockFetch.mockResolvedValueOnce({ ok: true, text: async () => xml })
+    const { getBatchBeachFlags } = await freshModule()
+
+    expect((await getBatchBeachFlags(beaches)).size).toBe(0)
+  })
+
+  it('returns an empty map when the 112 fetch fails', async () => {
+    mockFetch.mockRejectedValueOnce(new Error('network error'))
+    const { getBatchBeachFlags } = await freshModule()
+
+    expect((await getBatchBeachFlags(beaches)).size).toBe(0)
+  })
+})

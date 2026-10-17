@@ -53,6 +53,15 @@ So weather is **not** limited to beaches with `aemetId`; those codes only gate t
 
 - Used for coordinate-based current weather (e.g. beach cards) and detail when AEMET is unavailable
 - Cached like other external HTTP calls at the edge where configured
+- Card weather (temperature, icon, wind) is requested in chunks of 50 unique coordinates, each with a 2 s timeout. A failed or timed-out chunk is skipped, and a partial result is not cached
+- Listings never wait for weather or flags: the client loads both after mount (`useCardWeather`, `useCardFlags`) and cards render without them until they arrive
+- Card flags come from one cached 112 COPLA fetch; stale entries (older than 2 days) and "SIN BANDERA" are not shown
+
+## Explorer Filters and Sorting
+
+- Need filters (`dogFriendly`, `lifeguard`, `childSafe`, `naturalShade`, `nudist`) are boolean and live in the URL as `true`; a beach with the field missing never matches an active filter
+- `accessDifficulty` (`easy` | `moderate` | `hard`) and `occupancy` (`low` | `medium` | `high`) are multi-select; beaches with no value are excluded when active
+- "Cerca de mí" (`sort=cercania`) asks for browser geolocation only on click. The position stays in component state: it is never put in the URL, storage or sent to the server. Without a position the sort falls back to "Recomendados"
 
 ## Content Guidelines
 

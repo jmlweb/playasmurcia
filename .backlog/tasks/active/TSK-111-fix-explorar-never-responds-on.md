@@ -1,12 +1,13 @@
 ---
 id: TSK-111
 title: Fix: /explorar never responds on production
-status: pending
+status: active
 priority: P1
 tags: []
 created: 2026-10-17
 source: report/RPT-042
 depends-on: []
+started: 2026-10-17
 ---
 
 # Fix: /explorar never responds on production
@@ -23,9 +24,9 @@ Report: .backlog/reports/complete/RPT-042-explorar-never-responds-on-production.
 
 ## Acceptance Criteria
 
-- [ ] Open-Meteo batch is split into chunks instead of one GET URL for ~194 beaches
-- [ ] /explorar loader does not block on weather, or degrades to an empty map on timeout
-- [ ] Regression test covers the timeout path
+- [x] Open-Meteo batch is split into chunks instead of one GET URL for ~194 beaches
+- [x] /explorar loader does not block on weather, or degrades to an empty map on timeout
+- [x] Regression test covers the timeout path
 - [ ] /explorar, /explorar?page=9999 and /explorar?q=sol return 200 in under 3 s on production
 
 ## Notes
@@ -35,3 +36,5 @@ Report: .backlog/reports/complete/RPT-042-explorar-never-responds-on-production.
 ## Progress Log
 
 - [2026-10-17] Created
+- [2026-10-17] Chunked batch (50 coords, 2 s timeout each), weather moved to client hooks so loaders never block. Production timing check pending deploy.
+- [2026-10-17] Started

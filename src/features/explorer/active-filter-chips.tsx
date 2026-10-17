@@ -3,6 +3,13 @@ import { useMemo } from 'react'
 import type { BeachSearchParams } from '@/lib/beach-filters'
 import type { Activity, Municipality, Sea, Service, Tag } from '@/types/beach'
 
+import {
+  AccessDifficultyLabels,
+  NeedFilterKeys,
+  NeedFilterLabels,
+  OccupancyLabels,
+} from '@/lib/beach-filters'
+
 type ActiveFilterChipsProps = {
   filters: BeachSearchParams
   municipalities: Municipality[]
@@ -105,6 +112,43 @@ export function ActiveFilterChips({
             },
           })
       }
+    }
+    for (const key of NeedFilterKeys) {
+      if (filters[key]) {
+        result.push({
+          key: `need-${key}`,
+          label: NeedFilterLabels[key],
+          onRemove: () => {
+            onUpdateFilters({ ...filters, [key]: undefined })
+          },
+        })
+      }
+    }
+    for (const level of filters.accessDifficulty ?? []) {
+      result.push({
+        key: `access-${level}`,
+        label: AccessDifficultyLabels[level],
+        onRemove: () => {
+          onUpdateFilters({
+            ...filters,
+            accessDifficulty: filters.accessDifficulty?.filter(
+              (v) => v !== level,
+            ),
+          })
+        },
+      })
+    }
+    for (const level of filters.occupancy ?? []) {
+      result.push({
+        key: `occupancy-${level}`,
+        label: OccupancyLabels[level],
+        onRemove: () => {
+          onUpdateFilters({
+            ...filters,
+            occupancy: filters.occupancy?.filter((v) => v !== level),
+          })
+        },
+      })
     }
     return result
   }, [

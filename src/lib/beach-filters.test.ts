@@ -4,6 +4,7 @@ import type { Beach } from '@/types/beach'
 
 import {
   applyFiltersAndSort,
+  countActiveFilters,
   filterBeaches,
   sortBeaches,
 } from './beach-filters'
@@ -211,5 +212,96 @@ describe('applyFiltersAndSort', () => {
     expect(result[0].length).toBeGreaterThanOrEqual(
       result[result.length - 1].length ?? 0,
     )
+  })
+})
+
+describe('need-based filters', () => {
+  const pool: Beach[] = [
+    makeBeach({
+      name: 'Con todo',
+      dogFriendly: true,
+      lifeguard: true,
+      nudist: true,
+      childSafe: true,
+      naturalShade: true,
+      accessDifficulty: 'easy',
+      occupancyLevel: 'low',
+    }),
+    makeBeach({ name: 'Sin datos' }),
+    makeBeach({
+      name: 'Difícil',
+      childSafe: false,
+      accessDifficulty: 'hard',
+      occupancyLevel: 'high',
+    }),
+  ]
+  const names = (params: Parameters<typeof filterBeaches>[1]) =>
+    filterBeaches(pool, params).map((b) => b.name)
+
+  it.each([
+    'dogFriendly',
+    'lifeguard',
+    'nudist',
+    'childSafe',
+    'naturalShade',
+  ] as const)(
+    'filters by %s and excludes beaches where it is false or undefined',
+    (key) => {
+      expect(names({ [key]: true })).toEqual(['Con todo'])
+    },
+  )
+
+  it('excludes beaches with no accessDifficulty when the filter is active', () => {
+    expect(names({ accessDifficulty: ['easy', 'hard'] })).toEqual([
+      'Con todo',
+      'Difícil',
+    ])
+    expect(names({ accessDifficulty: ['moderate'] })).toEqual([])
+  })
+
+  it('excludes beaches with no occupancyLevel when the filter is active', () => {
+    expect(names({ occupancy: ['low'] })).toEqual(['Con todo'])
+    expect(names({ occupancy: ['low', 'high'] })).toEqual([
+      'Con todo',
+      'Difícil',
+    ])
+  })
+
+  it('combines with existing filters', () => {
+    expect(names({ dogFriendly: true, q: 'todo' })).toEqual(['Con todo'])
+    expect(names({ dogFriendly: true, q: 'difícil' })).toEqual([])
+  })
+
+  it('counts need filters as active', () => {
+    expect(
+      countActiveFilters({
+        dogFriendly: true,
+        accessDifficulty: ['easy', 'hard'],
+        occupancy: ['low'],
+      }),
+    ).toBe(4)
+  })
+})
+
+describe('sortBeaches by proximity', () => {
+  const near = makeBeach({ name: 'Cerca', coordinates: [37.6, -0.98] })
+  const far = makeBeach({ name: 'Lejos', coordinates: [37.55, -1.7] })
+  const middle = makeBeach({ name: 'Medio', coordinates: [37.6, -1.2] })
+
+  it('orders by distance from the origin', () => {
+    const result = sortBeaches([far, near, middle], 'cercania', [37.6, -0.97])
+    expect(result.map((b) => b.name)).toEqual(['Cerca', 'Medio', 'Lejos'])
+  })
+
+  it('falls back to recommended order without an origin', () => {
+    const top = makeBeach({ name: 'Top', recommendationScore: 9 })
+    const result = sortBeaches([near, top], 'cercania')
+    expect(result[0].name).toBe('Top')
+  })
+
+  it('does not mutate the input', () => {
+    const input = [far, near]
+    sortBeaches(input, 'cercania', [37.6, -0.97])
+    expect(input[0].name).toBe('Lejos')
   })
 })

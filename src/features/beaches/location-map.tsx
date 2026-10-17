@@ -90,7 +90,7 @@ function useLoadTrigger(
 
 export function LocationMap({ coordinates, beachName }: LocationMapProps) {
   const [lat, lng] = coordinates
-  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`
+  const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`
   const sectionRef = useRef<HTMLElement>(null)
   const [shouldLoad, activate] = useLoadTrigger(sectionRef)
 
@@ -114,12 +114,14 @@ export function LocationMap({ coordinates, beachName }: LocationMapProps) {
             {lat.toFixed(5)}, {lng.toFixed(5)}
           </p>
           <a
-            className="text-xs font-medium text-ocean-600 hover:text-ocean-700 hover:underline"
-            href={mapsUrl}
+            aria-label={`Cómo llegar a ${beachName} (se abre en Google Maps en una pestaña nueva)`}
+            className="inline-flex items-center gap-1.5 rounded-full bg-ocean-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-ocean-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
+            href={directionsUrl}
             rel="noopener noreferrer"
             target="_blank"
           >
-            Ver en Google Maps →
+            Cómo llegar
+            <span aria-hidden="true">→</span>
           </a>
         </div>
       </div>

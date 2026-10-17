@@ -26,7 +26,7 @@ Report: .backlog/reports/complete/RPT-041-coleccionesslug-pages-never-respond-on
 
 - [x] Open-Meteo fetch in src/lib/open-meteo.ts uses a timeout (~2 s) and returns an empty map on timeout
 - [x] Regression test covers the timeout path
-- [ ] All 13 sitemap collection URLs return 200 in under 2 s on production
+- [x] All 13 sitemap collection URLs return 200 in under 2 s on production
 
 ## Notes
 
@@ -36,4 +36,7 @@ Report: .backlog/reports/complete/RPT-041-coleccionesslug-pages-never-respond-on
 
 - [2026-10-17] Created
 - [2026-10-17] Added `AbortSignal.timeout(2000)` to the batch Open-Meteo fetch in `fetchBatchCardWeather`; the existing `catch` returns an empty map on timeout. Added `src/lib/open-meteo.test.ts` (timeout path + signal wiring). `pnpm test`, `pnpm check`, `pnpm build` pass. Production check pending deploy.
+- [2026-10-17] Deployed (5a50f13, CI run 39042146889). Sitemap lists 12 collection URLs, not 13. All 12 return 200 (no more hangs), but over 3 runs 2-5 URLs per run took 2.3-2.8 s while the rest took 0.3-0.7 s. The slow ones look like the 2 s timeout firing: a timed-out fetch caches nothing, so the next miss waits the full 2 s again. Criterion 3 not met yet.
 - [2026-10-17] Started
+- [2026-10-17] Moved card weather out of listing loaders into a client-side `useCardWeather` hook (607a03a, CI run 39048723738). Production: all 12 sitemap collection URLs return 200; 3 runs, 36 requests, max 1.09 s (first cold hit), typical 0.28-0.48 s. Also covers `/explorar` (RPT-042), `/municipios/$slug` and `/`.
+- [2026-10-17] Weather no longer blocks any loader (client hooks), so the slow-timeout cause is removed. Production timing check pending deploy.

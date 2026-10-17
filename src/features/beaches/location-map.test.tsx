@@ -29,11 +29,12 @@ describe('LocationMap', () => {
     expect(img.getAttribute('src')).toContain('-0.9812')
   })
 
-  it('renders a Google Maps link with correct coordinates', () => {
+  it('renders a directions link with correct coordinates', () => {
     render(<LocationMap beachName="Playa Test" coordinates={coords} />)
-    const link = screen.getByText('Ver en Google Maps →')
+    const link = screen.getByRole('link', { name: /Cómo llegar a Playa Test/ })
     expect(link).toBeTruthy()
     expect(link.getAttribute('target')).toBe('_blank')
+    expect(link.getAttribute('href')).toContain('/maps/dir/')
     expect(link.getAttribute('href')).toContain('37.6894')
     expect(link.getAttribute('href')).toContain('-0.9812')
   })

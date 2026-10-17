@@ -19,6 +19,7 @@ import { PracticalInfoCard } from '@/features/beaches/practical-info-card'
 import { ServicesGrid } from '@/features/beaches/services-grid'
 import { TagsSection } from '@/features/beaches/tags-section'
 import { WeatherWidget } from '@/features/beaches/weather-widget'
+import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
 import { parseImageFilename, pictureUrl } from '@/lib/images'
 import { generateBeachSchema } from '@/lib/schema'
 import { beachToSlug, municipalityToSlug } from '@/lib/slugs'
@@ -141,7 +142,9 @@ export const Route = createFileRoute('/playas/$slug')({
         { name: 'twitter:title', content: `${beach.name} - Playas de Murcia` },
         { name: 'twitter:description', content: description },
         { name: 'twitter:image', content: ogImage },
+        ogUrlMeta(`/playas/${slug}`),
       ],
+      links: [canonicalLink(`/playas/${slug}`)],
       scripts: [
         {
           type: 'application/ld+json',

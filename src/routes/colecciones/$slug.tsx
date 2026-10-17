@@ -8,11 +8,13 @@ import { Breadcrumb } from '@/components/layout/breadcrumb'
 import { PageHero } from '@/components/layout/page-hero'
 import { EmptyState } from '@/components/ui/empty-state'
 import { BeachCard } from '@/features/beaches/beach-card'
+import { useCardFlags } from '@/features/beaches/use-card-flags'
 import { useCardWeather } from '@/features/beaches/use-card-weather'
 import { PageInfo } from '@/features/listing/page-info'
 import { Pagination } from '@/features/listing/pagination'
 import { SortSelect } from '@/features/listing/sort-select'
 import { sortBeaches } from '@/lib/beach-filters'
+import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
 import {
   allCollections,
   filterBeachesByCollection,
@@ -84,7 +86,9 @@ export const Route = createFileRoute('/colecciones/$slug')({
           name: 'description',
           content: loaderData.collection.metaDescription,
         },
+        ogUrlMeta(`/colecciones/${loaderData.collection.slug}`),
       ],
+      links: [canonicalLink(`/colecciones/${loaderData.collection.slug}`)],
     }
   },
   component: CollectionPage,
@@ -111,6 +115,7 @@ function CollectionPage() {
   const { collection, items, tags } = Route.useLoaderData()
   const beaches = useMemo(() => items.map((i) => i.beach), [items])
   const weatherData = useCardWeather(beaches)
+  const flagData = useCardFlags(beaches)
   const badge = badgeTheme[collection.slug] ?? defaultBadge
   const PAGE_SIZE = 15
   const [sort, setSort] =
@@ -192,6 +197,7 @@ function CollectionPage() {
                 <BeachCard
                   key={beach.code}
                   beach={beach}
+                  flag={flagData[beach.code]}
                   municipality={municipality}
                   slug={slug}
                   tags={tags}

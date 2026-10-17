@@ -8,11 +8,13 @@ import { Breadcrumb } from '@/components/layout/breadcrumb'
 import { PageHero } from '@/components/layout/page-hero'
 import { EmptyState } from '@/components/ui/empty-state'
 import { BeachCard } from '@/features/beaches/beach-card'
+import { useCardFlags } from '@/features/beaches/use-card-flags'
 import { useCardWeather } from '@/features/beaches/use-card-weather'
 import { PageInfo } from '@/features/listing/page-info'
 import { Pagination } from '@/features/listing/pagination'
 import { SortSelect } from '@/features/listing/sort-select'
 import { sortBeaches } from '@/lib/beach-filters'
+import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
 import { parseImageFilename, pictureUrl } from '@/lib/images'
 import { generateMunicipalitySchema } from '@/lib/schema'
 import { beachToSlug } from '@/lib/slugs'
@@ -90,7 +92,9 @@ export const Route = createFileRoute('/municipios/$slug')({
           name: 'description',
           content: `Descubre ${beaches.length === 1 ? 'la playa' : `las ${beaches.length} playas`} de ${municipality.name}${blueFlagCount > 0 ? `, con ${blueFlagCount} ${blueFlagCount === 1 ? 'bandera azul' : 'banderas azules'}` : ''}, en la Región de Murcia.`,
         },
+        ogUrlMeta(`/municipios/${slug}`),
       ],
+      links: [canonicalLink(`/municipios/${slug}`)],
       scripts: [
         {
           type: 'application/ld+json',
@@ -106,6 +110,7 @@ function MunicipalityPage() {
   const { municipality, beaches, tags, blueFlagCount, heroImage } =
     Route.useLoaderData()
   const weatherData = useCardWeather(beaches)
+  const flagData = useCardFlags(beaches)
   const PAGE_SIZE = 15
   const [sort, setSort] =
     useState<NonNullable<BeachSearchParams['sort']>>('recomendados')
@@ -177,6 +182,7 @@ function MunicipalityPage() {
                 <BeachCard
                   key={beach.code}
                   beach={beach}
+                  flag={flagData[beach.code]}
                   municipality={municipality}
                   slug={beachToSlug(beach)}
                   tags={tags}

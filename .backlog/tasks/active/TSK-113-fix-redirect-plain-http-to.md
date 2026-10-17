@@ -1,12 +1,13 @@
 ---
 id: TSK-113
 title: Fix: redirect plain HTTP to HTTPS
-status: pending
+status: active
 priority: P3
 tags: []
 created: 2026-10-17
 source: report/RPT-043
 depends-on: []
+started: 2026-10-17
 ---
 
 # Fix: redirect plain HTTP to HTTPS
@@ -32,3 +33,5 @@ Report: .backlog/reports/complete/RPT-043-plain-http-is-served-instead.md
 ## Progress Log
 
 - [2026-10-17] Created
+- [2026-10-17] Set Cloudflare zone always_use_https=on via API. curl verification pending (blocked in this session).
+- [2026-10-17] Started

@@ -1,12 +1,14 @@
 ---
 id: TSK-112
 title: Fix: /municipios returns 404 but is listed in sitemap.xml
-status: pending
+status: complete
 priority: P2
 tags: []
 created: 2026-10-17
 source: report/RPT-045
 depends-on: []
+started: 2026-10-17
+completed: 2026-10-17
 ---
 
 # Fix: /municipios returns 404 but is listed in sitemap.xml
@@ -21,9 +23,9 @@ Report: .backlog/reports/complete/RPT-045-municipios-returns-404-but-is.md
 
 ## Acceptance Criteria
 
-- [ ] /municipios returns 200 with a municipality index page, or the URL is removed from the sitemap
-- [ ] A test checks that every sitemap URL maps to an existing route
-- [ ] docs/architecture.md routing updated if a route is added
+- [x] /municipios returns 200 with a municipality index page, or the URL is removed from the sitemap
+- [x] A test checks that every sitemap URL maps to an existing route
+- [x] docs/architecture.md routing updated if a route is added
 
 ## Notes
 
@@ -32,3 +34,6 @@ Report: .backlog/reports/complete/RPT-045-municipios-returns-404-but-is.md
 ## Progress Log
 
 - [2026-10-17] Created
+- [2026-10-17] Added /municipios index route; sitemap-routes test checks every sitemap URL maps to a route; architecture doc updated.
+- [2026-10-17] Started
+- [2026-10-17] Completed

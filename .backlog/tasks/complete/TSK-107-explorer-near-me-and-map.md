@@ -1,12 +1,14 @@
 ---
 id: TSK-107
 title: Explorer "Near Me" Sort and Map of All Beaches
-status: pending
+status: complete
 priority: P3
 tags: [frontend]
 created: 2026-10-16
 source: manual
 depends-on: []
+started: 2026-10-17
+completed: 2026-10-17
 ---
 
 # Explorer "Near Me" Sort and Map of All Beaches
@@ -17,13 +19,13 @@ As a visitor deciding where to go today, I want to see beaches sorted by distanc
 
 ## Acceptance Criteria
 
-- [ ] `/explorar` offers a "Cerca de mí" action that requests browser geolocation only on user click (never on page load)
-- [ ] When granted, a `cercania` sort orders beaches by straight-line distance (haversine) and each card shows the distance (e.g. "12 km")
-- [ ] Denied, unavailable, or timed-out geolocation shows a clear, non-blocking message and keeps the previous sort
-- [ ] User coordinates are not stored in the URL, server, or analytics (privacy); only the sort key is in the URL
-- [ ] `/explorar` has a list/map toggle; the map shows all currently filtered beaches as markers, each linking to `/playas/$slug`
-- [ ] Map is lazy-loaded (same approach as `location-map.tsx`) so it does not affect initial load or SSR
-- [ ] Unit tests for the distance helper and the distance sort; visual check on desktop and mobile with `pnpm tsx scripts/screenshot.ts`
+- [x] `/explorar` offers a "Cerca de mí" action that requests browser geolocation only on user click (never on page load)
+- [x] When granted, a `cercania` sort orders beaches by straight-line distance (haversine) and each card shows the distance (e.g. "12 km")
+- [x] Denied, unavailable, or timed-out geolocation shows a clear, non-blocking message and keeps the previous sort
+- [x] User coordinates are not stored in the URL, server, or analytics (privacy); only the sort key is in the URL
+- [x] `/explorar` has a list/map toggle; the map shows all currently filtered beaches as markers, each linking to `/playas/$slug`
+- [x] Map is lazy-loaded (same approach as `location-map.tsx`) so it does not affect initial load or SSR
+- [x] Unit tests for the distance helper and the distance sort; visual check on desktop and mobile with `pnpm tsx scripts/screenshot.ts`
 
 ## Notes
 
@@ -52,3 +54,6 @@ Origin: visitor-perspective UX brainstorm (2026-10-16), top-3 suggestion #1.
 
 (No progress yet)
 - [2026-10-17] Migrated from legacy backlog/ (originally task #107)
+- [2026-10-17] Added Cerca de mí sort, geo helpers, list/map toggle with lazy Leaflet map (no clustering: would need a new dependency). Verified with Playwright.
+- [2026-10-17] Started
+- [2026-10-17] Completed

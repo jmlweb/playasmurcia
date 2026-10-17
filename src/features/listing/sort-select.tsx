@@ -13,21 +13,31 @@ const SORT_OPTIONS: { value: SortOption; label: string }[] = [
   { value: 'municipality', label: 'Municipio' },
   { value: 'length', label: 'Longitud' },
   { value: 'occupancy', label: 'Ocupación' },
+  { value: 'cercania', label: 'Cerca de mí' },
 ]
 
 type SortSelectProps = {
   value: SortOption
   onChange: (value: SortOption) => void
+  /** Offer "Cerca de mí"; only pages that can resolve the user's position should */
+  includeNearby?: boolean
 }
 
-export function SortSelect({ value, onChange }: SortSelectProps) {
+export function SortSelect({
+  value,
+  onChange,
+  includeNearby = false,
+}: SortSelectProps) {
+  const options = SORT_OPTIONS.filter(
+    (o) => includeNearby || o.value !== 'cercania',
+  )
   const [open, setOpen] = useState(false)
   const [focusedIndex, setFocusedIndex] = useState(-1)
   const containerRef = useRef<HTMLDivElement>(null)
   const menuRef = useRef<HTMLUListElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
   const currentLabel =
-    SORT_OPTIONS.find((o) => o.value === value)?.label ?? 'Nombre A-Z'
+    options.find((o) => o.value === value)?.label ?? 'Nombre A-Z'
 
   // Reset focus during render (not in an effect) to avoid a cascading re-render
   const [prevOpen, setPrevOpen] = useState(open)
@@ -36,7 +46,7 @@ export function SortSelect({ value, onChange }: SortSelectProps) {
     setPrevOpen(open)
     setPrevValue(value)
     // Focus the currently selected item (or first) when opening
-    const activeIndex = SORT_OPTIONS.findIndex((o) => o.value === value)
+    const activeIndex = options.findIndex((o) => o.value === value)
     setFocusedIndex(open ? Math.max(activeIndex, 0) : -1)
   }
 
@@ -73,16 +83,14 @@ export function SortSelect({ value, onChange }: SortSelectProps) {
     }
     if (e.key === 'ArrowDown') {
       e.preventDefault()
-      setFocusedIndex((prev) => (prev + 1) % SORT_OPTIONS.length)
+      setFocusedIndex((prev) => (prev + 1) % options.length)
     } else if (e.key === 'ArrowUp') {
       e.preventDefault()
-      setFocusedIndex(
-        (prev) => (prev - 1 + SORT_OPTIONS.length) % SORT_OPTIONS.length,
-      )
+      setFocusedIndex((prev) => (prev - 1 + options.length) % options.length)
     } else if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault()
       if (focusedIndex >= 0) {
-        onChange(SORT_OPTIONS[focusedIndex].value)
+        onChange(options[focusedIndex].value)
         setOpen(false)
         triggerRef.current?.focus()
       }
@@ -123,7 +131,7 @@ export function SortSelect({ value, onChange }: SortSelectProps) {
           role="menu"
           onKeyDown={handleMenuKeyDown}
         >
-          {SORT_OPTIONS.map((option) => (
+          {options.map((option) => (
             <li
               key={option.value}
               aria-current={option.value === value ? true : undefined}

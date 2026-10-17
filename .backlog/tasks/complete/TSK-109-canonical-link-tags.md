@@ -1,12 +1,14 @@
 ---
 id: TSK-109
 title: Canonical Link Tags
-status: pending
+status: complete
 priority: P3
 tags: [seo]
 created: 2026-10-17
 source: manual
 depends-on: []
+started: 2026-10-17
+completed: 2026-10-17
 ---
 
 # Canonical Link Tags
@@ -17,11 +19,11 @@ As a site owner, I want every page to declare its canonical `www.playasmurcia.co
 
 ## Acceptance Criteria
 
-- [ ] Every route renders exactly one `<link rel="canonical">` with an absolute `https://www.playasmurcia.com` URL
-- [ ] Canonical URLs use the path only: no query string (explorer filters, sort) and no trailing-slash variants that differ from the sitemap
-- [ ] Canonical URLs match the `<loc>` entries in `sitemap.xml` for the same pages
-- [ ] Pages served from `playasmurcia.jmlweb.workers.dev` still point their canonical at `www.playasmurcia.com`
-- [ ] Unit test for the canonical URL helper; `pnpm build`, `pnpm test` and `pnpm check` pass
+- [x] Every route renders exactly one `<link rel="canonical">` with an absolute `https://www.playasmurcia.com` URL
+- [x] Canonical URLs use the path only: no query string (explorer filters, sort) and no trailing-slash variants that differ from the sitemap
+- [x] Canonical URLs match the `<loc>` entries in `sitemap.xml` for the same pages
+- [x] Pages served from `playasmurcia.jmlweb.workers.dev` still point their canonical at `www.playasmurcia.com`
+- [x] Unit test for the canonical URL helper; `pnpm build`, `pnpm test` and `pnpm check` pass
 
 ## Notes
 
@@ -55,3 +57,6 @@ Found during the 2026-10-16 domain cutover: `src/` has no canonical tags at all.
 
 (No progress yet)
 - [2026-10-17] Migrated from legacy backlog/ (originally task #109)
+- [2026-10-17] Added src/lib/canonical.ts and canonical/og:url on every route; verified single canonical in SSR HTML.
+- [2026-10-17] Started
+- [2026-10-17] Completed

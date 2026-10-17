@@ -3,7 +3,14 @@ import { type ReactNode, useEffect, useRef, useState } from 'react'
 import type { Activity, Municipality, Sea, Service, Tag } from '@/types/beach'
 
 import { ChevronDownIcon } from '@/components/ui/icons'
-import { type BeachSearchParams, countActiveFilters } from '@/lib/beach-filters'
+import {
+  AccessDifficultyLabels,
+  type BeachSearchParams,
+  countActiveFilters,
+  NeedFilterKeys,
+  NeedFilterLabels,
+  OccupancyLabels,
+} from '@/lib/beach-filters'
 import { cn } from '@/lib/cn'
 
 type FilterPanelProps = {
@@ -113,6 +120,23 @@ function FilterContent({
     onChange({ ...filters, [key]: next.length > 0 ? next : undefined })
   }
 
+  function toggleEnumFilter<TValue extends string>(
+    key: 'accessDifficulty' | 'occupancy',
+    value: TValue,
+    current: readonly TValue[] | undefined,
+  ) {
+    const arr = current ?? []
+    const next = arr.includes(value)
+      ? arr.filter((v) => v !== value)
+      : [...arr, value]
+    onChange({ ...filters, [key]: next.length > 0 ? next : undefined })
+  }
+
+  const needsActive =
+    NeedFilterKeys.filter((key) => filters[key]).length +
+    (filters.accessDifficulty?.length ?? 0) +
+    (filters.occupancy?.length ?? 0)
+
   const totalActive = countActiveFilters(filters)
 
   function clearAll() {
@@ -136,6 +160,49 @@ function FilterContent({
           </button>
         )}
       </div>
+
+      <FilterGroup defaultOpen activeCount={needsActive} label="Necesidades">
+        {NeedFilterKeys.map((key) => (
+          <CheckboxItem
+            key={key}
+            checked={Boolean(filters[key])}
+            label={NeedFilterLabels[key]}
+            onChange={(checked) => {
+              onChange({ ...filters, [key]: checked ? true : undefined })
+            }}
+          />
+        ))}
+        {(
+          Object.keys(
+            AccessDifficultyLabels,
+          ) as (keyof typeof AccessDifficultyLabels)[]
+        ).map((level) => (
+          <CheckboxItem
+            key={level}
+            checked={(filters.accessDifficulty ?? []).includes(level)}
+            label={AccessDifficultyLabels[level]}
+            onChange={() => {
+              toggleEnumFilter(
+                'accessDifficulty',
+                level,
+                filters.accessDifficulty,
+              )
+            }}
+          />
+        ))}
+        {(Object.keys(OccupancyLabels) as (keyof typeof OccupancyLabels)[]).map(
+          (level) => (
+            <CheckboxItem
+              key={level}
+              checked={(filters.occupancy ?? []).includes(level)}
+              label={OccupancyLabels[level]}
+              onChange={() => {
+                toggleEnumFilter('occupancy', level, filters.occupancy)
+              }}
+            />
+          ),
+        )}
+      </FilterGroup>
 
       <FilterGroup
         defaultOpen

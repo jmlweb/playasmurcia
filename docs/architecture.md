@@ -44,7 +44,7 @@ playasmurcia/
 │   │   ├── index.tsx       # Home (/)
 │   │   ├── explorar/       # Full beach explorer (/explorar)
 │   │   ├── playas/$slug.tsx
-│   │   ├── municipios/
+│   │   ├── municipios/     # Index + $slug
 │   │   └── colecciones/
 │   ├── components/
 │   │   ├── layout/         # Shell chrome (breadcrumb, page-hero, site-footer)
@@ -59,6 +59,9 @@ playasmurcia/
 │   │   ├── open-meteo.ts   # Coordinate-based weather
 │   │   ├── beach-status-112.ts  # 112 COPLA live flag/sea state
 │   │   ├── beach-filters.ts     # Filter/sort pure functions
+│   │   ├── canonical.ts    # Canonical URL / og:url helpers
+│   │   ├── geo.ts          # Haversine distance
+│   │   ├── security-headers.ts  # Response security headers + report-only CSP
 │   │   ├── cn.ts           # clsx + tailwind-merge helper
 │   │   ├── slugs.ts        # Slug generation
 │   │   ├── status-styles.ts     # Badge Tailwind class maps
@@ -69,6 +72,7 @@ playasmurcia/
 │   │   └── use-scroll-reveal.ts  # IntersectionObserver scroll reveal
 │   ├── db/
 │   ├── types/
+│   ├── server.ts           # Worker entry: wraps the Start handler with security headers
 │   ├── router.tsx
 │   ├── styles.css
 │   └── routeTree.gen.ts    # Generated — do not edit
@@ -96,6 +100,7 @@ TanStack Router — files under `src/routes/`:
 | `/`                  | `index.tsx`             | Home: featured beaches, hero, entry to explorer |
 | `/explorar`          | `explorar/index.tsx`    | Full list with search and filters               |
 | `/playas/:slug`      | `playas/$slug.tsx`      | Beach detail                                    |
+| `/municipios`        | `municipios/index.tsx`  | Municipality index                              |
 | `/municipios/:slug`  | `municipios/$slug.tsx`  | Beaches in one municipality                     |
 | `/colecciones`       | `colecciones/index.tsx` | Thematic collections index                      |
 | `/colecciones/:slug` | `colecciones/$slug.tsx` | One collection                                  |

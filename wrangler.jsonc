@@ -3,7 +3,7 @@
   "name": "playasmurcia",
   "compatibility_date": "2025-09-02",
   "compatibility_flags": ["nodejs_compat"],
-  "main": "@tanstack/react-start/server-entry",
+  "main": "src/server.ts",
   // Apex redirects to www through a zone Redirect Rule; workers.dev stays on for previews
   "routes": [
     { "pattern": "www.playasmurcia.com", "custom_domain": true },

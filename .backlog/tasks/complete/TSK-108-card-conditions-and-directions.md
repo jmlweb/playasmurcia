@@ -1,12 +1,14 @@
 ---
 id: TSK-108
 title: Wind and Flag on Beach Cards, "Cómo llegar" Button
-status: pending
+status: complete
 priority: P3
 tags: [frontend]
 created: 2026-10-16
 source: manual
 depends-on: []
+started: 2026-10-17
+completed: 2026-10-17
 ---
 
 # Wind and Flag on Beach Cards, "Cómo llegar" Button
@@ -17,12 +19,12 @@ As a visitor comparing beaches for today, I want to see wind and flag status on 
 
 ## Acceptance Criteria
 
-- [ ] Beach cards show current wind speed and direction next to the existing temperature (data from the Open-Meteo current call already used for `CardWeather`)
-- [ ] Beach cards show the 112 flag status (verde/amarilla/roja) when available; when there is no data, nothing is shown (no empty badge, no layout shift)
-- [ ] Flag status for listings is fetched in a way that does not fire one request per card against the 112 source (batch or cached server function, respecting existing edge caching)
-- [ ] Beach detail page has a prominent "Cómo llegar" button using a directions URL (`https://www.google.com/maps/dir/?api=1&destination=lat,lng`), opening in a new tab
-- [ ] Wind, flag, and button have accessible labels in Spanish with correct diacritics
-- [ ] Component tests for the new card elements; visual check on desktop and mobile with `pnpm tsx scripts/screenshot.ts`
+- [x] Beach cards show current wind speed and direction next to the existing temperature (data from the Open-Meteo current call already used for `CardWeather`)
+- [x] Beach cards show the 112 flag status (verde/amarilla/roja) when available; when there is no data, nothing is shown (no empty badge, no layout shift)
+- [x] Flag status for listings is fetched in a way that does not fire one request per card against the 112 source (batch or cached server function, respecting existing edge caching)
+- [x] Beach detail page has a prominent "Cómo llegar" button using a directions URL (`https://www.google.com/maps/dir/?api=1&destination=lat,lng`), opening in a new tab
+- [x] Wind, flag, and button have accessible labels in Spanish with correct diacritics
+- [x] Component tests for the new card elements; visual check on desktop and mobile with `pnpm tsx scripts/screenshot.ts`
 
 ## Notes
 
@@ -50,3 +52,6 @@ Origin: visitor-perspective UX brainstorm (2026-10-16), top-3 suggestion #3.
 
 (No progress yet)
 - [2026-10-17] Migrated from legacy backlog/ (originally task #108)
+- [2026-10-17] Wind and 112 flag on cards (batched, cached), Cómo llegar replaces the Google Maps search link. Verified with Playwright; no flags visible in October (off-season data).
+- [2026-10-17] Started
+- [2026-10-17] Completed
