@@ -44,7 +44,8 @@ export function SearchBar({
 
   return (
     <div className="relative w-full" role="search">
-      <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+      {/* z-10: the input's backdrop-blur creates a stacking context that would paint over the icon */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 flex items-center pl-4">
         <svg
           aria-hidden="true"
           className="h-5 w-5 text-gray-500"
@@ -62,7 +63,7 @@ export function SearchBar({
       </div>
       <input
         aria-label="Buscar playa por nombre"
-        className="w-full rounded-full border border-white/30 bg-white/85 py-3.5 pr-10 pl-11 text-base text-gray-900 placeholder-gray-400 shadow-lg backdrop-blur-xl transition-shadow focus:bg-white/95 focus:shadow-xl focus-visible:ring-2 focus-visible:ring-ocean-400 focus-visible:outline-none"
+        className="w-full rounded-full border border-white/30 bg-white/95 py-3.5 pr-10 pl-12 text-base text-gray-900 placeholder-gray-500 shadow-lg backdrop-blur-xl transition-shadow focus:bg-white/95 focus:shadow-xl focus-visible:ring-2 focus-visible:ring-ocean-400 focus-visible:outline-none"
         placeholder={placeholder}
         type="search"
         value={localValue}
@@ -71,7 +72,7 @@ export function SearchBar({
       {localValue && (
         <button
           aria-label="Limpiar búsqueda"
-          className="absolute inset-y-0 right-0 flex cursor-pointer items-center pr-3 text-gray-500 hover:text-gray-600"
+          className="absolute inset-y-0 right-0 z-10 flex cursor-pointer items-center pr-3 text-gray-500 hover:text-gray-600"
           type="button"
           onClick={handleClear}
         >
