@@ -55,11 +55,11 @@ export function Pagination({
 
   return (
     <nav aria-label="Paginación" className="mt-10 flex justify-center">
-      <ul className="flex items-center gap-1">
+      <ul className="flex items-center gap-0.5 sm:gap-1">
         <li>
           <button
             aria-label="Página anterior"
-            className="flex h-10 items-center rounded-lg px-3 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-40"
+            className="flex h-10 min-w-10 items-center justify-center rounded-lg px-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-40 sm:px-3"
             disabled={currentPage === 1}
             type="button"
             onClick={() => {
@@ -68,7 +68,7 @@ export function Pagination({
           >
             <svg
               aria-hidden="true"
-              className="mr-1 h-4 w-4"
+              className="h-4 w-4 sm:mr-1"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -80,15 +80,15 @@ export function Pagination({
                 strokeWidth={2}
               />
             </svg>
-            Anterior
+            <span className="sr-only sm:not-sr-only">Anterior</span>
           </button>
         </li>
 
         {pages.map((page) =>
           typeof page === 'string' ? (
             <li key={page}>
-              <span className="flex h-10 w-10 items-center justify-center text-sm text-gray-400">
-                ...
+              <span className="flex h-10 w-6 items-center justify-center text-sm text-gray-400 sm:w-10">
+                …
               </span>
             </li>
           ) : (
@@ -97,7 +97,7 @@ export function Pagination({
                 aria-current={page === currentPage ? 'page' : undefined}
                 aria-label={`Página ${page}`}
                 className={cn(
-                  'flex h-10 w-10 items-center justify-center rounded-lg text-sm font-medium transition-colors',
+                  'flex h-10 w-9 items-center justify-center rounded-lg text-sm font-medium transition-colors sm:w-10',
                   page === currentPage
                     ? 'bg-ocean-600 text-white'
                     : 'text-gray-700 hover:bg-gray-100',
@@ -116,17 +116,17 @@ export function Pagination({
         <li>
           <button
             aria-label="Página siguiente"
-            className="flex h-10 items-center rounded-lg px-3 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-40"
+            className="flex h-10 min-w-10 items-center justify-center rounded-lg px-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-40 sm:px-3"
             disabled={currentPage === totalPages}
             type="button"
             onClick={() => {
               onPageChange(currentPage + 1)
             }}
           >
-            Siguiente
+            <span className="sr-only sm:not-sr-only">Siguiente</span>
             <svg
               aria-hidden="true"
-              className="ml-1 h-4 w-4"
+              className="h-4 w-4 sm:ml-1"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
