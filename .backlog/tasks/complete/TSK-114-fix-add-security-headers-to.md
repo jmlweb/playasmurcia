@@ -1,13 +1,14 @@
 ---
 id: TSK-114
 title: Fix: add security headers to production responses
-status: active
+status: complete
 priority: P3
 tags: []
 created: 2026-10-17
 source: report/RPT-044
 depends-on: []
 started: 2026-10-17
+completed: 2026-10-17
 ---
 
 # Fix: add security headers to production responses
@@ -22,10 +23,10 @@ Report: .backlog/reports/complete/RPT-044-no-security-headers-on-production.md
 
 ## Acceptance Criteria
 
-- [ ] / returns Strict-Transport-Security, X-Content-Type-Options: nosniff, a framing restriction and Referrer-Policy
+- [x] / returns Strict-Transport-Security, X-Content-Type-Options: nosniff, a framing restriction and Referrer-Policy — evidence: HSTS, nosniff, X-Frame-Options SAMEORIGIN, Referrer-Policy present (2026-10-17)
 - [x] CSP deployed in report-only mode allowing Open-Meteo, img.playasmurcia.com and map tile origins
-- [ ] Headers verified on both SSR HTML and static assets
-- [ ] HSTS enabled only after TSK-113 is live
+- [x] Headers verified on both SSR HTML and static assets — evidence: SSR / and /favicon.ico checked (2026-10-17)
+- [x] HSTS enabled only after TSK-113 is live — evidence: HTTP→HTTPS 301 live before deploy (2026-10-17)
 
 ## Notes
 
@@ -36,3 +37,4 @@ Report: .backlog/reports/complete/RPT-044-no-security-headers-on-production.md
 - [2026-10-17] Created
 - [2026-10-17] src/server.ts + security-headers.ts (report-only CSP) and public/_headers for assets; verified locally on SSR and static. HSTS is sent on HTTPS only. Production check pending deploy.
 - [2026-10-17] Started
+- [2026-10-17] Completed

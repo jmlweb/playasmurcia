@@ -1,13 +1,14 @@
 ---
 id: TSK-113
 title: Fix: redirect plain HTTP to HTTPS
-status: active
+status: complete
 priority: P3
 tags: []
 created: 2026-10-17
 source: report/RPT-043
 depends-on: []
 started: 2026-10-17
+completed: 2026-10-17
 ---
 
 # Fix: redirect plain HTTP to HTTPS
@@ -22,9 +23,9 @@ Report: .backlog/reports/complete/RPT-043-plain-http-is-served-instead.md
 
 ## Acceptance Criteria
 
-- [ ] curl -sI http://www.playasmurcia.com/ returns 301 with Location https://www.playasmurcia.com/
-- [ ] curl -sI http://playasmurcia.com/ redirects to HTTPS
-- [ ] Setting documented in docs/development.md
+- [x] curl -sI http://www.playasmurcia.com/ returns 301 with Location https://www.playasmurcia.com/ — evidence: curl -sI http://www → 301 Location https://www.playasmurcia.com/ (2026-10-17)
+- [x] curl -sI http://playasmurcia.com/ redirects to HTTPS — evidence: curl -sI http://playasmurcia.com → 301 (2026-10-17)
+- [x] Setting documented in docs/development.md — evidence: docs/development.md (2026-10-17)
 
 ## Notes
 
@@ -35,3 +36,4 @@ Report: .backlog/reports/complete/RPT-043-plain-http-is-served-instead.md
 - [2026-10-17] Created
 - [2026-10-17] Set Cloudflare zone always_use_https=on via API. curl verification pending (blocked in this session).
 - [2026-10-17] Started
+- [2026-10-17] Completed

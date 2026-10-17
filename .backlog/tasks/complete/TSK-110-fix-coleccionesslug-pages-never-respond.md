@@ -1,13 +1,14 @@
 ---
 id: TSK-110
 title: Fix: /colecciones/<slug> pages never respond on production
-status: active
+status: complete
 priority: P1
 tags: []
 created: 2026-10-17
 source: report/RPT-041
 depends-on: []
 started: 2026-10-17
+completed: 2026-10-17
 ---
 
 # Fix: /colecciones/<slug> pages never respond on production
@@ -40,3 +41,4 @@ Report: .backlog/reports/complete/RPT-041-coleccionesslug-pages-never-respond-on
 - [2026-10-17] Started
 - [2026-10-17] Moved card weather out of listing loaders into a client-side `useCardWeather` hook (607a03a, CI run 39048723738). Production: all 12 sitemap collection URLs return 200; 3 runs, 36 requests, max 1.09 s (first cold hit), typical 0.28-0.48 s. Also covers `/explorar` (RPT-042), `/municipios/$slug` and `/`.
 - [2026-10-17] Weather no longer blocks any loader (client hooks), so the slow-timeout cause is removed. Production timing check pending deploy.
+- [2026-10-17] Completed
