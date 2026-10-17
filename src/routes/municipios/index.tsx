@@ -49,7 +49,7 @@ function MunicipiosPage() {
         backgroundImage={pictureUrl('hero-municipios.png')}
         optimizedName="hero-municipios"
       >
-        <p className="mb-3 text-sm font-medium tracking-widest text-ocean-300 uppercase">
+        <p className="mb-3 text-sm font-semibold tracking-widest text-coral-400 uppercase">
           Costa de Murcia
         </p>
         <h1 className="mb-4 text-4xl font-normal tracking-tight text-white sm:text-5xl">

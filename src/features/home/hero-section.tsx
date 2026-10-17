@@ -13,7 +13,7 @@ export function HeroSection({ totalBeaches }: { totalBeaches: number }) {
       optimizedMaxWidth={2816}
       optimizedName="hero"
     >
-      <p className="animate-fade-up mb-4 text-xs font-semibold tracking-[0.2em] text-ocean-300 uppercase sm:text-sm">
+      <p className="animate-fade-up mb-4 text-xs font-semibold tracking-[0.2em] text-coral-400 uppercase sm:text-sm">
         Costa Cálida &middot; Región de Murcia
       </p>
       <h1 className="animate-fade-up mb-6 text-4xl font-normal tracking-tight text-white [animation-delay:75ms] sm:text-5xl lg:text-6xl">
