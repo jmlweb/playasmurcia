@@ -211,7 +211,7 @@ function FilterContent({
       >
         {municipalities.map((m, i) => (
           <CheckboxItem
-            key={m.id}
+            key={m.name}
             checked={(filters.municipality ?? []).includes(i)}
             label={m.name}
             onChange={() => {
