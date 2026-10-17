@@ -94,7 +94,7 @@ Runtime secrets of the Worker (`TURSO_*`, `AEMET_API_KEY`) live in Cloudflare (`
 #### HTTPS and security headers
 
 - The Cloudflare zone setting **SSL/TLS → Edge Certificates → Always Use HTTPS** is on, so plain HTTP requests get a 301 to HTTPS. Re-check with `curl -sI http://www.playasmurcia.com/` after any zone change
-- SSR responses get their security headers from `src/server.ts` (the Worker entry named in `wrangler.jsonc`) through `src/lib/security-headers.ts`; static assets get theirs from `public/_headers`. The CSP is **report-only**: watch the browser console for violations before turning it into an enforcing `Content-Security-Policy`
+- SSR responses get their security headers from `src/server.ts` (the Worker entry named in `wrangler.jsonc`) through `src/lib/security-headers.ts`; static assets get theirs from `public/_headers`. The CSP is **enforcing** (`Content-Security-Policy`) and applies to SSR HTML only. When adding a third-party origin (images, tiles, fonts, APIs), add it to `src/lib/security-headers.ts` or the browser will block it
 
 #### Important: Cloudflare Workers runtime constraints
 

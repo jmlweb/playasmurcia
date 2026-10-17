@@ -61,7 +61,7 @@ playasmurcia/
 │   │   ├── beach-filters.ts     # Filter/sort pure functions
 │   │   ├── canonical.ts    # Canonical URL / og:url helpers
 │   │   ├── geo.ts          # Haversine distance
-│   │   ├── security-headers.ts  # Response security headers + report-only CSP
+│   │   ├── security-headers.ts  # Response security headers + CSP
 │   │   ├── cn.ts           # clsx + tailwind-merge helper
 │   │   ├── slugs.ts        # Slug generation
 │   │   ├── status-styles.ts     # Badge Tailwind class maps

@@ -1,4 +1,4 @@
-// Report-only: a violation is logged by the browser but nothing is blocked.
+// Enforcing: verified against production with zero violations before the switch.
 // 'unsafe-inline' is needed for TanStack Start's hydration scripts and JSON-LD.
 const contentSecurityPolicy = [
   "default-src 'self'",
@@ -28,7 +28,7 @@ export function withSecurityHeaders(
     'X-Content-Type-Options': 'nosniff',
     'X-Frame-Options': 'SAMEORIGIN',
     'Referrer-Policy': 'strict-origin-when-cross-origin',
-    'Content-Security-Policy-Report-Only': contentSecurityPolicy,
+    'Content-Security-Policy': contentSecurityPolicy,
   }
   // Browsers ignore HSTS over plain HTTP, so only send it on HTTPS requests
   if (new URL(requestUrl).protocol === 'https:') {

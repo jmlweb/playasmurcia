@@ -21,11 +21,11 @@ describe('withSecurityHeaders', () => {
     )
   })
 
-  it('sends CSP in report-only mode allowing the image and map origins', () => {
+  it('sends an enforcing CSP allowing the image and map origins', () => {
     const csp = withSecurityHeaders(
       new Response(''),
       'https://www.playasmurcia.com/',
-    ).headers.get('Content-Security-Policy-Report-Only')
+    ).headers.get('Content-Security-Policy')
 
     expect(csp).toContain('https://img.playasmurcia.com')
     expect(csp).toContain('https://api.mapbox.com')
