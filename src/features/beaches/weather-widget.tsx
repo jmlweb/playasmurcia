@@ -413,11 +413,14 @@ export function WeatherWidget({ aemetId, coordinates }: WeatherWidgetProps) {
 
     const buildForecast = aemetId
       ? Promise.all([
-          fetchAemetWeather({ data: { aemetId } }),
+          fetchAemetWeather({ data: { aemetId } }).catch(() => null),
           fetchOpenMeteoWeather({ data: coordData }).catch(() => null),
           marinePromise,
         ]).then(([aemet, om, marine]) => {
-          if (!aemet) return null
+          // AEMET beach forecasts are seasonal and the key may be missing; fall
+          // back to Open-Meteo rather than showing an empty widget.
+          if (!aemet)
+            return om ? { ...om, waterTemp: marine?.currentTemp } : null
           return {
             ...aemet,
             current: om?.current,

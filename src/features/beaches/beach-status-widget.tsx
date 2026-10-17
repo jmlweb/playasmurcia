@@ -161,24 +161,9 @@ export function BeachStatusWidget({
 
   const { data } = state
 
-  if (data.isOffSeason) {
-    return (
-      <section
-        aria-label="Estado de bandera de playa"
-        className="rounded-2xl border border-dashed border-ocean-200 bg-ocean-50/30 p-5"
-      >
-        <h2 className="mb-2 text-base font-semibold text-ocean-600">
-          Estado de la playa
-        </h2>
-        <p className="text-sm text-ocean-400">
-          Datos no disponibles fuera de temporada
-        </p>
-        <p className="mt-3 text-right text-xs text-ocean-300">
-          Fuente: 112 Región de Murcia
-        </p>
-      </section>
-    )
-  }
+  // Off-season the 112 feed has nothing to report; an empty card would push
+  // the practical info below the fold for most of the year.
+  if (data.isOffSeason) return null
 
   return (
     <section
