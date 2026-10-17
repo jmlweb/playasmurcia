@@ -8,6 +8,7 @@ import { Breadcrumb } from '@/components/layout/breadcrumb'
 import { PageHero } from '@/components/layout/page-hero'
 import { EmptyState } from '@/components/ui/empty-state'
 import { BeachCard } from '@/features/beaches/beach-card'
+import { useCardWeather } from '@/features/beaches/use-card-weather'
 import { ActiveFilterChips } from '@/features/explorer/active-filter-chips'
 import {
   FilterPanel,
@@ -32,7 +33,6 @@ const fetchExplorerData = createServerFn({ method: 'GET' }).handler(
       getAllTags,
       getAllSeas,
     } = await import('@/lib/db-data/beach-queries')
-    const { fetchBatchCardWeather } = await import('@/lib/open-meteo')
     const [beaches, municipalities, services, activities, tags, seas] =
       await Promise.all([
         getAllBeaches(),
@@ -42,8 +42,6 @@ const fetchExplorerData = createServerFn({ method: 'GET' }).handler(
         getAllTags(),
         getAllSeas(),
       ])
-    const weatherMap = await fetchBatchCardWeather(beaches)
-    const weatherData = Object.fromEntries(weatherMap)
     return {
       beaches,
       municipalities,
@@ -51,7 +49,6 @@ const fetchExplorerData = createServerFn({ method: 'GET' }).handler(
       activities,
       tags,
       seas,
-      weatherData,
     }
   },
 )
@@ -72,15 +69,9 @@ export const Route = createFileRoute('/explorar/')({
 })
 
 function ExplorerPage() {
-  const {
-    beaches,
-    municipalities,
-    services,
-    activities,
-    tags,
-    seas,
-    weatherData,
-  } = Route.useLoaderData()
+  const { beaches, municipalities, services, activities, tags, seas } =
+    Route.useLoaderData()
+  const weatherData = useCardWeather(beaches)
   const search = Route.useSearch()
   const navigate = useNavigate({ from: Route.fullPath })
 

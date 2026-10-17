@@ -8,6 +8,7 @@ import { Breadcrumb } from '@/components/layout/breadcrumb'
 import { PageHero } from '@/components/layout/page-hero'
 import { EmptyState } from '@/components/ui/empty-state'
 import { BeachCard } from '@/features/beaches/beach-card'
+import { useCardWeather } from '@/features/beaches/use-card-weather'
 import { PageInfo } from '@/features/listing/page-info'
 import { Pagination } from '@/features/listing/pagination'
 import { SortSelect } from '@/features/listing/sort-select'
@@ -26,7 +27,6 @@ const fetchMunicipalityData = createServerFn({ method: 'GET' })
   .handler(async ({ data }) => {
     const { getAllTags, getBeachesByMunicipality, getMunicipalityBySlug } =
       await import('@/lib/db-data/beach-queries')
-    const { fetchBatchCardWeather } = await import('@/lib/open-meteo')
     const result = await getMunicipalityBySlug(data.slug)
     if (!result) return null
 
@@ -37,8 +37,6 @@ const fetchMunicipalityData = createServerFn({ method: 'GET' })
     ])
 
     const { countBlueFlag } = await import('@/lib/nav-builders')
-    const weatherMap = await fetchBatchCardWeather(beaches)
-    const weatherData = Object.fromEntries(weatherMap)
     const blueFlagCount = countBlueFlag(beaches)
 
     const beachesWithPics = beaches.filter(
@@ -63,7 +61,6 @@ const fetchMunicipalityData = createServerFn({ method: 'GET' })
       tags,
       blueFlagCount,
       slug: data.slug,
-      weatherData,
       heroImage,
     }
   })
@@ -106,8 +103,9 @@ export const Route = createFileRoute('/municipios/$slug')({
 })
 
 function MunicipalityPage() {
-  const { municipality, beaches, tags, blueFlagCount, weatherData, heroImage } =
+  const { municipality, beaches, tags, blueFlagCount, heroImage } =
     Route.useLoaderData()
+  const weatherData = useCardWeather(beaches)
   const PAGE_SIZE = 15
   const [sort, setSort] =
     useState<NonNullable<BeachSearchParams['sort']>>('recomendados')

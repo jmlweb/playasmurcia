@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import { useMemo } from 'react'
 
+import { useCardWeather } from '@/features/beaches/use-card-weather'
 import { FeaturedSection } from '@/features/home/featured-section'
 import { HeroSection } from '@/features/home/hero-section'
 import { HighlightsSection } from '@/features/home/highlights-section'
@@ -18,15 +19,12 @@ const fetchHomeData = createServerFn({ method: 'GET' }).handler(async () => {
   } = await import('@/lib/db-data/beach-queries')
   const { buildMunicipalityNavWithBlueFlag } =
     await import('@/lib/nav-builders')
-  const { fetchBatchCardWeather } = await import('@/lib/open-meteo')
   const [featured, beaches, municipalities, tags] = await Promise.all([
     getFeaturedBeaches(),
     getAllBeaches(),
     getAllMunicipalities(),
     getAllTags(),
   ])
-  const weatherMap = await fetchBatchCardWeather(featured)
-  const weatherData = Object.fromEntries(weatherMap)
   const municipalityNav = buildMunicipalityNavWithBlueFlag(
     beaches,
     municipalities,
@@ -37,7 +35,6 @@ const fetchHomeData = createServerFn({ method: 'GET' }).handler(async () => {
     municipalityNav,
     tags,
     totalBeaches: beaches.length,
-    weatherData,
   }
 })
 
@@ -56,14 +53,9 @@ export const Route = createFileRoute('/')({
 })
 
 function HomePage() {
-  const {
-    featured,
-    municipalities,
-    municipalityNav,
-    tags,
-    totalBeaches,
-    weatherData,
-  } = Route.useLoaderData()
+  const { featured, municipalities, municipalityNav, tags, totalBeaches } =
+    Route.useLoaderData()
+  const weatherData = useCardWeather(featured)
 
   const slugMap = useMemo(
     () => new Map(featured.map((b) => [b.code, beachToSlug(b)])),

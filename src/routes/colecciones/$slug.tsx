@@ -8,6 +8,7 @@ import { Breadcrumb } from '@/components/layout/breadcrumb'
 import { PageHero } from '@/components/layout/page-hero'
 import { EmptyState } from '@/components/ui/empty-state'
 import { BeachCard } from '@/features/beaches/beach-card'
+import { useCardWeather } from '@/features/beaches/use-card-weather'
 import { PageInfo } from '@/features/listing/page-info'
 import { Pagination } from '@/features/listing/pagination'
 import { SortSelect } from '@/features/listing/sort-select'
@@ -33,7 +34,6 @@ const fetchCollectionData = createServerFn({ method: 'GET' })
       getAllTags,
       getMunicipalityMap,
     } = await import('@/lib/db-data/beach-queries')
-    const { fetchBatchCardWeather } = await import('@/lib/open-meteo')
     const collection = getCollectionBySlug(data.slug)
     if (!collection) return null
 
@@ -44,8 +44,6 @@ const fetchCollectionData = createServerFn({ method: 'GET' })
     ])
 
     const filtered = filterBeachesByCollection(beaches, collection)
-    const weatherMap = await fetchBatchCardWeather(filtered)
-    const weatherData = Object.fromEntries(weatherMap)
     const items = filtered.map((beach) => ({
       beach,
       municipality: municipalityMap.get(beach.municipality) ?? {
@@ -64,7 +62,6 @@ const fetchCollectionData = createServerFn({ method: 'GET' })
       },
       items,
       tags,
-      weatherData,
     }
   })
 
@@ -111,7 +108,9 @@ const badgeTheme: Record<string, { bg: string; text: string }> = {
 const defaultBadge = { bg: 'bg-ocean-500/30', text: 'text-ocean-100' }
 
 function CollectionPage() {
-  const { collection, items, tags, weatherData } = Route.useLoaderData()
+  const { collection, items, tags } = Route.useLoaderData()
+  const beaches = useMemo(() => items.map((i) => i.beach), [items])
+  const weatherData = useCardWeather(beaches)
   const badge = badgeTheme[collection.slug] ?? defaultBadge
   const PAGE_SIZE = 15
   const [sort, setSort] =
