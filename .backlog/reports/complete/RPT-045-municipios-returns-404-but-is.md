@@ -3,8 +3,10 @@ id: RPT-045
 title: `/municipios` returns 404 but is listed in `sitemap.xml`
 type: bug
 severity: high
-status: pending
+status: triaged
 created: 2026-10-17
+triaged: 2026-10-17
+task-id: TSK-112
 ---
 
 - **Found**: 2026-10-17, against https://www.playasmurcia.com

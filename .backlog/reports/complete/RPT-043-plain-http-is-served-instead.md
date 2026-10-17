@@ -3,8 +3,10 @@ id: RPT-043
 title: Plain HTTP is served instead of redirecting to HTTPS
 type: finding
 severity: medium
-status: pending
+status: triaged
 created: 2026-10-17
+triaged: 2026-10-17
+task-id: TSK-113
 ---
 
 - **Found**: 2026-10-17, against http://www.playasmurcia.com

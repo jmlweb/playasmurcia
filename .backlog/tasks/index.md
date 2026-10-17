@@ -4,14 +4,14 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 4 |
-| Active | 0 |
+| Pending | 7 |
+| Active | 1 |
 | Blocked | 0 |
 | Complete | 102 |
 
 ## Active Tasks
 
-_No active tasks._
+- TSK-110: Fix: /colecciones/<slug> pages never respond on production (P1)
 
 ## Pending Tasks
 
@@ -21,6 +21,9 @@ _No active tasks._
 | TSK-107 | Explorer "Near Me" Sort and Map of All Beaches | P3 | frontend | 2026-10-16 |
 | TSK-108 | Wind and Flag on Beach Cards, "Cómo llegar" Button | P3 | frontend | 2026-10-16 |
 | TSK-109 | Canonical Link Tags | P3 | seo | 2026-10-17 |
+| TSK-111 | Fix: /explorar never responds on production | P1 |  | 2026-10-17 |
+| TSK-112 | Fix: /municipios returns 404 but is listed in sitemap.xml | P2 |  | 2026-10-17 |
+| TSK-113 | Fix: redirect plain HTTP to HTTPS | P3 |  | 2026-10-17 |
 
 ## Recently Completed
 

@@ -3,8 +3,10 @@ id: RPT-042
 title: `/explorar` never responds on production
 type: bug
 severity: critical
-status: pending
+status: triaged
 created: 2026-10-17
+triaged: 2026-10-17
+task-id: TSK-111
 ---
 
 - **Found**: 2026-10-17, against https://www.playasmurcia.com
