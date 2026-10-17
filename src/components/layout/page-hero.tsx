@@ -87,7 +87,7 @@ export function PageHero({
   imageHeight,
 }: PageHeroProps) {
   const sectionClass = backgroundImage
-    ? 'hero-noise bg-ocean-900 relative overflow-hidden px-4 py-10 sm:py-14 lg:py-20'
+    ? 'hero-noise bg-ocean-900 relative overflow-hidden px-4 py-6 sm:py-14 lg:py-20'
     : 'bg-ocean-800 relative overflow-hidden px-4 py-12 sm:py-14 lg:py-16'
 
   return (
@@ -115,7 +115,7 @@ export function PageHero({
       <div
         className={
           backgroundImage
-            ? 'hero-text-scrim relative z-10 mx-auto max-w-4xl px-6 py-10 text-center sm:px-8 sm:py-12'
+            ? 'hero-text-scrim relative z-10 mx-auto max-w-4xl px-5 py-7 text-center sm:px-8 sm:py-12'
             : 'relative mx-auto max-w-3xl text-center'
         }
       >
