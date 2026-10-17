@@ -16,11 +16,11 @@ Work through pending backlog tasks via Ralph Loop, with checkpoint support for r
    - If resume: skip to step 4, using the remaining task list from the checkpoint.
    - If fresh: delete `plan/ralph-checkpoint.md` and continue from step 2.
 
-2. Read `backlog/INDEX.md`. If no pending tasks, tell user and stop.
+2. Read `.backlog/tasks/index.md`. If no pending tasks, tell user and stop.
 
-3. Read each task file in `backlog/pending/`. Classify as **Automatable** (clear criteria, code-only), **Needs review** (manual testing, visual judgment, external data), or **Blocked** (unresolved dependency). Present classification and wait for user confirmation.
+3. Read each task file in `.backlog/tasks/pending/`. Classify as **Automatable** (clear criteria, code-only), **Needs review** (manual testing, visual judgment, external data), or **Blocked** (unresolved dependency). Present classification and wait for user confirmation.
 
-4. Read `.claude/templates/ralph-backlog.md`. Copy its content to `plan/ralph-backlog.md`, replacing `{{TASK_LIST}}` with the automatable task list (one `- #NNN: Title` per line).
+4. Read `.claude/templates/ralph-backlog.md`. Copy its content to `plan/ralph-backlog.md`, replacing `{{TASK_LIST}}` with the automatable task list (one `- TSK-NNN: Title` per line).
 
 5. Create initial checkpoint file at `plan/ralph-checkpoint.md`:
 
@@ -36,8 +36,8 @@ Work through pending backlog tasks via Ralph Loop, with checkpoint support for r
 
    ## Remaining
 
-   - #NNN: Title
-   - #NNN: Title
+   - TSK-NNN: Title
+   - TSK-NNN: Title
 
    ## Skipped (blocked/failed)
 
@@ -46,4 +46,4 @@ Work through pending backlog tasks via Ralph Loop, with checkpoint support for r
 
 6. Start the loop: `Skill("ralph-loop:ralph-loop", args: "Read plan/ralph-backlog.md and execute the workflow described there --completion-promise BACKLOG_COMPLETE")`
 
-7. Tell the user the loop started, show monitor commands (`grep '^iteration:' .claude/ralph-loop.local.md`, `cat plan/ralph-checkpoint.md`, `cat backlog/INDEX.md`, `git log --oneline -10`), and mention `/ralph-loop:cancel-ralph` to cancel. Then begin working on the first task.
+7. Tell the user the loop started, show monitor commands (`grep '^iteration:' .claude/ralph-loop.local.md`, `cat plan/ralph-checkpoint.md`, `cat .backlog/tasks/index.md`, `git log --oneline -10`), and mention `/ralph-loop:cancel-ralph` to cancel. Then begin working on the first task.

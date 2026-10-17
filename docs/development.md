@@ -126,15 +126,16 @@ Both parts are required. Without `NODE_ENV=production` the script writes to `DAT
 
 ### Task Management
 
-Tasks are tracked in `backlog/` using Claude Code slash commands — see [AGENTS.md](../AGENTS.md) for the full command table.
+Tasks are tracked in `.backlog/` with the [flowstate](https://github.com/jmlweb/skills-monorepo/tree/main/plugins/flowstate) plugin (`/flowstate:*` skills) — see [AGENTS.md](../AGENTS.md) for the command table.
 
-Task files live in `backlog/pending/` (pending) and `backlog/done/` (completed).
-`backlog/INDEX.md` tracks stats and current focus.
-`backlog/LEARNINGS.md` collects insights from development.
+Task files live in `.backlog/tasks/{pending,active,complete}/` as `TSK-NNN-slug.md`.
+`.backlog/tasks/index.md` tracks stats and current focus.
+`.backlog/learnings/` collects insights from development (`LRN-NNN-*`).
+`.backlog/reports/{pending,complete}/` holds QA findings and UI reviews (`RPT-NNN-*`).
 
 ### Backlog
 
-All pending tasks live in `backlog/pending/` — see `backlog/INDEX.md` for the full list.
+All pending tasks live in `.backlog/tasks/pending/` — see `.backlog/tasks/index.md` for the full list.
 
 ## Scripts
 
@@ -194,7 +195,7 @@ The Ollama CLI (`ollama run`) does not provide a `--stdin` flag on current versi
 ollama pull gemma3:4b
 pnpm run fix:orthography                    # dry-run: git-style diff on stdout
 pnpm run fix:orthography -- --write         # apply corrections in place
-pnpm run fix:orthography -- --lang es reports/done/content-audit.md
+pnpm run fix:orthography -- --lang es .backlog/reports/complete/RPT-009-content-quality-snapshot.md
 ```
 
 Default behavior processes all `**/*.md` under `docs/`. Pass file paths or repeat `--root DIR` to include other trees. **Do not** use this on `data/beaches.json` or generated beach fields without a dedicated workflow—LLM output can break JSON or alter controlled copy.

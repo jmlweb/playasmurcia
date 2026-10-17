@@ -48,13 +48,13 @@ For each page in the list, sequentially:
    ```
    Read the PNG outputs to visually inspect the page before drafting the directive.
 6. **Produce a Design Directive** following the format in the agent definition (Critical / Important / Refinement / What Works Well)
-7. **Write the directive** to `reports/pending/{page-name}.md`
+7. **File the directive** with `flowstate report-create --type finding --body -` (title: page name); it lands in `.backlog/reports/pending/`
 
 ### Rules During Audit
 
 - Be granular: exact values, exact ratios, exact measurements
 - Be consistent: if you flag something on one page, flag it everywhere
-- Track **cross-cutting issues** (problems that appear on multiple pages) in a separate file: `reports/pending/cross-cutting.md`
+- Track **cross-cutting issues** (problems that appear on multiple pages) in a separate report titled "Cross-cutting"
 - Do NOT implement any code changes
 - Do NOT update guidelines yet (that's Phase 4)
 
@@ -62,18 +62,18 @@ For each page in the list, sequentially:
 
 After all pages are reviewed:
 
-1. **Read all review files** from `reports/pending/*.md` (skip `processed/`, `README.md`)
+1. **Read all review files** from `.backlog/reports/pending/RPT-*.md`
 2. **Group findings** into coherent tasks:
    - Cross-cutting issues → one task per theme (e.g., "Fix contrast across all pages", "Standardize card spacing")
    - Page-specific issues → one task per page if enough Critical/Important items, otherwise bundle similar pages
-3. **Read `backlog/INDEX.md`** to determine next task number
-4. **Move** each audited directive (including `cross-cutting.md`) from `reports/pending/` into `reports/done/`. If only part of a file was turned into tasks, split into separate markdown files first, then move the covered parts.
-5. **Create task files** in `backlog/pending/` following the project format (see existing tasks for reference):
-   - Slice: `Styling`
-   - Priority: `P2 - Next` for Critical items, `P3` for Important/Refinement
+3. **Check existing tasks** with `/flowstate:overview` to avoid duplicates; flowstate assigns the next `TSK-NNN` id
+4. **Triage** each audited directive (including the cross-cutting one): `flowstate report-move RPT-NNN --status triaged --task-id TSK-NNN`. If only part of a report was turned into tasks, split it into separate reports first, then triage the covered parts.
+5. **Create tasks** with `/flowstate:add-task` (lands in `.backlog/tasks/pending/`):
+   - Tag: `styling`
+   - Priority: `P2` for Critical items, `P3` for Important/Refinement
    - Acceptance criteria: derived directly from the design directives
-   - Include a reference to the review file: `See reports/done/{file}.md for full directive`
-6. **Update `backlog/INDEX.md`** — add tasks to Backlog table, update counts
+   - Include a reference to the review file: `See .backlog/reports/complete/RPT-NNN-{slug}.md for full directive`
+6. **Check the index** — flowstate updates `.backlog/tasks/index.md`; run `flowstate index-rebuild` if it looks stale
 7. **Present a summary** to the user: tasks created, priority breakdown, estimated scope
 
 ## Phase 4: Update Guidelines
@@ -84,7 +84,7 @@ After all pages are reviewed:
 
 ## Phase 5: Cleanup
 
-1. Confirm backlog-linked directives live under `reports/done/` and every task links to the correct path (search the repo if anything was renamed)
+1. Confirm backlog-linked directives live under `.backlog/reports/complete/` and every task links to the correct path (search the repo if anything was renamed)
 2. Summarize the full review:
    - Total issues found (Critical / Important / Refinement)
    - Tasks created

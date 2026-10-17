@@ -19,4 +19,4 @@ General repository rules: [AGENTS.md](../AGENTS.md). For reports and UI directiv
 
 - Keep `main.md` in sync with existing step files
 - When all steps complete, renumber `main.md` to eliminate gaps
-- Unprioritized ideas live in `backlog/pending/`; prioritized work gets `step-XX-` prefix
+- Unprioritized ideas live in `.backlog/ideas/pending/`; prioritized work gets `step-XX-` prefix

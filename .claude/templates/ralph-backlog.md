@@ -10,9 +10,9 @@ You are working through the PlayasMurcia backlog. Each iteration you pick ONE ta
 
 ### 1. Assess current state
 
-- Read `backlog/INDEX.md` to see which tasks are still pending
+- Read `.backlog/tasks/index.md` to see which tasks are still pending
 - Only work on the automatable tasks listed above
-- Respect dependencies: do not start a task whose `Blocked by` is still pending
+- Respect dependencies: do not start a task whose `depends-on` tasks are not complete
 - Pick the highest-priority unblocked task
 
 ### 2. If no automatable tasks remain
@@ -21,7 +21,7 @@ Delete `plan/ralph-backlog.md` and `plan/ralph-checkpoint.md` (cleanup), then ou
 
 ### 3. Implement the task
 
-- Read the task file in `backlog/pending/` for full acceptance criteria
+- Read the task file in `.backlog/tasks/pending/` for full acceptance criteria
 - Read `AGENTS.md` and relevant docs before coding
 - Follow project conventions: TanStack Start, Cloudflare Workers, Turso, functional TypeScript
 - Run `pnpm build` to verify no build errors
@@ -39,8 +39,7 @@ Per `AGENTS.md` checklist:
 
 ### 5. Complete the task
 
-- Move the task file from `backlog/pending/` to `backlog/done/`
-- Update `backlog/INDEX.md`: move task from Backlog to Recently Completed with today's date, update stats
+- Run `/flowstate:complete-task TSK-NNN` (verifies criteria, moves the file to `.backlog/tasks/complete/`, updates the index)
 - Create a git commit following Conventional Commits: `feat|fix|refactor(scope): description`
 
 ### 5b. Update checkpoint

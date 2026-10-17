@@ -73,8 +73,7 @@ playasmurcia/
 │   ├── styles.css
 │   └── routeTree.gen.ts    # Generated — do not edit
 ├── data/                   # JSON — migrate to Turso after changes
-├── backlog/                # Task management (INDEX, LEARNINGS, pending/, done/)
-├── reports/                # Reports & UI reviews (pending/, done/)
+├── .backlog/               # flowstate: tasks/, ideas/, reports/, learnings/
 ├── docs/                   # Project documentation (architecture, data-schema, …)
 ├── scripts/
 ├── public/                 # Static assets (sitemap.xml, …); pictures/ is local-only, mirrored to R2

@@ -5,7 +5,7 @@ alwaysApply: true
 
 # PlayasMurcia — agent and contributor rules
 
-This file is the single source of truth for how humans and AI coding agents should work in this repository. **Contributor-facing documentation** — everything under `docs/`, [`backlog/LEARNINGS.md`](./backlog/LEARNINGS.md), and other agent-oriented reference markdown in `backlog/` — is in **English**. Public URLs and much of the UI copy are **Spanish**; follow existing patterns when adding user-facing text.
+This file is the single source of truth for how humans and AI coding agents should work in this repository. **Contributor-facing documentation** — everything under `docs/`, everything under `.backlog/` (tasks, learnings, reports) — is in **English**. Public URLs and much of the UI copy are **Spanish**; follow existing patterns when adding user-facing text.
 
 ## Spelling and orthography (all languages)
 
@@ -13,7 +13,7 @@ AI agents and contributors must keep **correct spelling, punctuation, and diacri
 
 - **Do not** strip diacritics or use ASCII stand-ins (e.g. `año` must not become `ano`; `más` must not become `mas` when it means "more").
 - **Spanish**: follow standard orthography; when in doubt, prefer forms consistent with nearby copy and authoritative references for place names and common UI terms.
-- **English** (`docs/`, `backlog/LEARNINGS.md`, comments where English is used): use standard spelling and typography (hyphens, apostrophes, not “smart punctuation” hacks that break code—only in prose/markdown).
+- **English** (`docs/`, `.backlog/learnings/index.md`, comments where English is used): use standard spelling and typography (hyphens, apostrophes, not “smart punctuation” hacks that break code—only in prose/markdown).
 - When changing existing strings, **fix** obvious typos you touch; avoid introducing new ones. Re-read **only the lines you edited** before finishing (or the full visible string if the change is small).
 
 ## Documentation map
@@ -33,61 +33,54 @@ Project documentation is in `docs/`:
 - **Package manager**: **pnpm** only — see [docs/development.md](./docs/development.md) for setup.
 - **Data access**: Route loaders use async queries via `src/lib/db-data.ts` against Turso (libSQL). There is **no** runtime JSON loader in `src/lib/`; `data/*.json` is the **editorial source** — edit JSON, then migrate (see `docs/architecture.md` and `docs/development.md`).
 - **Local DB**: `local.db` is created locally (not committed); use Drizzle push + migration script as documented.
-- **Next steps**: [backlog/INDEX.md](./backlog/INDEX.md) for the backlog; [reports/done/github-main-feature-gap-analysis.md](./reports/done/github-main-feature-gap-analysis.md) for product parity vs `main`.
+- **Next steps**: [.backlog/tasks/index.md](./.backlog/tasks/index.md) for the backlog; [.backlog/reports/complete/RPT-013-product-parity-and-feature-status.md](./.backlog/reports/complete/RPT-013-product-parity-and-feature-status.md) for product parity vs `main`.
 
 ## Task management
 
-Tasks live under `backlog/`; reports under `reports/`:
+Tasks, ideas, reports and learnings live in `.backlog/`, managed by the **flowstate** plugin (`/flowstate:*` skills). Do not hand-edit index files; use the skills or `flowstate index-rebuild`.
 
-- [backlog/INDEX.md](./backlog/INDEX.md) — Overview, stats, backlog table
-- [backlog/LEARNINGS.md](./backlog/LEARNINGS.md) — Development insights
-- `backlog/pending/` — Pending task files
-- `backlog/done/` — Completed task files
-- `reports/pending/` — Unprocessed reports and UI reviews
-- `reports/done/` — Processed reports (linked from tasks)
+- [.backlog/tasks/index.md](./.backlog/tasks/index.md) — Overview, stats, backlog table
+- `.backlog/tasks/{pending,active,complete}/` — `TSK-NNN-slug.md` task files
+- `.backlog/learnings/` — `LRN-NNN-*` development insights ([index](./.backlog/learnings/index.md))
+- `.backlog/ideas/{pending,complete}/` — `PLN-NNN-*` implementation plans
+- `.backlog/reports/{pending,complete}/` — `RPT-NNN-*` QA findings, UI reviews and audits (`complete` = triaged)
 
 ### Reports, UI reviews, and audits (mandatory for agents)
 
-**AI agents must read and follow this subsection** before creating, moving, or linking any UI review directive, standalone report, or data audit markdown. There is **no** central JSON registry and **no** `pnpm reports:status` command — traceability is **task files + paths**.
-
-| Location                    | Use                                                                                                                     |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `reports/pending/{name}.md` | **Active** reports and UI directives while a review is in progress (before backlog tasks exist).                        |
-| `reports/done/{name}.md`    | Reports and directives **after** backlog tasks reference them. Split files if only part of a directive was task-backed. |
+**AI agents must read and follow this subsection** before creating, moving, or linking any UI review directive, standalone report, or data audit. Traceability is **task files + paths**; there is no JSON registry.
 
 **Required behavior**
 
-1. **`/ui-review`**: Run the workflow in [`.claude/templates/ui-review.md`](./.claude/templates/ui-review.md) under the role in [`.claude/agents/ui-designer.md`](./.claude/agents/ui-designer.md). **Visual audit evidence** must use **Playwright** via `pnpm tsx scripts/screenshot.ts` (desktop + `--mobile`, both `--full-page` per page) — see the template’s _Screenshots: Playwright only_ section. Write directives under `reports/pending/` during the audit; after creating backlog tasks, **move** covered files to `reports/done/` and ensure every new task links to the **final** path (`reports/done/…`).
-2. **Other reports**: Add markdown under `reports/pending/` first if no tasks yet; when tasks reference the report, **move** it to `reports/done/` and put the repo-relative path in the task body (see existing tasks for tone).
-3. **Moves/renames**: Search the repo for the old path and update `backlog/pending/`, `backlog/done/`, and any doc that linked to it.
+1. **`/ui-review`**: Run the workflow in [`.claude/templates/ui-review.md`](./.claude/templates/ui-review.md) under the role in [`.claude/agents/ui-designer.md`](./.claude/agents/ui-designer.md). **Visual audit evidence** must use **Playwright** via `pnpm tsx scripts/screenshot.ts` (desktop + `--mobile`, both `--full-page` per page) — see the template’s _Screenshots: Playwright only_ section. File directives with `/flowstate:report` (they land in `.backlog/reports/pending/`); after creating backlog tasks, triage them (`flowstate report-move RPT-NNN --status triaged --task-id TSK-NNN`) and link each new task to the final path in `.backlog/reports/complete/`.
+2. **Other reports** (QA findings, audits): use `/flowstate:report`; when tasks reference the report, triage it and put the repo-relative path in the task body.
+3. **Moves/renames**: Search the repo for the old path and update the tasks and docs that linked to it.
 4. **Guidelines**: UI work still defers to [`docs/ui-guidelines.md`](./docs/ui-guidelines.md); propose updates per the UI review template Phase 4 when appropriate.
 
 ### Slash-style commands
 
-Workflow commands (usable in any agent tool):
+Workflow commands come from the flowstate plugin (usable in any agent tool that loads it):
 
-| Command          | Description                         |
-| ---------------- | ----------------------------------- |
-| `/add-task`      | Groom and add a new task to backlog |
-| `/start-task`    | Mark a task as in-progress          |
-| `/complete-task` | Complete a task, move to done       |
-| `/block-task`    | Mark a task as blocked              |
-| `/check-task`    | Verify task status matches reality  |
-| `/next-task`     | Suggest next priority task          |
-| `/dev-status`    | Show development status overview    |
-| `/add-learning`  | Document a development insight      |
-| `/unblock-task`  | Resolve blocker and restore status  |
-| `/remove-task`   | Remove task with documented reason  |
+| Command                      | Description                                  |
+| ---------------------------- | -------------------------------------------- |
+| `/flowstate:add-task`        | Groom and add a new task to the backlog      |
+| `/flowstate:start-task`      | Move a task to active                        |
+| `/flowstate:complete-task`   | Verify criteria, move a task to complete     |
+| `/flowstate:block-task`      | Block or unblock a task                      |
+| `/flowstate:check-task`      | Verify task status matches the code          |
+| `/flowstate:next-task`       | Suggest the next priority task               |
+| `/flowstate:overview`        | Show backlog stats and health                |
+| `/flowstate:log-progress`    | Record session progress on a task            |
+| `/flowstate:add-learning`    | Document a development insight               |
+| `/flowstate:report`          | File a bug, finding, improvement or security report |
+| `/flowstate:idea`            | Plan an implementation before coding         |
+| `/flowstate:parallel`        | Run independent tasks in parallel worktrees  |
 
-Claude Code specific (require `.claude/commands/`):
+Project-specific (`.claude/commands/`):
 
 | Command             | Description                                      |
 | ------------------- | ------------------------------------------------ |
-| `/parallel-tasks`   | Execute independent tasks in parallel            |
 | `/ui-review`        | Full UI review cycle with design audit           |
 | `/complete-backlog` | Work through backlog autonomously via Ralph Loop |
-
-Command definitions: `.claude/commands/`.
 
 ## Plan management
 
