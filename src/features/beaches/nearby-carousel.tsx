@@ -23,7 +23,7 @@ export function NearbyCarousel({ items }: NearbyCarouselProps) {
       <h2 className="mb-4 text-xl font-semibold text-gray-900">
         Playas cercanas
       </h2>
-      <div className="scrollbar-hide flex snap-x snap-mandatory scroll-pl-4 gap-4 overflow-x-auto pb-3">
+      <div className="scrollbar-hide flex snap-x snap-mandatory scroll-pl-4 gap-4 overflow-x-auto [mask-image:linear-gradient(to_right,#000_calc(100%-3rem),transparent)] pr-12 pb-3">
         {items.map(({ beach, municipality, slug }) => {
           const firstPicture = beach.pictures?.[0]
           const hasPicture = Boolean(firstPicture)
