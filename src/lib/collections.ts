@@ -14,6 +14,8 @@ const TAG_ACCESIBLE = 6
 const TAG_SNORKEL = 8
 const TAG_SALVAJE = 9
 const TAG_AISLADA = 10
+const TAG_ROCOSA = 11
+const TAG_ACANTILADOS = 12
 const TAG_FOTOGENICA = 15
 const TAG_PUESTA_SOL = 16
 
@@ -23,10 +25,10 @@ const SERVICE_WHEELCHAIR_RAMP = 8
 
 // Activities (data/activities.json)
 const ACTIVITY_SNORKELING = 1
-const ACTIVITY_KAYAK = 2
-const ACTIVITY_PADDLEBOARD = 3
 const ACTIVITY_DIVING = 4
-const ACTIVITY_VOLLEYBALL = 9
+const ACTIVITY_SAILING = 6
+const ACTIVITY_WINDSURF = 7
+const ACTIVITY_KITESURF = 8
 
 // Seas (data/seas.json)
 const SEA_MEDITERRANEO = 0
@@ -66,7 +68,7 @@ export const seaCollections: Collection[] = [
 export const collections: Collection[] = [
   {
     slug: 'calas-escondidas',
-    title: 'Calas Escondidas',
+    title: 'Calas escondidas',
     description:
       'Descubre las calas más secretas y aisladas de la costa murciana. Rincones naturales alejados del turismo masivo.',
     metaDescription:
@@ -81,7 +83,7 @@ export const collections: Collection[] = [
   },
   {
     slug: 'playas-familiares',
-    title: 'Playas Familiares',
+    title: 'Playas familiares',
     description:
       'Playas seguras y cómodas para disfrutar en familia. Aguas tranquilas, servicios y socorristas.',
     metaDescription:
@@ -96,7 +98,7 @@ export const collections: Collection[] = [
   },
   {
     slug: 'playas-para-perros',
-    title: 'Playas para Perros',
+    title: 'Playas para perros',
     description:
       'Playas caninas oficiales donde tu mascota es bienvenida. Disfruta de la costa con tu mejor amigo.',
     metaDescription:
@@ -105,7 +107,7 @@ export const collections: Collection[] = [
   },
   {
     slug: 'playas-nudistas',
-    title: 'Playas Nudistas',
+    title: 'Playas nudistas',
     description:
       'Las mejores playas nudistas y de práctica libre de la Región de Murcia.',
     metaDescription:
@@ -114,7 +116,7 @@ export const collections: Collection[] = [
   },
   {
     slug: 'con-chiringuito',
-    title: 'Con Chiringuito',
+    title: 'Con chiringuito',
     description:
       'Playas con chiringuito o restaurante donde disfrutar de una comida o bebida frente al mar.',
     metaDescription:
@@ -132,7 +134,7 @@ export const collections: Collection[] = [
   },
   {
     slug: 'snorkel',
-    title: 'Para Hacer Snorkel',
+    title: 'Para hacer snorkel',
     description:
       'Las mejores playas y calas para practicar snorkel. Fondos marinos espectaculares.',
     metaDescription:
@@ -140,26 +142,33 @@ export const collections: Collection[] = [
     filterFn: (b) => {
       const tags = b.tags ?? []
       return (
-        tags.includes(TAG_SNORKEL) || b.activities.includes(ACTIVITY_SNORKELING)
+        tags.includes(TAG_SNORKEL) ||
+        // Snorkel is listed as an activity almost everywhere; rocky Mediterranean
+        // seabeds are where it is actually worth it.
+        (b.activities.includes(ACTIVITY_SNORKELING) &&
+          b.sea === SEA_MEDITERRANEO &&
+          (tags.includes(TAG_ROCOSA) || tags.includes(TAG_ACANTILADOS)))
       )
     },
   },
   {
     slug: 'deportes-acuaticos',
-    title: 'Deportes Acuáticos',
+    title: 'Deportes acuáticos',
     description:
-      'Playas ideales para kayak, paddle surf, windsurf y kitesurf en la costa murciana.',
+      'Playas para vela, windsurf, kitesurf y buceo en la costa murciana.',
     metaDescription:
-      'Deportes acuáticos en playas de Murcia. Kayak, paddle surf, windsurf y más.',
+      'Deportes acuáticos en playas de Murcia. Vela, windsurf, kitesurf y buceo.',
     filterFn: (b) =>
-      b.activities.includes(ACTIVITY_KAYAK) ||
-      b.activities.includes(ACTIVITY_PADDLEBOARD) ||
-      b.activities.includes(ACTIVITY_DIVING) ||
-      b.activities.includes(ACTIVITY_VOLLEYBALL),
+      [
+        ACTIVITY_SAILING,
+        ACTIVITY_WINDSURF,
+        ACTIVITY_KITESURF,
+        ACTIVITY_DIVING,
+      ].some((activity) => b.activities.includes(activity)),
   },
   {
     slug: 'mejores-atardeceres',
-    title: 'Mejores Atardeceres',
+    title: 'Mejores atardeceres',
     description:
       'Playas con orientación oeste donde disfrutar de puestas de sol espectaculares.',
     metaDescription:
@@ -175,16 +184,16 @@ export const collections: Collection[] = [
   },
   {
     slug: 'playas-tranquilas',
-    title: 'Playas Poco Masificadas',
+    title: 'Playas poco masificadas',
     description:
-      'Playas con baja ocupación para quienes buscan tranquilidad y espacio.',
+      'Playas que no se llenan ni en pleno verano, para quienes buscan tranquilidad y espacio.',
     metaDescription:
       'Playas tranquilas y poco masificadas en Murcia. Encuentra tu rincón de paz en la Costa Cálida.',
     filterFn: (b) => b.occupancyLevel === 'low',
   },
   {
     slug: 'accesibles',
-    title: 'Playas Accesibles',
+    title: 'Playas accesibles',
     description:
       'Playas con accesibilidad adaptada: rampas, pasarelas y servicios para personas con movilidad reducida.',
     metaDescription:
@@ -199,7 +208,7 @@ export const collections: Collection[] = [
   },
   {
     slug: 'playas-fotogenicas',
-    title: 'Playas Fotogénicas',
+    title: 'Playas fotogénicas',
     description:
       'Las playas más fotografiadas de la Región de Murcia. Paisajes de postal.',
     metaDescription:
