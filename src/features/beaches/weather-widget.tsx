@@ -329,7 +329,7 @@ function ForecastDayCard({ day }: ForecastDayCardProps) {
     day.precipitationProbability != null && day.precipitationProbability > 0
 
   return (
-    <div className="flex min-w-[5.5rem] flex-col items-center gap-1.5 rounded-xl border border-ocean-200/60 bg-ocean-50/70 p-3 text-center">
+    <div className="flex min-w-0 flex-col items-center gap-1.5 rounded-xl border border-ocean-200/60 bg-ocean-50/70 px-1.5 py-3 text-center">
       <span className="text-xs font-medium tracking-wide text-gray-500 uppercase">
         {formatDayLabel(day.fecha)}
       </span>
@@ -502,7 +502,7 @@ export function WeatherWidget({ aemetId, coordinates }: WeatherWidgetProps) {
       />
 
       {nextDays.length > 0 && (
-        <div className="-mx-1 mt-4 flex gap-2 overflow-x-auto px-1 pb-1">
+        <div className="mt-4 grid grid-cols-3 gap-2">
           {nextDays.map((day) => (
             <ForecastDayCard key={day.fecha} day={day} />
           ))}
