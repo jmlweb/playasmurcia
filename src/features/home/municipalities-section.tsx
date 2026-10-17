@@ -52,8 +52,10 @@ export function MunicipalitiesSection({
                   <p className="mb-3 text-sm leading-relaxed text-gray-500">
                     <span className="inline-flex items-center gap-1 text-ocean-600">
                       <BlueFlagBadgeIcon className="inline h-3.5 w-3.5" />
-                      {m.blueFlagCount} bandera
-                      {m.blueFlagCount === 1 ? '' : 's'} azul
+                      {m.blueFlagCount}{' '}
+                      {m.blueFlagCount === 1
+                        ? 'bandera azul'
+                        : 'banderas azules'}
                     </span>
                   </p>
                 )}
