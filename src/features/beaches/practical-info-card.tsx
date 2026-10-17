@@ -118,7 +118,7 @@ export function PracticalInfoCard({
           {occupancyLevel && (
             <div className="rounded-xl bg-gray-50 p-3.5">
               <p className="mb-1.5 text-xs font-medium tracking-wide text-gray-400 uppercase">
-                Ocupación
+                Ocupación en verano
               </p>
               <span
                 className={`inline-block rounded-full px-3 py-1 text-sm font-semibold ${OccupancyStyles[occupancyLevel].subtle}`}

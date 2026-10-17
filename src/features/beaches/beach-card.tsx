@@ -9,6 +9,7 @@ import { WeatherIcon } from '@/components/ui/icons'
 import { ResponsiveImage } from '@/components/ui/responsive-image'
 import { formatDistance } from '@/lib/geo'
 import { parseImageFilename } from '@/lib/images'
+import { seasonalOccupancy } from '@/lib/occupancy'
 import { OccupancyStyles } from '@/lib/status-styles'
 
 const FlagBadges: Partial<Record<BeachFlag, { label: string; dot: string }>> = {
@@ -57,6 +58,8 @@ export function BeachCard({
     .slice(0, 3)
     .map((i) => tags[i])
     .filter(Boolean)
+  const occupancy =
+    beach.occupancyLevel && seasonalOccupancy(beach.occupancyLevel)
 
   return (
     <Link
@@ -120,11 +123,11 @@ export function BeachCard({
             )}
           </span>
         )}
-        {beach.occupancyLevel && (
+        {occupancy && (
           <span
-            className={`absolute top-3 right-3 rounded-full px-2.5 py-1 text-xs font-medium backdrop-blur-sm ${OccupancyStyles[beach.occupancyLevel].solid}`}
+            className={`absolute top-3 right-3 rounded-full px-2.5 py-1 text-xs font-medium backdrop-blur-sm ${OccupancyStyles[occupancy].solid}`}
           >
-            {OccupancyStyles[beach.occupancyLevel].label}
+            {OccupancyStyles[occupancy].label}
           </span>
         )}
         {flag && FlagBadges[flag] && (

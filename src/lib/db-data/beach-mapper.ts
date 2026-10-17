@@ -2,23 +2,6 @@ import type { Beach, Certification } from '@/types/beach'
 
 import { computeRecommendationScore } from './beach-scoring'
 
-type OccupancyLevel = 'low' | 'medium' | 'high'
-
-function adjustOccupancy(stored: OccupancyLevel): OccupancyLevel {
-  const month = new Date().getMonth() // 0-based
-
-  // July–August: use stored value as-is
-  if (month === 6 || month === 7) return stored
-
-  // June and September: cap at medium
-  if (month === 5 || month === 8) {
-    return stored === 'high' ? 'medium' : stored
-  }
-
-  // Rest of the year: always low
-  return 'low'
-}
-
 /**
  * Maps a database beach record with its relations to the Beach type
  */
@@ -84,9 +67,7 @@ export function mapBeachFromDB(dbBeach: {
     orientation: dbBeach.orientation,
     instagramHashtag: dbBeach.instagramHashtag,
     ...(dbBeach.occupancyLevel && {
-      occupancyLevel: adjustOccupancy(
-        dbBeach.occupancyLevel as 'low' | 'medium' | 'high',
-      ),
+      occupancyLevel: dbBeach.occupancyLevel as 'low' | 'medium' | 'high',
     }),
     ...(dbBeach.campingNearby !== null && {
       campingNearby: dbBeach.campingNearby,
