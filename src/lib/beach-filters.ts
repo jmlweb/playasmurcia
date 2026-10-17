@@ -28,9 +28,9 @@ export const AccessDifficultyLabels = {
 export type AccessDifficulty = keyof typeof AccessDifficultyLabels
 
 export const OccupancyLabels = {
-  low: 'Poca ocupación',
-  medium: 'Ocupación media',
-  high: 'Mucha ocupación',
+  low: 'Tranquila en verano',
+  medium: 'Concurrida en verano',
+  high: 'Muy concurrida en verano',
 } as const
 export type OccupancyLevel = keyof typeof OccupancyLabels
 
