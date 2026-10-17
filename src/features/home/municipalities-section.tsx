@@ -18,10 +18,10 @@ export function MunicipalitiesSection({
   return (
     <section
       ref={ref}
-      className="reveal bg-sand-50 px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24"
+      className="reveal mx-auto max-w-7xl px-4 pb-12 sm:px-6 sm:pb-16 lg:px-8 lg:pb-20"
     >
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-10 flex items-end justify-between">
+      <div>
+        <div className="mb-8 flex items-end justify-between">
           <div>
             <p className="overline-accent mb-2 text-sm font-semibold tracking-wider text-ocean-600 uppercase">
               Explora por zona
@@ -39,8 +39,8 @@ export function MunicipalitiesSection({
               params={{ slug: m.slug }}
               to="/municipios/$slug"
             >
-              <div className="flex flex-1 flex-col p-6">
-                <div className="mb-4 flex items-start justify-between">
+              <div className="flex flex-1 flex-col p-5">
+                <div className="mb-3 flex items-start justify-between">
                   <h3 className="text-xl font-semibold text-gray-900 transition-colors group-hover:text-ocean-600">
                     {m.name}
                   </h3>
@@ -49,7 +49,7 @@ export function MunicipalitiesSection({
                   </div>
                 </div>
                 {m.blueFlagCount > 0 && (
-                  <p className="mb-4 text-sm leading-relaxed text-gray-500">
+                  <p className="mb-3 text-sm leading-relaxed text-gray-500">
                     <span className="inline-flex items-center gap-1 text-ocean-600">
                       <BlueFlagBadgeIcon className="inline h-3.5 w-3.5" />
                       {m.blueFlagCount} bandera

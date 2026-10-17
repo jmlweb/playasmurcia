@@ -87,8 +87,8 @@ export function PageHero({
   imageHeight,
 }: PageHeroProps) {
   const sectionClass = backgroundImage
-    ? 'hero-noise bg-ocean-900 relative overflow-hidden px-4 py-16 sm:py-24 lg:py-32'
-    : 'bg-ocean-800 relative overflow-hidden px-4 py-20 sm:py-24 lg:py-28'
+    ? 'hero-noise bg-ocean-900 relative overflow-hidden px-4 py-10 sm:py-14 lg:py-20'
+    : 'bg-ocean-800 relative overflow-hidden px-4 py-12 sm:py-14 lg:py-16'
 
   return (
     <section className={sectionClass}>

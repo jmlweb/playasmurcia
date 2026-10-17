@@ -32,9 +32,9 @@ export function FeaturedSection({
   return (
     <section
       ref={ref}
-      className="reveal mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
+      className="reveal mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20"
     >
-      <div className="mb-10 flex items-end justify-between">
+      <div className="mb-8 flex items-end justify-between">
         <div>
           <p className="overline-accent mb-2 text-sm font-semibold tracking-wider text-ocean-600 uppercase">
             Selección destacada
@@ -69,7 +69,7 @@ export function FeaturedSection({
         })}
       </div>
 
-      <div className="mt-10 text-center">
+      <div className="mt-8 text-center">
         <Link
           className="inline-flex items-center gap-2 rounded-full bg-ocean-500 px-8 py-3.5 text-base font-semibold text-white shadow-sm transition-all hover:bg-ocean-600 hover:shadow-md focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
           to="/explorar"

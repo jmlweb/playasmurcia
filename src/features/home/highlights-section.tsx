@@ -12,7 +12,7 @@ export function HighlightsSection({
   return (
     <section
       ref={ref}
-      className="reveal relative overflow-hidden bg-ocean-900 px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
+      className="reveal relative overflow-hidden bg-ocean-900 px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20"
     >
       <img
         alt=""
@@ -23,7 +23,7 @@ export function HighlightsSection({
       />
       <div className="absolute inset-0 bg-gradient-to-b from-ocean-900/60 to-ocean-900/90" />
       <div className="relative mx-auto max-w-7xl">
-        <div className="mb-12 text-center">
+        <div className="mb-10 text-center">
           <p className="mb-2 text-sm font-semibold tracking-wider text-ocean-300 uppercase">
             Costa Cálida
           </p>
