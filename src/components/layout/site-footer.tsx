@@ -12,9 +12,6 @@ type FooterCharacteristic = {
   count: number
 }
 
-// Read once at module load so render stays pure (react/purity)
-const CURRENT_YEAR = new Date().getFullYear()
-
 type SiteFooterProps = {
   municipalities: FooterMunicipality[]
   characteristics: FooterCharacteristic[]
@@ -24,6 +21,9 @@ export function SiteFooter({
   municipalities,
   characteristics,
 }: SiteFooterProps) {
+  // Not at module scope: Workers freeze the clock at 0 (1970) during global init
+  // oxlint-disable-next-line react/purity
+  const currentYear = new Date().getFullYear()
   return (
     <footer className="bg-ocean-900 text-ocean-200">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -110,7 +110,7 @@ export function SiteFooter({
             Datos del Ministerio de Transición Ecológica
           </p>
           <p className="text-xs text-ocean-200">
-            &copy; {CURRENT_YEAR} Playas de Murcia
+            &copy; {currentYear} Playas de Murcia
           </p>
         </div>
       </div>
