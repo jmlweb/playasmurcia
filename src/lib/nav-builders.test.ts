@@ -48,6 +48,8 @@ const beaches: Beach[] = [
     certifications: ['blue-flag'],
     accessDifficulty: 'easy',
     childSafe: true,
+    lifeguard: true,
+    tags: [2, 6],
   }),
   makeBeach({
     code: 'B2',

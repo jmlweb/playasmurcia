@@ -1,5 +1,6 @@
 import type { Beach, Municipality } from '@/types/beach'
 
+import { getCollectionBySlug } from '@/lib/collections'
 import { municipalityToSlug } from '@/lib/slugs'
 
 export type NavMunicipality = {
@@ -51,37 +52,27 @@ export function buildMunicipalityNavWithBlueFlag(
   })
 }
 
+// Footer counts must match the collection pages they link to, so they reuse
+// each collection's filter instead of duplicating the criteria here.
+const FOOTER_COLLECTIONS = [
+  { label: 'Bandera azul', slug: 'bandera-azul' },
+  { label: 'Accesible', slug: 'accesibles' },
+  { label: 'Nudista', slug: 'playas-nudistas' },
+  { label: 'Pet friendly', slug: 'playas-para-perros' },
+  { label: 'Familiares', slug: 'playas-familiares' },
+] as const
+
 export function buildCharacteristicCounts(
   beaches: Beach[],
 ): NavCharacteristic[] {
-  return [
-    {
-      label: 'Bandera azul',
-      href: '/colecciones/bandera-azul',
-      count: beaches.filter((b) => b.certifications?.includes('blue-flag'))
-        .length,
-    },
-    {
-      label: 'Accesible',
-      href: '/colecciones/accesibles',
-      count: beaches.filter((b) => b.accessDifficulty === 'easy').length,
-    },
-    {
-      label: 'Nudista',
-      href: '/colecciones/playas-nudistas',
-      count: beaches.filter((b) => b.nudist).length,
-    },
-    {
-      label: 'Pet friendly',
-      href: '/colecciones/playas-para-perros',
-      count: beaches.filter((b) => b.dogFriendly).length,
-    },
-    {
-      label: 'Familiares',
-      href: '/colecciones/playas-familiares',
-      count: beaches.filter((b) => b.childSafe).length,
-    },
-  ]
+  return FOOTER_COLLECTIONS.map(({ label, slug }) => {
+    const collection = getCollectionBySlug(slug)
+    return {
+      label,
+      href: `/colecciones/${slug}`,
+      count: collection ? beaches.filter(collection.filterFn).length : 0,
+    }
+  })
 }
 
 export function countBlueFlag(beaches: Beach[]): number {
