@@ -1,4 +1,9 @@
-import { createFileRoute, Link, notFound } from '@tanstack/react-router'
+import {
+  createFileRoute,
+  Link,
+  notFound,
+  redirect,
+} from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import { useMemo, useState } from 'react'
 
@@ -67,7 +72,22 @@ const fetchMunicipalityData = createServerFn({ method: 'GET' })
     }
   })
 
+// La Manga was wrongly listed as a municipality; keep its indexed URL alive
+const RETIRED_MUNICIPALITY_SLUGS: Record<string, string> = {
+  'la-manga': 'san-javier',
+}
+
 export const Route = createFileRoute('/municipios/$slug')({
+  beforeLoad: ({ params }) => {
+    const target = RETIRED_MUNICIPALITY_SLUGS[params.slug]
+    if (target) {
+      throw redirect({
+        to: '/municipios/$slug',
+        params: { slug: target },
+        statusCode: 301,
+      })
+    }
+  },
   loader: async ({ params }) => {
     const data = await fetchMunicipalityData({ data: { slug: params.slug } })
     if (!data) throw notFound()
