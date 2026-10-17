@@ -190,6 +190,15 @@ Typical crowd level is inferred from beach characteristics:
 
 Calculated once and stored in beach records. No recurring script.
 
+The stored value describes a typical peak-summer day and drives the explorer filter, the occupancy sort and the "Playas poco masificadas" collection all year round; the beach page labels it "Ocupación en verano". Only the beach-card badge is seasonal (`seasonalOccupancy` in `src/lib/occupancy.ts`): stored value in July–August, `high` capped to `medium` in June and September, hidden the rest of the year.
+
+## Collection Criteria
+
+Collections are defined in `src/lib/collections.ts`. Two use stricter criteria because the underlying activity data lists them almost everywhere:
+
+- **Para hacer snorkel**: `snorkel` tag, or the snorkeling activity on a Mediterranean beach tagged `rocosa` or `acantilados`
+- **Deportes acuáticos**: sailing, windsurf, kitesurf or diving activity (kayak and paddle surf are too common to discriminate)
+
 ## Camping Nearby
 
 Beaches within 3km of a verified campsite are flagged as `campingNearby: true`. 42 beaches (22%). Precomputed once and stored in beach records.
