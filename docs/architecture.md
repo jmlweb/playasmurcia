@@ -20,7 +20,7 @@
 | **Open-Meteo API**            | Coordinate-based weather (cards and detail when AEMET is unavailable)                                                                        |
 | **AEMET Open Data**           | Official beach forecasts where `aemetId` is set                                                                                              |
 | **112 COPLA (112rmurcia.es)** | Live beach flag color and sea state                                                                                                          |
-| **Leaflet + react-leaflet**   | Interactive maps on beach detail (lazy-loaded, client-only)                                                                                  |
+| **Leaflet + react-leaflet**   | Interactive maps on beach detail and the explorer (lazy-loaded, client-only); `leaflet.markercluster` groups explorer markers               |
 
 ## Current State
 

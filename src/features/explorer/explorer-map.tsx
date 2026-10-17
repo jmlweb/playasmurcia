@@ -1,5 +1,8 @@
 import 'leaflet/dist/leaflet.css'
+import 'leaflet.markercluster/dist/MarkerCluster.css'
+import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 import L from 'leaflet'
+import 'leaflet.markercluster'
 import { useEffect, useRef } from 'react'
 
 import {
@@ -26,7 +29,7 @@ function escapeHtml(text: string): string {
 export function ExplorerMap({ markers }: { markers: ExplorerMapMarker[] }) {
   const containerRef = useRef<HTMLDivElement>(null)
   const mapRef = useRef<L.Map | null>(null)
-  const layerRef = useRef<L.LayerGroup | null>(null)
+  const layerRef = useRef<L.MarkerClusterGroup | null>(null)
 
   useEffect(() => {
     if (!containerRef.current) return
@@ -40,7 +43,7 @@ export function ExplorerMap({ markers }: { markers: ExplorerMapMarker[] }) {
       maxZoom: 19,
       detectRetina: true,
     }).addTo(map)
-    layerRef.current = L.layerGroup().addTo(map)
+    layerRef.current = L.markerClusterGroup({ maxClusterRadius: 50 }).addTo(map)
     mapRef.current = map
     return () => {
       map.remove()
