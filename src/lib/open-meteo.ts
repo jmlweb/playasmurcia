@@ -211,6 +211,8 @@ export async function fetchOpenMeteoForecast(
 
 const CARD_CACHE_NS = 'open-meteo-card'
 const CARD_CACHE_TTL = 2 * 60 * 60 // 2 hours
+// Cards are decorative: a slow upstream must not hold the whole page response
+const CARD_FETCH_TIMEOUT_MS = 2000
 
 /**
  * Fetches current weather for multiple beaches in a single API call.
@@ -268,7 +270,9 @@ export async function fetchBatchCardWeather(
       forecast_days: '1',
     })
 
-    const res = await fetch(`${BASE_URL}?${params}`)
+    const res = await fetch(`${BASE_URL}?${params}`, {
+      signal: AbortSignal.timeout(CARD_FETCH_TIMEOUT_MS),
+    })
     if (!res.ok) return result
 
     // When multiple locations: response is an array

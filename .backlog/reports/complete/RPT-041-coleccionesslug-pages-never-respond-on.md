@@ -3,8 +3,10 @@ id: RPT-041
 title: `/colecciones/<slug>` pages never respond on production
 type: bug
 severity: critical
-status: pending
+status: triaged
 created: 2026-10-17
+triaged: 2026-10-17
+task-id: TSK-110
 ---
 
 - **Found**: 2026-10-17, against https://www.playasmurcia.com
