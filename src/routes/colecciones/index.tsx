@@ -1,27 +1,63 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 
+import type { Beach } from '@/types/beach'
+
 import { Breadcrumb } from '@/components/layout/breadcrumb'
 import { PageHero } from '@/components/layout/page-hero'
 import { CollectionIcon } from '@/components/ui/icons'
+import { ResponsiveImage } from '@/components/ui/responsive-image'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
 import {
   collections,
   filterBeachesByCollection,
   seaCollections,
 } from '@/lib/collections'
-import { pictureUrl } from '@/lib/images'
+import { parseImageFilename, pictureUrl } from '@/lib/images'
+
+const FEATURED_SLUGS = new Set([
+  'calas-escondidas',
+  'playas-familiares',
+  'bandera-azul',
+  'snorkel',
+])
+
+// Best-rated photo of the most recommended beach, so each featured card shows
+// a real place instead of an empty colour band. `usedCodes` keeps covers
+// distinct, since popular beaches belong to several collections.
+function pickCoverPicture(
+  beaches: Beach[],
+  usedCodes: Set<string>,
+): string | undefined {
+  const cover = beaches
+    .filter((b) => b.pictures?.length && !usedCodes.has(b.code))
+    .sort(
+      (a, b) =>
+        (b.pictureQualityScore ?? 0) - (a.pictureQualityScore ?? 0) ||
+        b.recommendationScore - a.recommendationScore,
+    )[0]
+  if (!cover) return undefined
+  usedCodes.add(cover.code)
+  return cover.pictures?.[0]
+}
 
 const fetchCollectionsData = createServerFn({ method: 'GET' }).handler(
   async () => {
     const { getAllBeaches } = await import('@/lib/db-data/beach-queries')
     const beaches = await getAllBeaches()
-    const items = collections.map((collection) => ({
-      slug: collection.slug,
-      title: collection.title,
-      description: collection.description,
-      beachCount: filterBeachesByCollection(beaches, collection).length,
-    }))
+    const usedCoverCodes = new Set<string>()
+    const items = collections.map((collection) => {
+      const members = filterBeachesByCollection(beaches, collection)
+      return {
+        slug: collection.slug,
+        title: collection.title,
+        description: collection.description,
+        beachCount: members.length,
+        coverPicture: FEATURED_SLUGS.has(collection.slug)
+          ? pickCoverPicture(members, usedCoverCodes)
+          : undefined,
+      }
+    })
     const seas = seaCollections.map((collection) => ({
       slug: collection.slug,
       title: collection.title,
@@ -50,13 +86,6 @@ export const Route = createFileRoute('/colecciones/')({
   }),
   component: ColeccionesPage,
 })
-
-const FEATURED_SLUGS = new Set([
-  'calas-escondidas',
-  'playas-familiares',
-  'bandera-azul',
-  'snorkel',
-])
 
 /**
  * Thematic color map — restricted to brand-harmonized hues:
@@ -137,11 +166,13 @@ function CollectionCard({
   title,
   description,
   beachCount,
+  coverPicture,
 }: {
   slug: string
   title: string
   description: string
   beachCount: number
+  coverPicture?: string
 }) {
   const theme = ThematicThemes[slug] ?? {
     bg: 'bg-gray-50',
@@ -157,14 +188,29 @@ function CollectionCard({
         params={{ slug }}
         to="/colecciones/$slug"
       >
-        {/* Hero gradient area */}
         <div
-          className={`relative flex h-28 items-end bg-gradient-to-br p-4 ${theme.gradient}`}
+          className={`relative flex h-40 items-end bg-gradient-to-br p-4 ${theme.gradient}`}
         >
+          {coverPicture && (
+            <>
+              <ResponsiveImage
+                alt=""
+                aria-hidden="true"
+                baseName={parseImageFilename(coverPicture).baseName}
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-105"
+                ext={parseImageFilename(coverPicture).ext}
+                variant="thumb"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"
+              />
+            </>
+          )}
           <div
-            className={`flex h-16 w-16 items-center justify-center rounded-2xl ${theme.bg} ${theme.text} shadow-sm`}
+            className={`relative flex h-14 w-14 items-center justify-center rounded-2xl ${theme.bg} ${theme.text} shadow-md`}
           >
-            <CollectionIcon className="h-8 w-8" slug={slug} />
+            <CollectionIcon className="h-7 w-7" slug={slug} />
           </div>
         </div>
         <div className="flex flex-1 flex-col p-5">
@@ -310,7 +356,7 @@ function ColeccionesPage() {
         backgroundImage={pictureUrl('hero-colecciones.png')}
         optimizedName="hero-colecciones"
       >
-        <p className="mb-3 text-sm font-medium tracking-widest text-ocean-300 uppercase">
+        <p className="mb-3 text-sm font-semibold tracking-widest text-coral-400 uppercase">
           Costa de Murcia
         </p>
         <h1 className="mb-4 text-4xl font-normal tracking-tight text-white sm:text-5xl">
@@ -355,6 +401,7 @@ function ColeccionesPage() {
               <CollectionCard
                 key={item.slug}
                 beachCount={item.beachCount}
+                coverPicture={item.coverPicture}
                 description={item.description}
                 slug={item.slug}
                 title={item.title}
