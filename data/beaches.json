@@ -4666,7 +4666,7 @@
   {
     "code": "667",
     "name": "Playa Barnuevo",
-    "municipality": 5,
+    "municipality": 4,
     "district": "SANTIAGO DE LA RIBERA",
     "soilType": "Arena fina y dorada",
     "waves": "TRANQUILO",
@@ -4674,7 +4674,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": true,
-    "access": "Playa Barnuevo, ubicada en el corazón del casco urbano de La Manga, se encuentra entre la Academia General del Aire y las antiguas pescaderías. Los accesos a primera línea de playa son numerosos y de fácil acceso, principalmente a través de escaleras y un acceso adaptado para personas con movilidad reducida. El acceso a la playa requiere una caminata corta, pero es sencillo y accesible para todos los visitantes. Existe parking disponible en las cercanías.",
+    "access": "Playa Barnuevo, ubicada en el corazón del casco urbano de Santiago de la Ribera, se encuentra entre la Academia General del Aire y las antiguas pescaderías. Los accesos a primera línea de playa son numerosos y de fácil acceso, principalmente a través de escaleras y un acceso adaptado para personas con movilidad reducida. El acceso a la playa requiere una caminata corta, pero es sencillo y accesible para todos los visitantes. Existe parking disponible en las cercanías.",
     "pictures": [
       "barnuevo-sanjavier-4_g.jpg",
       "recurso-1-667-2p_g.jpg",
@@ -4692,7 +4692,7 @@
       "664",
       "585"
     ],
-    "description": "Playa Barnuevo, en La Manga, te ofrece un tramo de arena fina y dorada en el Mar Menor, ideal para disfrutar de un día de sol relajante. Con fácil acceso y un agradable paseo marítimo, es un lugar perfecto para familias y visitantes. Aunque no cuenta con bandera azul, su accesibilidad y ambiente familiar la convierten en una opción atractiva en la Región de Murcia.",
+    "description": "Playa Barnuevo, en Santiago de la Ribera, te ofrece un tramo de arena fina y dorada en el Mar Menor, ideal para disfrutar de un día de sol relajante. Con fácil acceso y un agradable paseo marítimo, es un lugar perfecto para familias y visitantes. Aunque no cuenta con bandera azul, su accesibilidad y ambiente familiar la convierten en una opción atractiva en la Región de Murcia.",
     "orientation": "east",
     "instagramHashtag": "#PlayaBarnuevo",
     "dogFriendly": false,
@@ -4731,10 +4731,10 @@
     ],
     "occupancyLevel": "high",
     "campingNearby": true,
-    "metaDescription": "Playa Barnuevo, La Manga: Disfruta de la arena dorada en el Mar Menor, Murcia. Relájate en la Costa Cálida, ideal para familias. ¡Tu playa perfecta!",
+    "metaDescription": "Playa Barnuevo, Santiago de la Ribera: Disfruta de la arena dorada en el Mar Menor, Murcia. Relájate en la Costa Cálida, ideal para familias. ¡Tu playa perfecta!",
     "seoKeywords": [
       "barnuevo",
-      "la manga",
+      "santiago de la ribera",
       "playa urbana",
       "mar menor",
       "arena fina",
@@ -4762,13 +4762,13 @@
     "waterQuality": "excellent",
     "translations": {
       "en": {
-        "description": "Playa Barnuevo, in La Manga, offers a lovely stretch of fine, golden sand on the Mar Menor, perfect for a relaxing day in the sun. With easy access and a pleasant promenade, it’s a great spot for families and visitors. While it doesn’t have a blue flag, its accessibility and family-friendly atmosphere make it an attractive option in the Region of Murcia."
+        "description": "Playa Barnuevo, in Santiago de la Ribera, offers a lovely stretch of fine, golden sand on the Mar Menor, perfect for a relaxing day in the sun. With easy access and a pleasant promenade, it’s a great spot for families and visitors. While it doesn’t have a blue flag, its accessibility and family-friendly atmosphere make it an attractive option in the Region of Murcia."
       },
       "fr": {
-        "description": "La plage de Barnuevo, à La Manga, vous offre un magnifique sable fin et doré dans la mer d'Almería, idéale pour une journée ensoleillée et relaxante. Facilement accessible et dotée d'une agréable promenade, c'est un endroit parfait pour les familles et les visiteurs. Bien qu'elle n'ait pas de draque bleu, son accessibilité et son ambiance familiale en font une option attrayante dans la région de Murcie."
+        "description": "La plage de Barnuevo, à Santiago de la Ribera, vous offre un magnifique sable fin et doré dans la mer d'Almería, idéale pour une journée ensoleillée et relaxante. Facilement accessible et dotée d'une agréable promenade, c'est un endroit parfait pour les familles et les visiteurs. Bien qu'elle n'ait pas de draque bleu, son accessibilité et son ambiance familiale en font une option attrayante dans la région de Murcie."
       },
       "de": {
-        "description": "Playa Barnuevo in La Manga bietet Ihnen ein Abschnitt feinen, goldenen Sandes im Mar Menor, ideal zum Entspannen und Genießen der Sonne. Mit einfachem Zugang und einem angenehmen Uferweg ist es ein perfekter Ort für Familien und Besucher. Auch wenn sie kein Blauen Flaggen-Siegel hat, macht ihre Zugänglichkeit und familiäre Atmosphäre sie zu einer attraktiven Option in der Region Murcia."
+        "description": "Playa Barnuevo in Santiago de la Ribera bietet Ihnen ein Abschnitt feinen, goldenen Sandes im Mar Menor, ideal zum Entspannen und Genießen der Sonne. Mit einfachem Zugang und einem angenehmen Uferweg ist es ein perfekter Ort für Familien und Besucher. Auch wenn sie kein Blauen Flaggen-Siegel hat, macht ihre Zugänglichkeit und familiäre Atmosphäre sie zu einer attraktiven Option in der Region Murcia."
       }
     },
     "pictureQualityScore": 2,
@@ -5396,7 +5396,7 @@
   {
     "code": "692",
     "name": "Playa Carrión",
-    "municipality": 6,
+    "municipality": 5,
     "soilType": "Arena fina y gris",
     "anchorageZone": false,
     "nudist": false,
@@ -6696,7 +6696,7 @@
   {
     "code": "668",
     "name": "Playa de Colón",
-    "municipality": 5,
+    "municipality": 4,
     "district": "SANTIAGO DE LA RIBERA",
     "soilType": "Arena fina y dorada",
     "waves": "TRANQUILO",
@@ -6704,7 +6704,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": true,
-    "access": "La Playa de Colón, ubicada en el corazón del casco urbano de La Manga, se encuentra convenientemente situada entre el Club Náutico y la Ciudad del Aire. Los accesos a primera línea de playa son numerosos y fácilmente accesibles, ofreciendo opciones de escaleras y un acceso adaptado para personas con movilidad reducida.  Se recomienda llegar caminando, y hay parking disponible en la zona.",
+    "access": "La Playa de Colón, ubicada en el corazón del casco urbano de Santiago de la Ribera, se encuentra convenientemente situada entre el Club Náutico y la Ciudad del Aire. Los accesos a primera línea de playa son numerosos y fácilmente accesibles, ofreciendo opciones de escaleras y un acceso adaptado para personas con movilidad reducida.  Se recomienda llegar caminando, y hay parking disponible en la zona.",
     "pictures": [
       "recurso-1-668-3p_g.jpg",
       "recurso-1-668-1p_g.jpg",
@@ -6722,7 +6722,7 @@
       "664",
       "681"
     ],
-    "description": "Playa de Colón, en La Manga, ofrece un tramo de arena fina y dorada acariciado por las cálidas aguas del Mar Menor. Disfruta de un paseo marítimo accesible y de un ambiente familiar y tranquilo.  Ideal para un día de playa relajante, con fácil acceso y servicios cercanos.",
+    "description": "Playa de Colón, en Santiago de la Ribera, ofrece un tramo de arena fina y dorada acariciado por las cálidas aguas del Mar Menor. Disfruta de un paseo marítimo accesible y de un ambiente familiar y tranquilo.  Ideal para un día de playa relajante, con fácil acceso y servicios cercanos.",
     "orientation": "east",
     "instagramHashtag": "#PlayaDeColon",
     "dogFriendly": false,
@@ -6761,10 +6761,10 @@
     ],
     "occupancyLevel": "high",
     "campingNearby": true,
-    "metaDescription": "Playa de Colón, La Manga: Disfruta de esta hermosa playa en Murcia, Costa Cálida. Arena fina, Mar Menor y ambiente familiar. ¡Tu día de playa perfecto!",
+    "metaDescription": "Playa de Colón, Santiago de la Ribera: Disfruta de esta hermosa playa en Murcia, Costa Cálida. Arena fina, Mar Menor y ambiente familiar. ¡Tu día de playa perfecto!",
     "seoKeywords": [
       "playa de colón",
-      "la manga",
+      "santiago de la ribera",
       "playa urbana",
       "arena fina",
       "mar menor",
@@ -6791,13 +6791,13 @@
     "waterQuality": "excellent",
     "translations": {
       "en": {
-        "description": "Playa de Colón, in La Manga, boasts a lovely stretch of fine, golden sand warmed by the warm waters of the Mar Menor. Enjoy a convenient seafront promenade and a relaxed, family-friendly atmosphere. It’s perfect for a relaxing day at the beach, with easy access and nearby amenities."
+        "description": "Playa de Colón, in Santiago de la Ribera, boasts a lovely stretch of fine, golden sand warmed by the warm waters of the Mar Menor. Enjoy a convenient seafront promenade and a relaxed, family-friendly atmosphere. It’s perfect for a relaxing day at the beach, with easy access and nearby amenities."
       },
       "fr": {
-        "description": "La Playa de Colón, à La Manga, vous offre un sable fin et doré caressé par les eaux chaudes de la mer Méditerranée. Profitez d'une promenade en bord de mer accessible et d'une ambiance familiale et paisible. Idéale pour une journée à la plage relaxante, avec un accès facile et des services à proximité."
+        "description": "La Playa de Colón, à Santiago de la Ribera, vous offre un sable fin et doré caressé par les eaux chaudes de la mer Méditerranée. Profitez d'une promenade en bord de mer accessible et d'une ambiance familiale et paisible. Idéale pour une journée à la plage relaxante, avec un accès facile et des services à proximité."
       },
       "de": {
-        "description": "Am Playa de Colón in La Manga erwarten Sie ein feinsandiger, goldener Strand, der von den warmen Gewässern des Mar Menor umspült wird. Genießen Sie einen barrierefreien Promenade und eine ruhige, familienfreundliche Atmosphäre. Ideal für einen entspannten Tag am Strand mit einfachem Zugang und nahegelegenen Einrichtungen."
+        "description": "Am Playa de Colón in Santiago de la Ribera erwarten Sie ein feinsandiger, goldener Strand, der von den warmen Gewässern des Mar Menor umspült wird. Genießen Sie einen barrierefreien Promenade und eine ruhige, familienfreundliche Atmosphäre. Ideal für einen entspannten Tag am Strand mit einfachem Zugang und nahegelegenen Einrichtungen."
       }
     },
     "pictureQualityScore": 2,
@@ -7564,7 +7564,7 @@
   {
     "code": "5253",
     "name": "Playa de Gollerón (Cala del Turco)",
-    "municipality": 4,
+    "municipality": 0,
     "soilType": "Arena blanca y fina",
     "anchorageZone": false,
     "nudist": false,
@@ -7572,18 +7572,18 @@
     "pictures": [],
     "sea": 1,
     "coordinates": [
-      37.6545228,
-      -0.734669
+      37.6641233,
+      -0.7341228
     ],
-    "access": "La Playa de Gollerón (Cala del Turco), en San Javier, Región de Murcia, ofrece acceso a través de un camino de tierra con pendiente, lo que implica una caminata moderada. Dispone de un parking público en la zona.",
+    "access": "La Playa de Gollerón (Cala del Turco), en Cartagena, Región de Murcia, ofrece acceso a través de un camino de tierra con pendiente, lo que implica una caminata moderada. Dispone de un parking público en la zona.",
     "nearby": [
       "607",
       "526",
+      "577",
       "687",
-      "670",
-      "669"
+      "670"
     ],
-    "description": "Playa de Gollerón (Cala del Turco) es un pequeño paraíso en San Javier, Región de Murcia, con arena blanca y fina que invita a relajarse junto al Mar Menor. Disfruta de un entorno tranquilo y familiar, ideal para un día de sol y baño en aguas cristalinas. Aunque carece de servicios como paseo marítimo y zona de fondeo, su belleza natural y su ambiente relajado la convierten en un destino encantador.",
+    "description": "Playa de Gollerón (Cala del Turco) es un pequeño paraíso en Cartagena, Región de Murcia, con arena blanca y fina que invita a relajarse junto al Mar Menor. Disfruta de un entorno tranquilo y familiar, ideal para un día de sol y baño en aguas cristalinas. Aunque carece de servicios como paseo marítimo y zona de fondeo, su belleza natural y su ambiente relajado la convierten en un destino encantador.",
     "orientation": "west",
     "instagramHashtag": "#PlayaDeGolleroncalaDelTurco",
     "dogFriendly": false,
@@ -7613,10 +7613,10 @@
     "certifications": [],
     "occupancyLevel": "low",
     "campingNearby": false,
-    "metaDescription": "Playa de Gollerón (Cala del Turco), San Javier: Disfruta de esta playa en Murcia, Costa Cálida. Playa familiar con arena fina y aguas cristalinas.",
+    "metaDescription": "Playa de Gollerón (Cala del Turco), Cartagena: Disfruta de esta playa en Murcia, Costa Cálida. Playa familiar con arena fina y aguas cristalinas.",
     "seoKeywords": [
       "gollerón cala del turco",
-      "san javier",
+      "cartagena",
       "cala virgen",
       "mar menor",
       "arena fina",
@@ -7625,17 +7625,17 @@
       "paddle surf",
       "actividades acuáticas",
       "destino familiar",
-      "calas en San Javier",
-      "calas escondidas San Javier",
-      "natacion en San Javier",
-      "paddlesurf en San Javier",
-      "kayak en San Javier",
-      "snorkel en San Javier",
-      "buceo en San Javier",
-      "playas familiares San Javier",
+      "calas en Cartagena",
+      "calas escondidas Cartagena",
+      "natacion en Cartagena",
+      "paddlesurf en Cartagena",
+      "kayak en Cartagena",
+      "snorkel en Cartagena",
+      "buceo en Cartagena",
+      "playas familiares Cartagena",
       "playas Mar Menor",
-      "playas Mar Menor San Javier",
-      "mejores playas San Javier",
+      "playas Mar Menor Cartagena",
+      "mejores playas Cartagena",
       "playas Murcia",
       "playa de Gollerón (del Turco)"
     ],
@@ -7647,13 +7647,13 @@
     "length": 200,
     "translations": {
       "en": {
-        "description": "Playa de Gollerón (Cala del Turco) is a little paradise in San Javier, Region of Murcia, with white, fine sand that invites you to relax by the Mar Menor. Enjoy a tranquil and family-friendly environment, perfect for a day of sun and swimming in crystal-clear waters. Although it lacks amenities like a promenade and a marina, its natural beauty and relaxed atmosphere make it a charming destination."
+        "description": "Playa de Gollerón (Cala del Turco) is a little paradise in Cartagena, Region of Murcia, with white, fine sand that invites you to relax by the Mar Menor. Enjoy a tranquil and family-friendly environment, perfect for a day of sun and swimming in crystal-clear waters. Although it lacks amenities like a promenade and a marina, its natural beauty and relaxed atmosphere make it a charming destination."
       },
       "fr": {
-        "description": "La Playa de Gollerón (Cala del Turco) est un petit paradis à San Javier, dans la Région de Murcie, avec du sable blanc et fin qui vous invite à vous détendre au bord du Mar Menor. Profitez d'un cadre paisible et familial, idéal pour une journée ensoleillée et des baignades dans des eaux cristallines. Bien qu'elle ne dispose pas de services tels qu'un front de mer et un quai de mise à l'eau, sa beauté naturelle et son ambiance relaxante en font une destination charmante."
+        "description": "La Playa de Gollerón (Cala del Turco) est un petit paradis à Cartagena, dans la Région de Murcie, avec du sable blanc et fin qui vous invite à vous détendre au bord du Mar Menor. Profitez d'un cadre paisible et familial, idéal pour une journée ensoleillée et des baignades dans des eaux cristallines. Bien qu'elle ne dispose pas de services tels qu'un front de mer et un quai de mise à l'eau, sa beauté naturelle et son ambiance relaxante en font une destination charmante."
       },
       "de": {
-        "description": "Playa de Gollerón (Cala del Turco) ist ein kleines Paradies in San Javier, in der Region Murcia, mit weißem, feinem Sand, der zum Entspannen am Mar Menor einlädt. Genießen Sie eine ruhige und familienfreundliche Umgebung, ideal für einen Tag in der Sonne und ein Bad im kristallklaren Wasser. Obwohl sie keine Annehmlichkeiten wie einen Uferpromenade oder eine Anlegestelle bietet, ist ihre natürliche Schönheit und ihre entspannte Atmosphäre ein bezaubernder Ort."
+        "description": "Playa de Gollerón (Cala del Turco) ist ein kleines Paradies in Cartagena, in der Region Murcia, mit weißem, feinem Sand, der zum Entspannen am Mar Menor einlädt. Genießen Sie eine ruhige und familienfreundliche Umgebung, ideal für einen Tag in der Sonne und ein Bad im kristallklaren Wasser. Obwohl sie keine Annehmlichkeiten wie einen Uferpromenade oder eine Anlegestelle bietet, ist ihre natürliche Schönheit und ihre entspannte Atmosphäre ein bezaubernder Ort."
       }
     },
     "pictureQualityScore": 0,
@@ -8388,7 +8388,7 @@
   {
     "code": "533",
     "name": "Playa de La Concha",
-    "municipality": 6,
+    "municipality": 5,
     "soilType": "Arena gruesa",
     "anchorageZone": false,
     "nudist": false,
@@ -9122,7 +9122,7 @@
   {
     "code": "545",
     "name": "Playa de La Llana (Playa de La Barraca Quemada)",
-    "municipality": 7,
+    "municipality": 6,
     "soilType": "Arena fina y gris",
     "anchorageZone": false,
     "nudist": false,
@@ -9223,7 +9223,7 @@
   {
     "code": "665",
     "name": "Playa de La Llana (Playa de Las Salinas)",
-    "municipality": 7,
+    "municipality": 6,
     "soilType": "Arena fina y gris",
     "anchorageZone": false,
     "nudist": false,
@@ -9329,7 +9329,7 @@
   {
     "code": "544",
     "name": "Playa de La Llana (Playa Punta de Algas)",
-    "municipality": 7,
+    "municipality": 6,
     "soilType": "Arena fina y gris",
     "anchorageZone": false,
     "nudist": false,
@@ -9422,7 +9422,7 @@
   {
     "code": "682",
     "name": "Playa de La Mota",
-    "municipality": 7,
+    "municipality": 6,
     "soilType": "Sin determinar",
     "anchorageZone": false,
     "nudist": false,
@@ -9723,7 +9723,7 @@
   {
     "code": "664",
     "name": "Playa de La Puntica",
-    "municipality": 7,
+    "municipality": 6,
     "soilType": "Arena fina y gris",
     "anchorageZone": false,
     "nudist": false,
@@ -10128,7 +10128,7 @@
   {
     "code": "546",
     "name": "Playa de La Torre Derribada",
-    "municipality": 7,
+    "municipality": 6,
     "soilType": "Arena fina y gris",
     "anchorageZone": false,
     "nudist": false,
@@ -10628,7 +10628,7 @@
   {
     "code": "534",
     "name": "Playa de Las Palmeras",
-    "municipality": 6,
+    "municipality": 5,
     "soilType": "Arena fina y gris",
     "anchorageZone": false,
     "nudist": false,
@@ -10832,7 +10832,7 @@
   {
     "code": "585",
     "name": "Playa de Las Salinas",
-    "municipality": 6,
+    "municipality": 5,
     "soilType": "Arena gruesa y gris",
     "waves": "SUAVE",
     "anchorageZone": false,
@@ -11454,7 +11454,7 @@
   {
     "code": "661",
     "name": "Playa de Los Narejos",
-    "municipality": 6,
+    "municipality": 5,
     "soilType": "Arena gruesa",
     "anchorageZone": false,
     "nudist": false,
@@ -12293,7 +12293,7 @@
   {
     "code": "560",
     "name": "Playa de Portmán",
-    "municipality": 8,
+    "municipality": 7,
     "soilType": "Arena fina y dorada",
     "waves": "MODERADO",
     "anchorageZone": false,
@@ -12391,7 +12391,7 @@
   {
     "code": "681",
     "name": "Playa de Villananitos",
-    "municipality": 7,
+    "municipality": 6,
     "soilType": "Arena fina y gris",
     "anchorageZone": false,
     "nudist": false,
@@ -13288,7 +13288,7 @@
   {
     "code": "690",
     "name": "Playa del Espejo",
-    "municipality": 6,
+    "municipality": 5,
     "soilType": "Arena gruesa",
     "anchorageZone": false,
     "nudist": false,
@@ -13599,7 +13599,7 @@
   {
     "code": "695",
     "name": "Playa del Lastre",
-    "municipality": 8,
+    "municipality": 7,
     "soilType": "Arena fina y grava",
     "anchorageZone": false,
     "nudist": false,
@@ -14792,7 +14792,7 @@
   {
     "code": "604",
     "name": "Playa El Castillico",
-    "municipality": 5,
+    "municipality": 4,
     "district": "SANTIAGO DE LA RIBERA",
     "soilType": "Arena fina y dorada",
     "waves": "TRANQUILO",
@@ -14800,7 +14800,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": true,
-    "access": "Playa El Castillico, situada en el casco urbano de La Manga, se accede directamente desde el Jardín del Atalayón hasta el final del término municipal. Los accesos a primera línea de playa son numerosos y fáciles de alcanzar, disponiendo de escaleras y acceso adaptado para personas con movilidad reducida. Se recomienda llegar en coche y, una vez en la zona, existen opciones de aparcamiento cercanas.",
+    "access": "Playa El Castillico, situada en el casco urbano de Santiago de la Ribera, se accede directamente desde el Jardín del Atalayón hasta el final del término municipal. Los accesos a primera línea de playa son numerosos y fáciles de alcanzar, disponiendo de escaleras y acceso adaptado para personas con movilidad reducida. Se recomienda llegar en coche y, una vez en la zona, existen opciones de aparcamiento cercanas.",
     "pictures": [
       "recurso-1-604-2p_g.jpg"
     ],
@@ -14815,7 +14815,7 @@
       "682",
       "535"
     ],
-    "description": "Playa El Castillico, en La Manga, te espera con su arena fina y dorada, perfecta para disfrutar del cálido Mar Menor. Esta playa accesible ofrece un paseo marítimo agradable y un ambiente familiar, ideal para relajarse y disfrutar del sol. A pesar de no tener bandera azul, su accesibilidad y ubicación en un entorno atractivo la convierten en una opción cómoda para pasar un día en la playa.",
+    "description": "Playa El Castillico, en Santiago de la Ribera, te espera con su arena fina y dorada, perfecta para disfrutar del cálido Mar Menor. Esta playa accesible ofrece un paseo marítimo agradable y un ambiente familiar, ideal para relajarse y disfrutar del sol. A pesar de no tener bandera azul, su accesibilidad y ubicación en un entorno atractivo la convierten en una opción cómoda para pasar un día en la playa.",
     "orientation": "east",
     "instagramHashtag": "#PlayaElCastillico",
     "dogFriendly": false,
@@ -14855,10 +14855,10 @@
     ],
     "occupancyLevel": "high",
     "campingNearby": false,
-    "metaDescription": "Playa El Castillico, La Manga: Disfruta de esta hermosa playa en Murcia, Costa Cálida. Arena fina y dorada, ideal para familias y relajación. ¡Ven a disfrutar!",
+    "metaDescription": "Playa El Castillico, Santiago de la Ribera: Disfruta de esta hermosa playa en Murcia, Costa Cálida. Arena fina y dorada, ideal para familias y relajación. ¡Ven a disfrutar!",
     "seoKeywords": [
       "el castillico",
-      "la manga",
+      "santiago de la ribera",
       "playa urbana",
       "mar menor",
       "arena fina",
@@ -14887,13 +14887,13 @@
     "waterQuality": "excellent",
     "translations": {
       "en": {
-        "description": "Playa El Castillico in La Manga awaits you with its fine, golden sand, perfect for enjoying the warm Mar Menor. This accessible beach offers a pleasant promenade and a family-friendly atmosphere, ideal for relaxing and soaking up the sun. Despite not having a blue flag, its accessibility and attractive location make it a comfortable option for spending a day at the beach."
+        "description": "Playa El Castillico in Santiago de la Ribera awaits you with its fine, golden sand, perfect for enjoying the warm Mar Menor. This accessible beach offers a pleasant promenade and a family-friendly atmosphere, ideal for relaxing and soaking up the sun. Despite not having a blue flag, its accessibility and attractive location make it a comfortable option for spending a day at the beach."
       },
       "fr": {
-        "description": "La plage El Castillico, à La Manga, vous attend avec son sable fin et doré, parfait pour profiter de la chaude mer Méditerranée. Cette plage accessible offre une promenade en bord de mer agréable et une ambiance familiale, idéale pour se détendre et profiter du soleil. Malgré l'absence de draque, son accessibilité et son emplacement dans un cadre attrayant en font une option confortable pour passer une journée à la plage."
+        "description": "La plage El Castillico, à Santiago de la Ribera, vous attend avec son sable fin et doré, parfait pour profiter de la chaude mer Méditerranée. Cette plage accessible offre une promenade en bord de mer agréable et une ambiance familiale, idéale pour se détendre et profiter du soleil. Malgré l'absence de draque, son accessibilité et son emplacement dans un cadre attrayant en font une option confortable pour passer une journée à la plage."
       },
       "de": {
-        "description": "Playa El Castillico in La Manga heißt Sie mit ihrem feinen, goldenen Sand willkommen, der perfekt zum Genießen des warmen Mar Menor ist. Dieser barrierefreie Strand bietet einen angenehmen Promenadenweg und eine familiäre Atmosphäre, ideal zum Entspannen und Sonnenbaden. Obwohl er kein Blauen Flaggen-Siegel hat, ist er aufgrund seiner Zugänglichkeit und seiner Lage in einer attraktiven Umgebung eine komfortable Option für einen Tag am Strand."
+        "description": "Playa El Castillico in Santiago de la Ribera heißt Sie mit ihrem feinen, goldenen Sand willkommen, der perfekt zum Genießen des warmen Mar Menor ist. Dieser barrierefreie Strand bietet einen angenehmen Promenadenweg und eine familiäre Atmosphäre, ideal zum Entspannen und Sonnenbaden. Obwohl er kein Blauen Flaggen-Siegel hat, ist er aufgrund seiner Zugänglichkeit und seiner Lage in einer attraktiven Umgebung eine komfortable Option für einen Tag am Strand."
       }
     },
     "pictureQualityScore": 2,
@@ -15118,7 +15118,7 @@
   {
     "code": "666",
     "name": "Playa El Mojón",
-    "municipality": 7,
+    "municipality": 6,
     "soilType": "Arena fina y gris",
     "anchorageZone": false,
     "nudist": false,
@@ -15334,7 +15334,7 @@
   {
     "code": "535",
     "name": "Playa El Pescador",
-    "municipality": 5,
+    "municipality": 4,
     "district": "SANTIAGO DE LA RIBERA",
     "soilType": "Arena fina y dorada",
     "waves": "TRANQUILO",
@@ -15342,7 +15342,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": true,
-    "access": "Playa El Pescador, ubicada en el corazón del casco urbano de La Manga. Cuenta con numerosos accesos directos a primera línea de playa, que incluyen escaleras y un acceso adaptado para personas con movilidad reducida. Dispone de parking cercano.  ",
+    "access": "Playa El Pescador, ubicada en el corazón del casco urbano de Santiago de la Ribera. Cuenta con numerosos accesos directos a primera línea de playa, que incluyen escaleras y un acceso adaptado para personas con movilidad reducida. Dispone de parking cercano.  ",
     "pictures": [
       "recurso-1-535-1p_g.jpg"
     ],
@@ -15357,7 +15357,7 @@
       "664",
       "681"
     ],
-    "description": "Playa El Pescador, en La Manga, te espera con su arena fina y dorada, ofreciendo un ambiente tranquilo y familiar junto al Mar Menor. Disfruta de su agradable paseo marítimo y de la calidez del agua. Aunque no cuenta con bandera azul ni zona de fondeo, es un lugar ideal para relajarse y disfrutar de un día de playa en la Región de Murcia.",
+    "description": "Playa El Pescador, en Santiago de la Ribera, te espera con su arena fina y dorada, ofreciendo un ambiente tranquilo y familiar junto al Mar Menor. Disfruta de su agradable paseo marítimo y de la calidez del agua. Aunque no cuenta con bandera azul ni zona de fondeo, es un lugar ideal para relajarse y disfrutar de un día de playa en la Región de Murcia.",
     "orientation": "east",
     "instagramHashtag": "#PlayaElPescador",
     "dogFriendly": false,
@@ -15394,10 +15394,10 @@
     "certifications": [],
     "occupancyLevel": "high",
     "campingNearby": true,
-    "metaDescription": "Playa El Pescador, La Manga: Disfruta de esta playa en Murcia, Costa Cálida. Arena dorada, Mar Menor y ambiente familiar. Relájate y disfruta!",
+    "metaDescription": "Playa El Pescador, Santiago de la Ribera: Disfruta de esta playa en Murcia, Costa Cálida. Arena dorada, Mar Menor y ambiente familiar. Relájate y disfruta!",
     "seoKeywords": [
       "el pescador",
-      "la manga",
+      "santiago de la ribera",
       "cala urbana",
       "natación",
       "aguas cristalinas",
@@ -15426,13 +15426,13 @@
     "waterQuality": "good",
     "translations": {
       "en": {
-        "description": "Playa El Pescador in La Manga awaits you with its fine, golden sand, offering a tranquil and family-friendly atmosphere beside the Mar Menor. Enjoy its pleasant promenade and the warmth of the water. While it doesn't have a blue flag or mooring area, it’s an ideal spot for relaxing and enjoying a day at the beach in the Region of Murcia."
+        "description": "Playa El Pescador in Santiago de la Ribera awaits you with its fine, golden sand, offering a tranquil and family-friendly atmosphere beside the Mar Menor. Enjoy its pleasant promenade and the warmth of the water. While it doesn't have a blue flag or mooring area, it’s an ideal spot for relaxing and enjoying a day at the beach in the Region of Murcia."
       },
       "fr": {
-        "description": "La plage d'El Pescador, à La Manga, vous attend avec son sable fin et doré, offrant une ambiance paisible et familiale au bord du lac de Mar Menor. Profitez de son agréable promenade maritime et de la chaleur de l'eau. Bien qu'elle ne dispose pas d'étiquette verte ni de zone d'amarrage, c'est un endroit idéal pour se détendre et profiter d'une journée à la plage dans la région de Murcie."
+        "description": "La plage d'El Pescador, à Santiago de la Ribera, vous attend avec son sable fin et doré, offrant une ambiance paisible et familiale au bord du lac de Mar Menor. Profitez de son agréable promenade maritime et de la chaleur de l'eau. Bien qu'elle ne dispose pas d'étiquette verte ni de zone d'amarrage, c'est un endroit idéal pour se détendre et profiter d'une journée à la plage dans la région de Murcie."
       },
       "de": {
-        "description": "Playa El Pescador in La Manga heißt Sie mit ihrem feinen, goldenen Sand willkommen und bietet eine ruhige, familienfreundliche Atmosphäre direkt am Mar Menor. Genießen Sie den angenehmen Uferweg und die Wärme des Wassers. Obwohl die Playa keine Blaue Flagge hat und keine Anlegemöglichkeit bietet, ist sie ein idealer Ort zum Entspannen und für einen entspannten Tag am Strand in der Region Murcia."
+        "description": "Playa El Pescador in Santiago de la Ribera heißt Sie mit ihrem feinen, goldenen Sand willkommen und bietet eine ruhige, familienfreundliche Atmosphäre direkt am Mar Menor. Genießen Sie den angenehmen Uferweg und die Wärme des Wassers. Obwohl die Playa keine Blaue Flagge hat und keine Anlegemöglichkeit bietet, ist sie ein idealer Ort zum Entspannen und für einen entspannten Tag am Strand in der Region Murcia."
       }
     },
     "pictureQualityScore": 2,
@@ -18324,7 +18324,7 @@
   {
     "code": "691",
     "name": "Playa Manzanares",
-    "municipality": 6,
+    "municipality": 5,
     "soilType": "Arena fina y gris",
     "anchorageZone": false,
     "nudist": false,

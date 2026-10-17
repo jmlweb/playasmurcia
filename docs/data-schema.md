@@ -9,7 +9,7 @@ This document describes the data structure for beaches in the Region of Murcia, 
 | File | Description | Count |
 |------|-------------|-------|
 | `beaches.json` | Main dataset with all beach information | 194 beaches |
-| `municipalities.json` | Coastal municipalities with INE codes | 9 municipalities |
+| `municipalities.json` | Coastal municipalities with INE codes | 8 municipalities |
 | `seas.json` | Sea names (indexed array) | 2 seas |
 | `activities.json` | Beach activities (indexed array) | 10 activities |
 | `services.json` | Beach services (indexed array) | 9 services |
@@ -134,7 +134,7 @@ The database (Turso/libSQL via Drizzle ORM) mirrors the JSON data with proper re
 
 | Table | PK | Key Columns | Notes |
 |-------|----|-------------|-------|
-| `municipalities` | `id` (int) | `name`, `ine_code` | 9 rows |
+| `municipalities` | `id` (int) | `name`, `ine_code` | 8 rows |
 | `seas` | `id` (int) | `name`, `jellyfish_risk` | 2 rows |
 | `services` | `id` (int) | `service_id` (unique), `name`, `icon` | 9 rows |
 | `activities` | `id` (int) | `activity_id` (unique), `name`, `icon` | 10 rows |
@@ -161,9 +161,9 @@ The database (Turso/libSQL via Drizzle ORM) mirrors the JSON data with proper re
 ## JSON Relationships
 
 ```
-municipalities.json (9 elements)
+municipalities.json (8 elements)
         ↓
-        └─→ beaches.json[].municipality (index 0-8)
+        └─→ beaches.json[].municipality (index 0-7)
 
 seas.json (2 elements)
         ↓

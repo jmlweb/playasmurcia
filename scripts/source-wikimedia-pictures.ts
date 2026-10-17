@@ -45,7 +45,6 @@ const WM_BEACH_CATEGORIES: Record<string, Array<string>> = {
   "Águilas": ["Beaches_of_Águilas", "Águilas"],
   "Mazarrón": ["Beaches_of_Mazarrón", "Mazarrón"],
   "San Javier": ["Beaches_of_San_Javier", "La_Manga_del_Mar_Menor"],
-  "La Manga": ["La_Manga_del_Mar_Menor"],
   "Los Alcázares": ["Los_Alcázares"],
   "San Pedro del Pinatar": ["San_Pedro_del_Pinatar"],
   "La Unión": ["La_Unión,_Spain"],
