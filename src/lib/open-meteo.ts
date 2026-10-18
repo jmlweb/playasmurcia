@@ -345,7 +345,7 @@ export async function fetchBatchCardWeather(
 // ---------------------------------------------------------------------------
 
 const MARINE_BASE_URL = 'https://marine-api.open-meteo.com/v1/marine'
-const MARINE_CACHE_NS = 'open-meteo-marine'
+const MARINE_CACHE_NS = 'open-meteo-marine-v2'
 
 type MarineResponse = {
   current?: {
