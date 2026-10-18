@@ -174,6 +174,23 @@ describe('generateBeachSchema', () => {
     expect(schema.description).toBe('Una hermosa cala con arena gris.')
   })
 
+  it('strips description markdown in the fallback', () => {
+    const beachWithMarkdown: Beach = {
+      ...mockBeach,
+      description: 'Una cala con **arena gris**.\n\n**Consejo:** trae agua.',
+    }
+    const schema = generateBeachSchema(
+      beachWithMarkdown,
+      mockMunicipality,
+      mockServices,
+      'cala-abierta',
+    )
+
+    expect(schema.description).toBe(
+      'Una cala con arena gris. Consejo: trae agua.',
+    )
+  })
+
   it('uses metaDescription when available', () => {
     const beachWithMetaDescription: Beach = {
       ...mockBeach,

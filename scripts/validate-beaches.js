@@ -81,6 +81,14 @@ beaches.forEach((beach, index) => {
     }
   }
 
+  // Description markdown: an odd number of ** would render a literal marker
+  if (typeof beach.description === 'string') {
+    const markers = beach.description.match(/\*\*/g) ?? []
+    if (markers.length % 2 !== 0) {
+      errors.push(`${prefix}: description has an unpaired '**' marker`)
+    }
+  }
+
   // URL validation
   if (beach.realUrl && !beach.realUrl.match(/^https?:\/\//)) {
     errors.push(`${prefix}: invalid URL format '${beach.realUrl}'`)

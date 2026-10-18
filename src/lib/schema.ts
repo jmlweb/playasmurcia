@@ -1,5 +1,7 @@
 import type { Beach, Municipality, Service } from '@/types/beach'
 
+import { stripDescriptionMarkdown } from './description-markdown'
+
 const SITE_URL = process.env.SITE_URL ?? 'https://www.playasmurcia.com'
 const PICTURES_BASE_URL =
   'https://www.turismoregiondemurcia.es/webs/murciaturistica/fotos/1/playas/'
@@ -110,7 +112,8 @@ export function generateBeachSchema(
     '@context': 'https://schema.org',
     '@type': 'Beach',
     name: beach.name,
-    description: beach.metaDescription ?? beach.description,
+    description:
+      beach.metaDescription ?? stripDescriptionMarkdown(beach.description),
     url: `${SITE_URL}/playas/${slug}`,
     geo: {
       '@type': 'GeoCoordinates',

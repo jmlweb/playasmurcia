@@ -48,7 +48,7 @@ interface Beach {
   activities: number[]      // Indices into activities.json
 
   // Required - Content
-  description: string       // Hand-edited tourist description (2-3 sentences)
+  description: string       // Hand-edited tourist description, markdown subset (see below)
   access: string            // How to reach the beach
   nearby: string[]          // Array of nearby beach codes
   orientation: string       // Cardinal direction (east, southeast, etc.)
@@ -236,7 +236,7 @@ beaches ──< beach_tags >── tags
 | Field | Language | Constraints |
 |-------|----------|-------------|
 | `name` | Spanish | May include "Cala", "Playa" prefix |
-| `description` | Spanish | 2-3 sentences, ~150 words max |
+| `description` | Spanish | 2-3 sentences plus optional tip. Markdown subset: paragraphs separated by a blank line, `**bold**`, and a final `**Consejo:**` paragraph rendered as a callout. Every `**` must be paired (checked by `validate-beaches.js`) |
 | `soilType` | Spanish | Descriptive (e.g., "Arena fina y dorada") |
 
 ### References

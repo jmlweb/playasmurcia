@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Breadcrumb } from '@/components/layout/breadcrumb'
 import { ResponsiveImage } from '@/components/ui/responsive-image'
 import { ActivitiesGrid } from '@/features/beaches/activities-grid'
+import { BeachDescription } from '@/features/beaches/beach-description'
 import { BeachStatusWidget } from '@/features/beaches/beach-status-widget'
 import { CertificationsBadge } from '@/features/beaches/certifications-badge'
 import { ContactInfo } from '@/features/beaches/contact-info'
@@ -20,6 +21,7 @@ import { ServicesGrid } from '@/features/beaches/services-grid'
 import { TagsSection } from '@/features/beaches/tags-section'
 import { WeatherWidget } from '@/features/beaches/weather-widget'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
+import { stripDescriptionMarkdown } from '@/lib/description-markdown'
 import { parseImageFilename, pictureUrl } from '@/lib/images'
 import { generateBeachSchema } from '@/lib/schema'
 import { beachToSlug, municipalityToSlug } from '@/lib/slugs'
@@ -120,7 +122,8 @@ export const Route = createFileRoute('/playas/$slug')({
     const slug = beachToSlug(beach)
 
     const schema = generateBeachSchema(beach, municipality, services, slug)
-    const description = beach.metaDescription ?? beach.description
+    const description =
+      beach.metaDescription ?? stripDescriptionMarkdown(beach.description)
     const ogImage = beach.pictures?.[0]
       ? pictureUrl(
           `${parseImageFilename(beach.pictures[0]).baseName}.${parseImageFilename(beach.pictures[0]).ext}`,
@@ -207,7 +210,7 @@ function BeachPage() {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           {/* Description — order 1 on mobile, col-span-2 row 1 on desktop */}
           <section className="order-1 rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm lg:col-span-2 lg:row-start-1">
-            <p className="leading-relaxed text-gray-700">{beach.description}</p>
+            <BeachDescription text={beach.description} />
             {beach.certifications && beach.certifications.length > 0 && (
               <div className="mt-5 border-t border-gray-100 pt-5">
                 <CertificationsBadge certifications={beach.certifications} />

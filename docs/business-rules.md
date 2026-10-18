@@ -75,6 +75,7 @@ So weather is **not** limited to beaches with `aemetId`; those codes only gate t
 - Don't repeat what the page already shows as badges or grids: name at most one or two services, and only when they are unexpected or decide the visit (a lifeguard at a small cala, no lifeguard on a busy beach)
 - Mention waves only when they matter: Mediterranean side of La Manga vs. Mar Menor, entering the water over bolos, going with children
 - Don't state a `length` that is shared by several beaches (OSM merges), Q de Calidad (list not re-verified), or name origins you can't verify
+- Markdown: bold 1-2 phrases per text, only the fact that sets the beach apart. Put a practical tip in a final `**Consejo:**` paragraph, only when the data supports one; don't invent tips to fill the slot. Meta tags and JSON-LD use the stripped plain text (`stripDescriptionMarkdown` in `src/lib/description-markdown.ts`)
 - Avoid AI clichés: "te espera", "disfruta", "ideal para", "rincón", "paraíso", "joya", "remanso", "aguas cristalinas", closing with "en la Región de Murcia", and listing what a beach lacks unless it matters to the visitor
 
 ### Access vs Description Separation
