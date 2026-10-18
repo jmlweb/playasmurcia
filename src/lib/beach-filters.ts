@@ -72,7 +72,7 @@ export function countActiveFilters(filters: BeachSearchParams): number {
 
 const OccupancyOrder = { low: 0, medium: 1, high: 2 } as const
 
-function normalizeText(text: string): string {
+export function normalizeText(text: string): string {
   return text
     .toLowerCase()
     .normalize('NFD')

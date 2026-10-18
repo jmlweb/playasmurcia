@@ -51,13 +51,15 @@ playasmurcia/
 │   │   └── ui/             # Generic UI (icons, responsive-image, empty-state)
 │   ├── features/
 │   │   ├── beaches/        # Beach domain (cards, detail widgets, gallery, maps)
-│   │   └── listing/        # Shared list/explorer (pagination, filters, search)
+│   │   ├── listing/        # Shared list/explorer (pagination, filters, search)
+│   │   └── webmcp/         # WebMCP tools for in-browser agents (server fns + hook)
 │   ├── lib/
 │   │   ├── db-data.ts      # Async loaders (primary)
 │   │   ├── edge-cache.ts
 │   │   ├── html-cache.ts        # Rendered-HTML edge cache keyed by deploy version
 │   │   ├── markdown-negotiation.ts  # `Accept: text/markdown` negotiation (HTMLRewriter glue)
 │   │   ├── html-to-markdown.ts  # Event-driven `<main>` HTML → markdown converter
+│   │   ├── webmcp.ts       # `document.modelContext` feature detection + tool registration
 │   │   ├── aemet.ts
 │   │   ├── open-meteo.ts   # Coordinate-based weather
 │   │   ├── beach-status-112.ts  # 112 COPLA live flag/sea state
@@ -180,6 +182,21 @@ HTML responses advertise the markdown copy with an RFC 8288 `Link` header
 so markdown responses never carry it. The homepage also links
 `</sitemap.xml>; rel="sitemap"`. There is no `api-catalog`, `service-desc` or
 `service-doc` link because the site has no public API.
+
+#### WebMCP tools for in-browser agents
+
+`src/features/webmcp/` registers three read-only tools with the browser's
+WebMCP `ModelContext` (W3C WebML CG draft, Chromium origin trial) after
+hydration: `search_beaches` (name, municipality, sea, services, activities,
+tags, flags, sort, limit), `get_beach` (slug) and `get_beach_weather` (slug).
+`src/lib/webmcp.ts` feature-detects `document.modelContext` (falling back to
+the deprecated `navigator.modelContext`) and no-ops elsewhere, so browsers
+without the API are unaffected. Agent input is coerced in `tool-input.ts`,
+human-readable names are mapped to the explorer's numeric filters in
+`resolve-search.ts`, and the data comes from server functions in
+`webmcp-server.ts` that reuse `beach-queries`, `beach-filters` and
+`open-meteo`. `search_beaches` and `get_beach` also navigate the page to
+`/explorar` or `/playas/$slug` so the user sees what the agent found.
 
 ### Database (Turso / libSQL)
 

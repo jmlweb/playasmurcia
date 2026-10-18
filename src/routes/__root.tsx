@@ -14,6 +14,7 @@ import { Navbar } from '@/components/layout/navbar'
 import { NotFound } from '@/components/layout/not-found'
 import { RootErrorComponent } from '@/components/layout/root-error'
 import { SiteFooter } from '@/components/layout/site-footer'
+import { useWebMcp } from '@/features/webmcp/use-webmcp'
 import { pictureUrl } from '@/lib/images'
 
 import appCss from '../styles.css?url'
@@ -91,6 +92,7 @@ export const Route = createRootRoute({
 
 function RootComponent() {
   const navData = Route.useLoaderData()
+  useWebMcp()
 
   return (
     <html lang="es">
