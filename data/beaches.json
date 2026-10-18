@@ -8,7 +8,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala Abierta, situada en la carretera comarcal que une Cartagena y Mazarrón, se accede por un sendero. El acceso principal es a pie. Hay un parking disponible en la zona. El sendero presenta una dificultad moderada.",
+    "access": "Por la carretera comarcal de **Cartagena a Mazarrón**.\n\n- **A pie:** por un sendero PR.\n- **En barco:** también se puede llegar por mar.",
     "coordinates": [
       37.543778129792386,
       -1.1479117523069706
@@ -99,7 +99,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Cala Aguilar, situada en el punto kilométrico 4,500 de la comarcal Isla Plana en Cartagena. Para llegar, se requiere caminar a través de un sendero de monte que discurre desde la carretera comarcal. El acceso a la playa se completa por un sendero natural y también es posible llegar en barco. No dispone de parking cercano y el acceso es moderadamente difícil debido al terreno irregular del sendero.",
+    "access": "Desde el **km 4,500 de la carretera de Isla Plana a Cartagena**, una senda de monte y un sendero natural bajan hasta la arena. También se llega **en barco**.",
     "pictures": [
       "recurso-1-601-1p_g.jpg"
     ],
@@ -194,7 +194,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala Arturo, ubicada en las afueras de Cartagena, Región de Murcia, ofrece un acceso sencillo a su belleza natural. Para llegar, se requiere caminar desde la carretera principal siguiendo un camino de tierra sin asfaltar, un acceso fácil y accesible. No dispone de aparcamiento cercano, por lo que se recomienda venir en vehículo y aparcar en la zona permitida antes de comenzar la caminata.",
+    "access": "Una **pista sin asfaltar** la une con la carretera.\n\n**Consejo:** en verano el acceso en coche al parque regional de Calblanque está regulado. Consulta las condiciones en la [web de Murcia Natural](https://murcianatural.carm.es) antes de ir.",
     "pictures": [],
     "coordinates": [
       37.60183606268255,
@@ -294,7 +294,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala Avellán, situada en la zona de las Playas del Mar Menor en La Manga, Cartagena, Región de Murcia. Se accede desde la Autopista A-37, tomando la salida 800 hacia la vía rápida MU-312. No dispone de aparcamiento propio, aunque hay opciones de aparcamiento público cercano. El acceso a la playa se realiza principalmente a pie, por lo que se recomienda calzado cómodo.",
+    "access": "Desde la **AP-7, salida 800**, sigue por la vía rápida **MU-312** hacia Cabo de Palos.",
     "pictures": [
       "wm-geo-559.jpg"
     ],
@@ -398,7 +398,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Cala Blanca, una joya de la costa de Lorca en la Región de Murcia, se encuentra a 3 km de la RM-20. Para llegar, se recomienda acceder a través de un sendero natural y sin asfaltar, que requiere una caminata desde los accesos orientales (desde Ramonete, tomando la RM-332) o occidentales (desde Pinilla y Garrobillo, pasando por Águilas). No dispone de parking cercano y el acceso se realiza a pie, por lo que se recomienda calzado adecuado.",
+    "access": "Está a **3 km de la RM-D20**: un camino sin asfaltar llega a la costa y un sendero natural baja hasta la arena. También se llega **en barco**.\n\nDesde Lorca, por la autovía RM-11 en dirección a Águilas:\n\n- **Hacia las calas orientales:** toma el desvío RM-332 hacia Ramonete y, en el km 15, la RM-D21.\n- **Hacia las calas occidentales:** sigue hasta Águilas y toma el desvío a Calabardina y Cabo Cope, donde empieza un camino de tierra.",
     "pictures": [
       "cala-blanca-lorca_g.jpg"
     ],
@@ -493,7 +493,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala Botella, situada en la zona de las Playas del Mar Menor en La Manga, es accesible principalmente en autobús desde la Autopista A-37 (salida 800) a través de la MU-312. Aunque no dispone de aparcamiento propio, se puede acceder a la playa en transporte público. El acceso a la playa es directo, sin necesidad de afrontar pendientes significativas.",
+    "access": "Desde la **AP-7, salida 800**, sigue por la vía rápida **MU-312** hacia Cabo de Palos.",
     "pictures": [],
     "coordinates": [
       37.63242101845318,
@@ -587,7 +587,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala Canalicas es una playa ubicada en Águilas, en la Región de Murcia. Se encuentra a lo largo de la Carretera de Cope, kilómetro 7, en la zona de Calabardina. El acceso a la playa es mediante una carretera sin asfaltar y puede ser algo complicado, especialmente al final de la tarde. Hay parking disponible en la zona y el acceso es de nivel, aunque se recomienda precaución al conducir.",
+    "access": "En el **km 7 de la carretera de Cope**, en Calabardina.",
     "pictures": [
       "recurso-1-7050-1p_g.jpg"
     ],
@@ -682,7 +682,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Cala Cerrada es una playa ubicada en la comarcal Cartagena - Mazarrón, en la Región de Murcia. Para acceder, diríjase por la carretera comarcal. También se puede acceder mediante un camino de tierra que parte desde la carretera principal. Existe un parking público disponible en la zona y el acceso se considera de dificultad moderada debido a la carretera y camino de tierra.",
+    "access": "Por la carretera comarcal de **Cartagena a Mazarrón**.\n\n- **A pie:** por un camino de tierra.\n- **En barco:** también se puede llegar por mar.",
     "pictures": [
       "cerrada-cartagena-3_g.jpg",
       "recurso-1-658-2p_g.jpg",
@@ -784,7 +784,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala Cortina, situada a 4 km de Cartagena por la carretera que va a Escombreras, ofrece un acceso directo a su playa. Para llegar, deberás acceder a través de la carretera y realizar una agradable caminata, facilitada por una senda peatonal que bordea el túnel. Cuenta con un parking cercano, lo que facilita el acceso a la zona.",
+    "access": "A **4 km de Cartagena**, por la carretera de Escombreras. Una senda peatonal bordea el túnel y lleva directamente al aparcamiento.",
     "pictures": [
       "cortina-cartagena-5_g.jpg",
       "recurso-1-512-3p_g.jpg",
@@ -901,7 +901,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala de Calnegre, situada en Lorca, Región de Murcia, ofrece un acceso directo a sus playas a través de un sendero natural y un camino sin asfaltar. Para llegar, se recomienda tomar la autovía RM-11 en dirección a Águilas o, si se procede desde Pinilla y Garrobillo, continuar hasta Águilas y tomar el desvío hacia Calabardina y Cabo Cope. Cuenta con un área de aparcamiento reservada y requiere una caminata de acceso, ideal para disfrutar de este entorno costero.",
+    "access": "Está a **1 km de la RM-D21**: un camino sin asfaltar llega a la costa y un sendero natural baja hasta la arena.\n\n- **Aparcamiento:** en un área reservada.\n\nDesde Lorca, por la autovía RM-11 en dirección a Águilas:\n\n- **Hacia las calas orientales:** toma el desvío RM-332 hacia Ramonete y, en el km 15, la RM-D21.\n- **Hacia las calas occidentales:** sigue hasta Águilas y toma el desvío a Calabardina y Cabo Cope, donde empieza un camino de tierra.",
     "pictures": [
       "cala-calnegre-lorca-5_g.jpg",
       "calnegre-lorca-6_g.jpg",
@@ -1016,7 +1016,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Cala de La Gruta, ubicada en las playas orientales de Lorca, Región de Murcia, se puede acceder siguiendo la autovía RM-11 hasta el desvío RM-332 (KM 15) o RM-D21 si se dirigen a Ramonete. El acceso implica caminar por un sendero natural hasta la primera línea de playa. No dispone de parking cercano y el acceso implica una caminata de dificultad moderada.",
+    "access": "Está a **4 km de la RM-D20**: un camino sin asfaltar llega a la costa y un sendero natural baja hasta la arena. También se llega **en barco**.\n\nDesde Lorca, por la autovía RM-11 en dirección a Águilas:\n\n- **Hacia las calas orientales:** toma el desvío RM-332 hacia Ramonete y, en el km 15, la RM-D21.\n- **Hacia las calas occidentales:** sigue hasta Águilas y toma el desvío a Calabardina y Cabo Cope, donde empieza un camino de tierra.",
     "pictures": [
       "cala-gruta-lorca_g.jpg"
     ],
@@ -1114,7 +1114,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala de La Herradura, ubicada en Águilas (Región de Murcia), ofrece acceso directo a primera línea de playa. Para llegar, se requiere acceder a la costa por un camino sin asfaltar y posteriormente, un sendero natural. Existe un parking público cercano. El acceso es considerado fácil.",
+    "access": "En el **km 3 de la carretera de Vera**. Un camino sin asfaltar llega a la costa y un sendero natural baja hasta la arena.",
     "pictures": [],
     "coordinates": [
       37.38912429637273,
@@ -1215,7 +1215,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala de las Melvas, ubicada en las Playas del Mar Menor, La Manga y Cabo de Palos en Cartagena, Murcia, se puede acceder desde la Autopista A-37 (salida 800) y la vía rápida MU-312. No dispone de aparcamiento cercano. El acceso a la playa es gradual, con una pendiente suave.",
+    "access": "Desde la **AP-7, salida 800**, sigue por la vía rápida **MU-312** hacia Cabo de Palos.",
     "pictures": [
       "recurso-1-605-1p_g.jpg",
       "recurso-1-605-2p_g.jpg",
@@ -1319,7 +1319,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala de las Mulas, situada en el sur de la Región de Murcia. El acceso a la playa es por un camino de tierra, lo que implica una caminata de dificultad moderada. Se recomienda llevar calzado adecuado. El parking disponible es limitado.",
+    "access": "Un **camino de tierra** la une con la carretera.",
     "pictures": [
       "recurso-1-513-1p_g.jpg"
     ],
@@ -1423,7 +1423,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala de los Abejorros, situada en Águilas, Región de Murcia, se accede caminando por un camino de tierra sin asfaltar. La distancia a pie desde el parking público más cercano es de aproximadamente 30-45 minutos, con cierta pendiente. No hay parking público dentro de la cala. No hay transporte público disponible.",
+    "access": "Desde la **carretera de Cuesta de Gos**, por el camino del Cantal.",
     "pictures": [
       "abejorros-mazarron_g.jpg"
     ],
@@ -1526,7 +1526,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala de San Pedro, ubicada en Lorca, Región de Murcia, es accesible a pie desde la autovía RM-11, dirigiéndose hacia Águilas. Para llegar, se requiere caminar desde un camino de tierra que se inicia en las zonas orientales o occidentales de Lorca, dependiendo de la orientación de la cala deseada. Debido a su entorno protegido, el acceso es a pie y no dispone de aparcamiento.",
+    "access": "Solo se llega **a pie, a 0,1 km de la playa de Ciscar**. No hay acceso en coche porque es un entorno protegido.\n\nDesde Lorca, por la autovía RM-11 en dirección a Águilas:\n\n- **Hacia las calas orientales:** toma el desvío RM-332 hacia Ramonete y, en el km 15, la RM-D21.\n- **Hacia las calas occidentales:** sigue hasta Águilas y toma el desvío a Calabardina y Cabo Cope, donde empieza un camino de tierra.",
     "pictures": [],
     "coordinates": [
       37.503153,
@@ -1621,7 +1621,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala del Barco, ubicada en Cartagena, Región de Murcia, se llega a través de la carretera comarcal N-332, comenzando desde el punto kilométrico 13,800. Se continúa por un sendero natural hasta la primera línea de playa. El acceso es por camino de tierra y requiere caminar. No dispone de aparcamiento cercano, pero existen opciones de estacionamiento en la zona circundante.",
+    "access": "Desde la carretera de El Albujón a Cabo de Palos, una **pista sin asfaltar** y un sendero natural llegan hasta la arena.",
     "pictures": [
       "recurso-1-556-1p_g.jpg",
       "recurso-1-556-3p_g.jpg",
@@ -1728,7 +1728,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala del Ciscal, situada en la costa oriental de Lorca (Región de Murcia), se puede acceder a través de un sendero sin asfaltar y, en parte, por un camino de tierra, desde la RM-D20. No dispone de aparcamiento cercano. Para llegar, se puede seguir la RM-11 hasta la RM-D21, y desde allí continuar por el camino que da acceso a las playas. El acceso es considerado de dificultad moderada.",
+    "access": "Está a **5 km de la RM-D20**: un camino sin asfaltar llega a la costa y un sendero natural baja hasta la arena.\n\nDesde Lorca, por la autovía RM-11 en dirección a Águilas:\n\n- **Hacia las calas orientales:** toma el desvío RM-332 hacia Ramonete y, en el km 15, la RM-D21.\n- **Hacia las calas occidentales:** sigue hasta Águilas y toma el desvío a Calabardina y Cabo Cope, donde empieza un camino de tierra.",
     "pictures": [
       "cala-ciscal-lorca_g.jpg"
     ],
@@ -1828,7 +1828,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala del Cuartel del Ciscar, en Lorca (Región de Murcia), ofrece acceso a sus hermosas playas. Para llegar, se recomienda seguir las indicaciones desde Lorca o Pinilla y Garrobillo. El acceso a la playa se realiza a pie, por un sendero natural que parte de un camino sin asfaltar. Este sendero requiere un esfuerzo moderado. No dispone de aparcamiento cercano, aunque existen opciones de aparcamiento en los pueblos circundantes.",
+    "access": "Está a **5 km de la RM-D20**: un camino sin asfaltar llega a la costa y un sendero natural baja hasta la arena.\n\nDesde Lorca, por la autovía RM-11 en dirección a Águilas:\n\n- **Hacia las calas orientales:** toma el desvío RM-332 hacia Ramonete y, en el km 15, la RM-D21.\n- **Hacia las calas occidentales:** sigue hasta Águilas y toma el desvío a Calabardina y Cabo Cope, donde empieza un camino de tierra.",
     "pictures": [],
     "coordinates": [
       37.496904,
@@ -1917,7 +1917,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala del Cuervo está ubicada entre la Cala de Las Mulas y el Campo de Golf en la Región de Murcia. Se llega siguiendo senderos desde el acceso principal. El acceso implica una caminata moderada y no dispone de parking cercano. Se recomienda llegar en vehículo y aparcar en las zonas habilitadas cercanas.",
+    "access": "Entre **Cala de las Mulas y el campo de golf**. Solo se llega **por sendas o por mar**.",
     "coordinates": [
       37.59324843247803,
       -0.7870483405048447
@@ -2016,7 +2016,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "La Cala del Pino es una playa situada en la Gran Vía de La Manga del Mar Menor, concretamente en el punto kilométrico 3-4. Se encuentra en la zona del Mar Menor, aprovechando el desdoblamiento del Monte Blanco. El acceso es a través de la Gran Vía y dispone de parking público cercano. La playa se caracteriza por un acceso relativamente sencillo y sin dificultades especiales.",
+    "access": "Entre los **kilómetros 3 y 4 de la Gran Vía de La Manga**, en el lado del Mar Menor, junto al Monte Blanco.",
     "pictures": [
       "cala-pino-cartagena-5_g.jpg",
       "cala-pino-cartagena-6_g.jpg",
@@ -2143,7 +2143,7 @@
     "description": "Cala del Reventón **solo se alcanza a pie por sendero o desde el mar**, y suele estar casi vacía. Su suelo es de piedra y roca, sin más servicio que un lavapiés.\n\n**Consejo:** ven con escarpines y agua suficiente.",
     "orientation": "east",
     "instagramHashtag": "#CalaDelReventon",
-    "access": "Se accede principalmente por mar o mediante rutas de senderismo a través del espacio natural de la Sierra de la Muela, Cabo Tiñoso y Roldán. Es una cala de acceso difícil que no cuenta con zonas de aparcamiento en las inmediaciones.",
+    "access": "No hay carretera hasta la cala: solo se llega **a pie, por senderos del parque regional de Calblanque, o por mar**.\n\n- **Aparcamiento:** no hay cerca.",
     "dogFriendly": false,
     "lifeguard": false,
     "services": [
@@ -2231,7 +2231,7 @@
     "nudist": true,
     "sea": 0,
     "promenade": false,
-    "access": "Cala Desnuda, ubicada en Mazarrón, Región de Murcia, ofrece un acceso a pie desde un camino sin asfaltar, restringido al acceso de vehículos a motor. El acceso es a pie y requiere una caminata, por lo que se recomienda llevar calzado adecuado. No dispone de parking cercano y el acceso es de nivel medio debido a la distancia de la ruta.",
+    "access": "Desde la carretera, un camino sin asfaltar baja hasta la costa. Los vehículos a motor tienen el **acceso restringido**, así que el último tramo se hace a pie.",
     "pictures": [
       "PLAYAS_1_552_1_g.jpg"
     ],
@@ -2330,7 +2330,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Para acceder a Cala El Bolete, deberás recorrer un camino de tierra y un agradable sendero natural que te lleva directamente a la primera línea de playa. El acceso es relativamente fácil y cuenta con un parking disponible en la zona cercana.",
+    "access": "Un **camino de tierra** y después un sendero natural llegan hasta la arena.",
     "pictures": [],
     "coordinates": [
       37.56761599107668,
@@ -2427,7 +2427,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Accede a la Cala El Bolete Grande, en las afueras de Cartagena, Región de Murcia. Para llegar a esta playa, deberás caminar por un camino de tierra. Dispone de un parking público cercano. No se dispone de información sobre transporte público ni dificultad de acceso específica.",
+    "access": "Se llega por un **camino de tierra**.",
     "pictures": [
       "boletegrande2_g.jpg"
     ],
@@ -2526,7 +2526,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Cala Golera, situada entre las calas de Cuervo y Barco, en la costa de Cartagena, Murcia, es un destino de playa accesible a pie. Para llegar, se requiere una caminata de aproximadamente 30-40 minutos desde ambas calas. El acceso es a pie, con una pendiente moderada en el tramo entre Cala del Cuervo y Cala del Barco. Hay un parking público disponible cerca del punto de inicio de la caminata.",
+    "access": "Entre **Cala del Cuervo y Cala del Barco**.",
     "coordinates": [
       37.590031644973884,
       -0.7875513313996567
@@ -2628,7 +2628,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala Honda, situada en Lorca, Región de Murcia, ofrece acceso a sus playas orientales y occidentales a través de caminos de tierra. Para llegar, proceda por la autovía RM-11 hacia Águilas y siga las indicaciones para las playas de Ramonete o Pinilla. El acceso implica caminar, siendo necesario un sendero natural desde la Cala del Siscar para acceder directamente a la primera línea de playa, y cuenta con un parking cercano.",
+    "access": "Se llega **a pie desde la cala del Siscar**: un camino sin asfaltar llega a la costa y un sendero natural baja hasta la arena.\n\nDesde Lorca, por la autovía RM-11 en dirección a Águilas:\n\n- **Hacia las calas orientales:** toma el desvío RM-332 hacia Ramonete y, en el km 15, la RM-D21.\n- **Hacia las calas occidentales:** sigue hasta Águilas y toma el desvío a Calabardina y Cabo Cope, donde empieza un camino de tierra.",
     "pictures": [
       "cala-honda-lorca_g.jpg"
     ],
@@ -2732,7 +2732,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala Junquera, ubicada en Lorca (Región de Murcia), ofrece acceso a sus playas y calas a través de un sendero natural. Para llegar, saliendo de Lorca, siga la autovía RM-11 en dirección a Águilas, tomando el desvío RM-332 hacia las playas orientales o continuando hacia Pinilla y Garrobillo siguiendo el camino a Calabardina y Cabo Cope. El acceso requiere caminar y es mediante un sendero sin asfaltar, con un parking disponible cerca de la entrada al camino.",
+    "access": "Está a **4 km de la RM-D20**: un camino sin asfaltar llega a la costa y un sendero natural baja hasta la arena.\n\nDesde Lorca, por la autovía RM-11 en dirección a Águilas:\n\n- **Hacia las calas orientales:** toma el desvío RM-332 hacia Ramonete y, en el km 15, la RM-D21.\n- **Hacia las calas occidentales:** sigue hasta Águilas y toma el desvío a Calabardina y Cabo Cope, donde empieza un camino de tierra.",
     "pictures": [],
     "coordinates": [
       37.492495,
@@ -2825,7 +2825,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Cala Las Escalerillas, una encantadora playa situada en la zona de las Playas del Mar Menor, cerca de La Manga y Cabo de Palos en Cartagena, Murcia, es fácilmente accesible en autobús desde la AP-7, salida 800. No dispone de aparcamiento propio, pero existen opciones de aparcamiento en las inmediaciones. El acceso a la playa es por escaleras, por lo que se considera un acceso con dificultad media.",
+    "access": "Desde la **AP-7, salida 800**, sigue por la vía rápida **MU-312** hacia Cabo de Palos.",
     "pictures": [],
     "coordinates": [
       37.63598633115706,
@@ -2930,7 +2930,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Cala Leña, situada en Lorca (Región de Murcia), ofrece un acceso directo a sus hermosas playas y calas. Para llegar, se recomienda tomar la autovía RM-11 en dirección a Águilas, o bien, si se encuentra en Pinilla y Garrobillo, seguir hasta Águilas. El acceso se realiza a través de un sendero natural sin asfaltar, requiriendo un paseo de aproximadamente 4 km desde la RM-D20 y con un nivel de dificultad moderado. No dispone de parking cercano, por lo que se recomienda llegar en vehículo y aparcar en puntos habilitados en el entorno.",
+    "access": "Está a **4 km de la RM-D20**: un camino sin asfaltar llega a la costa y un sendero natural baja hasta la arena.\n\nDesde Lorca, por la autovía RM-11 en dirección a Águilas:\n\n- **Hacia las calas orientales:** toma el desvío RM-332 hacia Ramonete y, en el km 15, la RM-D21.\n- **Hacia las calas occidentales:** sigue hasta Águilas y toma el desvío a Calabardina y Cabo Cope, donde empieza un camino de tierra.",
     "pictures": [
       "cala-lena-lorca_g.jpg"
     ],
@@ -3021,7 +3021,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala Magre, situada en el Parque Natural de Calblanque, Sierra de Cartagena y Monte de las Cenizas. Para llegar a la playa, se requiere caminar desde un camino sin asfaltar, aunque el acceso es considerado fácil. Hay un parking público disponible en la zona, y el camino de tierra es apto para personas con movilidad reducida.",
+    "access": "Una **pista sin asfaltar** la une con la carretera.\n\n**Consejo:** en verano el acceso en coche al parque regional de Calblanque está regulado. Consulta las condiciones en la [web de Murcia Natural](https://murcianatural.carm.es) antes de ir.",
     "pictures": [],
     "coordinates": [
       37.60767769788192,
@@ -3115,7 +3115,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Cala Medina es una hermosa playa ubicada en la zona de las Playas del Mar Menor, en La Manga, cerca de Cabo de Palos, en Cartagena, Región de Murcia. Se puede acceder a la playa utilizando autobús desde la Autopista A-37, salida 800. No dispone de parking cercano y el acceso a la playa es por sendero, con una dificultad moderada.",
+    "access": "Desde la **AP-7, salida 800**, sigue por la vía rápida **MU-312** hacia Cabo de Palos.",
     "pictures": [],
     "coordinates": [
       37.62918775804545,
@@ -3214,7 +3214,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Cala Mijo, con su Cueva de las Palomas, está ubicada en Águilas, en la carretera de Vera, km 3. Para acceder a esta playa, se requiere caminar por un camino sin asfaltar, siendo el acceso a primera línea de playa mediante un sendero natural. El acceso es fácil, pero implica una caminata corta y la disponibilidad de parking es limitada.",
+    "access": "En el **km 3 de la carretera de Vera**. Un camino sin asfaltar llega a la costa y un sendero natural baja hasta la arena.",
     "pictures": [
       "recurso-1-678-1p_g.jpg"
     ],
@@ -3313,7 +3313,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala Mojarra, ubicada en la zona costera de Cartagena, Región de Murcia, se accede desde un camino de tierra que parte del Cabezo del Atalayón. El acceso es por este camino de tierra, por lo que se recomienda calzado cómodo y adecuado para senderismo. No dispone de aparcamiento cercano y el acceso implica una ligera dificultad debido al estado del camino.",
+    "access": "Un **camino de tierra** baja desde el Cabezo del Atalayón.",
     "coordinates": [
       37.54498090504592,
       -1.1157141883293442
@@ -3416,7 +3416,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Para acceder a la Cala Pozo de la Avispa, en Cartagena (Región de Murcia), te espera una caminata a través de un camino de tierra y un sendero natural hasta llegar a la primera línea de playa. El acceso es relativamente fácil, aunque implica una caminata. Se dispone de un parking público cercano a la zona, y el trayecto hasta la playa es de nivel moderado.",
+    "access": "Un **camino de tierra** y después un sendero natural llegan hasta la arena.",
     "pictures": [],
     "coordinates": [
       37.556166134009054,
@@ -3517,7 +3517,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala Reona, situada en la zona de las Playas del Mar Menor en La Manga, Cartagena, es un destino accesible en autobús desde la Autopista A-37, salida 800. Se encuentra cerca de Cabo de Palos y ofrece un acceso fácil mediante transporte público. No dispone de parking propio, pero sí de aparcamiento en las inmediaciones, con un nivel de dificultad de acceso moderado.",
+    "access": "Desde la **AP-7, salida 800**, sigue por la vía rápida **MU-312** hacia Cabo de Palos.",
     "pictures": [
       "reona-cartagena-10_g.jpg",
       "reona-cartagena-11_g.jpg",
@@ -3633,7 +3633,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala Roja, situada en la zona de las Playas del Mar Menor en La Manga, es un destino de playa accesible en autobús desde la Autopista A-37 (salida 800) a través de la vía rápida MU-312. No dispone de parking propio, pero hay opciones de aparcamiento cercano en La Manga. El acceso a la playa es de nivel, lo que facilita el acceso para sillas de ruedas y personas con movilidad reducida.",
+    "access": "Desde la **AP-7, salida 800**, sigue por la vía rápida **MU-312** hacia Cabo de Palos.",
     "pictures": [],
     "coordinates": [
       37.634445899765375,
@@ -3732,7 +3732,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Cala Salitrona, situada en la costa de Cartagena, Murcia. Para llegar, se requiere caminar por un camino de tierra desde el acceso principal. Dispone de un pequeño parking cercano. El acceso es apto para personas con buena condición física.",
+    "access": "Un **camino de tierra** une la cala con la carretera.",
     "pictures": [
       "salitrona_g.jpg"
     ],
@@ -3836,7 +3836,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Cala Túnez (Cala Cuna) se encuentra accesible desde la Autopista A-37, salida 800, a través de la vía rápida MU-312. Se llega a primera línea de playa mediante rampa, requiriendo un breve paseo. El acceso es fácil y cómodo, aunque implica una ligera cuesta arriba. Dispone de parking cercano.",
+    "access": "Desde la **AP-7, salida 800**, sigue por la vía rápida **MU-312** hacia Cabo de Palos. A la arena se baja por una rampa.",
     "pictures": [
       "recurso-1-568-2p_g.jpg"
     ],
@@ -3932,7 +3932,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Las Esculls de La Llana y Encañizadas están situadas entre los kilómetros 17 al 18,5 en La Manga, dentro de la Urbanización Veneziola, en San Javier, Región de Murcia. Para llegar, se accede desde la carretera general. Cuenta con un parking público en la zona. El acceso es relativamente sencillo, aunque presenta cierta dificultad debido al terreno irregular y a la bajada hacia la playa.",
+    "access": "Entre los **kilómetros 17 y 18,5** de la Gran Vía de La Manga, en la urbanización Veneziola.",
     "pictures": [],
     "coordinates": [
       37.781770737269866,
@@ -4027,7 +4027,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa Lomas del Castillico (Villas Caravaning), en la zona de El Algar, Cartagena (Región de Murcia), es fácilmente accesible en autobús. Para llegar, por la autovía A-30 o la AP-7, encontrará la salida hacia El Algar. El acceso a la playa requiere caminar.",
+    "access": "Se llega por las carreteras que van hacia **El Algar**:\n\n- **Por la A-30** (Murcia-Cartagena): toma la salida hacia El Algar.\n- **Por la AP-7:** toma la salida 800, hacia El Algar.",
     "pictures": [
       "recurso-1-689-6p_g.jpg",
       "recurso-1-689-2p_g.jpg",
@@ -4134,7 +4134,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "La Playa Alíseos, ubicada en el punto kilométrico 4,2 de la Gran Vía de La Manga en San Javier, Región de Murcia, se accede caminando desde esta confluencia. El acceso a la playa implica una caminata de hasta 300 metros a lo largo de la Gran Vía. No dispone de parking cercano y el acceso es a pie.",
+    "access": "En el **km 4,2** de la Gran Vía de La Manga.",
     "pictures": [
       "recurso-1-538-3p_g.jpg",
       "recurso-1-538-1p_g.jpg",
@@ -4242,7 +4242,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Amarilla, ubicada en Mazarrón, Región de Murcia, ofrece un acceso directo a su arena. Para llegar, se requiere caminar a través de un camino de tierra sin asfaltar, siendo el acceso para vehículos motorizados restringido. Dispone de un parking cercano.",
+    "access": "Desde la carretera, un camino sin asfaltar baja hasta la costa. Los vehículos a motor tienen el **acceso restringido**, así que el último tramo se hace a pie.",
     "pictures": [
       "amarilla-mazarron-2_g.jpg",
       "PLAYAS_1_586_1_g.jpg"
@@ -4339,7 +4339,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Amarilla, ubicada en la carretera de Calabardina, km 2 de Águilas, Región de Murcia, ofrece acceso a través de la Urbanización El Fraile Resort. El acceso a la playa requiere una caminata desde esta urbanización. No dispone de aparcamiento en la playa, y el acceso es a pie, por lo que se recomienda llevar calzado cómodo.",
+    "access": "En el **km 2 de la carretera de Calabardina**. Se entra a través de la urbanización El Fraile Resort.",
     "pictures": [
       "recurso-1-615-1p_g.jpg",
       "recurso-1-615-3p_g.jpg",
@@ -4443,7 +4443,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Banco del Tabal es una cala virgen ubicada entre los puntos kilométricos 3,5 y 4,9 de la carretera que une la urbanización Star Alfa con Gaviotas, en San Javier, Región de Murcia. El acceso a la playa se realiza a pie, por un sendero de aproximadamente 1,4 kilómetros. No dispone de aparcamiento cercano y el acceso es moderado debido a la necesidad de caminar.",
+    "access": "Entre los **kilómetros 3,5 y 4,9** de la Gran Vía de La Manga, de la urbanización Star Alfa a Gaviotas.",
     "pictures": [
       "recurso-1-671-3p_g.jpg",
       "recurso-1-671-4p_g.jpg",
@@ -4559,7 +4559,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Baño de las Mujeres, situada en Lorca (Región de Murcia), se accede siguiendo la autovía RM-11 hasta la RM-332 en el KM 15, y luego la RM-D21. Se accede a la costa por un camino sin asfaltar y sendero natural. El acceso requiere caminar. No dispone de aparcamiento cercano, aunque hay áreas de estacionamiento disponibles en las proximidades.",
+    "access": "Está a **2 km de la RM-D21**: un camino sin asfaltar llega a la costa y un sendero natural baja hasta la arena.\n\nDesde Lorca, por la autovía RM-11 en dirección a Águilas:\n\n- **Hacia las calas orientales:** toma el desvío RM-332 hacia Ramonete y, en el km 15, la RM-D21.\n- **Hacia las calas occidentales:** sigue hasta Águilas y toma el desvío a Calabardina y Cabo Cope, donde empieza un camino de tierra.",
     "pictures": [
       "bano-mujeres-lorca-4_g.jpg",
       "bano-mujeres-lorca-5_g.jpg",
@@ -4660,7 +4660,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": true,
-    "access": "Playa Barnuevo, ubicada en el corazón del casco urbano de Santiago de la Ribera, se encuentra entre la Academia General del Aire y las antiguas pescaderías. Los accesos a primera línea de playa son numerosos y de fácil acceso, principalmente a través de escaleras y un acceso adaptado para personas con movilidad reducida. El acceso a la playa requiere una caminata corta, pero es sencillo y accesible para todos los visitantes. Existe parking disponible en las cercanías.",
+    "access": "En el **casco urbano de Santiago de la Ribera**, entre la Academia General del Aire y las antiguas pescaderías.\n\n- **A pie:** hay muchos accesos a la arena, en buen estado, con escaleras y un acceso adaptado para personas con movilidad reducida.",
     "pictures": [
       "barnuevo-sanjavier-4_g.jpg",
       "recurso-1-667-2p_g.jpg",
@@ -4775,7 +4775,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Cabezo de la Pelea, situada en la localidad de Mazarrón, Región de Murcia, ofrece un acceso natural a la costa. Para llegar, se debe acceder a través de un camino sin asfaltar, restringido al acceso de vehículos a motor. El acceso implica una caminata y, debido a la naturaleza del camino, se recomienda llevar calzado adecuado. No dispone de parking cercano y el acceso es de nivel moderado, considerando la necesidad de caminar por un camino de tierra.",
+    "access": "Desde la carretera, un camino sin asfaltar baja hasta la costa. Los vehículos a motor tienen el **acceso restringido**, así que el último tramo se hace a pie.",
     "pictures": [
       "cabezo-pelea-mazarron_g.jpg"
     ],
@@ -4876,7 +4876,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Cabezo del Mojón ofrece un acceso directo y fácil desde Isla Plana, en la carretera E-22 (Cartagena-Mazarrón). Se trata de un paseo de acceso directo a la playa, ideal para disfrutar de su belleza de forma cómoda. No dispone de aparcamiento cercano y el acceso es a pie, con una dificultad considerada baja.",
+    "access": "Se llega **a pie desde Isla Plana**, junto a la carretera de Cartagena a Mazarrón (RM-E22).",
     "pictures": [
       "wm-geo-655.jpg"
     ],
@@ -4976,7 +4976,7 @@
     "nudist": true,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Cala de Leño, situada en Mazarrón, Región de Murcia, ofrece un acceso natural y tranquilo a sus hermosas aguas. Para llegar a esta cala, deberás recorrer un camino estrecho y sin asfaltar, caminando desde el aparcamiento más cercano. El acceso requiere una caminata de aproximadamente 15-20 minutos y no está permitido el acceso de vehículos a motor. El parking disponible es limitado y se recomienda llegar temprano para asegurar un hueco.",
+    "access": "Un **camino estrecho sin asfaltar** baja hasta la costa. Los vehículos a motor tienen el **acceso restringido**, así que el último tramo se hace a pie.",
     "pictures": [
       "recurso-1-642-3p_g.jpg"
     ],
@@ -5077,7 +5077,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Cala Flores es una playa urbana situada en la popular zona de las Playas del Mar Menor, cerca de La Manga y Cabo de Palos en Cartagena, Región de Murcia. Se accede fácilmente desde la Autopista A-37, salida 800, y la playa cuenta con acceso directo a la arena a través de rampas. Existe parking disponible en la zona y el acceso a la playa es sencillo y accesible.",
+    "access": "Desde la **AP-7, salida 800**, sigue por la vía rápida **MU-312** hacia Cabo de Palos. La playa está en la urbanización Cala Flores y se baja a la arena por rampas.",
     "pictures": [
       "cala-flores-cartagena-3_g.jpg",
       "cala-flores-cartagena-2_g.jpg",
@@ -5180,7 +5180,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Calafría, ubicada en la zona de las Playas del Mar Menor en La Manga, Cartagena, es fácilmente accesible desde la Autopista A-37 (salida 800 a la vía rápida MU-312). Se puede llegar fácilmente en autobús. Dispone de parking público. El acceso es sencillo.",
+    "access": "Desde la **AP-7, salida 800**, sigue por la vía rápida **MU-312** hacia Cabo de Palos.",
     "pictures": [
       "recurso-1-569-1p_g.jpg",
       "recurso-1-569-3p_g.jpg",
@@ -5283,7 +5283,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Calnegre, situada en la Gran Vía de La Manga, km 3,5. Se puede llegar fácilmente en autobús, y dispone de parking disponible en la zona. El acceso a la playa es sencillo y cómodo para todos los visitantes.",
+    "access": "En el **km 3,5 de la Gran Vía de La Manga**. Está junto a la zona de ocio de la Plaza Bohemia.",
     "pictures": [
       "recurso-1-592-2p_g.jpg",
       "recurso-1-592-3p_g.jpg",
@@ -5388,7 +5388,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa Carrión, situada en Los Alcázares, Región de Murcia, ofrece un acceso fácil desde la carretera principal del municipio. La playa es accesible a pie, con señalización clara. Cuenta con un parking cercano.",
+    "access": "El pueblo está **bien señalizado desde la autovía**, y la playa queda en el frente urbano de Los Alcázares.",
     "pictures": [
       "recurso-1-692-2p_g.jpg",
       "recurso-1-692-1p_g.jpg",
@@ -5500,7 +5500,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa Cavanna, ubicada en el Km 3 de la Gran Vía de La Manga del Mar Menor, se accede desde la salida 21 de la carretera. Dispone de un parking público cercano y el acceso a la playa es directo y sin dificultades.",
+    "access": "En el **km 3 de la Gran Vía de La Manga**. Toma la salida 21.",
     "pictures": [
       "recurso-1-687-8p_g.jpg",
       "recurso-1-687-3p_g.jpg",
@@ -5614,7 +5614,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa Chica, en San Javier (Región de Murcia), ofrece un acceso fácil desde la Gran Vía de La Manga, entre los puntos kilométricos 14,6 y 16,4. El acceso a la playa implica una caminata desde esta ubicación. Existe un parking disponible en la zona y el acceso es sencillo y sin barreras para personas con movilidad reducida.",
+    "access": "Entre los **kilómetros 14,6 y 16,4** de la Gran Vía de La Manga.",
     "pictures": [
       "recurso-1-543-5p_g.jpg",
       "recurso-1-543-3p_g.jpg",
@@ -5723,7 +5723,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Cobaticas está ubicada en Cañada de Gallego, en Mazarrón, Región de Murcia. Para acceder a ella, se requiere caminar desde la red de caminos básicos, siguiendo un camino sin asfaltar. El acceso es considerado fácil, aunque implica un paseo. Existe un parking público cercano.",
+    "access": "Desde **Cañada de Gallego**, un camino sin asfaltar baja hasta la costa.\n\n- **Con perro:** es una playa canina.",
     "pictures": [
       "PLAYAS_1_638_3_g.jpg",
       "PLAYAS_1_638_7_g.jpg",
@@ -5832,7 +5832,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa Cueva de Los Lobos, ubicada en el punto kilométrico 11,392 del acceso a la A-42 en Mazarrón (Región de Murcia). Para acceder a esta playa, se requiere caminar a través de un camino estrecho y sin asfaltar, lo que implica un esfuerzo moderado. No dispone de aparcamiento cercano y el acceso es principalmente a pie.",
+    "access": "Desde el **km 11,392 de la A-42**, un camino estrecho sin asfaltar baja hasta la costa.",
     "pictures": [
       "cueva-lobos-mazarron-4_g.jpg",
       "PLAYAS_1_643_5_g.jpg",
@@ -5933,7 +5933,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa Dársena Dos Mares, en Cartagena (Región de Murcia), es fácilmente accesible desde la Gran Vía del Mar Menor, en el kilómetro 3. El acceso a la playa se realiza a pie, siguiendo la carretera de desdoblamiento de la Gran Vía. Se trata de un acceso cómodo y sencillo, aunque implica una ligera caminata. No dispone de parking cercano, pero la ubicación facilita el acceso en coche y su posterior desplazamiento por la zona.",
+    "access": "En el **km 3 de la Gran Vía de La Manga**, por la vía de servicio que corre junto a la Gran Vía.",
     "pictures": [],
     "coordinates": [
       37.6630503098781,
@@ -6038,7 +6038,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de Bahía, ubicada en el punto kilométrico 1,610 de la carretera comarcal Puerto de Mazarrón a Bolnuevo, es accesible desde el casco urbano del Puerto de Mazarrón. Se puede llegar en autobús y, una vez en el puerto, hay parking disponible en sus inmediaciones. El acceso a la playa es relativamente sencillo.",
+    "access": "En el **km 1,610 de la carretera del Puerto de Mazarrón a Bolnuevo**, dentro del casco urbano del Puerto de Mazarrón.",
     "pictures": [
       "bahia-mazarron-2_g.jpg",
       "wikimedia-662.jpg"
@@ -6146,7 +6146,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de Bolnuevo, ubicada en Bolnuevo, Mazarrón (Región de Murcia), ofrece un acceso sencillo y fácil a sus aguas. Se llega caminando desde la Calle Pedro López Meca. El acceso es directo y sin barreras significativas, aunque requiere una ligera caminata. Existe un parking público disponible en la zona cercana.",
+    "access": "En el pueblo de **Bolnuevo**, en la calle Pedro López Meca.",
     "pictures": [
       "bolnuevo-mazarron-8_g.jpg",
       "recurso-1-646-2p_g.jpg",
@@ -6254,7 +6254,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de Calabarrilla, situada entre las playas de El Cigarro y Barranco de La Mar en Águilas, Región de Murcia, ofrece un acceso a través de un sendero. Para llegar, se recomienda aparcar en las inmediaciones de El Cigarro y realizar una caminata hasta la playa. El acceso es considerado fácil, aunque implica una pequeña distancia a pie.",
+    "access": "Entre las playas de **El Cigarro y el Barranco de la Mar**, en la costa entre Águilas y Calabardina.",
     "pictures": [],
     "coordinates": [
       37.42153365365286,
@@ -6350,7 +6350,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de Calacerrada, situada en Águilas, Región de Murcia, es fácilmente accesible por la carretera de Vera-Águilas (A-332). La señalización es excelente, indicando el camino desde la carretera principal. Cuenta con un parking público cercano y el acceso a la playa es suave, ideal para familias y personas con movilidad reducida.",
+    "access": "Por la **carretera de Vera a Águilas (A-332)**, bien señalizada.",
     "pictures": [
       "recurso-1-593-2p_g.jpg",
       "recurso-1-593-3p_g.jpg",
@@ -6455,7 +6455,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de Calarreona, situada en la Ctra. de Vera, km 3,8 en Águilas, Región de Murcia, ofrece un acceso fácil desde la vía principal. Cuenta con una entrada al mar suave con un fondo arenoso ideal para disfrutar del baño. Dispone de parking disponible. La playa se encuentra en Águilas, Región de Murcia.",
+    "access": "En el **km 3,8 de la carretera de Vera**. El acceso está señalizado desde la vía principal.",
     "pictures": [
       "recurso-1-679-5p_g.jpg",
       "recurso-1-679-6p_g.jpg",
@@ -6569,7 +6569,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de Calblanque, ubicada en la hermosa costa de Cartagena, Región de Murcia, ofrece un entorno natural único. Para acceder a esta playa, por la Autopista A-7, MU-312 y salida a Calblanque, se regula el acceso de vehículos en verano para proteger el Parque Natural. El acceso requiere caminar desde el parking y se recomienda el uso del autobús. Para más información sobre el sistema de acceso “Calblanque 4:40” y horarios de los puntos de información, consulta la web [http://www.murcianatural.carm.es](http://www.murcianatural.carm.es) o contacta al Servicio de Atención al Visitante en el 649 227 582 / 968 228 984.",
+    "access": "Desde la autopista AP-7 (Alicante-Cartagena), toma la **salida 800** hacia Mar Menor, La Manga y Cabo de Palos, sigue por la vía rápida **MU-312** y sal en el desvío a Calblanque.\n\n**Consejo:** en verano el acceso en coche al parque está regulado (sistema «Calblanque 4:40»). Consulta horarios y alternativas en la [web de Murcia Natural](https://murcianatural.carm.es) o en el 968 228 984.",
     "pictures": [
       "calblanque-cartagena-11_g.jpg",
       "calblanque-cartagena-13_g.jpg",
@@ -6686,7 +6686,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": true,
-    "access": "La Playa de Colón, ubicada en el corazón del casco urbano de Santiago de la Ribera, se encuentra convenientemente situada entre el Club Náutico y la Ciudad del Aire. Los accesos a primera línea de playa son numerosos y fácilmente accesibles, ofreciendo opciones de escaleras y un acceso adaptado para personas con movilidad reducida.  Se recomienda llegar caminando, y hay parking disponible en la zona.",
+    "access": "En pleno casco urbano de **Santiago de la Ribera**, entre el Club Náutico y la Ciudad del Aire.\n\n- **A pie:** hay muchos accesos a la arena, con escaleras y un acceso adaptado para personas con movilidad reducida.",
     "pictures": [
       "recurso-1-668-3p_g.jpg",
       "recurso-1-668-1p_g.jpg",
@@ -6800,7 +6800,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa de El Alamillo, situada en Mazarrón, Región de Murcia, ofrece un acceso sencillo a la playa. Para llegar, se accede por la carretera comarcal. Hay parking disponible en la zona.",
+    "access": "Por la **carretera comarcal** que sale del Puerto de Mazarrón hacia Isla Plana.",
     "pictures": [
       "recurso-1-651-1p_g.jpg",
       "recurso-1-651-2p_g.jpg"
@@ -6905,7 +6905,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de El Castellar, situada en el punto kilométrico 2,670, 3,070 y 3,550 de la comarcal Puerto de Mazarrón a Playa Bolnuevo, es accesible a pie desde el punto de acceso en la comarcal. Existe un parking cercano. Se puede acceder en autobús. El acceso implica una distancia de recorrido a pie.",
+    "access": "En los **km 2,670, 3,070 y 3,550 de la carretera del Puerto de Mazarrón a Bolnuevo**.",
     "pictures": [
       "recurso-1-675-8p_g.jpg",
       "recurso-1-675-7p_g.jpg",
@@ -7017,7 +7017,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de El Hornillo, ubicada en el casco urbano de la urbanización de El Hornillo en Águilas (Región de Murcia), ofrece un acceso fácil desde el centro del pueblo. Cuenta con un aparcamiento disponible junto a la playa. El acceso a la arena es directo y sin dificultades.",
+    "access": "En la **urbanización de El Hornillo**, dentro del casco urbano de Águilas.\n\n- **Aparcamiento:** junto a la playa.",
     "pictures": [
       "hornillo-aguilas-7_g.jpg",
       "hornillo-aguilas-8_g.jpg",
@@ -7128,7 +7128,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de El Mojón, ubicada en el punto kilométrico 1,400 de la comarcal Isla Plana a Cartagena. Para llegar, se requiere caminar a través de un camino de tierra sin asfaltar, situado en las inmediaciones de Cabezo del Mojón. No dispone de parking cercano y el acceso implica un nivel de dificultad moderado debido a la superficie del camino.",
+    "access": "En el **km 1,400 de la carretera de Isla Plana a Cartagena**. Una pista sin asfaltar baja hasta la playa.",
     "pictures": [
       "PLAYAS_1_654_1_g.jpg",
       "PLAYAS_1_654_2_g.jpg",
@@ -7237,7 +7237,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de El Palomarico, ubicada en el punto kilométrico 15,150 de la N-332 Almería-Valencia, ofrece acceso a la costa junto a la carretera que conduce a Puntas de Calnegre. Para llegar, se requiere caminar a través de un camino sin asfaltar. No dispone de parking cercano y el acceso implica un pequeño desnivel, por lo que se recomienda calzado cómodo.",
+    "access": "En el **km 15,150 de la N-332**, junto a la carretera de Puntas de Calnegre. Un camino sin asfaltar baja hasta la costa.",
     "pictures": [],
     "coordinates": [
       37.52388,
@@ -7338,7 +7338,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa de El Rihuete, también conocida como Playa del Rigüete, se encuentra en Mazarrón, Región de Murcia. El acceso a esta playa se realiza a través de una carretera urbana. Se requiere caminar para llegar a la arena, y hay aparcamiento disponible en la zona cercana.",
+    "access": "En el **Puerto de Mazarrón**, con acceso por calles urbanas.",
     "pictures": [],
     "coordinates": [
       37.570203,
@@ -7447,7 +7447,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa de El Rincón, ubicada en el Poblado de Bolnuevo, dentro de la urbanización Punta Bella en Mazarrón, Región de Murcia. El acceso a la playa requiere una caminata corta desde el parking cercano. Es una opción accesible.",
+    "access": "Por carretera hasta el **poblado de Bolnuevo**, en la urbanización Punta Bella.",
     "pictures": [
       "PLAYAS_1_645_3_g.jpg",
       "recurso-1-645-6p_g.jpg",
@@ -7553,7 +7553,7 @@
       37.6641233,
       -0.7341228
     ],
-    "access": "La Playa de Gollerón (Cala del Turco), en Cartagena, Región de Murcia, ofrece acceso a través de un camino de tierra con pendiente, lo que implica una caminata moderada. Dispone de un parking público en la zona.",
+    "access": "El último tramo hasta la arena va **en pendiente**.",
     "nearby": [
       "607",
       "526",
@@ -7673,7 +7673,7 @@
     "description": "Islas Menores, en la orilla sur del Mar Menor, es **la playa del pueblo**: 595 metros de arena media y dorada con agua sin oleaje y socorrista. Su aparcamiento, de más de cien plazas, hace fácil llegar en coche.",
     "orientation": "east",
     "instagramHashtag": "#PlayaDeIslasMenores",
-    "access": "El acceso se realiza por la autovía A-7, tomando la salida 790 en dirección a Los Alcázares. La playa es plenamente accesible, dispone de un área de aparcamiento con más de 100 plazas y cuenta con conexión mediante las líneas de autobús 21 y 46.",
+    "access": "En el pueblo de **Islas Menores**, en la orilla sur del Mar Menor, entre Los Nietos y Mar de Cristal.",
     "dogFriendly": false,
     "lifeguard": true,
     "services": [
@@ -7759,7 +7759,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa de la Azohía - El Cuartel, situada en la zona sur de Cartagena, ofrece un acceso fácil desde la Carretera E-22, que une Cartagena y Mazarrón. Para llegar, requiere un paseo de acceso, siendo el trayecto sencillo y sin grandes dificultades. Dispone de un parking público cercano, aunque puede estar con capacidad limitada en temporada alta.",
+    "access": "Por la carretera de **Cartagena a Mazarrón (RM-E22)**, que lleva hasta La Azohía.",
     "pictures": [
       "azohia-cuartel-cartagena-4_g.jpg",
       "recurso-1-582-1p_g.jpg",
@@ -7866,7 +7866,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de La Cañada del Negro está ubicada a lo largo de la Carretera de Vera (km 2) en Águilas, Región de Murcia. Para llegar, se requiere caminar a través de un camino sin asfaltar, por lo que se recomienda calzado cómodo. El acceso es gratuito, pero hay un parking público cercano. Debido al tipo de acceso, se considera un nivel de dificultad moderado.",
+    "access": "En el **km 2 de la carretera de Vera**. Se llega a la costa por un camino sin asfaltar.",
     "pictures": [
       "playa-blanca-aguilas-2_g.jpg",
       "playa-blanca-aguilas_g.jpg"
@@ -7964,7 +7964,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa de La Casica Verde está situada en la prolongación de la Playa de Poniente, en el corazón del casco urbano de Águilas. El aparcamiento se realiza en un área reservada cercana. Acceder a la playa es sencillo.",
+    "access": "En el **casco urbano de Águilas**, en la calle Iberia, como continuación de la playa de Poniente.\n\n- **Aparcamiento:** en un área reservada y en zona libre.",
     "pictures": [],
     "coordinates": [
       37.395628,
@@ -8062,7 +8062,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa de La Chapineta, ubicada en la zona sur de Cartagena, accesible a través de la carretera E-22 (Carretera Cartagena-Mazarrón). Requiere una caminata corta desde la carretera, pero el trayecto es sencillo y directo. Existe un parking público en la zona cercana, y el acceso a la playa es de nivel.",
+    "access": "Por la carretera de **Cartagena a Mazarrón (RM-E22)**.",
     "pictures": [
       "recurso-1-580-4p_g.jpg",
       "recurso-1-580-1p_g.jpg",
@@ -8167,7 +8167,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa de La Cola, ubicada en la carretera de Calabardina, km 6,5 en Águilas (Región de Murcia). El estacionamiento está disponible en la zona de playa. Se llega a la primera línea de costa a través de un sendero. El acceso requiere una caminata.",
+    "access": "En el **km 6,5 de la carretera de Calabardina**. Se aparca junto a la playa y un sendero natural baja hasta la arena.",
     "pictures": [
       "cola-cope-aguilas_g.jpg"
     ],
@@ -8265,7 +8265,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de La Colonia se encuentra ubicada en el corazón del Casco Urbano de Águilas. El aparcamiento en la zona es limitado y se recomienda llegar a pie o en vehículo con precaución. El acceso a la playa es directo y suave.",
+    "access": "En el **casco urbano de Águilas**, así que se llega andando desde el centro.",
     "pictures": [
       "recurso-1-612-1p_g.jpg",
       "recurso-1-612-3p_g.jpg",
@@ -8369,7 +8369,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa de La Concha es una hermosa playa situada en Los Alcázares, Región de Murcia. El acceso a la playa es fácil gracias a una buena señalización que parte desde la autovía. Cuenta con un parking público cercano. El acceso es suave, apto para familias y personas con movilidad reducida.",
+    "access": "El pueblo está **bien señalizado desde la autovía**, y la playa queda en el frente urbano de Los Alcázares.",
     "pictures": [
       "recurso-1-533-1p_g.jpg",
       "recurso-1-533-4p_g.jpg",
@@ -8478,7 +8478,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": true,
-    "access": "La Playa de La Ermita está ubicada en el punto kilométrico 1,610 de la carretera comarcal Puerto de Mazarrón a Bolnuevo. El acceso a la primera línea de arena se realiza a pie, mediante una combinación de escaleras y rampas. Hay parking disponible en las inmediaciones. El acceso es apto para personas con movilidad reducida gracias a la disponibilidad de rampas.",
+    "access": "En el **km 1,610 de la carretera del Puerto de Mazarrón a Bolnuevo**, dentro del casco urbano del Puerto de Mazarrón. A la arena se baja por **escaleras y rampas**.",
     "pictures": [
       "ermita-mazarron-3_g.jpg",
       "PLAYAS_1_649_2_g.jpg",
@@ -8579,7 +8579,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa de la Galera, situada en Águilas, Región de Murcia, ofrece un acceso directo a primera línea de playa. Para llegar, se accede a través de la Carretera Cuesta de Gos, un camino de tierra que discurre hasta la costa. El acceso es fácil, aunque requiere una caminata corta por sendero natural. Dispone de un parking cercano, facilitando el acceso a esta hermosa playa.",
+    "access": "Desde la **carretera de Cuesta de Gos**, a la altura del bar Pocico, sale una pista sin asfaltar hacia la costa, y un sendero natural baja hasta la arena.",
     "pictures": [
       "recurso-1-624-1p_g.jpg",
       "recurso-1-624-2p_g.jpg",
@@ -8681,7 +8681,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "La Playa de La Gola, situada en la Urbanización La Gola en La Manga del Mar Menor, Cartagena, es fácilmente accesible a través de la Gran Vía de La Manga, concretamente en el kilómetro 2,5. Desde allí, encontrarás la salida hacia la urbanización. Cuenta con parking público disponible en la zona y el acceso es directo, sin barreras arquitectónicas.",
+    "access": "En el **km 2,5 de la Gran Vía de La Manga**. Toma la salida de la urbanización La Gola.",
     "pictures": [
       "recurso-1-607-4p_g.jpg",
       "recurso-1-607-5p_g.jpg",
@@ -8796,7 +8796,7 @@
     "nudist": true,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de La Grúa, parte de la Cala Leño, se encuentra en el punto kilométrico 10,550 de la A-42, en Mazarrón, Región de Murcia. Para acceder a esta playa, se requiere caminar por un camino estrecho y sin asfaltar. El parking más cercano se encuentra a unos 500 metros de la playa, y el acceso implica una caminata de aproximadamente 500 metros. Ten en cuenta que el camino es sin asfaltar y puede ser de dificultad moderada.",
+    "access": "Desde el **km 10,550 de la A-42**, un camino estrecho sin asfaltar baja hasta la costa, junto a Cala Leño.",
     "pictures": [
       "PLAYAS_1_600_1_g.jpg"
     ],
@@ -8898,7 +8898,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de la Higuerica, situada en Águilas a lo largo de la carretera que lleva a Vera (km 5), ofrece un acceso directo a la arena a través de un camino sin asfaltar y un sendero natural de primera línea. Aunque requiere un breve paseo, el acceso es fácil y conveniente. Existe un parking disponible en la zona, y el camino de tierra es de nivel fácil.",
+    "access": "En el **km 5 de la carretera de Vera**. Un camino sin asfaltar baja desde la vía principal y un sendero natural llega a la arena.",
     "pictures": [
       "recurso-1-625-2p_g.jpg"
     ],
@@ -9002,7 +9002,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa de La Isla, situada en Mazarrón, Región de Murcia, ofrece acceso a pie. Para llegar a la playa, se requiere caminar desde la carretera urbana local. Dispone de un parking cercano y el acceso a la playa es moderadamente sencillo, aunque implica una pendiente suave.",
+    "access": "En el **Puerto de Mazarrón**, con acceso por calles urbanas.",
     "pictures": [
       "isla-mazarron_g.jpg",
       "PLAYAS_1_680_3_g.jpg"
@@ -9102,7 +9102,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de La Llana (también conocida como Playa de La Barraca Quemada) se encuentra en San Pedro del Pinatar, en la Región de Murcia. Para llegar, puedes acceder fácilmente en autobús desde San Pedro del Pinatar. El acceso a la playa requiere caminar, siendo relativamente fácil. Hay parking disponible cerca de la playa.",
+    "access": "Por la **avenida del Puerto**: la playa queda a la derecha del puerto de San Pedro del Pinatar, pasada la playa de Las Salinas.\n\n- **Por la AP-7:** toma la salida 774.\n- **Por la N-332:** desde Cartagena hacia San Pedro del Pinatar.",
     "pictures": [
       "recurso-1-545-1p_g.jpg",
       "recurso-1-545-2p_g.jpg"
@@ -9202,7 +9202,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa de La Llana (Playa de Las Salinas) se accede desde la AP7 (Salida 774) o la N-332, tomando la Avda. del Puerto a la derecha del puerto. El acceso a la playa requiere una caminata sencilla y cómoda, y hay disponible parking cercano.",
+    "access": "Por la **avenida del Puerto**: la playa queda a la derecha del puerto de San Pedro del Pinatar.\n\n- **Por la AP-7:** toma la salida 774.\n- **Por la N-332:** desde Cartagena hacia San Pedro del Pinatar.",
     "pictures": [
       "recurso-1-665-1p_g.jpg",
       "recurso-1-665-3p_g.jpg"
@@ -9307,7 +9307,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de La Llana (Playa Punta de Algas) en San Pedro del Pinatar, ubicada a la derecha del puerto, es fácilmente accesible desde la AP-7 o la N-332. Se recomienda llegar en autobús y, posteriormente, acceder a la playa a pie a través de un sendero. Existe un camino peatonal alternativo desde la Playa de la Mota, y dispone de parking cercano.",
+    "access": "Por la **avenida del Puerto**, en dirección al parque regional de las Salinas y Arenales; la playa queda a la derecha del puerto.\n\n- **A pie:** hay un camino peatonal desde la playa de La Mota.\n- **Por la AP-7:** toma la salida 774.\n- **Por la N-332:** desde Cartagena hacia San Pedro del Pinatar.",
     "pictures": [],
     "coordinates": [
       37.8136666766002,
@@ -9399,7 +9399,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa de La Mota, ubicada en San Pedro del Pinatar, se accede a través de un agradable sendero peatonal desde la carretera que conecta San Pedro del Pinatar con Lo Pagán (Avda. del Puerto), pasando por el Molino Quintín. El acceso es fácil y está situado a unos 3 km del centro de San Pedro del Pinatar. Existe un parking cercano, aunque puede ser limitado en temporada alta.",
+    "access": "Por la carretera de **San Pedro a Lo Pagán** (avenida del Puerto) hasta el **Molino Quintín**, y desde allí por un camino peatonal.\n\n- **Por la AP-7:** toma la salida 774.\n- **Por la N-332:** desde Cartagena hacia San Pedro del Pinatar.",
     "pictures": [
       "recurso-1-682-2p_g.jpg",
       "mota-sanpedro-4_g.jpg",
@@ -9505,7 +9505,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa de La Parajola, en el Cabo de Palos, Cartagena (Región de Murcia), ofrece un acceso a través de un camino de tierra que requiere una caminata de aproximadamente 30 minutos desde el aparcamiento más cercano. El camino puede ser un poco irregular, por lo que se recomienda llevar calzado adecuado. El acceso se realiza principalmente a pie, aunque también es posible llegar en barco desde el puerto de Cabo de Palos. No dispone de parking específico en la playa.",
+    "access": "Se llega por un **camino de tierra o en barco**.",
     "coordinates": [
       37.58317786189133,
       -1.0115410381030727
@@ -9603,7 +9603,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de La Pava, ubicada en el punto kilométrico 2,240 de la carretera comarcal Puerto de Mazarrón a Playa Bolnuevo. Se puede llegar fácilmente en autobús, y dispone de aparcamiento público en sus inmediaciones. El acceso a la playa es directo y sin dificultades.",
+    "access": "En el **km 2,240 de la carretera del Puerto de Mazarrón a Bolnuevo**, dentro del casco urbano del Puerto de Mazarrón.",
     "pictures": [
       "recurso-1-647-3p_g.jpg"
     ],
@@ -9700,7 +9700,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa de La Puntica, situada en San Pedro del Pinatar, es accesible principalmente en autobús desde la AP-7 (Salida 777) o la N-332 desde Cartagena. El acceso a la playa requiere caminar. Se dispone de un parking público cercano. Se recomienda llevar calzado cómodo para este trayecto.",
+    "access": "Sigue la dirección **playas del Mar Menor**:\n\n- **Por la AP-7:** toma la salida 777.\n- **Por la N-332:** desde Cartagena hacia San Pedro del Pinatar.",
     "pictures": [
       "recurso-1-664-1p_g.jpg",
       "recurso-1-664-2p_g.jpg",
@@ -9813,7 +9813,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa de La Raja, situada en Mazarrón, Región de Murcia, ofrece un acceso sencillo a sus aguas. Para llegar, se accede por carretera comarcal y requiere una caminata fácil. Dispone de parking cercano. El acceso es considerado fácil para todos los públicos.",
+    "access": "Por la **carretera comarcal** que sale del Puerto de Mazarrón hacia Isla Plana.",
     "pictures": [
       "recurso-1-653-2p_g.jpg"
     ],
@@ -9906,7 +9906,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de la Rambla Elena, situada en la zona del Rafal, en Águilas (Región de Murcia), ofrece un acceso directo a la costa a través de una carretera sin asfaltar y un sendero natural. Para llegar, toma la Carretera Cuesta de Gos, pasando por el Bar Pocico. Dispone de un parking cercano.",
+    "access": "Desde la **carretera de Cuesta de Gos**, a la altura del bar Pocico, sale una pista sin asfaltar hacia la costa junto a la playa del Rafal, y un sendero natural baja hasta la arena.",
     "pictures": [],
     "coordinates": [
       37.45862480540321,
@@ -10004,7 +10004,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de La Reya, también conocida como Junta de los Mares, se encuentra en el punto kilométrico 1,990 de la carretera comarcal Puerto de Mazarrón a Bolnuevo, en el casco urbano del Puerto de Mazarrón, Región de Murcia. Se accede a ella caminando desde el puerto y con conexión a través de la carretera urbana. Es posible llegar en autobús y se requiere una caminata para acceder a la playa. Hay parking disponible en el puerto de Mazarrón.",
+    "access": "En el **km 1,990 de la carretera del Puerto de Mazarrón a Bolnuevo**, dentro del casco urbano del Puerto de Mazarrón.",
     "pictures": [],
     "coordinates": [
       37.559659,
@@ -10105,7 +10105,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa de La Torre Derribada, en San Pedro del Pinatar, es una playa de fácil acceso. Puedes llegar en autobús, utilizando las líneas de transporte público disponibles, o caminando desde la playa de El Mojón. El acceso a la playa es directo y relativamente sencillo, aunque requiere una caminata corta. Existe un parking cercano.",
+    "access": "Por la **avenida del Puerto**, en dirección al parque regional de las Salinas de San Pedro, o **andando por la playa de El Mojón**.\n\n- **Por la AP-7:** toma la salida 774.\n- **Por la N-332:** desde Cartagena hacia San Pedro del Pinatar.",
     "pictures": [
       "recurso-1-546-1p_g.jpg",
       "recurso-1-546-3p_g.jpg"
@@ -10209,7 +10209,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa de las Cañas, ubicada en la costa de Cartagena, Región de Murcia, se accede a través de un sendero que parte del pueblo de Cobaticas. El acceso implica una caminata a través del sendero, por lo que se recomienda llevar calzado cómodo y adecuado para senderismo. No dispone de aparcamiento cercano, y el acceso es de nivel moderado debido a la distancia y el terreno del sendero.",
+    "access": "Se llega **por un sendero desde Cobaticas**.\n\n**Consejo:** en verano el acceso en coche al parque regional de Calblanque está regulado. Consulta las condiciones en la [web de Murcia Natural](https://murcianatural.carm.es) antes de ir.",
     "pictures": [
       "canas_g.jpg"
     ],
@@ -10312,7 +10312,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de las Chapas, en Mazarrón (Región de Murcia), ofrece un acceso natural y tranquilo. Para llegar, se requiere caminar desde el punto kilométrico 3,950 de la A-42, o bien acceder en vehículo 4x4. El acceso es por un camino sin asfaltar y no dispone de parking cercano; se recomienda llevar todo el equipamiento necesario.",
+    "access": "Desde el **km 3,950 de la A-42**, un camino sin asfaltar lleva a la playa del Ballenato. Se recorre **a pie o en 4x4**.",
     "pictures": [
       "ballenato-chapas-mazarron_g.jpg"
     ],
@@ -10405,7 +10405,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de las Minas, situada cerca de la Playa de Percheles (punto kilométrico 3,900 de la A-42), ofrece un acceso directo a la costa. Para llegar a la playa, se requiere caminar a pie desde el punto kilométrico 3,900 de la A-42, siguiendo un camino sin asfaltar de fácil acceso. Existe un parking disponible en la zona de Percheles, facilitando el acceso a esta hermosa playa.",
+    "access": "Se llega **a pie, a 0,2 km de la playa de Percheles**, que está en el km 3,900 de la A-42. Un camino sin asfaltar baja hasta la costa.",
     "pictures": [
       "minas-mazarron_g.jpg"
     ],
@@ -10520,7 +10520,7 @@
     "description": "Las Moreras es una playa urbana de Mazarrón, entre las avenidas del Castellar y de Bolnuevo, donde **se puede ir con perro**. Tiene algo más de un kilómetro de arena gruesa y socorrista, y hay días con algo de oleaje.",
     "orientation": "east",
     "instagramHashtag": "#PlayaDeLasMoreras",
-    "access": "Ubicada en Mazarrón, se encuentra situada entre la Avenida del Castellar y la Avenida de Bolnuevo. Es una playa de entorno urbano con un acceso muy sencillo y directo tanto a pie como en coche.",
+    "access": "Entre la **avenida del Castellar y la avenida de Bolnuevo**, en zona urbana, así que se llega fácilmente a pie o en coche.",
     "dogFriendly": true,
     "lifeguard": true,
     "services": [
@@ -10602,7 +10602,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa de Las Palmeras está situada en Los Alcázares, Región de Murcia. Se encuentra en el punto kilométrico 2,370 y 2,490 de la comarcal de Los Alcázares. El acceso es fácil desde la autovía que conecta con Santiago de La Ribera. Hay disponibilidad de aparcamiento en la zona.",
+    "access": "Desde la autovía, sigue la carretera de **Los Alcázares a Santiago de la Ribera**: la playa está entre sus **km 2,370 y 2,490**.",
     "pictures": [
       "palmeras-alcazares-3_g.jpg",
       "recurso-1-534-3p_g.jpg",
@@ -10710,7 +10710,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa de Las Pulgas, ubicada en Águilas, Región de Murcia, se llega desde la Carretera Cuesta de Gos, a través de un camino de tierra y un sendero natural que discurre hasta la primera línea de arena. Este acceso requiere caminar, por lo que se recomienda llevar calzado cómodo y estar preparado para un sendero sin asfaltar. No dispone de parking cercano, aunque hay aparcamiento disponible en las inmediaciones.",
+    "access": "Desde la **carretera de Cuesta de Gos**, a la altura del bar Pocico, sale una pista sin asfaltar hacia la costa, y un sendero natural baja hasta la arena.",
     "pictures": [],
     "coordinates": [
       37.471691188287444,
@@ -10823,7 +10823,7 @@
     "description": "Las Salinas es la playa de Los Alcázares donde **se puede ir con perro**: 646 metros de arena gruesa y gris con agua tranquila y socorrista.\n\n**Consejo:** no hay más servicios, así que lleva agua y sombra para ti y para el perro.",
     "orientation": "east",
     "instagramHashtag": "#PlayaDeLasSalinas",
-    "access": "El acceso principal se efectúa desde la autovía AP-7, tomando la salida indicada hacia Los Alcázares. La zona está bien comunicada por carretera y dispone de servicios regulares de autobús urbano.",
+    "access": "Desde la **AP-7**, toma la salida hacia **Los Alcázares**.",
     "dogFriendly": true,
     "lifeguard": true,
     "services": [],
@@ -10904,7 +10904,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de Levante, ubicada en el corazón de Águilas, junto al puerto. Cuenta con un parking disponible en la calzada y en la zona del puerto frente al Monumento al Ferrocarril, facilitando el acceso a esta playa urbana.",
+    "access": "En pleno **casco urbano de Águilas, junto al puerto**.\n\n- **Aparcamiento:** en la calzada y en la zona del puerto, frente al Monumento al Ferrocarril.",
     "pictures": [
       "levante-aguilas-3_g.jpg",
       "recurso-1-693-1p_g.jpg",
@@ -11013,7 +11013,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de Levante, en Cartagena, ofrece un acceso directo a primera línea de playa a través de una rampa, ubicada a las afueras de la ciudad, accediendo desde la Autopista AP-7, salida 800. El acceso implica un breve paseo en rampa, siendo un acceso fácil y cómodo. Hay disponible parking público cercano y el acceso es directo, sin necesidad de superar obstáculos significativos.",
+    "access": "Desde la **AP-7, salida 800**, sigue por la vía rápida **MU-312** hacia Cabo de Palos. A la arena se baja por una rampa.",
     "pictures": [
       "recurso-1-525-1p_g.jpg"
     ],
@@ -11120,7 +11120,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa de Los Alemanes está ubicada en la costa de Cartagena, Región de Murcia, específicamente en el punto kilométrico 1,550 de la A-84. Para llegar, debes seguir la autovía A-84 en dirección a la Manga del Mar Menor y tomar la salida hacia la playa. El acceso a la playa cuenta con parking público disponible. El acceso es relativamente sencillo, con pendiente suave.",
+    "access": "Junto a **Playa Paraíso**, en la orilla sur del Mar Menor, cerca de la entrada a La Manga.",
     "pictures": [],
     "coordinates": [
       37.64018000848231,
@@ -11224,7 +11224,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de Los Cocedores, ubicada en el Paraje de El Hornillo, en Águilas, Región de Murcia. Se llega principalmente en autobús desde El Campillo. Se requiere caminar para llegar a la playa. Cuenta con aparcamiento cercano y un acceso sin barreras.",
+    "access": "En el extremo suroeste del litoral de Águilas, junto a la **playa de Calacerrada**. Se llega por la carretera de Vera.",
     "pictures": [
       "cocedores-aguilas-3_g.jpg",
       "cocedores-aguilas-2_g.jpg",
@@ -11330,7 +11330,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa de los Hierros, ubicada en Lorca (Región de Murcia), se encuentra a unos 2,5 km de la RM-D20. Para llegar, se requiere caminar a través de un sendero natural y un camino sin asfaltar. Existe un parking limitado cerca de la entrada del sendero. El acceso es de dificultad moderada debido a su terreno. Se recomienda llevar calzado cómodo.",
+    "access": "Está a **2,5 km de la RM-D20**: un camino sin asfaltar llega a la costa y un sendero natural baja hasta la arena. También se llega **en barco**.\n\nDesde Lorca, por la autovía RM-11 en dirección a Águilas:\n\n- **Hacia las calas orientales:** toma el desvío RM-332 hacia Ramonete y, en el km 15, la RM-D21.\n- **Hacia las calas occidentales:** sigue hasta Águilas y toma el desvío a Calabardina y Cabo Cope, donde empieza un camino de tierra.",
     "pictures": [
       "playa-hierros-lorca_g.jpg"
     ],
@@ -11423,7 +11423,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "La Playa de Los Narejos, situada en Los Alcázares, Región de Murcia, es fácilmente accesible desde la carretera principal, encontrándose en los puntos kilométricos 3,080 y 3,680 de la carretera que une Los Alcázares con Santiago de la Ribera. El acceso a la playa es sencillo y cómodo, con aparcamiento disponible en la zona circundante. Se puede llegar a la playa en autobús.",
+    "access": "Desde la autovía, sigue la carretera de **Los Alcázares a Santiago de la Ribera**: la playa está entre sus **km 3,080 y 3,680**.",
     "pictures": [
       "narejos-alcazares_g.jpg"
     ],
@@ -11528,7 +11528,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "La Playa de Los Urrutias, ubicada en Cartagena, Región de Murcia, ofrece acceso desde la autovía con un desvío a la N-332. Es fácilmente accesible en autobús. Existen opciones de aparcamiento en la zona y el acceso a la playa es considerado fácil para personas de movilidad reducida.",
+    "access": "Desde la autovía, toma el desvío a la **N-332**. El pueblo de Los Urrutias da directamente a la playa.",
     "pictures": [
       "urrutias-cartagena-2_g.jpg",
       "recurso-1-677-1p_g.jpg"
@@ -11631,7 +11631,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "La Playa de Mar de Cristal, ubicada en la urbanización del punto kilométrico 4,650 de la comarcal que va de Cabo de Palos a Albujón. El acceso a la playa se realiza a pie, partiendo de la Autovía que dirige a La Manga. No dispone de aparcamiento cercano y el acceso es por senderismo, por lo que se recomienda llevar calzado cómodo.",
+    "access": "En el **km 4,650 de la carretera de Cabo de Palos a El Albujón**, en la urbanización Mar de Cristal. Desde la autovía, sigue en dirección a La Manga.",
     "pictures": [
       "mar-cristal-cartagena-4_g.jpg",
       "recurso-1-676-2p_g.jpg",
@@ -11744,7 +11744,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de Nares, situada en el punto kilométrico 2,670 de la comarcal Puerto de Mazarrón. Se accede a través de la carretera urbana y es accesible en autobús desde Mazarrón. Cuenta con un parking público cercano. La información disponible no especifica detalles sobre la dificultad de acceso, se recomienda consultar información local sobre accesibilidad.",
+    "access": "En el **km 2,670 de la carretera del Puerto de Mazarrón a Bolnuevo**, con acceso por calles urbanas.",
     "pictures": [
       "recurso-1-683-10p_g.jpg",
       "PLAYAS_1_683_5_g.jpg"
@@ -11852,7 +11852,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de Percheles, situada en Mazarrón, Región de Murcia, ofrece un acceso directo a la costa a través de un camino sin asfaltar. Se encuentra en el punto kilométrico 3,900 de la A-42. Existe un parking público disponible en la zona.",
+    "access": "En el **km 3,900 de la A-42**. Un camino sin asfaltar baja hasta la costa.",
     "pictures": [
       "percheles-mazarron-2_g.jpg",
       "percheles-mazarron_g.jpg"
@@ -11951,7 +11951,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de Piedra Mala, situada en el Poblado de Bolnuevo, en Mazarrón (Región de Murcia), ofrece un acceso singular. Se llega desde la carretera básica, siguiendo una estrecha y sin asfaltar carretera de entrada a la urbanización Punta Bella. El acceso a la playa es a pie, por un camino de tierra, por lo que se recomienda calzado adecuado. El parking cercano es limitado y no hay aparcamiento directo en la playa.",
+    "access": "Por una **carretera estrecha sin asfaltar** que llega hasta el poblado de Bolnuevo, en la urbanización Punta Bella.",
     "pictures": [
       "piedramala_g.jpg"
     ],
@@ -12040,7 +12040,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de Poniente, ubicada en el corazón del casco urbano de Águilas, ofrece un acceso fácil a sus arenas. El aparcamiento se encuentra a lo largo del paseo marítimo paralelo a la playa, facilitando el acceso directo a la costa.",
+    "access": "En el **casco urbano de Águilas**, cerca de la carretera de Almería.\n\n- **Aparcamiento:** a lo largo del paseo marítimo, paralelo a la playa.",
     "pictures": [
       "recurso-1-596-6p_g.jpg",
       "recurso-1-596-5p_g.jpg",
@@ -12153,7 +12153,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "La Playa de Poniente, en San Javier (Región de Murcia), se accede a través de la Gran Vía de La Manga. El acceso a la playa se realiza a pie, desde el punto kilométrico 7,2 al 8,1 de la Gran Vía. No dispone de aparcamiento cercano y el acceso es a pie, por lo que se recomienda llevar calzado cómodo.",
+    "access": "Entre los **kilómetros 7,2 y 8,1** de la Gran Vía de La Manga.",
     "pictures": [],
     "coordinates": [
       37.70236921951902,
@@ -12257,7 +12257,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de Portmán, ubicada en Portman (km 6,5 de la carretera de Portmán a Los Belones), es un espacio costero en La Unión, Región de Murcia. El acceso a la playa se realiza a pie, partiendo desde el citado punto de la carretera. No dispone de aparcamiento cercano y el acceso es a pie, por lo que se recomienda llevar calzado cómodo.",
+    "access": "En el **km 6,5 de la carretera de Los Belones a Portmán**.",
     "pictures": [
       "recurso-1-560-2p_g.jpg",
       "recurso-1-560-3p_g.jpg"
@@ -12353,7 +12353,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "La Playa de Villananitos, situada en San Pedro del Pinatar, Región de Murcia, se puede acceder desde la AP-7 (Salida 774) o la N-332, siguiendo la carretera que va de San Pedro a Lo Pagán. El acceso a la playa implica caminar desde el aparcamiento más cercano. Se recomienda llegar en autobús. Aunque no dispone de acceso directo para personas con movilidad reducida, es fácilmente accesible a pie.",
+    "access": "En la carretera de **San Pedro a Lo Pagán** (avenida del Puerto).\n\n- **Por la AP-7:** toma la salida 774.\n- **Por la N-332:** desde Cartagena hacia San Pedro del Pinatar.",
     "pictures": [
       "recurso-1-681-4p_g.jpg",
       "villananitos-sanpedro-2_g.jpg"
@@ -12463,7 +12463,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa del Arroz, ubicada en la carretera de Calabardina, km 4 en Águilas (Región de Murcia), ofrece un acceso directo a su arena. Para llegar a esta playa, se requiere caminar a través de un sendero natural y un camino de tierra, presentando un acceso sin asfaltar. No dispone de parking designado y el acceso es de nivel moderado debido a la necesidad de caminar.",
+    "access": "En el **km 4 de la carretera de Calabardina**. Una pista sin asfaltar llega a la costa y un sendero natural baja hasta la arena.",
     "pictures": [
       "recurso-1-617-4p_g.jpg"
     ],
@@ -12563,7 +12563,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa del Ballenato, situada en Mazarrón (Región de Murcia), ofrece acceso a pie desde el punto kilométrico 3,950 de la A-42, o mediante un vehículo 4x4. El acceso es a través de un camino sin asfaltar, lo que implica una caminata y una dificultad moderada. No dispone de parking cercano.",
+    "access": "Desde el **km 3,950 de la A-42**, un camino sin asfaltar de 0,4 km lleva a la playa. Se recorre **a pie o en 4x4**.",
     "pictures": [
       "ballenato-chapas-mazarron_g.jpg"
     ],
@@ -12661,7 +12661,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa del Barco Perdido (Playa Entremares) es una pequeña playa situada a 0,5 km del punto kilométrico 0,5 de La Manga del Mar Menor, en Cartagena, Región de Murcia. El acceso a esta playa requiere una caminata de aproximadamente 300 metros desde el aparcamiento cercano. No dispone de aparcamiento propio, por lo que se recomienda buscar opciones de aparcamiento en la zona circundante y caminar hasta la playa. El acceso es por tierra y se considera de dificultad moderada debido a la distancia a recorrer.",
+    "access": "En el **km 0,5 de la Gran Vía de La Manga**.",
     "pictures": [
       "recurso-1-686-9p_g.jpg",
       "recurso-1-686-5p_g.jpg",
@@ -12764,7 +12764,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa del Barco Perdido, también conocida como Playa Las Sirenas, está situada en el kilómetro 2,5 de La Gran Via de La Manga del Mar Menor, en Cartagena, Región de Murcia. El acceso requiere un paseo a pie desde la carretera principal. No dispone de aparcamiento cercano y el acceso es a pie, por lo que se recomienda llevar calzado cómodo.",
+    "access": "En el **km 2,5 de la Gran Vía de La Manga**.",
     "pictures": [],
     "coordinates": [
       37.658643555944316,
@@ -12860,7 +12860,7 @@
     "nudist": true,
     "sea": 0,
     "promenade": false,
-    "access": "Playa del Barranco Ancho, situada en Mazarrón, Región de Murcia. Para llegar a esta playa, se requiere caminar desde la red básica a través de un camino sin asfaltar. Se recomienda llevar calzado cómodo y estar preparado para un paseo de acceso. Existe un parking público en la zona cercana al inicio del camino.",
+    "access": "Desde la carretera, un camino sin asfaltar baja hasta la costa.",
     "pictures": [
       "barranco-ancho-mazarron_g.jpg"
     ],
@@ -12958,7 +12958,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa del Barranco de La Mar está ubicada en la urbanización Todosol, a lo largo de la carretera de Calabardina, km 4 en Águilas, Región de Murcia. Para llegar, toma la carretera de Calabardina y sigue indicaciones hacia Todosol. Cuenta con aparcamiento público cercano y un acceso fácil, aunque la playa tiene un desnivel suave al llegar.",
+    "access": "En el **km 4 de la carretera de Calabardina**, en la urbanización Todosol.",
     "pictures": [],
     "coordinates": [
       37.42460980265058,
@@ -13046,7 +13046,7 @@
     "nudist": true,
     "sea": 0,
     "promenade": false,
-    "access": "Playa del Charco, ubicada en Águilas, Región de Murcia, se accede a través de una pista rural que parte de la carretera Cuesta de Gos, pasando por el Restaurante Pocico. El acceso es a pie, por un camino de tierra, por lo que se recomienda calzado adecuado. No dispone de aparcamiento cercano, pero sí de un parking público situado a unos 1,5 km de distancia.",
+    "access": "Desde la **carretera de Cuesta de Gos**, una pista rural pasa por el restaurante Pocico y llega a la playa.",
     "pictures": [
       "recurso-1-588-1p_g.jpg"
     ],
@@ -13142,7 +13142,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa del Descargador es una hermosa playa ubicada en la Urbanización Cala Flores, en las Playas del Mar Menor, cerca de La Manga y Cabo de Palos, en la Región de Murcia. Se accede principalmente en autobús desde la Autopista AP-7, salida 800. No dispone de parking en la playa y el acceso es por pasos, por lo que es recomendable llevar calzado cómodo.",
+    "access": "Desde la **AP-7, salida 800**, sigue por la vía rápida **MU-312** hacia Cabo de Palos. La playa está en la urbanización Cala Flores.",
     "pictures": [
       "descargador_g.jpg"
     ],
@@ -13242,7 +13242,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa del Espejo, situada en Los Alcázares, Región de Murcia, ofrece un fácil acceso desde la autovía. Dispone de aparcamiento público en sus inmediaciones.  La ubicación facilita su localización gracias a la buena señalización.",
+    "access": "El pueblo está **bien señalizado desde la autovía**, y la playa queda en el frente urbano de Los Alcázares.",
     "pictures": [
       "espejo-alcazares-6_g.jpg",
       "espejo-alcazares-4_g.jpg",
@@ -13351,7 +13351,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa del Estacio, situada en el punto kilométrico 10 al 12,5 de la carretera que conecta San Javier con Puerto Mayor. El acceso requiere una caminata de aproximadamente 2,5 kilómetros. No dispone de aparcamiento cercano y el acceso es a pie.",
+    "access": "Entre los **kilómetros 10 y 12,5** de la Gran Vía de La Manga, de Pueblo Cálido a la entrada de Puerto Mayor.",
     "pictures": [
       "recurso-1-536-4p_g.jpg",
       "recurso-1-536-2p_g.jpg",
@@ -13457,7 +13457,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa del Hoyo, ubicada en Águilas en la Región de Murcia, es accesible desde la Carretera de Cope, en el km 9. El acceso a la playa requiere una breve caminata, siendo de fácil acceso para todos los públicos. Hay un parking disponible en la zona cercana y la distancia a pie es corta y sin dificultades.",
+    "access": "En el **km 9 de la carretera de Cope**.",
     "pictures": [],
     "coordinates": [
       37.446608,
@@ -13551,7 +13551,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa del Lastre es un remanso de arena fina situado en La Unión, en la Región de Murcia. Se accede a la playa siguiendo la Carretera del Faro. Existe un parking público disponible en la zona.",
+    "access": "Por la **carretera del faro**.",
     "pictures": [
       "recurso-1-695-7p_g.jpg",
       "recurso-1-695-4p_g.jpg",
@@ -13658,7 +13658,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa del Matalentisco, situada en Águilas (Región de Murcia), ofrece acceso directo a su costa a través de un camino sin asfaltar y un sendero sin complicaciones. Se encuentra en la Carretera de Vera, km 2,8, y el acceso es fácil, aunque requiere caminar. No dispone de aparcamiento definido en la playa, por lo que se recomienda llegar en vehículo y buscar opciones de estacionamiento cercano.",
+    "access": "En el **km 2,8 de la carretera de Vera**. Un camino sin asfaltar llega a la costa y un sendero baja hasta la arena.",
     "pictures": [],
     "coordinates": [
       37.39065573072325,
@@ -13759,7 +13759,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa del Pino es una cala virgen accesible desde la carretera comarcal de Águilas, punto kilométrico 87 de la CN-332, justo después de Playa del Arroz. Para llegar, se requiere caminar por un camino de tierra sin asfaltar, por lo que se recomienda calzado adecuado. El acceso es gratuito, aunque existe un parking público cercano. La dificultad del acceso es moderada debido al camino de tierra.",
+    "access": "Desde la carretera comarcal de Águilas, cerca de la **playa del Arroz**, sale un camino sin asfaltar hasta la cala.",
     "pictures": [],
     "coordinates": [
       37.432276623008896,
@@ -13855,7 +13855,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa del Pocico del Animal, ubicada en la localidad de Águilas, Región de Murcia, ofrece acceso natural y tranquilo a sus aguas. Para llegar a esta playa, se requiere caminar desde el bar Pocico, en la Carretera Cuesta de Gos, siguiendo un camino de tierra y luego un sendero natural que conduce hasta la primera línea de playa. El acceso es por senderismo y requiere un nivel de dificultad moderado. No dispone de parking cercano.",
+    "access": "Desde la **carretera de Cuesta de Gos**, a la altura del bar Pocico, sale una pista sin asfaltar hacia la costa, y un sendero natural baja hasta la arena.",
     "pictures": [],
     "coordinates": [
       37.4616147,
@@ -13945,7 +13945,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa del Pozo de las Huertas, en Águilas, Región de Murcia, ofrece un acceso desde la Carretera Cuesta de Gos. Se llega a través de un camino de tierra y un sendero natural hasta la primera línea de playa. Dispone de un parking cercano.",
+    "access": "Desde la **carretera de Cuesta de Gos**, a la altura del bar Pocico, sale una pista sin asfaltar hacia la costa, y un sendero natural baja hasta la arena.",
     "pictures": [],
     "coordinates": [
       37.46707491757378,
@@ -14044,7 +14044,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa del Puerto de Mazarrón, en Mazarrón (Región de Murcia), ofrece acceso directo a la playa a través de una cómoda carretera urbana. El acceso es fácil y se caracteriza por ser un paseo sin complicaciones. Hay disponible aparcamiento en la zona cercana y el acceso a la playa es de nivel.",
+    "access": "En el **Puerto de Mazarrón**, con acceso por calles urbanas.",
     "pictures": [
       "puerto-mazarron-4_g.jpg",
       "recurso-1-650-7p_g.jpg",
@@ -14148,7 +14148,7 @@
     "anchorageZone": false,
     "nudist": false,
     "promenade": false,
-    "access": "La Playa del Saladar, ubicada en Águilas a lo largo de la carretera de Cuesta de Gos. Se accede a la playa a pie, disfrutando de un paseo sencillo y cómodo. Hay aparcamiento disponible cerca. El acceso es considerado fácil para todas las edades y niveles de movilidad.",
+    "access": "Desde la **carretera de Cuesta de Gos**, a la altura del restaurante El Pocico.",
     "pictures": [],
     "sea": 0,
     "coordinates": [
@@ -14243,7 +14243,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa del Salar, también conocida como Benzal, está ubicada en Mazarrón, Región de Murcia. Para acceder, se requiere caminar desde dos puntos: por el camino de tierra de la Rambla de Villalba, partiendo de Cañada de Gallego, o desde el camino sin asfaltar de las calas, accesible desde Bolnuevo. El acceso es a pie, por caminos de tierra, por lo que se recomienda llevar calzado adecuado. No dispone de parking cercano.",
+    "access": "No hay carretera hasta la playa; se llega por caminos de tierra:\n\n- **Desde Cañada de Gallego:** por el camino de la Rambla de Villalba.\n- **Desde Bolnuevo:** por el camino sin asfaltar de las calas.",
     "pictures": [],
     "coordinates": [
       37.549592,
@@ -14340,7 +14340,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa del Sombrerico, situada en la carretera de Cope a los 9 kilómetros. Se requiere caminar desde el aparcamiento situado en la carretera. El acceso es considerado fácil, aunque se recomienda calzado cómodo para este camino de tierra.",
+    "access": "En el **km 9 de la carretera de Cope**, a continuación de la playa de Cope. Se llega a la costa por una pista sin asfaltar.",
     "pictures": [
       "recurso-1-621-2p_g.JPG"
     ],
@@ -14436,7 +14436,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "La Playa del Vivero, ubicada en La Manga del Mar Menor, Cartagena, es fácilmente accesible. Para llegar, diríjase al primer cambio de sentido en dirección al IES Las Salinas y CP Mediteráneo, cerca de la Iglesia Salvator Mundí. El acceso a la playa requiere caminar, siendo el acceso relativamente fácil. Hay parking disponible en la zona y se recomienda llevar calzado cómodo para este trayecto.",
+    "access": "A la entrada de **La Manga**, toma el primer cambio de sentido hacia el IES Las Salinas y el CP Mediterráneo, cerca de la iglesia Salvator Mundi.",
     "pictures": [],
     "coordinates": [
       37.646822123580826,
@@ -14537,7 +14537,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa El Arenal está situada en San Javier, en la Región de Murcia, específicamente en el punto kilométrico 7,9 entre las urbanizaciones de Virgen Blanca y Pueblo Cálido. El acceso a la playa requiere una caminata. No dispone de aparcamiento cercano.",
+    "access": "Entre los **kilómetros 7,9 y 10** de la Gran Vía de La Manga, de las urbanizaciones Virgen Blanca y El Pedrucho a Pueblo Cálido.",
     "pictures": [
       "recurso-1-561-13p_g.jpg",
       "recurso-1-561-7p_g.jpg",
@@ -14642,7 +14642,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa El Carmolí es un destino de baño ubicado en la zona sur de Cartagena, Región de Murcia. Para acceder a ella, toma la RM-332 y sigue por la carretera de acceso a la playa durante aproximadamente 2 kilómetros; la playa se encuentra a tu derecha. Cuenta con un aparcamiento público disponible.",
+    "access": "Desde la **RM-332**, toma la carretera de acceso a la playa y síguela unos **2 km**: la playa queda a la derecha.",
     "pictures": [
       "carmoli2_g.jpg"
     ],
@@ -14742,7 +14742,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": true,
-    "access": "Playa El Castillico, situada en el casco urbano de Santiago de la Ribera, se accede directamente desde el Jardín del Atalayón hasta el final del término municipal. Los accesos a primera línea de playa son numerosos y fáciles de alcanzar, disponiendo de escaleras y acceso adaptado para personas con movilidad reducida. Se recomienda llegar en coche y, una vez en la zona, existen opciones de aparcamiento cercanas.",
+    "access": "En el **casco urbano de Santiago de la Ribera**, desde el Jardín del Atalayón hasta el límite del término municipal.\n\n- **A pie:** hay muchos accesos a la arena, en buen estado, con escaleras y un acceso adaptado para personas con movilidad reducida.",
     "pictures": [
       "recurso-1-604-2p_g.jpg"
     ],
@@ -14873,7 +14873,7 @@
     "description": "El Gachero, en el Puerto de Mazarrón, es una de las playas de la zona donde **se puede ir con perro**. El suelo es de bolos y piedras y el oleaje suele ser moderado. Tiene chiringuito, duchas y aseos, pero no hay socorrista.\n\n**Consejo:** el calzado de agua se agradece.",
     "orientation": "east",
     "instagramHashtag": "#PlayaElGachero",
-    "access": "Situada en el Puerto de Mazarrón, se accede a ella a través de la Avenida de El Alamillo y la calle Cabo Machichaco. Se localiza en la zona de la punta de El Rihuete.  No hay información disponible sobre parking o transporte público. El acceso es fácil.",
+    "access": "En la zona de la punta de **El Rihuete**, en el Puerto de Mazarrón. Se entra por la avenida de El Alamillo y la calle Cabo Machichaco.",
     "dogFriendly": true,
     "lifeguard": false,
     "services": [
@@ -14960,7 +14960,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Acceso a Playa El Galán, ubicada en el punto kilométrico 6,5 al 7,2 de la Urbanización El Galán, en San Javier, Región de Murcia. El acceso a la playa requiere una caminata desde este punto. No dispone de aparcamiento cercano y el acceso se realiza a pie.",
+    "access": "Entre los **kilómetros 6,5 y 7,2** de la Gran Vía de La Manga, en la urbanización El Galán.",
     "pictures": [
       "recurso-1-540-2p_g.jpg"
     ],
@@ -15065,7 +15065,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa El Mojón, situada en San Pedro del Pinatar (Región de Murcia), es fácilmente accesible desde la AP7 (Salida 774) o la N-332 que conecta Cartagena con San Pedro del Pinatar. Para llegar, se requiere desplazarse a pie desde las inmediaciones de El Mojón. Aunque hay un parking disponible en la zona, el acceso a la playa implica un trayecto a pie, por lo que se recomienda calzado cómodo.",
+    "access": "Toma el **desvío a El Mojón**.\n\n- **Por la AP-7:** toma la salida 774.\n- **Por la N-332:** desde Cartagena hacia San Pedro del Pinatar.",
     "pictures": [
       "recurso-1-666-1p_g.jpg",
       "mojon-sanpedro-2_g.jpg",
@@ -15171,7 +15171,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa El Pedruchillo es una tranquila playa ubicada en el punto kilométrico 8 al 8,5 de la Gran Vía de La Manga, en San Javier, Región de Murcia. Para acceder a ella, se requiere caminar desde el parking de la urbanización del Pedruchillo. El acceso es a pie, por una pendiente suave.",
+    "access": "Entre los **kilómetros 8 y 8,5** de la Gran Vía de La Manga, en la urbanización El Pedruchillo.",
     "pictures": [
       "recurso-1-674-12p_g.jpg",
       "recurso-1-674-6p_g.jpg",
@@ -15282,7 +15282,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": true,
-    "access": "Playa El Pescador, ubicada en el corazón del casco urbano de Santiago de la Ribera. Cuenta con numerosos accesos directos a primera línea de playa, que incluyen escaleras y un acceso adaptado para personas con movilidad reducida. Dispone de parking cercano.  ",
+    "access": "En el **casco urbano de Santiago de la Ribera**, entre las antiguas pescaderías y el Club Náutico.\n\n- **A pie:** hay muchos accesos a la arena, en buen estado, con escaleras y un acceso adaptado para personas con movilidad reducida.",
     "pictures": [
       "recurso-1-535-1p_g.jpg"
     ],
@@ -15389,7 +15389,7 @@
     "nudist": true,
     "sea": 0,
     "promenade": false,
-    "access": "Playa El Portús, ubicada en el punto kilométrico 2,000 de la RM-332, conectando Cartagena con Playa del Portús, Isla Plana y La Azohía. Para llegar, debes seguir la RM-332 y recorrer un sendero pecuario. No dispone de aparcamiento cercano y el acceso implica una caminata de aproximadamente 300 metros. El sendero es de superficie irregular y puede ser complicado en determinadas épocas del año.",
+    "access": "En el **km 2 de la carretera de Cartagena a El Portús**.",
     "pictures": [
       "portus-cartagena-7_g.jpg",
       "portus-cartagena-2_g.jpg",
@@ -15504,7 +15504,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa El Pudrimel, ubicada en San Javier, Región de Murcia, se encuentra en el punto kilométrico 16,30 al 17,2, dentro de la urbanización Aldea de Taray. El acceso a la playa se realiza desde esta zona, ofreciendo fácil acceso a una playa con encanto. Existe un parking público disponible en la zona. El acceso es relativamente sencillo.",
+    "access": "Entre los **kilómetros 16,3 y 17,2** de la Gran Vía de La Manga, en la urbanización Aldea de Taray.",
     "pictures": [
       "recurso-1-537-6p_g.jpg",
       "recurso-1-537-10p_g.jpg",
@@ -15603,7 +15603,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa El Rafal, situada en Águilas, Región de Murcia, ofrece un acceso directo a su arena y aguas, aunque requiere una caminata. El acceso se realiza a través de la carretera Cuesta de Gos, cercana al bar Pocico, y a través de un camino de tierra sin asfaltar. Ten en cuenta que el acceso implica una caminata y no dispone de aparcamiento cercano.",
+    "access": "Desde la **carretera de Cuesta de Gos**, a la altura del bar Pocico, sale una pista sin asfaltar hacia la costa.",
     "pictures": [],
     "coordinates": [
       37.45380541883561,
@@ -15705,7 +15705,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Para llegar a Playa El Siscal, deberás acceder a través de un sendero natural y un camino sin asfaltar, comenzando desde la RM-D21, a unos 2 km de distancia. Se recomienda coche para acceder al inicio del sendero. Una vez en la playa, el acceso directo a primera línea de arena es a través de un sendero natural.",
+    "access": "Está a **2 km de la RM-D21**: un camino sin asfaltar llega a la costa y un sendero natural baja hasta la arena. También se llega **en barco**.\n\nDesde Lorca, por la autovía RM-11 en dirección a Águilas:\n\n- **Hacia las calas orientales:** toma el desvío RM-332 hacia Ramonete y, en el km 15, la RM-D21.\n- **Hacia las calas occidentales:** sigue hasta Águilas y toma el desvío a Calabardina y Cabo Cope, donde empieza un camino de tierra.",
     "pictures": [
       "playa-siscal-lorca-2_g.jpg",
       "recurso-1-5906-1_g.jpg"
@@ -15804,7 +15804,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa Ensenada de la Fuente, ubicada en la carretera de Cope, km 9, en Águilas. Para llegar, se requiere una breve caminata desde el aparcamiento cercano. Hay disponible parking en la zona.",
+    "access": "En el **km 9 de la carretera de Cope**.",
     "pictures": [
       "recurso-1-620-1p_g.jpg"
     ],
@@ -15901,7 +15901,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Para acceder a Playa Ensenada del Esparto, ubicada en San Javier, Región de Murcia, saliendo por la Gran Vía de La Manga, deberá caminar desde el punto kilométrico 13,9 hasta el 16,3. Este acceso requiere una caminata de aproximadamente 2,4 kilómetros. No dispone de aparcamiento cercano y el acceso es a pie, por lo que se recomienda llevar calzado cómodo.",
+    "access": "Entre los **kilómetros 13,9 y 16,3** de la Gran Vía de La Manga.",
     "pictures": [
       "recurso-1-562-12p_g.jpg",
       "recurso-1-562-9p_g.jpg",
@@ -16013,7 +16013,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Fatares, situada en la zona rural de Cartagena, Murcia. El acceso se realiza a pie siguiendo un sendero desde el aparcamiento cercano. El sendero es de dificultad fácil. No dispone de transporte público conocido. El aparcamiento está disponible.",
+    "access": "Está lejos de la red de carreteras: solo se llega **a pie, por un sendero, o en barco**.",
     "pictures": [
       "fatares-cartagena_g.jpg",
       "fatares-cartagena-3_g.jpg",
@@ -16116,7 +16116,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Galúa, ubicada en la Gran Vía de La Manga del Mar Menor, km 2,5.  Se encuentra a primera línea de playa y cuenta con un acceso sin barreras. Dispone de parking cercano y el acceso a la playa es relativamente sencillo, requiriendo una ligera caminata.",
+    "access": "En el **km 2,5 de la Gran Vía de La Manga**. A la arena se baja por una rampa.",
     "pictures": [
       "recurso-1-591-5p_g.jpg",
       "recurso-1-591-4p_g.jpg",
@@ -16223,7 +16223,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa Honda, ubicada en Cartagena, Región de Murcia, ofrece un acceso fácil y directo a la playa, con ubicación en primera línea de arena. El acceso es sencillo, facilitando su llegada y disfrute. Existe aparcamiento público cercano.",
+    "access": "En el núcleo urbano de **Playa Honda**.",
     "pictures": [
       "honda-cartagena-5_g.jpg",
       "recurso-1-688-1p_g.jpg",
@@ -16337,7 +16337,7 @@
     "nudist": true,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Hondón del Fondón, ubicada en Mazarrón (Región de Murcia). Para llegar a esta playa, se requiere caminar desde la red básica a través de un camino sin asfaltar de tierra. No dispone de aparcamiento cercano.",
+    "access": "Desde la carretera, un camino sin asfaltar baja hasta la costa.",
     "pictures": [],
     "coordinates": [
       37.553071,
@@ -16436,7 +16436,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Isla Plana, situada en la zona este de Cartagena, es fácilmente accesible desde la carretera RM-E22, que conecta la ciudad con Mazarrón. Se puede llegar a la playa en autobús. Existen opciones de aparcamiento cercano y el acceso a la playa es considerado fácil.",
+    "access": "Por la carretera **RM-E22**, de Cartagena a Mazarrón, que pasa por Isla Plana.",
     "pictures": [
       "recurso-1-657-6p_g.jpg",
       "recurso-1-657-4p_g.jpg",
@@ -16543,7 +16543,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa La Barra, ubicada en el punto kilométrico 0,00 de la carretera comarcal Cabo de Palos al Albujón, en la urbanización Cala Flores. Para llegar, se requiere caminar hasta la playa utilizando escalerillas y rampas. No dispone de aparcamiento cercano.",
+    "access": "En el **km 0 de la carretera de Cabo de Palos a El Albujón**, en la urbanización Cala Flores. A la arena se baja por escalerillas y rampas.",
     "pictures": [],
     "coordinates": [
       37.63118639212318,
@@ -16639,7 +16639,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa La Calabardina, ubicada en la carretera de Calabardina, km 7,5 en Águilas (Región de Murcia). Cuenta con parking disponible en la calzada del paseo marítimo, facilitando el acceso. Es una playa de fácil acceso.",
+    "access": "En el **km 7,5 de la carretera de Calabardina**, frente al pueblo.\n\n- **Aparcamiento:** en la calzada junto al paseo marítimo, que da directamente a la arena.",
     "pictures": [
       "calabardina-aguilas-6_g.jpg",
       "calabardina-aguilas-7_g.jpg",
@@ -16749,7 +16749,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa La Calera, situada en la carretera RM-E22 cerca de Cartagena, ofrece un acceso directo y fácil desde las localidades de Isla Plana y La Azohía. Para llegar, se requiere caminar por un sendero bien señalizado. No dispone de aparcamiento en la playa, pero existen opciones de aparcamiento cercano en las localidades de origen.",
+    "access": "Junto a la carretera **RM-E22**. Se llega **a pie desde Isla Plana o desde La Azohía**.",
     "pictures": [
       "recurso-1-524-1p_g.jpg",
       "recurso-1-524-2p_g.jpg"
@@ -16846,7 +16846,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa La Caleta, situada en la localidad de Cartagena, Región de Murcia, ofrece acceso a través de una rampa con pendiente en la carretera RM-332, que conecta Cartagena con Mazarrón. Se requiere caminar para acceder a la playa, por lo que se recomienda calzado cómodo. Dispone de parking cercano.",
+    "access": "Junto a la carretera de **Cartagena a Mazarrón**. A la cala se baja por una **rampa en pendiente, sin escalones**.",
     "pictures": [],
     "coordinates": [
       37.57558252292477,
@@ -16944,7 +16944,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa La Carolina, ubicada en la Carretera de Vera, km 5,5 en Águilas, Región de Murcia, ofrece un acceso directo a la costa a través de un camino que conecta con la vía principal. El acceso a la playa requiere una breve caminata por un camino de tierra, aunque es fácilmente accesible. Hay un parking disponible cerca de la playa, y el camino de acceso es sencillo y cómodo.",
+    "access": "En el **km 5,5 de la carretera de Vera**. Un camino une la vía principal con la costa.",
     "pictures": [
       "recurso-1-589-6p_g.jpg",
       "recurso-1-589-5p_g.jpg",
@@ -17050,7 +17050,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa La Galera, situada en La Manga, Cartagena, es un destino de playa accesible a pie. Para llegar, toma la Autopista AP-7, salida 800, dirección La Manga-Cartagena-El Algar, y continúa por el desvío MU-312 hacia Cabo de Palos. El acceso a la playa implica una caminata, y existe un parking público disponible en la zona.",
+    "access": "Desde la **AP-7, salida 800**, sigue por la vía rápida **MU-312** hacia Cabo de Palos. La salida 800 está señalizada como La Manga-Cartagena-El Algar.",
     "pictures": [
       "galera-aguilas_g.jpg"
     ],
@@ -17148,7 +17148,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa La Isla, situada en San Javier, Región de Murcia, se encuentra en el punto kilométrico 3,7 a 4,2 de la Gran Vía de La Manga. El acceso a la playa requiere una caminata de aproximadamente 700 metros desde este punto. No dispone de aparcamiento cercano y el acceso es a pie, por un camino sin acceso para sillas de ruedas.",
+    "access": "Entre los **kilómetros 3,7 y 4,2** de la Gran Vía de La Manga.",
     "pictures": [],
     "coordinates": [
       37.67148567598908,
@@ -17246,7 +17246,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa La Tortuga, ubicada en la Carretera de Vera, km 3,5. El acceso a la playa es a través de un sendero que conecta con la costa. Hay un parking disponible en la zona cercana.",
+    "access": "En el **km 3,5 de la carretera de Vera**. Un camino llega a la costa y un sendero baja hasta la arena.",
     "pictures": [],
     "coordinates": [
       37.386368534540814,
@@ -17337,7 +17337,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa La Veneziola, ubicada en San Javier (Región de Murcia), se accede a través del punto kilométrico 16,4 al 18,6 de su arena. El acceso a la playa implica una caminata desde esta zona de la urbanización Veneziola. No dispone de aparcamiento cercano y el acceso es a pie, por lo que se recomienda llevar calzado cómodo.",
+    "access": "Entre los **kilómetros 16,4 y 18,6** de la Gran Vía de La Manga, en la urbanización Veneziola.",
     "pictures": [
       "recurso-1-673-7p_g.jpg",
       "recurso-1-673-12p_g.jpg",
@@ -17445,7 +17445,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Larga, situada a 3,5 km de la RM-D20 en la Región de Murcia, ofrece acceso directo a la costa a través de un camino sin asfaltar y un agradable sendero natural. El acceso es fácil, aunque requiere caminar para llegar a primera línea de playa. No dispone de parking cercano.",
+    "access": "En el **km 3,200 de la carretera de Cabo de Palos a El Albujón**, dentro del parque regional de Calblanque. Una pista sin asfaltar pero bien acondicionada llega hasta la playa.\n\n**Consejo:** en verano el acceso en coche al parque regional de Calblanque está regulado. Consulta las condiciones en la [web de Murcia Natural](https://murcianatural.carm.es) antes de ir.",
     "pictures": [
       "recurso-1-627-1_g.jpg"
     ],
@@ -17548,7 +17548,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Larga, ubicada en Lorca, Región de Murcia, ofrece acceso directo a sus hermosas playas a través de un sendero natural. Para llegar, se recomienda acceder desde Lorca y seguir el camino sin asfaltar que conduce a primera línea de playa. El acceso requiere caminar y, aunque es un sendero natural, se considera de dificultad media debido a su estado y la proximidad a la costa. Existe un parking disponible en las inmediaciones del inicio del sendero.",
+    "access": "Está a **3,5 km de la RM-D20**: un camino sin asfaltar llega a la costa y un sendero natural baja hasta la arena.\n\nDesde Lorca, por la autovía RM-11 en dirección a Águilas:\n\n- **Hacia las calas orientales:** toma el desvío RM-332 hacia Ramonete y, en el km 15, la RM-D21.\n- **Hacia las calas occidentales:** sigue hasta Águilas y toma el desvío a Calabardina y Cabo Cope, donde empieza un camino de tierra.",
     "pictures": [],
     "coordinates": [
       37.4807329,
@@ -17647,7 +17647,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Larga, situada en el punto kilométrico 3,200 de la carretera comarcal Cabo de Palos al Albujón. Para llegar, se requiere un paseo a través de un camino de tierra bien acondicionado. Cuenta con un parking disponible cercano. El acceso es de nivel fácil.",
+    "access": "En el **km 3,200 de la carretera de Cabo de Palos a El Albujón**, dentro del parque regional de Calblanque. Una pista sin asfaltar pero bien acondicionada llega hasta la playa.\n\n**Consejo:** en verano el acceso en coche al parque regional de Calblanque está regulado. Consulta las condiciones en la [web de Murcia Natural](https://murcianatural.carm.es) antes de ir.",
     "pictures": [
       "playa-larga-calblanque_g.jpg"
     ],
@@ -17742,7 +17742,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Las Amoladeras, situada en Cartagena, Región de Murcia, ofrece buenos accesos desde la red de transporte público. Se puede llegar fácilmente en autobús. Existe parking público disponible en la zona. El acceso a la playa es sencillo.",
+    "access": "Desde la **AP-7, salida 800**, sigue por la vía rápida **MU-312** hacia Cabo de Palos.",
     "pictures": [],
     "coordinates": [
       37.63552497728912,
@@ -17836,7 +17836,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa Las Antillas está situada en el punto kilométrico 8,5 al 8,9 de la Gran Vía de La Manga, en San Javier, Región de Murcia. Para llegar, se encuentra a lo largo de esta autovía principal. Cuenta con un parking público disponible en la zona. El acceso a la playa es mediante una pendiente suave.",
+    "access": "Entre los **kilómetros 8,5 y 8,9** de la Gran Vía de La Manga.",
     "pictures": [
       "antillas-sanjavier-2_g.jpg",
       "recurso-1-541-6p_g.jpg"
@@ -17938,7 +17938,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": true,
-    "access": "Playa Las Delicias está situada en el corazón del casco urbano de Águilas. El aparcamiento se realiza directamente en la calzada que bordea la playa. Es una opción ideal para disfrutar de un día de sol en esta localidad de la Región de Murcia.",
+    "access": "En el **casco urbano de Águilas**.\n\n- **Aparcamiento:** en la calzada que corre junto a la playa.",
     "pictures": [
       "recurso-1-660-1p_g.jpg",
       "recurso-1-660-2p_g.jpg"
@@ -18046,7 +18046,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa Lebeche, situada en el punto kilométrico 5 al 6,5 de la Gran Vía de La Manga en San Javier, Región de Murcia. Para llegar, debes dirigirte a este punto en la Gran Vía de La Manga y, desde allí, disfrutar de un trayecto de aproximadamente 300 metros de camino. El acceso es a pie y, aunque es relativamente corto, requiere un esfuerzo moderado debido al terreno y la distancia. No dispone de aparcamiento cercano, por lo que es recomendable llegar en vehículo y buscar aparcamiento en las inmediaciones de La Manga.",
+    "access": "Entre los **kilómetros 5 y 6,5** de la Gran Vía de La Manga.",
     "pictures": [],
     "coordinates": [
       37.686526794266214,
@@ -18150,7 +18150,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa Los Nietos es un encantador rincón costero situado en La Manga, al kilómetro 7,9 al 10 de la carretera de La Manga. El acceso a la playa requiere una caminata, aproximadamente 15-20 minutos desde el punto de acceso por carretera. Existe un parking público cercano, aunque puede ser limitado, y el acceso es suave, apto para personas con movilidad reducida.",
+    "access": "Recorre el frente del pueblo de **Los Nietos**, en la orilla sur del Mar Menor, así que se llega andando desde el pueblo.",
     "pictures": [],
     "coordinates": [
       37.65364508183818,
@@ -18253,7 +18253,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa Manzanares, ubicada en Los Alcázares, Región de Murcia, ofrece un fácil acceso. Cuenta con buen acceso a través de la autovía. Hay un parking público disponible. El acceso es sin complicaciones.  La playa es fácilmente accesible.",
+    "access": "El pueblo está **bien señalizado desde la autovía**, y la playa queda en el frente urbano de Los Alcázares.",
     "pictures": [
       "recurso-1-691-2p_g.jpg",
       "recurso-1-691-3p_g.jpg",
@@ -18362,7 +18362,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "La Playa Matasgordas, en San Javier, Murcia, ofrece un acceso desde la Gran Vía de La Manga. El acceso a la playa se realiza a pie, comenzando en el punto kilométrico 8,9 al 12,2 de la Gran Vía. Hay parking disponible en la zona.",
+    "access": "Entre los **kilómetros 8,9 y 12,2** de la Gran Vía de La Manga.",
     "pictures": [
       "recurso-1-542-5p_g.jpg",
       "recurso-1-542-7p_g.jpg",
@@ -18464,7 +18464,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa Mistral, situada en la Gran Vía de La Manga (punto kilométrico 12,8 al 12,2). Para llegar, deberás realizar una caminata desde esta ubicación. El acceso es a pie y, una vez en la playa, no dispone de aparcamiento cercano.",
+    "access": "Entre los **kilómetros 12,2 y 12,8** de la Gran Vía de La Manga.",
     "pictures": [
       "recurso-1-696-9p_g.jpg",
       "recurso-1-696-8p_g.jpg",
@@ -18572,7 +18572,7 @@
     "nudist": true,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Morena, ubicada en el punto kilométrico 2,000 de la RM-E22, que conecta Cartagena con Playa del Portús, Isla Plana y La Azohía. El acceso a la playa es a pie. El acceso es a través de un camino de tierra, lo que lo hace difícil y requiere una caminata. No dispone de parking cercano y el acceso a pie es el único disponible.",
+    "access": "En el **km 2 de la carretera de Cartagena a El Portús**.",
     "pictures": [
       "morena2_g.jpg"
     ],
@@ -18675,7 +18675,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Negra, en Mazarrón (Región de Murcia), ofrece un acceso directo a sus arenas oscuras a través de la carretera comarcal. El acceso a la playa es fácil y cómodo, requiriendo una agradable caminata. Dispone de parking público cercano. El acceso es de nivel, sin barreras arquitectónicas.",
+    "access": "Por la **carretera comarcal** que sale del Puerto de Mazarrón hacia Isla Plana.",
     "pictures": [
       "recurso-1-652-1p_g.jpg",
       "recurso-1-652-2p_g.jpg"
@@ -18776,7 +18776,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Negrete, ubicada en el Parque Natural de Calblanque, Cartagena, es un destino accesible a través de un camino de tierra. El acceso a la playa requiere una caminata de aproximadamente 3 km desde el punto de aparcamiento más cercano, por un sendero sin asfaltar. El aparcamiento disponible es limitado.",
+    "access": "Una **pista sin asfaltar** la une con la carretera.\n\n**Consejo:** en verano el acceso en coche al parque regional de Calblanque está regulado. Consulta las condiciones en la [web de Murcia Natural](https://murcianatural.carm.es) antes de ir.",
     "pictures": [
       "negrete-cartagena-2_g.jpg",
       "negrete-cartagena-3_g.jpg",
@@ -18874,7 +18874,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa Paraiso, ubicada en Cartagena, Región de Murcia, ofrece un acceso directo a sus playas a través de un camino asfaltado que requiere una caminata corta. Dispone de un parking cercano. El acceso es sencillo para todos los públicos.",
+    "access": "Un **camino asfaltado** llega hasta la costa.",
     "pictures": [
       "paraiso-cartagena-3_g.jpg",
       "paraiso-cartagena-4_g.jpg",
@@ -18988,7 +18988,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa de Parazuelos, situada en Lorca, Región de Murcia, se accede desde el Poblado de Calnegre. El acceso a la playa es a pie, por un sendero que recorre un agradable tramo de terreno. Se recomienda llevar calzado cómodo y no dispone de aparcamiento cercano, aunque hay zonas de aparcamiento público aledañas al Poblado de Calnegre. El acceso es de nivel fácil, aunque requiere una caminata de aproximadamente 30-40 minutos.",
+    "access": "Se llega desde el **poblado de Calnegre**.",
     "pictures": [
       "recurso-1-6703-1p_g.jpg"
     ],
@@ -19090,7 +19090,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Parazuelos, situada en el punto kilométrico 15,150 de la N-332 Almería-Valencia, cerca de Puntas de Calnegre en Mazarrón (Región de Murcia). Para llegar a esta playa, se requiere caminar desde la carretera. No dispone de aparcamiento cercano y el acceso es por senderismo, por lo que se recomienda llevar calzado cómodo y agua.",
+    "access": "En el **km 15,150 de la N-332**, junto a la carretera de Puntas de Calnegre.",
     "pictures": [
       "parazuelos-mazarron_g.jpg"
     ],
@@ -19190,7 +19190,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa Parreño, ubicada en Cartagena, Región de Murcia, ofrece un acceso a través de un sendero que parte desde el área de Cobaticas. El acceso es considerado difícil debido a la naturaleza del sendero, y se recomienda llevar calzado adecuado para caminar. No dispone de parking cercano, por lo que se debe llegar en vehículo y caminar hasta el inicio del sendero.",
+    "access": "Se llega **por un sendero desde Cobaticas**.\n\n**Consejo:** en verano el acceso en coche al parque regional de Calblanque está regulado. Consulta las condiciones en la [web de Murcia Natural](https://murcianatural.carm.es) antes de ir.",
     "pictures": [
       "parreno-cartagena_g.png"
     ],
@@ -19289,7 +19289,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "La Playa Pedrucho, ubicada en San Javier (Región de Murcia), se accede a través del punto kilométrico 4,9 al 7,9, que incluye las urbanizaciones de Castillo de Mar a Hawai V. El acceso a la playa es a pie, requiriendo una caminata. No dispone de aparcamiento cercano y el acceso es directo, sin rampas ni servicios específicos.",
+    "access": "Entre los **kilómetros 4,9 y 7,9** de la Gran Vía de La Manga, de la urbanización Castillo de Mar a Hawai V.",
     "pictures": [
       "pedrucho-manga-8_g.jpg",
       "recurso-1-672-6p_g.jpg",
@@ -19400,7 +19400,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "La Playa Perla de Levante, también conocida como Estrella de Mar, se encuentra en Cartagena, Región de Murcia. Para acceder a ella, sigue la carretera asfaltada MU-312, situada frente a la urbanización Estrella del Mar. El acceso a la playa requiere caminar desde el aparcamiento de la zona, y se trata de un recorrido de nivel fácil.",
+    "access": "Por la **MU-312**, por carretera asfaltada, frente a la urbanización Estrella de Mar.",
     "coordinates": [
       37.6764924149522,
       -0.8225143358118232
@@ -19501,7 +19501,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa Puerto Bello, ubicada en la Gran Vía de La Manga del Mar Menor, Km 1,5. Se llega caminando desde este punto. Dispone de aparcamiento cercano y el acceso a la playa es sencillo y directo.",
+    "access": "En el **km 1,5 de la Gran Vía de La Manga**.",
     "pictures": [
       "recurso-1-669-2p_g.jpg"
     ],
@@ -19605,7 +19605,7 @@
     "nudist": false,
     "sea": 1,
     "promenade": false,
-    "access": "Playa Punta Brava, ubicada en Cartagena, Región de Murcia, ofrece un buen acceso desde la autovía con desvío a la RM-332. Cuenta con un paseo con rampas para facilitar el acceso a primera línea de playa. Es un acceso fácil, y se puede llegar en autobús. Existe parking disponible en la zona.",
+    "access": "Desde la autovía, toma el desvío a la **RM-332**. Un paseo con rampas baja hasta la arena.",
     "pictures": [
       "puntabrava2_g.jpg"
     ],
@@ -19713,7 +19713,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Disfrute de la Playa Puntas de Calnegre, ubicada en Lorca, Región de Murcia, accesible a pie desde la RM-D21, a 7 km de la RM-332 y a 8 km de la AP-7. Para llegar, siga las indicaciones desde Lorca o Águilas, tomando el desvío hacia Puntas de Calnegre. El acceso a las playas requiere una caminata y hay un parking disponible cerca de la carretera.",
+    "access": "Junto a la carretera de **Puntas de Calnegre**, en el km 7 de la RM-D21. También se llega en barco.\n\n- **Desde la RM-332:** 7 km en dirección a Puntas de Calnegre.\n- **Desde la AP-7:** 8 km desde la salida 857 (Ramonete).",
     "pictures": [
       "puntas-calnegre-lorca_g.jpg",
       "puntas-calnegre-lorca-3_g.jpg",
@@ -19811,7 +19811,7 @@
     "nudist": false,
     "sea": 0,
     "promenade": false,
-    "access": "Playa San Ginés, ubicada en Cartagena, Región de Murcia, ofrece un acceso sencillo desde la carretera RM-E22, que conecta Cartagena con Mazarrón. Se requiere una caminata desde la carretera, siendo el acceso fácil y cómodo. Existe un parking público cercano a la playa.",
+    "access": "Junto a la carretera **RM-E22**, de Cartagena a Mazarrón.",
     "pictures": [
       "recurso-1-685-1p_g.jpg"
     ],

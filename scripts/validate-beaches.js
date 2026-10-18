@@ -81,11 +81,23 @@ beaches.forEach((beach, index) => {
     }
   }
 
-  // Description markdown: an odd number of ** would render a literal marker
-  if (typeof beach.description === 'string') {
-    const markers = beach.description.match(/\*\*/g) ?? []
+  // Markdown fields: an odd number of ** would render a literal marker, and the
+  // renderer drops links that are not http(s)
+  for (const field of ['description', 'access']) {
+    const text = beach[field]
+    if (typeof text !== 'string') continue
+    const markers = text.match(/\*\*/g) ?? []
     if (markers.length % 2 !== 0) {
-      errors.push(`${prefix}: description has an unpaired '**' marker`)
+      errors.push(`${prefix}: ${field} has an unpaired '**' marker`)
+    }
+    for (const [, href] of text.matchAll(/\[[^\]]+\]\(([^)\s]+)\)/g)) {
+      if (!/^https:\/\//.test(href)) {
+        errors.push(`${prefix}: ${field} link must use https: ${href}`)
+      }
+    }
+    // Only "- " bullets are supported; "* " bullets and headings show literally
+    if (/^\s*(\*\s|#)/m.test(text)) {
+      errors.push(`${prefix}: ${field} uses unsupported markdown ('* ' or '#')`)
     }
   }
 

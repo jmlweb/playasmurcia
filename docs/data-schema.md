@@ -23,6 +23,7 @@ Data is aggregated from multiple official sources:
 - **AEMET (Weather Agency)**: https://www.aemet.es - Beach predictions API
 - **112 Region of Murcia**: https://www.112rmurcia.es - Emergency/safety info
 - **Descriptions**: Hand-edited Spanish copy (Oct 2026 rewrite), grounded in the beach's own data fields. EN/FR/DE `translations` are older Gemma output, not shown on the site
+- **Access**: Hand-edited Spanish copy (Oct 2026 rewrite), rebuilt from the official texts of the first import
 
 ## Schemas
 
@@ -49,7 +50,7 @@ interface Beach {
 
   // Required - Content
   description: string       // Hand-edited tourist description, markdown subset (see below)
-  access: string            // How to reach the beach
+  access: string            // Hand-edited directions, same markdown subset as description
   nearby: string[]          // Array of nearby beach codes
   orientation: string       // Cardinal direction (east, southeast, etc.)
   instagramHashtag: string  // Instagram hashtag for the beach
@@ -237,6 +238,7 @@ beaches ──< beach_tags >── tags
 |-------|----------|-------------|
 | `name` | Spanish | May include "Cala", "Playa" prefix |
 | `description` | Spanish | 2-3 sentences plus optional tip. Markdown subset: paragraphs separated by a blank line, `**bold**`, and a final `**Consejo:**` paragraph rendered as a callout. Every `**` must be paired (checked by `validate-beaches.js`) |
+| `access` | Spanish | Directions only (see `docs/business-rules.md`). Same markdown subset as `description`, plus `- ` bullet lists and `[text](https://…)` links. Links must use https, and `* ` bullets or `#` headings are rejected (both checked by `validate-beaches.js`) |
 | `soilType` | Spanish | Descriptive (e.g., "Arena fina y dorada") |
 
 ### References
@@ -250,7 +252,7 @@ beaches ──< beach_tags >── tags
 
 ## Editing Guidelines
 
-1. **Never manually edit generated fields** (`access`) - re-run scripts instead. `description` is hand-edited copy: edit it directly, following the guidelines in `docs/business-rules.md`
+1. **`description` and `access` are hand-edited copy** - edit them directly, following the guidelines in `docs/business-rules.md`. No script rewrites them
 2. **Preserve JSON formatting** - 2 spaces indentation, no trailing commas
 3. **Keep arrays sorted** by `code` field when adding new beaches
 4. **Update `nearby` arrays** when adding/removing beaches

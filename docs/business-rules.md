@@ -80,15 +80,25 @@ So weather is **not** limited to beaches with `aemetId`; those codes only gate t
 
 ### Access vs Description Separation
 
-The `access` field must contain only practical information:
+The `access` field ("Cómo llegar") contains only directions:
 
-| Include in `access`      | Include in `description` |
-| ------------------------ | ------------------------ |
-| Parking availability     | Beach atmosphere         |
-| Bus/transport access     | Natural beauty           |
-| Walking requirements     | Facilities summary       |
-| Road type (asphalt/dirt) | Tourist recommendations  |
-| Difficulty level         | Nearby attractions       |
+| Include in `access`                               | Include in `description` |
+| ------------------------------------------------- | ------------------------ |
+| Roads, exits and kilometre points                 | Beach atmosphere         |
+| Paths, tracks and walks from a named start point  | Natural beauty           |
+| Boat-only or on-foot-only access                  | Facilities summary       |
+| Parking details beyond yes/no (where, how)        | Tourist recommendations  |
+| Seasonal restrictions (Calblanque summer access)  | Nearby attractions       |
+
+### Access Field Guidelines
+
+`access` is hand-edited Spanish copy, rebuilt in 2026 from the official texts in the first data import (commit `1c65381`).
+
+- Use the official text as the only source of facts. Add a claim only when a structured field supports it (coordinates, municipality, services). Don't add bus lines, walking times or path conditions that no source states
+- Don't repeat what the page already shows: difficulty (practical-info card), parking and ramps as yes/no (services grid), the map link
+- Format: a short intro paragraph with the key route in `**bold**`, then an optional `- **Label:** …` list (`A pie`, `En barco`, `Aparcamiento`, `Por la AP-7`…), then an optional `**Consejo:**` paragraph for warnings. Links only to official https sites
+- Use `AP-7` for the motorway, even where the official text says `A-37` or `A-7`
+- When the official text contradicts the coordinates (Los Nietos, Cala del Reventón), follow the coordinates and drop the contradicting claim
 
 ## Instagram Hashtags
 

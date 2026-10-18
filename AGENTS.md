@@ -161,7 +161,7 @@ Retained scripts must be documented in `docs/development.md` with purpose, when 
 
 ## Data editing
 
-- Do not hand-edit generated fields (e.g. `description`, `access` where generated); use the appropriate script.
+- Do not hand-edit generated fields; use the appropriate script. `description` and `access` are hand-edited copy (guidelines in `docs/business-rules.md`).
 - Validation rules: [docs/data-schema.md](./docs/data-schema.md).
 
 ## Pre-completion checklist
