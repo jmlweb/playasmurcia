@@ -55,6 +55,7 @@ playasmurcia/
 │   ├── lib/
 │   │   ├── db-data.ts      # Async loaders (primary)
 │   │   ├── edge-cache.ts
+│   │   ├── html-cache.ts        # Rendered-HTML edge cache keyed by deploy version
 │   │   ├── aemet.ts
 │   │   ├── open-meteo.ts   # Coordinate-based weather
 │   │   ├── beach-status-112.ts  # 112 COPLA live flag/sea state
@@ -147,7 +148,17 @@ data/*.json ──→ scripts/migrate-to-database.ts ──→ Turso (libSQL)
 
 External APIs (AEMET, Open-Meteo, 112 COPLA) ──→ src/lib/edge-cache.ts ──→ loaders
   (Cloudflare Cache API in production, in-memory fallback in local dev)
+
+GET document ──→ src/server.ts ──→ src/lib/html-cache.ts ──→ SSR only on a miss
+  (Cache API, key = deploy version + path + query, edge TTL 1 h, browsers `no-cache`;
+   server-function calls, redirects, 404s and non-HTML responses are never cached)
 ```
+
+Rendered HTML is static per URL: weather, flags and 112 status load client-side
+through server functions after hydration. The cache key includes the Worker
+version id (`CF_VERSION_METADATA` binding), so a deploy invalidates every entry
+without a purge; data edits become visible after the next deploy or after the
+1-hour edge TTL. Local dev (`import.meta.env.DEV`) never caches HTML.
 
 ### Database (Turso / libSQL)
 
