@@ -108,10 +108,10 @@ Official certifications are assigned based on annual awards:
 | `q-quality`   | ICTE (calidadturisticahoy.es) | Annual           |
 | `ecoplayas`   | ATEGRUS                       | Annual           |
 
-**2025 Murcia counts:**
+**Murcia counts:**
 
-- Blue Flag: 29 beaches
-- Q de Calidad: 37 beaches
+- Blue Flag (2026): 35 beaches — 33 awards; the joint awards "Banco del Tabal-Calnegre" and "Bahía-La Reya" each cover two beaches in the dataset
+- Q de Calidad (2024 list, not re-verified for 2026): 37 beaches
 - Ecoplayas: 3 beaches (Mazarrón only)
 
 To check Blue Flag status: `beach.certifications?.includes('blue-flag')`

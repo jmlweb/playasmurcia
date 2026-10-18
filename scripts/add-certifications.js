@@ -2,11 +2,12 @@ import { readFileSync, writeFileSync } from 'node:fs'
 
 const BEACHES_PATH = './data/beaches.json'
 
-// Blue Flag beaches 2025
-// Source: https://www.banderaazul.org + https://www.banderaazulplayas.com/banderas-azules-murcia/
-// Total: 29 beaches in Murcia
+// Blue Flag beaches 2026
+// Source: https://www.carm.es/web/pagina?IDCONTENIDO=124952&IDTIPO=10&RASTRO=c176%24s3%24m
+// Total: 33 flags in Murcia. Joint awards ("Banco del Tabal-Calnegre",
+// "Bahía-La Reya") cover two beaches each in this dataset.
 const BLUE_FLAG_CODES = [
-  // Águilas (7)
+  // Águilas (10). CARM names 9 but counts 10; Las Delicias kept from 2025.
   '679', // Playa de Calarreona
   '613', // Playa de La Casica Verde
   '612', // Playa de La Colonia
@@ -14,8 +15,12 @@ const BLUE_FLAG_CODES = [
   '693', // Playa de Levante (Águilas)
   '598', // Playa del Matalentisco
   '596', // Playa de Poniente (Águilas)
+  '614', // Playa de El Hornillo (new 2026)
+  '589', // Playa La Carolina (new 2026)
+  '625', // Playa de la Higuerica (new 2026)
 
-  // Cartagena (8)
+  // Cartagena (9)
+  '582', // Playa de la Azohía - El Cuartel (new 2026)
   '512', // Cala Cortina
   '606', // Playa El Portús
   '580', // Playa de La Chapineta
@@ -29,7 +34,8 @@ const BLUE_FLAG_CODES = [
   '663', // Cala de Calnegre
 
   // Mazarrón (6)
-  '662', // Playa de Bahía
+  '662', // Playa de Bahía (Bahía-La Reya)
+  '648', // Playa de La Reya (Bahía-La Reya)
   '651', // Playa de El Alamillo
   '654', // Playa de El Mojón
   '675', // Playa de El Castellar (Grande-Castellar)
@@ -47,7 +53,8 @@ const BLUE_FLAG_CODES = [
   '546', // Playa de La Torre Derribada
 
   // Cartagena-San Javier (1)
-  '671', // Playa Banco del Tabal
+  '671', // Playa Banco del Tabal (Banco del Tabal-Calnegre)
+  '592', // Playa Calnegre (Banco del Tabal-Calnegre)
 ]
 
 // Q de Calidad Turística beaches 2024
