@@ -22,7 +22,7 @@ Data is aggregated from multiple official sources:
 - **Region of Murcia Open Data**: https://datosabiertos.regiondemurcia.es
 - **AEMET (Weather Agency)**: https://www.aemet.es - Beach predictions API
 - **112 Region of Murcia**: https://www.112rmurcia.es - Emergency/safety info
-- **Descriptions**: Generated with Ollama (`gemma3:4b`)
+- **Descriptions**: Hand-edited Spanish copy (Oct 2026 rewrite), grounded in the beach's own data fields. EN/FR/DE `translations` are older Gemma output, not shown on the site
 
 ## Schemas
 
@@ -48,7 +48,7 @@ interface Beach {
   activities: number[]      // Indices into activities.json
 
   // Required - Content
-  description: string       // AI-generated tourist description (2-3 sentences)
+  description: string       // Hand-edited tourist description (2-3 sentences)
   access: string            // How to reach the beach
   nearby: string[]          // Array of nearby beach codes
   orientation: string       // Cardinal direction (east, southeast, etc.)
@@ -250,7 +250,7 @@ beaches ──< beach_tags >── tags
 
 ## Editing Guidelines
 
-1. **Never manually edit generated fields** (`description`, `access`) - re-run scripts instead
+1. **Never manually edit generated fields** (`access`) - re-run scripts instead. `description` is hand-edited copy: edit it directly, following the guidelines in `docs/business-rules.md`
 2. **Preserve JSON formatting** - 2 spaces indentation, no trailing commas
 3. **Keep arrays sorted** by `code` field when adding new beaches
 4. **Update `nearby` arrays** when adding/removing beaches
