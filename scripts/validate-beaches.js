@@ -11,6 +11,18 @@ const warnings = []
 
 const allCodes = new Set(beaches.map((b) => b.code))
 
+// Each INE code belongs to one municipality; a repeat means a place was added as one (e.g. La Manga)
+const seenIneCodes = new Map()
+municipalities.forEach((municipality) => {
+  const previous = seenIneCodes.get(municipality.id)
+  if (previous) {
+    errors.push(
+      `Municipality '${municipality.name}': INE code ${municipality.id} already used by '${previous}'`,
+    )
+  }
+  seenIneCodes.set(municipality.id, municipality.name)
+})
+
 const requiredFields = [
   'code',
   'name',
