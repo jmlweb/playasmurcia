@@ -175,6 +175,12 @@ under its own key variant (`/markdown/<version>/…`), and every HTML or markdow
 document carries `Vary: Accept`. Markdown responses also send the
 `Content-Signal` header that `public/robots.txt` declares.
 
+HTML responses advertise the markdown copy with an RFC 8288 `Link` header
+(`<path>; rel="alternate"; type="text/markdown"`), added outside the HTML cache
+so markdown responses never carry it. The homepage also links
+`</sitemap.xml>; rel="sitemap"`. There is no `api-catalog`, `service-desc` or
+`service-doc` link because the site has no public API.
+
 ### Database (Turso / libSQL)
 
 Runtime reads use a network-accessible libSQL URL (`TURSO_DATABASE_URL` / `DATABASE_URL` and `TURSO_AUTH_TOKEN`). See [development.md](./development.md) for local vs production env (including `turso dev` for offline-friendly HTTP).

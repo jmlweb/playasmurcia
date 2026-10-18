@@ -6,6 +6,7 @@ import {
   prefersMarkdown,
   toMarkdownResponse,
   withAcceptVary,
+  withDiscoveryLinks,
 } from '@/lib/markdown-negotiation'
 
 type ElementHandler = {
@@ -142,5 +143,45 @@ describe('toMarkdownResponse', () => {
     expect(response.headers.get('vary')).toBe('Accept')
     expect(response.headers.get('x-frame-options')).toBe('SAMEORIGIN')
     expect(await response.text()).toContain('# Cala')
+  })
+})
+
+describe('withDiscoveryLinks', () => {
+  const html = () =>
+    new Response('<p>hola</p>', {
+      headers: { 'Content-Type': 'text/html; charset=utf-8' },
+    })
+
+  it('links the homepage to its markdown copy and the sitemap', () => {
+    const link = withDiscoveryLinks(
+      html(),
+      'https://www.playasmurcia.com/',
+    ).headers.get('Link')
+
+    expect(link).toContain('</>; rel="alternate"; type="text/markdown"')
+    expect(link).toContain(
+      '</sitemap.xml>; rel="sitemap"; type="application/xml"',
+    )
+  })
+
+  it('links other pages only to their markdown copy', () => {
+    const link = withDiscoveryLinks(
+      html(),
+      'https://www.playasmurcia.com/playas/la-manga?x=1',
+    ).headers.get('Link')
+
+    expect(link).toBe(
+      '</playas/la-manga>; rel="alternate"; type="text/markdown"',
+    )
+  })
+
+  it('leaves non-HTML responses untouched', () => {
+    const response = new Response('{}', {
+      headers: { 'Content-Type': 'application/json' },
+    })
+
+    expect(withDiscoveryLinks(response, 'https://www.playasmurcia.com/')).toBe(
+      response,
+    )
   })
 })

@@ -12,6 +12,7 @@ import {
   prefersMarkdown,
   toMarkdownResponse,
   withAcceptVary,
+  withDiscoveryLinks,
 } from '@/lib/markdown-negotiation'
 import { withSecurityHeaders } from '@/lib/security-headers'
 
@@ -75,7 +76,9 @@ export default {
       cached(htmlRequest, 'html', async () =>
         startEntry.fetch(htmlRequest, env as never),
       )
-    if (!isMarkdownRequest) return renderHtml()
+    if (!isMarkdownRequest) {
+      return withDiscoveryLinks(await renderHtml(), request.url)
+    }
     return cached(request, 'markdown', async () =>
       toMarkdownResponse(await renderHtml(), request.url),
     )

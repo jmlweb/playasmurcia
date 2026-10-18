@@ -56,6 +56,30 @@ export function withAcceptVary(response: Response): Response {
   })
 }
 
+/**
+ * Advertises the markdown copy of each HTML page (RFC 8288 Link header) so
+ * agents can discover it without guessing the Accept negotiation; the
+ * homepage also points to the sitemap.
+ */
+export function withDiscoveryLinks(
+  response: Response,
+  requestUrl: string,
+): Response {
+  if (!isHtmlResponse(response)) return response
+  const { pathname } = new URL(requestUrl)
+  const links = [`<${pathname}>; rel="alternate"; type="${MARKDOWN_TYPE}"`]
+  if (pathname === '/') {
+    links.push('</sitemap.xml>; rel="sitemap"; type="application/xml"')
+  }
+  const headers = new Headers(response.headers)
+  headers.append('Link', links.join(', '))
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  })
+}
+
 // Minimal HTMLRewriter surface: the project does not ship workers-types
 type RewriterElement = {
   tagName: string
