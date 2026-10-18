@@ -61,6 +61,12 @@ export const Route = createRootRoute({
         name: 'robots',
         content: 'noai, noimageai',
       },
+      {
+        // WebMCP origin trial (Chrome); expires 2027-03-30, renew and redeploy
+        httpEquiv: 'origin-trial',
+        content:
+          'Ah+uXt19cVme+dvxlf9fDIlXuojvi2TUt7pCxopNgBJr3+0jhIuiGCcoqpsvzCclmr7W1ObnGAXj+m0J0xM0WQ8AAABUeyJvcmlnaW4iOiJodHRwczovL3d3dy5wbGF5YXNtdXJjaWEuY29tOjQ0MyIsImZlYXR1cmUiOiJXZWJNQ1AiLCJleHBpcnkiOjE4MDYzNjQ4MDB9',
+      },
       { property: 'og:site_name', content: 'Playas de Murcia' },
       { property: 'og:type', content: 'website' },
       { property: 'og:image', content: pictureUrl('hero.png') },
