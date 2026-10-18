@@ -83,6 +83,12 @@ export type OpenMeteoForecast = {
 
 export type MarineWeather = {
   currentTemp: number
+  // Optional: entries cached before waves were added lack them
+  waveHeight?: number
+  waveDirection?: string
+  wavePeriod?: number
+  windWaveHeight?: number
+  swellWaveHeight?: number
 }
 
 export type CardWeather = {
@@ -335,14 +341,51 @@ export async function fetchBatchCardWeather(
 }
 
 // ---------------------------------------------------------------------------
-// Marine weather (sea water temperature)
+// Marine weather (sea water temperature and waves)
 // ---------------------------------------------------------------------------
 
 const MARINE_BASE_URL = 'https://marine-api.open-meteo.com/v1/marine'
 const MARINE_CACHE_NS = 'open-meteo-marine'
 
 type MarineResponse = {
-  current?: { sea_surface_temperature: number }
+  current?: {
+    sea_surface_temperature: number
+    wave_height?: number | null
+    wave_direction?: number | null
+    wave_period?: number | null
+    wind_wave_height?: number | null
+    swell_wave_height?: number | null
+  }
+}
+
+function roundMetres(value: number | null | undefined): number | undefined {
+  if (value == null || !Number.isFinite(value)) return undefined
+  return Math.round(value * 10) / 10
+}
+
+function mapMarineCurrent(
+  current: NonNullable<MarineResponse['current']>,
+): MarineWeather {
+  const waveHeight = roundMetres(current.wave_height)
+  const windWaveHeight = roundMetres(current.wind_wave_height)
+  const swellWaveHeight = roundMetres(current.swell_wave_height)
+  const wavePeriod =
+    current.wave_period != null && Number.isFinite(current.wave_period)
+      ? Math.round(current.wave_period)
+      : undefined
+  const waveDirection =
+    current.wave_direction != null && Number.isFinite(current.wave_direction)
+      ? degreesToDirection(current.wave_direction)
+      : undefined
+
+  return {
+    currentTemp: Math.round(current.sea_surface_temperature),
+    ...(waveHeight !== undefined && { waveHeight }),
+    ...(waveDirection !== undefined && { waveDirection }),
+    ...(wavePeriod !== undefined && { wavePeriod }),
+    ...(windWaveHeight !== undefined && { windWaveHeight }),
+    ...(swellWaveHeight !== undefined && { swellWaveHeight }),
+  }
 }
 
 export async function fetchMarineWeather(
@@ -363,7 +406,8 @@ export async function fetchMarineWeather(
     const params = new URLSearchParams({
       latitude: String(lat),
       longitude: String(lng),
-      current: 'sea_surface_temperature',
+      current:
+        'sea_surface_temperature,wave_height,wave_direction,wave_period,wind_wave_height,swell_wave_height',
       timezone: 'Europe/Madrid',
       forecast_days: '1',
     })
@@ -380,9 +424,7 @@ export async function fetchMarineWeather(
       return null
     }
 
-    const result: MarineWeather = {
-      currentTemp: Math.round(data.current.sea_surface_temperature),
-    }
+    const result = mapMarineCurrent(data.current)
 
     await edgeCacheSet(MARINE_CACHE_NS, cacheKey, result, CACHE_TTL_SECONDS)
     return result

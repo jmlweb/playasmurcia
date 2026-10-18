@@ -57,6 +57,13 @@ So weather is **not** limited to beaches with `aemetId`; those codes only gate t
 - Listings never wait for weather or flags: the client loads both after mount (`useCardWeather`, `useCardFlags`) and cards render without them until they arrive
 - Card flags come from one cached 112 COPLA fetch; stale entries (older than 2 days) and "SIN BANDERA" are not shown
 
+### Waves (oleaje)
+
+- The Open-Meteo Marine call used for sea temperature also requests `wave_height`, `wave_direction`, `wave_period`, `wind_wave_height` and `swell_wave_height` (current values, same 1 h edge cache). Wave fields are optional on the cached entry so entries written before they were added still render
+- The detail weather widget shows an "Oleaje" row with the significant wave height (one decimal, metres), the wave direction and a level from `src/lib/wave-level.ts`: `bajo` below 0.5 m, `moderado` from 0.5 m to 1.25 m, `alto` from 1.25 m (Douglas sea scale boundaries)
+- When the beach has `aemetId`, the AEMET `oleaje` description for the day (`getDayWaves`, full-day period first, then morning) replaces the computed level; the Marine height is still shown
+- The Marine model is a ~5 km grid and describes open water, not a sheltered cove; shore exposure is a separate task (TSK-116)
+
 ## Explorer Filters and Sorting
 
 - Need filters (`dogFriendly`, `lifeguard`, `childSafe`, `naturalShade`, `nudist`) are boolean and live in the URL as `true`; a beach with the field missing never matches an active filter

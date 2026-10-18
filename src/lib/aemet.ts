@@ -156,3 +156,15 @@ export function getDayWind(viento: AemetWindPeriod[]): AemetWindPeriod | null {
     viento[0]
   )
 }
+
+/**
+ * Returns the dominant wave period for the day (full-day or morning fallback).
+ */
+export function getDayWaves(oleaje: AemetWavePeriod[]): AemetWavePeriod | null {
+  if (oleaje.length === 0) return null
+  return (
+    oleaje.find((p) => p.periodo === '00-24') ??
+    oleaje.find((p) => p.periodo === '00-12') ??
+    oleaje[0]
+  )
+}

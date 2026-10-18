@@ -2,7 +2,12 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import type { AemetSkyPeriod, AemetWindPeriod } from './aemet'
 
-import { fetchAemetForecast, getDaySkyDescription, getDayWind } from './aemet'
+import {
+  fetchAemetForecast,
+  getDaySkyDescription,
+  getDayWaves,
+  getDayWind,
+} from './aemet'
 
 // ---------------------------------------------------------------------------
 // getDaySkyDescription
@@ -35,6 +40,29 @@ describe('getDaySkyDescription', () => {
       { periodo: '12-24', descripcion: 'Cubierto', value: '16' },
     ]
     expect(getDaySkyDescription(periods)?.descripcion).toBe('Cubierto')
+  })
+})
+
+// ---------------------------------------------------------------------------
+// getDayWaves
+// ---------------------------------------------------------------------------
+
+describe('getDayWaves', () => {
+  it('returns null for an empty array', () => {
+    expect(getDayWaves([])).toBeNull()
+  })
+
+  it('prefers the full-day period over the morning one', () => {
+    const periods = [
+      { periodo: '00-12', descripcion: 'Débil', value: '1' },
+      { periodo: '00-24', descripcion: 'Moderado', value: '2' },
+    ]
+    expect(getDayWaves(periods)?.descripcion).toBe('Moderado')
+  })
+
+  it('falls back to the first period when no full-day or morning period exists', () => {
+    const periods = [{ periodo: '12-24', descripcion: 'Fuerte', value: '3' }]
+    expect(getDayWaves(periods)?.descripcion).toBe('Fuerte')
   })
 })
 

@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import { fetchBatchCardWeather } from './open-meteo'
+import { fetchBatchCardWeather, fetchMarineWeather } from './open-meteo'
 
 const beaches = [
   { code: 'TEST_TIMEOUT_A', coordinates: [37.6, -0.8] as [number, number] },
@@ -115,5 +115,69 @@ describe('fetchBatchCardWeather', () => {
       windDirection: 'E',
     })
     expect(result.get('TEST_WIND_B')?.windDirection).toBe('S')
+  })
+})
+
+describe('fetchMarineWeather', () => {
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
+
+  it('requests wave fields alongside the sea temperature', async () => {
+    global.fetch = vi.fn().mockResolvedValue({ ok: false })
+
+    await fetchMarineWeather(37.41, -1.51)
+
+    const [requestUrl] = (global.fetch as ReturnType<typeof vi.fn>).mock
+      .calls[0] as [string]
+    const url = new URL(requestUrl)
+    expect(url.searchParams.get('current')).toBe(
+      'sea_surface_temperature,wave_height,wave_direction,wave_period,wind_wave_height,swell_wave_height',
+    )
+  })
+
+  it('maps wave height, direction and period from the response', async () => {
+    global.fetch = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        current: {
+          sea_surface_temperature: 21.6,
+          wave_height: 0.44,
+          wave_direction: 95,
+          wave_period: 4.6,
+          wind_wave_height: 0.3,
+          swell_wave_height: 0.21,
+        },
+      }),
+    })
+
+    const result = await fetchMarineWeather(37.42, -1.52)
+
+    expect(result).toEqual({
+      currentTemp: 22,
+      waveHeight: 0.4,
+      waveDirection: 'E',
+      wavePeriod: 5,
+      windWaveHeight: 0.3,
+      swellWaveHeight: 0.2,
+    })
+  })
+
+  it('omits wave fields when the model returns null for them', async () => {
+    global.fetch = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        current: {
+          sea_surface_temperature: 20.2,
+          wave_height: null,
+          wave_direction: null,
+          wave_period: null,
+        },
+      }),
+    })
+
+    const result = await fetchMarineWeather(37.43, -1.53)
+
+    expect(result).toEqual({ currentTemp: 20 })
   })
 })

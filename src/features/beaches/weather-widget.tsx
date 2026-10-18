@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import type { WeatherIconType } from '@/components/ui/icons'
 
 import { WeatherIcon } from '@/components/ui/icons'
+import { formatWaveHeight, getWaveLevel } from '@/lib/wave-level'
 
 // ---------------------------------------------------------------------------
 // Unified forecast types
@@ -19,6 +20,8 @@ type UnifiedDay = {
   windDirection: string
   uvIndex: number
   precipitationProbability?: number
+  // AEMET only: "Débil", "Moderado", "Fuerte"
+  wavesDescription?: string
 }
 
 type CurrentWeather = {
@@ -31,11 +34,17 @@ type CurrentWeather = {
   uvIndex: number
 }
 
+type Waves = {
+  height?: number
+  direction?: string
+}
+
 type UnifiedForecast = {
   source: 'aemet' | 'open-meteo'
   days: UnifiedDay[]
   current?: CurrentWeather
   waterTemp?: number
+  waves?: Waves
 }
 
 // ---------------------------------------------------------------------------
@@ -53,6 +62,7 @@ const fetchAemetWeather = createServerFn({ method: 'GET' })
     const {
       fetchAemetForecast,
       getDaySkyDescription: getSky,
+      getDayWaves: getWaves,
       getDayWind: getWind,
     } = await import('@/lib/aemet')
     const apiKey = process.env.AEMET_API_KEY ?? ''
@@ -63,6 +73,7 @@ const fetchAemetWeather = createServerFn({ method: 'GET' })
     const days: UnifiedDay[] = forecast.dias.map((d) => {
       const sky = getSky(d.estadoCielo)
       const wind = getWind(d.viento)
+      const waves = getWaves(d.oleaje)
       return {
         fecha: d.fecha,
         skyDescription: sky?.descripcion ?? '',
@@ -72,6 +83,7 @@ const fetchAemetWeather = createServerFn({ method: 'GET' })
         windSpeed: wind?.velocidad ?? 0,
         windDirection: wind?.direccion ?? '',
         uvIndex: d.indiceUV,
+        wavesDescription: waves?.descripcion ? waves.descripcion : undefined,
       }
     })
 
@@ -126,6 +138,17 @@ const fetchMarineWeatherFn = createServerFn({ method: 'GET' })
     const { fetchMarineWeather } = await import('@/lib/open-meteo')
     return fetchMarineWeather(data.latitude, data.longitude)
   })
+
+// ---------------------------------------------------------------------------
+// Marine helpers
+// ---------------------------------------------------------------------------
+
+type MarineResult = Awaited<ReturnType<typeof fetchMarineWeatherFn>>
+
+function toWaves(marine: MarineResult | null): Waves | undefined {
+  if (marine?.waveHeight == null) return undefined
+  return { height: marine.waveHeight, direction: marine.waveDirection }
+}
 
 // ---------------------------------------------------------------------------
 // Sky condition helpers
@@ -207,9 +230,10 @@ type TodayCardProps = {
   day: UnifiedDay
   current?: CurrentWeather
   waterTemp?: number
+  waves?: Waves
 }
 
-function TodayCard({ day, current, waterTemp }: TodayCardProps) {
+function TodayCard({ day, current, waterTemp, waves }: TodayCardProps) {
   const iconType = current?.skyIcon
     ? (current.skyIcon as WeatherIconType)
     : day.skyIcon
@@ -221,6 +245,11 @@ function TodayCard({ day, current, waterTemp }: TodayCardProps) {
   const uvIndex = current?.uvIndex ?? day.uvIndex
   const hasTemp = day.tMaxima !== -999
   const hasUV = uvIndex > 0
+  const waveHeight = waves?.height
+  const waveLabel =
+    day.wavesDescription ??
+    (waveHeight != null ? getWaveLevel(waveHeight) : undefined)
+  const hasWaves = waveLabel != null
 
   return (
     <div>
@@ -259,7 +288,7 @@ function TodayCard({ day, current, waterTemp }: TodayCardProps) {
         </div>
       </div>
 
-      {/* Detail row: min/max (when current shown), wind, water temp, UV */}
+      {/* Detail row: min/max (when current shown), wind, water temp, waves, UV */}
       <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1.5 border-t border-gray-100 pt-3">
         {current && hasTemp && (
           <span className="text-sm text-gray-500">
@@ -302,6 +331,33 @@ function TodayCard({ day, current, waterTemp }: TodayCardProps) {
               />
             </svg>
             Agua {waterTemp}°
+          </span>
+        )}
+        {hasWaves && (
+          <span className="flex items-center gap-1.5 text-sm text-gray-500">
+            <svg
+              aria-hidden="true"
+              className="h-4 w-4 flex-shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M2 14c3-5 6-5 9 0s6 5 9 0M2 19c3-5 6-5 9 0s6 5 9 0"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.5"
+              />
+            </svg>
+            <span>
+              Oleaje
+              {waveHeight != null && ` ${formatWaveHeight(waveHeight)} m`}
+              {waves?.direction && ` ${formatWindDirection(waves.direction)}`}
+              {' · '}
+              <span className="inline-block first-letter:uppercase">
+                {waveLabel}
+              </span>
+            </span>
           </span>
         )}
         {hasUV && (
@@ -422,11 +478,18 @@ export function WeatherWidget({ aemetId, coordinates }: WeatherWidgetProps) {
           // AEMET beach forecasts are seasonal and the key may be missing; fall
           // back to Open-Meteo rather than showing an empty widget.
           if (!aemet)
-            return om ? { ...om, waterTemp: marine?.currentTemp } : null
+            return om
+              ? {
+                  ...om,
+                  waterTemp: marine?.currentTemp,
+                  waves: toWaves(marine),
+                }
+              : null
           return {
             ...aemet,
             current: om?.current,
             waterTemp: marine?.currentTemp,
+            waves: toWaves(marine),
           }
         })
       : Promise.all([
@@ -437,6 +500,7 @@ export function WeatherWidget({ aemetId, coordinates }: WeatherWidgetProps) {
           return {
             ...om,
             waterTemp: marine?.currentTemp,
+            waves: toWaves(marine),
           }
         })
 
@@ -499,6 +563,7 @@ export function WeatherWidget({ aemetId, coordinates }: WeatherWidgetProps) {
         current={forecast.current}
         day={today}
         waterTemp={forecast.waterTemp}
+        waves={forecast.waves}
       />
 
       {nextDays.length > 0 && (

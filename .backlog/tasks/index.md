@@ -4,19 +4,20 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 0 |
-| Active | 0 |
+| Pending | 1 |
+| Active | 1 |
 | Blocked | 0 |
 | Complete | 111 |
 
 ## Active Tasks
 
-_No active tasks._
+- TSK-115: Wave Forecast (Oleaje) on Beach Detail Page (P3)
 
 ## Pending Tasks
 
 | ID | Title | Priority | Tags | Created |
 |----|-------|----------|------|---------|
+| TSK-116 | Shore Bearing per Beach and Wave Exposure Label | P4 | data, weather, beach-detail | 2026-10-18 |
 
 ## Recently Completed
 
