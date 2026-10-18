@@ -127,6 +127,8 @@ NODE_ENV=production pnpm tsx --env-file=.env scripts/migrate-to-database.ts
 
 Both parts are required. Without `NODE_ENV=production` the script writes to `DATABASE_URL` or `file:./local.db`, never to Turso, and tsx does not load `.env` on its own (`URL_INVALID: The URL 'undefined'`). The script clears and reinserts every table without a transaction, so the live site may briefly show partial data.
 
+CI never runs this migration against Turso: a push to `main` deploys code only, and the migration step in `ci.yml` seeds a throwaway local DB for tests. Migrate **before** pushing, since the CI build generates `sitemap.xml` from the production DB.
+
 ## Workflow
 
 ### Task Management

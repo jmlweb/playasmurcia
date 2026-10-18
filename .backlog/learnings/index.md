@@ -13,3 +13,4 @@
 | LRN-007 | Per-isolate cache is ephemeral | infrastructure-deploy | active | 2026-10-17 |
 | LRN-008 | `.env` vs `.dev.vars` | infrastructure-deploy | active | 2026-10-17 |
 | LRN-009 | Diagnose before changing code | general | active | 2026-10-17 |
+| LRN-010 | La Manga is a place, not a municipality | database-data, geocoding, deployment | active | 2026-10-18 |

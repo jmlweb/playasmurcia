@@ -31,7 +31,7 @@ Project documentation is in `docs/`:
 
 - **Branch**: `main` — every push deploys to production (www.playasmurcia.com) through `.github/workflows/ci.yml`
 - **Package manager**: **pnpm** only — see [docs/development.md](./docs/development.md) for setup.
-- **Data access**: Route loaders use async queries via `src/lib/db-data.ts` against Turso (libSQL). There is **no** runtime JSON loader in `src/lib/`; `data/*.json` is the **editorial source** — edit JSON, then migrate (see `docs/architecture.md` and `docs/development.md`).
+- **Data access**: Route loaders use async queries via `src/lib/db-data.ts` against Turso (libSQL). There is **no** runtime JSON loader in `src/lib/`; `data/*.json` is the **editorial source** — edit JSON, then migrate (see `docs/architecture.md` and `docs/development.md`). CI does **not** migrate Turso; run the production migration by hand before pushing.
 - **Local DB**: `local.db` is created locally (not committed); use Drizzle push + migration script as documented.
 - **Next steps**: [.backlog/tasks/index.md](./.backlog/tasks/index.md) for the backlog; [.backlog/reports/complete/RPT-013-product-parity-and-feature-status.md](./.backlog/reports/complete/RPT-013-product-parity-and-feature-status.md) for product parity vs `main`.
 
