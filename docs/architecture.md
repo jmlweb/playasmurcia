@@ -56,6 +56,8 @@ playasmurcia/
 │   │   ├── db-data.ts      # Async loaders (primary)
 │   │   ├── edge-cache.ts
 │   │   ├── html-cache.ts        # Rendered-HTML edge cache keyed by deploy version
+│   │   ├── markdown-negotiation.ts  # `Accept: text/markdown` negotiation (HTMLRewriter glue)
+│   │   ├── html-to-markdown.ts  # Event-driven `<main>` HTML → markdown converter
 │   │   ├── aemet.ts
 │   │   ├── open-meteo.ts   # Coordinate-based weather
 │   │   ├── beach-status-112.ts  # 112 COPLA live flag/sea state
@@ -159,6 +161,19 @@ through server functions after hydration. The cache key includes the Worker
 version id (`CF_VERSION_METADATA` binding), so a deploy invalidates every entry
 without a purge; data edits become visible after the next deploy or after the
 1-hour edge TTL. Local dev (`import.meta.env.DEV`) never caches HTML.
+
+#### Markdown for agents
+
+Requests whose `Accept` header prefers `text/markdown` over `text/html` get the
+same page as markdown (the Free zone plan has no Cloudflare Markdown for
+Agents). `src/server.ts` renders the page as HTML (through the HTML cache),
+streams it through `HTMLRewriter`, and `src/lib/html-to-markdown.ts` converts
+the `<main>` element: headings, paragraphs, lists, links and images become
+markdown, with the title and meta description as front matter. Navigation,
+buttons, SVG and `aria-hidden` content are dropped. The markdown is cached
+under its own key variant (`/markdown/<version>/…`), and every HTML or markdown
+document carries `Vary: Accept`. Markdown responses also send the
+`Content-Signal` header that `public/robots.txt` declares.
 
 ### Database (Turso / libSQL)
 

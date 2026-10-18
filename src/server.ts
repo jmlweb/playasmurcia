@@ -4,7 +4,15 @@ import {
   defaultStreamHandler,
 } from '@tanstack/react-start/server'
 
-import { withHtmlCache } from '@/lib/html-cache'
+import type { CacheVariant } from '@/lib/html-cache'
+
+import { isCacheableRequest, withHtmlCache } from '@/lib/html-cache'
+import {
+  asHtmlRequest,
+  prefersMarkdown,
+  toMarkdownResponse,
+  withAcceptVary,
+} from '@/lib/markdown-negotiation'
 import { withSecurityHeaders } from '@/lib/security-headers'
 
 // Minimal Cloudflare Worker types: the project does not ship workers-types
@@ -19,7 +27,10 @@ const handler = createStartHandler(defaultStreamHandler)
 
 const startEntry = createServerEntry({
   fetch: async (request, options) =>
-    withSecurityHeaders(await handler(request, options), request.url),
+    withSecurityHeaders(
+      withAcceptVary(await handler(request, options)),
+      request.url,
+    ),
 })
 
 // Local dev runs in workerd too (Cache API available), but caching HTML there
@@ -32,19 +43,41 @@ const isHtmlCacheEnabled = (): boolean =>
 // Default export is required by the Start server-entry contract.
 // oxlint-disable-next-line import/no-default-export
 export default {
-  fetch: (request: Request, env: WorkerEnv, ctx: WorkerContext) => {
-    const render = async () => startEntry.fetch(request, env as never)
-    if (!isHtmlCacheEnabled()) return render()
-    return withHtmlCache(
-      request,
-      {
-        versionId: env.CF_VERSION_METADATA?.id ?? 'unversioned',
-        waitUntil: (promise) => {
-          ctx.waitUntil(promise)
+  fetch: async (request: Request, env: WorkerEnv, ctx: WorkerContext) => {
+    // Agents sending `Accept: text/markdown` get the same page as markdown;
+    // it is converted from the (cached) HTML render and cached separately
+    const isMarkdownRequest =
+      isCacheableRequest(request) &&
+      prefersMarkdown(request.headers.get('accept'))
+    const htmlRequest = isMarkdownRequest ? asHtmlRequest(request) : request
+
+    const cached = async (
+      cacheRequest: Request,
+      variant: CacheVariant,
+      render: () => Promise<Response>,
+    ) => {
+      if (!isHtmlCacheEnabled()) return render()
+      return withHtmlCache(
+        cacheRequest,
+        {
+          versionId: env.CF_VERSION_METADATA?.id ?? 'unversioned',
+          waitUntil: (promise) => {
+            ctx.waitUntil(promise)
+          },
+          cache: caches.default,
+          variant,
         },
-        cache: caches.default,
-      },
-      render,
+        render,
+      )
+    }
+
+    const renderHtml = async () =>
+      cached(htmlRequest, 'html', async () =>
+        startEntry.fetch(htmlRequest, env as never),
+      )
+    if (!isMarkdownRequest) return renderHtml()
+    return cached(request, 'markdown', async () =>
+      toMarkdownResponse(await renderHtml(), request.url),
     )
   },
 }

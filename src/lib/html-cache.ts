@@ -8,7 +8,11 @@ export type HtmlCacheOptions = {
   versionId: string
   waitUntil: (promise: Promise<unknown>) => void
   cache: Cache
+  /** Separates representations of one URL, e.g. HTML and markdown. */
+  variant?: CacheVariant
 }
+
+export type CacheVariant = 'html' | 'markdown'
 
 export function isCacheableRequest(request: Request): boolean {
   if (request.method !== 'GET') return false
@@ -18,14 +22,18 @@ export function isCacheableRequest(request: Request): boolean {
 export function isCacheableResponse(response: Response): boolean {
   return (
     response.status === 200 &&
-    (response.headers.get('content-type') ?? '').includes('text/html')
+    /text\/(html|markdown)/.test(response.headers.get('content-type') ?? '')
   )
 }
 
-export function htmlCacheKey(request: Request, versionId: string): Request {
+export function htmlCacheKey(
+  request: Request,
+  versionId: string,
+  variant: CacheVariant = 'html',
+): Request {
   const { pathname, search } = new URL(request.url)
   return new Request(
-    `${CACHE_ORIGIN}/html/${encodeURIComponent(versionId)}${pathname}${search}`,
+    `${CACHE_ORIGIN}/${variant}/${encodeURIComponent(versionId)}${pathname}${search}`,
   )
 }
 
@@ -63,7 +71,7 @@ export async function withHtmlCache(
 ): Promise<Response> {
   if (!isCacheableRequest(request)) return render()
 
-  const key = htmlCacheKey(request, options.versionId)
+  const key = htmlCacheKey(request, options.versionId, options.variant)
   const hit = await options.cache.match(key)
   if (hit) return withClientCacheControl(hit)
 
