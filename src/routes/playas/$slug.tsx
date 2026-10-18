@@ -10,7 +10,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Breadcrumb } from '@/components/layout/breadcrumb'
 import { ResponsiveImage } from '@/components/ui/responsive-image'
 import { ActivitiesGrid } from '@/features/beaches/activities-grid'
-import { BeachDescription } from '@/features/beaches/beach-description'
+import { BeachRichText } from '@/features/beaches/beach-rich-text'
 import { BeachStatusWidget } from '@/features/beaches/beach-status-widget'
 import { CertificationsBadge } from '@/features/beaches/certifications-badge'
 import { ContactInfo } from '@/features/beaches/contact-info'
@@ -210,7 +210,7 @@ function BeachPage() {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           {/* Description — order 1 on mobile, col-span-2 row 1 on desktop */}
           <section className="order-1 rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm lg:col-span-2 lg:row-start-1">
-            <BeachDescription text={beach.description} />
+            <BeachRichText text={beach.description} />
             {beach.certifications && beach.certifications.length > 0 && (
               <div className="mt-5 border-t border-gray-100 pt-5">
                 <CertificationsBadge certifications={beach.certifications} />
@@ -272,7 +272,7 @@ function BeachPage() {
                 <h2 className="mb-3 text-xl font-semibold text-gray-900">
                   Cómo llegar
                 </h2>
-                <p className="leading-relaxed text-gray-600">{beach.access}</p>
+                <BeachRichText text={beach.access} variant="body" />
               </section>
             )}
 

@@ -41,7 +41,9 @@ describe('parseDescription', () => {
 
   it('ignores extra blank lines and joins single line breaks', () => {
     const blocks = parseDescription('Uno\ndos.\n\n\n\nTres.\n')
-    expect(blocks.map((b) => b.inline[0]?.text)).toEqual(['Uno dos.', 'Tres.'])
+    expect(
+      blocks.map((b) => (b.type === 'list' ? null : b.inline[0]?.text)),
+    ).toEqual(['Uno dos.', 'Tres.'])
   })
 
   it('keeps unbalanced markers as literal text', () => {
@@ -50,6 +52,58 @@ describe('parseDescription', () => {
         type: 'paragraph',
         inline: [{ text: 'Precio **especial', bold: false }],
       },
+    ])
+  })
+
+  it('parses a paragraph followed by a bullet list', () => {
+    expect(
+      parseDescription('Por la RM-12.\n\n- **A pie:** 10 min.\n- En barco.'),
+    ).toEqual([
+      { type: 'paragraph', inline: [{ text: 'Por la RM-12.', bold: false }] },
+      {
+        type: 'list',
+        items: [
+          [
+            { text: 'A pie:', bold: true },
+            { text: ' 10 min.', bold: false },
+          ],
+          [{ text: 'En barco.', bold: false }],
+        ],
+      },
+    ])
+  })
+
+  it('treats a block mixing list and plain lines as a paragraph', () => {
+    expect(parseDescription('Texto\n- no lista')[0]?.type).toBe('paragraph')
+  })
+
+  it('parses https links', () => {
+    expect(
+      parseDescription('Ver la [web](https://murcianatural.carm.es).'),
+    ).toEqual([
+      {
+        type: 'paragraph',
+        inline: [
+          { text: 'Ver la ', bold: false },
+          { text: 'web', bold: false, href: 'https://murcianatural.carm.es' },
+          { text: '.', bold: false },
+        ],
+      },
+    ])
+  })
+
+  it('renders links with unsafe schemes as plain text', () => {
+    expect(parseDescription('[clic](javascript:alert(1))')).toEqual([
+      {
+        type: 'paragraph',
+        inline: [
+          { text: 'clic', bold: false },
+          { text: ')', bold: false },
+        ],
+      },
+    ])
+    expect(parseDescription('[mapa](/playas/x)')).toEqual([
+      { type: 'paragraph', inline: [{ text: 'mapa', bold: false }] },
     ])
   })
 
@@ -65,6 +119,14 @@ describe('stripDescriptionMarkdown', () => {
         'Tiene **arena fina**.\n\n**Consejo:** trae agua.',
       ),
     ).toBe('Tiene arena fina. Consejo: trae agua.')
+  })
+
+  it('reduces lists and links to their text', () => {
+    expect(
+      stripDescriptionMarkdown(
+        'Por la RM-12.\n\n- **A pie:** 10 min.\n- Ver [web](https://a.es).',
+      ),
+    ).toBe('Por la RM-12. A pie: 10 min. Ver web.')
   })
 
   it('leaves plain text unchanged', () => {

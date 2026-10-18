@@ -1,17 +1,17 @@
 /**
  * Enrich beach data using local Gemma 4 via Ollama.
  *
- * Three passes:
- *   1. Rewrite `access` fields in practical, tourist-friendly tone (max 2 sentences)
- *   2. Audit existing `tags` and suggest missing ones
- *   3. Detect logical inconsistencies across fields
+ * Two read-only passes:
+ *   1. Audit existing `tags` and suggest missing ones
+ *   2. Detect logical inconsistencies across fields
+ *
+ * It never writes `beaches.json`: `description` and `access` are hand-edited
+ * (see docs/business-rules.md).
  *
  * Requires: ollama serve + ollama pull gemma4
  *
  * @example
- *   pnpm tsx scripts/enrich-with-gemma4.ts                 # dry-run (shows changes)
- *   pnpm tsx scripts/enrich-with-gemma4.ts --write          # apply access rewrites
- *   pnpm tsx scripts/enrich-with-gemma4.ts --only access    # only rewrite access
+ *   pnpm tsx scripts/enrich-with-gemma4.ts                 # both passes
  *   pnpm tsx scripts/enrich-with-gemma4.ts --only tags      # only audit tags
  *   pnpm tsx scripts/enrich-with-gemma4.ts --only issues    # only detect inconsistencies
  */
@@ -144,27 +144,7 @@ function beachContext(
   ].join('\n')
 }
 
-// --- Pass 1: Rewrite access ---
-
-const ACCESS_SYSTEM = `Eres un redactor de guías turísticas de la costa de Murcia.
-Tu tarea: reescribir la descripción de acceso a una playa en tono práctico y directo para turistas.
-
-Reglas:
-- Máximo 3 frases
-- CONSERVA todos los datos técnicos: nombres de carreteras (RM-332, A-37, MU-312…), puntos kilométricos, localidades de referencia, nombres de senderos y tipo de terreno
-- Incluye cómo llegar (coche, a pie, sendero) y si hay parking
-- Si el acceso es difícil, menciónalo con el detalle original (tipo de sendero, desnivel, terreno)
-- No repitas el nombre de la playa al inicio
-- No uses lenguaje burocrático ni administrativo
-- No inventes información que no esté en el texto original
-- Devuelve SOLO el texto reescrito, sin comillas ni explicaciones`
-
-async function rewriteAccess(beach: Beach): Promise<string> {
-  const user = `Texto original de acceso:\n"${beach.access}"\n\nDificultad: ${beach.accessDifficulty ?? 'no indicada'}\nServicios: ${beach.services.includes(0) ? 'tiene parking' : 'sin parking'}`
-  return ollamaChat(ACCESS_SYSTEM, user)
-}
-
-// --- Pass 2: Audit tags ---
+// --- Pass 1: Audit tags ---
 
 function buildTagAuditSystem(tags: LookupItem[]): string {
   const tagList = tags.map((t, i) => `  ${i}: ${t.name} (${t.id})`).join('\n')
@@ -309,28 +289,25 @@ function detectInconsistencies(
 
 // --- CLI ---
 
-function parseArgs(): { write: boolean; only: string | null } {
+function parseArgs(): { only: string | null } {
   const args = process.argv.slice(2)
-  let write = false
   let only: string | null = null
 
   for (let i = 0; i < args.length; i++) {
-    if (args[i] === '--write') write = true
-    else if (args[i] === '--only') only = args[++i] ?? null
+    if (args[i] === '--only') only = args[++i] ?? null
     else if (args[i] === '--help' || args[i] === '-h') {
       console.log(
-        `Usage: pnpm tsx scripts/enrich-with-gemma4.ts [--write] [--only access|tags|issues]`,
+        `Usage: pnpm tsx scripts/enrich-with-gemma4.ts [--only tags|issues]`,
       )
       process.exit(0)
     }
   }
 
-  return { write, only }
+  return { only }
 }
 
 async function main() {
-  const { write, only } = parseArgs()
-  const runAccess = !only || only === 'access'
+  const { only } = parseArgs()
   const runTags = !only || only === 'tags'
   const runIssues = !only || only === 'issues'
 
@@ -340,58 +317,12 @@ async function main() {
   const activities = loadJson<LookupItem[]>('activities.json')
   const tags = loadJson<LookupItem[]>('tags.json')
 
-  console.log(`Model: ${MODEL} | Beaches: ${beaches.length} | Write: ${write}`)
+  console.log(`Model: ${MODEL} | Beaches: ${beaches.length}`)
   console.log(
-    `Passes: ${[runAccess && 'access', runTags && 'tags', runIssues && 'issues'].filter(Boolean).join(', ')}\n`,
+    `Passes: ${[runTags && 'tags', runIssues && 'issues'].filter(Boolean).join(', ')}\n`,
   )
 
-  // --- Pass 1: Rewrite access ---
-  const accessChanges: Array<{ name: string; old: string; new: string }> = []
-
-  if (runAccess) {
-    console.log('=== Pass 1: Rewriting access ===\n')
-    for (let i = 0; i < beaches.length; i++) {
-      const beach = beaches[i]
-      process.stderr.write(`  [${i + 1}/${beaches.length}] ${beach.name}...`)
-
-      try {
-        const rewritten = await rewriteAccess(beach)
-
-        if (rewritten !== beach.access && rewritten.length > 20) {
-          accessChanges.push({
-            name: beach.name,
-            old: beach.access,
-            new: rewritten,
-          })
-          if (write) beach.access = rewritten
-          process.stderr.write(
-            ` ✓ (${beach.access.length} → ${rewritten.length} chars)\n`,
-          )
-        } else {
-          process.stderr.write(' (sin cambios)\n')
-        }
-      } catch (e) {
-        process.stderr.write(` ✗ ${(e as Error).message}\n`)
-      }
-
-      if (i < beaches.length - 1) await delay(DELAY_MS)
-    }
-
-    console.log(`\nAccess: ${accessChanges.length} cambios`)
-    if (!write && accessChanges.length > 0) {
-      console.log('\nEjemplos de cambios:\n')
-      for (const change of accessChanges.slice(0, 5)) {
-        console.log(`  ${change.name}:`)
-        console.log(`    ANTES: ${change.old}`)
-        console.log(`    DESPUÉS: ${change.new}\n`)
-      }
-      if (accessChanges.length > 5) {
-        console.log(`  ... y ${accessChanges.length - 5} más\n`)
-      }
-    }
-  }
-
-  // --- Pass 2: Audit tags ---
+  // --- Pass 1: Audit tags ---
   const tagSuggestions: Array<{
     name: string
     code: string
@@ -400,7 +331,7 @@ async function main() {
   }> = []
 
   if (runTags) {
-    console.log('\n=== Pass 2: Auditing tags ===\n')
+    console.log('\n=== Pass 1: Auditing tags ===\n')
     for (let i = 0; i < beaches.length; i++) {
       const beach = beaches[i]
       process.stderr.write(`  [${i + 1}/${beaches.length}] ${beach.name}...`)
@@ -446,9 +377,9 @@ async function main() {
     }
   }
 
-  // --- Pass 3: Detect inconsistencies ---
+  // --- Pass 2: Detect inconsistencies ---
   if (runIssues) {
-    console.log('\n=== Pass 3: Detecting inconsistencies ===\n')
+    console.log('\n=== Pass 2: Detecting inconsistencies ===\n')
     const allIssues: Issue[] = []
 
     for (const beach of beaches) {
@@ -467,16 +398,6 @@ async function main() {
   }
 
   // --- Write results ---
-  if (write && accessChanges.length > 0) {
-    const outPath = join(DATA_DIR, 'beaches.json')
-    writeFileSync(outPath, JSON.stringify(beaches, null, 2) + '\n')
-    console.log(
-      `\n✓ Escrito ${outPath} (${accessChanges.length} access reescritos)`,
-    )
-  } else if (!write && accessChanges.length > 0) {
-    console.log('\nUsa --write para aplicar los cambios de access.')
-  }
-
   if (tagSuggestions.length > 0) {
     const reportPath = join(process.cwd(), 'reports', 'tag-suggestions.json')
     writeFileSync(reportPath, JSON.stringify(tagSuggestions, null, 2) + '\n')
