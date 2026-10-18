@@ -289,7 +289,7 @@ function TodayCard({ day, current, waterTemp, waves }: TodayCardProps) {
       </div>
 
       {/* Detail row: min/max (when current shown), wind, water temp, waves, UV */}
-      <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1.5 border-t border-gray-100 pt-3">
+      <div className="mt-3 grid grid-cols-2 items-center gap-x-4 gap-y-1.5 border-t border-gray-100 pt-3">
         {current && hasTemp && (
           <span className="text-sm text-gray-500">
             Máx {day.tMaxima}° / Mín {day.tMinima}°
@@ -334,7 +334,7 @@ function TodayCard({ day, current, waterTemp, waves }: TodayCardProps) {
           </span>
         )}
         {hasWaves && (
-          <span className="flex items-center gap-1.5 text-sm text-gray-500">
+          <span className="col-span-2 flex items-center gap-1.5 text-sm text-gray-500">
             <svg
               aria-hidden="true"
               className="h-4 w-4 flex-shrink-0"
