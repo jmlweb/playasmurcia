@@ -1,69 +1,12 @@
 # https://www.robotstxt.org/robotstxt.html
 
-# Search engines — allowed
-User-agent: Googlebot
-Allow: /
+# Content Signals (https://contentsignals.org/)
+# search: building a search index and showing links/snippets in results
+# ai-input: feeding content into AI models for real-time answers (RAG, grounding)
+# ai-train: training or fine-tuning AI models
 
-User-agent: Bingbot
-Allow: /
-
-User-agent: Yandex
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-# AI crawlers — blocked
-User-agent: GPTBot
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
-User-agent: ClaudeBot
-Disallow: /
-
-User-agent: Claude-Web
-Disallow: /
-
-User-agent: Bytespider
-Disallow: /
-
-User-agent: PerplexityBot
-Disallow: /
-
-User-agent: Applebot-Extended
-Disallow: /
-
-User-agent: anthropic-ai
-Disallow: /
-
-User-agent: cohere-ai
-Disallow: /
-
-User-agent: FacebookBot
-Disallow: /
-
-User-agent: Google-Extended
-Disallow: /
-
-User-agent: Amazonbot
-Disallow: /
-
-User-agent: Diffbot
-Disallow: /
-
-User-agent: Omgilibot
-Disallow: /
-
-User-agent: YouBot
-Disallow: /
-
-# Default — allow everything else
 User-agent: *
-Disallow:
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+Allow: /
 
 Sitemap: https://www.playasmurcia.com/sitemap.xml
