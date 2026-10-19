@@ -9,6 +9,8 @@ type PageHeroProps = {
   children: ReactNode
   /** Rendered inside the hero, above the title block */
   breadcrumb?: BreadcrumbItem[]
+  /** Lighter duotone for photos that are too dark under the default one */
+  lifted?: boolean
   /** `home` is taller than the listing/detail heroes */
   size?: 'home' | 'listing'
   /** Original raster URL, e.g. `pictureUrl('hero.png')` */
@@ -26,9 +28,10 @@ type PageHeroProps = {
 const useOptimized = import.meta.env.PLAYASMURCIA_OPTIMIZED_IMAGES
 
 const photoHeroImgClass =
-  'motion-safe:animate-ken-burns absolute inset-0 h-full w-full object-cover grayscale brightness-150 contrast-110'
+  'motion-safe:animate-ken-burns absolute inset-0 h-full w-full object-cover grayscale'
 
 function HeroImage({
+  lifted,
   src,
   alt,
   optimizedName,
@@ -36,6 +39,7 @@ function HeroImage({
   imageWidth,
   imageHeight,
 }: {
+  lifted: boolean
   src: string
   alt: string
   optimizedName?: string
@@ -64,7 +68,7 @@ function HeroImage({
         />
         <img
           alt={alt}
-          className={photoHeroImgClass}
+          className={`${photoHeroImgClass} ${lifted ? 'brightness-150 contrast-110' : 'contrast-125'}`}
           fetchPriority="high"
           src={src}
           {...imgDims}
@@ -76,7 +80,7 @@ function HeroImage({
   return (
     <img
       alt={alt}
-      className={photoHeroImgClass}
+      className={`${photoHeroImgClass} ${lifted ? 'brightness-150 contrast-110' : 'contrast-125'}`}
       fetchPriority="high"
       src={src}
       {...imgDims}
@@ -87,6 +91,7 @@ function HeroImage({
 export function PageHero({
   children,
   breadcrumb,
+  lifted = false,
   size = 'listing',
   backgroundImage,
   backgroundAlt,
@@ -108,13 +113,18 @@ export function PageHero({
             alt={backgroundAlt ?? ''}
             imageHeight={imageHeight}
             imageWidth={imageWidth}
+            lifted={lifted}
             optimizedMaxWidth={optimizedMaxWidth}
             optimizedName={optimizedName}
             src={backgroundImage}
           />
           {/* Duotone: grayscale photo tinted ocean, so any photo reads as the same dark teal and white text always passes contrast. Detail is traded for legibility on purpose. */}
-          <div className="absolute inset-0 bg-ocean-300 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-linear-to-t from-ocean-950/80 via-ocean-950/30 via-50% to-transparent" />
+          <div
+            className={`absolute inset-0 mix-blend-multiply ${lifted ? 'bg-ocean-300' : 'bg-ocean-400'}`}
+          />
+          <div
+            className={`absolute inset-0 bg-linear-to-t ${lifted ? 'from-ocean-950/80 via-ocean-950/30 via-50%' : 'from-ocean-950/85 via-ocean-950/45 via-55%'} to-transparent`}
+          />
         </>
       ) : (
         <>

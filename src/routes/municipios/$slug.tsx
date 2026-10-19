@@ -126,7 +126,7 @@ export const Route = createFileRoute('/municipios/$slug')({
 })
 
 function MunicipalityPage() {
-  const { municipality, beaches, tags, blueFlagCount, heroImage } =
+  const { municipality, beaches, tags, blueFlagCount, heroImage, slug } =
     Route.useLoaderData()
   const weatherData = useCardWeather(beaches)
   const flagData = useCardFlags(beaches)
@@ -160,6 +160,7 @@ function MunicipalityPage() {
           { label: 'Municipios', href: '/municipios' },
           { label: municipality.name },
         ]}
+        lifted={slug === 'mazarron'}
       >
         <h1 className="mb-4 text-3xl font-normal tracking-tight text-white sm:text-4xl">
           Playas de {municipality.name}
