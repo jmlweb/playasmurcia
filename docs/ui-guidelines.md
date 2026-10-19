@@ -168,7 +168,7 @@ Height tiers create visual hierarchy between the homepage, beach detail and inne
 ### Photo heroes
 
 - **Full-bleed photo, no panel.** Do not place a centered glass/`backdrop-blur` box behind the hero text — it hides the photo (≈90% on mobile) and reads as a dated template pattern.
-- **Duotone treatment**: the photo is grayscale (`grayscale contrast-125`) multiplied by an `ocean-400` layer, then a bottom-weighted `ocean-950` gradient (85% → transparent over ~55%). Every photo reads as the same teal tone, so white text always passes contrast. Detail is traded for legibility on purpose.
+- **Duotone treatment**: the photo is grayscale (`grayscale brightness-150 contrast-110`, so dark photos are lifted) multiplied by an `ocean-300` layer, then a bottom-weighted `ocean-950` gradient (80% → transparent over ~50%). Every photo reads as the same teal tone, so white text always passes contrast. Detail is traded for legibility on purpose.
 - **Text block**: left-aligned to the `max-w-7xl` container, anchored bottom-left, padding 48px desktop / 24px mobile.
 - **Eyebrow**: small tracked caps must reach ≥ 4.5:1 — use `coral-300` or `white/80` over the scrim; never place small text over unscrimmed photo areas.
 - **Implementation**: `PageHero` takes `size="home"` for the immersive tier (default is the ~420px listing tier) and a `breadcrumb` prop rendered inside the hero above the eyebrow. Subtitles use `text-ocean-100`.
