@@ -54,10 +54,9 @@ export function BeachCard({
   const { baseName, ext } = parseImageFilename(
     firstPicture ?? 'default-beach.png',
   )
-  const visibleTags = (beach.tags ?? [])
-    .slice(0, 3)
-    .map((i) => tags[i])
-    .filter(Boolean)
+  const allTags = (beach.tags ?? []).map((i) => tags[i]).filter(Boolean)
+  const overlayTags = allTags.slice(0, 2)
+  const bodyTags = allTags.slice(2, 4)
   const occupancy =
     beach.occupancyLevel && seasonalOccupancy(beach.occupancyLevel)
 
@@ -67,7 +66,7 @@ export function BeachCard({
       params={{ slug }}
       to="/playas/$slug"
     >
-      <div className="relative aspect-3/2 overflow-hidden bg-gray-100">
+      <div className="relative aspect-3/2 overflow-hidden bg-ocean-900">
         {hasPicture ? (
           <ResponsiveImage
             alt={beach.name}
@@ -78,10 +77,10 @@ export function BeachCard({
             variant="thumb"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-ocean-50/60 to-sand-100/60">
+          <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-ocean-700 to-ocean-900">
             <svg
               aria-hidden="true"
-              className="h-8 w-8 text-ocean-200/60"
+              className="h-12 w-12 text-ocean-200"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -139,12 +138,12 @@ export function BeachCard({
             {FlagBadges[flag].label}
           </span>
         )}
-        {visibleTags.length > 0 && (
-          <div className="absolute right-3 bottom-3 flex flex-wrap justify-end gap-1.5">
-            {visibleTags.map((tag) => (
+        {overlayTags.length > 0 && (
+          <div className="absolute right-3 bottom-3 flex min-w-0 flex-nowrap justify-end gap-1.5">
+            {overlayTags.map((tag) => (
               <span
                 key={tag.id}
-                className="rounded-full bg-white/95 px-2.5 py-0.5 text-sm font-medium text-gray-900 shadow-sm backdrop-blur-sm"
+                className="truncate rounded-full bg-white/95 px-2.5 py-0.5 text-xs font-medium whitespace-nowrap text-gray-900 shadow-sm backdrop-blur-sm"
               >
                 {tag.name}
               </span>
@@ -156,16 +155,28 @@ export function BeachCard({
         <h3 className="mb-1 text-lg font-semibold text-gray-900 transition-colors group-hover:text-ocean-600">
           {beach.name}
         </h3>
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-gray-600">
           {municipality.name}
           {distanceKm !== undefined && ` · a ${formatDistance(distanceKm)}`}
         </p>
         {(beach.length ?? beach.soilType) && (
-          <p className="mt-1 truncate text-xs text-gray-400">
+          <p className="mt-1 truncate text-[13px] text-gray-600">
             {beach.length
               ? `${beach.length} m · ${beach.soilType}`
               : beach.soilType}
           </p>
+        )}
+        {bodyTags.length > 0 && (
+          <ul className="mt-3 flex flex-wrap gap-1.5">
+            {bodyTags.map((tag) => (
+              <li
+                key={tag.id}
+                className="rounded-full border border-gray-200 px-2 py-0.5 text-xs text-gray-700"
+              >
+                {tag.name}
+              </li>
+            ))}
+          </ul>
         )}
       </div>
     </Link>
