@@ -1,13 +1,14 @@
 ---
 id: TSK-123
 title: Fix content defects: Los Alcázares email, La Concha copy, Cala Mijo name, slug punctuation
-status: active
+status: complete
 priority: P2
 tags: [data, seo]
 created: 2026-10-18
 source: RPT-051
 depends-on: []
 started: 2026-10-19
+completed: 2026-10-19
 ---
 
 # Fix content defects: Los Alcázares email, La Concha copy, Cala Mijo name, slug punctuation
@@ -39,3 +40,5 @@ See .backlog/reports/complete/RPT-051-contentdata-issues-visible-in-ui.md for de
 
 - [2026-10-18] Created
 - [2026-10-19] Started
+- [2026-10-19] Completed with criteria unticked: user directed completion after merge; build/test/check re-run green on merged main, production migration run by user, pushed; route-level 301 untested
+- [2026-10-19] Completed

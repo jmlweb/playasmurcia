@@ -5,15 +5,13 @@
 | Status | Count |
 |--------|-------|
 | Pending | 7 |
-| Active | 3 |
+| Active | 1 |
 | Blocked | 0 |
-| Complete | 111 |
+| Complete | 113 |
 
 ## Active Tasks
 
 - TSK-115: Wave Forecast (Oleaje) on Beach Detail Page (P3)
-- TSK-117: Full-bleed photo heroes without frosted panel (P2)
-- TSK-123: Fix content defects: Los Alcázares email, La Concha copy, Cala Mijo name, slug punctuation (P2)
 
 ## Pending Tasks
 
@@ -31,6 +29,8 @@
 
 | ID | Title | Completed |
 |----|-------|-----------|
+| TSK-117 | Full-bleed photo heroes without frosted panel | 2026-10-19 |
+| TSK-123 | Fix content defects: Los Alcázares email, La Concha copy, Cala Mijo name, slug punctuation | 2026-10-19 |
 | TSK-106 | Explorer Practical Filters (Dogs, Lifeguard, Accessibility, Shade, Crowds) | 2026-10-17 |
 | TSK-107 | Explorer "Near Me" Sort and Map of All Beaches | 2026-10-17 |
 | TSK-108 | Wind and Flag on Beach Cards, "Cómo llegar" Button | 2026-10-17 |
@@ -39,5 +39,3 @@
 | TSK-111 | Fix: /explorar never responds on production | 2026-10-17 |
 | TSK-112 | Fix: /municipios returns 404 but is listed in sitemap.xml | 2026-10-17 |
 | TSK-113 | Fix: redirect plain HTTP to HTTPS | 2026-10-17 |
-| TSK-114 | Fix: add security headers to production responses | 2026-10-17 |
-| TSK-096 | Deduplicate Nav and Statistics Builders | 2026-04-04 |

@@ -1,13 +1,14 @@
 ---
 id: TSK-117
 title: Full-bleed photo heroes without frosted panel
-status: active
+status: complete
 priority: P2
 tags: [styling, frontend]
 created: 2026-10-18
 source: RPT-047
 depends-on: []
 started: 2026-10-19
+completed: 2026-10-19
 ---
 
 # Full-bleed photo heroes without frosted panel
@@ -42,3 +43,5 @@ See .backlog/reports/complete/RPT-047-ui-review-2026-10-19-cross-cutting-finding
 
 - [2026-10-18] Created
 - [2026-10-19] Started
+- [2026-10-19] Completed with criteria unticked: user directed completion after merge, build/test/check re-run green on merged main, migration run, pushed; real-photo scrim and cartagena/colecciones screenshots not verified by agent
+- [2026-10-19] Completed
