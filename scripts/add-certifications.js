@@ -58,6 +58,7 @@ const BLUE_FLAG_CODES = [
 ]
 
 // Q de Calidad Turística beaches 2024
+// Kept at 2024: no per-beach ICTE list for 2026 was published as of the Oct 2026 audit (TSK-124).
 // Source: https://www.calidadturisticahoy.es + https://www.cartagena.es
 // Total: ~40 beaches in Murcia
 const Q_QUALITY_CODES = [
