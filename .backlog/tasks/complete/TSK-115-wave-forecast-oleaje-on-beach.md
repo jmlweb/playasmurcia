@@ -1,13 +1,14 @@
 ---
 id: TSK-115
 title: Wave Forecast (Oleaje) on Beach Detail Page
-status: active
+status: complete
 priority: P3
 tags: [weather, open-meteo, aemet, beach-detail]
 created: 2026-10-18
 source: manual
 depends-on: []
 started: 2026-10-18
+completed: 2026-10-19
 ---
 
 # Wave Forecast (Oleaje) on Beach Detail Page
@@ -38,3 +39,4 @@ The Marine model is a ~5 km grid, so this gives the open-sea state. A follow-up 
 - [2026-10-18] Created
 - [2026-10-18] Started
 - [2026-10-18] Added wave fields to Marine fetch, wave-level helper, getDayWaves, Oleaje row in weather widget, docs in business-rules.md. Verified build/test/check and Playwright screenshots (Open-Meteo path). AEMET oleaje path unit-tested only (no local key).
+- [2026-10-19] Completed
