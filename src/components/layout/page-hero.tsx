@@ -26,7 +26,7 @@ type PageHeroProps = {
 const useOptimized = import.meta.env.PLAYASMURCIA_OPTIMIZED_IMAGES
 
 const photoHeroImgClass =
-  'motion-safe:animate-ken-burns absolute inset-0 h-full w-full object-cover'
+  'motion-safe:animate-ken-burns absolute inset-0 h-full w-full object-cover grayscale contrast-125'
 
 function HeroImage({
   src,
@@ -112,8 +112,9 @@ export function PageHero({
             optimizedName={optimizedName}
             src={backgroundImage}
           />
-          {/* Bottom-weighted so the photo stays visible while text contrast comes from the scrim, not a panel */}
-          <div className="absolute inset-0 bg-linear-to-t from-ocean-950/75 via-ocean-950/40 via-40% to-transparent to-60%" />
+          {/* Duotone: grayscale photo tinted ocean, so any photo reads as the same dark teal and white text always passes contrast. Detail is traded for legibility on purpose. */}
+          <div className="absolute inset-0 bg-ocean-400 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-linear-to-t from-ocean-950/85 via-ocean-950/45 via-55% to-transparent" />
         </>
       ) : (
         <>
