@@ -4,24 +4,24 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 7 |
-| Active | 1 |
+| Pending | 5 |
+| Active | 3 |
 | Blocked | 0 |
 | Complete | 113 |
 
 ## Active Tasks
 
 - TSK-115: Wave Forecast (Oleaje) on Beach Detail Page (P3)
+- TSK-118: Beach card contrast, tag overlays and photo-less fallback (P2)
+- TSK-121: Beach detail: photo hero and gallery mosaic, calmer practical info (P2)
 
 ## Pending Tasks
 
 | ID | Title | Priority | Tags | Created |
 |----|-------|----------|------|---------|
 | TSK-116 | Shore Bearing per Beach and Wave Exposure Label | P4 | data, weather, beach-detail | 2026-10-18 |
-| TSK-118 | Beach card contrast, tag overlays and photo-less fallback | P2 | styling, frontend, a11y | 2026-10-18 |
 | TSK-119 | Surface system: reduce cards, unify card titles and footer colors | P3 | styling, frontend | 2026-10-18 |
 | TSK-120 | Homepage: curated featured grid, municipality cards, hero copy | P2 | styling, frontend | 2026-10-18 |
-| TSK-121 | Beach detail: photo hero and gallery mosaic, calmer practical info | P2 | styling, frontend, beach-detail | 2026-10-18 |
 | TSK-122 | Listing pages: municipios photo cards, unified collection card, explorer filters | P3 | styling, frontend | 2026-10-18 |
 | TSK-124 | Fix: Beach data audit unresolved findings (Oct 2026) | P3 | ["data"] | 2026-10-19 |
 

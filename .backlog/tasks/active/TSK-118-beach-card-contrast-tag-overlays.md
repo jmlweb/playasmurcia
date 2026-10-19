@@ -1,12 +1,13 @@
 ---
 id: TSK-118
 title: Beach card contrast, tag overlays and photo-less fallback
-status: pending
+status: active
 priority: P2
 tags: [styling, frontend, a11y]
 created: 2026-10-18
 source: RPT-047
 depends-on: []
+started: 2026-10-19
 ---
 
 # Beach card contrast, tag overlays and photo-less fallback
@@ -35,3 +36,4 @@ See .backlog/reports/complete/RPT-047-ui-review-2026-10-19-cross-cutting-finding
 ## Progress Log
 
 - [2026-10-18] Created
+- [2026-10-19] Started

@@ -1,12 +1,13 @@
 ---
 id: TSK-121
 title: Beach detail: photo hero and gallery mosaic, calmer practical info
-status: pending
+status: active
 priority: P2
 tags: [styling, frontend, beach-detail]
 created: 2026-10-18
 source: RPT-049
 depends-on: []
+started: 2026-10-19
 ---
 
 # Beach detail: photo hero and gallery mosaic, calmer practical info
@@ -38,3 +39,4 @@ See .backlog/reports/complete/RPT-049-ui-review-2026-10-19-beach-detail.md for t
 ## Progress Log
 
 - [2026-10-18] Created
+- [2026-10-19] Started
