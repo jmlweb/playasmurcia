@@ -4019,7 +4019,7 @@
   },
   {
     "code": "689",
-    "name": "Playa  Lomas del Castillico (Villas Caravaning)",
+    "name": "Playa Lomas del Castillico (Villas Caravaning)",
     "municipality": 0,
     "soilType": "Arena fina y grava",
     "waves": "SUAVE",
@@ -10219,7 +10219,6 @@
     ],
     "nearby": [
       "627",
-      "515",
       "514",
       "590",
       "516"
@@ -17454,7 +17453,6 @@
       -0.7550128447454396
     ],
     "nearby": [
-      "515",
       "514",
       "584",
       "557",
@@ -17637,101 +17635,6 @@
       }
     },
     "pictureQualityScore": 0
-  },
-  {
-    "code": "515",
-    "name": "Playa Larga",
-    "municipality": 0,
-    "soilType": "Sin determinar",
-    "anchorageZone": false,
-    "nudist": false,
-    "sea": 0,
-    "promenade": false,
-    "access": "En el **km 3,200 de la carretera de Cabo de Palos a El Albujón**, dentro del parque regional de Calblanque. Una pista sin asfaltar pero bien acondicionada llega hasta la playa.\n\n**Consejo:** en verano el acceso en coche al parque regional de Calblanque está regulado. Consulta las condiciones en la [web de Murcia Natural](https://murcianatural.carm.es) antes de ir.",
-    "pictures": [
-      "playa-larga-calblanque_g.jpg"
-    ],
-    "coordinates": [
-      37.599897598847924,
-      -0.7550128447454396
-    ],
-    "nearby": [
-      "627",
-      "514",
-      "584",
-      "557",
-      "571"
-    ],
-    "description": "Esta Playa Larga, en la zona de **Calblanque**, tiene unos 400 metros y rampa de acceso. Suele haber bastante gente, no hay socorrista ni sombra natural y el oleaje puede ser moderado.",
-    "orientation": "east",
-    "instagramHashtag": "#PlayaLarga",
-    "dogFriendly": false,
-    "lifeguard": false,
-    "services": [
-      0,
-      8
-    ],
-    "tags": [
-      6,
-      2
-    ],
-    "activities": [
-      0,
-      1,
-      2,
-      5
-    ],
-    "bestSeason": [
-      "spring",
-      "summer",
-      "autumn"
-    ],
-    "certifications": [],
-    "occupancyLevel": "high",
-    "campingNearby": false,
-    "metaDescription": "Playa Larga, Cartagena: Relájate en la Costa Cálida de Murcia. Disfruta de esta hermosa playa con el mar Mediterráneo. Ideal para familias y accesibilidad.",
-    "seoKeywords": [
-      "playa larga",
-      "cartagena",
-      "cala mediterránea",
-      "natación",
-      "snorkel",
-      "aguas cristalinas",
-      "acceso fácil",
-      "familia",
-      "relax",
-      "costa murciana",
-      "natacion en Cartagena",
-      "snorkel en Cartagena",
-      "kayak en Cartagena",
-      "buceo en Cartagena",
-      "playas familiares Cartagena",
-      "playas Mediterráneo Cartagena",
-      "mejores playas Cartagena",
-      "playas Murcia",
-      "playa Larga"
-    ],
-    "waves": "MODERADO",
-    "accessDifficulty": "easy",
-    "childSafe": false,
-    "naturalShade": false,
-    "waterQuality": "excellent",
-    "length": 405,
-    "translations": {
-      "en": {
-        "description": "Playa Larga, near Cartagena, awaits you with a calm Mediterranean Sea and a relaxed atmosphere. Enjoy its expansive beaches and the natural beauty of the Murcia coastline. It’s perfect for those seeking a peaceful and simple escape, ideal for a day of sun and enjoying the sea. The beach offers easy access via a maintained dirt path, with parking available nearby, making it ideal for families and people with mobility issues."
-      },
-      "fr": {
-        "description": "Playa Larga, à Cartagena, vous attend avec une mer Méditerranée calme et une ambiance détendue. Profitez de ses longues plages et de la beauté naturelle de la côte murcien. Idéal pour ceux qui recherchent une escapade tranquille et simple, parfaite pour passer une journée au soleil et profiter de la mer. La plage offre un accès facile via un chemin de terre aménagé, avec un parking disponible à proximité, ce qui la rend idéale pour les familles et les personnes à mobilité réduite."
-      },
-      "de": {
-        "description": "Playa Larga in Cartagena heißt Sie mit einer ruhigen Mittelmeerlagune und einer entspannten Atmosphäre willkommen. Genießen Sie die weitläufigen Strände und die natürliche Schönheit der Küste von Murcia. Ideal für alle, die einen entspannten und unkomplizierten Ausflug suchen, perfekt, um einen Tag in der Sonne zu verbringen und das Meer zu genießen. Der Strand ist leicht über einen befestigten Feldweg erreichbar, mit einem Parkplatz in der Nähe, was ihn ideal für Familien und Menschen mit eingeschränkter Mobilität macht."
-      }
-    },
-    "pictureQualityScore": 0,
-    "phone": "968 12 89 55",
-    "email": "turismo@ayto-cartagena.es",
-    "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1"
   },
   {
     "code": "563",
@@ -18791,7 +18694,6 @@
     "nearby": [
       "557",
       "627",
-      "515",
       "571",
       "584"
     ],
@@ -18867,7 +18769,7 @@
   },
   {
     "code": "529",
-    "name": "Playa Paraiso",
+    "name": "Playa Paraíso",
     "municipality": 0,
     "soilType": "Arena media",
     "anchorageZone": false,
@@ -19202,7 +19104,6 @@
       "514",
       "571",
       "627",
-      "515",
       "513"
     ],
     "description": "Parreño se alcanza **por un sendero desde Cobaticas**, dentro de Calblanque, y tiene 710 metros de arena fina y dorada. No hay socorrista y el oleaje puede ser moderado, pero rara vez está llena.",

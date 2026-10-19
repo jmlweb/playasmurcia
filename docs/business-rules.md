@@ -48,6 +48,14 @@ So weather is **not** limited to beaches with `aemetId`; those codes only gate t
 - Source: https://www.aemet.es/documentos/es/eltiempo/prediccion/playas/Playas_codigos.csv
 - Format: 7-digit code starting with "30" (Murcia province)
 - Coverage: subset of beaches (~65) — AEMET only publishes stations for major beaches
+- A beach only gets an `aemetId` when the nearest AEMET point is within 2.37 km; otherwise the widget falls back to coordinates (Open-Meteo)
+- Decision (TSK-124): 585 Playa de Las Salinas (Los Alcázares) keeps no `aemetId`. Its nearest point, Punta Calera (3090202), is 2.4 km away, just over the cutoff, and a forecast point that far away would not describe this beach better than coordinate-based data
+- Known mismatch (TSK-124): 561 Playa El Arenal coordinates (37.7133, -0.7399) match its stated Gran Vía km 7.9-10 range, while AEMET's "El Arenal" point (3003526) sits at 37.6922, -0.7361, 2.4 km south around km 6.5-7. The beach coordinates are kept and the AEMET point is treated as the offset one
+
+### Same-name beaches
+
+- 627 and 515 "Playa Larga" (Calblanque) had identical coordinates and access text; 515 was removed (TSK-124). Both shared the slug `playa-larga`, so the public URL is unchanged and needs no redirect. The slug is still shared with 5907 "Playa Larga" (LRN-015: slugs are not globally unique; municipality-qualified slugs are a separate follow-up)
+- 633 (Mazarrón) and 6703 (Lorca) "Playa Parazuelos" are kept as distinct entries: both appear in their own municipality's official beach list, but no official source gives the border line, so merging is not supported. They share the slug `playa-parazuelos`, so only one is routable; resolve this by renaming one once a source settles the border
 
 ### AEMET: API usage
 
@@ -140,6 +148,8 @@ Official certifications are assigned based on annual awards:
 - Q de Calidad (2024 list, not re-verified for 2026): 37 beaches
 - Ecoplayas: 3 beaches (Mazarrón only)
 
+The Q de Calidad list in `scripts/add-certifications.js` is the 2024 list. The Oct 2026 audit (TSK-124) found only a press count for 2026 (50 Q flags across Murcia beaches and marinas) and no per-beach ICTE list, so the 2024 source year stays documented until one is published.
+
 To check Blue Flag status: `beach.certifications?.includes('blue-flag')`
 
 Script: `scripts/add-certifications.js` (run annually)
@@ -195,6 +205,8 @@ Best visiting seasons are inferred using Ollama based on:
 Official dog-friendly beaches are designated by municipal ordinances.
 
 Data updated manually when municipal ordinances change. No recurring script.
+
+The `dogFriendly` values were not re-verified against 2026 municipal ordinances (TSK-124 audit, Oct 2026): treat them as unverified until each municipality's current ordinance is checked.
 
 ## Lifeguard Service
 

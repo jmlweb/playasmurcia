@@ -53,6 +53,19 @@ describe('beach data slugs', () => {
       })
   })
 
+  it('never repeat a name within the same coordinates (duplicate beach)', () => {
+    const seen = new Set<string>()
+    const full = JSON.parse(readFileSync('data/beaches.json', 'utf8')) as {
+      name: string
+      coordinates: [number, number]
+    }[]
+    full.forEach((b) => {
+      const key = `${nameToSlug(b.name)}@${b.coordinates.join(',')}`
+      expect(seen.has(key)).toBe(false)
+      seen.add(key)
+    })
+  })
+
   it('map every retired slug to a distinct current slug', () => {
     const retired = beaches
       .map((b) => [legacyNameToSlug(b.name), nameToSlug(b.name)] as const)
