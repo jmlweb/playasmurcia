@@ -4,7 +4,7 @@ import type { InlineSegment } from '@/lib/description-markdown'
 import { parseDescription } from '@/lib/description-markdown'
 
 const VARIANT_CLASSES = {
-  lead: 'text-lg leading-relaxed text-gray-700',
+  lead: 'text-lg leading-[1.6] text-gray-700',
   body: 'leading-relaxed text-gray-600',
 } as const
 

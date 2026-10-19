@@ -8,9 +8,9 @@ import {
 import { createServerFn } from '@tanstack/react-start'
 import { useEffect, useRef, useState } from 'react'
 
-import { Breadcrumb } from '@/components/layout/breadcrumb'
 import { ResponsiveImage } from '@/components/ui/responsive-image'
 import { ActivitiesGrid } from '@/features/beaches/activities-grid'
+import { BeachHero } from '@/features/beaches/beach-hero'
 import { BeachRichText } from '@/features/beaches/beach-rich-text'
 import { BeachStatusWidget } from '@/features/beaches/beach-status-widget'
 import { CertificationsBadge } from '@/features/beaches/certifications-badge'
@@ -187,52 +187,42 @@ function BeachPage() {
 
   return (
     <main className="min-h-screen bg-sand-50">
-      {/* Hero section — gradient, no photo */}
-      <section className="relative bg-gradient-to-br from-ocean-800 via-ocean-700 to-ocean-600 py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="max-w-3xl text-3xl font-normal tracking-tight text-white sm:text-4xl">
-            {beach.name}
-          </h1>
-          <p className="mt-1 text-lg text-white/80">{municipality.name}</p>
-          {beach.tags && beach.tags.length > 0 && (
-            <div className="mt-3">
-              <TagsSection
-                allTags={tags}
-                tagIndices={beach.tags}
-                variant="dark"
-              />
-            </div>
-          )}
+      <BeachHero
+        breadcrumb={[
+          { label: 'Inicio', href: '/' },
+          {
+            label: municipality.name,
+            href: `/municipios/${municipalityToSlug(municipality)}`,
+          },
+          { label: beach.name },
+        ]}
+        municipalityName={municipality.name}
+        name={beach.name}
+        picture={pictures[0]}
+        tags={
+          beach.tags && beach.tags.length > 0 ? (
+            <TagsSection
+              allTags={tags}
+              tagIndices={beach.tags}
+              variant="dark"
+            />
+          ) : undefined
+        }
+      />
+
+      {pictures.length > 1 && (
+        <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
+          <BeachGallery beachName={beach.name} pictures={pictures} />
         </div>
-      </section>
-
-      {/* Breadcrumb + Gallery */}
-      <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
-        <Breadcrumb
-          items={[
-            { label: 'Inicio', href: '/' },
-            {
-              label: municipality.name,
-              href: `/municipios/${municipalityToSlug(municipality)}`,
-            },
-            { label: beach.name },
-          ]}
-        />
-
-        {pictures.length > 0 && (
-          <div className="mt-6 mb-8">
-            <BeachGallery beachName={beach.name} pictures={pictures} />
-          </div>
-        )}
-      </div>
+      )}
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           {/* Description — order 1 on mobile, col-span-2 row 1 on desktop */}
-          <section className="order-1 rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm lg:col-span-2 lg:row-start-1">
+          <section className="order-1 lg:col-span-2 lg:row-start-1">
             <BeachRichText text={beach.description} />
             {beach.certifications && beach.certifications.length > 0 && (
-              <div className="mt-5 border-t border-gray-100 pt-5">
+              <div className="mt-6">
                 <CertificationsBadge certifications={beach.certifications} />
               </div>
             )}
@@ -308,15 +298,14 @@ function BeachPage() {
               phone={beach.phone}
               realUrl={beach.realUrl}
             />
-
-            {/* Nearby beaches */}
-            {nearbyItems.length > 0 && (
-              <div className="border-t border-gray-100 pt-8">
-                <NearbyCarousel items={nearbyItems} />
-              </div>
-            )}
           </div>
         </div>
+
+        {nearbyItems.length > 0 && (
+          <div className="mt-12 border-t border-gray-200/60 pt-8">
+            <NearbyCarousel items={nearbyItems} />
+          </div>
+        )}
       </div>
     </main>
   )
@@ -335,7 +324,6 @@ function BeachGallery({
   }))
 
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
-  const [expanded, setExpanded] = useState(false)
   const dialogRef = useRef<HTMLDialogElement>(null)
 
   useEffect(() => {
@@ -397,13 +385,16 @@ function BeachGallery({
     if (e.target === e.currentTarget) closeLightbox()
   }
 
-  const imageButton = (index: number, className: string, lazy?: boolean) => {
+  // Photo 1 is already the page hero, so the mosaic starts at photo 2.
+  const stacked = parsedPictures.slice(2, 4)
+
+  const mosaicButton = (index: number) => {
     const img = parsedPictures[index]
     return (
       <button
         key={img.baseName}
         aria-label={`Ver ${img.alt} en grande`}
-        className={`cursor-zoom-in overflow-hidden rounded-2xl focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none ${className}`}
+        className="h-full w-full cursor-zoom-in overflow-hidden rounded-2xl focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
         type="button"
         onClick={() => {
           openLightbox(index)
@@ -414,82 +405,46 @@ function BeachGallery({
           baseName={img.baseName}
           className="h-full w-full object-cover transition-transform duration-500 motion-safe:hover:scale-105"
           ext={img.ext}
-          priority={lazy ? 'low' : 'high'}
           variant="full"
         />
       </button>
     )
   }
 
-  const firstRowCount =
-    parsedPictures.length === 1 ? 1 : parsedPictures.length === 2 ? 2 : 3
-  const hasMore = parsedPictures.length > firstRowCount
-  const cols =
-    firstRowCount === 1
-      ? ''
-      : firstRowCount === 2
-        ? 'md:grid-cols-2'
-        : 'md:grid-cols-3'
-
   return (
     <>
-      {/* Desktop grid */}
-      <div className="hidden md:block">
-        <div className={`gap-5 ${cols ? `grid ${cols}` : ''}`}>
-          {parsedPictures
-            .slice(0, firstRowCount)
-            .map((_, i) =>
-              imageButton(
-                i,
-                firstRowCount === 1 ? 'aspect-[4/3] w-full' : 'aspect-[4/3]',
-              ),
-            )}
-        </div>
-
-        {hasMore && expanded && (
-          <div className={`mt-3 grid gap-5 ${cols}`}>
-            {parsedPictures
-              .slice(firstRowCount)
-              .map((_, i) =>
-                imageButton(i + firstRowCount, 'aspect-[4/3]', true),
-              )}
+      <div
+        className={`relative grid aspect-[16/10] gap-2 sm:aspect-[2/1] sm:gap-3 ${stacked.length > 0 ? 'grid-cols-[2fr_1fr]' : ''}`}
+      >
+        {mosaicButton(1)}
+        {stacked.length > 0 && (
+          <div className="grid min-h-0 grid-rows-2 gap-2 sm:gap-3">
+            {stacked.map((_, i) => mosaicButton(i + 2))}
           </div>
         )}
-
-        {hasMore && (
-          <button
-            className="mt-3 text-sm font-medium text-ocean-600 transition-colors hover:text-ocean-700"
-            type="button"
-            onClick={() => {
-              setExpanded((v) => !v)
-            }}
+        <button
+          className="absolute right-3 bottom-3 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-gray-900 shadow-md transition-colors hover:bg-gray-100 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
+          type="button"
+          onClick={() => {
+            openLightbox(0)
+          }}
+        >
+          <svg
+            aria-hidden="true"
+            className="h-4 w-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
           >
-            {expanded ? 'Ver menos' : `Ver las ${parsedPictures.length} fotos`}
-          </button>
-        )}
-      </div>
-
-      {/* Mobile: horizontal scroll */}
-      <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 md:hidden">
-        {parsedPictures.map((img, i) => (
-          <button
-            key={img.baseName}
-            aria-label={`Ver ${img.alt} en grande`}
-            className="aspect-[4/3] w-72 flex-shrink-0 cursor-zoom-in snap-start overflow-hidden rounded-2xl focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
-            type="button"
-            onClick={() => {
-              openLightbox(i)
-            }}
-          >
-            <ResponsiveImage
-              alt={img.alt}
-              baseName={img.baseName}
-              className="h-full w-full object-cover"
-              ext={img.ext}
-              variant="thumb"
+            <path
+              d="M4 6h4M4 12h4M4 18h4M12 6h8M12 12h8M12 18h8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
             />
-          </button>
-        ))}
+          </svg>
+          Ver las {parsedPictures.length} fotos
+        </button>
       </div>
 
       <Lightbox
