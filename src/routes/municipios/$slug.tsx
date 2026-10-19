@@ -76,6 +76,9 @@ const RETIRED_MUNICIPALITY_SLUGS: Record<string, string> = {
   'la-manga': 'san-javier',
 }
 
+// Photos that stay too dark under the default duotone
+const LIFTED_HERO_SLUGS = new Set(['lorca', 'mazarron'])
+
 export const Route = createFileRoute('/municipios/$slug')({
   beforeLoad: ({ params }) => {
     const target = RETIRED_MUNICIPALITY_SLUGS[params.slug]
@@ -160,7 +163,7 @@ function MunicipalityPage() {
           { label: 'Municipios', href: '/municipios' },
           { label: municipality.name },
         ]}
-        lifted={slug === 'mazarron'}
+        lifted={LIFTED_HERO_SLUGS.has(slug)}
       >
         <h1 className="mb-4 text-3xl font-normal tracking-tight text-white sm:text-4xl">
           Playas de {municipality.name}

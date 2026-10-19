@@ -174,6 +174,7 @@ function ExplorerPage() {
   return (
     <main className="min-h-screen bg-sand-50">
       <PageHero
+        lifted
         backgroundAlt="Costa de Murcia"
         backgroundImage={pictureUrl('hero-explorar.png')}
         breadcrumb={[
