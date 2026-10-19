@@ -21,3 +21,6 @@
 | LRN-015 | Beach slugs are not globally unique | slugs, data, routing | active | 2026-10-19 |
 | LRN-016 | Fresh agent worktrees lack gitignored runtime files | worktree, build, dev, screenshots | active | 2026-10-19 |
 | LRN-017 | Worktree agents cannot run git through the rtk hook | tooling, git, rtk, worktree | active | 2026-10-19 |
+| LRN-018 | Same-name beaches share a slug, so deleting a duplicate is URL-safe | slugs, data, routing | active | 2026-10-19 |
+| LRN-019 | pictureQualityScore does not measure subject quality | ui, data, homepage | active | 2026-10-19 |
+| LRN-020 | Fresh worktree needs local DB and generated route tree before build/check | worktree, tooling, database | active | 2026-10-19 |
