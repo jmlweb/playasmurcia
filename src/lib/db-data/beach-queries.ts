@@ -11,6 +11,7 @@ import type {
 
 import { db } from '@/db/client'
 import * as schema from '@/db/schema'
+import { selectFeaturedBeaches } from '@/lib/home-curation'
 import { legacyNameToSlug, municipalityToSlug, nameToSlug } from '@/lib/slugs'
 
 import { mapBeachFromDB } from './beach-mapper'
@@ -265,69 +266,7 @@ export async function getAllSeas(): Promise<Sea[]> {
   }))
 }
 
-/**
- * Returns ~10 featured beaches selected by picture quality and geographic spread.
- * Picks the top-scoring beaches (pictureQualityScore >= 2) ensuring at most
- * 2 beaches per municipality for diversity, sorted by quality then name.
- */
+/** Hand-curated homepage selection; see `FEATURED_BEACH_CODES`. */
 export async function getFeaturedBeaches(): Promise<Beach[]> {
-  const allBeaches = await getAllBeaches()
-
-  const TARGET = 12
-
-  // Filter to beaches with good photos (score >= 2)
-  const withPhotos = allBeaches
-    .filter(
-      (b) =>
-        b.pictures &&
-        b.pictures.length > 0 &&
-        (b.pictureQualityScore ?? 0) >= 2,
-    )
-    .sort((a, b) => {
-      const scoreA = a.pictureQualityScore ?? 0
-      const scoreB = b.pictureQualityScore ?? 0
-      if (scoreB !== scoreA) return scoreB - scoreA
-      return a.name.localeCompare(b.name)
-    })
-
-  // Limit per municipality for geographic spread
-  const municipalityCounts = new Map<number, number>()
-  const featured: Beach[] = []
-
-  for (const beach of withPhotos) {
-    const count = municipalityCounts.get(beach.municipality) ?? 0
-    if (count >= 2) continue
-    municipalityCounts.set(beach.municipality, count + 1)
-    featured.push(beach)
-    if (featured.length >= TARGET) break
-  }
-
-  // Fallback: if fewer than TARGET qualify with score >= 2, fill with any
-  // beach that has at least one picture (lower quality is better than no photo)
-  if (featured.length < TARGET) {
-    const fallback = allBeaches
-      .filter(
-        (b) =>
-          b.pictures &&
-          b.pictures.length > 0 &&
-          (b.pictureQualityScore ?? 0) < 2 &&
-          !featured.includes(b),
-      )
-      .sort((a, b) => {
-        const scoreA = a.pictureQualityScore ?? 0
-        const scoreB = b.pictureQualityScore ?? 0
-        if (scoreB !== scoreA) return scoreB - scoreA
-        return a.name.localeCompare(b.name)
-      })
-
-    for (const beach of fallback) {
-      const count = municipalityCounts.get(beach.municipality) ?? 0
-      if (count >= 2) continue
-      municipalityCounts.set(beach.municipality, count + 1)
-      featured.push(beach)
-      if (featured.length >= TARGET) break
-    }
-  }
-
-  return featured
+  return selectFeaturedBeaches(await getAllBeaches())
 }

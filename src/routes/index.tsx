@@ -6,10 +6,10 @@ import { useCardFlags } from '@/features/beaches/use-card-flags'
 import { useCardWeather } from '@/features/beaches/use-card-weather'
 import { FeaturedSection } from '@/features/home/featured-section'
 import { HeroSection } from '@/features/home/hero-section'
-import { HighlightsSection } from '@/features/home/highlights-section'
 import { MunicipalitiesSection } from '@/features/home/municipalities-section'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
+import { addMunicipalityCovers } from '@/lib/home-curation'
 import { beachToSlug } from '@/lib/slugs'
 
 const fetchHomeData = createServerFn({ method: 'GET' }).handler(async () => {
@@ -27,9 +27,9 @@ const fetchHomeData = createServerFn({ method: 'GET' }).handler(async () => {
     getAllMunicipalities(),
     getAllTags(),
   ])
-  const municipalityNav = buildMunicipalityNavWithBlueFlag(
+  const municipalityNav = addMunicipalityCovers(
+    buildMunicipalityNavWithBlueFlag(beaches, municipalities),
     beaches,
-    municipalities,
   )
   return {
     featured,
@@ -69,7 +69,6 @@ function HomePage() {
 
   const featuredRef = useScrollReveal(0.05)
   const municipalitiesRef = useScrollReveal()
-  const highlightsRef = useScrollReveal()
 
   return (
     <main className="min-h-screen bg-sand-50">
@@ -88,7 +87,6 @@ function HomePage() {
         ref={municipalitiesRef}
         municipalityNav={municipalityNav}
       />
-      <HighlightsSection ref={highlightsRef} />
     </main>
   )
 }
