@@ -9,7 +9,6 @@ import { useMemo, useState } from 'react'
 
 import type { BeachSearchParams } from '@/lib/beach-filters'
 
-import { Breadcrumb } from '@/components/layout/breadcrumb'
 import { PageHero } from '@/components/layout/page-hero'
 import { EmptyState } from '@/components/ui/empty-state'
 import { BeachCard } from '@/features/beaches/beach-card'
@@ -156,11 +155,16 @@ function MunicipalityPage() {
       <PageHero
         backgroundAlt={`Costa de ${municipality.name}`}
         backgroundImage={heroImage}
+        breadcrumb={[
+          { label: 'Inicio', href: '/' },
+          { label: 'Municipios', href: '/municipios' },
+          { label: municipality.name },
+        ]}
       >
         <h1 className="mb-4 text-3xl font-normal tracking-tight text-white sm:text-4xl">
           Playas de {municipality.name}
         </h1>
-        <div className="flex flex-wrap justify-center gap-4 text-sm text-ocean-200">
+        <div className="flex flex-wrap gap-4 text-sm text-ocean-100">
           <span>
             <strong className="font-semibold text-white">
               {beaches.length}
@@ -180,13 +184,6 @@ function MunicipalityPage() {
 
       {/* Beach grid */}
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <Breadcrumb
-          items={[
-            { label: 'Inicio', href: '/' },
-            { label: 'Municipios', href: '/municipios' },
-            { label: municipality.name },
-          ]}
-        />
         {beaches.length > 0 ? (
           <>
             <div className="mb-6 flex flex-wrap items-center justify-end gap-3">
