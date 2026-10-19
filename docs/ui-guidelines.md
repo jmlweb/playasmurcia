@@ -42,7 +42,12 @@ Use only brand tokens (`ocean`, `sand`, `coral`) and these ocean-adjacent Tailwi
 
 ## Typography
 
-**Font stack**: Inter, SF Pro Display, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif (loaded from Google Fonts)
+**Font stack**:
+
+- **Display (serif)**: DM Serif Display (Regular 400 only) — page titles (`h1`) and section headings (`h2`) only.
+- **Body (sans)**: Inter, SF Pro Display, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif — everything else, including **all card titles** (`font-semibold`), regardless of page. The same object (e.g. a municipality card) must never switch between serif and sans across pages.
+
+Both are loaded from Google Fonts.
 
 **Size hierarchy**:
 
@@ -55,6 +60,8 @@ Use only brand tokens (`ocean`, `sand`, `coral`) and these ocean-adjacent Tailwi
 | `text-sm`               | Caption    | Metadata, labels, secondary info |
 
 **Weight usage**: Bold (`font-bold`) for headings and emphasis, regular for body text. Avoid light weights for body text.
+
+**Caption contrast floor**: secondary text on white or `sand-50` must be at least `gray-600` at 13px (`text-[13px]`) or `gray-500` at 14px (`text-sm`) — both ≥ 4.5:1. `gray-400` (2.6:1 on white) is for decorative or disabled text only, never for metadata users need to read (e.g. length · sand type on cards).
 
 ## Layout Patterns
 
@@ -76,11 +83,13 @@ Each major section follows a pattern:
 
 ### Cards
 
+- **Cards are for clickable items only** (beach, municipality, collection). Static content sections (description, services, activities, cómo llegar, contacto) render **unboxed**, separated by `1px` `gray-200` hairlines with 48px vertical rhythm. Stacking many white shadowed boxes flattens hierarchy.
+- **One card style per object type.** A page must not mix card treatments for the same kind of item (e.g. image-strip, image-top and icon-only collection cards on `/colecciones`).
 - White background with subtle shadow (`shadow-sm` or `shadow`)
 - Rounded corners (`rounded-lg` or `rounded-xl`)
 - Image at top, content below with padding
-- Tags/badges displayed as small pills within cards
-- Clear link or CTA at the bottom ("Ver playa →")
+- **Photo overlays**: at most one chip group per corner and **max 2 tag pills** on the image; pills must never wrap to a second row at any grid width. Extra tags go in the card body as 12px outline chips (`gray-200` border, `gray-700` text).
+- Clear link or CTA at the bottom ("Ver playa →"), pinned with `mt-auto` so CTAs align across a row even when optional meta lines are missing
 
 ### Grids
 
@@ -93,6 +102,8 @@ Each major section follows a pattern:
 - Beach images can be used as backgrounds in cards, heroes, and listings where they add visual value
 - Always apply an overlay or gradient over background images to ensure text readability
 - Municipality cards: image fills the card with text overlay (name + beach count) at the bottom
+- **Photo selection**: heroes, featured slots (homepage "Selección destacada") and collection/municipality covers use photos with `pictureQualityScore` 3 (daylight, water and sand visible). Never pick by data order alone — signposts, high-rise close-ups and backlit silhouettes undersell the coast.
+- **No-photo fallback**: an intentional `ocean-700` → `ocean-900` gradient with a white/30 icon or the name's initial — never a light grey box that reads as a failed load.
 - Use lazy loading (`loading="lazy"`) for all images below the fold
 - Prefer optimized formats (WebP/AVIF) when possible
 - Provide meaningful `alt` text describing the beach or scene
@@ -110,6 +121,8 @@ Each major section follows a pattern:
 - Small rounded pills (`rounded-full`, `px-3 py-1`, `text-xs` / `text-sm`)
 - Icon + label format when space allows
 - Light background variants for neutral tags (`bg-ocean-50 text-ocean-700`), ocean for active/selected filters
+- **Semantic color is for signals, not facts**: red/rose only for warnings or danger (closures, red flag, alerts). Neutral attributes such as summer occupancy ("Alta"), access level or child suitability use neutral text or an ocean-toned meter (e.g. 3-step `●●○`), not traffic-light colors.
+- Non-link text must never use the link color (`ocean-400`–`ocean-600` on light, `ocean-400` on dark) — e.g. footer descriptions or the weather "Agua" value.
 
 ### Icon Categories
 
@@ -143,14 +156,24 @@ Each major section follows a pattern:
 
 ## Hero Sections
 
-`PageHero` renders a full-bleed photo with a bottom-weighted scrim (`ocean-950` at 75% fading to transparent). There is no frosted or glass panel over the photo. The title block is left-aligned at the bottom-left of the `max-w-7xl` container (24px vertical padding on mobile, 48px on desktop).
+Height tiers create visual hierarchy between the homepage, beach detail and inner pages:
 
-| Tier                     | Height             | Usage                             |
-| ------------------------ | ------------------ | --------------------------------- |
-| **Home** (`size="home"`) | `min(72vh, 640px)` | Homepage hero only                |
-| **Listing** (default)    | `min-h-[420px]`    | All other pages with a `PageHero` |
+| Tier                     | Height                    | Usage                                                                  |
+| ------------------------ | ------------------------- | ---------------------------------------------------------------------- |
+| **Homepage** (immersive) | `min(72vh, 640px)`        | Homepage hero only — full-bleed photo, staggered animation             |
+| **Beach detail**         | `min(60vh, 560px)`        | `/playas/$slug` — first beach photo as hero; gradient tier if no photo |
+| **Photo listing**        | ~420px                    | Listing pages with a photo (municipios, colecciones, explorar)         |
+| **Inner page** (compact) | `py-14 sm:py-18 lg:py-20` | Pages without a photo — gradient background, functional header         |
 
-Hero eyebrows use `text-coral-300`; subtitles use `text-ocean-100`.
+### Photo heroes
+
+- **Full-bleed photo, no panel.** Do not place a centered glass/`backdrop-blur` box behind the hero text — it hides the photo (≈90% on mobile) and reads as a dated template pattern.
+- **Scrim**: bottom-weighted gradient, transparent → `ocean-950` at ~75% over the bottom 60% of the hero. Text contrast comes from the scrim, not from a box.
+- **Text block**: left-aligned to the `max-w-7xl` container, anchored bottom-left, padding 48px desktop / 24px mobile.
+- **Eyebrow**: small tracked caps must reach ≥ 4.5:1 — use `coral-300` or `white/80` over the scrim; never place small text over unscrimmed photo areas.
+- **Implementation**: `PageHero` takes `size="home"` for the immersive tier (default is the ~420px listing tier) and a `breadcrumb` prop rendered inside the hero above the eyebrow. Subtitles use `text-ocean-100`.
+- **Copy**: subtitle max one line on desktop (≈2 on mobile).
+- **Uniqueness**: each collection/municipality uses its own hero photo; do not reuse the same image on an index and its detail pages.
 
 ### Heading size tiers
 
@@ -176,7 +199,7 @@ Present on every page except the homepage. On pages with a `PageHero` the breadc
 
 **Styling**: `text-sm text-gray-500` with separator `<span className="mx-2" aria-hidden="true">/</span>`. Links use `hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:underline`. Current page uses `text-gray-600` with `aria-current="page"`.
 
-**Spacing**: `mb-8` below the breadcrumb, before main content.
+**Spacing**: `pt-6` (24px) above the breadcrumb — directly under the hero, with no extra section padding in between — and `mb-8` below it, before main content. The same placement applies on every route, including beach detail.
 
 **Depth**: Mirror the site hierarchy. Examples:
 
