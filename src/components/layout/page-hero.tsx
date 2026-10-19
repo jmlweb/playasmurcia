@@ -155,7 +155,7 @@ export function PageHero({
         </>
       )}
       {/* Wide low-opacity halo plus a tight one: smooth legibility lift without a crisp outline. Form controls opt out because they sit on light backgrounds. */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-6 [text-shadow:0_0_28px_rgb(8_41_53/0.6),0_0_8px_rgb(8_41_53/0.35)] sm:px-6 lg:px-8 lg:py-12 [&_button]:[text-shadow:none] [&_input]:[text-shadow:none]">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-6 [text-shadow:0_0_32px_rgb(8_41_53/0.8),0_0_10px_rgb(8_41_53/0.5)] sm:px-6 lg:px-8 lg:py-12 [&_button]:[text-shadow:none] [&_input]:[text-shadow:none]">
         {breadcrumb ? <Breadcrumb items={breadcrumb} tone="onPhoto" /> : null}
         {children}
       </div>
