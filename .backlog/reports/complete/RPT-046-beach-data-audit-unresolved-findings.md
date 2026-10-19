@@ -3,8 +3,10 @@ id: RPT-046
 title: Beach data audit: unresolved findings (Oct 2026)
 type: finding
 severity: medium
-status: pending
+status: triaged
 created: 2026-10-18
+triaged: 2026-10-19
+task-id: TSK-124
 ---
 
 ## Summary
