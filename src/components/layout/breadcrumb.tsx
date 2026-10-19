@@ -5,9 +5,23 @@ type BreadcrumbItem = {
   href?: string
 }
 
-export function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
+export type { BreadcrumbItem }
+
+export function Breadcrumb({
+  items,
+  tone = 'default',
+}: {
+  items: BreadcrumbItem[]
+  tone?: 'default' | 'onPhoto'
+}) {
+  const isOnPhoto = tone === 'onPhoto'
   return (
-    <nav aria-label="Ruta de navegación" className="mb-8 text-sm text-gray-500">
+    <nav
+      aria-label="Ruta de navegación"
+      className={
+        isOnPhoto ? 'mb-4 text-sm text-white/80' : 'mb-8 text-sm text-gray-500'
+      }
+    >
       {items.map((item, i) => (
         <span key={item.href ?? item.label}>
           {i > 0 && (
@@ -17,13 +31,20 @@ export function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
           )}
           {item.href ? (
             <Link
-              className="transition-colors hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:underline focus-visible:outline-none"
+              className={
+                isOnPhoto
+                  ? 'transition-colors hover:text-white focus-visible:text-white focus-visible:underline focus-visible:outline-none'
+                  : 'transition-colors hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:underline focus-visible:outline-none'
+              }
               to={item.href}
             >
               {item.label}
             </Link>
           ) : (
-            <span aria-current="page" className="text-gray-600">
+            <span
+              aria-current="page"
+              className={isOnPhoto ? 'text-white' : 'text-gray-600'}
+            >
               {item.label}
             </span>
           )}

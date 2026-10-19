@@ -4,7 +4,6 @@ import { useMemo, useState } from 'react'
 
 import type { BeachSearchParams } from '@/lib/beach-filters'
 
-import { Breadcrumb } from '@/components/layout/breadcrumb'
 import { PageHero } from '@/components/layout/page-hero'
 import { EmptyState } from '@/components/ui/empty-state'
 import { BeachCard } from '@/features/beaches/beach-card'
@@ -146,12 +145,17 @@ function CollectionPage() {
       <PageHero
         backgroundAlt="Playas de la Región de Murcia"
         backgroundImage={pictureUrl('hero-colecciones.png')}
+        breadcrumb={[
+          { label: 'Inicio', href: '/' },
+          { label: 'Colecciones', href: '/colecciones' },
+          { label: collection.title },
+        ]}
         optimizedName="hero-colecciones"
       >
         <h1 className="mb-4 text-3xl font-normal tracking-tight text-white sm:text-4xl">
           {collection.title}
         </h1>
-        <p className="mx-auto mb-4 max-w-xl text-lg text-ocean-200">
+        <p className="mb-4 max-w-xl text-lg text-ocean-100">
           {collection.description}
         </p>
         <span
@@ -162,14 +166,6 @@ function CollectionPage() {
       </PageHero>
 
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <Breadcrumb
-          items={[
-            { label: 'Inicio', href: '/' },
-            { label: 'Colecciones', href: '/colecciones' },
-            { label: collection.title },
-          ]}
-        />
-
         {items.length > 0 && (
           <div className="mb-6 flex items-center justify-between">
             <span className="text-sm text-gray-500">

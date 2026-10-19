@@ -1,9 +1,16 @@
 import type { ReactNode } from 'react'
 
+import type { BreadcrumbItem } from '@/components/layout/breadcrumb'
+
+import { Breadcrumb } from '@/components/layout/breadcrumb'
 import { pictureUrl } from '@/lib/images'
 
 type PageHeroProps = {
   children: ReactNode
+  /** Rendered inside the hero, above the title block */
+  breadcrumb?: BreadcrumbItem[]
+  /** `home` is taller than the listing/detail heroes */
+  size?: 'home' | 'listing'
   /** Original raster URL, e.g. `pictureUrl('hero.png')` */
   backgroundImage?: string
   backgroundAlt?: string
@@ -79,6 +86,8 @@ function HeroImage({
 
 export function PageHero({
   children,
+  breadcrumb,
+  size = 'listing',
   backgroundImage,
   backgroundAlt,
   optimizedName,
@@ -86,12 +95,13 @@ export function PageHero({
   imageWidth,
   imageHeight,
 }: PageHeroProps) {
-  const sectionClass = backgroundImage
-    ? 'hero-noise bg-ocean-900 relative overflow-hidden px-4 py-6 sm:py-14 lg:py-20'
-    : 'bg-ocean-800 relative overflow-hidden px-4 py-12 sm:py-14 lg:py-16'
+  const heightClass =
+    size === 'home' ? 'min-h-[min(72vh,640px)]' : 'min-h-[420px]'
 
   return (
-    <section className={sectionClass}>
+    <section
+      className={`${heightClass} hero-noise relative flex items-end overflow-hidden bg-ocean-900`}
+    >
       {backgroundImage ? (
         <>
           <HeroImage
@@ -102,7 +112,8 @@ export function PageHero({
             optimizedName={optimizedName}
             src={backgroundImage}
           />
-          <div className="absolute inset-0 bg-linear-to-b from-transparent via-ocean-900/30 to-ocean-900/80" />
+          {/* Bottom-weighted so the photo stays visible while text contrast comes from the scrim, not a panel */}
+          <div className="absolute inset-0 bg-linear-to-t from-ocean-950/75 via-ocean-950/40 via-40% to-transparent to-60%" />
         </>
       ) : (
         <>
@@ -112,13 +123,8 @@ export function PageHero({
           </div>
         </>
       )}
-      <div
-        className={
-          backgroundImage
-            ? 'hero-text-scrim relative z-10 mx-auto max-w-4xl px-5 py-7 text-center sm:px-8 sm:py-12'
-            : 'relative mx-auto max-w-3xl text-center'
-        }
-      >
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-12">
+        {breadcrumb ? <Breadcrumb items={breadcrumb} tone="onPhoto" /> : null}
         {children}
       </div>
     </section>

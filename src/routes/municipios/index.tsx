@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 
-import { Breadcrumb } from '@/components/layout/breadcrumb'
 import { PageHero } from '@/components/layout/page-hero'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
 import { pictureUrl } from '@/lib/images'
@@ -47,23 +46,21 @@ function MunicipiosPage() {
       <PageHero
         backgroundAlt="Costa de la Región de Murcia"
         backgroundImage={pictureUrl('hero-municipios.png')}
+        breadcrumb={[{ label: 'Inicio', href: '/' }, { label: 'Municipios' }]}
         optimizedName="hero-municipios"
       >
-        <p className="mb-3 text-sm font-semibold tracking-widest text-coral-400 uppercase">
+        <p className="mb-3 text-sm font-semibold tracking-widest text-coral-300 uppercase">
           Costa de Murcia
         </p>
         <h1 className="mb-4 text-4xl font-normal tracking-tight text-white sm:text-5xl">
           Municipios con playas
         </h1>
-        <p className="mx-auto max-w-xl text-lg text-ocean-200">
+        <p className="max-w-xl text-lg text-ocean-100">
           Elige un municipio y descubre sus playas
         </p>
       </PageHero>
 
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <Breadcrumb
-          items={[{ label: 'Inicio', href: '/' }, { label: 'Municipios' }]}
-        />
         <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {municipalities.map((municipality) => (
             <li key={municipality.slug}>

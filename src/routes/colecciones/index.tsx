@@ -3,7 +3,6 @@ import { createServerFn } from '@tanstack/react-start'
 
 import type { Beach } from '@/types/beach'
 
-import { Breadcrumb } from '@/components/layout/breadcrumb'
 import { PageHero } from '@/components/layout/page-hero'
 import { CollectionIcon } from '@/components/ui/icons'
 import { ResponsiveImage } from '@/components/ui/responsive-image'
@@ -354,24 +353,21 @@ function ColeccionesPage() {
       <PageHero
         backgroundAlt="Playas de la Región de Murcia"
         backgroundImage={pictureUrl('hero-colecciones.png')}
+        breadcrumb={[{ label: 'Inicio', href: '/' }, { label: 'Colecciones' }]}
         optimizedName="hero-colecciones"
       >
-        <p className="mb-3 text-sm font-semibold tracking-widest text-coral-400 uppercase">
+        <p className="mb-3 text-sm font-semibold tracking-widest text-coral-300 uppercase">
           Costa de Murcia
         </p>
         <h1 className="mb-4 text-4xl font-normal tracking-tight text-white sm:text-5xl">
           Colecciones de playas
         </h1>
-        <p className="mx-auto max-w-xl text-lg text-ocean-200">
+        <p className="max-w-xl text-lg text-ocean-100">
           Encuentra la playa perfecta según tus preferencias
         </p>
       </PageHero>
 
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <Breadcrumb
-          items={[{ label: 'Inicio', href: '/' }, { label: 'Colecciones' }]}
-        />
-
         {/* Seas — horizontal banners */}
         <section className="mb-10">
           <h2 className="mb-5 text-3xl font-semibold text-gray-900">

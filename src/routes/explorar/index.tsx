@@ -4,7 +4,6 @@ import { lazy, Suspense, useCallback, useMemo, useState } from 'react'
 
 import type { BeachSearchParams } from '@/lib/beach-filters'
 
-import { Breadcrumb } from '@/components/layout/breadcrumb'
 import { PageHero } from '@/components/layout/page-hero'
 import { EmptyState } from '@/components/ui/empty-state'
 import { BeachCard } from '@/features/beaches/beach-card'
@@ -177,20 +176,24 @@ function ExplorerPage() {
       <PageHero
         backgroundAlt="Costa de Murcia"
         backgroundImage={pictureUrl('hero-explorar.png')}
+        breadcrumb={[
+          { label: 'Inicio', href: '/' },
+          { label: 'Explorar playas' },
+        ]}
         optimizedName="hero-explorar"
       >
-        <p className="mb-3 text-sm font-semibold tracking-widest text-coral-400 uppercase">
+        <p className="mb-3 text-sm font-semibold tracking-widest text-coral-300 uppercase">
           Costa de Murcia
         </p>
         <h1 className="mb-4 text-4xl font-normal tracking-tight text-white sm:text-5xl">
           Explorar playas
         </h1>
-        <p className="mx-auto mb-8 max-w-xl text-lg text-ocean-200">
+        <p className="mb-8 max-w-xl text-lg text-ocean-100">
           {hasActiveFilters
             ? `Mostrando ${allFiltered.length} de ${beaches.length} playas`
             : `Filtra entre ${beaches.length} playas y calas del litoral murciano`}
         </p>
-        <div className="mx-auto max-w-2xl">
+        <div className="max-w-2xl">
           <SearchBar
             value={filters.q ?? ''}
             onChange={(q: string) => {
@@ -201,9 +204,6 @@ function ExplorerPage() {
       </PageHero>
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
-        <Breadcrumb
-          items={[{ label: 'Inicio', href: '/' }, { label: 'Explorar playas' }]}
-        />
         {/* Flex only on desktop: on mobile FilterPanel leaves an empty wrapper that the gap would indent the results by */}
         <div className="lg:flex lg:gap-10">
           <FilterPanel

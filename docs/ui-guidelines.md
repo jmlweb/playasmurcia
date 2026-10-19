@@ -143,13 +143,14 @@ Each major section follows a pattern:
 
 ## Hero Sections
 
-Two height tiers to create visual hierarchy between the homepage and inner pages:
+`PageHero` renders a full-bleed photo with a bottom-weighted scrim (`ocean-950` at 75% fading to transparent). There is no frosted or glass panel over the photo. The title block is left-aligned at the bottom-left of the `max-w-7xl` container (24px vertical padding on mobile, 48px on desktop).
 
-| Tier                     | Padding                   | Usage                                                      |
-| ------------------------ | ------------------------- | ---------------------------------------------------------- |
-| **Homepage** (immersive) | `py-16 sm:py-20 lg:py-28` | Homepage hero only — full-bleed image, staggered animation |
-| **Inner page** (compact) | `py-14 sm:py-18 lg:py-20` | All other pages — gradient background, functional header   |
-| **Photo inner**          | `py-16 sm:py-24 lg:py-32` | Inner pages with photo hero background (e.g. colecciones)  |
+| Tier                     | Height             | Usage                             |
+| ------------------------ | ------------------ | --------------------------------- |
+| **Home** (`size="home"`) | `min(72vh, 640px)` | Homepage hero only                |
+| **Listing** (default)    | `min-h-[420px]`    | All other pages with a `PageHero` |
+
+Hero eyebrows use `text-coral-300`; subtitles use `text-ocean-100`.
 
 ### Heading size tiers
 
@@ -171,7 +172,7 @@ Decorative blur circles are optional — use `opacity-20` minimum if present, ot
 
 ## Breadcrumbs
 
-Present on every page except the homepage. Always placed **below the hero**, inside the main content area (light background).
+Present on every page except the homepage. On pages with a `PageHero` the breadcrumb is rendered **inside the hero**, above the eyebrow, via the `breadcrumb` prop (`tone="onPhoto"`: `text-sm text-white/80`, `mb-4`). Pages without a hero (beach detail) place it in the main content area (light background).
 
 **Styling**: `text-sm text-gray-500` with separator `<span className="mx-2" aria-hidden="true">/</span>`. Links use `hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:underline`. Current page uses `text-gray-600` with `aria-current="page"`.
 
