@@ -1,12 +1,13 @@
 ---
 id: TSK-120
 title: Homepage: curated featured grid, municipality cards, hero copy
-status: pending
+status: active
 priority: P2
 tags: [styling, frontend]
 created: 2026-10-18
 source: RPT-048
 depends-on: []
+started: 2026-10-19
 ---
 
 # Homepage: curated featured grid, municipality cards, hero copy
@@ -37,3 +38,4 @@ See .backlog/reports/complete/RPT-048-ui-review-2026-10-19-homepage.md for the f
 ## Progress Log
 
 - [2026-10-18] Created
+- [2026-10-19] Started

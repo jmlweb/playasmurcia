@@ -1,12 +1,13 @@
 ---
 id: TSK-124
 title: Fix: Beach data audit unresolved findings (Oct 2026)
-status: pending
+status: active
 priority: P3
 tags: [["data"]]
 created: 2026-10-19
 source: report/RPT-046
 depends-on: []
+started: 2026-10-19
 ---
 
 # Fix: Beach data audit unresolved findings (Oct 2026)
@@ -42,3 +43,4 @@ See .backlog/reports/complete/RPT-046-beach-data-audit-unresolved-findings.md fo
 ## Progress Log
 
 - [2026-10-19] Created
+- [2026-10-19] Started
