@@ -86,4 +86,29 @@ describe('BeachCard conditions', () => {
 
     expect(screen.getByText(/Cartagena · a 12 km/)).toBeTruthy()
   })
+
+  it('overlays at most 2 tags on the photo and moves extras to the body', () => {
+    const tags = ['A', 'B', 'C'].map((name, id) => ({ id, name }))
+    const { container } = renderCard({
+      beach: { ...beach, pictures: ['x.jpg'], tags: [0, 1, 2] },
+      tags: tags as never,
+    })
+
+    expect(container.querySelectorAll('li')).toHaveLength(1)
+    expect(screen.getByText('C').tagName).toBe('LI')
+    expect(screen.getByText('A').tagName).toBe('SPAN')
+  })
+
+  it('uses a readable gray-600 metadata line', () => {
+    renderCard({})
+
+    expect(screen.getByText('Arena').className).toContain('text-gray-600')
+  })
+
+  it('renders an ocean gradient fallback without pictures', () => {
+    const { container } = renderCard({})
+
+    expect(container.querySelector('.from-ocean-700')).toBeTruthy()
+    expect(container.querySelector('img')).toBeNull()
+  })
 })
