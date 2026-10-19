@@ -3,6 +3,7 @@ import {
   type ErrorComponentProps,
   Link,
   notFound,
+  redirect,
 } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import { useEffect, useRef, useState } from 'react'
@@ -25,6 +26,13 @@ import { stripDescriptionMarkdown } from '@/lib/description-markdown'
 import { parseImageFilename, pictureUrl } from '@/lib/images'
 import { generateBeachSchema } from '@/lib/schema'
 import { beachToSlug, municipalityToSlug } from '@/lib/slugs'
+
+const fetchRenamedBeachSlug = createServerFn({ method: 'GET' })
+  .validator((data: { slug: string }) => ({ slug: data.slug.trim() }))
+  .handler(async ({ data }) => {
+    const { getRenamedBeachSlug } = await import('@/lib/db-data/beach-queries')
+    return (await getRenamedBeachSlug(data.slug)) ?? null
+  })
 
 const fetchBeachData = createServerFn({ method: 'GET' })
   .validator((data: { slug: string }) => {
@@ -110,7 +118,19 @@ function BeachErrorComponent({ reset }: ErrorComponentProps) {
 export const Route = createFileRoute('/playas/$slug')({
   loader: async ({ params }) => {
     const data = await fetchBeachData({ data: { slug: params.slug } })
-    if (!data) throw notFound()
+    if (!data) {
+      const renamed = await fetchRenamedBeachSlug({
+        data: { slug: params.slug },
+      })
+      if (renamed) {
+        throw redirect({
+          to: '/playas/$slug',
+          params: { slug: renamed },
+          statusCode: 301,
+        })
+      }
+      throw notFound()
+    }
     return data
   },
   errorComponent: BeachErrorComponent,

@@ -6,15 +6,21 @@ This document describes the business logic and data processing rules for the pro
 
 Scripts that exist in `scripts/` and require periodic execution:
 
-| Script                   | Purpose                                                                 | Frequency                           |
-| ------------------------ | ----------------------------------------------------------------------- | ----------------------------------- |
-| `add-certifications.js`  | Update Blue Flag, Q Quality, Ecoplayas certifications                   | Annual (spring)                     |
-| `add-lifeguard-info.js`  | Update COPLA lifeguard data                                             | Seasonal (pre-summer)               |
-| `add-water-quality.ts`   | Assign water quality ratings (heuristic from certifications + location) | Annual (after certification update) |
-| `validate-beaches.js`    | Validate all beach data integrity                                       | Before releases                     |
-| `migrate-to-database.ts` | Migrate JSON data to SQLite/Turso                                       | Once (or after JSON changes)        |
-| `validate-migration.ts`  | Validate database matches JSON source                                   | After migration                     |
+| Script                   | Purpose                                                                   | Frequency                            |
+| ------------------------ | ------------------------------------------------------------------------- | ------------------------------------ |
+| `add-certifications.js`  | Update Blue Flag, Q Quality, Ecoplayas certifications                     | Annual (spring)                      |
+| `add-lifeguard-info.js`  | Update COPLA lifeguard data                                               | Seasonal (pre-summer)                |
+| `add-water-quality.ts`   | Assign water quality ratings (heuristic from certifications + location)   | Annual (after certification update)  |
+| `validate-beaches.js`    | Validate all beach data integrity                                         | Before releases                      |
+| `migrate-to-database.ts` | Migrate JSON data to SQLite/Turso                                         | Once (or after JSON changes)         |
+| `validate-migration.ts`  | Validate database matches JSON source                                     | After migration                      |
 | `sync-pictures-to-r2.sh` | Mirror `public/pictures/` to the R2 bucket serving `img.playasmurcia.com` | After picture changes, before deploy |
+
+## Slugs
+
+Beach and municipality slugs come from `nameToSlug` in `src/lib/slugs.ts`: lowercase, accents removed, parentheses and periods dropped, whitespace collapsed to `-`. Beach slugs must stay unique (covered by `src/lib/slugs.test.ts`).
+
+Renaming a beach, or changing the slug rules, changes its URL. Names containing `(` `)` or `.` used to produce slugs with those characters; `/playas/$slug` 301-redirects those retired slugs to the current one (`getRenamedBeachSlug`, derived from the DB at runtime, no manual list).
 
 ## Beach Orientation
 
@@ -89,13 +95,13 @@ So weather is **not** limited to beaches with `aemetId`; those codes only gate t
 
 The `access` field ("Cómo llegar") contains only directions:
 
-| Include in `access`                               | Include in `description` |
-| ------------------------------------------------- | ------------------------ |
-| Roads, exits and kilometre points                 | Beach atmosphere         |
-| Paths, tracks and walks from a named start point  | Natural beauty           |
-| Boat-only or on-foot-only access                  | Facilities summary       |
-| Parking details beyond yes/no (where, how)        | Tourist recommendations  |
-| Seasonal restrictions (Calblanque summer access)  | Nearby attractions       |
+| Include in `access`                              | Include in `description` |
+| ------------------------------------------------ | ------------------------ |
+| Roads, exits and kilometre points                | Beach atmosphere         |
+| Paths, tracks and walks from a named start point | Natural beauty           |
+| Boat-only or on-foot-only access                 | Facilities summary       |
+| Parking details beyond yes/no (where, how)       | Tourist recommendations  |
+| Seasonal restrictions (Calblanque summer access) | Nearby attractions       |
 
 ### Access Field Guidelines
 

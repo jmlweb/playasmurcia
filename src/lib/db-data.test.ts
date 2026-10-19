@@ -10,6 +10,7 @@ import {
   getBeachesByMunicipality,
   getMunicipality,
   getMunicipalityBySlug,
+  getRenamedBeachSlug,
   getService,
   municipalityToSlug,
 } from './db-data/beach-queries'
@@ -116,6 +117,14 @@ describe('db-data module', () => {
 
       expect(beach).toBeDefined()
       expect(beach?.name).toBe('Cala Abierta')
+    })
+
+    it('maps retired slugs with parentheses to the current slug', async () => {
+      expect(await getRenamedBeachSlug('cala-tunez-(cala-cuna)')).toBe(
+        'cala-tunez-cala-cuna',
+      )
+      expect(await getBeachBySlug('cala-tunez-cala-cuna')).toBeDefined()
+      expect(await getRenamedBeachSlug('cala-abierta')).toBeUndefined()
     })
 
     it('returns undefined for non-existent slug', async () => {
