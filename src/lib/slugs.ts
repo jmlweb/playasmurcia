@@ -1,17 +1,29 @@
 import type { Beach, Municipality } from '@/types/beach'
 
-export function beachToSlug(beach: Beach): string {
-  return beach.name
+export function nameToSlug(name: string): string {
+  return name
     .toLowerCase()
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[().]/g, '')
+    .trim()
     .replace(/\s+/g, '-')
 }
 
-export function municipalityToSlug(municipality: Municipality): string {
-  return municipality.name
+// URLs indexed before parentheses and periods were stripped; kept only so
+// they can 301 to the current slug.
+export function legacyNameToSlug(name: string): string {
+  return name
     .toLowerCase()
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/\s+/g, '-')
+}
+
+export function beachToSlug(beach: Beach): string {
+  return nameToSlug(beach.name)
+}
+
+export function municipalityToSlug(municipality: Municipality): string {
+  return nameToSlug(municipality.name)
 }

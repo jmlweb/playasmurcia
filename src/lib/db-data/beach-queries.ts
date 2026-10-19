@@ -11,7 +11,7 @@ import type {
 
 import { db } from '@/db/client'
 import * as schema from '@/db/schema'
-import { municipalityToSlug } from '@/lib/slugs'
+import { legacyNameToSlug, municipalityToSlug, nameToSlug } from '@/lib/slugs'
 
 import { mapBeachFromDB } from './beach-mapper'
 
@@ -54,6 +54,7 @@ export async function getBeachByCode(code: string): Promise<Beach | undefined> {
  * Only fetches name+code columns (lightweight) and caches for the process lifetime.
  */
 let slugToCodeCache: Map<string, string> | null = null
+let legacySlugToSlugCache: Map<string, string> | null = null
 
 async function getSlugToCodeMap(): Promise<Map<string, string>> {
   if (slugToCodeCache) return slugToCodeCache
@@ -62,17 +63,24 @@ async function getSlugToCodeMap(): Promise<Map<string, string>> {
     .select({ code: schema.beaches.code, name: schema.beaches.name })
     .from(schema.beaches)
 
-  slugToCodeCache = new Map(
-    rows.map((r) => [
-      r.name
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .replace(/\s+/g, '-'),
-      r.code,
-    ]),
+  slugToCodeCache = new Map(rows.map((r) => [nameToSlug(r.name), r.code]))
+  legacySlugToSlugCache = new Map(
+    rows
+      .map((r) => [legacyNameToSlug(r.name), nameToSlug(r.name)] as const)
+      .filter(([legacy, current]) => legacy !== current),
   )
   return slugToCodeCache
+}
+
+/**
+ * Maps a retired slug (one containing parentheses or periods) to its
+ * current slug, or undefined when the slug was never retired.
+ */
+export async function getRenamedBeachSlug(
+  slug: string,
+): Promise<string | undefined> {
+  await getSlugToCodeMap()
+  return legacySlugToSlugCache?.get(slug)
 }
 
 /**
