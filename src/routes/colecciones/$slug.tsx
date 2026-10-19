@@ -9,8 +9,8 @@ import { EmptyState } from '@/components/ui/empty-state'
 import { BeachCard } from '@/features/beaches/beach-card'
 import { useCardFlags } from '@/features/beaches/use-card-flags'
 import { useCardWeather } from '@/features/beaches/use-card-weather'
-import { PageInfo } from '@/features/listing/page-info'
 import { Pagination } from '@/features/listing/pagination'
+import { ResultsSummary } from '@/features/listing/results-summary'
 import { SortSelect } from '@/features/listing/sort-select'
 import { sortBeaches } from '@/lib/beach-filters'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
@@ -93,29 +93,11 @@ export const Route = createFileRoute('/colecciones/$slug')({
   component: CollectionPage,
 })
 
-const badgeTheme: Record<string, { bg: string; text: string }> = {
-  'calas-escondidas': { bg: 'bg-teal-500/30', text: 'text-teal-100' },
-  'playas-familiares': { bg: 'bg-sand-500/30', text: 'text-sand-100' },
-  'playas-para-perros': { bg: 'bg-amber-500/30', text: 'text-amber-100' },
-  'playas-nudistas': { bg: 'bg-sand-500/30', text: 'text-sand-100' },
-  'con-chiringuito': { bg: 'bg-amber-500/30', text: 'text-amber-100' },
-  'bandera-azul': { bg: 'bg-sky-500/30', text: 'text-sky-100' },
-  snorkel: { bg: 'bg-cyan-500/30', text: 'text-cyan-100' },
-  'deportes-acuaticos': { bg: 'bg-ocean-500/30', text: 'text-ocean-100' },
-  'mejores-atardeceres': { bg: 'bg-amber-500/30', text: 'text-amber-100' },
-  'playas-tranquilas': { bg: 'bg-teal-500/30', text: 'text-teal-100' },
-  accesibles: { bg: 'bg-sky-500/30', text: 'text-sky-100' },
-  'playas-fotogenicas': { bg: 'bg-ocean-500/30', text: 'text-ocean-100' },
-}
-
-const defaultBadge = { bg: 'bg-ocean-500/30', text: 'text-ocean-100' }
-
 function CollectionPage() {
   const { collection, items, tags } = Route.useLoaderData()
   const beaches = useMemo(() => items.map((i) => i.beach), [items])
   const weatherData = useCardWeather(beaches)
   const flagData = useCardFlags(beaches)
-  const badge = badgeTheme[collection.slug] ?? defaultBadge
   const PAGE_SIZE = 15
   const [sort, setSort] =
     useState<NonNullable<BeachSearchParams['sort']>>('recomendados')
@@ -155,23 +137,19 @@ function CollectionPage() {
         <h1 className="mb-4 text-3xl font-normal tracking-tight text-white sm:text-4xl">
           {collection.title}
         </h1>
-        <p className="mb-4 max-w-xl text-lg text-ocean-100">
+        <p className="max-w-xl text-lg text-ocean-100">
           {collection.description}
         </p>
-        <span
-          className={`${badge.bg} ${badge.text} inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-medium backdrop-blur-sm`}
-        >
-          {items.length} {items.length === 1 ? 'playa' : 'playas'}
-        </span>
       </PageHero>
 
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         {items.length > 0 && (
           <div className="mb-6 flex items-center justify-between">
-            <span className="text-sm text-gray-500">
-              {sortedItems.length}{' '}
-              {sortedItems.length === 1 ? 'playa' : 'playas'}
-            </span>
+            <ResultsSummary
+              currentPage={currentPage}
+              totalItems={sortedItems.length}
+              totalPages={totalPages}
+            />
             <SortSelect value={sort} onChange={setSort} />
           </div>
         )}
@@ -183,11 +161,6 @@ function CollectionPage() {
           />
         ) : (
           <>
-            <PageInfo
-              currentPage={currentPage}
-              totalItems={sortedItems.length}
-              totalPages={totalPages}
-            />
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
               {visibleItems.map(({ beach, municipality, slug }) => (
                 <BeachCard

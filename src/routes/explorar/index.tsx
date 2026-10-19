@@ -15,8 +15,8 @@ import {
   FilterPanel,
   FilterToggleButton,
 } from '@/features/listing/filter-panel'
-import { PageInfo } from '@/features/listing/page-info'
 import { Pagination } from '@/features/listing/pagination'
+import { ResultsSummary } from '@/features/listing/results-summary'
 import { SearchBar } from '@/features/listing/search-bar'
 import { SortSelect } from '@/features/listing/sort-select'
 import { applyFiltersAndSort, countActiveFilters } from '@/lib/beach-filters'
@@ -212,6 +212,15 @@ function ExplorerPage() {
             filters={filters}
             mobileOpen={mobileFilterOpen}
             municipalities={municipalities}
+            nearby={{
+              isLoading: locationState.status === 'loading',
+              isActive: sort === 'cercania',
+              onToggle: () => {
+                handleSortChange(
+                  sort === 'cercania' ? 'recomendados' : 'cercania',
+                )
+              },
+            }}
             seas={seas}
             services={services}
             tags={tags}
@@ -232,26 +241,20 @@ function ExplorerPage() {
                     setMobileFilterOpen(true)
                   }}
                 />
-                <span className="text-sm text-gray-500">
-                  <strong className="font-semibold text-gray-900">
-                    {allFiltered.length}
-                  </strong>{' '}
-                  playas encontradas
-                </span>
+                <ResultsSummary
+                  currentPage={safePage}
+                  suffix=" encontradas"
+                  totalItems={allFiltered.length}
+                  totalPages={view === 'map' ? 1 : totalPages}
+                />
               </div>
               <div className="flex flex-wrap items-center gap-3">
-                <button
-                  className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:border-ocean-300 hover:text-ocean-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none disabled:opacity-60"
-                  disabled={locationState.status === 'loading'}
-                  type="button"
-                  onClick={() => {
-                    handleSortChange('cercania')
-                  }}
-                >
-                  {locationState.status === 'loading'
-                    ? 'Buscando tu ubicación…'
-                    : 'Cerca de mí'}
-                </button>
+                <SortSelect
+                  includeNearby
+                  value={sort}
+                  onChange={handleSortChange}
+                />
+                <span aria-hidden="true" className="h-6 w-px bg-gray-200" />
                 <div
                   aria-label="Vista"
                   className="inline-flex overflow-hidden rounded-full border border-gray-200 bg-white text-sm font-medium"
@@ -271,11 +274,6 @@ function ExplorerPage() {
                     </button>
                   ))}
                 </div>
-                <SortSelect
-                  includeNearby
-                  value={sort}
-                  onChange={handleSortChange}
-                />
               </div>
             </div>
 
@@ -310,11 +308,6 @@ function ExplorerPage() {
               </Suspense>
             ) : allFiltered.length > 0 ? (
               <>
-                <PageInfo
-                  currentPage={safePage}
-                  totalItems={allFiltered.length}
-                  totalPages={totalPages}
-                />
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
                   {filteredBeaches.map((beach) => {
                     const slug = slugMap.get(beach.code) ?? beachToSlug(beach)

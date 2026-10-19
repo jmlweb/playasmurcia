@@ -7,6 +7,7 @@ import {
   buildMunicipalityNav,
   buildMunicipalityNavWithBlueFlag,
   countBlueFlag,
+  sortMunicipalitiesByCoast,
 } from './nav-builders'
 
 const municipalities: Municipality[] = [
@@ -125,5 +126,30 @@ describe('nav-builders', () => {
       const noFlags = [makeBeach({ municipality: 0 })]
       expect(countBlueFlag(noFlags)).toBe(0)
     })
+  })
+})
+
+describe('sortMunicipalitiesByCoast', () => {
+  it('orders municipalities along the coast, north-east to south-west', () => {
+    const items = ['lorca', 'cartagena', 'san-javier', 'aguilas'].map(
+      (slug) => ({ slug }),
+    )
+
+    expect(
+      sortMunicipalitiesByCoast(items).map((item) => item.slug),
+    ).toStrictEqual(['san-javier', 'cartagena', 'aguilas', 'lorca'])
+  })
+
+  it('puts unknown slugs last and keeps the input intact', () => {
+    const items = [{ slug: 'nuevo' }, { slug: 'lorca' }, { slug: 'cartagena' }]
+
+    expect(
+      sortMunicipalitiesByCoast(items).map((item) => item.slug),
+    ).toStrictEqual(['cartagena', 'lorca', 'nuevo'])
+    expect(items.map((item) => item.slug)).toStrictEqual([
+      'nuevo',
+      'lorca',
+      'cartagena',
+    ])
   })
 })

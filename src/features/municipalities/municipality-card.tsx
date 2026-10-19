@@ -36,7 +36,7 @@ export function MunicipalityCard({
       params={{ slug }}
       to="/municipios/$slug"
     >
-      <div className="aspect-video overflow-hidden bg-linear-to-br from-ocean-700 to-ocean-900">
+      <div className="relative aspect-4/3 overflow-hidden bg-linear-to-br from-ocean-700 to-ocean-900">
         {coverPicture && (
           <ResponsiveImage
             alt={`Playas de ${name}`}
@@ -46,12 +46,16 @@ export function MunicipalityCard({
             variant="thumb"
           />
         )}
-      </div>
-      <div className="flex flex-1 flex-col p-5">
-        <h3 className="text-xl font-semibold text-gray-900 transition-colors group-hover:text-ocean-600">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"
+        />
+        <h3 className="absolute inset-x-0 bottom-0 p-5 text-xl font-semibold text-white">
           {name}
         </h3>
-        <p className="mt-1 text-sm text-gray-600">
+      </div>
+      <div className="flex flex-1 flex-col p-5">
+        <p className="text-sm text-gray-600">
           {formatMunicipalityMeta(beachCount, blueFlagCount)}
         </p>
         <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-medium text-ocean-600 transition-colors group-hover:text-ocean-700">

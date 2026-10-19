@@ -52,6 +52,30 @@ export function buildMunicipalityNavWithBlueFlag(
   })
 }
 
+// Latitude alone misorders the coast (Lorca's beaches sit north of Águilas but
+// the coastline ends at Águilas), so the walk from north-east to south-west is
+// listed by hand. Unknown slugs go last, in their original order.
+const COAST_ORDER = [
+  'san-pedro-del-pinatar',
+  'san-javier',
+  'los-alcazares',
+  'cartagena',
+  'la-union',
+  'mazarron',
+  'aguilas',
+  'lorca',
+] as const
+
+export function sortMunicipalitiesByCoast<T extends { slug: string }>(
+  items: readonly T[],
+): T[] {
+  const rank = (slug: string): number => {
+    const index = (COAST_ORDER as readonly string[]).indexOf(slug)
+    return index === -1 ? COAST_ORDER.length : index
+  }
+  return [...items].sort((a, b) => rank(a.slug) - rank(b.slug))
+}
+
 // Footer counts must match the collection pages they link to, so they reuse
 // each collection's filter instead of duplicating the criteria here.
 const FOOTER_COLLECTIONS = [

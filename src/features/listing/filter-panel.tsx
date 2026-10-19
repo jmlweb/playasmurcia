@@ -13,6 +13,24 @@ import {
 } from '@/lib/beach-filters'
 import { cn } from '@/lib/cn'
 
+import { FilterChip, SegmentedFilter, toggleValue } from './filter-controls'
+
+const AccessOptions = [
+  { value: 'easy', label: 'Fácil', title: AccessDifficultyLabels.easy },
+  {
+    value: 'moderate',
+    label: 'Moderado',
+    title: AccessDifficultyLabels.moderate,
+  },
+  { value: 'hard', label: 'Difícil', title: AccessDifficultyLabels.hard },
+] as const
+
+const OccupancyOptions = [
+  { value: 'low', label: 'Baja', title: OccupancyLabels.low },
+  { value: 'medium', label: 'Media', title: OccupancyLabels.medium },
+  { value: 'high', label: 'Alta', title: OccupancyLabels.high },
+] as const
+
 type FilterPanelProps = {
   municipalities: Municipality[]
   seas: Sea[]
@@ -21,6 +39,7 @@ type FilterPanelProps = {
   tags: Tag[]
   filters: BeachSearchParams
   onChange: (filters: BeachSearchParams) => void
+  nearby?: { isLoading: boolean; isActive: boolean; onToggle: () => void }
 }
 
 type FilterGroupProps = {
@@ -75,6 +94,30 @@ function FilterGroup({
   )
 }
 
+function FilterSection({
+  label,
+  children,
+  activeCount = 0,
+}: {
+  label: string
+  children: ReactNode
+  activeCount?: number
+}) {
+  return (
+    <section className="mb-5">
+      <h3 className="mb-2 flex items-center gap-2 text-sm font-medium text-gray-800">
+        {label}
+        {activeCount > 0 && (
+          <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-ocean-500 px-1.5 text-[11px] font-semibold text-white">
+            {activeCount}
+          </span>
+        )}
+      </h3>
+      {children}
+    </section>
+  )
+}
+
 type CheckboxItemProps = {
   label: string
   checked: boolean
@@ -107,6 +150,7 @@ function FilterContent({
   tags,
   filters,
   onChange,
+  nearby,
 }: FilterPanelProps) {
   function toggleArrayFilter<TKey extends keyof BeachSearchParams>(
     key: TKey,
@@ -120,22 +164,7 @@ function FilterContent({
     onChange({ ...filters, [key]: next.length > 0 ? next : undefined })
   }
 
-  function toggleEnumFilter<TValue extends string>(
-    key: 'accessDifficulty' | 'occupancy',
-    value: TValue,
-    current: readonly TValue[] | undefined,
-  ) {
-    const arr = current ?? []
-    const next = arr.includes(value)
-      ? arr.filter((v) => v !== value)
-      : [...arr, value]
-    onChange({ ...filters, [key]: next.length > 0 ? next : undefined })
-  }
-
-  const needsActive =
-    NeedFilterKeys.filter((key) => filters[key]).length +
-    (filters.accessDifficulty?.length ?? 0) +
-    (filters.occupancy?.length ?? 0)
+  const needsActive = NeedFilterKeys.filter((key) => filters[key]).length
 
   const totalActive = countActiveFilters(filters)
 
@@ -161,71 +190,78 @@ function FilterContent({
         )}
       </div>
 
-      <FilterGroup defaultOpen activeCount={needsActive} label="Necesidades">
-        {NeedFilterKeys.map((key) => (
-          <CheckboxItem
-            key={key}
-            checked={Boolean(filters[key])}
-            label={NeedFilterLabels[key]}
-            onChange={(checked) => {
-              onChange({ ...filters, [key]: checked ? true : undefined })
-            }}
+      {nearby && (
+        <div className="mb-5">
+          <FilterChip
+            label={nearby.isLoading ? 'Buscando tu ubicación…' : 'Cerca de mí'}
+            pressed={nearby.isActive}
+            onToggle={nearby.onToggle}
           />
-        ))}
-        {(
-          Object.keys(
-            AccessDifficultyLabels,
-          ) as (keyof typeof AccessDifficultyLabels)[]
-        ).map((level) => (
-          <CheckboxItem
-            key={level}
-            checked={(filters.accessDifficulty ?? []).includes(level)}
-            label={AccessDifficultyLabels[level]}
-            onChange={() => {
-              toggleEnumFilter(
-                'accessDifficulty',
-                level,
-                filters.accessDifficulty,
-              )
-            }}
-          />
-        ))}
-        {(Object.keys(OccupancyLabels) as (keyof typeof OccupancyLabels)[]).map(
-          (level) => (
-            <CheckboxItem
-              key={level}
-              checked={(filters.occupancy ?? []).includes(level)}
-              label={OccupancyLabels[level]}
-              onChange={() => {
-                toggleEnumFilter('occupancy', level, filters.occupancy)
+        </div>
+      )}
+
+      <FilterSection label="Acceso">
+        <SegmentedFilter
+          label="Acceso"
+          options={AccessOptions}
+          selected={filters.accessDifficulty ?? []}
+          onToggle={(value) => {
+            onChange({
+              ...filters,
+              accessDifficulty: toggleValue(filters.accessDifficulty, value),
+            })
+          }}
+        />
+      </FilterSection>
+
+      <FilterSection label="Ocupación en verano">
+        <SegmentedFilter
+          label="Ocupación en verano"
+          options={OccupancyOptions}
+          selected={filters.occupancy ?? []}
+          onToggle={(value) => {
+            onChange({
+              ...filters,
+              occupancy: toggleValue(filters.occupancy, value),
+            })
+          }}
+        />
+      </FilterSection>
+
+      <FilterSection activeCount={needsActive} label="Necesidades">
+        <div className="flex flex-wrap gap-2">
+          {NeedFilterKeys.map((key) => (
+            <FilterChip
+              key={key}
+              label={NeedFilterLabels[key]}
+              pressed={Boolean(filters[key])}
+              onToggle={() => {
+                onChange({ ...filters, [key]: filters[key] ? undefined : true })
               }}
             />
-          ),
-        )}
-      </FilterGroup>
+          ))}
+        </div>
+      </FilterSection>
 
-      <FilterGroup
-        defaultOpen
+      <FilterSection
         activeCount={filters.municipality?.length ?? 0}
         label="Municipio"
       >
-        {municipalities.map((m, i) => (
-          <CheckboxItem
-            key={m.name}
-            checked={(filters.municipality ?? []).includes(i)}
-            label={m.name}
-            onChange={() => {
-              toggleArrayFilter('municipality', i, filters.municipality)
-            }}
-          />
-        ))}
-      </FilterGroup>
+        <div className="flex flex-wrap gap-2">
+          {municipalities.map((m, i) => (
+            <FilterChip
+              key={m.name}
+              label={m.name}
+              pressed={(filters.municipality ?? []).includes(i)}
+              onToggle={() => {
+                toggleArrayFilter('municipality', i, filters.municipality)
+              }}
+            />
+          ))}
+        </div>
+      </FilterSection>
 
-      <FilterGroup
-        defaultOpen
-        activeCount={filters.sea?.length ?? 0}
-        label="Mar"
-      >
+      <FilterGroup activeCount={filters.sea?.length ?? 0} label="Mar">
         {seas.map((s, i) => (
           <CheckboxItem
             key={s.name}
@@ -466,45 +502,9 @@ export function FilterPanel(
 }
 
 function DesktopSidebar({ children }: { children: ReactNode }) {
-  const scrollRef = useRef<HTMLDivElement>(null)
-  const [showGradient, setShowGradient] = useState(true)
-
-  useEffect(() => {
-    const el = scrollRef.current
-    if (!el) return
-
-    function update() {
-      if (!el) return
-      const atBottom = el.scrollHeight - el.scrollTop <= el.clientHeight + 4
-      setShowGradient(!atBottom && el.scrollHeight > el.clientHeight)
-    }
-
-    update()
-    el.addEventListener('scroll', update, { passive: true })
-    const ro = new ResizeObserver(update)
-    ro.observe(el)
-
-    return () => {
-      el.removeEventListener('scroll', update)
-      ro.disconnect()
-    }
-  }, [])
-
   return (
-    <div className="relative sticky top-20 max-h-[calc(100vh-6rem)]">
-      <div
-        ref={scrollRef}
-        className="overflow-y-auto rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm"
-        style={{ maxHeight: 'calc(100vh - 6rem)' }}
-      >
-        {children}
-      </div>
-      {showGradient && (
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute right-0 bottom-0 left-0 h-12 rounded-b-2xl bg-gradient-to-t from-white to-transparent"
-        />
-      )}
+    <div className="sticky top-20 rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm">
+      {children}
     </div>
   )
 }

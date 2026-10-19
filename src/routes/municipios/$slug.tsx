@@ -14,10 +14,11 @@ import { EmptyState } from '@/components/ui/empty-state'
 import { BeachCard } from '@/features/beaches/beach-card'
 import { useCardFlags } from '@/features/beaches/use-card-flags'
 import { useCardWeather } from '@/features/beaches/use-card-weather'
-import { PageInfo } from '@/features/listing/page-info'
+import { ChipFilterBar } from '@/features/listing/chip-filter-bar'
 import { Pagination } from '@/features/listing/pagination'
+import { ResultsSummary } from '@/features/listing/results-summary'
 import { SortSelect } from '@/features/listing/sort-select'
-import { sortBeaches } from '@/lib/beach-filters'
+import { filterBeaches, sortBeaches } from '@/lib/beach-filters'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
 import { parseImageFilename, pictureUrl } from '@/lib/images'
 import { generateMunicipalitySchema } from '@/lib/schema'
@@ -136,9 +137,10 @@ function MunicipalityPage() {
   const PAGE_SIZE = 15
   const [sort, setSort] =
     useState<NonNullable<BeachSearchParams['sort']>>('recomendados')
+  const [filters, setFilters] = useState<BeachSearchParams>({})
   const sortedBeaches = useMemo(
-    () => sortBeaches(beaches, sort),
-    [beaches, sort],
+    () => sortBeaches(filterBeaches(beaches, filters), sort),
+    [beaches, filters, sort],
   )
   const [currentPage, setCurrentPage] = useState(1)
   const totalPages = Math.ceil(sortedBeaches.length / PAGE_SIZE)
@@ -146,6 +148,11 @@ function MunicipalityPage() {
     (currentPage - 1) * PAGE_SIZE,
     currentPage * PAGE_SIZE,
   )
+
+  function handleFiltersChange(next: BeachSearchParams) {
+    setFilters(next)
+    setCurrentPage(1)
+  }
 
   function handlePageChange(page: number) {
     setCurrentPage(page)
@@ -190,14 +197,21 @@ function MunicipalityPage() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         {beaches.length > 0 ? (
           <>
-            <div className="mb-6 flex flex-wrap items-center justify-end gap-3">
+            <ChipFilterBar filters={filters} onChange={handleFiltersChange} />
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+              <ResultsSummary
+                currentPage={currentPage}
+                totalItems={sortedBeaches.length}
+                totalPages={totalPages}
+              />
               <SortSelect value={sort} onChange={setSort} />
             </div>
-            <PageInfo
-              currentPage={currentPage}
-              totalItems={sortedBeaches.length}
-              totalPages={totalPages}
-            />
+            {sortedBeaches.length === 0 && (
+              <EmptyState
+                description="Prueba a quitar algún filtro."
+                title="Sin resultados"
+              />
+            )}
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
               {visibleBeaches.map((beach) => (
                 <BeachCard
@@ -227,23 +241,9 @@ function MunicipalityPage() {
         <div className="mt-12 text-center">
           <Link
             className="inline-flex items-center gap-1.5 rounded-full border border-ocean-200 px-5 py-2.5 text-sm font-medium text-ocean-600 transition-colors hover:bg-ocean-50 hover:text-ocean-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
-            to="/"
+            to="/municipios"
           >
-            <svg
-              aria-hidden="true"
-              className="h-4 w-4"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={1.5}
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            Ir al inicio
+            Ver otros municipios
           </Link>
         </div>
       </div>

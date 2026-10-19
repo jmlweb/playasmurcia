@@ -84,7 +84,8 @@ Each major section follows a pattern:
 ### Cards
 
 - **Cards are for clickable items only** (beach, municipality, collection). Static content sections (description, services, activities, cómo llegar, contacto) render **unboxed**, separated by `1px` `gray-200` hairlines with 48px vertical rhythm. Stacking many white shadowed boxes flattens hierarchy.
-- **One card style per object type.** A page must not mix card treatments for the same kind of item (e.g. image-strip, image-top and icon-only collection cards on `/colecciones`).
+- **One card style per object type.** A page must not mix card treatments for the same kind of item (e.g. image-strip, image-top and icon-only collection cards on `/colecciones`). Collections and seas share one card: 4:3 photo, title, short description, beach count; covers are picked by `pictureQualityScore` and kept distinct per card.
+- **Filters**: the explorer sidebar groups Acceso and Ocupación as segmented controls, Necesidades, Municipio and Mar as chips, with no inner scroller (sticky `top-20`). Pages with already-scoped beaches (e.g. `/municipios/$slug`) use the horizontal `ChipFilterBar` instead. Show count and page in one results line (`35 playas · página 1 de 3`).
 - White background with subtle shadow (`shadow-sm` or `shadow`)
 - Rounded corners (`rounded-lg` or `rounded-xl`)
 - Image at top, content below with padding

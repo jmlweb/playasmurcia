@@ -1,7 +1,8 @@
-import { createFileRoute, Link } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 
 import { PageHero } from '@/components/layout/page-hero'
+import { MunicipalityCard } from '@/features/municipalities/municipality-card'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
 import { pictureUrl } from '@/lib/images'
 
@@ -9,15 +10,22 @@ const fetchMunicipalitiesData = createServerFn({ method: 'GET' }).handler(
   async () => {
     const { getAllBeaches, getAllMunicipalities } =
       await import('@/lib/db-data/beach-queries')
-    const { buildMunicipalityNavWithBlueFlag } =
+    const { addMunicipalityCovers } = await import('@/lib/home-curation')
+    const { buildMunicipalityNavWithBlueFlag, sortMunicipalitiesByCoast } =
       await import('@/lib/nav-builders')
     const [beaches, municipalities] = await Promise.all([
       getAllBeaches(),
       getAllMunicipalities(),
     ])
-    return buildMunicipalityNavWithBlueFlag(beaches, municipalities)
-      .filter((municipality) => municipality.beachCount > 0)
-      .sort((a, b) => a.name.localeCompare(b.name, 'es'))
+    // Covers rely on the nav being index-aligned with the municipality list,
+    // so empty municipalities are dropped after they are attached.
+    const withCovers = addMunicipalityCovers(
+      buildMunicipalityNavWithBlueFlag(beaches, municipalities),
+      beaches,
+    )
+    return sortMunicipalitiesByCoast(withCovers).filter(
+      (municipality) => municipality.beachCount > 0,
+    )
   },
 )
 
@@ -64,35 +72,7 @@ function MunicipiosPage() {
         <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {municipalities.map((municipality) => (
             <li key={municipality.slug}>
-              <Link
-                className="group flex h-full flex-col rounded-2xl bg-white p-5 shadow-sm ring-1 ring-gray-200/60 transition-all duration-500 ease-out hover:shadow-lg hover:ring-ocean-200 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none motion-safe:hover:-translate-y-1"
-                params={{ slug: municipality.slug }}
-                to="/municipios/$slug"
-              >
-                <h2 className="mb-2 font-sans text-xl font-semibold text-gray-900 transition-colors group-hover:text-ocean-600">
-                  {municipality.name}
-                </h2>
-                <p className="mb-4 text-sm text-gray-600">
-                  <strong className="font-semibold text-gray-900">
-                    {municipality.beachCount}
-                  </strong>{' '}
-                  {municipality.beachCount === 1 ? 'playa' : 'playas'}
-                  {municipality.blueFlagCount > 0 && (
-                    <>
-                      {' · '}
-                      <strong className="font-semibold text-ocean-600">
-                        {municipality.blueFlagCount}
-                      </strong>{' '}
-                      {municipality.blueFlagCount === 1
-                        ? 'bandera azul'
-                        : 'banderas azules'}
-                    </>
-                  )}
-                </p>
-                <span className="mt-auto text-sm font-medium text-ocean-600 transition-colors group-hover:text-ocean-700">
-                  Ver playas →
-                </span>
-              </Link>
+              <MunicipalityCard {...municipality} />
             </li>
           ))}
         </ul>
