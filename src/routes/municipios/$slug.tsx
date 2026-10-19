@@ -163,7 +163,7 @@ function MunicipalityPage() {
           { label: 'Municipios', href: '/municipios' },
           { label: municipality.name },
         ]}
-        lifted={LIFTED_HERO_SLUGS.has(slug)}
+        tone={LIFTED_HERO_SLUGS.has(slug) ? 'lifted' : 'default'}
       >
         <h1 className="mb-4 text-3xl font-normal tracking-tight text-white sm:text-4xl">
           Playas de {municipality.name}

@@ -174,7 +174,6 @@ function ExplorerPage() {
   return (
     <main className="min-h-screen bg-sand-50">
       <PageHero
-        lifted
         backgroundAlt="Costa de Murcia"
         backgroundImage={pictureUrl('hero-explorar.png')}
         breadcrumb={[
@@ -182,6 +181,7 @@ function ExplorerPage() {
           { label: 'Explorar playas' },
         ]}
         optimizedName="hero-explorar"
+        tone="soft"
       >
         <p className="mb-3 text-sm font-semibold tracking-widest text-coral-300 uppercase">
           Costa de Murcia

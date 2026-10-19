@@ -5,12 +5,32 @@ import type { BreadcrumbItem } from '@/components/layout/breadcrumb'
 import { Breadcrumb } from '@/components/layout/breadcrumb'
 import { pictureUrl } from '@/lib/images'
 
+type HeroTone = 'default' | 'soft' | 'lifted'
+
+const imageToneClass = {
+  default: 'contrast-125',
+  soft: 'brightness-125 contrast-115',
+  lifted: 'brightness-150 contrast-110',
+} as const
+
+const tintToneClass = {
+  default: 'bg-ocean-400',
+  soft: 'bg-ocean-400',
+  lifted: 'bg-ocean-300',
+} as const
+
+const scrimToneClass = {
+  default: 'from-ocean-950/85 via-ocean-950/45 via-55%',
+  soft: 'from-ocean-950/82 via-ocean-950/38 via-52%',
+  lifted: 'from-ocean-950/80 via-ocean-950/30 via-50%',
+} as const
+
 type PageHeroProps = {
   children: ReactNode
   /** Rendered inside the hero, above the title block */
   breadcrumb?: BreadcrumbItem[]
-  /** Lighter duotone for photos that are too dark under the default one */
-  lifted?: boolean
+  /** Duotone strength: `soft` and `lifted` brighten photos that are too dark under `default` */
+  tone?: HeroTone
   /** `home` is taller than the listing/detail heroes */
   size?: 'home' | 'listing'
   /** Original raster URL, e.g. `pictureUrl('hero.png')` */
@@ -31,7 +51,7 @@ const photoHeroImgClass =
   'motion-safe:animate-ken-burns absolute inset-0 h-full w-full object-cover grayscale'
 
 function HeroImage({
-  lifted,
+  tone,
   src,
   alt,
   optimizedName,
@@ -39,7 +59,7 @@ function HeroImage({
   imageWidth,
   imageHeight,
 }: {
-  lifted: boolean
+  tone: HeroTone
   src: string
   alt: string
   optimizedName?: string
@@ -68,7 +88,7 @@ function HeroImage({
         />
         <img
           alt={alt}
-          className={`${photoHeroImgClass} ${lifted ? 'brightness-150 contrast-110' : 'contrast-125'}`}
+          className={`${photoHeroImgClass} ${imageToneClass[tone]}`}
           fetchPriority="high"
           src={src}
           {...imgDims}
@@ -80,7 +100,7 @@ function HeroImage({
   return (
     <img
       alt={alt}
-      className={`${photoHeroImgClass} ${lifted ? 'brightness-150 contrast-110' : 'contrast-125'}`}
+      className={`${photoHeroImgClass} ${imageToneClass[tone]}`}
       fetchPriority="high"
       src={src}
       {...imgDims}
@@ -91,7 +111,7 @@ function HeroImage({
 export function PageHero({
   children,
   breadcrumb,
-  lifted = false,
+  tone = 'default',
   size = 'listing',
   backgroundImage,
   backgroundAlt,
@@ -113,17 +133,17 @@ export function PageHero({
             alt={backgroundAlt ?? ''}
             imageHeight={imageHeight}
             imageWidth={imageWidth}
-            lifted={lifted}
             optimizedMaxWidth={optimizedMaxWidth}
             optimizedName={optimizedName}
             src={backgroundImage}
+            tone={tone}
           />
           {/* Duotone: grayscale photo tinted ocean, so any photo reads as the same dark teal and white text always passes contrast. Detail is traded for legibility on purpose. */}
           <div
-            className={`absolute inset-0 mix-blend-multiply ${lifted ? 'bg-ocean-300' : 'bg-ocean-400'}`}
+            className={`absolute inset-0 mix-blend-multiply ${tintToneClass[tone]}`}
           />
           <div
-            className={`absolute inset-0 bg-linear-to-t ${lifted ? 'from-ocean-950/80 via-ocean-950/30 via-50%' : 'from-ocean-950/85 via-ocean-950/45 via-55%'} to-transparent`}
+            className={`absolute inset-0 bg-linear-to-t ${scrimToneClass[tone]} to-transparent`}
           />
         </>
       ) : (
