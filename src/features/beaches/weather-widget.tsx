@@ -315,10 +315,10 @@ function TodayCard({ day, current, waterTemp, waves }: TodayCardProps) {
           </span>
         )}
         {waterTemp != null && (
-          <span className="flex items-center gap-1.5 text-sm text-blue-600">
+          <span className="flex items-center gap-1.5 text-sm text-gray-700">
             <svg
               aria-hidden="true"
-              className="h-4 w-4 flex-shrink-0"
+              className="h-4 w-4 flex-shrink-0 text-ocean-500"
               fill="none"
               viewBox="0 0 24 24"
             >

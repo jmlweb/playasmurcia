@@ -1,4 +1,5 @@
-import { cn } from '@/lib/cn'
+import type { ReactNode } from 'react'
+
 import {
   AccessDifficultyStyles,
   OccupancyStyles,
@@ -22,6 +23,43 @@ const SeasonConfig = {
   autumn: 'Otoño',
   winter: 'Invierno',
 } as const
+
+const OccupancySteps = { low: 1, medium: 2, high: 3 } as const
+
+function SummaryItem({
+  label,
+  children,
+}: {
+  label: string
+  children: ReactNode
+}) {
+  return (
+    <div className="rounded-xl bg-gray-50 p-3.5">
+      <dt className="mb-1.5 text-xs font-medium tracking-wide text-gray-400 uppercase">
+        {label}
+      </dt>
+      <dd className="text-[15px] font-semibold text-gray-900">{children}</dd>
+    </div>
+  )
+}
+
+// Ocean tones instead of red: high occupancy is a fact, not a warning.
+function OccupancyMeter({ level }: { level: 'low' | 'medium' | 'high' }) {
+  const filled = OccupancySteps[level]
+  return (
+    <span className="flex items-center gap-2">
+      <span aria-hidden="true" className="flex gap-1">
+        {[1, 2, 3].map((step) => (
+          <span
+            key={step}
+            className={`h-2.5 w-2.5 rounded-full ${step <= filled ? 'bg-ocean-500' : 'bg-ocean-100'}`}
+          />
+        ))}
+      </span>
+      {OccupancyStyles[level].shortLabel}
+    </span>
+  )
+}
 
 type PracticalInfoCardProps = {
   length?: number
@@ -102,61 +140,28 @@ export function PracticalInfoCard({
       </h2>
 
       {hasBadges && (
-        <div className="mb-5 grid grid-cols-2 gap-3">
+        <dl className="mb-5 grid grid-cols-2 gap-3">
           {waterQuality && (
-            <div className="rounded-xl bg-gray-50 p-3.5">
-              <p className="mb-1.5 text-xs font-medium tracking-wide text-gray-400 uppercase">
-                Calidad del agua
-              </p>
-              <span
-                className={`inline-block rounded-full px-3 py-1 text-sm font-semibold ${WaterQualityStyles[waterQuality].subtle}`}
-              >
-                {WaterQualityStyles[waterQuality].label}
-              </span>
-            </div>
+            <SummaryItem label="Calidad del agua">
+              {WaterQualityStyles[waterQuality].label}
+            </SummaryItem>
           )}
           {occupancyLevel && (
-            <div className="rounded-xl bg-gray-50 p-3.5">
-              <p className="mb-1.5 text-xs font-medium tracking-wide text-gray-400 uppercase">
-                Ocupación en verano
-              </p>
-              <span
-                className={`inline-block rounded-full px-3 py-1 text-sm font-semibold ${OccupancyStyles[occupancyLevel].subtle}`}
-              >
-                {OccupancyStyles[occupancyLevel].shortLabel}
-              </span>
-            </div>
+            <SummaryItem label="Ocupación en verano">
+              <OccupancyMeter level={occupancyLevel} />
+            </SummaryItem>
           )}
           {accessDifficulty && (
-            <div className="rounded-xl bg-gray-50 p-3.5">
-              <p className="mb-1.5 text-xs font-medium tracking-wide text-gray-400 uppercase">
-                Acceso
-              </p>
-              <span
-                className={`inline-block rounded-full px-3 py-1 text-sm font-semibold ${AccessDifficultyStyles[accessDifficulty].subtle}`}
-              >
-                {AccessDifficultyStyles[accessDifficulty].label}
-              </span>
-            </div>
+            <SummaryItem label="Acceso">
+              {AccessDifficultyStyles[accessDifficulty].label}
+            </SummaryItem>
           )}
           {childSafe !== undefined && (
-            <div className="rounded-xl bg-gray-50 p-3.5">
-              <p className="mb-1.5 text-xs font-medium tracking-wide text-gray-400 uppercase">
-                Apta para niños
-              </p>
-              <span
-                className={cn(
-                  'inline-block rounded-full px-3 py-1 text-sm font-semibold',
-                  childSafe
-                    ? 'bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200'
-                    : 'bg-gray-100 text-gray-600 ring-1 ring-gray-200',
-                )}
-              >
-                {childSafe ? 'Sí' : 'No'}
-              </span>
-            </div>
+            <SummaryItem label="Apta para niños">
+              {childSafe ? 'Sí' : 'No'}
+            </SummaryItem>
           )}
-        </div>
+        </dl>
       )}
 
       {details.length > 0 && (

@@ -13,6 +13,13 @@ type NearbyCarouselProps = {
   items: NearbyBeachItem[]
 }
 
+// Class names stay literal so Tailwind can detect them. The fade hints that
+// the row scrolls, so on desktop it is only applied when more than 4 cards overflow.
+const FADE_ALWAYS =
+  'pr-12 [mask-image:linear-gradient(to_right,#000_calc(100%-3rem),transparent)]'
+const FADE_MOBILE_ONLY =
+  'pr-12 max-lg:[mask-image:linear-gradient(to_right,#000_calc(100%-3rem),transparent)] lg:pr-0'
+
 export function NearbyCarousel({ items }: NearbyCarouselProps) {
   if (items.length === 0) {
     return null
@@ -23,7 +30,9 @@ export function NearbyCarousel({ items }: NearbyCarouselProps) {
       <h2 className="mb-4 text-xl font-semibold text-gray-900">
         Playas cercanas
       </h2>
-      <div className="scrollbar-hide flex snap-x snap-mandatory scroll-pl-4 gap-4 overflow-x-auto [mask-image:linear-gradient(to_right,#000_calc(100%-3rem),transparent)] pr-12 pb-3">
+      <div
+        className={`scrollbar-hide flex snap-x snap-mandatory scroll-pl-4 gap-4 overflow-x-auto pb-3 ${items.length > 4 ? FADE_ALWAYS : FADE_MOBILE_ONLY}`}
+      >
         {items.map(({ beach, municipality, slug }) => {
           const firstPicture = beach.pictures?.[0]
           const hasPicture = Boolean(firstPicture)
@@ -35,7 +44,7 @@ export function NearbyCarousel({ items }: NearbyCarouselProps) {
             <a
               key={beach.code}
               aria-label={`Ver playa ${beach.name}`}
-              className="group flex w-48 flex-shrink-0 snap-start flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 hover:shadow-md hover:ring-ocean-200 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none motion-safe:hover:-translate-y-0.5 sm:w-56"
+              className="group flex w-48 flex-shrink-0 snap-start flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-300 hover:shadow-md hover:ring-ocean-200 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none motion-safe:hover:-translate-y-0.5 sm:w-56 lg:w-[calc((100%-3rem)/4)]"
               href={`/playas/${slug}`}
             >
               <div className="relative h-32 overflow-hidden bg-gray-100">
