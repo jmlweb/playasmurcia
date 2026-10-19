@@ -24,3 +24,4 @@
 | LRN-018 | Same-name beaches share a slug, so deleting a duplicate is URL-safe | slugs, data, routing | active | 2026-10-19 |
 | LRN-019 | pictureQualityScore does not measure subject quality | ui, data, homepage | active | 2026-10-19 |
 | LRN-020 | Fresh worktree needs local DB and generated route tree before build/check | worktree, tooling, database | active | 2026-10-19 |
+| LRN-021 | Coast order needs a hand-written list, not mean latitude | data, frontend-ui | active | 2026-10-19 |
