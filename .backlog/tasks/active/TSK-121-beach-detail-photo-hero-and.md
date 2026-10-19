@@ -36,6 +36,7 @@ See .backlog/reports/complete/RPT-049-ui-review-2026-10-19-beach-detail.md for t
 
 ## Learnings
 
+- LRN-016: Fresh agent worktrees lack gitignored runtime files
 ## Progress Log
 
 - [2026-10-18] Created

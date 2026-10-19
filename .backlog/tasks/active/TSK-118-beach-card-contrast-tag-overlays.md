@@ -33,6 +33,7 @@ See .backlog/reports/complete/RPT-047-ui-review-2026-10-19-cross-cutting-finding
 
 ## Learnings
 
+- LRN-017: Worktree agents cannot run git through the rtk hook
 ## Progress Log
 
 - [2026-10-18] Created

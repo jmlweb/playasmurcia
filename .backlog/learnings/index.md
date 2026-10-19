@@ -19,3 +19,5 @@
 | LRN-013 | Fresh worktrees need setup before build, test and screenshots | worktree, testing, build, dev-environment | active | 2026-10-19 |
 | LRN-014 | Worktree agents must call /usr/bin/git | tooling, rtk, worktree | active | 2026-10-19 |
 | LRN-015 | Beach slugs are not globally unique | slugs, data, routing | active | 2026-10-19 |
+| LRN-016 | Fresh agent worktrees lack gitignored runtime files | worktree, build, dev, screenshots | active | 2026-10-19 |
+| LRN-017 | Worktree agents cannot run git through the rtk hook | tooling, git, rtk, worktree | active | 2026-10-19 |
