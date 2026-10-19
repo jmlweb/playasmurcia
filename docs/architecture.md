@@ -51,11 +51,14 @@ playasmurcia/
 │   │   └── ui/             # Generic UI (icons, responsive-image, empty-state)
 │   ├── features/
 │   │   ├── beaches/        # Beach domain (cards, detail widgets, gallery, maps)
+│   │   ├── home/           # Homepage sections (hero, featured grid, municipalities)
 │   │   ├── listing/        # Shared list/explorer (pagination, filters, search)
+│   │   ├── municipalities/ # Reusable municipality card (photo, meta line, CTA)
 │   │   └── webmcp/         # WebMCP tools for in-browser agents (server fns + hook)
 │   ├── lib/
 │   │   ├── db-data.ts      # Async loaders (primary)
 │   │   ├── edge-cache.ts
+│   │   ├── home-curation.ts # Curated featured beach codes and municipality cover photos
 │   │   ├── html-cache.ts        # Rendered-HTML edge cache keyed by deploy version
 │   │   ├── markdown-negotiation.ts  # `Accept: text/markdown` negotiation (HTMLRewriter glue)
 │   │   ├── html-to-markdown.ts  # Event-driven `<main>` HTML → markdown converter
@@ -112,7 +115,7 @@ TanStack Router — files under `src/routes/`:
 
 Root layout in `__root.tsx` provides document shell, meta, and global styles.
 
-Route files stay thin; reusable UI lives under `src/components/` (layout + generic `ui/`) and cross-route features under `src/features/` (`beaches/`, `listing/`).
+Route files stay thin; reusable UI lives under `src/components/` (layout + generic `ui/`) and cross-route features under `src/features/` (`beaches/`, `home/`, `listing/`, `municipalities/`).
 
 ### SEO
 

@@ -8,6 +8,8 @@ import type { Beach, Municipality, Tag } from '@/types/beach'
 
 import { BeachCard } from '@/features/beaches/beach-card'
 
+import { FeaturedBeachCard } from './featured-beach-card'
+
 type FeaturedSectionProps = {
   ref: RefObject<HTMLElement | null>
   featured: Beach[]
@@ -29,12 +31,15 @@ export function FeaturedSection({
   flagData,
   totalBeaches,
 }: FeaturedSectionProps) {
+  const lead = featured.at(0)
+  const rest = featured.slice(1)
+
   return (
     <section
       ref={ref}
       className="reveal mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20"
     >
-      <div className="mb-8 flex items-end justify-between">
+      <div className="mb-8">
         <div>
           <p className="overline-accent mb-2 text-sm font-semibold tracking-wider text-ocean-600 uppercase">
             Selección destacada
@@ -43,30 +48,28 @@ export function FeaturedSection({
             Playas que no te puedes perder
           </h2>
         </div>
-        <Link
-          className="hidden text-sm font-medium text-ocean-600 hover:text-ocean-700 sm:block"
-          to="/explorar"
-        >
-          Ver todas las playas →
-        </Link>
       </div>
 
       <div className="grid gap-6 pb-4 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
-        {featured.map((beach, i) => {
-          const slug = slugMap.get(beach.code) ?? beach.code
-          return (
-            <BeachCard
-              key={beach.code}
-              beach={beach}
-              eager={i < 4}
-              flag={flagData[beach.code]}
-              municipality={municipalities[beach.municipality]}
-              slug={slug}
-              tags={tags}
-              weather={weatherData[beach.code]}
-            />
-          )
-        })}
+        {lead && (
+          <FeaturedBeachCard
+            beach={lead}
+            municipality={municipalities[lead.municipality]}
+            slug={slugMap.get(lead.code) ?? lead.code}
+          />
+        )}
+        {rest.map((beach, i) => (
+          <BeachCard
+            key={beach.code}
+            beach={beach}
+            eager={i < 2}
+            flag={flagData[beach.code]}
+            municipality={municipalities[beach.municipality]}
+            slug={slugMap.get(beach.code) ?? beach.code}
+            tags={tags}
+            weather={weatherData[beach.code]}
+          />
+        ))}
       </div>
 
       <div className="mt-8 text-center">

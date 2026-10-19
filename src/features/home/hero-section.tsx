@@ -6,7 +6,7 @@ import { pictureUrl } from '@/lib/images'
 export function HeroSection({ totalBeaches }: { totalBeaches: number }) {
   return (
     <PageHero
-      backgroundAlt="Vista aerea de la costa de Murcia"
+      backgroundAlt="Vista aérea de la costa de Murcia"
       backgroundImage={pictureUrl('hero.png')}
       imageHeight={768}
       imageWidth={1408}
@@ -20,13 +20,9 @@ export function HeroSection({ totalBeaches }: { totalBeaches: number }) {
       <h1 className="animate-fade-up mb-4 text-4xl font-normal tracking-tight text-white [animation-delay:75ms] sm:text-5xl lg:text-6xl">
         Encuentra tu playa ideal
       </h1>
-      <p className="animate-fade-up mb-2 max-w-2xl text-lg leading-relaxed text-ocean-100 [animation-delay:150ms] sm:text-xl">
-        <b>252</b> kilómetros de litoral, <b>{totalBeaches}</b> playas y calas
-        entre dos mares.
-      </p>
       <p className="animate-fade-up mb-8 max-w-2xl text-lg leading-relaxed text-ocean-100 [animation-delay:150ms] sm:text-xl">
-        Desde las aguas cristalinas de Cabo de Palos hasta las cálidas orillas
-        del Mar Menor, tenemos la playa que necesitas.
+        <b>252</b> km de litoral y <b>{totalBeaches}</b> playas entre el
+        Mediterráneo y el Mar Menor.
       </p>
       <div className="animate-fade-up flex flex-col items-start gap-4 [animation-delay:225ms] sm:flex-row sm:items-center">
         <Link

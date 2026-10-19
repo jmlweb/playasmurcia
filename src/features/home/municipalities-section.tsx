@@ -1,14 +1,12 @@
 import type { RefObject } from 'react'
 
-import { Link } from '@tanstack/react-router'
+import type { MunicipalityCardData } from '@/lib/home-curation'
 
-import type { NavMunicipalityWithBlueFlag } from '@/lib/nav-builders'
-
-import { BlueFlagBadgeIcon } from '@/components/ui/icons'
+import { MunicipalityCard } from '@/features/municipalities/municipality-card'
 
 type MunicipalitiesSectionProps = {
   ref: RefObject<HTMLElement | null>
-  municipalityNav: NavMunicipalityWithBlueFlag[]
+  municipalityNav: MunicipalityCardData[]
 }
 
 export function MunicipalitiesSection({
@@ -33,53 +31,7 @@ export function MunicipalitiesSection({
         </div>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
           {municipalityNav.map((m) => (
-            <Link
-              key={m.slug}
-              className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/60 transition-all duration-500 ease-out hover:shadow-lg hover:ring-ocean-200 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none motion-safe:hover:-translate-y-1"
-              params={{ slug: m.slug }}
-              to="/municipios/$slug"
-            >
-              <div className="flex flex-1 flex-col p-5">
-                <div className="mb-3 flex items-start justify-between">
-                  <h3 className="text-xl font-semibold text-gray-900 transition-colors group-hover:text-ocean-600">
-                    {m.name}
-                  </h3>
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-ocean-50 text-lg font-bold text-ocean-700">
-                    {m.beachCount}
-                  </div>
-                </div>
-                {m.blueFlagCount > 0 && (
-                  <p className="mb-3 text-sm leading-relaxed text-gray-500">
-                    <span className="inline-flex items-center gap-1 text-ocean-600">
-                      <BlueFlagBadgeIcon className="inline h-3.5 w-3.5" />
-                      {m.blueFlagCount}{' '}
-                      {m.blueFlagCount === 1
-                        ? 'bandera azul'
-                        : 'banderas azules'}
-                    </span>
-                  </p>
-                )}
-                <div className="mt-auto">
-                  <span className="inline-flex items-center gap-1 text-sm font-medium text-ocean-600 transition-colors group-hover:text-ocean-700">
-                    Ver playas
-                    <svg
-                      aria-hidden="true"
-                      className="h-4 w-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-            </Link>
+            <MunicipalityCard key={m.slug} {...m} />
           ))}
         </div>
       </div>
