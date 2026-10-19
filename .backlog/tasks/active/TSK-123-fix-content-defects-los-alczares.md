@@ -33,6 +33,8 @@ See .backlog/reports/complete/RPT-051-contentdata-issues-visible-in-ui.md for de
 
 ## Learnings
 
+- LRN-014: Worktree agents must call /usr/bin/git
+- LRN-015: Beach slugs are not globally unique
 ## Progress Log
 
 - [2026-10-18] Created

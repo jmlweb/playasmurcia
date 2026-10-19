@@ -35,6 +35,9 @@ See .backlog/reports/complete/RPT-047-ui-review-2026-10-19-cross-cutting-finding
 
 ## Learnings
 
+- LRN-011: Undefined Tailwind color step fails silently
+- LRN-012: Run oxfmt after oxlint --fix
+- LRN-013: Fresh worktrees need setup before build, test and screenshots
 ## Progress Log
 
 - [2026-10-18] Created

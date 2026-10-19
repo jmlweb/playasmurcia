@@ -14,3 +14,8 @@
 | LRN-008 | `.env` vs `.dev.vars` | infrastructure-deploy | active | 2026-10-17 |
 | LRN-009 | Diagnose before changing code | general | active | 2026-10-17 |
 | LRN-010 | La Manga is a place, not a municipality | database-data, geocoding, deployment | active | 2026-10-18 |
+| LRN-011 | Undefined Tailwind color step fails silently | tailwind, theme, ui | active | 2026-10-19 |
+| LRN-012 | Run oxfmt after oxlint --fix | tooling, lint, format | active | 2026-10-19 |
+| LRN-013 | Fresh worktrees need setup before build, test and screenshots | worktree, testing, build, dev-environment | active | 2026-10-19 |
+| LRN-014 | Worktree agents must call /usr/bin/git | tooling, rtk, worktree | active | 2026-10-19 |
+| LRN-015 | Beach slugs are not globally unique | slugs, data, routing | active | 2026-10-19 |
