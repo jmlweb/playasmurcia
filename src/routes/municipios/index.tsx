@@ -69,7 +69,7 @@ function MunicipiosPage() {
                 params={{ slug: municipality.slug }}
                 to="/municipios/$slug"
               >
-                <h2 className="mb-2 text-xl font-bold text-gray-900 transition-colors group-hover:text-ocean-600">
+                <h2 className="mb-2 font-sans text-xl font-semibold text-gray-900 transition-colors group-hover:text-ocean-600">
                   {municipality.name}
                 </h2>
                 <p className="mb-4 text-sm text-gray-600">

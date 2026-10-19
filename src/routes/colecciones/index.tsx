@@ -213,7 +213,7 @@ function CollectionCard({
           </div>
         </div>
         <div className="flex flex-1 flex-col p-5">
-          <h3 className="mb-2 text-xl font-bold text-gray-900 transition-colors group-hover:text-ocean-600">
+          <h3 className="mb-2 text-xl font-semibold text-gray-900 transition-colors group-hover:text-ocean-600">
             {title}
           </h3>
           <p className="mb-4 text-sm leading-relaxed text-gray-600">
@@ -250,7 +250,7 @@ function CollectionCard({
           >
             <CollectionIcon className="h-5 w-5" slug={slug} />
           </div>
-          <h3 className="text-base font-bold text-gray-900 transition-colors group-hover:text-ocean-600">
+          <h3 className="text-base font-semibold text-gray-900 transition-colors group-hover:text-ocean-600">
             {title}
           </h3>
         </div>
@@ -328,7 +328,7 @@ function SeaCollectionCard({
             </svg>
           </div>
           <div>
-            <h3 className="text-lg font-bold text-white">{title}</h3>
+            <h3 className="text-lg font-semibold text-white">{title}</h3>
             <p className="text-sm text-white/80">
               <strong className="font-semibold">{beachCount}</strong> playas
             </p>

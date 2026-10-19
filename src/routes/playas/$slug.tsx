@@ -255,10 +255,10 @@ function BeachPage() {
           </div>
 
           {/* Remaining main content — order 3 on mobile, col-span-2 row 2 on desktop */}
-          <div className="order-3 space-y-8 lg:col-span-2 lg:row-start-2">
+          <div className="order-3 divide-y divide-gray-200 lg:col-span-2 lg:row-start-2 [&>*]:py-12 [&>*:first-child]:pt-0 [&>*:last-child]:pb-0">
             {/* Services */}
             {beach.services.length > 0 && (
-              <div className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm">
+              <div>
                 <ServicesGrid
                   allServices={services}
                   serviceIndices={beach.services}
@@ -268,7 +268,7 @@ function BeachPage() {
 
             {/* Activities */}
             {beach.activities.length > 0 && (
-              <div className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm">
+              <div>
                 <ActivitiesGrid
                   activityIndices={beach.activities}
                   allActivities={activities}
@@ -278,7 +278,7 @@ function BeachPage() {
 
             {/* How to get there */}
             {beach.access && (
-              <section className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm">
+              <section>
                 <h2 className="mb-3 text-xl font-semibold text-gray-900">
                   Cómo llegar
                 </h2>

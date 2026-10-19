@@ -18,10 +18,7 @@ export function ContactInfo({
   }
 
   return (
-    <section
-      aria-label="Información de contacto"
-      className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm"
-    >
+    <section aria-label="Información de contacto">
       <h2 className="mb-4 text-xl font-semibold text-gray-900">Contacto</h2>
       <ul className="space-y-3">
         {phone && (

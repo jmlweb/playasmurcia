@@ -37,7 +37,7 @@ export function SiteFooter({
             >
               Playas de Murcia
             </Link>
-            <p className="mt-3 text-sm leading-relaxed text-ocean-300">
+            <p className="mt-3 text-sm leading-relaxed text-ocean-200">
               Guía completa de las playas y calas de la Región de Murcia. Costa
               Cálida, entre el Mediterráneo y el Mar Menor.
             </p>
@@ -57,7 +57,7 @@ export function SiteFooter({
                     to="/municipios/$slug"
                   >
                     {m.name}
-                    <span className="rounded-full bg-ocean-800 px-1.5 py-0.5 text-xs font-medium text-ocean-400 transition-colors group-hover:text-ocean-300">
+                    <span className="rounded-full bg-ocean-800 px-1.5 py-0.5 text-xs font-medium text-ocean-200 transition-colors group-hover:text-white">
                       {m.beachCount}
                     </span>
                   </Link>
@@ -69,7 +69,7 @@ export function SiteFooter({
           {/* Characteristics + Quick links */}
           <div>
             <p className="mb-4 text-xs font-semibold tracking-wider text-ocean-400 uppercase">
-              Colecciones
+              Colecciones destacadas
             </p>
             <ul className="space-y-2">
               {characteristics.map((c) => (
@@ -80,7 +80,7 @@ export function SiteFooter({
                     to="/colecciones/$slug"
                   >
                     {c.label}
-                    <span className="rounded-full bg-ocean-800 px-1.5 py-0.5 text-xs font-medium text-ocean-400 transition-colors group-hover:text-ocean-300">
+                    <span className="rounded-full bg-ocean-800 px-1.5 py-0.5 text-xs font-medium text-ocean-200 transition-colors group-hover:text-white">
                       {c.count}
                     </span>
                   </Link>
