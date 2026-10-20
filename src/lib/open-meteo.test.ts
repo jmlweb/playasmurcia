@@ -157,6 +157,7 @@ describe('fetchMarineWeather', () => {
       currentTemp: 22,
       waveHeight: 0.4,
       waveDirection: 'E',
+      waveDirectionDegrees: 95,
       wavePeriod: 5,
       windWaveHeight: 0.3,
       swellWaveHeight: 0.2,

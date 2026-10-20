@@ -27,6 +27,9 @@ import { parseImageFilename, pictureUrl } from '@/lib/images'
 import { generateBeachSchema } from '@/lib/schema'
 import { beachToSlug, municipalityToSlug } from '@/lib/slugs'
 
+// Index into data/seas.json; the lagoon is not exposed to open-sea waves
+const MAR_MENOR_SEA = 1
+
 const fetchRenamedBeachSlug = createServerFn({ method: 'GET' })
   .validator((data: { slug: string }) => ({ slug: data.slug.trim() }))
   .handler(async ({ data }) => {
@@ -233,6 +236,9 @@ function BeachPage() {
             <WeatherWidget
               aemetId={beach.aemetId}
               coordinates={beach.coordinates}
+              shoreBearing={
+                beach.sea === MAR_MENOR_SEA ? undefined : beach.shoreBearing
+              }
             />
 
             <BeachStatusWidget

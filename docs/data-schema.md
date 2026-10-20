@@ -53,6 +53,7 @@ interface Beach {
   access: string            // Hand-edited directions, same markdown subset as description
   nearby: string[]          // Array of nearby beach codes
   orientation: string       // Cardinal direction (east, southeast, etc.)
+  shoreBearing: number      // Integer 0-359, compass degrees the beach faces seaward (see Shore Bearing in business-rules.md)
   instagramHashtag: string  // Instagram hashtag for the beach
 
   // Optional

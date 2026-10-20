@@ -32,6 +32,7 @@ interface BeachJSON {
   nearby: Array<string>
   description: string
   orientation: string
+  shoreBearing?: number
   instagramHashtag: string
   dogFriendly: boolean
   lifeguard: boolean

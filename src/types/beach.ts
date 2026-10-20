@@ -18,6 +18,7 @@ export type Beach = {
   access: string
   nearby: string[]
   orientation: string
+  shoreBearing?: number
   instagramHashtag: string
   occupancyLevel?: 'low' | 'medium' | 'high'
   campingNearby?: boolean

@@ -19,6 +19,7 @@ type JsonBeach = {
   nearby: Array<string>
   description: string
   orientation: string
+  shoreBearing?: number
   instagramHashtag: string
   dogFriendly: boolean
   lifeguard: boolean
@@ -257,6 +258,7 @@ async function main() {
           access: beach.access,
           nearby: JSON.stringify(beach.nearby),
           orientation: beach.orientation,
+          shoreBearing: beach.shoreBearing ?? null,
           instagramHashtag: beach.instagramHashtag,
           occupancyLevel: beach.occupancyLevel || null,
           campingNearby: beach.campingNearby ?? null,

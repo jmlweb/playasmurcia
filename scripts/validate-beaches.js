@@ -116,6 +116,15 @@ beaches.forEach((beach, index) => {
     errors.push(`${prefix}: aemetId should be 7 digits starting with 30`)
   }
 
+  // Degrees the beach faces seaward; drives the resguardada/expuesta label
+  if (
+    !Number.isInteger(beach.shoreBearing) ||
+    beach.shoreBearing < 0 ||
+    beach.shoreBearing > 359
+  ) {
+    errors.push(`${prefix}: shoreBearing must be an integer in [0, 359]`)
+  }
+
   if (
     beach.pictureQualityScore !== undefined &&
     ![0, 1, 2, 3].includes(beach.pictureQualityScore)

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import type { WeatherIconType } from '@/components/ui/icons'
 
 import { WeatherIcon } from '@/components/ui/icons'
+import { getWaveExposure } from '@/lib/wave-exposure'
 import { formatWaveHeight, getWaveLevel } from '@/lib/wave-level'
 
 // ---------------------------------------------------------------------------
@@ -37,6 +38,7 @@ type CurrentWeather = {
 type Waves = {
   height?: number
   direction?: string
+  directionDegrees?: number
 }
 
 type UnifiedForecast = {
@@ -147,7 +149,11 @@ type MarineResult = Awaited<ReturnType<typeof fetchMarineWeatherFn>>
 
 function toWaves(marine: MarineResult | null): Waves | undefined {
   if (marine?.waveHeight == null) return undefined
-  return { height: marine.waveHeight, direction: marine.waveDirection }
+  return {
+    height: marine.waveHeight,
+    direction: marine.waveDirection,
+    directionDegrees: marine.waveDirectionDegrees,
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -231,9 +237,16 @@ type TodayCardProps = {
   current?: CurrentWeather
   waterTemp?: number
   waves?: Waves
+  shoreBearing?: number
 }
 
-function TodayCard({ day, current, waterTemp, waves }: TodayCardProps) {
+function TodayCard({
+  day,
+  current,
+  waterTemp,
+  waves,
+  shoreBearing,
+}: TodayCardProps) {
   const iconType = current?.skyIcon
     ? (current.skyIcon as WeatherIconType)
     : day.skyIcon
@@ -250,6 +263,10 @@ function TodayCard({ day, current, waterTemp, waves }: TodayCardProps) {
     day.wavesDescription ??
     (waveHeight != null ? getWaveLevel(waveHeight) : undefined)
   const hasWaves = waveLabel != null
+  const waveExposure =
+    shoreBearing != null && waves?.directionDegrees != null
+      ? getWaveExposure(shoreBearing, waves.directionDegrees)
+      : undefined
 
   return (
     <div>
@@ -357,6 +374,14 @@ function TodayCard({ day, current, waterTemp, waves }: TodayCardProps) {
               <span className="inline-block first-letter:uppercase">
                 {waveLabel}
               </span>
+              {waveExposure && (
+                <>
+                  {' · '}
+                  <span className="inline-block first-letter:uppercase">
+                    {waveExposure}
+                  </span>
+                </>
+              )}
             </span>
           </span>
         )}
@@ -442,6 +467,8 @@ function WeatherSkeleton() {
 type WeatherWidgetProps = {
   aemetId?: string
   coordinates: [number, number]
+  /** Degrees the beach faces seaward; omit where open-sea waves do not apply. */
+  shoreBearing?: number
 }
 
 type FetchState =
@@ -450,7 +477,11 @@ type FetchState =
   | { status: 'error' }
   | { status: 'success'; forecast: UnifiedForecast }
 
-export function WeatherWidget({ aemetId, coordinates }: WeatherWidgetProps) {
+export function WeatherWidget({
+  aemetId,
+  coordinates,
+  shoreBearing,
+}: WeatherWidgetProps) {
   const [state, setState] = useState<FetchState>({ status: 'idle' })
 
   // Reset to loading during render (not in an effect) when the location changes
@@ -562,6 +593,7 @@ export function WeatherWidget({ aemetId, coordinates }: WeatherWidgetProps) {
       <TodayCard
         current={forecast.current}
         day={today}
+        shoreBearing={shoreBearing}
         waterTemp={forecast.waterTemp}
         waves={forecast.waves}
       />

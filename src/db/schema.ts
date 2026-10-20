@@ -63,6 +63,7 @@ export const beaches = sqliteTable(
     access: text('access').notNull(),
     nearby: text('nearby').notNull(),
     orientation: text('orientation').notNull(),
+    shoreBearing: integer('shore_bearing'),
     instagramHashtag: text('instagram_hashtag').notNull(),
     occupancyLevel: text('occupancy_level'),
     campingNearby: integer('camping_nearby', { mode: 'boolean' }),

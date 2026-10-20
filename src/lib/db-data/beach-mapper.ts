@@ -23,6 +23,7 @@ export function mapBeachFromDB(dbBeach: {
   access: string
   nearby: string
   orientation: string
+  shoreBearing: number | null
   instagramHashtag: string
   occupancyLevel: string | null
   campingNearby: boolean | null
@@ -65,6 +66,9 @@ export function mapBeachFromDB(dbBeach: {
     access: dbBeach.access,
     nearby: JSON.parse(dbBeach.nearby),
     orientation: dbBeach.orientation,
+    ...(dbBeach.shoreBearing != null && {
+      shoreBearing: dbBeach.shoreBearing,
+    }),
     instagramHashtag: dbBeach.instagramHashtag,
     ...(dbBeach.occupancyLevel && {
       occupancyLevel: dbBeach.occupancyLevel as 'low' | 'medium' | 'high',

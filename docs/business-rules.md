@@ -34,6 +34,19 @@ Orientation was calculated based on coordinates:
 | Mar Mediterráneo + latitude > 37.55    | east        |
 | Mar Mediterráneo + latitude <= 37.55   | southeast   |
 
+## Shore Bearing
+
+`shoreBearing` is the compass bearing (integer degrees, 0 = north, 90 = east) that the beach faces seaward. It is a separate, finer field than `orientation`.
+
+Derivation (one-off, the script was removed after use):
+
+1. For each beach, fetch OpenStreetMap `natural=coastline` ways within 300 m of its coordinates from the Overpass API, widening to 1 km and then 3 km when none are found
+2. OSM coastline ways run with land on the left and sea on the right, so each segment's seaward normal is its bearing + 90°
+3. Average the normals of the segments within 250 m of the nearest coastline point, weighted by segment length
+4. Review beaches whose bearing differs from `orientation` by more than 90° or whose nearest coastline is more than 300 m away, and fix them by hand
+
+New beaches need a hand-set `shoreBearing`; `node scripts/validate-beaches.js` fails without one.
+
 ## Weather: AEMET and Open-Meteo
 
 v3 uses **two** weather sources:
@@ -76,7 +89,8 @@ So weather is **not** limited to beaches with `aemetId`; those codes only gate t
 - The Open-Meteo Marine call used for sea temperature also requests `wave_height`, `wave_direction`, `wave_period`, `wind_wave_height` and `swell_wave_height` (current values, same 1 h edge cache). Wave fields are optional on the cached entry so entries written before they were added still render
 - The detail weather widget shows an "Oleaje" row with the significant wave height (one decimal, metres), the wave direction and a level from `src/lib/wave-level.ts`: `bajo` below 0.5 m, `moderado` from 0.5 m to 1.25 m, `alto` from 1.25 m (Douglas sea scale boundaries)
 - When the beach has `aemetId`, the AEMET `oleaje` description for the day (`getDayWaves`, full-day period first, then morning) replaces the computed level; the Marine height is still shown
-- The Marine model is a ~5 km grid and describes open water, not a sheltered cove; shore exposure is a separate task (TSK-116)
+- The Marine model is a ~5 km grid and describes open water, not a sheltered cove; the shore exposure label below adjusts for that
+- Shore exposure: when the beach has `shoreBearing` and the Marine response has a wave direction, the Oleaje row appends `Expuesta` or `Resguardada` from `getWaveExposure` in `src/lib/wave-exposure.ts`. Open-Meteo `wave_direction` is the direction waves come from, so a beach is `expuesta` when that direction is within 90° of `shoreBearing` (wrapping around north) and `resguardada` otherwise. The label reflects the current open-sea state only and is hidden for Mar Menor beaches (`sea=1`), which the open-sea waves do not reach
 
 ## Explorer Filters and Sorting
 

@@ -86,6 +86,7 @@ export type MarineWeather = {
   // Optional: entries cached before waves were added lack them
   waveHeight?: number
   waveDirection?: string
+  waveDirectionDegrees?: number
   wavePeriod?: number
   windWaveHeight?: number
   swellWaveHeight?: number
@@ -373,15 +374,21 @@ function mapMarineCurrent(
     current.wave_period != null && Number.isFinite(current.wave_period)
       ? Math.round(current.wave_period)
       : undefined
+  const rawWaveDirection = current.wave_direction
+  const waveDirectionDegrees =
+    rawWaveDirection != null && Number.isFinite(rawWaveDirection)
+      ? Math.round(rawWaveDirection)
+      : undefined
   const waveDirection =
-    current.wave_direction != null && Number.isFinite(current.wave_direction)
-      ? degreesToDirection(current.wave_direction)
+    waveDirectionDegrees !== undefined
+      ? degreesToDirection(waveDirectionDegrees)
       : undefined
 
   return {
     currentTemp: Math.round(current.sea_surface_temperature),
     ...(waveHeight !== undefined && { waveHeight }),
     ...(waveDirection !== undefined && { waveDirection }),
+    ...(waveDirectionDegrees !== undefined && { waveDirectionDegrees }),
     ...(wavePeriod !== undefined && { wavePeriod }),
     ...(windWaveHeight !== undefined && { windWaveHeight }),
     ...(swellWaveHeight !== undefined && { swellWaveHeight }),
