@@ -25,3 +25,4 @@
 | LRN-019 | pictureQualityScore does not measure subject quality | ui, data, homepage | active | 2026-10-19 |
 | LRN-020 | Fresh worktree needs local DB and generated route tree before build/check | worktree, tooling, database | active | 2026-10-19 |
 | LRN-021 | Coast order needs a hand-written list, not mean latitude | data, frontend-ui | active | 2026-10-19 |
+| LRN-022 | Seaward bearing comes from OSM coastline direction, but beach coordinates can be hundreds of metres off | data, weather | active | 2026-10-20 |

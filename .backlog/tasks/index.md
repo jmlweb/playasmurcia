@@ -4,10 +4,10 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 1 |
+| Pending | 0 |
 | Active | 0 |
 | Blocked | 0 |
-| Complete | 120 |
+| Complete | 121 |
 
 ## Active Tasks
 
@@ -17,12 +17,12 @@ _No active tasks._
 
 | ID | Title | Priority | Tags | Created |
 |----|-------|----------|------|---------|
-| TSK-116 | Shore Bearing per Beach and Wave Exposure Label | P4 | data, weather, beach-detail | 2026-10-18 |
 
 ## Recently Completed
 
 | ID | Title | Completed |
 |----|-------|-----------|
+| TSK-116 | Shore Bearing per Beach and Wave Exposure Label | 2026-10-20 |
 | TSK-115 | Wave Forecast (Oleaje) on Beach Detail Page | 2026-10-19 |
 | TSK-117 | Full-bleed photo heroes without frosted panel | 2026-10-19 |
 | TSK-118 | Beach card contrast, tag overlays and photo-less fallback | 2026-10-19 |
@@ -32,4 +32,3 @@ _No active tasks._
 | TSK-122 | Listing pages: municipios photo cards, unified collection card, explorer filters | 2026-10-19 |
 | TSK-123 | Fix content defects: Los Alcázares email, La Concha copy, Cala Mijo name, slug punctuation | 2026-10-19 |
 | TSK-124 | Fix: Beach data audit unresolved findings (Oct 2026) | 2026-10-19 |
-| TSK-106 | Explorer Practical Filters (Dogs, Lifeguard, Accessibility, Shade, Crowds) | 2026-10-17 |
