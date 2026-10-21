@@ -4,7 +4,7 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 0 |
+| Pending | 3 |
 | Active | 0 |
 | Blocked | 0 |
 | Complete | 121 |
@@ -17,6 +17,9 @@ _No active tasks._
 
 | ID | Title | Priority | Tags | Created |
 |----|-------|----------|------|---------|
+| TSK-125 | Fix: COPLA 'PLAYA CERRADA' flag is mapped to 'Sin bandera' | P2 | bug, beach-status | 2026-10-21 |
+| TSK-126 | Fix: Nearby beaches lose their distance order | P3 | bug, beach-detail | 2026-10-21 |
+| TSK-127 | Fix: Explorer search validation accepts empty, unknown and prototype-key filter values | P4 | bug, explorer | 2026-10-21 |
 
 ## Recently Completed
 
