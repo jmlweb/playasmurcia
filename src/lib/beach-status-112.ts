@@ -9,7 +9,12 @@ const STALE_DAYS = 2
 // Types
 // ---------------------------------------------------------------------------
 
-export type BeachFlag = 'VERDE' | 'AMARILLA' | 'ROJA' | 'SIN BANDERA'
+export type BeachFlag =
+  | 'VERDE'
+  | 'AMARILLA'
+  | 'ROJA'
+  | 'PLAYA CERRADA'
+  | 'SIN BANDERA'
 export type SeaState = 'BUENO' | 'REGULAR' | 'MALO' | 'SIN ESTADO'
 
 export type BeachStatus112 = {
@@ -120,6 +125,7 @@ const VALID_FLAGS = new Set<BeachFlag>([
   'VERDE',
   'AMARILLA',
   'ROJA',
+  'PLAYA CERRADA',
   'SIN BANDERA',
 ])
 

@@ -68,6 +68,7 @@ describe('BeachCard conditions', () => {
     ['VERDE', 'Bandera verde'],
     ['AMARILLA', 'Bandera amarilla'],
     ['ROJA', 'Bandera roja'],
+    ['PLAYA CERRADA', 'Playa cerrada'],
   ] as const)('shows the %s flag', (flag, label) => {
     renderCard({ flag })
 
