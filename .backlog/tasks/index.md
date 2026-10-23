@@ -4,7 +4,7 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 2 |
+| Pending | 3 |
 | Active | 0 |
 | Blocked | 0 |
 | Complete | 122 |
@@ -19,6 +19,7 @@ _No active tasks._
 |----|-------|----------|------|---------|
 | TSK-126 | Fix: Nearby beaches lose their distance order | P3 | bug, beach-detail | 2026-10-21 |
 | TSK-127 | Fix: Explorer search validation accepts empty, unknown and prototype-key filter values | P4 | bug, explorer | 2026-10-21 |
+| TSK-128 | Fix: formatDistance shows 1000 m and 10,0 km at unit boundaries | P4 | bug, explorer | 2026-10-23 |
 
 ## Recently Completed
 
