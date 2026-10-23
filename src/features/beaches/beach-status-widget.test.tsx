@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 
 import type { BeachFlag, BeachStatus112 } from '@/lib/beach-status-112'
@@ -23,18 +23,18 @@ const statusWithFlag = (flag: BeachFlag): BeachStatus112 => ({
   isOffSeason: false,
 })
 
-async function renderWidgetWithFlag(flag: BeachFlag) {
+async function renderFlagCircle(flag: BeachFlag) {
   fetchBeachStatus.mockResolvedValueOnce(statusWithFlag(flag))
-  const { unmount } = render(
+  const { container, unmount } = render(
     <BeachStatusWidget beachName="Calarreona" municipalityName="Águilas" />,
   )
-  const circle = await screen.findByRole('img')
-  const result = {
+  const circle = await within(container).findByRole('img')
+  const rendered = {
     label: circle.getAttribute('aria-label'),
     className: circle.className,
   }
   unmount()
-  return result
+  return rendered
 }
 
 describe('BeachStatusWidget', () => {
@@ -49,15 +49,18 @@ describe('BeachStatusWidget', () => {
   })
 
   it('gives a closed beach its own colour', async () => {
-    const closed = await renderWidgetWithFlag('PLAYA CERRADA')
-    const others = await Promise.all(
-      (['VERDE', 'AMARILLA', 'ROJA', 'SIN BANDERA'] as const).map(
-        renderWidgetWithFlag,
-      ),
-    )
+    const closed = await renderFlagCircle('PLAYA CERRADA')
+    const otherFlags = [
+      ['VERDE', 'Bandera verde'],
+      ['AMARILLA', 'Bandera amarilla'],
+      ['ROJA', 'Bandera roja'],
+      ['SIN BANDERA', 'Sin bandera'],
+    ] as const
 
     expect(closed.label).toBe('Playa cerrada')
-    for (const other of others) {
+    for (const [flag, label] of otherFlags) {
+      const other = await renderFlagCircle(flag)
+      expect(other.label).toBe(label)
       expect(closed.className).not.toBe(other.className)
     }
   })
