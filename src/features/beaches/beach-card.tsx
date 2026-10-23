@@ -16,6 +16,7 @@ const FlagBadges: Partial<Record<BeachFlag, { label: string; dot: string }>> = {
   VERDE: { label: 'Bandera verde', dot: 'bg-emerald-500' },
   AMARILLA: { label: 'Bandera amarilla', dot: 'bg-yellow-400' },
   ROJA: { label: 'Bandera roja', dot: 'bg-red-500' },
+  'PLAYA CERRADA': { label: 'Playa cerrada', dot: 'bg-rose-900' },
 }
 
 const validWeatherIcons = new Set([

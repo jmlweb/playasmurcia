@@ -40,6 +40,7 @@ const FlagLabels: Record<BeachFlag, string> = {
   VERDE: 'Bandera verde',
   AMARILLA: 'Bandera amarilla',
   ROJA: 'Bandera roja',
+  'PLAYA CERRADA': 'Playa cerrada',
   'SIN BANDERA': 'Sin bandera',
 }
 
@@ -59,6 +60,7 @@ function FlagCircle({ flag }: FlagCircleProps) {
     VERDE: 'bg-emerald-500',
     AMARILLA: 'bg-yellow-400',
     ROJA: 'bg-red-500',
+    'PLAYA CERRADA': 'bg-rose-900',
     'SIN BANDERA': 'bg-gray-300',
   }
   return (

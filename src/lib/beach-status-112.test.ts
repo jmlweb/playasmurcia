@@ -183,6 +183,22 @@ describe('getBeachStatus', () => {
     expect(result?.seaState).toBe('SIN ESTADO')
   })
 
+  it('keeps PLAYA CERRADA entries as a closed beach', async () => {
+    const xml = buildXml([
+      {
+        playa: 'PLAYA DE CALARREONA',
+        municipio: 'AGUILAS',
+        bandera: 'PLAYA CERRADA',
+        estadoMar: 'SIN ESTADO',
+        dia: recentDate(),
+      },
+    ])
+    mockFetch.mockResolvedValueOnce({ ok: true, text: async () => xml })
+    const { getBeachStatus } = await freshModule()
+    const result = await getBeachStatus('Playa de Calarreona', 'Águilas')
+    expect(result?.flag).toBe('PLAYA CERRADA')
+  })
+
   it('returns null when HTTP response is not ok', async () => {
     mockFetch.mockResolvedValueOnce({ ok: false, status: 503 })
     const { getBeachStatus } = await freshModule()
@@ -246,6 +262,23 @@ describe('getBatchBeachFlags', () => {
 
     expect(mockFetch).toHaveBeenCalledTimes(1)
     expect(Object.fromEntries(result)).toEqual({ A: 'VERDE', B: 'ROJA' })
+  })
+
+  it('keeps closed beaches for the listing cards', async () => {
+    const xml = buildXml([
+      {
+        playa: 'CALABARDINA',
+        municipio: 'AGUILAS',
+        bandera: 'PLAYA CERRADA',
+        dia: recentDate(),
+      },
+    ])
+    mockFetch.mockResolvedValueOnce({ ok: true, text: async () => xml })
+    const { getBatchBeachFlags } = await freshModule()
+
+    const result = await getBatchBeachFlags(beaches)
+
+    expect(Object.fromEntries(result)).toEqual({ A: 'PLAYA CERRADA' })
   })
 
   it('omits stale entries and beaches without a flag', async () => {

@@ -82,7 +82,7 @@ So weather is **not** limited to beaches with `aemetId`; those codes only gate t
 - Cached like other external HTTP calls at the edge where configured
 - Card weather (temperature, icon, wind) is requested in chunks of 50 unique coordinates, each with a 2 s timeout. A failed or timed-out chunk is skipped, and a partial result is not cached
 - Listings never wait for weather or flags: the client loads both after mount (`useCardWeather`, `useCardFlags`) and cards render without them until they arrive
-- Card flags come from one cached 112 COPLA fetch; stale entries (older than 2 days) and "SIN BANDERA" are not shown
+- Card flags come from one cached 112 COPLA fetch; stale entries (older than 2 days) and "SIN BANDERA" are not shown; "PLAYA CERRADA" (the feed reports closures in the flag field) is shown as "Playa cerrada" on both the cards and the detail widget
 
 ### Waves (oleaje)
 

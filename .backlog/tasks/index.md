@@ -4,10 +4,10 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 4 |
+| Pending | 3 |
 | Active | 0 |
 | Blocked | 0 |
-| Complete | 121 |
+| Complete | 122 |
 
 ## Active Tasks
 
@@ -17,7 +17,6 @@ _No active tasks._
 
 | ID | Title | Priority | Tags | Created |
 |----|-------|----------|------|---------|
-| TSK-125 | Fix: COPLA 'PLAYA CERRADA' flag is mapped to 'Sin bandera' | P2 | bug, beach-status | 2026-10-21 |
 | TSK-126 | Fix: Nearby beaches lose their distance order | P3 | bug, beach-detail | 2026-10-21 |
 | TSK-127 | Fix: Explorer search validation accepts empty, unknown and prototype-key filter values | P4 | bug, explorer | 2026-10-21 |
 | TSK-128 | Fix: formatDistance shows 1000 m and 10,0 km at unit boundaries | P4 | bug, explorer | 2026-10-23 |
@@ -26,6 +25,7 @@ _No active tasks._
 
 | ID | Title | Completed |
 |----|-------|-----------|
+| TSK-125 | Fix: COPLA 'PLAYA CERRADA' flag is mapped to 'Sin bandera' | 2026-10-23 |
 | TSK-116 | Shore Bearing per Beach and Wave Exposure Label | 2026-10-20 |
 | TSK-115 | Wave Forecast (Oleaje) on Beach Detail Page | 2026-10-19 |
 | TSK-117 | Full-bleed photo heroes without frosted panel | 2026-10-19 |
@@ -35,4 +35,3 @@ _No active tasks._
 | TSK-121 | Beach detail: photo hero and gallery mosaic, calmer practical info | 2026-10-19 |
 | TSK-122 | Listing pages: municipios photo cards, unified collection card, explorer filters | 2026-10-19 |
 | TSK-123 | Fix content defects: Los Alcázares email, La Concha copy, Cala Mijo name, slug punctuation | 2026-10-19 |
-| TSK-124 | Fix: Beach data audit unresolved findings (Oct 2026) | 2026-10-19 |
