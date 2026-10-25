@@ -51,7 +51,7 @@ interface Beach {
   // Required - Content
   description: string       // Hand-edited tourist description, markdown subset (see below)
   access: string            // Hand-edited directions, same markdown subset as description
-  nearby: string[]          // Array of nearby beach codes
+  nearby: string[]          // Nearby beach codes, closest first
   orientation: string       // Cardinal direction (east, southeast, etc.)
   shoreBearing: number      // Integer 0-359, compass degrees the beach faces seaward (see Shore Bearing in business-rules.md)
   instagramHashtag: string  // Instagram hashtag for the beach
