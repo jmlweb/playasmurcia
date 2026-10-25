@@ -27,3 +27,4 @@
 | LRN-021 | Coast order needs a hand-written list, not mean latitude | data, frontend-ui | active | 2026-10-19 |
 | LRN-022 | Seaward bearing comes from OSM coastline direction, but beach coordinates can be hundreds of metres off | data, weather | active | 2026-10-20 |
 | LRN-023 | COPLA reports beach closures in the bandera field, and unknown values silently become SIN BANDERA | bug, beach-status, testing | active | 2026-10-23 |
+| LRN-024 | Drizzle inArray returns table order, so lookups by a code list must re-order | bug, database, beach-detail | active | 2026-10-25 |
