@@ -4,7 +4,7 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 3 |
+| Pending | 5 |
 | Active | 0 |
 | Blocked | 0 |
 | Complete | 122 |
@@ -20,6 +20,8 @@ _No active tasks._
 | TSK-126 | Fix: Nearby beaches lose their distance order | P3 | bug, beach-detail | 2026-10-21 |
 | TSK-127 | Fix: Explorer search validation accepts empty, unknown and prototype-key filter values | P4 | bug, explorer | 2026-10-21 |
 | TSK-128 | Fix: formatDistance shows 1000 m and 10,0 km at unit boundaries | P4 | bug, explorer | 2026-10-23 |
+| TSK-129 | Fix: COPLA flag lookup misses beaches whose feed name carries a segment suffix | P3 |  | 2026-10-25 |
+| TSK-130 | Fix: WebMCP search_beaches accepts prototype keys as accessDifficulty and occupancy | P4 |  | 2026-10-25 |
 
 ## Recently Completed
 
