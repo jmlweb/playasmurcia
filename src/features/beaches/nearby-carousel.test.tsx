@@ -75,6 +75,20 @@ describe('NearbyCarousel', () => {
     expect(linkB.getAttribute('href')).toBe('/playas/playa-b')
   })
 
+  it('lists nearby beaches in the order it receives them', () => {
+    const names = ['Playa Cercana', 'Playa Media', 'Playa Lejana']
+    const items = names.map((name, index) => ({
+      beach: makeBeach({ code: String(index), name }),
+      municipality: mockMunicipality,
+      slug: name,
+    }))
+    render(<NearbyCarousel items={items} />)
+    const links = screen.getAllByRole('link', { name: /^Ver playa / })
+    expect(links.map((link) => link.getAttribute('aria-label'))).toEqual(
+      names.map((name) => `Ver playa ${name}`),
+    )
+  })
+
   it('renders the beach picture when available', () => {
     const beach = makeBeach({ name: 'Playa Foto', pictures: ['foto.jpg'] })
     render(

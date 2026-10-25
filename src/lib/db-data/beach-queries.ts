@@ -208,7 +208,7 @@ export async function getAllTags(): Promise<Tag[]> {
 }
 
 /**
- * Retrieves multiple beaches by their codes (used for nearby beaches)
+ * Retrieves multiple beaches by their codes, in the order of `codes` (used for nearby beaches)
  */
 export async function getNearbyBeaches(codes: string[]): Promise<Beach[]> {
   if (codes.length === 0) {
@@ -224,7 +224,12 @@ export async function getNearbyBeaches(codes: string[]): Promise<Beach[]> {
     },
   })
 
-  return dbBeaches.map(mapBeachFromDB)
+  // `inArray` returns rows in table order; callers pass codes sorted by distance
+  const beachesByCode = new Map(
+    dbBeaches.map((dbBeach) => [dbBeach.code, mapBeachFromDB(dbBeach)]),
+  )
+
+  return codes.flatMap((code) => beachesByCode.get(code) ?? [])
 }
 
 /**

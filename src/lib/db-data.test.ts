@@ -10,6 +10,7 @@ import {
   getBeachesByMunicipality,
   getMunicipality,
   getMunicipalityBySlug,
+  getNearbyBeaches,
   getRenamedBeachSlug,
   getService,
   municipalityToSlug,
@@ -54,6 +55,36 @@ describe('db-data module', () => {
       const beach = await getBeachByCode('999999')
 
       expect(beach).toBeUndefined()
+    })
+  })
+
+  describe('getNearbyBeaches', () => {
+    it('returns beaches in the order of its codes argument', async () => {
+      const beach = await getBeachByCode('575')
+      const codes = [...(beach?.nearby ?? [])]
+
+      expect(codes.length).toBeGreaterThan(1)
+
+      const nearby = await getNearbyBeaches(codes)
+      const reversed = await getNearbyBeaches([...codes].reverse())
+
+      expect(nearby.map((b) => b.code)).toEqual(codes)
+      // Cala Cerrada lies about 90 m from Cala Abierta, the closest by far
+      expect(nearby[0]?.name).toBe('Cala Cerrada')
+      expect(reversed.map((b) => b.code)).toEqual([...codes].reverse())
+    })
+
+    it('skips codes that do not exist', async () => {
+      const beach = await getBeachByCode('575')
+      const codes = [...(beach?.nearby ?? [])]
+
+      const nearby = await getNearbyBeaches(['999999', ...codes])
+
+      expect(nearby.map((b) => b.code)).toEqual(codes)
+    })
+
+    it('returns an empty array for no codes', async () => {
+      expect(await getNearbyBeaches([])).toEqual([])
     })
   })
 
