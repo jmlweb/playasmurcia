@@ -84,6 +84,28 @@ function namesMatch(xmlName: string, dbName: string): boolean {
   return a === b || a.includes(b) || b.includes(a)
 }
 
+// The feed splits some beaches into segments ("BOLNUEVO (CENTRO)",
+// "PONIENTE I", "BARNUEVO (LIMA 1)") while site names carry a "Playa de"
+// prefix, so neither name contains the other. Both reduce to a bare beach
+// name that must be equal; the text in parentheses is dropped, never used as
+// an alias, because it often names another beach ("ISLAS MENORES (LEVANTE)").
+const PARENTHESIZED = /\([^)]*\)/g
+const LEADING_PLAYA = /^playa (?:del? )?/
+const LEADING_ARTICLE = /^(?:el|la|los|las) /
+const TRAILING_ROMAN_NUMERAL = / (?:i|ii|iii|iv)$/
+
+function bareBeachName(name: string): string {
+  return normalizeText(name.replace(PARENTHESIZED, ' '))
+    .replace(TRAILING_ROMAN_NUMERAL, '')
+    .replace(LEADING_PLAYA, '')
+    .replace(LEADING_ARTICLE, '')
+}
+
+function segmentNamesMatch(xmlName: string, dbName: string): boolean {
+  const bareName = bareBeachName(dbName)
+  return bareName !== '' && bareBeachName(xmlName) === bareName
+}
+
 function municipalitiesMatch(
   xmlMunicipality: string,
   dbMunicipality: string,
@@ -91,6 +113,51 @@ function municipalitiesMatch(
   const a = normalizeText(xmlMunicipality)
   const b = normalizeText(dbMunicipality)
   return a === b || a.includes(b) || b.includes(a)
+}
+
+// ---------------------------------------------------------------------------
+// Entry lookup
+// ---------------------------------------------------------------------------
+
+const FLAG_SEVERITY: Record<BeachFlag, number> = {
+  'PLAYA CERRADA': 4,
+  ROJA: 3,
+  AMARILLA: 2,
+  VERDE: 1,
+  'SIN BANDERA': 0,
+}
+
+function flagSeverity(entry: CoplaEntry): number {
+  return FLAG_SEVERITY[toBeachFlag(entry.bandera)]
+}
+
+/**
+ * A direct name match wins. Otherwise the beach's feed segments are used,
+ * and when there are several the most severe flag is shown so a closure or
+ * red flag on any segment is never hidden.
+ */
+function findCoplaEntry(
+  entries: CoplaEntry[],
+  beachName: string,
+  municipalityName: string,
+): CoplaEntry | undefined {
+  const sameMunicipality = entries.filter((e) =>
+    municipalitiesMatch(e.municipio, municipalityName),
+  )
+  const directMatch = sameMunicipality.find((e) =>
+    namesMatch(e.playa, beachName),
+  )
+  if (directMatch) return directMatch
+
+  return sameMunicipality
+    .filter((e) => segmentNamesMatch(e.playa, beachName))
+    .reduce<CoplaEntry | undefined>(
+      (mostSevere, e) =>
+        mostSevere && flagSeverity(mostSevere) >= flagSeverity(e)
+          ? mostSevere
+          : e,
+      undefined,
+    )
 }
 
 // ---------------------------------------------------------------------------
@@ -188,11 +255,7 @@ export async function getBeachStatus(
     return null
   }
 
-  const entry = entries.find(
-    (e) =>
-      namesMatch(e.playa, beachName) &&
-      municipalitiesMatch(e.municipio, municipalityName),
-  )
+  const entry = findCoplaEntry(entries, beachName, municipalityName)
 
   if (!entry) return null
 
@@ -224,11 +287,7 @@ export async function getBatchBeachFlags(
   }
 
   for (const beach of beaches) {
-    const entry = entries.find(
-      (e) =>
-        namesMatch(e.playa, beach.name) &&
-        municipalitiesMatch(e.municipio, beach.municipalityName),
-    )
+    const entry = findCoplaEntry(entries, beach.name, beach.municipalityName)
     if (!entry || isDataStale(entry.dia)) continue
     const flag = toBeachFlag(entry.bandera)
     if (flag !== 'SIN BANDERA') result.set(beach.code, flag)
