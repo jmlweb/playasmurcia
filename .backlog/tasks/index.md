@@ -4,7 +4,7 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 4 |
+| Pending | 6 |
 | Active | 0 |
 | Blocked | 0 |
 | Complete | 123 |
@@ -21,6 +21,8 @@ _No active tasks._
 | TSK-128 | Fix: formatDistance shows 1000 m and 10,0 km at unit boundaries | P4 | bug, explorer | 2026-10-23 |
 | TSK-129 | Fix: COPLA flag lookup misses beaches whose feed name carries a segment suffix | P3 |  | 2026-10-25 |
 | TSK-130 | Fix: WebMCP search_beaches accepts prototype keys as accessDifficulty and occupancy | P4 |  | 2026-10-25 |
+| TSK-131 | Fix: Weather forecast day labels shift one day back for visitors west of UTC | P4 |  | 2026-10-27 |
+| TSK-132 | Fix: Three beaches tagged Chiringuito lack the chiringuito service and miss the Con chiringuito collection | P4 |  | 2026-10-27 |
 
 ## Recently Completed
 
