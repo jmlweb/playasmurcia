@@ -83,6 +83,8 @@ So weather is **not** limited to beaches with `aemetId`; those codes only gate t
 - Card weather (temperature, icon, wind) is requested in chunks of 50 unique coordinates, each with a 2 s timeout. A failed or timed-out chunk is skipped, and a partial result is not cached
 - Listings never wait for weather or flags: the client loads both after mount (`useCardWeather`, `useCardFlags`) and cards render without them until they arrive
 - Card flags come from one cached 112 COPLA fetch; stale entries (older than 2 days) and "SIN BANDERA" are not shown; "PLAYA CERRADA" (the feed reports closures in the flag field) is shown as "Playa cerrada" on both the cards and the detail widget
+- A beach gets the COPLA entry of its municipality whose name contains (or is contained in) the site name, first match wins. When none does, the feed's segment entries are used: the text in parentheses ("BOLNUEVO (CENTRO)", "BARNUEVO (LIMA 1)") and a trailing I/II/III are dropped from the feed name, the leading "Playa", "de"/"del" and article are dropped from both names, and the remaining names must be equal. The text in parentheses is never used as a name, since it often names another beach ("ISLAS MENORES (LEVANTE)")
+- When a beach has several segments, the most severe flag wins: "PLAYA CERRADA" > "ROJA" > "AMARILLA" > "VERDE" > "SIN BANDERA"; ties keep feed order
 
 ### Waves (oleaje)
 

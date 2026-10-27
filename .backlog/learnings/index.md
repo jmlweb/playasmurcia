@@ -28,3 +28,5 @@
 | LRN-022 | Seaward bearing comes from OSM coastline direction, but beach coordinates can be hundreds of metres off | data, weather | active | 2026-10-20 |
 | LRN-023 | COPLA reports beach closures in the bandera field, and unknown values silently become SIN BANDERA | bug, beach-status, testing | active | 2026-10-23 |
 | LRN-024 | Drizzle inArray returns table order, so lookups by a code list must re-order | bug, database, beach-detail | active | 2026-10-25 |
+| LRN-025 | COPLA segment names: compare bare names by equality and never use the parenthesized text as an alias | bug, beach-status, copla | active | 2026-10-27 |
+| LRN-026 | pnpm test fails with React.act is not a function when the shell exports NODE_ENV=production | testing, tooling, database | active | 2026-10-27 |

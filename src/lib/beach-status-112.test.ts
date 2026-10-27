@@ -230,6 +230,179 @@ describe('getBeachStatus', () => {
   })
 })
 
+describe('segment-suffixed feed names', () => {
+  beforeEach(() => {
+    mockFetch.mockReset()
+  })
+
+  afterEach(() => {
+    vi.resetModules()
+  })
+
+  async function statusFor(
+    feed: Parameters<typeof buildXml>[0],
+    beachName: string,
+    municipalityName: string,
+  ) {
+    const xml = buildXml(feed.map((e) => ({ dia: recentDate(), ...e })))
+    mockFetch.mockResolvedValueOnce({ ok: true, text: async () => xml })
+    const { getBeachStatus } = await freshModule()
+    return getBeachStatus(beachName, municipalityName)
+  }
+
+  it('matches a "Playa de" name to a "(…)" segment', async () => {
+    const result = await statusFor(
+      [{ playa: 'BOLNUEVO (CENTRO)', municipio: 'MAZARRON', bandera: 'ROJA' }],
+      'Playa de Bolnuevo',
+      'Mazarrón',
+    )
+    expect(result?.flag).toBe('ROJA')
+  })
+
+  it('matches I/II segments', async () => {
+    const result = await statusFor(
+      [{ playa: 'PONIENTE I', municipio: 'AGUILAS', bandera: 'AMARILLA' }],
+      'Playa de Poniente',
+      'Águilas',
+    )
+    expect(result?.flag).toBe('AMARILLA')
+  })
+
+  it('matches (LIMA n) segments', async () => {
+    const result = await statusFor(
+      [
+        {
+          playa: 'BARNUEVO (LIMA 1)',
+          municipio: 'SAN JAVIER',
+          bandera: 'VERDE',
+        },
+      ],
+      'Playa Barnuevo',
+      'San Javier',
+    )
+    expect(result?.flag).toBe('VERDE')
+  })
+
+  it('matches stacked I/II, (…) and (LIMA n) suffixes', async () => {
+    const result = await statusFor(
+      [
+        {
+          playa: 'COLON I (SUR) (LIMA 2)',
+          municipio: 'SAN JAVIER',
+          bandera: 'AMARILLA',
+        },
+      ],
+      'Playa de Colón',
+      'San Javier',
+    )
+    expect(result?.flag).toBe('AMARILLA')
+  })
+
+  it('picks the most severe flag among several segments', async () => {
+    const result = await statusFor(
+      [
+        {
+          playa: 'BOLNUEVO (CAMPING)',
+          municipio: 'MAZARRON',
+          bandera: 'VERDE',
+        },
+        { playa: 'BOLNUEVO (CENTRO)', municipio: 'MAZARRON', bandera: 'ROJA' },
+        {
+          playa: 'BOLNUEVO (OASIS)',
+          municipio: 'MAZARRON',
+          bandera: 'AMARILLA',
+        },
+      ],
+      'Playa de Bolnuevo',
+      'Mazarrón',
+    )
+    expect(result?.flag).toBe('ROJA')
+  })
+
+  it('ranks a closure above a red flag', async () => {
+    const result = await statusFor(
+      [
+        {
+          playa: 'ISLAS MENORES (LEVANTE)',
+          municipio: 'CARTAGENA',
+          bandera: 'ROJA',
+        },
+        {
+          playa: 'ISLAS MENORES (PONIENTE)',
+          municipio: 'CARTAGENA',
+          bandera: 'PLAYA CERRADA',
+        },
+      ],
+      'Playa de Islas Menores',
+      'Cartagena',
+    )
+    expect(result?.flag).toBe('PLAYA CERRADA')
+  })
+
+  it('does not match a longer name that only starts with the same word', async () => {
+    const result = await statusFor(
+      [
+        {
+          playa: 'PEDRUCHILLO (MAR MENOR) (LIMA 18)',
+          municipio: 'SAN JAVIER',
+        },
+      ],
+      'Playa Pedrucho',
+      'San Javier',
+    )
+    expect(result).toBeNull()
+  })
+
+  it('does not treat the text in parentheses as the beach name', async () => {
+    const result = await statusFor(
+      [{ playa: 'ISLAS MENORES (LEVANTE)', municipio: 'CARTAGENA' }],
+      'Playa de Levante',
+      'Cartagena',
+    )
+    expect(result).toBeNull()
+  })
+
+  it('does not match a segment from another municipality', async () => {
+    const result = await statusFor(
+      [
+        {
+          playa: 'LAS SALINAS',
+          municipio: 'SAN PEDRO DEL PINATAR',
+          bandera: 'ROJA',
+        },
+        {
+          playa: 'LAS SALINAS (ALCAZARES)',
+          municipio: 'LOS ALCAZARES',
+          bandera: 'VERDE',
+        },
+      ],
+      'Playa de Las Salinas',
+      'Los Alcázares',
+    )
+    expect(result?.flag).toBe('VERDE')
+  })
+
+  it('keeps a direct name match ahead of segment matches', async () => {
+    const result = await statusFor(
+      [
+        {
+          playa: 'TORRE DERRIBADA II (COTO)',
+          municipio: 'SAN PEDRO DEL PINATAR',
+          bandera: 'ROJA',
+        },
+        {
+          playa: 'TORRE DERRIBADA',
+          municipio: 'SAN PEDRO DEL PINATAR',
+          bandera: 'VERDE',
+        },
+      ],
+      'Playa de La Torre Derribada',
+      'San Pedro del Pinatar',
+    )
+    expect(result?.flag).toBe('VERDE')
+  })
+})
+
 describe('getBatchBeachFlags', () => {
   beforeEach(() => {
     mockFetch.mockReset()
@@ -295,6 +468,31 @@ describe('getBatchBeachFlags', () => {
     const { getBatchBeachFlags } = await freshModule()
 
     expect((await getBatchBeachFlags(beaches)).size).toBe(0)
+  })
+
+  it('flags beaches whose feed name carries a segment suffix', async () => {
+    const xml = buildXml([
+      {
+        playa: 'PONIENTE I',
+        municipio: 'AGUILAS',
+        bandera: 'VERDE',
+        dia: recentDate(),
+      },
+      {
+        playa: 'PONIENTE II',
+        municipio: 'AGUILAS',
+        bandera: 'ROJA',
+        dia: recentDate(),
+      },
+    ])
+    mockFetch.mockResolvedValueOnce({ ok: true, text: async () => xml })
+    const { getBatchBeachFlags } = await freshModule()
+
+    const result = await getBatchBeachFlags([
+      { code: 'P', name: 'Playa de Poniente', municipalityName: 'Águilas' },
+    ])
+
+    expect(Object.fromEntries(result)).toEqual({ P: 'ROJA' })
   })
 
   it('returns an empty map when the 112 fetch fails', async () => {
