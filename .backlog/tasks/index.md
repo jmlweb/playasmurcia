@@ -4,7 +4,7 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 3 |
+| Pending | 5 |
 | Active | 0 |
 | Blocked | 0 |
 | Complete | 124 |
@@ -20,6 +20,8 @@ _No active tasks._
 | TSK-127 | Fix: Explorer search validation accepts empty, unknown and prototype-key filter values | P4 | bug, explorer | 2026-10-21 |
 | TSK-128 | Fix: formatDistance shows 1000 m and 10,0 km at unit boundaries | P4 | bug, explorer | 2026-10-23 |
 | TSK-130 | Fix: WebMCP search_beaches accepts prototype keys as accessDifficulty and occupancy | P4 |  | 2026-10-25 |
+| TSK-131 | Fix: Weather forecast day labels shift one day back for visitors west of UTC | P4 |  | 2026-10-27 |
+| TSK-132 | Fix: Three beaches tagged Chiringuito lack the chiringuito service and miss the Con chiringuito collection | P4 |  | 2026-10-27 |
 
 ## Recently Completed
 
