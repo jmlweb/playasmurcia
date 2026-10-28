@@ -4,10 +4,10 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 5 |
+| Pending | 15 |
 | Active | 0 |
 | Blocked | 0 |
-| Complete | 124 |
+| Complete | 125 |
 
 ## Active Tasks
 
@@ -22,11 +22,22 @@ _No active tasks._
 | TSK-130 | Fix: WebMCP search_beaches accepts prototype keys as accessDifficulty and occupancy | P4 |  | 2026-10-25 |
 | TSK-131 | Fix: Weather forecast day labels shift one day back for visitors west of UTC | P4 |  | 2026-10-27 |
 | TSK-132 | Fix: Three beaches tagged Chiringuito lack the chiringuito service and miss the Con chiringuito collection | P4 |  | 2026-10-27 |
+| TSK-133 | Official bathing-water quality from NÁYADE / EEA | P2 | data, external-source | 2026-10-28 |
+| TSK-134 | Blue Flag and Q certifications with season year | P2 | data, external-source | 2026-10-28 |
+| TSK-136 | Expose address and postalCode fields | P3 | data, seo | 2026-10-28 |
+| TSK-137 | Data hygiene: soilType normalization, static waves, beach count | P3 | data, cleanup | 2026-10-28 |
+| TSK-138 | Expand aemetId coverage | P3 | data, weather | 2026-10-28 |
+| TSK-139 | Sunrise and sunset per beach; derive puesta-sol tag | P3 | data, feature | 2026-10-28 |
+| TSK-140 | Protected-area membership (Natura 2000 and regional parks) | P3 | data, external-source, geo | 2026-10-28 |
+| TSK-141 | Accessible beaches: assisted bathing and amphibious chairs | P3 | data, accessibility | 2026-10-28 |
+| TSK-142 | Photos for the 53 beaches with no pictures | P3 | data, images | 2026-10-28 |
+| TSK-143 | Seasonal access restrictions (Calblanque, Cabo Cope, Cala Cerrada) | P4 | data, access | 2026-10-28 |
 
 ## Recently Completed
 
 | ID | Title | Completed |
 |----|-------|-----------|
+| TSK-135 | Finish or revert the uncommitted shoreBearing recompute | 2026-10-28 |
 | TSK-129 | Fix: COPLA flag lookup misses beaches whose feed name carries a segment suffix | 2026-10-27 |
 | TSK-126 | Fix: Nearby beaches lose their distance order | 2026-10-25 |
 | TSK-125 | Fix: COPLA 'PLAYA CERRADA' flag is mapped to 'Sin bandera' | 2026-10-23 |
@@ -36,4 +47,3 @@ _No active tasks._
 | TSK-118 | Beach card contrast, tag overlays and photo-less fallback | 2026-10-19 |
 | TSK-119 | Surface system: reduce cards, unify card titles and footer colors | 2026-10-19 |
 | TSK-120 | Homepage: curated featured grid, municipality cards, hero copy | 2026-10-19 |
-| TSK-121 | Beach detail: photo hero and gallery mosaic, calmer practical info | 2026-10-19 |
