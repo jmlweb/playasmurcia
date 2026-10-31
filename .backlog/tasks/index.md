@@ -4,7 +4,7 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 15 |
+| Pending | 16 |
 | Active | 0 |
 | Blocked | 0 |
 | Complete | 125 |
@@ -32,6 +32,7 @@ _No active tasks._
 | TSK-141 | Accessible beaches: assisted bathing and amphibious chairs | P3 | data, accessibility | 2026-10-28 |
 | TSK-142 | Photos for the 53 beaches with no pictures | P3 | data, images | 2026-10-28 |
 | TSK-143 | Seasonal access restrictions (Calblanque, Cabo Cope, Cala Cerrada) | P4 | data, access | 2026-10-28 |
+| TSK-144 | Fix: AEMET beach forecast parser expects an invented payload shape, so the AEMET widget never renders | P3 |  | 2026-10-31 |
 
 ## Recently Completed
 
