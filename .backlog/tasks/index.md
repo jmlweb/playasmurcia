@@ -4,10 +4,10 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 15 |
+| Pending | 14 |
 | Active | 0 |
 | Blocked | 0 |
-| Complete | 125 |
+| Complete | 126 |
 
 ## Active Tasks
 
@@ -22,7 +22,6 @@ _No active tasks._
 | TSK-130 | Fix: WebMCP search_beaches accepts prototype keys as accessDifficulty and occupancy | P4 |  | 2026-10-25 |
 | TSK-131 | Fix: Weather forecast day labels shift one day back for visitors west of UTC | P4 |  | 2026-10-27 |
 | TSK-132 | Fix: Three beaches tagged Chiringuito lack the chiringuito service and miss the Con chiringuito collection | P4 |  | 2026-10-27 |
-| TSK-133 | Official bathing-water quality from NÁYADE / EEA | P2 | data, external-source | 2026-10-28 |
 | TSK-134 | Blue Flag and Q certifications with season year | P2 | data, external-source | 2026-10-28 |
 | TSK-136 | Expose address and postalCode fields | P3 | data, seo | 2026-10-28 |
 | TSK-137 | Data hygiene: soilType normalization, static waves, beach count | P3 | data, cleanup | 2026-10-28 |
@@ -37,6 +36,7 @@ _No active tasks._
 
 | ID | Title | Completed |
 |----|-------|-----------|
+| TSK-133 | Official bathing-water quality from NÁYADE / EEA | 2026-10-31 |
 | TSK-135 | Finish or revert the uncommitted shoreBearing recompute | 2026-10-28 |
 | TSK-129 | Fix: COPLA flag lookup misses beaches whose feed name carries a segment suffix | 2026-10-27 |
 | TSK-126 | Fix: Nearby beaches lose their distance order | 2026-10-25 |
@@ -46,4 +46,3 @@ _No active tasks._
 | TSK-117 | Full-bleed photo heroes without frosted panel | 2026-10-19 |
 | TSK-118 | Beach card contrast, tag overlays and photo-less fallback | 2026-10-19 |
 | TSK-119 | Surface system: reduce cards, unify card titles and footer colors | 2026-10-19 |
-| TSK-120 | Homepage: curated featured grid, municipality cards, hero copy | 2026-10-19 |

@@ -65,4 +65,48 @@ describe('PracticalInfoCard', () => {
     expect(screen.getByText('Más detalles')).toBeTruthy()
     expect(screen.getByText('500 m')).toBeTruthy()
   })
+  it('cites the official source and season under the water quality', () => {
+    render(
+      <PracticalInfoCard
+        length={500}
+        waterQuality="good"
+        waterQualitySource={{
+          season: 2025,
+          samplingPointId: 'ES620M0161611',
+          samplingPointName: 'PLAYA MAR DE CRISTAL PM1',
+          distanceMeters: 120,
+          profileUrl: 'https://nayadeciudadano.sanidad.gob.es/profile/16890',
+        }}
+      />,
+    )
+    expect(screen.getByText('Buena')).toBeTruthy()
+    expect(screen.getByText(/temporada 2025/)).toBeTruthy()
+    const link = screen.getByRole('link', { name: /NÁYADE/ })
+    expect(link.getAttribute('href')).toBe(
+      'https://nayadeciudadano.sanidad.gob.es/profile/16890',
+    )
+  })
+
+  it('cites the source without a link when the profile URL is missing', () => {
+    render(
+      <PracticalInfoCard
+        length={500}
+        waterQuality="excellent"
+        waterQualitySource={{
+          season: 2025,
+          samplingPointId: 'ES620M0161611',
+          samplingPointName: 'PLAYA MAR DE CRISTAL PM1',
+          distanceMeters: 120,
+        }}
+      />,
+    )
+    expect(screen.getByText(/temporada 2025/)).toBeTruthy()
+    expect(screen.queryByRole('link')).toBeNull()
+  })
+
+  it('shows no water quality when the beach has no official class', () => {
+    render(<PracticalInfoCard length={500} />)
+    expect(screen.queryByText('Calidad del agua')).toBeNull()
+    expect(screen.queryByText(/temporada/)).toBeNull()
+  })
 })

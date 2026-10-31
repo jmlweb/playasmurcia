@@ -44,6 +44,7 @@ export function mapBeachFromDB(dbBeach: {
   childSafe: boolean | null
   naturalShade: boolean | null
   waterQuality: string | null
+  waterQualitySource: string | null
   services: { serviceId: number }[]
   activities: { activityId: number }[]
   tags: { tagId: number }[]
@@ -120,6 +121,9 @@ export function mapBeachFromDB(dbBeach: {
         | 'good'
         | 'sufficient'
         | 'poor',
+    }),
+    ...(dbBeach.waterQualitySource && {
+      waterQualitySource: JSON.parse(dbBeach.waterQualitySource),
     }),
     ...(dbBeach.tags.length > 0 && {
       tags: dbBeach.tags.map((t) => t.tagId - 1), // Convert to 0-based index

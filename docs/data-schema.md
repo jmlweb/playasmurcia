@@ -75,7 +75,14 @@ interface Beach {
   accessDifficulty?: "easy" | "moderate" | "hard"  // How difficult to reach (~61% easy, ~22% moderate, ~17% hard)
   childSafe?: boolean       // Safe for young children (~38% true)
   naturalShade?: boolean    // Has natural shade from cliffs/trees (~29% true)
-  waterQuality?: "excellent" | "good" | "sufficient" | "poor"  // Water quality rating
+  waterQuality?: "excellent" | "good" | "sufficient" | "poor"  // Official EU bathing-water class (Directive 2006/7/EC); absent when no sampling point matches
+  waterQualitySource?: {    // Set exactly when waterQuality is set (pnpm tsx scripts/add-bathing-water-quality.ts)
+    season: number          // Bathing season the class belongs to (e.g. 2025)
+    samplingPointId: string // EEA bathingWaterIdentifier, always "ES620…" (Región de Murcia)
+    samplingPointName: string
+    distanceMeters: number  // Integer, beach coordinates to sampling point, at most 500
+    profileUrl?: string     // NÁYADE bathing-water profile (https), cited on the beach page
+  }
   translations?: { en: { description: string }, fr: { description: string }, de: { description: string } }
   tags?: number[]           // Indices into tags.json
 }
@@ -158,6 +165,7 @@ The database (Turso/libSQL via Drizzle ORM) mirrors the JSON data with proper re
 | References | Array indices (e.g., `municipality: 3`) | Foreign keys (`municipality_id`) |
 | Many-to-many | Integer arrays (e.g., `services: [0, 2, 5]`) | Junction tables |
 | Array fields | Native arrays | JSON TEXT columns (`nearby`, `seoKeywords`, `certifications`, `bestSeason`, `pictures`) |
+| Object fields | Native objects | JSON TEXT column `water_quality_source` (`waterQualitySource`) |
 | Coordinates | `[lat, lng]` tuple | Separate `latitude`/`longitude` REAL columns |
 
 ## JSON Relationships

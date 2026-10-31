@@ -125,6 +125,32 @@ beaches.forEach((beach, index) => {
     errors.push(`${prefix}: shoreBearing must be an integer in [0, 359]`)
   }
 
+  // Official EU class only, always with the sampling point it comes from
+  const source = beach.waterQualitySource
+  if (
+    beach.waterQuality !== undefined &&
+    !['excellent', 'good', 'sufficient', 'poor'].includes(beach.waterQuality)
+  ) {
+    errors.push(`${prefix}: invalid waterQuality '${beach.waterQuality}'`)
+  }
+  if ((beach.waterQuality === undefined) !== (source === undefined)) {
+    errors.push(
+      `${prefix}: waterQuality and waterQualitySource must be set together`,
+    )
+  }
+  if (
+    source !== undefined &&
+    (!Number.isInteger(source.season) ||
+      !/^ES620/.test(source.samplingPointId ?? '') ||
+      typeof source.samplingPointName !== 'string' ||
+      !Number.isInteger(source.distanceMeters) ||
+      source.distanceMeters > 500 ||
+      (source.profileUrl !== undefined &&
+        !/^https:\/\//.test(source.profileUrl)))
+  ) {
+    errors.push(`${prefix}: invalid waterQualitySource`)
+  }
+
   if (
     beach.pictureQualityScore !== undefined &&
     ![0, 1, 2, 3].includes(beach.pictureQualityScore)

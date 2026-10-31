@@ -168,7 +168,7 @@ pnpm tsx scripts/script-name.ts
 | `prune-small-beach-pictures.ts`  | Remove `pictures` entries with missing/unreadable or short side under 600px; optional file delete | After auditing thumbnails; then re-score + migrate    |
 | `fix-orthography.js`             | Proofread Markdown with local Ollama (`/api/chat`); default scope `docs/**/*.md`                  | Ad hoc (review diffs before `--write`)                |
 | `screenshot.ts`                  | Capture page screenshots via Playwright (desktop/mobile, full-page)                               | Ad hoc (UI reviews)                                   |
-| `add-water-quality.ts`           | Assign water quality ratings from certifications and location heuristics                          | Annual (after certification update)                   |
+| `add-bathing-water-quality.ts`   | Set the official EU bathing-water class and season from the EEA / NÁYADE dataset                  | Annual (after the EEA season release, around June); then migrate |
 | `optimize-images.ts`             | Generate WebP/AVIF variants and responsive thumbnails in `public/pictures/optimized/`             | After adding or replacing source images               |
 | `normalize-brightness.ts`        | Normalize brightness/contrast of source photos via histogram stretching (in-place)                | Before `optimize:images`, after new source images     |
 | `sort-pictures-by-resolution.ts` | Sort `pictures` arrays in `beaches.json` by image resolution (highest first)                      | After adding new pictures; then migrate               |
@@ -193,6 +193,15 @@ Available models:
 - `gemma3:4b`: General text tasks
 - `llama3.2:latest`: Chat and general tasks
 - `nomic-embed-text:latest`: Embeddings
+
+#### Official bathing-water quality (`add-bathing-water-quality.ts`)
+
+```bash
+pnpm tsx scripts/add-bathing-water-quality.ts
+node scripts/validate-beaches.js
+```
+
+Sets `waterQuality` and `waterQualitySource` in `data/beaches.json` from the EEA bathing water map service (the EEA republishes the NÁYADE data of the Ministerio de Sanidad). It picks the newest bathing season the EEA publishes, so run it once a year after the release (around June). No API key or env var is needed. Beaches without a classified Región de Murcia sampling point within 500 m lose their class. The matching rules are in [business-rules.md](./business-rules.md#bathing-water-quality). Afterwards run the Turso migration (see [Keeping remote DB in sync](#keeping-remote-db-in-sync)).
 
 #### Spell-check Markdown (`fix-orthography.js`)
 

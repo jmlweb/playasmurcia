@@ -30,3 +30,6 @@
 | LRN-024 | Drizzle inArray returns table order, so lookups by a code list must re-order | bug, database, beach-detail | active | 2026-10-25 |
 | LRN-025 | COPLA segment names: compare bare names by equality and never use the parenthesized text as an alias | bug, beach-status, copla | active | 2026-10-27 |
 | LRN-026 | pnpm test fails with React.act is not a function when the shell exports NODE_ENV=production | testing, tooling, database | active | 2026-10-27 |
+| LRN-027 | EEA bathing water data: use the ArcGIS map service, not discodata SQL | data, external-source, eea | active | 2026-10-31 |
+| LRN-028 | Bathing water IDs carry the NUTS region: ES620 is Murcia | data, external-source, eea | active | 2026-10-31 |
+| LRN-029 | Local scripts inherit NODE_ENV=production from the hustle shell | tooling, database | active | 2026-10-31 |

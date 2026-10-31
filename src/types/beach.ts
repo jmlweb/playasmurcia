@@ -38,7 +38,8 @@ export type Beach = {
   accessDifficulty?: 'easy' | 'moderate' | 'hard'
   childSafe?: boolean
   naturalShade?: boolean
-  waterQuality?: 'excellent' | 'good' | 'sufficient' | 'poor'
+  waterQuality?: WaterQuality
+  waterQualitySource?: WaterQualitySource
   tags?: number[]
   recommendationScore: number
 }
@@ -68,4 +69,16 @@ export type Sea = {
 export type Municipality = {
   name: string
   id: string
+}
+
+/** EU bathing-water class (Directive 2006/7/EC) */
+export type WaterQuality = 'excellent' | 'good' | 'sufficient' | 'poor'
+
+/** EEA / NÁYADE sampling point the official class comes from */
+export type WaterQualitySource = {
+  season: number
+  samplingPointId: string
+  samplingPointName: string
+  distanceMeters: number
+  profileUrl?: string
 }
