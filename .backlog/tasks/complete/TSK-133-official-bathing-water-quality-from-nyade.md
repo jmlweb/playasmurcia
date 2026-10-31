@@ -19,10 +19,10 @@ Replace the editorial `waterQuality` field (currently 169 excellent / 23 good / 
 
 ## Acceptance Criteria
 
-- [x] Every beach with a sampling point within a defined distance gets the official EU class (Directive 2006/7/CE) and season year
-- [x] Beaches without a sampling point get no class instead of a guess
-- [x] Source is cited on the beach page
-- [x] Retained script added and documented in docs/development.md; docs/data-schema.md updated
+- [x] Every beach with a sampling point within a defined distance gets the official EU class (Directive 2006/7/CE) and season year — evidence: pnpm vitest run src/lib/bathing-water-quality.test.ts → 9 passed; script → season 2025, 106 beaches classified within 500 m (2026-10-31)
+- [x] Beaches without a sampling point get no class instead of a guess — evidence: no-match/unclassified/non-ES620 tests pass; 87 beaches without class; validate-beaches.js → 0 errors (2026-10-31)
+- [x] Source is cited on the beach page — evidence: practical-info-card.test.tsx → 14 passed (citation with season and NÁYADE link) (2026-10-31)
+- [x] Retained script added and documented in docs/development.md; docs/data-schema.md updated — evidence: scripts/add-bathing-water-quality.ts documented in docs/development.md, business-rules.md, data-schema.md; build/check/test green (2026-10-31)
 
 ## Notes
 
