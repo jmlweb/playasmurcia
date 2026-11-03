@@ -160,13 +160,15 @@ Official certifications are assigned based on annual awards:
 
 **Murcia counts:**
 
-- Blue Flag (2026): 35 beaches — 33 awards; the joint awards "Banco del Tabal-Calnegre" and "Bahía-La Reya" each cover two beaches in the dataset
+- Blue Flag (2026): 35 beaches — 33 awards; the joint awards "Banco del Tabal-Calnegre" and "Bahía-La Reya" each cover two beaches in the dataset. Checked against the CARM 2026 list and Murcia Today, which names Las Delicias as Águilas' 10th beach (CARM counts 10 but names 9)
 - Q de Calidad (2024 list, not re-verified for 2026): 37 beaches
 - Ecoplayas: 3 beaches (Mazarrón only)
 
 The Q de Calidad list in `scripts/add-certifications.js` is the 2024 list. The Oct 2026 audit (TSK-124) found only a press count for 2026 (50 Q flags across Murcia beaches and marinas) and no per-beach ICTE list, so the 2024 source year stays documented until one is published.
 
 To check Blue Flag status: `beach.certifications?.includes('blue-flag')`
+
+**Season year:** each list has one award year, not one per beach, because the script refreshes whole lists. `BLUE_FLAG_SEASON` and `Q_QUALITY_SEASON` in `scripts/add-certifications.js` hold it. The script writes them to `data/certification-seasons.json`, and the beach page shows "Temporada YYYY" under each badge (`getCertificationSeasonYear` in `src/lib/certification-seasons.ts`). Ecoplayas has no verified award year, so it has no entry and its badge shows no year.
 
 Script: `scripts/add-certifications.js` (run annually)
 

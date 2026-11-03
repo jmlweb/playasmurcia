@@ -14,6 +14,7 @@ This document describes the data structure for beaches in the Region of Murcia, 
 | `activities.json` | Beach activities (indexed array) | 10 activities |
 | `services.json` | Beach services (indexed array) | 9 services |
 | `tags.json` | Beach tags for categorization (indexed array) | 17 tags |
+| `certification-seasons.json` | Season year of each certification list, keyed by certification (`{ "blue-flag": 2026, "q-quality": 2024 }`). Written by `scripts/add-certifications.js`; not migrated to the DB — the site bundles it at build time | 2 entries |
 
 ## Data Sources
 
@@ -61,7 +62,7 @@ interface Beach {
   campingNearby?: boolean        // Camping within 3km
   metaDescription?: string       // SEO meta description (140-170 chars)
   seoKeywords?: string[]         // SEO keywords (5-10 items)
-  certifications?: ("blue-flag" | "q-quality" | "ecoplayas")[]  // Official certifications
+  certifications?: ("blue-flag" | "q-quality" | "ecoplayas")[]  // Official certifications; season year per list in certification-seasons.json
   bestSeason?: ("spring" | "summer" | "autumn" | "winter")[]  // Best visiting seasons
   district?: string         // District within municipality
   phone?: string            // Emergency contact
