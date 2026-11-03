@@ -224,6 +224,8 @@ Runtime reads use a network-accessible libSQL URL (`TURSO_DATABASE_URL` / `DATAB
 
 Authoritative **editorial source** for bulk fields; after edits, run migration so Turso stays in sync. Schemas: [data-schema.md](./data-schema.md).
 
+Exception: `data/certification-seasons.json` is not migrated. `src/lib/certification-seasons.ts` imports it statically (`resolveJsonModule`), so a new season year ships with the next deploy without a DB migration.
+
 ## Scripts and deployment
 
 Maintenance and data scripts are listed in [development.md](./development.md).

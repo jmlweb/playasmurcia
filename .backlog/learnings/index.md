@@ -30,3 +30,5 @@
 | LRN-024 | Drizzle inArray returns table order, so lookups by a code list must re-order | bug, database, beach-detail | active | 2026-10-25 |
 | LRN-025 | COPLA segment names: compare bare names by equality and never use the parenthesized text as an alias | bug, beach-status, copla | active | 2026-10-27 |
 | LRN-026 | pnpm test fails with React.act is not a function when the shell exports NODE_ENV=production | testing, tooling, database | active | 2026-10-27 |
+| LRN-027 | New beaches columns break prod until Turso is migrated; bundle list-level metadata instead | data, database, deploy | active | 2026-11-03 |
+| LRN-028 | Local test run needs NODE_ENV unset, a seeded local.db and a prior build | testing, tooling | active | 2026-11-03 |
