@@ -1,13 +1,21 @@
 import { readFileSync, writeFileSync } from 'node:fs'
 
 const BEACHES_PATH = './data/beaches.json'
+const SEASONS_PATH = './data/certification-seasons.json'
+
+// Season year of each list below. The site shows it next to the badge.
+// Ecoplayas has no verified award year, so it is left out and shown without one.
+const BLUE_FLAG_SEASON = 2026
+const Q_QUALITY_SEASON = 2024
 
 // Blue Flag beaches 2026
 // Source: https://www.carm.es/web/pagina?IDCONTENIDO=124952&IDTIPO=10&RASTRO=c176%24s3%24m
+// Cross-check: https://murciatoday.com/the-number-of-beachside-blue-flags-in-aguilas-rises-to-12-in-2026_1000268330-a.html
+// (Águilas: 10 beaches + 2 marinas; the region totals 41 flags = 33 beaches + 8 marinas)
 // Total: 33 flags in Murcia. Joint awards ("Banco del Tabal-Calnegre",
 // "Bahía-La Reya") cover two beaches each in this dataset.
 const BLUE_FLAG_CODES = [
-  // Águilas (10). CARM names 9 but counts 10; Las Delicias kept from 2025.
+  // Águilas (10). CARM names 9 but counts 10; Murcia Today names Las Delicias as the 10th.
   '679', // Playa de Calarreona
   '613', // Playa de La Casica Verde
   '612', // Playa de La Colonia
@@ -152,12 +160,20 @@ function main() {
     delete beach.blueFlag
   })
 
-  writeFileSync(BEACHES_PATH, JSON.stringify(beaches, null, 2))
+  writeFileSync(BEACHES_PATH, `${JSON.stringify(beaches, null, 2)}\n`)
+  writeFileSync(
+    SEASONS_PATH,
+    `${JSON.stringify(
+      { 'blue-flag': BLUE_FLAG_SEASON, 'q-quality': Q_QUALITY_SEASON },
+      null,
+      2,
+    )}\n`,
+  )
 
   console.log(`Updated ${beaches.length} beaches`)
   console.log(`\nCertification counts:`)
-  console.log(`  Blue Flag: ${blueFlagCount}`)
-  console.log(`  Q de Calidad: ${qQualityCount}`)
+  console.log(`  Blue Flag (${BLUE_FLAG_SEASON}): ${blueFlagCount}`)
+  console.log(`  Q de Calidad (${Q_QUALITY_SEASON}): ${qQualityCount}`)
   console.log(`  Ecoplayas: ${ecoplayasCount}`)
 
   const certifiedBeaches = beaches.filter((b) => b.certifications.length > 0)

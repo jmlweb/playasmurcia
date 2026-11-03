@@ -41,4 +41,15 @@ describe('CertificationsBadge', () => {
     expect(screen.getByText('Q de Calidad')).toBeTruthy()
     expect(screen.getByText('Ecoplayas')).toBeTruthy()
   })
+
+  it('shows the award season year for each certification list', () => {
+    render(<CertificationsBadge certifications={['blue-flag', 'q-quality']} />)
+    expect(screen.getByText('Temporada 2026')).toBeTruthy()
+    expect(screen.getByText('Temporada 2024')).toBeTruthy()
+  })
+
+  it('omits the season year when it is unknown', () => {
+    render(<CertificationsBadge certifications={['ecoplayas']} />)
+    expect(screen.queryByText(/^Temporada/)).toBeNull()
+  })
 })
