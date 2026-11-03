@@ -4,7 +4,7 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 15 |
+| Pending | 16 |
 | Active | 0 |
 | Blocked | 0 |
 | Complete | 126 |
@@ -32,6 +32,7 @@ _No active tasks._
 | TSK-142 | Photos for the 53 beaches with no pictures | P3 | data, images | 2026-10-28 |
 | TSK-143 | Seasonal access restrictions (Calblanque, Cabo Cope, Cala Cerrada) | P4 | data, access | 2026-10-28 |
 | TSK-144 | Fix: AEMET beach forecast parser expects an invented payload shape, so the AEMET widget never renders | P3 |  | 2026-10-31 |
+| TSK-145 | Fix: Explorer page param below 1 renders an empty results grid | P4 | ["bug", "explorer"] | 2026-11-03 |
 
 ## Recently Completed
 
