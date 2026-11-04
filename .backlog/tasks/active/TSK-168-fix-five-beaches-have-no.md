@@ -40,6 +40,9 @@ Report: `.backlog/reports/complete/RPT-069-five-beaches-have-no-reachable.md`. B
 
 ## Learnings
 
+- LRN-032: Qualified beach slugs are keyed by beach code, not derived from the data
+- LRN-033: Redirect map must not redirect a live slug
+- LRN-034: Fresh worktree needs a local DB for build and DB tests
 ## Progress Log
 
 - [2026-11-04] Created

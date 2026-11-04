@@ -35,3 +35,6 @@
 | LRN-029 | EEA bathing water data: use the ArcGIS map service, not discodata SQL | data, external-source, eea | active | 2026-10-31 |
 | LRN-030 | Bathing water IDs carry the NUTS region: ES620 is Murcia | data, external-source, eea | active | 2026-10-31 |
 | LRN-031 | Local scripts inherit NODE_ENV=production from the hustle shell | tooling, database | active | 2026-10-31 |
+| LRN-032 | Qualified beach slugs are keyed by beach code, not derived from the data | slugs, routing, seo | active | 2026-11-04 |
+| LRN-033 | Redirect map must not redirect a live slug | slugs, redirects | active | 2026-11-04 |
+| LRN-034 | Fresh worktree needs a local DB for build and DB tests | worktree, build, testing | active | 2026-11-04 |
