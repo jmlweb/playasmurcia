@@ -4,7 +4,7 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 15 |
+| Pending | 22 |
 | Active | 0 |
 | Blocked | 0 |
 | Complete | 127 |
@@ -31,7 +31,14 @@ _No active tasks._
 | TSK-142 | Photos for the 53 beaches with no pictures | P3 | data, images | 2026-10-28 |
 | TSK-143 | Seasonal access restrictions (Calblanque, Cabo Cope, Cala Cerrada) | P4 | data, access | 2026-10-28 |
 | TSK-144 | Fix: AEMET beach forecast parser expects an invented payload shape, so the AEMET widget never renders | P3 |  | 2026-10-31 |
-| TSK-145 | Fix: Explorer page param below 1 renders an empty results grid | P4 | ["bug", "explorer"] | 2026-11-03 |
+| TSK-145 | Fix: Explorer page param below 1 renders an empty results grid | P4 | bug, explorer | 2026-11-03 |
+| TSK-146 | Beach zones from ITREM locality labels | P2 | data, external-source, feature | 2026-11-04 |
+| TSK-147 | Official beach width and length from ITREM; review OSM length | P3 | data, external-source, cleanup | 2026-11-04 |
+| TSK-148 | Municipality facts: population, appraised housing value, tourist offices | P3 | data, external-source, municipalities | 2026-11-04 |
+| TSK-149 | Smoke-free beaches from the regional network | P4 | data, external-source | 2026-11-04 |
+| TSK-150 | Marinas and Cabo de Palos-Islas Hormigas marine reserve | P4 | data, external-source, geo | 2026-11-04 |
+| TSK-151 | Municipality income and tourist housing from INE | P4 | data, external-source, municipalities | 2026-11-04 |
+| TSK-152 | Verify factual data leads against primary sources | P4 | data, research | 2026-11-04 |
 
 ## Recently Completed
 
@@ -47,4 +54,3 @@ _No active tasks._
 | TSK-115 | Wave Forecast (Oleaje) on Beach Detail Page | 2026-10-19 |
 | TSK-117 | Full-bleed photo heroes without frosted panel | 2026-10-19 |
 | TSK-118 | Beach card contrast, tag overlays and photo-less fallback | 2026-10-19 |
-| TSK-119 | Surface system: reduce cards, unify card titles and footer colors | 2026-10-19 |
