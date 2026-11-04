@@ -1,5 +1,5 @@
 ---
-id: LRN-027
+id: LRN-029
 title: EEA bathing water data: use the ArcGIS map service, not discodata SQL
 status: active
 tags: [data, external-source, eea]

@@ -28,9 +28,9 @@ Replace the editorial `waterQuality` field (currently 169 excellent / 23 good / 
 
 ## Learnings
 
-- LRN-027: EEA bathing water data: use the ArcGIS map service, not discodata SQL
-- LRN-028: Bathing water IDs carry the NUTS region: ES620 is Murcia
-- LRN-029: Local scripts inherit NODE_ENV=production from the hustle shell
+- LRN-029: EEA bathing water data: use the ArcGIS map service, not discodata SQL
+- LRN-030: Bathing water IDs carry the NUTS region: ES620 is Murcia
+- LRN-031: Local scripts inherit NODE_ENV=production from the hustle shell
 ## Progress Log
 
 - [2026-10-28] Created

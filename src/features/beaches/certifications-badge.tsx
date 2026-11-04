@@ -3,6 +3,7 @@ import type { JSX } from 'react'
 import type { Certification } from '@/types/beach'
 
 import { BlueFlagCertIcon, LeafIcon } from '@/components/ui/icons'
+import { getCertificationSeasonYear } from '@/lib/certification-seasons'
 
 const CertificationConfig: Record<
   Certification,
@@ -58,6 +59,7 @@ export function CertificationsBadge({
       <ul className="flex flex-wrap gap-3">
         {certifications.map((cert) => {
           const config = CertificationConfig[cert]
+          const seasonYear = getCertificationSeasonYear(cert)
           return (
             <li
               key={cert}
@@ -67,6 +69,9 @@ export function CertificationsBadge({
               <config.icon className="h-5 w-5" />
               <div>
                 <p className="text-sm font-semibold">{config.label}</p>
+                {seasonYear !== undefined && (
+                  <p className="text-xs font-medium">Temporada {seasonYear}</p>
+                )}
                 <p className="text-xs opacity-75">{config.description}</p>
               </div>
             </li>

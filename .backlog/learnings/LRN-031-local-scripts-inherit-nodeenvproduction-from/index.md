@@ -1,5 +1,5 @@
 ---
-id: LRN-029
+id: LRN-031
 title: Local scripts inherit NODE_ENV=production from the hustle shell
 status: active
 tags: [tooling, database]

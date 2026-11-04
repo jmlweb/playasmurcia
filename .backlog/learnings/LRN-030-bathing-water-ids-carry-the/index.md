@@ -1,5 +1,5 @@
 ---
-id: LRN-028
+id: LRN-030
 title: Bathing water IDs carry the NUTS region: ES620 is Murcia
 status: active
 tags: [data, external-source, eea]

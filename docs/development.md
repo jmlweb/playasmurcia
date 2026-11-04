@@ -160,7 +160,7 @@ pnpm tsx scripts/script-name.ts
 | -------------------------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
 | `migrate-to-database.ts`         | Migrate JSON data to SQLite/Turso                                                                 | Once (or after JSON changes)                          |
 | `validate-migration.ts`          | Validate database migration                                                                       | After migration                                       |
-| `add-certifications.js`          | Update Blue Flag, Q Quality, Ecoplayas                                                            | Annual (spring)                                       |
+| `add-certifications.js`          | Update Blue Flag, Q Quality, Ecoplayas and their season years (see below)                         | Annual (spring)                                       |
 | `add-lifeguard-info.js`          | Update COPLA lifeguard data                                                                       | Seasonal (summer)                                     |
 | `validate-beaches.js`            | Validate all beach data                                                                           | Before releases                                       |
 | `generate-sitemap.ts`            | Generate `public/sitemap.xml` from database                                                       | Every build (automatic)                               |
@@ -177,6 +177,24 @@ pnpm tsx scripts/script-name.ts
 | `sync-pictures-to-r2.sh`         | Mirror `public/pictures/` to the R2 bucket with rclone (uploads changes, deletes removed files)    | After any script that adds, prunes or re-encodes pictures |
 
 `sync-pictures-to-r2.sh` needs `rclone` (`brew install rclone`) and `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY` in `.env`. Create the keys as a bucket-scoped R2 API token (Object Read & Write) in the Cloudflare dashboard. Run it **before** deploying code that references new pictures. Uploads get `Cache-Control: public, max-age=604800`, so a picture replaced in place can take up to a week to refresh for returning visitors. Prefer new file names for replacements.
+
+### Yearly certification refresh (`add-certifications.js`)
+
+Run each spring, after ADEAC publishes the Blue Flag awards (usually early May), and whenever ICTE publishes a per-beach Q de Calidad list.
+
+1. Get the new lists. Blue Flag: the ADEAC results ([banderaazul.org](https://www.banderaazul.org/resultados-playas)) or the CARM page cited in the script. Q de Calidad: ICTE ([calidadturisticahoy.es](https://www.calidadturisticahoy.es)).
+2. In `scripts/add-certifications.js`, update `BLUE_FLAG_CODES` / `Q_QUALITY_CODES` / `ECOPLAYAS_CODES` (beach `code` values) and set `BLUE_FLAG_SEASON` / `Q_QUALITY_SEASON` to the award year of each list you refreshed. Leave a season unchanged when its list was not re-verified.
+3. Run the script. It rewrites `certifications` in `data/beaches.json` and writes `data/certification-seasons.json`. With unchanged lists, `git diff data/` stays empty.
+
+   ```bash
+   node scripts/add-certifications.js
+   node scripts/validate-beaches.js
+   ```
+
+4. Update the counts under *Beach Certifications* in [business-rules.md](./business-rules.md).
+5. If `data/beaches.json` changed, migrate Turso by hand before pushing (`pnpm tsx scripts/migrate-to-database.ts` against production). A change to `data/certification-seasons.json` alone needs no migration: it ships with the next deploy.
+
+No env vars or keys are needed.
 
 ## Cost Optimization
 
