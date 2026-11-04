@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react'
 
+import type { WaterQuality, WaterQualitySource } from '@/types/beach'
+
 import {
   AccessDifficultyStyles,
   OccupancyStyles,
@@ -43,6 +45,28 @@ function SummaryItem({
   )
 }
 
+const SOURCE_LABEL = 'EEA / NÁYADE (Ministerio de Sanidad)'
+
+function WaterQualityCitation({ source }: { source: WaterQualitySource }) {
+  return (
+    <p className="mt-1 text-xs font-normal text-gray-500">
+      Clasificación oficial UE, temporada {source.season}. Fuente:{' '}
+      {source.profileUrl ? (
+        <a
+          className="rounded text-ocean-600 hover:text-ocean-700 hover:underline focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none"
+          href={source.profileUrl}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          {SOURCE_LABEL}
+        </a>
+      ) : (
+        SOURCE_LABEL
+      )}
+    </p>
+  )
+}
+
 // Ocean tones instead of red: high occupancy is a fact, not a warning.
 function OccupancyMeter({ level }: { level: 'low' | 'medium' | 'high' }) {
   const filled = OccupancySteps[level]
@@ -69,7 +93,8 @@ type PracticalInfoCardProps = {
   accessDifficulty?: 'easy' | 'moderate' | 'hard'
   childSafe?: boolean
   naturalShade?: boolean
-  waterQuality?: 'excellent' | 'good' | 'sufficient' | 'poor'
+  waterQuality?: WaterQuality
+  waterQualitySource?: WaterQualitySource
   bestSeason?: ('spring' | 'summer' | 'autumn' | 'winter')[]
   orientation?: string
 }
@@ -83,6 +108,7 @@ export function PracticalInfoCard({
   childSafe,
   naturalShade,
   waterQuality,
+  waterQualitySource,
   bestSeason,
   orientation,
 }: PracticalInfoCardProps) {
@@ -144,6 +170,9 @@ export function PracticalInfoCard({
           {waterQuality && (
             <SummaryItem label="Calidad del agua">
               {WaterQualityStyles[waterQuality].label}
+              {waterQualitySource && (
+                <WaterQualityCitation source={waterQualitySource} />
+              )}
             </SummaryItem>
           )}
           {occupancyLevel && (

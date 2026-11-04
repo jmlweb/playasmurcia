@@ -72,6 +72,7 @@ export const getBeachFn = createServerFn({ method: 'GET' })
       soilType: beach.soilType,
       orientation: beach.orientation,
       waterQuality: beach.waterQuality,
+      waterQualitySource: beach.waterQualitySource,
       bestSeason: beach.bestSeason,
       promenade: beach.promenade,
       nearby: nearby.map((item) => ({

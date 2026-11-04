@@ -32,3 +32,6 @@
 | LRN-026 | pnpm test fails with React.act is not a function when the shell exports NODE_ENV=production | testing, tooling, database | active | 2026-10-27 |
 | LRN-027 | New beaches columns break prod until Turso is migrated; bundle list-level metadata instead | data, database, deploy | active | 2026-11-03 |
 | LRN-028 | Local test run needs NODE_ENV unset, a seeded local.db and a prior build | testing, tooling | active | 2026-11-03 |
+| LRN-029 | EEA bathing water data: use the ArcGIS map service, not discodata SQL | data, external-source, eea | active | 2026-10-31 |
+| LRN-030 | Bathing water IDs carry the NUTS region: ES620 is Murcia | data, external-source, eea | active | 2026-10-31 |
+| LRN-031 | Local scripts inherit NODE_ENV=production from the hustle shell | tooling, database | active | 2026-10-31 |

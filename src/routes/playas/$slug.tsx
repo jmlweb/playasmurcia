@@ -256,6 +256,7 @@ function BeachPage() {
               orientation={beach.orientation}
               soilType={beach.soilType}
               waterQuality={beach.waterQuality}
+              waterQualitySource={beach.waterQualitySource}
               waves={beach.waves}
             />
           </div>
