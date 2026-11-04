@@ -1,12 +1,13 @@
 ---
 id: TSK-168
 title: Fix: Five beaches have no reachable page because their slugs collide
-status: pending
+status: active
 priority: P1
 tags: [bug, routing, seo, data]
 created: 2026-11-04
 source: report/RPT-069
 depends-on: []
+started: 2026-11-04
 ---
 
 # Fix: Five beaches have no reachable page because their slugs collide
@@ -43,3 +44,4 @@ Report: `.backlog/reports/complete/RPT-069-five-beaches-have-no-reachable.md`. B
 
 - [2026-11-04] Created
 - [2026-11-04] Prefer deriving the slug from name and municipality in code, so no migration is needed. If a beaches column is added instead, migrate Turso by hand before pushing (LRN-027).
+- [2026-11-04] Started

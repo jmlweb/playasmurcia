@@ -4,14 +4,15 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 39 |
-| Active | 0 |
+| Pending | 37 |
+| Active | 2 |
 | Blocked | 0 |
 | Complete | 127 |
 
 ## Active Tasks
 
-_No active tasks._
+- TSK-144: Fix: AEMET beach forecast parser expects an invented payload shape, so the AEMET widget never renders (P2)
+- TSK-168: Fix: Five beaches have no reachable page because their slugs collide (P1)
 
 ## Pending Tasks
 
@@ -30,7 +31,6 @@ _No active tasks._
 | TSK-141 | Accessible beaches: assisted bathing and amphibious chairs | P3 | data, accessibility | 2026-10-28 |
 | TSK-142 | Photos for the 53 beaches with no pictures | P3 | data, images | 2026-10-28 |
 | TSK-143 | Seasonal access restrictions (Calblanque, Cabo Cope, Cala Cerrada) | P4 | data, access | 2026-10-28 |
-| TSK-144 | Fix: AEMET beach forecast parser expects an invented payload shape, so the AEMET widget never renders | P2 | bug, weather, data | 2026-10-31 |
 | TSK-145 | Fix: Explorer page param below 1 renders an empty results grid | P4 | bug, explorer | 2026-11-03 |
 | TSK-146 | Beach zones from ITREM locality labels | P2 | data, external-source, feature | 2026-11-04 |
 | TSK-147 | Official beach width and length from ITREM; review OSM length | P3 | data, external-source, cleanup | 2026-11-04 |
@@ -54,7 +54,6 @@ _No active tasks._
 | TSK-165 | Fix: Weather icon and caption contrast violations | P4 | ui, bug, accessibility | 2026-11-04 |
 | TSK-166 | Fix: Beach detail copy and accessibility defects | P4 | ui, bug, accessibility | 2026-11-04 |
 | TSK-167 | Fix: Replace Piedra Mala annotated cover | P4 | images, content, bug | 2026-11-04 |
-| TSK-168 | Fix: Five beaches have no reachable page because their slugs collide | P1 | bug, routing, seo, data | 2026-11-04 |
 | TSK-169 | Fix: 17 descriptions join unrelated facts with y socorrista | P4 | data, content | 2026-11-04 |
 
 ## Recently Completed

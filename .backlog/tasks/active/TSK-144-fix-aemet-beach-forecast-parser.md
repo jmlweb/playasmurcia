@@ -1,12 +1,13 @@
 ---
 id: TSK-144
 title: Fix: AEMET beach forecast parser expects an invented payload shape, so the AEMET widget never renders
-status: pending
+status: active
 priority: P2
 tags: [bug, weather, data]
 created: 2026-10-31
 source: report/RPT-060
 depends-on: []
+started: 2026-11-04
 ---
 
 # Fix: AEMET beach forecast parser expects an invented payload shape, so the AEMET widget never renders
@@ -32,3 +33,4 @@ depends-on: []
 
 - [2026-10-31] Created
 - [2026-11-04] Raised to P2: all 64 beaches with aemetId silently lose the official forecast, and TSK-131, TSK-138 and TSK-156 now wait on this task.
+- [2026-11-04] Started
