@@ -6,7 +6,7 @@ priority: P4
 tags: [bug, explorer]
 created: 2026-11-03
 source: report/RPT-061
-depends-on: []
+depends-on: [TSK-127]
 ---
 
 # Fix: Explorer page param below 1 renders an empty results grid
@@ -33,3 +33,4 @@ Report: `.backlog/reports/complete/RPT-061-explorer-page-param-below-1.md`
 ## Progress Log
 
 - [2026-11-03] Created
+- [2026-11-04] Depends on TSK-127: both edit validateSearch, so ship them together.

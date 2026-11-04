@@ -6,7 +6,7 @@ priority: P3
 tags: [ui, beach-detail, design-system]
 created: 2026-11-04
 source: manual
-depends-on: []
+depends-on: [TSK-153]
 ---
 
 # Calm static content on beach detail
@@ -31,3 +31,4 @@ Servicios and Actividades chips resemble buttons but do nothing, and their blue 
 ## Progress Log
 
 - [2026-11-04] Created
+- [2026-11-04] Depends on TSK-153: restyle the layout after it is reordered.

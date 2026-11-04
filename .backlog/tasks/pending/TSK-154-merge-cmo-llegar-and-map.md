@@ -6,7 +6,7 @@ priority: P3
 tags: [ui, beach-detail, map]
 created: 2026-11-04
 source: manual
-depends-on: []
+depends-on: [TSK-153]
 ---
 
 # Merge Cómo llegar and map into one section
@@ -30,3 +30,4 @@ depends-on: []
 ## Progress Log
 
 - [2026-11-04] Created
+- [2026-11-04] Depends on TSK-153: both reorder sections in src/routes/playas/$slug.tsx and move the directions link.

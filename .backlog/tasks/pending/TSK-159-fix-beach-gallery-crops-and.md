@@ -6,7 +6,7 @@ priority: P4
 tags: [ui, beach-detail, images]
 created: 2026-11-04
 source: manual
-depends-on: []
+depends-on: [TSK-153]
 ---
 
 # Fix beach gallery crops and photo count button
@@ -30,3 +30,4 @@ depends-on: []
 ## Progress Log
 
 - [2026-11-04] Created
+- [2026-11-04] Depends on TSK-153: both edit src/routes/playas/$slug.tsx.

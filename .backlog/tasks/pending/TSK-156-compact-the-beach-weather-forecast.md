@@ -6,7 +6,7 @@ priority: P3
 tags: [ui, beach-detail, weather]
 created: 2026-11-04
 source: manual
-depends-on: []
+depends-on: [TSK-144]
 ---
 
 # Compact the beach weather forecast
@@ -31,3 +31,4 @@ The weather card takes about 600px on mobile, with six boxed days nested inside 
 ## Progress Log
 
 - [2026-11-04] Created
+- [2026-11-04] Depends on TSK-144: the compact layout must be verified with real AEMET data, which has never rendered.

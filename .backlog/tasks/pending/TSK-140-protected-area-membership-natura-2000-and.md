@@ -29,3 +29,4 @@ Intersect beach coordinates with the MITECO Natura 2000 layer and the CARM prote
 ## Progress Log
 
 - [2026-10-28] Created
+- [2026-11-04] If this adds beaches columns, migrate Turso by hand before pushing: production breaks otherwise (LRN-027).

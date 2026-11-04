@@ -2,11 +2,11 @@
 id: TSK-138
 title: Expand aemetId coverage
 status: pending
-priority: P3
+priority: P4
 tags: [data, weather]
 created: 2026-10-28
 source: manual
-depends-on: []
+depends-on: [TSK-144]
 ---
 
 # Expand aemetId coverage
@@ -28,3 +28,4 @@ Only 64 of 193 beaches have an `aemetId`. Match more beaches against the AEMET b
 ## Progress Log
 
 - [2026-10-28] Created
+- [2026-11-04] Lowered to P4 and made dependent on TSK-144: new IDs show nothing until the parser works, and Open-Meteo already covers every beach.

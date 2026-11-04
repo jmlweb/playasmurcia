@@ -3,17 +3,15 @@ id: TSK-131
 title: Fix: Weather forecast day labels shift one day back for visitors west of UTC
 status: pending
 priority: P4
-tags: []
+tags: [bug, weather]
 created: 2026-10-27
 source: report/RPT-058
-depends-on: []
+depends-on: [TSK-144]
 ---
 
 # Fix: Weather forecast day labels shift one day back for visitors west of UTC
 
 ## Description
-
-### Description
 
 `fetchOpenMeteoForecast` parses Open-Meteo `YYYY-MM-DD` dates as UTC midnight (`src/lib/open-meteo.ts:187`) and `formatDayLabel` reads them with local `getDay()` (`src/features/beaches/weather-widget.tsx:226-229`), so visitors west of UTC see every forecast card labelled with the previous weekday. See `.backlog/reports/complete/RPT-058-weather-forecast-day-labels-shift.md`.
 
@@ -30,3 +28,4 @@ depends-on: []
 ## Progress Log
 
 - [2026-10-27] Created
+- [2026-11-04] Depends on TSK-144: both change forecast date handling and formatDayLabel.

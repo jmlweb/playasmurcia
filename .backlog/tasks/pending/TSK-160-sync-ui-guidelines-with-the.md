@@ -6,7 +6,7 @@ priority: P4
 tags: [docs, design-system]
 created: 2026-11-04
 source: manual
-depends-on: []
+depends-on: [TSK-157]
 ---
 
 # Sync UI guidelines with the beach detail hero
@@ -29,3 +29,4 @@ depends-on: []
 ## Progress Log
 
 - [2026-11-04] Created
+- [2026-11-04] Depends on TSK-157, which also updates docs/ui-guidelines.md.

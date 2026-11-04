@@ -6,7 +6,7 @@ priority: P4
 tags: [ui, bug, typography]
 created: 2026-11-04
 source: report/RPT-065
-depends-on: []
+depends-on: [TSK-153]
 ---
 
 # Fix: Remove synthetic bold from DM Serif headings
@@ -32,3 +32,4 @@ See `.backlog/reports/complete/RPT-065-synthetic-bold-on-dm-serif.md`.
 ## Progress Log
 
 - [2026-11-04] Created
+- [2026-11-04] Depends on TSK-153: both edit src/routes/playas/$slug.tsx.

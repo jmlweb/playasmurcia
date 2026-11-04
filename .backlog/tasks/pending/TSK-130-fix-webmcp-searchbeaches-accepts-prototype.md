@@ -3,7 +3,7 @@ id: TSK-130
 title: Fix: WebMCP search_beaches accepts prototype keys as accessDifficulty and occupancy
 status: pending
 priority: P4
-tags: []
+tags: [bug, webmcp]
 created: 2026-10-25
 source: report/RPT-057
 depends-on: []

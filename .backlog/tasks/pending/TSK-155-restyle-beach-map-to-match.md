@@ -6,7 +6,7 @@ priority: P3
 tags: [ui, beach-detail, map]
 created: 2026-11-04
 source: manual
-depends-on: []
+depends-on: [TSK-154]
 ---
 
 # Restyle beach map to match the brand
@@ -31,3 +31,4 @@ The map looks off-brand. `navigation-day-v1` draws green roads that clash with t
 ## Progress Log
 
 - [2026-11-04] Created
+- [2026-11-04] Depends on TSK-154: both edit src/features/beaches/location-map.tsx.

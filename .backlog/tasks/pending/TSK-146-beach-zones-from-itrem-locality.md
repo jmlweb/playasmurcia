@@ -38,3 +38,4 @@ Scope: the `zone` field, its display on the beach page, and grouping on the muni
 ## Progress Log
 
 - [2026-11-04] Created
+- [2026-11-04] If this adds beaches columns, migrate Turso by hand before pushing: production breaks otherwise (LRN-027).

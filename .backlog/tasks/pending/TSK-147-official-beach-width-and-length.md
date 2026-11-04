@@ -34,3 +34,4 @@ Keep `length` untouched and add sourced `officialWidth` and `officialLength` fie
 ## Progress Log
 
 - [2026-11-04] Created
+- [2026-11-04] If this adds beaches columns, migrate Turso by hand before pushing: production breaks otherwise (LRN-027).

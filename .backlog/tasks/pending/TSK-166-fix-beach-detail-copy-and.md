@@ -6,7 +6,7 @@ priority: P4
 tags: [ui, bug, accessibility]
 created: 2026-11-04
 source: report/RPT-067
-depends-on: []
+depends-on: [TSK-153, TSK-155]
 ---
 
 # Fix: Beach detail copy and accessibility defects
@@ -33,3 +33,4 @@ See `.backlog/reports/complete/RPT-067-small-copy-and-accessibility-defects.md`.
 ## Progress Log
 
 - [2026-11-04] Created
+- [2026-11-04] Depends on TSK-153 ($slug.tsx) and TSK-155 (leaflet-map.tsx).

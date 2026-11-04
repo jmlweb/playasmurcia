@@ -6,7 +6,7 @@ priority: P2
 tags: [ui, beach-detail, accessibility]
 created: 2026-11-04
 source: manual
-depends-on: []
+depends-on: [TSK-168]
 ---
 
 # Beach detail: surface safety and key facts first
@@ -33,3 +33,4 @@ Show a safety warning near the top, move key facts above weather on mobile, flat
 ## Progress Log
 
 - [2026-11-04] Created
+- [2026-11-04] Depends on TSK-168: both edit src/routes/playas/$slug.tsx, so they must not run in parallel worktrees.

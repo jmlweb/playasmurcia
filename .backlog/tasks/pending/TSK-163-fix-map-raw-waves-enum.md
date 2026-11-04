@@ -6,7 +6,7 @@ priority: P3
 tags: [ui, bug, beach-detail]
 created: 2026-11-04
 source: report/RPT-064
-depends-on: []
+depends-on: [TSK-137]
 ---
 
 # Fix: Map raw waves enum to Spanish labels
@@ -32,3 +32,4 @@ See `.backlog/reports/complete/RPT-064-raw-waves-enum-shown-on.md`.
 ## Progress Log
 
 - [2026-11-04] Created
+- [2026-11-04] Added dependency on TSK-137, which decides whether the static waves label stays.

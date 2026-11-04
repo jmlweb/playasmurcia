@@ -6,7 +6,7 @@ priority: P4
 tags: [ui, bug, accessibility]
 created: 2026-11-04
 source: report/RPT-066
-depends-on: []
+depends-on: [TSK-156]
 ---
 
 # Fix: Weather icon and caption contrast violations
@@ -32,3 +32,4 @@ See `.backlog/reports/complete/RPT-066-weather-widget-and-captions-break.md`.
 ## Progress Log
 
 - [2026-11-04] Created
+- [2026-11-04] Depends on TSK-156: the compact forecast rewrites the same rain-probability markup.

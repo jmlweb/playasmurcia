@@ -3,7 +3,7 @@ id: TSK-132
 title: Fix: Three beaches tagged Chiringuito lack the chiringuito service and miss the Con chiringuito collection
 status: pending
 priority: P4
-tags: []
+tags: [bug, data]
 created: 2026-10-27
 source: report/RPT-059
 depends-on: []
@@ -12,8 +12,6 @@ depends-on: []
 # Fix: Three beaches tagged Chiringuito lack the chiringuito service and miss the Con chiringuito collection
 
 ## Description
-
-### Description
 
 Three beaches carry tag `7` ("Chiringuito") but not service `6` ("Chiringuito") in `data/beaches.json` (lines 5437, 6089, 15314). The `con-chiringuito` collection (`src/lib/collections.ts:124`) and the explorer services filter use the service only, so these beaches show a Chiringuito tag yet are missing from that collection and filter. See `.backlog/reports/complete/RPT-059-three-beaches-tagged-chiringuito-lack.md`.
 
