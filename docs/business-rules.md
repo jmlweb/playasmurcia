@@ -10,7 +10,7 @@ Scripts that exist in `scripts/` and require periodic execution:
 | ------------------------ | ------------------------------------------------------------------------- | ------------------------------------ |
 | `add-certifications.js`  | Update Blue Flag, Q Quality, Ecoplayas certifications                     | Annual (spring)                      |
 | `add-lifeguard-info.js`  | Update COPLA lifeguard data                                               | Seasonal (pre-summer)                |
-| `add-water-quality.ts`   | Assign water quality ratings (heuristic from certifications + location)   | Annual (after certification update)  |
+| `add-bathing-water-quality.ts` | Set official EU bathing-water class from EEA / NÁYADE sampling points | Annual (after EEA release, ~June)    |
 | `validate-beaches.js`    | Validate all beach data integrity                                         | Before releases                      |
 | `migrate-to-database.ts` | Migrate JSON data to SQLite/Turso                                         | Once (or after JSON changes)         |
 | `validate-migration.ts`  | Validate database matches JSON source                                     | After migration                      |
@@ -46,6 +46,21 @@ Derivation (one-off, the script was removed after use):
 4. Review beaches whose bearing differs from `orientation` by more than 90° or whose nearest coastline is more than 300 m away, and fix them by hand
 
 New beaches need a hand-set `shoreBearing`; `node scripts/validate-beaches.js` fails without one.
+
+## Bathing-Water Quality
+
+`waterQuality` is the official EU class (Directive 2006/7/EC) of a sampling point, never an estimate. `pnpm tsx scripts/add-bathing-water-quality.ts` sets it:
+
+1. List the EEA ArcGIS services under `water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater` and take the highest `BathingWater_Dyna_WM_<year>` as the season
+2. Fetch the `Bathing water quality (point)` layer for Spanish points whose `bathingWaterIdentifier` starts with `ES620` (Región de Murcia). The EEA republishes the NÁYADE data of the Ministerio de Sanidad, and `bwProfileLink` is the NÁYADE profile of the point
+3. Give each beach the class of the nearest point with `Excellent`, `Good`, `Sufficient` or `Poor` within `MAX_SAMPLING_POINT_DISTANCE_M` (500 m, `src/lib/bathing-water-quality.ts`). `Not classified` points are skipped
+4. Beaches without such a point lose `waterQuality` and `waterQualitySource`; the page then shows no class
+
+The 500 m limit is a trade-off: beach coordinates can be hundreds of metres from the sand, so a tighter limit drops real matches (Los Nietos is 544 m from its own point), while beyond about 600 m the nearest point increasingly belongs to another beach (Playa Negra to El Alamillo at 656 m). Border points from Alicante (`ES521`) and Almería (`ES611`) are ignored.
+
+The beach page shows the class with "Clasificación oficial UE, temporada <season>. Fuente: EEA / NÁYADE (Ministerio de Sanidad)", linked to `profileUrl`.
+
+Run it once a year after the EEA publishes the new season (around June), review the counts it prints, then migrate.
 
 ## Weather: AEMET and Open-Meteo
 

@@ -84,6 +84,7 @@ export const beaches = sqliteTable(
     childSafe: integer('child_safe', { mode: 'boolean' }),
     naturalShade: integer('natural_shade', { mode: 'boolean' }),
     waterQuality: text('water_quality'),
+    waterQualitySource: text('water_quality_source'),
   },
   (table) => [
     index('beach_code_idx').on(table.code),

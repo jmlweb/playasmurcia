@@ -73,7 +73,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Cala Abierta, near Cartagena, awaits you with a calm Mediterranean sea and a medium-grained, grey-toned sand. Enjoy a relaxed natural setting, perfect for a day at the beach with family and friends. While it lacks amenities and direct access, it offers a peaceful space to unwind and soak up the sun and sea."
@@ -169,7 +168,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Cala Aguilar, near Cartagena, offers a peaceful haven of fine, grey sand nestled in the heart of the Mediterranean. Perfect for a relaxing day, this cove boasts crystal-clear waters and a family-friendly atmosphere. While it doesn’t have any facilities or a promenade, its natural beauty and tranquility make it a perfect spot to unwind."
@@ -270,7 +268,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Cala Arturo, near Cartagena, awaits you with its fine, golden sand, inviting you to enjoy the refreshing Mediterranean Sea. This peaceful cove offers an ideal natural setting for relaxation and a day in the sun. While it lacks amenities like a promenade or a marina, its natural beauty and relaxed atmosphere make it a perfect spot for a family getaway or a relaxing afternoon."
@@ -386,7 +383,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 147
+    "shoreBearing": 147,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161614",
+      "samplingPointName": "PLAYA LEVANTE-CABO PALOS PM1",
+      "distanceMeters": 432,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16887"
+    }
   },
   {
     "code": "628",
@@ -474,7 +478,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Cala Blanca, near Lorca, is a lovely little oasis of coarse sand, pebbles, and rocks right on the shores of the refreshing Mediterranean Sea. Enjoy its natural surroundings, perfect for relaxing and soaking up the sun. While it doesn’t have amenities like a promenade or a marina, it offers a peaceful haven for those seeking an authentic beach experience in the Region of Murcia."
@@ -578,7 +581,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 49
+    "shoreBearing": 49,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161614",
+      "samplingPointName": "PLAYA LEVANTE-CABO PALOS PM1",
+      "distanceMeters": 431,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16887"
+    }
   },
   {
     "code": "7050",
@@ -678,7 +688,14 @@
     "pictureQualityScore": 2,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 190
+    "shoreBearing": 190,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0031591",
+      "samplingPointName": "PLAYA LA COLA PM1",
+      "distanceMeters": 65,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18171"
+    }
   },
   {
     "code": "658",
@@ -763,7 +780,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "length": 200,
     "translations": {
       "en": {
@@ -893,7 +909,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 209
+    "shoreBearing": 209,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161617",
+      "samplingPointName": "PLAYA CALA CORTINA PM1",
+      "distanceMeters": 285,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17218"
+    }
   },
   {
     "code": "663",
@@ -1010,7 +1033,14 @@
       }
     },
     "pictureQualityScore": 2,
-    "shoreBearing": 166
+    "shoreBearing": 166,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0241630",
+      "samplingPointName": "PLAYA CALNEGRE PM1",
+      "distanceMeters": 46,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17215"
+    }
   },
   {
     "code": "551",
@@ -1101,7 +1131,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "La Cala de La Gruta, in Lorca, awaits you with its smooth, bowling-pin-like sand and the refreshing embrace of the Mediterranean Sea. Enjoy this tranquil corner, perfect for relaxing and experiencing the beauty of the Murcia coast. While it doesn't have a promenade or a marina, it offers a natural and relaxed atmosphere for a pleasant getaway."
@@ -1216,7 +1245,14 @@
     "pictureQualityScore": 0,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 134
+    "shoreBearing": 134,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0032076",
+      "samplingPointName": "PLAYA MATALENTISCO PM1",
+      "distanceMeters": 227,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18175"
+    }
   },
   {
     "code": "605",
@@ -1321,7 +1357,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 305
+    "shoreBearing": 305,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161614",
+      "samplingPointName": "PLAYA LEVANTE-CABO PALOS PM1",
+      "distanceMeters": 308,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16887"
+    }
   },
   {
     "code": "513",
@@ -1407,7 +1450,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "La Cala de las Mulas, near Cartagena, awaits you with its fine, golden sand, inviting you to enjoy the refreshing Mediterranean Sea. This tranquil cove is perfect for relaxing and spending a sunny day in a natural setting. While it doesn’t have a promenade or a marina, it offers an authentic escape along the coast of Murcia."
@@ -1509,7 +1551,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "La Cala de los Abejorros, near Aguilas, is a beautiful cove with coarse sand and gravel right on the crystal-clear Mediterranean Sea. It offers a wild and peaceful natural landscape, perfect for enjoying a sunny day and a refreshing swim. While it doesn't have nearby amenities, its natural beauty and relaxed atmosphere make it a special place to escape the hustle and bustle."
@@ -1613,7 +1654,6 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "La Cala de San Pedro, near Lorca, is a little paradise with fine sand and calm waters, perfect for relaxation and tranquility. Enjoy the refreshing Mediterranean Sea at this beautiful cove, ideal for a family day at the beach. While it doesn't have a promenade or mooring facilities, it offers a natural and peaceful setting to relax and enjoy the coast of Murcia."
@@ -1729,7 +1769,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 144
+    "shoreBearing": 144,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161616",
+      "samplingPointName": "PLAYA DEL BARCO PM1",
+      "distanceMeters": 205,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18091"
+    }
   },
   {
     "code": "626",
@@ -1816,7 +1863,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Cala del Ciscal, in Lorca, awaits you with its golden, sandy shores, inviting you to enjoy the refreshing Mediterranean Sea. This peaceful cove offers a beautiful natural landscape, ideal for relaxing and escaping the everyday. While it doesn’t have amenities like a promenade or a marina, its serene atmosphere makes it the perfect spot for a quiet getaway."
@@ -1912,7 +1958,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "La Cala del Cuartel del Ciscar, in Lorca, awaits you with its crystal-clear waters of the Mediterranean Sea and a medium, white sand perfect for soaking up the sun. This tranquil cove offers a natural and relaxing environment, perfect for unwinding and enjoying a day at the beach. While it doesn’t have amenities like a promenade or a marina, its beauty and tranquility make it a special place in the Region of Murcia."
@@ -2008,7 +2053,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "La Cala del Cuervo, near Cartagena, is a hidden gem on the coast of Murcia. With its pebble and rocky beach, it offers a unique and tranquil Mediterranean marine landscape. It’s ideal for those seeking a peaceful spot to enjoy the sun and sea, away from the hustle and bustle. It doesn’t have any services or direct access to the promenade."
@@ -2139,7 +2183,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 263
+    "shoreBearing": 263,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161602",
+      "samplingPointName": "PLAYA CALA DEL PINO PM1",
+      "distanceMeters": 225,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17219"
+    }
   },
   {
     "code": "571",
@@ -2222,7 +2273,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "La Cala del Reventón, near Cartagena, offers a unique coastal landscape with its pebble and rocky beach, bathed by the crystal-clear waters of the Mediterranean Sea. It’s an ideal spot to enjoy the tranquility and natural beauty of the Murcia coastline. While it doesn’t have amenities like a promenade or a marina, its wild and authentic surroundings make it a perfect destination for nature lovers and those seeking a break from it all."
@@ -2327,7 +2377,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Cala Desnuda, near Mazarrón, is a tranquil haven for nudists and nature lovers. Its fine, grey sand, warmed by the Mediterranean waters, offers a natural and relaxed setting. Enjoy its wild beauty, away from the hustle and bustle, in this unique corner of the Murcia Region."
@@ -2424,7 +2473,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Cala El Bolete, near Cartagena, is a charming little fishing harbor with a beach of sand and gravel, all set against the backdrop of the Mediterranean Sea. It offers a peaceful and authentic atmosphere, perfect for soaking up the sun and taking a dip in its waters. While it doesn’t have typical tourist amenities, its natural beauty and rural charm make it a special place to unwind."
@@ -2524,7 +2572,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Cala El Bolete Grande, near Cartagena, offers a tranquil haven beside the Mediterranean Sea. Its medium-grey sand invites you to relax and soak up the sun, although it doesn’t have a promenade or a marina. This cove, with its crystal-clear waters, is an ideal spot for a summer day in the Region of Murcia, without any additional services."
@@ -2621,7 +2668,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Cala Golera, near Cartagena, is a little gem of the Mediterranean. Its crystal-clear, rocky waters invite swimming and snorkeling, offering a stunning natural landscape. While it doesn't have amenities like a promenade or a marina, its wild beauty and protected environment make it an ideal spot for a relaxing day by the coast of Murcia."
@@ -2729,7 +2775,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Cala Honda in Lorca awaits you with its crystal-clear Mediterranean waters and fine sand and gravel that invites you to relax. Enjoy a tranquil natural landscape, perfect for a day of sun and swimming. While it doesn’t have amenities like a promenade or a marina, its beauty and relaxed atmosphere make it a perfect place to unwind."
@@ -2829,7 +2874,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Cala Junquera, near Lorca, is a small, peaceful coastal enclave on the Mediterranean. Its coarse sand and gravel offer a different, natural atmosphere, perfect for those seeking to escape the hustle and bustle. Enjoy its crystal-clear waters and the wild beauty of the Murcia landscape, although it doesn’t have any additional services or amenities."
@@ -2927,7 +2971,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Cala Las Escalerillas, near Cartagena, offers a small and peaceful corner of the Mediterranean Sea. Its rocky sand and crystal-clear waters invite you to enjoy a refreshing and relaxing swim. It’s ideal for those seeking a quiet escape close to the city, although it lacks amenities and direct access."
@@ -3027,7 +3070,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Cala Leña, near Lorca, offers a little slice of beauty in the Mediterranean. Its crystal-clear waters and medium-grained sand mixed with gravel invite you to take a refreshing dip. Although it doesn’t have a promenade and isn’t awarded a blue flag, this cove is a peaceful spot to relax and enjoy the coast of Murcia."
@@ -3119,7 +3161,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Cala Magre is a little hidden gem near Cartagena, boasting fine golden sand that’s perfect for relaxing under the Mediterranean sun. Enjoy its crystal-clear waters and peaceful surroundings – ideal for a family day at the beach. While it doesn’t have amenities like a promenade or a marina, it offers a natural refuge for those seeking a simple and authentic experience in the Region of Murcia."
@@ -3232,7 +3273,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 116
+    "shoreBearing": 116,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161628",
+      "samplingPointName": "PLAYA CALA FLORES PM1",
+      "distanceMeters": 470,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17390"
+    }
   },
   {
     "code": "678",
@@ -3335,7 +3383,14 @@
     "pictureQualityScore": 2,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 120
+    "shoreBearing": 120,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0032076",
+      "samplingPointName": "PLAYA MATALENTISCO PM1",
+      "distanceMeters": 153,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18175"
+    }
   },
   {
     "code": "574",
@@ -3423,7 +3478,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Cala Mojarra, near Cartagena, offers a little slice of the Mediterranean with fine sand and pebbles, perfect for enjoying a day of sun and relaxation. While it doesn’t have a promenade or a marina, its natural beauty and crystal-clear waters invite you to unwind and take in the scenery. It’s a quiet, family-friendly beach, ideal for those seeking a simple, uncrowded spot."
@@ -3525,7 +3579,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Cala Pozo de la Avispa, near Cartagena, awaits you with its fine, grey sand – a result of the surrounding limestone. Enjoy the calm waters of the Mediterranean Sea, perfect for a refreshing swim. While it doesn’t have a promenade or a marina, this cove offers a natural and peaceful escape to the beach in the Region of Murcia."
@@ -3658,7 +3711,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 141
+    "shoreBearing": 141,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0162683",
+      "samplingPointName": "PLAYA CALA REONA PM1",
+      "distanceMeters": 228,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoZonaAction.do"
+    }
   },
   {
     "code": "523",
@@ -3742,7 +3802,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Cala Roja, in Cartagena, awaits you with a crystal-clear Mediterranean sea and a unique rocky-sand landscape. Enjoy a stunning natural setting, perfect for relaxing and soaking up the sun. While it doesn’t have amenities like a promenade or a marina, its natural beauty makes it a tranquil and authentic destination in the Region of Murcia."
@@ -3847,7 +3906,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Cala Salitrona, in Cartagena, awaits you with its crystal-clear waters of the Mediterranean Sea and fine sand and gravel that invite you to relax. Enjoy a tranquil natural setting, ideal for a day at the beach in the Region of Murcia. Although it lacks a promenade and direct access, it offers a refuge for those seeking a close connection with nature."
@@ -3944,7 +4002,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Cala Tuna (also known as Cala Cuna) is a small, peaceful cove in Cartagena, perfect for enjoying the Mediterranean Sea and its golden, sandy shores. With crystal-clear waters and a relaxed atmosphere, it offers the perfect respite for those seeking a day of sun and relaxation. While it doesn't have amenities like a promenade or a marina, its natural beauty makes it a charming spot to enjoy the Mediterranean."
@@ -4038,7 +4095,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "length": 200,
     "translations": {
       "en": {
@@ -4148,7 +4204,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "good",
     "translations": {
       "en": {
         "description": "Lomas del Castillico Beach, in Cartagena, offers a peaceful setting along the Mar Menor with fine sand and gravel, perfect for enjoying a day of sun and relaxation. This easily accessible beach, ideal for families and groups, boasts a pleasant natural environment. While it doesn’t have a promenade or a marina, it’s a great place to unwind in the Region of Murcia."
@@ -4252,7 +4307,7 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good",
+    "waterQuality": "excellent",
     "length": 1077,
     "translations": {
       "en": {
@@ -4269,7 +4324,14 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 329
+    "shoreBearing": 329,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0351652",
+      "samplingPointName": "PLAYAS LOS ALISIOS PM1",
+      "distanceMeters": 163,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17365"
+    }
   },
   {
     "code": "586",
@@ -4356,7 +4418,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Golden Beach in Mazarrón awaits you with its golden sand and pebble shoreline and the warm waters of the Mediterranean Sea. Enjoy a day of sun and swimming on this peaceful beach, perfect for families and those seeking a simple, natural escape. While it doesn’t have a promenade or a marina, it offers a relaxed setting to enjoy the beautiful coast of Murcia."
@@ -4461,7 +4522,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Golden Beach, in Aguilas, awaits you with its golden and fine sand, inviting you to enjoy the refreshing Mediterranean Sea. This beach offers a tranquil space to relax and soak up the sun, ideal for families and those seeking a day at the beach in the Region of Murcia. While it doesn’t have amenities like a promenade or a marina, its natural beauty makes it a charming destination."
@@ -4587,7 +4647,14 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 68
+    "shoreBearing": 68,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0351644",
+      "samplingPointName": "PLAYA EL TABAL PM1",
+      "distanceMeters": 158,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17579"
+    }
   },
   {
     "code": "632",
@@ -4693,7 +4760,14 @@
       }
     },
     "pictureQualityScore": 2,
-    "shoreBearing": 145
+    "shoreBearing": 145,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0241630",
+      "samplingPointName": "PLAYA CALNEGRE PM1",
+      "distanceMeters": 262,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17215"
+    }
   },
   {
     "code": "667",
@@ -4807,7 +4881,14 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 90
+    "shoreBearing": 90,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0351650",
+      "samplingPointName": "PLAYA BARNUEVO PM1",
+      "distanceMeters": 148,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18037"
+    }
   },
   {
     "code": "639",
@@ -4898,7 +4979,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Cabezo de la Pelea Beach, near Mazarrón, offers a wild and authentic coastal landscape. Its crystal-clear Mediterranean waters meet fine sand and gravel, creating a truly unique natural environment. While it doesn’t have amenities like a promenade or a marina, it’s an ideal destination for those seeking tranquility and to enjoy the natural beauty of the Murcia coast."
@@ -4994,7 +5074,6 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Cabezo del Mojón Beach, near Cartagena, offers a peaceful corner on the shores of the Mediterranean Sea. Its pebble beach invites you to relax and soak up the sun, while the calm waters invite you for a refreshing swim. It doesn’t have a promenade or a marina, making it ideal for a quiet, secluded getaway."
@@ -5101,7 +5180,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Cala de Leño, near Mazarrón, is a hidden paradise with crystal-clear waters from the Mediterranean Sea and a unique, rocky landscape. Its gravel beach offers a tranquil and natural atmosphere, perfect for relaxing and enjoying the beauty of the surroundings. Known as a naturist beach, it provides a sanctuary for those seeking a space of freedom and direct contact with nature."
@@ -5220,7 +5298,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 113
+    "shoreBearing": 113,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161628",
+      "samplingPointName": "PLAYA CALA FLORES PM1",
+      "distanceMeters": 95,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17390"
+    }
   },
   {
     "code": "569",
@@ -5308,7 +5393,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Calafría Beach, near Cartagena, is a beautiful natural cove with fine, grey sand, offering direct access to the refreshing Mediterranean Sea. This peaceful bay is perfect for enjoying a day of sun and sea, ideal for families and those seeking a relaxed atmosphere. While it lacks amenities like a promenade or mooring area, its natural surroundings and crystal-clear waters make it a special place to unwind."
@@ -5414,7 +5498,6 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa Calnegre, near Cartagena, awaits you with its fine, golden sand, inviting you to enjoy the refreshing Mediterranean Sea. This tranquil beach, ideal for families and those seeking a relaxed spot, offers a protected natural environment. While it doesn’t have amenities like a promenade or a marina, its beauty and crystal-clear waters make it a charming destination in the Region of Murcia."
@@ -5542,7 +5625,14 @@
     "phone": "968 575 756",
     "email": "turismo@losalcazares.es",
     "realUrl": "https://turismo.losalcazares.es/playas-2/",
-    "shoreBearing": 93
+    "shoreBearing": 93,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M9021663",
+      "samplingPointName": "PLAYA PASEO DE MANZANARES PM1",
+      "distanceMeters": 157,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17213"
+    }
   },
   {
     "code": "687",
@@ -5658,7 +5748,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 307
+    "shoreBearing": 307,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161603",
+      "samplingPointName": "PLAYA GALUA PM1",
+      "distanceMeters": 185,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18096"
+    }
   },
   {
     "code": "543",
@@ -5748,7 +5845,6 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good",
     "translations": {
       "en": {
         "description": "Playa Chica, in San Javier, offers a peaceful space beside the Mar Menor with coarse sand. Ideal for enjoying a day of sun and relaxation, this beach is perfect for families and those seeking a natural environment without crowds. While it doesn’t have amenities like a promenade or a marina, its relaxed atmosphere makes it a pleasant place to enjoy the coast of Murcia."
@@ -5860,7 +5956,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa Cobaticas, near Mazarrón, awaits you with its fine sand and gravel, offering direct access to the refreshing Mediterranean Sea. Enjoy its crystal-clear waters and a peaceful natural setting, perfect for relaxing and soaking up the sun. While it doesn’t have amenities like a promenade or a marina, its natural beauty makes it a perfect spot for a family getaway or for those seeking to unwind."
@@ -5964,7 +6059,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa Cueva de Los Lobos, near Mazarrón, awaits you with its sandy and gravel beach and refreshing Mediterranean Sea. This natural cove, though without a blue flag, offers a tranquil and wild setting, perfect for a day of sun and swimming. Its natural beauty makes it a great place to relax and connect with the marine landscape of the Region of Murcia."
@@ -6066,7 +6160,7 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good",
+    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa Dársena Dos Mares, in Cartagena, offers a peaceful cove in the Mar Menor with fine, golden sand, perfect for enjoying a day of sun and relaxation.  Enjoy its crystal-clear waters and family-friendly atmosphere, ideal for a refreshing swim. While it doesn’t have a promenade or a marina, it’s a simple and pleasant spot for a coastal getaway."
@@ -6082,7 +6176,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 210
+    "shoreBearing": 210,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161622",
+      "samplingPointName": "PLAYA DE CAVANNAS PM1",
+      "distanceMeters": 439,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18089"
+    }
   },
   {
     "code": "662",
@@ -6191,7 +6292,14 @@
     "pictureQualityScore": 2,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
-    "shoreBearing": 182
+    "shoreBearing": 182,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0261634",
+      "samplingPointName": "PLAYA BAHIA PM1",
+      "distanceMeters": 239,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16914"
+    }
   },
   {
     "code": "646",
@@ -6288,7 +6396,6 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "length": 451,
     "translations": {
       "en": {
@@ -6385,7 +6492,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "length": 200,
     "translations": {
       "en": {
@@ -6507,7 +6613,14 @@
     "pictureQualityScore": 2,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 72
+    "shoreBearing": 72,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0031597",
+      "samplingPointName": "PLAYA LA CAROLINA PM1",
+      "distanceMeters": 417,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18170"
+    }
   },
   {
     "code": "679",
@@ -6621,7 +6734,14 @@
     "pictureQualityScore": 2,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 165
+    "shoreBearing": 165,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0031596",
+      "samplingPointName": "PLAYA CALARREONA PM1",
+      "distanceMeters": 135,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16713"
+    }
   },
   {
     "code": "590",
@@ -6722,7 +6842,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Calblanque Beach is a hidden paradise near Cartagena, in the Region of Murcia, boasting fine, golden sand that invites you to relax under the Mediterranean sun. Its crystal-clear waters and unspoiled natural landscapes make it the perfect place to enjoy a summer day in a tranquil and wild setting. While it lacks amenities like a promenade or a marina, its natural beauty is unparalleled."
@@ -6851,7 +6970,14 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 112
+    "shoreBearing": 112,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0351649",
+      "samplingPointName": "PLAYA PASEO COLON PM1",
+      "distanceMeters": 277,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17640"
+    }
   },
   {
     "code": "651",
@@ -6957,7 +7083,14 @@
     "pictureQualityScore": 2,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
-    "shoreBearing": 145
+    "shoreBearing": 145,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0261638",
+      "samplingPointName": "PLAYA EL ALAMILLO PM1",
+      "distanceMeters": 33,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16917"
+    }
   },
   {
     "code": "675",
@@ -7074,7 +7207,14 @@
     "pictureQualityScore": 2,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
-    "shoreBearing": 205
+    "shoreBearing": 205,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0261635",
+      "samplingPointName": "PLAYA GRANDE-CASTELLAR PM1",
+      "distanceMeters": 146,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16918"
+    }
   },
   {
     "code": "614",
@@ -7182,7 +7322,14 @@
     "pictureQualityScore": 2,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 161
+    "shoreBearing": 161,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0031592",
+      "samplingPointName": "PLAYA EL HORNILLO PM1",
+      "distanceMeters": 243,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18169"
+    }
   },
   {
     "code": "654",
@@ -7292,7 +7439,14 @@
     "pictureQualityScore": 2,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
-    "shoreBearing": 183
+    "shoreBearing": 183,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0262413",
+      "samplingPointName": "PLAYA DEL MOJON PM1",
+      "distanceMeters": 118,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17483"
+    }
   },
   {
     "code": "634",
@@ -7378,7 +7532,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "length": 1062,
     "translations": {
       "en": {
@@ -7504,7 +7657,14 @@
     "pictureQualityScore": 0,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
-    "shoreBearing": 147
+    "shoreBearing": 147,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0261631",
+      "samplingPointName": "PLAYA PLAYA RIGUETE PM1",
+      "distanceMeters": 111,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16921"
+    }
   },
   {
     "code": "645",
@@ -7595,7 +7755,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa de El Rincón, near Mazarrón, awaits you with its fine, grey sand, offering a peaceful setting by the Mediterranean Sea. Enjoy a relaxing day on this beach, ideal for families and those seeking a break from the hustle and bustle. While it doesn’t have amenities like a promenade or a marina, its natural beauty will surprise you."
@@ -7694,7 +7853,7 @@
     "accessDifficulty": "moderate",
     "childSafe": true,
     "naturalShade": true,
-    "waterQuality": "good",
+    "waterQuality": "excellent",
     "length": 200,
     "translations": {
       "en": {
@@ -7711,7 +7870,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 278
+    "shoreBearing": 278,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161602",
+      "samplingPointName": "PLAYA CALA DEL PINO PM1",
+      "distanceMeters": 337,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17219"
+    }
   },
   {
     "code": "530",
@@ -7823,7 +7989,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 8
+    "shoreBearing": 8,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0162411",
+      "samplingPointName": "PLAYA DE PONIENTE-ISLAS MENORES PM1",
+      "distanceMeters": 230,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16950"
+    }
   },
   {
     "code": "582",
@@ -7931,7 +8104,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 296
+    "shoreBearing": 296,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161619",
+      "samplingPointName": "PLAYA LA AZOHIA-PLAYA EL CUARTEL PM1",
+      "distanceMeters": 447,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18100"
+    }
   },
   {
     "code": "611",
@@ -8028,7 +8208,14 @@
     "pictureQualityScore": 0,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 170
+    "shoreBearing": 170,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0032551",
+      "samplingPointName": "PLAYA DE LA CASICA VERDE PM1",
+      "distanceMeters": 234,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16836"
+    }
   },
   {
     "code": "613",
@@ -8129,7 +8316,14 @@
     "pictureQualityScore": 0,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 174
+    "shoreBearing": 174,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0032551",
+      "samplingPointName": "PLAYA DE LA CASICA VERDE PM1",
+      "distanceMeters": 37,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16836"
+    }
   },
   {
     "code": "580",
@@ -8235,7 +8429,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 231
+    "shoreBearing": 231,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0162412",
+      "samplingPointName": "PLAYA LA CHAPINETA PM1",
+      "distanceMeters": 447,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16951"
+    }
   },
   {
     "code": "618",
@@ -8333,7 +8534,14 @@
     "pictureQualityScore": 0,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 183
+    "shoreBearing": 183,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0031591",
+      "samplingPointName": "PLAYA LA COLA PM1",
+      "distanceMeters": 293,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18171"
+    }
   },
   {
     "code": "612",
@@ -8439,7 +8647,14 @@
     "pictureQualityScore": 2,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 151
+    "shoreBearing": 151,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0031595",
+      "samplingPointName": "PLAYA DE PONIENTE PM1",
+      "distanceMeters": 237,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18168"
+    }
   },
   {
     "code": "533",
@@ -8545,7 +8760,14 @@
     "phone": "968 575 756",
     "email": "turismo@losalcazares.es",
     "realUrl": "https://turismo.losalcazares.es/playas-2/",
-    "shoreBearing": 115
+    "shoreBearing": 115,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M9021665",
+      "samplingPointName": "PLAYA PASEO CARRI?N PM1",
+      "distanceMeters": 59,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16587"
+    }
   },
   {
     "code": "649",
@@ -8651,7 +8873,14 @@
     "pictureQualityScore": 2,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
-    "shoreBearing": 164
+    "shoreBearing": 164,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0261634",
+      "samplingPointName": "PLAYA BAHIA PM1",
+      "distanceMeters": 361,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16914"
+    }
   },
   {
     "code": "624",
@@ -8738,7 +8967,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa de la Galera, near Aguilas, offers a wild and authentic coastal landscape with its coarse sand and pebbles. Enjoy the Mediterranean Sea and its crystal-clear waters, perfect for a refreshing swim. This unspoiled and quiet beach is ideal for those seeking tranquility and a direct connection with nature."
@@ -8867,7 +9095,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 235
+    "shoreBearing": 235,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161605",
+      "samplingPointName": "PLAYA DE LA GOLA PM1",
+      "distanceMeters": 383,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18090"
+    }
   },
   {
     "code": "600",
@@ -8958,7 +9193,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Grúa Beach, in Mazarrón, offers a tranquil and wild coastal setting. With a mix of sand and gravel, and crystal-clear Mediterranean Sea, it’s a great place to enjoy nature. Plus, it’s a nudist beach, though it doesn’t have a promenade or a marina."
@@ -9074,7 +9308,14 @@
     "pictureQualityScore": 2,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 141
+    "shoreBearing": 141,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0031598",
+      "samplingPointName": "PLAYA LA HIGUERICA PM1",
+      "distanceMeters": 311,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18173"
+    }
   },
   {
     "code": "680",
@@ -9179,7 +9420,14 @@
     "pictureQualityScore": 2,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
-    "shoreBearing": 193
+    "shoreBearing": 193,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0261633",
+      "samplingPointName": "PLAYA LA ISLA PM1",
+      "distanceMeters": 35,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16919"
+    }
   },
   {
     "code": "545",
@@ -9264,7 +9512,6 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa de La Llana, also known as Playa de La Barraca Quemada, in San Pedro del Pinatar, awaits you with its fine, grey sand, a product of the rich Mediterranean marine environment. Enjoy a tranquil and authentic natural landscape, perfect for relaxing and connecting with the sea. While it lacks amenities like a promenade or a marina, it offers a perfect refuge for those seeking a peaceful experience in the Region of Murcia."
@@ -9386,7 +9633,14 @@
     "phone": "968 182 301",
     "email": "turismo@sanpedrodelpinatar.es",
     "realUrl": "https://www.sanpedrodelpinatar.es/concejalias/turismo/lugares-de-interes/playas-de-la-llana/",
-    "shoreBearing": 103
+    "shoreBearing": 103,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0361654",
+      "samplingPointName": "PLAYA LA LLANA-LAS SALINAS PM1",
+      "distanceMeters": 209,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17368"
+    }
   },
   {
     "code": "544",
@@ -9479,7 +9733,14 @@
     "phone": "968 182 301",
     "email": "turismo@sanpedrodelpinatar.es",
     "realUrl": "https://www.sanpedrodelpinatar.es/concejalias/turismo/lugares-de-interes/playas-de-la-llana/",
-    "shoreBearing": 75
+    "shoreBearing": 75,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0361654",
+      "samplingPointName": "PLAYA LA LLANA-LAS SALINAS PM1",
+      "distanceMeters": 448,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17368"
+    }
   },
   {
     "code": "682",
@@ -9570,7 +9831,7 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good",
+    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa de La Mota, in San Pedro del Pinatar, is a peaceful cove nestled in the heart of the Mar Menor. With accessible access, it offers an ideal environment to enjoy the calm and natural beauty of the area. Perfect for families and visitors seeking a relaxing experience in this coastal enclave of the Murcia Region."
@@ -9586,7 +9847,14 @@
     "phone": "968 182 301",
     "email": "turismo@sanpedrodelpinatar.es",
     "realUrl": "https://www.sanpedrodelpinatar.es/concejalias/turismo/lugares-de-interes/playa-de-la-mota/",
-    "shoreBearing": 240
+    "shoreBearing": 240,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0361658",
+      "samplingPointName": "PLAYA LA MOTA PM1",
+      "distanceMeters": 213,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17369"
+    }
   },
   {
     "code": "555",
@@ -9665,7 +9933,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa de La Parajola, near Cartagena, is a wild and authentic slice of the Mediterranean Sea. With its coarse sand and pebbles, it offers a unique coastal landscape and a more natural experience. It’s ideal for those seeking tranquility and enjoying a less crowded coastal environment, although it doesn’t have any facilities or direct access from a promenade."
@@ -9783,7 +10050,14 @@
     "pictureQualityScore": 2,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
-    "shoreBearing": 175
+    "shoreBearing": 175,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0261637",
+      "samplingPointName": "PLAYA NARES PM1",
+      "distanceMeters": 227,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16920"
+    }
   },
   {
     "code": "664",
@@ -9893,7 +10167,14 @@
     "phone": "968 182 301",
     "email": "turismo@sanpedrodelpinatar.es",
     "realUrl": "https://www.sanpedrodelpinatar.es/concejalias/turismo/lugares-de-interes/playa-de-la-puntica/",
-    "shoreBearing": 114
+    "shoreBearing": 114,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0361655",
+      "samplingPointName": "PLAYA VILLANANITOS PM1",
+      "distanceMeters": 488,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17371"
+    }
   },
   {
     "code": "653",
@@ -9976,7 +10257,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa de La Raja, in Mazarrón, offers a tranquil coastal space, perfect for enjoying its smooth, bowling-green sand and calm Mediterranean waters. It’s a great place to relax and unwind, taking in the natural beauty of the area. While it doesn’t have a promenade or mooring facilities, its peaceful atmosphere makes it an ideal destination for those seeking a break in the Region of Murcia."
@@ -10071,7 +10351,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Rambla Elena Beach in Aguilas offers a peaceful coastal setting with fine sand and gravel, perfect for enjoying the Mediterranean Sea. With crystal-clear waters, this beach is ideal for relaxing and soaking up the sun. While it doesn’t have amenities like a promenade or a marina, its natural beauty makes it a great spot for a tranquil getaway in the Region of Murcia."
@@ -10192,7 +10471,14 @@
     "pictureQualityScore": 0,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
-    "shoreBearing": 191
+    "shoreBearing": 191,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0261634",
+      "samplingPointName": "PLAYA BAHIA PM1",
+      "distanceMeters": 18,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16914"
+    }
   },
   {
     "code": "546",
@@ -10297,7 +10583,14 @@
     "phone": "968 182 301",
     "email": "turismo@sanpedrodelpinatar.es",
     "realUrl": "https://www.sanpedrodelpinatar.es/concejalias/turismo/lugares-de-interes/playa-de-torre-derribada/",
-    "shoreBearing": 77
+    "shoreBearing": 77,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0361657",
+      "samplingPointName": "PLAYA TORRE DERRIBADA PM1",
+      "distanceMeters": 473,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17147"
+    }
   },
   {
     "code": "584",
@@ -10380,7 +10673,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "length": 474,
     "translations": {
       "en": {
@@ -10476,7 +10768,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa de las Chapas, near Mazarrón, awaits you with its smooth, wooden-like sand and the refreshing embrace of the Mediterranean Sea. Enjoy its crystal-clear waters and peaceful natural surroundings, perfect for relaxing and soaking up the sun. While it doesn’t have a promenade or mooring facilities, it offers a perfect haven for those seeking a quiet, family-friendly beach."
@@ -10591,7 +10882,14 @@
     "pictureQualityScore": 0,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
-    "shoreBearing": 141
+    "shoreBearing": 141,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0262414",
+      "samplingPointName": "PLAYA PERCHELES PM1",
+      "distanceMeters": 283,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17484"
+    }
   },
   {
     "code": "4894",
@@ -10678,7 +10976,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa de las Moreras, near Mazarrón, offers a tranquil haven with its coarse sand and refreshing Mediterranean Sea. Enjoy its crystal-clear waters and the natural beauty of the Murcia coastline. While it doesn’t have a promenade or a marina, it’s an ideal spot for relaxing and spending a day at the beach."
@@ -10802,7 +11099,14 @@
     "phone": "968 575 756",
     "email": "turismo@losalcazares.es",
     "realUrl": "https://turismo.losalcazares.es/playas-2/",
-    "shoreBearing": 127
+    "shoreBearing": 127,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M9021661",
+      "samplingPointName": "PLAYA LAS PALMERAS PM1",
+      "distanceMeters": 174,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18176"
+    }
   },
   {
     "code": "623",
@@ -10882,7 +11186,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa de Las Pulgas, near Aguilas, offers a wild and authentic coastal landscape. Its gravel dunes and the Mediterranean Sea create a unique environment, perfect for enjoying nature and the sun. While it doesn't have facilities or direct access to the promenade, it’s a great spot for those seeking a quieter, more secluded beach experience."
@@ -10981,7 +11284,6 @@
     "accessDifficulty": "moderate",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good",
     "translations": {
       "en": {
         "description": "Playa de Las Salinas, in Los Alcázares, offers a unique landscape with its coarse, grey sand, a product of the Mar Menor. It’s ideal for enjoying a day of sun and relaxation, although it doesn’t have any additional services or facilities. Enjoy its natural and tranquil atmosphere, perfect for those seeking an authentic experience in the Region of Murcia."
@@ -11108,7 +11410,14 @@
     "pictureQualityScore": 2,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 167
+    "shoreBearing": 167,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0031594",
+      "samplingPointName": "PLAYA DE LEVANTE PM1",
+      "distanceMeters": 202,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16714"
+    }
   },
   {
     "code": "525",
@@ -11216,7 +11525,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 342
+    "shoreBearing": 342,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161614",
+      "samplingPointName": "PLAYA LEVANTE-CABO PALOS PM1",
+      "distanceMeters": 254,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16887"
+    }
   },
   {
     "code": "528",
@@ -11303,7 +11619,7 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good",
+    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa de Los Alemanes, near Cartagena, offers a peaceful spot to enjoy the Mar Menor. Its golden, sandy beach invites you to relax and soak up the sun. While it doesn’t have a promenade and isn’t easily accessible, it’s a great option for those seeking a quiet, family-friendly beach in the Murcia region."
@@ -11319,7 +11635,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 288
+    "shoreBearing": 288,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161626",
+      "samplingPointName": "PLAYA EL VIVERO PM1",
+      "distanceMeters": 303,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18093"
+    }
   },
   {
     "code": "566",
@@ -11422,7 +11745,14 @@
     },
     "pictureQualityScore": 2,
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 116
+    "shoreBearing": 116,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0031597",
+      "samplingPointName": "PLAYA LA CAROLINA PM1",
+      "distanceMeters": 145,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18170"
+    }
   },
   {
     "code": "576",
@@ -11509,7 +11839,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa de los Hierros, in Lorca, awaits you with a unique volcanic landscape and crystal-clear Mediterranean waters. Its medium sand and gravel, combined with the impressive rocky formations, offers a different experience. Enjoy the natural beauty of this beach, perfect for strolling and admiring the views, although it doesn’t have amenities like a promenade or a marina."
@@ -11627,7 +11956,14 @@
     "phone": "968 575 756",
     "email": "turismo@losalcazares.es",
     "realUrl": "https://turismo.losalcazares.es/playas-2/",
-    "shoreBearing": 175
+    "shoreBearing": 175,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M9021660",
+      "samplingPointName": "PLAYA LOS NAREJOS PM1",
+      "distanceMeters": 227,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18177"
+    }
   },
   {
     "code": "677",
@@ -11714,7 +12050,7 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good",
+    "waterQuality": "excellent",
     "length": 3488,
     "translations": {
       "en": {
@@ -11731,7 +12067,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 43
+    "shoreBearing": 43,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0162095",
+      "samplingPointName": "PLAYA LOS URRUTIAS PM2",
+      "distanceMeters": 337,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16889"
+    }
   },
   {
     "code": "676",
@@ -11843,7 +12186,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 25
+    "shoreBearing": 25,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161611",
+      "samplingPointName": "PLAYA MAR DE CRISTAL PM1",
+      "distanceMeters": 219,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16890"
+    }
   },
   {
     "code": "683",
@@ -11952,7 +12302,14 @@
     "pictureQualityScore": 2,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
-    "shoreBearing": 167
+    "shoreBearing": 167,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0261637",
+      "samplingPointName": "PLAYA NARES PM1",
+      "distanceMeters": 12,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16920"
+    }
   },
   {
     "code": "608",
@@ -12036,7 +12393,6 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "length": 1104,
     "translations": {
       "en": {
@@ -12130,7 +12486,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Piedra Mala Beach, near Mazarrón, offers a unique landscape with its coarse, grey sand – a result of Mediterranean erosion. Enjoy its crystal-clear waters and a peaceful atmosphere, perfect for relaxing and unwinding. While it lacks amenities and easy access, its natural beauty and tranquil vibe make it a special place for beach lovers seeking a direct connection with the sea."
@@ -12259,7 +12614,14 @@
     "pictureQualityScore": 2,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 206
+    "shoreBearing": 206,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0031599",
+      "samplingPointName": "PLAYA LA COLONIA PM1",
+      "distanceMeters": 275,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18172"
+    }
   },
   {
     "code": "564",
@@ -12347,7 +12709,7 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good",
+    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa de Poniente, in San Javier, offers a pleasant stroll along its fine, golden sand, fringed by the calm waters of the Mar Menor. Enjoy a relaxed atmosphere, ideal for families and those seeking a hassle-free beach day. While it doesn’t have a promenade or a blue flag, it’s a perfect spot to enjoy the coast of Murcia."
@@ -12363,7 +12725,14 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 64
+    "shoreBearing": 64,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0351642",
+      "samplingPointName": "PLAYA PEDRUCHO NORTE PM1",
+      "distanceMeters": 261,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17641"
+    }
   },
   {
     "code": "560",
@@ -12445,7 +12814,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "sufficient",
     "translations": {
       "en": {
         "description": "Playa de Portmán, in La Unión, awaits you with its fine, golden sand, inviting you to enjoy the refreshing Mediterranean Sea. This beach, with its natural charm, offers a tranquil space to relax and soak up the sun. While it doesn’t have amenities like a promenade or a marina, its beauty and relaxed atmosphere make it a special destination in the Region of Murcia."
@@ -12572,7 +12940,14 @@
     "phone": "968 182 301",
     "email": "turismo@sanpedrodelpinatar.es",
     "realUrl": "https://www.sanpedrodelpinatar.es/concejalias/turismo/lugares-de-interes/playa-de-villananitos/",
-    "shoreBearing": 176
+    "shoreBearing": 176,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0361655",
+      "samplingPointName": "PLAYA VILLANANITOS PM1",
+      "distanceMeters": 222,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17371"
+    }
   },
   {
     "code": "617",
@@ -12654,7 +13029,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa del Arroz, near Aguilas, offers a peaceful and authentic coastal landscape. With its medium-grain sand and pebbles, and the refreshing Mediterranean Sea, it’s a great place to spend a day in the sun and relax. While it doesn’t have a promenade or direct access to moorings, its natural beauty and family-friendly atmosphere make it a charming option for those seeking to unwind."
@@ -12757,7 +13131,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa del Ballenato, near Mazarrón, offers a unique coastal landscape with its coarse sand, gravel, and pebbles – all washed in by the Mediterranean Sea. It’s an ideal spot for enjoying nature and sea views, although it lacks a promenade and a marina. A peaceful destination for those seeking a day at the beach in the Murcia Region."
@@ -12860,7 +13233,6 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa Entremares, also known as Playa del Barco Perdido, is a beautiful stretch of fine, golden sand located in Cartagena, Region of Murcia. Enjoy the calm waters of the Mediterranean Sea and a perfect setting for relaxation. Thanks to its accessibility, this beach offers a pleasant experience for all visitors."
@@ -12969,7 +13341,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 70
+    "shoreBearing": 70,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161603",
+      "samplingPointName": "PLAYA GALUA PM1",
+      "distanceMeters": 191,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18096"
+    }
   },
   {
     "code": "641",
@@ -13057,7 +13436,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa del Barranco Ancho, near Mazarrón, offers a wild and tranquil natural setting, perfect for those seeking privacy and a direct connection with the Mediterranean Sea. Its medium sand and gravel, along with an area for naturists, make it a unique spot to enjoy the coast of Murcia. While it lacks amenities like a promenade or a marina, its natural beauty and relaxed atmosphere make it a special destination."
@@ -13145,7 +13523,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa del Barranco de La Mar, near Aguilas, offers a peaceful cove of fine, golden sand facing the Mediterranean Sea. Perfect for a day of sun and relaxation, this beach is located in a protected natural area. While it lacks amenities like a promenade or a marina, its natural beauty makes it a wonderful place to unwind."
@@ -13258,7 +13635,14 @@
     "pictureQualityScore": 2,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 114
+    "shoreBearing": 114,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0032552",
+      "samplingPointName": "PLAYA DE EL CHARCO PM1",
+      "distanceMeters": 241,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16837"
+    }
   },
   {
     "code": "519",
@@ -13359,7 +13743,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 122
+    "shoreBearing": 122,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161628",
+      "samplingPointName": "PLAYA CALA FLORES PM1",
+      "distanceMeters": 277,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17390"
+    }
   },
   {
     "code": "690",
@@ -13469,7 +13860,14 @@
     "phone": "968 575 756",
     "email": "turismo@losalcazares.es",
     "realUrl": "https://turismo.losalcazares.es/playas-2/",
-    "shoreBearing": 115
+    "shoreBearing": 115,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M9021662",
+      "samplingPointName": "PLAYA PASEO DEL ESPEJO PM1",
+      "distanceMeters": 147,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17214"
+    }
   },
   {
     "code": "536",
@@ -13572,7 +13970,14 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 143
+    "shoreBearing": 143,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0351643",
+      "samplingPointName": "PLAYA MISTRAL PM1",
+      "distanceMeters": 253,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17639"
+    }
   },
   {
     "code": "7051",
@@ -13671,7 +14076,14 @@
     "pictureQualityScore": 0,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 98
+    "shoreBearing": 98,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0032552",
+      "samplingPointName": "PLAYA DE EL CHARCO PM1",
+      "distanceMeters": 316,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16837"
+    }
   },
   {
     "code": "695",
@@ -13779,7 +14191,14 @@
     "phone": "968 54 16 14",
     "email": "turismo@ayto-launion.org",
     "realUrl": "https://www.turismoregiondemurcia.es/es/playa/playa-del-lastre-695/",
-    "shoreBearing": 226
+    "shoreBearing": 226,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0411659",
+      "samplingPointName": "PLAYA PORTMAN-EL LASTRE PM1",
+      "distanceMeters": 256,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17366"
+    }
   },
   {
     "code": "598",
@@ -13881,7 +14300,14 @@
     "pictureQualityScore": 0,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 132
+    "shoreBearing": 132,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0032076",
+      "samplingPointName": "PLAYA MATALENTISCO PM1",
+      "distanceMeters": 434,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18175"
+    }
   },
   {
     "code": "594",
@@ -13962,7 +14388,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": true,
-    "waterQuality": "excellent",
     "length": 539,
     "translations": {
       "en": {
@@ -14054,7 +14479,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa del Pocico del Animal, near Aguilas, awaits you with its fine, grey sand and a peaceful cove right on the Mediterranean Sea. Enjoy its natural beauty and the tranquility of this small coastal enclave in the Region of Murcia. While it lacks amenities and isn't easily accessible, it offers a space to connect with nature."
@@ -14150,7 +14574,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa del Pozo de las Huertas, near Águilas, offers a wild and authentic coastal landscape with its coarse sand and gravel, a product of the Mediterranean. It’s ideal for those seeking tranquility and to enjoy a natural environment away from the crowds. Enjoy its crystal-clear waters and the rugged beauty of this unique beach in the Region of Murcia."
@@ -14257,7 +14680,7 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "excellent",
+    "waterQuality": "good",
     "translations": {
       "en": {
         "description": "Playa del Puerto de Mazarrón, in Mazarrón, Region of Murcia, awaits you with its fine, golden sand, inviting you to enjoy the warm Mediterranean Sea. This beach is accessible for all visitors. Enjoy a day in the sun in a peaceful and pleasant environment, perfect for families and those seeking relaxation."
@@ -14272,7 +14695,14 @@
     "pictureQualityScore": 2,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
-    "shoreBearing": 107
+    "shoreBearing": 107,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0261632",
+      "samplingPointName": "PLAYA DEL PUERTO PM1",
+      "distanceMeters": 190,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16916"
+    }
   },
   {
     "code": "7052",
@@ -14351,7 +14781,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa del Saladar in Aguilas offers a unique natural landscape with its coarse sand and gravel, a product of the Segura River. Enjoy the crystal-clear waters of the Mediterranean Sea and the tranquility of this wild, secluded beach. It’s ideal for those seeking a direct connection with nature and a relaxed environment, away from the tourist crowds."
@@ -14453,7 +14882,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa del Salar or Benzal, in Mazarrón, offers a wild and tranquil coastal landscape in the Region of Murcia. Its gravel-strewn sand, bathed by the crystal-clear waters of the Mediterranean Sea, invites you to enjoy a day of sun and relaxation. Although it doesn’t have a promenade or mooring areas, it’s an ideal spot for those seeking a natural and relaxed environment."
@@ -14564,7 +14992,14 @@
     "pictureQualityScore": 2,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 101
+    "shoreBearing": 101,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0032552",
+      "samplingPointName": "PLAYA DE EL CHARCO PM1",
+      "distanceMeters": 452,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16837"
+    }
   },
   {
     "code": "527",
@@ -14650,7 +15085,7 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good",
+    "waterQuality": "excellent",
     "length": 1847,
     "translations": {
       "en": {
@@ -14667,7 +15102,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 20
+    "shoreBearing": 20,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161609",
+      "samplingPointName": "PLAYA PUERTO BELLO PM1",
+      "distanceMeters": 267,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16910"
+    }
   },
   {
     "code": "561",
@@ -14773,7 +15215,14 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 90
+    "shoreBearing": 90,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0351645",
+      "samplingPointName": "PLAYA LAS GAVIOTAS PM1",
+      "distanceMeters": 439,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17582"
+    }
   },
   {
     "code": "532",
@@ -14855,7 +15304,6 @@
     "accessDifficulty": "moderate",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good",
     "length": 1565,
     "translations": {
       "en": {
@@ -14985,7 +15433,14 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 156
+    "shoreBearing": 156,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0361656",
+      "samplingPointName": "PLAYA LA PUNTICA PM1",
+      "distanceMeters": 240,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17370"
+    }
   },
   {
     "code": "4893",
@@ -15093,7 +15548,14 @@
     "pictureQualityScore": 2,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
-    "shoreBearing": 128
+    "shoreBearing": 128,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0261631",
+      "samplingPointName": "PLAYA PLAYA RIGUETE PM1",
+      "distanceMeters": 387,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16921"
+    }
   },
   {
     "code": "540",
@@ -15184,7 +15646,6 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good",
     "translations": {
       "en": {
         "description": "Playa El Galán, located in San Javier, offers a peaceful cove on the Mar Menor. Its fine, golden sand invites you to relax and soak up the sun, making it perfect for families and those seeking a serene spot. While it doesn’t have a promenade or mooring areas, its natural beauty and warm waters make it an ideal destination for a day at the beach in the Region of Murcia."
@@ -15307,7 +15768,14 @@
     "phone": "968 182 301",
     "email": "turismo@sanpedrodelpinatar.es",
     "realUrl": "https://www.sanpedrodelpinatar.es/concejalias/turismo/lugares-de-interes/playa-de-el-mojon/",
-    "shoreBearing": 90
+    "shoreBearing": 90,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0361653",
+      "samplingPointName": "PLAYA EL MOJON-DERECHA PM1",
+      "distanceMeters": 325,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17367"
+    }
   },
   {
     "code": "674",
@@ -15417,7 +15885,14 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 81
+    "shoreBearing": 81,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0351651",
+      "samplingPointName": "PLAYA EL PEDRUCHILLO PM1",
+      "distanceMeters": 333,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17146"
+    }
   },
   {
     "code": "535",
@@ -15511,7 +15986,7 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good",
+    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa El Pescador in Santiago de la Ribera awaits you with its fine, golden sand, offering a tranquil and family-friendly atmosphere beside the Mar Menor. Enjoy its pleasant promenade and the warmth of the water. While it doesn't have a blue flag or mooring area, it’s an ideal spot for relaxing and enjoying a day at the beach in the Region of Murcia."
@@ -15527,7 +16002,14 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 111
+    "shoreBearing": 111,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0351649",
+      "samplingPointName": "PLAYA PASEO COLON PM1",
+      "distanceMeters": 41,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17640"
+    }
   },
   {
     "code": "606",
@@ -15643,7 +16125,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 196
+    "shoreBearing": 196,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161618",
+      "samplingPointName": "PLAYA EL PORTUS PM1",
+      "distanceMeters": 133,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18092"
+    }
   },
   {
     "code": "537",
@@ -15743,7 +16232,14 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 110
+    "shoreBearing": 110,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0351640",
+      "samplingPointName": "PLAYA VENECIOLA PM1",
+      "distanceMeters": 405,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16693"
+    }
   },
   {
     "code": "599",
@@ -15825,7 +16321,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa El Rafal, near Águilas, offers a stretch of coastline with a mix of sand and gravel, fringed by the crystal-clear waters of the Mediterranean Sea. Enjoy a charming natural setting, perfect for relaxing and soaking up the sun. While it doesn't have a promenade or a marina, it’s a peaceful spot for a day at the beach."
@@ -15933,7 +16428,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa El Siscal, near Lorca, offers a peaceful haven in the Mediterranean with fine sand and pebbles. Enjoy its crystal-clear waters and a privileged natural setting, perfect for relaxing and spending a day at the beach. While it doesn’t have a promenade or a marina, it’s a great spot for those seeking a quiet escape in the Region of Murcia."
@@ -16028,7 +16522,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "length": 572,
     "translations": {
       "en": {
@@ -16157,7 +16650,14 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 358
+    "shoreBearing": 358,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0352077",
+      "samplingPointName": "PLAYA LA ENSENADA DEL ESPARTO PM1",
+      "distanceMeters": 217,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17580"
+    }
   },
   {
     "code": "511",
@@ -16244,7 +16744,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa Fatares, near Cartagena, offers a wild and authentic coastal landscape with its coarse sand and gravel, embraced by the Mediterranean Sea. It’s ideal for those seeking a quiet, less crowded beach, perfect for enjoying nature and the sun. While it lacks amenities like a promenade or a marina, its natural beauty makes it a unique destination in the Region of Murcia."
@@ -16369,7 +16868,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 85
+    "shoreBearing": 85,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161603",
+      "samplingPointName": "PLAYA GALUA PM1",
+      "distanceMeters": 495,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18096"
+    }
   },
   {
     "code": "688",
@@ -16480,7 +16986,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 356
+    "shoreBearing": 356,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161613",
+      "samplingPointName": "PLAYA HONDA PM1",
+      "distanceMeters": 211,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18097"
+    }
   },
   {
     "code": "640",
@@ -16569,7 +17082,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Hondón del Fondón Beach, near Mazarrón, is a tranquil haven on the Mediterranean coast. With its fine sand and gravel, combined with its crystal-clear waters, it’s the perfect place to spend a summer day in a natural setting. Plus, it’s a nudist beach, offering a peaceful and relaxing space for those who seek it."
@@ -16692,7 +17204,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 180
+    "shoreBearing": 180,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161621",
+      "samplingPointName": "PLAYA ISLA PLANA PM1",
+      "distanceMeters": 213,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18098"
+    }
   },
   {
     "code": "521",
@@ -16789,7 +17308,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 158
+    "shoreBearing": 158,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161614",
+      "samplingPointName": "PLAYA LEVANTE-CABO PALOS PM1",
+      "distanceMeters": 325,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16887"
+    }
   },
   {
     "code": "619",
@@ -16899,7 +17425,14 @@
     "pictureQualityScore": 2,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 202
+    "shoreBearing": 202,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0031590",
+      "samplingPointName": "PLAYA CALABARDINA PM1",
+      "distanceMeters": 314,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16712"
+    }
   },
   {
     "code": "524",
@@ -16982,7 +17515,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa La Calera, near Cartagena, offers a beautiful coastal landscape with pebble-strewn sand and the refreshing Mediterranean Sea. Enjoy its crystal-clear waters and a peaceful natural setting, perfect for relaxing and connecting with the sea. While it doesn’t have amenities like a boardwalk or a marina, its natural beauty makes it a perfect destination for a day at the beach."
@@ -17097,7 +17629,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 163
+    "shoreBearing": 163,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161621",
+      "samplingPointName": "PLAYA ISLA PLANA PM1",
+      "distanceMeters": 283,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18098"
+    }
   },
   {
     "code": "589",
@@ -17203,7 +17742,14 @@
     "pictureQualityScore": 2,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 135
+    "shoreBearing": 135,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0031598",
+      "samplingPointName": "PLAYA LA HIGUERICA PM1",
+      "distanceMeters": 243,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18173"
+    }
   },
   {
     "code": "573",
@@ -17287,7 +17833,6 @@
     "accessDifficulty": "moderate",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa La Galera, near Cartagena, offers a unique coastal landscape with a pebble and rocky beach, warmed by the warm waters of the Mediterranean Sea. Enjoy its rock formations and a peaceful natural environment, perfect for relaxing and admiring the beauty of the Mediterranean. While it doesn’t have amenities like a promenade or a marina, it’s a great spot for an authentic getaway."
@@ -17384,7 +17929,7 @@
     "accessDifficulty": "moderate",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good",
+    "waterQuality": "excellent",
     "length": 574,
     "translations": {
       "en": {
@@ -17401,7 +17946,14 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 267
+    "shoreBearing": 267,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0351644",
+      "samplingPointName": "PLAYA EL TABAL PM1",
+      "distanceMeters": 373,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17579"
+    }
   },
   {
     "code": "609",
@@ -17494,7 +18046,14 @@
     "pictureQualityScore": 0,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 130
+    "shoreBearing": 130,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0032076",
+      "samplingPointName": "PLAYA MATALENTISCO PM1",
+      "distanceMeters": 309,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18175"
+    }
   },
   {
     "code": "673",
@@ -17586,7 +18145,7 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good",
+    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa La Veneziola, in San Javier, is a peaceful little cove on the Mar Menor, perfect for enjoying a day in the sun. Its coarse, warm sand invites relaxation and gentle water activities. Plus, the beach is accessible for people with mobility issues, offering a relaxing and comfortable experience in the Region of Murcia."
@@ -17602,7 +18161,14 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 260
+    "shoreBearing": 260,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0351640",
+      "samplingPointName": "PLAYA VENECIOLA PM1",
+      "distanceMeters": 298,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16693"
+    }
   },
   {
     "code": "627",
@@ -17701,7 +18267,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 181
+    "shoreBearing": 181,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161615",
+      "samplingPointName": "PLAYA CALBLANQUE PM1",
+      "distanceMeters": 287,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17391"
+    }
   },
   {
     "code": "5907",
@@ -17793,7 +18366,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa Larga, near Lorca, awaits you with its long, fine sand and gravel dunes, offering a unique landscape facing the Mediterranean Sea. Enjoy a day in the sun at this natural beach, perfect for relaxing and soaking up the coastal atmosphere. While it doesn’t have amenities like a promenade or a marina, its beauty and tranquility make it a perfect destination for nature lovers."
@@ -17901,7 +18473,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 34
+    "shoreBearing": 34,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161614",
+      "samplingPointName": "PLAYA LEVANTE-CABO PALOS PM1",
+      "distanceMeters": 302,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16887"
+    }
   },
   {
     "code": "541",
@@ -17988,7 +18567,7 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good",
+    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa Las Antillas, in San Javier, offers a peaceful setting on the Mar Menor, perfect for enjoying a day of sun and sand. Its coarse sand is ideal for building sandcastles and relaxing. While it doesn’t have a promenade or a marina, it’s a simple and accessible beach for those seeking a family-friendly and relaxed atmosphere."
@@ -18004,7 +18583,14 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 302
+    "shoreBearing": 302,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0351646",
+      "samplingPointName": "PLAYA ANTILLAS PM1",
+      "distanceMeters": 289,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18036"
+    }
   },
   {
     "code": "660",
@@ -18113,7 +18699,14 @@
     "pictureQualityScore": 2,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 204
+    "shoreBearing": 204,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0031593",
+      "samplingPointName": "PLAYA LAS DELICIAS PM1",
+      "distanceMeters": 297,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18174"
+    }
   },
   {
     "code": "539",
@@ -18200,7 +18793,7 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good",
+    "waterQuality": "excellent",
     "length": 734,
     "translations": {
       "en": {
@@ -18217,7 +18810,14 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 98
+    "shoreBearing": 98,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0351647",
+      "samplingPointName": "PLAYA DEL GALAN PM1",
+      "distanceMeters": 463,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18038"
+    }
   },
   {
     "code": "684",
@@ -18305,7 +18905,6 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good",
     "length": 4531,
     "translations": {
       "en": {
@@ -18432,7 +19031,14 @@
     "phone": "968 575 756",
     "email": "turismo@losalcazares.es",
     "realUrl": "https://turismo.losalcazares.es/playas-2/",
-    "shoreBearing": 102
+    "shoreBearing": 102,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M9021663",
+      "samplingPointName": "PLAYA PASEO DE MANZANARES PM1",
+      "distanceMeters": 167,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17213"
+    }
   },
   {
     "code": "542",
@@ -18519,7 +19125,6 @@
     "accessDifficulty": "moderate",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good",
     "translations": {
       "en": {
         "description": "Matasgordas Beach, located in San Javier, is a peaceful beach with coarse sand, backed by the Mar Menor. It offers a simple space to enjoy the sun and sea, ideal for families and those seeking a relaxed spot. While it doesn’t have amenities like a promenade or a marina, its natural surroundings and the vastness of the Mar Menor make it a pleasant destination for a visit."
@@ -18644,7 +19249,14 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 234
+    "shoreBearing": 234,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0351643",
+      "samplingPointName": "PLAYA MISTRAL PM1",
+      "distanceMeters": 396,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17639"
+    }
   },
   {
     "code": "583",
@@ -18728,7 +19340,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa Morena, near Cartagena, offers a unique coastal landscape with its chunky, bowling-ball-like sand and warm waters of the Mediterranean Sea. It’s an ideal spot for those seeking tranquility and a natural setting, though it doesn’t have a promenade or a marina. Plus, it’s a nudist beach, respecting its distinctive atmosphere."
@@ -18835,7 +19446,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Black Sand Beach in Mazarrón offers a unique volcanic landscape with its coarse sand and gravel, perfect for enjoying a swim in the Mediterranean Sea. This unspoiled beach, with its dark hues, invites tranquility and direct contact with nature. While it lacks amenities like a promenade or mooring area, it’s a perfect destination for those seeking an authentic and natural experience in the Region of Murcia."
@@ -18932,7 +19542,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Black Sand Beach, near Cartagena, is a paradise of fine, golden sand, where the Mediterranean Sea awaits you for a refreshing swim. This natural gem offers a tranquil and wild environment, perfect for those seeking to escape the hustle and bustle and enjoy the beauty of the coastal landscape. While it doesn’t have amenities like a boardwalk or a marina, its sand and crystal-clear waters make it an ideal destination for nature lovers and those seeking peace and quiet."
@@ -19057,7 +19666,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 324
+    "shoreBearing": 324,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0162365",
+      "samplingPointName": "PLAYA PARAISO PM1",
+      "distanceMeters": 155,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16952"
+    }
   },
   {
     "code": "6703",
@@ -19162,7 +19778,14 @@
       }
     },
     "pictureQualityScore": 2,
-    "shoreBearing": 116
+    "shoreBearing": 116,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0241629",
+      "samplingPointName": "PLAYA PUNTA DE CALNEGRE PM1",
+      "distanceMeters": 84,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17216"
+    }
   },
   {
     "code": "633",
@@ -19252,7 +19875,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa Parazuelos, near Mazarrón, offers a natural and peaceful setting on the Mediterranean coast. Its medium sand and gravel invite you to relax and soak up the sun, while the crystal-clear waters of the sea invite you for a refreshing swim. Although it doesn’t have amenities like a promenade or a marina, it’s an ideal spot for those seeking an authentic and charming beach in the Region of Murcia."
@@ -19349,7 +19971,6 @@
     "accessDifficulty": "hard",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa Parreño, near Cartagena, offers a tranquil oasis on the Mediterranean coast. Its soft, fine golden sand dunes invite you to spend a day in the sun and relax by the sea. While it doesn’t have a promenade or mooring areas, this beach is ideal for those seeking peace and quiet and a direct connection with the beauty of the Mediterranean."
@@ -19477,7 +20098,14 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 111
+    "shoreBearing": 111,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0351651",
+      "samplingPointName": "PLAYA EL PEDRUCHILLO PM1",
+      "distanceMeters": 261,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17146"
+    }
   },
   {
     "code": "570",
@@ -19563,7 +20191,7 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good",
+    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Pearl of Levante Beach, in Cartagena, offers a tranquil corner by the Mar Menor. Its fine, grey sand invites you to relax and enjoy its crystal-clear waters. While it doesn’t have a promenade or a marina, it’s an ideal spot for a peaceful getaway and to appreciate the natural beauty of the Murcia coast."
@@ -19579,7 +20207,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 58
+    "shoreBearing": 58,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161624",
+      "samplingPointName": "PLAYA ESTRELLA DE MAR PM1",
+      "distanceMeters": 328,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18095"
+    }
   },
   {
     "code": "669",
@@ -19668,7 +20303,7 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "good",
+    "waterQuality": "excellent",
     "length": 2015,
     "translations": {
       "en": {
@@ -19685,7 +20320,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 30
+    "shoreBearing": 30,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161625",
+      "samplingPointName": "PLAYA LAS SIRENAS PM1",
+      "distanceMeters": 331,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18102"
+    }
   },
   {
     "code": "531",
@@ -19772,7 +20414,7 @@
     "accessDifficulty": "easy",
     "childSafe": true,
     "naturalShade": false,
-    "waterQuality": "good",
+    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Punta Brava Beach in Cartagena offers a peaceful haven on the Mar Menor. Its medium-grey sand invites you to relax and soak up the sun, making it ideal for families and those seeking a relaxed, family-friendly atmosphere. Plus, the beach has access for people with mobility issues, ensuring a comfortable and accessible experience for everyone."
@@ -19788,7 +20430,14 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 54
+    "shoreBearing": 54,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0161623",
+      "samplingPointName": "PLAYA PUNTA BRAVA PM1",
+      "distanceMeters": 297,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16911"
+    }
   },
   {
     "code": "694",
@@ -19893,7 +20542,14 @@
       }
     },
     "pictureQualityScore": 0,
-    "shoreBearing": 112
+    "shoreBearing": 112,
+    "waterQualitySource": {
+      "season": 2025,
+      "samplingPointId": "ES620M0241629",
+      "samplingPointName": "PLAYA PUNTA DE CALNEGRE PM1",
+      "distanceMeters": 292,
+      "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17216"
+    }
   },
   {
     "code": "685",
@@ -19983,7 +20639,6 @@
     "accessDifficulty": "easy",
     "childSafe": false,
     "naturalShade": false,
-    "waterQuality": "excellent",
     "translations": {
       "en": {
         "description": "Playa San Ginés in Cartagena awaits you with its crystal-clear waters of the Mediterranean Sea and its fine sand mixed with gravel – perfect for a day of sun and relaxation. This beach, which has a blue flag, is accessible and safe for families and visitors. Enjoy its tranquil and family-friendly atmosphere in one of the best beaches in the Region of Murcia."
