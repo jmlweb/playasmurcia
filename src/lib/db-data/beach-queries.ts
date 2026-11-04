@@ -12,7 +12,7 @@ import type {
 import { db } from '@/db/client'
 import * as schema from '@/db/schema'
 import { selectFeaturedBeaches } from '@/lib/home-curation'
-import { legacyNameToSlug, municipalityToSlug, nameToSlug } from '@/lib/slugs'
+import { buildSlugIndex, municipalityToSlug } from '@/lib/slugs'
 
 import { mapBeachFromDB } from './beach-mapper'
 
@@ -64,12 +64,9 @@ async function getSlugToCodeMap(): Promise<Map<string, string>> {
     .select({ code: schema.beaches.code, name: schema.beaches.name })
     .from(schema.beaches)
 
-  slugToCodeCache = new Map(rows.map((r) => [nameToSlug(r.name), r.code]))
-  legacySlugToSlugCache = new Map(
-    rows
-      .map((r) => [legacyNameToSlug(r.name), nameToSlug(r.name)] as const)
-      .filter(([legacy, current]) => legacy !== current),
-  )
+  const index = buildSlugIndex(rows)
+  slugToCodeCache = index.slugToCode
+  legacySlugToSlugCache = index.retiredSlugToSlug
   return slugToCodeCache
 }
 

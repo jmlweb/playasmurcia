@@ -6,21 +6,23 @@ This document describes the business logic and data processing rules for the pro
 
 Scripts that exist in `scripts/` and require periodic execution:
 
-| Script                   | Purpose                                                                   | Frequency                            |
-| ------------------------ | ------------------------------------------------------------------------- | ------------------------------------ |
-| `add-certifications.js`  | Update Blue Flag, Q Quality, Ecoplayas certifications                     | Annual (spring)                      |
-| `add-lifeguard-info.js`  | Update COPLA lifeguard data                                               | Seasonal (pre-summer)                |
-| `add-bathing-water-quality.ts` | Set official EU bathing-water class from EEA / NÁYADE sampling points | Annual (after EEA release, ~June)    |
-| `validate-beaches.js`    | Validate all beach data integrity                                         | Before releases                      |
-| `migrate-to-database.ts` | Migrate JSON data to SQLite/Turso                                         | Once (or after JSON changes)         |
-| `validate-migration.ts`  | Validate database matches JSON source                                     | After migration                      |
-| `sync-pictures-to-r2.sh` | Mirror `public/pictures/` to the R2 bucket serving `img.playasmurcia.com` | After picture changes, before deploy |
+| Script                         | Purpose                                                                   | Frequency                            |
+| ------------------------------ | ------------------------------------------------------------------------- | ------------------------------------ |
+| `add-certifications.js`        | Update Blue Flag, Q Quality, Ecoplayas certifications                     | Annual (spring)                      |
+| `add-lifeguard-info.js`        | Update COPLA lifeguard data                                               | Seasonal (pre-summer)                |
+| `add-bathing-water-quality.ts` | Set official EU bathing-water class from EEA / NÁYADE sampling points     | Annual (after EEA release, ~June)    |
+| `validate-beaches.js`          | Validate all beach data integrity                                         | Before releases                      |
+| `migrate-to-database.ts`       | Migrate JSON data to SQLite/Turso                                         | Once (or after JSON changes)         |
+| `validate-migration.ts`        | Validate database matches JSON source                                     | After migration                      |
+| `sync-pictures-to-r2.sh`       | Mirror `public/pictures/` to the R2 bucket serving `img.playasmurcia.com` | After picture changes, before deploy |
 
 ## Slugs
 
 Beach and municipality slugs come from `nameToSlug` in `src/lib/slugs.ts`: lowercase, accents removed, parentheses and periods dropped, whitespace collapsed to `-`. Beach slugs must stay unique (covered by `src/lib/slugs.test.ts`).
 
-Renaming a beach, or changing the slug rules, changes its URL. Names containing `(` `)` or `.` used to produce slugs with those characters; `/playas/$slug` 301-redirects those retired slugs to the current one (`getRenamedBeachSlug`, derived from the DB at runtime, no manual list).
+Slug rule: a beach slug is `nameToSlug(name)`, except that beaches sharing a name with a beach in another municipality get a municipality suffix. The beach already served at the bare slug keeps it (that URL is indexed); only the other one is qualified. `beachToSlug` takes the beach (it needs `code`) and reads the qualified list `MUNICIPALITY_QUALIFIED_BEACHES` in `src/lib/slugs.ts`: 586 `playa-amarilla-mazarron`, 693 `playa-de-levante-aguilas`, 596 `playa-de-poniente-aguilas`, 627 `playa-larga-cartagena`, 6703 `playa-parazuelos-lorca`. Add a code there whenever a new beach reuses an existing name; `src/lib/slugs.test.ts` fails on any duplicate slug.
+
+Renaming a beach, or changing the slug rules, changes its URL. Names containing `(` `)` or `.` used to produce slugs with those characters; `/playas/$slug` 301-redirects those retired slugs to the current one (`getRenamedBeachSlug`, derived from the DB at runtime). Retired slugs that cannot be derived from the current name live in `RETIRED_SLUG_REDIRECTS` in `src/lib/slugs.ts` (today: `cala-mijo.-(cueva-de-las-palomas)`).
 
 ## Beach Orientation
 
@@ -82,8 +84,8 @@ So weather is **not** limited to beaches with `aemetId`; those codes only gate t
 
 ### Same-name beaches
 
-- 627 and 515 "Playa Larga" (Calblanque) had identical coordinates and access text; 515 was removed (TSK-124). Both shared the slug `playa-larga`, so the public URL is unchanged and needs no redirect. The slug is still shared with 5907 "Playa Larga" (LRN-015: slugs are not globally unique; municipality-qualified slugs are a separate follow-up)
-- 633 (Mazarrón) and 6703 (Lorca) "Playa Parazuelos" are kept as distinct entries: both appear in their own municipality's official beach list, but no official source gives the border line, so merging is not supported. They share the slug `playa-parazuelos`, so only one is routable; resolve this by renaming one once a source settles the border
+- 627 and 515 "Playa Larga" (Calblanque) had identical coordinates and access text; 515 was removed (TSK-124). Both shared the slug `playa-larga`, so the public URL is unchanged and needs no redirect. 5907 "Playa Larga" (Lorca) keeps `playa-larga`; 627 is `playa-larga-cartagena` (see the slug rule above)
+- 633 (Mazarrón) and 6703 (Lorca) "Playa Parazuelos" are kept as distinct entries: both appear in their own municipality's official beach list, but no official source gives the border line, so merging is not supported. 633 keeps `playa-parazuelos`; 6703 is `playa-parazuelos-lorca` (see the slug rule above)
 
 ### AEMET: API usage
 
