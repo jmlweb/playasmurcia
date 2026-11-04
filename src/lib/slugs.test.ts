@@ -1,7 +1,66 @@
 import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 
-import { legacyNameToSlug, nameToSlug } from './slugs'
+import {
+  beachToSlug,
+  buildSlugIndex,
+  legacyNameToSlug,
+  nameToSlug,
+} from './slugs'
+
+describe('same-name beach slugs', () => {
+  const beaches = JSON.parse(readFileSync('data/beaches.json', 'utf8')) as {
+    code: string
+    name: string
+  }[]
+
+  it('gives every beach a unique slug that resolves back to it', () => {
+    const { slugToCode } = buildSlugIndex(beaches)
+    expect(beaches).toHaveLength(193)
+    expect(slugToCode.size).toBe(beaches.length)
+    beaches.forEach((b) => {
+      expect(slugToCode.get(beachToSlug(b))).toBe(b.code)
+    })
+  })
+
+  it('keeps the bare slug on the beaches served today', () => {
+    const byCode = new Map(beaches.map((b) => [b.code, b]))
+    ;['615', '525', '564', '5907', '633'].forEach((code) => {
+      const beach = byCode.get(code)!
+      expect(beachToSlug(beach)).toBe(nameToSlug(beach.name))
+    })
+  })
+
+  it('qualifies only the five beaches that had no page', () => {
+    const qualified = beaches
+      .filter((b) => beachToSlug(b) !== nameToSlug(b.name))
+      .map((b) => [b.code, beachToSlug(b)])
+    expect(qualified).toEqual(
+      expect.arrayContaining([
+        ['586', 'playa-amarilla-mazarron'],
+        ['693', 'playa-de-levante-aguilas'],
+        ['596', 'playa-de-poniente-aguilas'],
+        ['627', 'playa-larga-cartagena'],
+        ['6703', 'playa-parazuelos-lorca'],
+      ]),
+    )
+    expect(qualified).toHaveLength(5)
+  })
+
+  it('never redirects a live slug', () => {
+    const { slugToCode, retiredSlugToSlug } = buildSlugIndex(beaches)
+    retiredSlugToSlug.forEach((_target, retired) => {
+      expect(slugToCode.has(retired)).toBe(false)
+    })
+  })
+
+  it('redirects the retired Cala Mijo URL to its current slug', () => {
+    const { retiredSlugToSlug, slugToCode } = buildSlugIndex(beaches)
+    const target = retiredSlugToSlug.get('cala-mijo.-(cueva-de-las-palomas)')
+    expect(target).toBe('cala-mijo-cueva-de-las-palomas')
+    expect(slugToCode.has(target!)).toBe(true)
+  })
+})
 
 describe('nameToSlug', () => {
   it('strips parentheses and periods', () => {
