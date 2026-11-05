@@ -12,6 +12,7 @@ import { ResponsiveImage } from '@/components/ui/responsive-image'
 import { ActivitiesGrid } from '@/features/beaches/activities-grid'
 import { BeachHero } from '@/features/beaches/beach-hero'
 import { BeachRichText } from '@/features/beaches/beach-rich-text'
+import { BeachSafetyBar } from '@/features/beaches/beach-safety-bar'
 import { BeachStatusWidget } from '@/features/beaches/beach-status-widget'
 import { CertificationsBadge } from '@/features/beaches/certifications-badge'
 import { ContactInfo } from '@/features/beaches/contact-info'
@@ -213,6 +214,14 @@ function BeachPage() {
         }
       />
 
+      <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
+        <BeachSafetyBar
+          beachName={beach.name}
+          coordinates={beach.coordinates}
+          lifeguard={beach.lifeguard}
+        />
+      </div>
+
       {pictures.length > 1 && (
         <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
           <BeachGallery beachName={beach.name} pictures={pictures} />
@@ -231,21 +240,8 @@ function BeachPage() {
             )}
           </section>
 
-          {/* Sidebar — order 2 on mobile (after description, before services), spans both rows on desktop */}
+          {/* Sidebar — order 2 on mobile (after description, before services); key facts come before the forecast, spans both rows on desktop */}
           <div className="order-2 space-y-6 lg:sticky lg:top-20 lg:col-start-3 lg:row-span-2 lg:row-start-1 lg:self-start">
-            <WeatherWidget
-              aemetId={beach.aemetId}
-              coordinates={beach.coordinates}
-              shoreBearing={
-                beach.sea === MAR_MENOR_SEA ? undefined : beach.shoreBearing
-              }
-            />
-
-            <BeachStatusWidget
-              beachName={beach.name}
-              municipalityName={municipality.name}
-            />
-
             <PracticalInfoCard
               accessDifficulty={beach.accessDifficulty}
               bestSeason={beach.bestSeason}
@@ -258,6 +254,19 @@ function BeachPage() {
               waterQuality={beach.waterQuality}
               waterQualitySource={beach.waterQualitySource}
               waves={beach.waves}
+            />
+
+            <WeatherWidget
+              aemetId={beach.aemetId}
+              coordinates={beach.coordinates}
+              shoreBearing={
+                beach.sea === MAR_MENOR_SEA ? undefined : beach.shoreBearing
+              }
+            />
+
+            <BeachStatusWidget
+              beachName={beach.name}
+              municipalityName={municipality.name}
             />
           </div>
 
