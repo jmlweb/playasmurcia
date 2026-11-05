@@ -5,14 +5,13 @@
 | Status | Count |
 |--------|-------|
 | Pending | 37 |
-| Active | 2 |
+| Active | 0 |
 | Blocked | 0 |
-| Complete | 127 |
+| Complete | 129 |
 
 ## Active Tasks
 
-- TSK-144: Fix: AEMET beach forecast parser expects an invented payload shape, so the AEMET widget never renders (P2)
-- TSK-168: Fix: Five beaches have no reachable page because their slugs collide (P1)
+_No active tasks._
 
 ## Pending Tasks
 
@@ -60,6 +59,8 @@
 
 | ID | Title | Completed |
 |----|-------|-----------|
+| TSK-144 | Fix: AEMET beach forecast parser expects an invented payload shape, so the AEMET widget never renders | 2026-11-05 |
+| TSK-168 | Fix: Five beaches have no reachable page because their slugs collide | 2026-11-05 |
 | TSK-134 | Blue Flag and Q certifications with season year | 2026-11-03 |
 | TSK-133 | Official bathing-water quality from NÁYADE / EEA | 2026-10-31 |
 | TSK-135 | Finish or revert the uncommitted shoreBearing recompute | 2026-10-28 |
@@ -68,5 +69,3 @@
 | TSK-125 | Fix: COPLA 'PLAYA CERRADA' flag is mapped to 'Sin bandera' | 2026-10-23 |
 | TSK-116 | Shore Bearing per Beach and Wave Exposure Label | 2026-10-20 |
 | TSK-115 | Wave Forecast (Oleaje) on Beach Detail Page | 2026-10-19 |
-| TSK-117 | Full-bleed photo heroes without frosted panel | 2026-10-19 |
-| TSK-118 | Beach card contrast, tag overlays and photo-less fallback | 2026-10-19 |
