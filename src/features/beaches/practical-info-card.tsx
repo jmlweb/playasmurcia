@@ -119,7 +119,8 @@ export function PracticalInfoCard({
     occupancyLevel ||
     accessDifficulty ||
     bestSeason?.length ||
-    orientation
+    orientation ||
+    naturalShade !== undefined
 
   if (!hasAnyInfo) {
     return null
@@ -194,37 +195,18 @@ export function PracticalInfoCard({
       )}
 
       {details.length > 0 && (
-        <details className="group">
-          <summary className="flex cursor-pointer items-center justify-between rounded-lg py-2 text-sm font-medium text-gray-600 transition-colors select-none hover:text-gray-900 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none">
-            <span>Más detalles</span>
-            <svg
-              aria-hidden="true"
-              className="h-4 w-4 shrink-0 transition-transform duration-200 ease-out group-open:rotate-180"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 9l-7 7-7-7"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-              />
-            </svg>
-          </summary>
-          <dl className="mt-3 grid grid-cols-2 gap-3">
-            {details.map((d) => (
-              <div key={d.label} className="rounded-xl bg-gray-50 px-3.5 py-3">
-                <dt className="text-xs font-medium tracking-wide text-gray-400 uppercase">
-                  {d.label}
-                </dt>
-                <dd className="mt-1 text-sm font-semibold text-gray-900">
-                  {d.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </details>
+        <dl className="grid grid-cols-2 gap-3">
+          {details.map((d) => (
+            <div key={d.label} className="rounded-xl bg-gray-50 px-3.5 py-3">
+              <dt className="text-xs font-medium tracking-wide text-gray-400 uppercase">
+                {d.label}
+              </dt>
+              <dd className="mt-1 text-sm font-semibold text-gray-900">
+                {d.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
       )}
     </section>
   )
