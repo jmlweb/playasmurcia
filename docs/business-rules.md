@@ -90,7 +90,11 @@ So weather is **not** limited to beaches with `aemetId`; those codes only gate t
 ### AEMET: API usage
 
 - Endpoint: `GET /api/prediccion/especifica/playa/{aemetId}`
-- Data: Temperature, wind, wave height, UV index
+- Response: the first call returns a `datos` URL; that URL returns the forecast in ISO-8859-15, so it is decoded with the charset from `Content-Type`
+- Data: three days of sky, wind and wave descriptions (morning `f1`/`descripcion1`, afternoon `f2`/`descripcion2`), maximum temperature, water temperature and UV (`valor1`). There is no minimum temperature, and wind is qualitative only (no km/h or direction), so current wind comes from Open-Meteo
+- Day rule: AEMET has no full-day value, so `getDayDescription` uses the morning description and falls back to the afternoon one
+- Past days: `fecha` is `YYYYMMDD`. The payload can still start with yesterday, so `dropPastDays` removes days before today in Europe/Madrid. If no day remains, the widget falls back to Open-Meteo
+- Water temperature: the Marine value is preferred; AEMET `tAgua` for today is the fallback
 - Caching: short TTL via `src/lib/edge-cache.ts` in production (see architecture)
 
 ### Open-Meteo
@@ -107,7 +111,7 @@ So weather is **not** limited to beaches with `aemetId`; those codes only gate t
 
 - The Open-Meteo Marine call used for sea temperature also requests `wave_height`, `wave_direction`, `wave_period`, `wind_wave_height` and `swell_wave_height` (current values, same 1 h edge cache). Wave fields are optional on the cached entry so entries written before they were added still render
 - The detail weather widget shows an "Oleaje" row with the significant wave height (one decimal, metres), the wave direction and a level from `src/lib/wave-level.ts`: `bajo` below 0.5 m, `moderado` from 0.5 m to 1.25 m, `alto` from 1.25 m (Douglas sea scale boundaries)
-- When the beach has `aemetId`, the AEMET `oleaje` description for the day (`getDayWaves`, full-day period first, then morning) replaces the computed level; the Marine height is still shown
+- When the beach has `aemetId`, the AEMET `oleaje` description for the day (`getDayDescription`, morning first, then afternoon) replaces the computed level; the Marine height is still shown
 - The Marine model is a ~5 km grid and describes open water, not a sheltered cove; the shore exposure label below adjusts for that
 - Shore exposure: when the beach has `shoreBearing` and the Marine response has a wave direction, the Oleaje row appends `Expuesta` or `Resguardada` from `getWaveExposure` in `src/lib/wave-exposure.ts`. Open-Meteo `wave_direction` is the direction waves come from, so a beach is `expuesta` when that direction is within 90° of `shoreBearing` (wrapping around north) and `resguardada` otherwise. The label reflects the current open-sea state only and is hidden for Mar Menor beaches (`sea=1`), which the open-sea waves do not reach
 

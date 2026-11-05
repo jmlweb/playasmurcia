@@ -4,33 +4,19 @@ const AEMET_BASE_URL = 'https://opendata.aemet.es/opendata/api'
 const CACHE_TTL_SECONDS = 30 * 60 // 30 minutes
 const CACHE_NS = 'aemet'
 
-export type AemetSkyPeriod = {
-  periodo: '00-24' | '00-12' | '12-24' | string
-  descripcion: string
-  value: string
-}
-
-export type AemetWindPeriod = {
-  periodo: string
-  velocidad: number
-  direccion: string
-}
-
-export type AemetWavePeriod = {
-  periodo: string
-  descripcion: string
-  value: string
+export type AemetDayParts = {
+  morning: string
+  afternoon: string
 }
 
 export type AemetForecastDay = {
   fecha: number
-  estadoCielo: AemetSkyPeriod[]
-  viento: AemetWindPeriod[]
-  oleaje: AemetWavePeriod[]
+  estadoCielo: AemetDayParts
+  viento: AemetDayParts
+  oleaje: AemetDayParts
   tMaxima: number
-  tMinima: number
-  indiceUV: number
-  sTermica: { tMaxima?: number; tMinima?: number }
+  tAgua?: number
+  uvMax: number
 }
 
 export type AemetBeachForecast = {
@@ -44,15 +30,23 @@ type AemetMetaResponse = {
   descripcion?: string
 }
 
+type AemetRawDayParts = {
+  descripcion1?: string
+  descripcion2?: string
+}
+
+type AemetRawValue = {
+  valor1?: number
+}
+
 type AemetRawDay = {
   fecha: number
-  estadoCielo?: AemetSkyPeriod[]
-  viento?: AemetWindPeriod[]
-  oleaje?: AemetWavePeriod[]
-  tMaxima?: number
-  tMinima?: number
-  indiceUV?: number
-  sTermica?: { tMaxima?: number; tMinima?: number }
+  estadoCielo?: AemetRawDayParts
+  viento?: AemetRawDayParts
+  oleaje?: AemetRawDayParts
+  tMaxima?: AemetRawValue
+  tAgua?: AemetRawValue
+  uvMax?: AemetRawValue
 }
 
 type AemetRawPrediction = {
@@ -60,6 +54,33 @@ type AemetRawPrediction = {
   prediccion: {
     dia: AemetRawDay[]
   }
+}
+
+function toDayParts(raw: AemetRawDayParts | undefined): AemetDayParts {
+  return {
+    morning: raw?.descripcion1 ?? '',
+    afternoon: raw?.descripcion2 ?? '',
+  }
+}
+
+// AEMET sends dates as the number 20261104. UTC midnight matches what
+// open-meteo.ts produces, so both sources share one day representation.
+function parseAemetDate(fecha: number): number {
+  const digits = String(fecha)
+  return Date.UTC(
+    Number(digits.slice(0, 4)),
+    Number(digits.slice(4, 6)) - 1,
+    Number(digits.slice(6, 8)),
+  )
+}
+
+// The datos endpoint declares ISO-8859-15, which Response.json() would read as
+// UTF-8, garbling Spanish diacritics.
+async function readJsonWithDeclaredCharset<T>(response: Response): Promise<T> {
+  const contentType = response.headers.get('content-type') ?? ''
+  const charset = /charset=([^;\s]+)/i.exec(contentType)?.[1] ?? 'utf-8'
+  const body = new TextDecoder(charset).decode(await response.arrayBuffer())
+  return JSON.parse(body) as T
 }
 
 /**
@@ -100,7 +121,8 @@ export async function fetchAemetForecast(
       return null
     }
 
-    const rawArray = (await dataRes.json()) as AemetRawPrediction[]
+    const rawArray =
+      await readJsonWithDeclaredCharset<AemetRawPrediction[]>(dataRes)
     const raw = rawArray[0]
 
     if (!raw?.prediccion?.dia) {
@@ -111,14 +133,13 @@ export async function fetchAemetForecast(
     const forecast: AemetBeachForecast = {
       elaborado: raw.elaborado,
       dias: raw.prediccion.dia.map((d) => ({
-        fecha: d.fecha,
-        estadoCielo: d.estadoCielo ?? [],
-        viento: d.viento ?? [],
-        oleaje: d.oleaje ?? [],
-        tMaxima: d.tMaxima ?? -999,
-        tMinima: d.tMinima ?? -999,
-        indiceUV: d.indiceUV ?? -1,
-        sTermica: d.sTermica ?? {},
+        fecha: parseAemetDate(d.fecha),
+        estadoCielo: toDayParts(d.estadoCielo),
+        viento: toDayParts(d.viento),
+        oleaje: toDayParts(d.oleaje),
+        tMaxima: d.tMaxima?.valor1 ?? -999,
+        tAgua: d.tAgua?.valor1,
+        uvMax: d.uvMax?.valor1 ?? -1,
       })),
     }
 
@@ -131,40 +152,23 @@ export async function fetchAemetForecast(
 }
 
 /**
- * Returns the best sky description for the full-day period ("00-24") or falls
- * back to the morning period ("00-12"), or the first available entry.
+ * AEMET has no full-day value, so the morning forecast speaks for the day and
+ * the afternoon one only fills in when the morning is missing.
  */
-export function getDaySkyDescription(
-  estadoCielo: AemetSkyPeriod[],
-): AemetSkyPeriod | null {
-  if (estadoCielo.length === 0) return null
-  return (
-    estadoCielo.find((p) => p.periodo === '00-24') ??
-    estadoCielo.find((p) => p.periodo === '00-12') ??
-    estadoCielo[0]
-  )
+export function getDayDescription(parts: AemetDayParts): string {
+  return parts.morning || parts.afternoon
 }
 
 /**
- * Returns the dominant wind period for the day (full-day or morning fallback).
+ * AEMET keeps yesterday in the payload until its morning update, and the widget
+ * treats the first day as today.
  */
-export function getDayWind(viento: AemetWindPeriod[]): AemetWindPeriod | null {
-  if (viento.length === 0) return null
-  return (
-    viento.find((p) => p.periodo === '00-24') ??
-    viento.find((p) => p.periodo === '00-12') ??
-    viento[0]
+export function dropPastDays(
+  dias: readonly AemetForecastDay[],
+  now: Date,
+): AemetForecastDay[] {
+  const madridToday = Date.parse(
+    new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Madrid' }).format(now),
   )
-}
-
-/**
- * Returns the dominant wave period for the day (full-day or morning fallback).
- */
-export function getDayWaves(oleaje: AemetWavePeriod[]): AemetWavePeriod | null {
-  if (oleaje.length === 0) return null
-  return (
-    oleaje.find((p) => p.periodo === '00-24') ??
-    oleaje.find((p) => p.periodo === '00-12') ??
-    oleaje[0]
-  )
+  return dias.filter((d) => d.fecha >= madridToday)
 }

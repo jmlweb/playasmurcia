@@ -23,6 +23,8 @@ type UnifiedDay = {
   precipitationProbability?: number
   // AEMET only: "Débil", "Moderado", "Fuerte"
   wavesDescription?: string
+  // AEMET only
+  waterTemp?: number
 }
 
 type CurrentWeather = {
@@ -61,33 +63,28 @@ const fetchAemetWeather = createServerFn({ method: 'GET' })
     return { aemetId: data.aemetId.trim() }
   })
   .handler(async ({ data }) => {
-    const {
-      fetchAemetForecast,
-      getDaySkyDescription: getSky,
-      getDayWaves: getWaves,
-      getDayWind: getWind,
-    } = await import('@/lib/aemet')
+    const { dropPastDays, fetchAemetForecast, getDayDescription } =
+      await import('@/lib/aemet')
     const apiKey = process.env.AEMET_API_KEY ?? ''
     if (!apiKey) return null
     const forecast = await fetchAemetForecast(data.aemetId, apiKey)
     if (!forecast) return null
 
-    const days: UnifiedDay[] = forecast.dias.map((d) => {
-      const sky = getSky(d.estadoCielo)
-      const wind = getWind(d.viento)
-      const waves = getWaves(d.oleaje)
-      return {
+    const days: UnifiedDay[] = dropPastDays(forecast.dias, new Date()).map(
+      (d) => ({
         fecha: d.fecha,
-        skyDescription: sky?.descripcion ?? '',
+        skyDescription: getDayDescription(d.estadoCielo),
         skyIcon: '', // resolved client-side via getSkyIconType
         tMaxima: d.tMaxima,
-        tMinima: d.tMinima,
-        windSpeed: wind?.velocidad ?? 0,
-        windDirection: wind?.direccion ?? '',
-        uvIndex: d.indiceUV,
-        wavesDescription: waves?.descripcion ? waves.descripcion : undefined,
-      }
-    })
+        tMinima: -999, // AEMET beach forecasts have no minimum
+        windSpeed: 0, // AEMET only gives qualitative wind ("flojo")
+        windDirection: '',
+        uvIndex: d.uvMax,
+        wavesDescription: getDayDescription(d.oleaje) || undefined,
+        waterTemp: d.tAgua,
+      }),
+    )
+    if (days.length === 0) return null
 
     return { source: 'aemet' as const, days }
   })
@@ -161,20 +158,22 @@ function toWaves(marine: MarineResult | null): Waves | undefined {
 // ---------------------------------------------------------------------------
 
 const SkyIconMap: Record<string, string> = {
+  // Precipitation first: AEMET sends "muy nuboso con lluvia", and the first
+  // matching key wins.
+  tormenta: 'storm',
+  'lluvia débil': 'rain',
+  lluvia: 'rain',
+  'lluvia fuerte': 'rain',
+  'chubascos débiles': 'rain',
+  chubascos: 'rain',
+  niebla: 'fog',
+  calima: 'haze',
   despejado: 'sunny',
   'poco nuboso': 'partly-cloudy',
   'intervalos nubosos': 'partly-cloudy',
   nuboso: 'cloudy',
   'muy nuboso': 'cloudy',
   cubierto: 'cloudy',
-  'lluvia débil': 'rain',
-  lluvia: 'rain',
-  'lluvia fuerte': 'rain',
-  'chubascos débiles': 'rain',
-  chubascos: 'rain',
-  tormenta: 'storm',
-  niebla: 'fog',
-  calima: 'haze',
 }
 
 function getSkyIconType(descripcion: string): WeatherIconType {
@@ -309,7 +308,7 @@ function TodayCard({
       <div className="mt-3 grid grid-cols-2 items-center gap-x-4 gap-y-1.5 border-t border-gray-100 pt-3">
         {current && hasTemp && (
           <span className="text-sm text-gray-500">
-            Máx {day.tMaxima}° / Mín {day.tMinima}°
+            Máx {day.tMaxima}°{day.tMinima !== -999 && ` / Mín ${day.tMinima}°`}
           </span>
         )}
         {windSpeed > 0 && (
@@ -519,7 +518,7 @@ export function WeatherWidget({
           return {
             ...aemet,
             current: om?.current,
-            waterTemp: marine?.currentTemp,
+            waterTemp: marine?.currentTemp ?? aemet.days[0]?.waterTemp,
             waves: toWaves(marine),
           }
         })
