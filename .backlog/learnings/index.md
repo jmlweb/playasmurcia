@@ -39,3 +39,5 @@
 | LRN-033 | Redirect map must not redirect a live slug | slugs, redirects | active | 2026-11-04 |
 | LRN-034 | Fresh worktree needs a local DB for build and DB tests | worktree, build, testing | active | 2026-11-04 |
 | LRN-035 | AEMET API keys expire and the widget hides the failure | weather, aemet, external-source | active | 2026-11-05 |
+| LRN-036 | Fresh worktree needs a seeded local DB and a build before check and test mean anything | worktree, testing, tooling, setup | active | 2026-11-05 |
+| LRN-037 | Beach editorial fields are one-off LLM output; the validator is the only guard | data, validation, content | active | 2026-11-05 |

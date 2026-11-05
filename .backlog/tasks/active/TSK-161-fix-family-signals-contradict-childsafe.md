@@ -31,6 +31,8 @@ See `.backlog/reports/complete/RPT-062-family-signals-contradict-childsafe-acros
 
 ## Learnings
 
+- LRN-036: Fresh worktree needs a seeded local DB and a build before check and test mean anything
+- LRN-037: Beach editorial fields are one-off LLM output; the validator is the only guard
 ## Progress Log
 
 - [2026-11-04] Created
