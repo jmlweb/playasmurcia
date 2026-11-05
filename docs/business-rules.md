@@ -277,13 +277,22 @@ Collections are defined in `src/lib/collections.ts`. Two use stricter criteria b
 - **Para hacer snorkel**: `snorkel` tag, or the snorkeling activity on a Mediterranean beach tagged `rocosa` or `acantilados`
 - **Deportes acuáticos**: sailing, windsurf, kitesurf or diving activity (kayak and paddle surf are too common to discriminate)
 
+### Familiar tag and childSafe
+
+`childSafe` is the safety signal and always wins over the family promise:
+
+- A beach with `childSafe: false` never carries the `familiar` tag and its `metaDescription` never says "familia", "familiar" or "ideal para familias". `scripts/validate-beaches.js` fails on either.
+- The **Playas familiares** collection needs a lifeguard, `childSafe: true` and the `familiar` or `aguas-tranquilas` tag.
+- `familiar` is not implied by `childSafe: true`: it is an editorial extra on top of it.
+- Do not flip `childSafe` to resolve a contradiction unless the evidence shows it is wrong.
+
 ## Camping Nearby
 
 Beaches within 3km of a verified campsite are flagged as `campingNearby: true`. 42 beaches (22%). Precomputed once and stored in beach records.
 
 ## Meta Descriptions
 
-SEO meta descriptions (140-170 chars, Spanish, includes beach name + municipality + "Murcia" / "Costa Cálida"). Precomputed once with Ollama and stored in beach records.
+SEO meta descriptions (140-170 chars, Spanish, includes beach name + municipality + "Murcia" / "Costa Cálida"). Precomputed once with Ollama and stored in beach records. Hand-fix any that contradict `childSafe` (see Familiar tag and childSafe).
 
 ## SEO Keywords
 

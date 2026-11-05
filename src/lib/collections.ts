@@ -92,7 +92,9 @@ export const collections: Collection[] = [
       const tags = b.tags ?? []
       return (
         (tags.includes(TAG_FAMILIAR) || tags.includes(TAG_AGUAS_TRANQUILAS)) &&
-        b.lifeguard
+        b.lifeguard &&
+        // childSafe is the safety signal and vetoes the family tags
+        b.childSafe === true
       )
     },
   },
