@@ -65,6 +65,7 @@ playasmurcia/
 │   │   ├── html-to-markdown.ts  # Event-driven `<main>` HTML → markdown converter
 │   │   ├── webmcp.ts       # `document.modelContext` feature detection + tool registration
 │   │   ├── aemet.ts
+│   │   ├── forecast-days.ts   # Merges AEMET and Open-Meteo days
 │   │   ├── open-meteo.ts   # Coordinate-based weather
 │   │   ├── beach-status-112.ts  # 112 COPLA live flag/sea state
 │   │   ├── beach-filters.ts     # Filter/sort pure functions
