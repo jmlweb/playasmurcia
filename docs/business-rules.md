@@ -94,6 +94,7 @@ So weather is **not** limited to beaches with `aemetId`; those codes only gate t
 - Data: three days of sky, wind and wave descriptions (morning `f1`/`descripcion1`, afternoon `f2`/`descripcion2`), maximum temperature, water temperature and UV (`valor1`). There is no minimum temperature, and wind is qualitative only (no km/h or direction), so current wind comes from Open-Meteo
 - Day rule: AEMET has no full-day value, so `getDayDescription` uses the morning description and falls back to the afternoon one
 - Past days: `fecha` is `YYYYMMDD`. The payload can still start with yesterday, so `dropPastDays` removes days before today in Europe/Madrid. If no day remains, the widget falls back to Open-Meteo
+- Forecast length: AEMET covers about three days, so `appendLaterDays` fills the later days from Open-Meteo and the widget credits both sources. AEMET days keep their own values and therefore show no minimum or rain probability
 - Water temperature: the Marine value is preferred; AEMET `tAgua` for today is the fallback
 - Caching: short TTL via `src/lib/edge-cache.ts` in production (see architecture)
 

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import type { WeatherIconType } from '@/components/ui/icons'
 
 import { WeatherIcon } from '@/components/ui/icons'
+import { appendLaterDays } from '@/lib/forecast-days'
 import { getWaveExposure } from '@/lib/wave-exposure'
 import { formatWaveHeight, getWaveLevel } from '@/lib/wave-level'
 
@@ -43,8 +44,14 @@ type Waves = {
   directionDegrees?: number
 }
 
+const ForecastSourceLabel = {
+  aemet: 'AEMET',
+  'open-meteo': 'Open-Meteo',
+  'aemet+open-meteo': 'AEMET y Open-Meteo',
+} as const
+
 type UnifiedForecast = {
-  source: 'aemet' | 'open-meteo'
+  source: keyof typeof ForecastSourceLabel
   days: UnifiedDay[]
   current?: CurrentWeather
   waterTemp?: number
@@ -515,8 +522,14 @@ export function WeatherWidget({
                   waves: toWaves(marine),
                 }
               : null
+          const days = appendLaterDays(aemet.days, om?.days ?? [])
           return {
             ...aemet,
+            source:
+              days.length > aemet.days.length
+                ? ('aemet+open-meteo' as const)
+                : aemet.source,
+            days,
             current: om?.current,
             waterTemp: marine?.currentTemp ?? aemet.days[0]?.waterTemp,
             waves: toWaves(marine),
@@ -578,8 +591,6 @@ export function WeatherWidget({
 
   if (!today) return null
 
-  const sourceLabel = forecast.source === 'aemet' ? 'AEMET' : 'Open-Meteo'
-
   return (
     <section
       aria-label="Previsión meteorológica"
@@ -606,7 +617,9 @@ export function WeatherWidget({
       )}
 
       <footer className="mt-4 border-t border-ocean-100 pt-3">
-        <p className="text-xs text-gray-400">Fuente: {sourceLabel}</p>
+        <p className="text-xs text-gray-400">
+          Fuente: {ForecastSourceLabel[forecast.source]}
+        </p>
       </footer>
     </section>
   )
