@@ -1,12 +1,13 @@
 ---
 id: TSK-153
 title: Beach detail: surface safety and key facts first
-status: pending
+status: active
 priority: P2
 tags: [ui, beach-detail, accessibility]
 created: 2026-11-04
 source: manual
 depends-on: [TSK-168]
+started: 2026-11-05
 ---
 
 # Beach detail: surface safety and key facts first
@@ -34,3 +35,4 @@ Show a safety warning near the top, move key facts above weather on mobile, flat
 
 - [2026-11-04] Created
 - [2026-11-04] Depends on TSK-168: both edit src/routes/playas/$slug.tsx, so they must not run in parallel worktrees.
+- [2026-11-05] Started

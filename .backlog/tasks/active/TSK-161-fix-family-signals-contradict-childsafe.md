@@ -1,12 +1,13 @@
 ---
 id: TSK-161
 title: Fix: Family signals contradict childSafe
-status: pending
+status: active
 priority: P2
 tags: [data, content, bug]
 created: 2026-11-04
 source: report/RPT-062
 depends-on: []
+started: 2026-11-05
 ---
 
 # Fix: Family signals contradict childSafe
@@ -33,3 +34,4 @@ See `.backlog/reports/complete/RPT-062-family-signals-contradict-childsafe-acros
 ## Progress Log
 
 - [2026-11-04] Created
+- [2026-11-05] Started

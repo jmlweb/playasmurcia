@@ -4,14 +4,15 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 37 |
-| Active | 0 |
+| Pending | 35 |
+| Active | 2 |
 | Blocked | 0 |
 | Complete | 129 |
 
 ## Active Tasks
 
-_No active tasks._
+- TSK-153: Beach detail: surface safety and key facts first (P2)
+- TSK-161: Fix: Family signals contradict childSafe (P2)
 
 ## Pending Tasks
 
@@ -38,7 +39,6 @@ _No active tasks._
 | TSK-150 | Marinas and Cabo de Palos-Islas Hormigas marine reserve | P4 | data, external-source, geo | 2026-11-04 |
 | TSK-151 | Municipality income and tourist housing from INE | P4 | data, external-source, municipalities | 2026-11-04 |
 | TSK-152 | Verify factual data leads against primary sources | P4 | data, research | 2026-11-04 |
-| TSK-153 | Beach detail: surface safety and key facts first | P2 | ui, beach-detail, accessibility | 2026-11-04 |
 | TSK-154 | Merge Cómo llegar and map into one section | P3 | ui, beach-detail, map | 2026-11-04 |
 | TSK-155 | Restyle beach map to match the brand | P3 | ui, beach-detail, map | 2026-11-04 |
 | TSK-156 | Compact the beach weather forecast | P3 | ui, beach-detail, weather | 2026-11-04 |
@@ -46,7 +46,6 @@ _No active tasks._
 | TSK-158 | Show distance on nearby beach cards | P3 | ui, beach-detail, navigation | 2026-11-04 |
 | TSK-159 | Fix beach gallery crops and photo count button | P4 | ui, beach-detail, images | 2026-11-04 |
 | TSK-160 | Sync UI guidelines with the beach detail hero | P4 | docs, design-system | 2026-11-04 |
-| TSK-161 | Fix: Family signals contradict childSafe | P2 | data, content, bug | 2026-11-04 |
 | TSK-162 | Fix: Verify El Rincón hero photo provenance | P2 | images, content, bug | 2026-11-04 |
 | TSK-163 | Fix: Map raw waves enum to Spanish labels | P3 | ui, bug, beach-detail | 2026-11-04 |
 | TSK-164 | Fix: Remove synthetic bold from DM Serif headings | P4 | ui, bug, typography | 2026-11-04 |
