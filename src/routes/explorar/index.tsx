@@ -150,7 +150,11 @@ function ExplorerPage() {
   }, [requestedSort, position, locationState.status, navigate, requestLocation])
 
   const updateFilters = useCallback(
-    (next: BeachSearchParams, page?: number) => {
+    (
+      next: BeachSearchParams,
+      page?: number,
+      history: 'push' | 'replace' = 'push',
+    ) => {
       void navigate({
         search: (prev) => ({
           ...prev,
@@ -169,7 +173,7 @@ function ExplorerPage() {
           q: next.q || undefined,
           page: page && page > 1 ? page : undefined,
         }),
-        replace: true,
+        replace: history === 'replace',
       })
     },
     [navigate],
@@ -255,7 +259,12 @@ function ExplorerPage() {
             inputId="buscar"
             value={filters.q ?? ''}
             onChange={(q: string) => {
-              updateFilters({ ...filters, q: q || undefined })
+              // Each debounced keystroke would otherwise be its own Back step
+              updateFilters(
+                { ...filters, q: q || undefined },
+                undefined,
+                'replace',
+              )
             }}
           />
         </div>
