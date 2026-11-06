@@ -1,0 +1,46 @@
+---
+id: TSK-176
+title: Fix: Navbar beach counts have no unit for screen readers
+status: pending
+priority: P4
+tags: []
+created: 2026-11-06
+source: report/RPT-076
+depends-on: []
+---
+
+# Fix: Navbar beach counts have no unit for screen readers
+
+## Description
+
+### Summary
+
+Collection counts in the navbar are read without a unit, for example "Mar Menor 43".
+
+### Details
+
+Links render the label and a bare number at `src/components/layout/navbar.tsx:69` (popover) and `:137` (phone menu). The 2026-11-06 critique reported this on the municipality rows too; those rows left the navbar in 41c5d16.
+
+### Fix direction
+
+Add a visually hidden unit after each count, as `coast-today-strip.tsx` already does for weather:
+
+`{c.count}<span className="sr-only"> playas</span>`
+
+Use "1 playa" for a count of one. Update tests that match link names (`src/components/layout/navbar.test.tsx`).
+
+Source report: `.backlog/reports/complete/RPT-076-navbar-beach-counts-have-no.md`
+
+## Acceptance Criteria
+
+- [ ] Popover and phone menu counts expose a visually hidden unit: "43 playas", and "1 playa" for a count of one
+- [ ] Visible layout does not change
+- [ ] Tests that match link names are updated
+
+## Notes
+
+## Learnings
+
+## Progress Log
+
+- [2026-11-06] Created

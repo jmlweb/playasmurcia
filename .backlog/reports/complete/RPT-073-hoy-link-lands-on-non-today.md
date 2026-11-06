@@ -3,8 +3,10 @@ id: RPT-073
 title: Hoy link lands on non-today strip when live data fails
 type: finding
 severity: low
-status: pending
+status: triaged
 created: 2026-11-06
+triaged: 2026-11-06
+task-id: TSK-173
 ---
 
 ## Summary

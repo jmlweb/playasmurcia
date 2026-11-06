@@ -4,7 +4,7 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 35 |
+| Pending | 42 |
 | Active | 0 |
 | Blocked | 0 |
 | Complete | 132 |
@@ -52,6 +52,13 @@ _No active tasks._
 | TSK-167 | Fix: Replace Piedra Mala annotated cover | P4 | images, content, bug | 2026-11-04 |
 | TSK-169 | Fix: 17 descriptions join unrelated facts with y socorrista | P4 | data, content | 2026-11-04 |
 | TSK-170 | Fix: COPLA flag lookup still misses four beaches whose feed entry uses a different name | P3 |  | 2026-11-06 |
+| TSK-171 | Fix: Desktop bar on landscape phones has small touch targets | P3 |  | 2026-11-06 |
+| TSK-172 | Fix: Search flushSync exception unverified on real phones | P4 |  | 2026-11-06 |
+| TSK-173 | Fix: Hoy link lands on non-today strip when live data fails | P4 |  | 2026-11-06 |
+| TSK-174 | Fix: Explorer exposes two current items in the navbar | P4 |  | 2026-11-06 |
+| TSK-175 | Fix: Colecciones popover has no accessible name | P4 |  | 2026-11-06 |
+| TSK-176 | Fix: Navbar beach counts have no unit for screen readers | P4 |  | 2026-11-06 |
+| TSK-177 | Fix: Topbar P3 polish items from the critique | P4 |  | 2026-11-06 |
 
 ## Recently Completed
 

@@ -3,8 +3,10 @@ id: RPT-071
 title: Search flushSync exception unverified on real phones
 type: finding
 severity: low
-status: pending
+status: triaged
 created: 2026-11-06
+triaged: 2026-11-06
+task-id: TSK-172
 ---
 
 ## Summary

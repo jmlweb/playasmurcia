@@ -3,8 +3,10 @@ id: RPT-075
 title: Colecciones popover has no accessible name
 type: bug
 severity: low
-status: pending
+status: triaged
 created: 2026-11-06
+triaged: 2026-11-06
+task-id: TSK-175
 ---
 
 ## Summary

@@ -3,8 +3,10 @@ id: RPT-074
 title: Explorer exposes two current items in the navbar
 type: bug
 severity: low
-status: pending
+status: triaged
 created: 2026-11-06
+triaged: 2026-11-06
+task-id: TSK-174
 ---
 
 ## Summary

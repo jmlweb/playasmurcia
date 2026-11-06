@@ -3,8 +3,10 @@ id: RPT-072
 title: Desktop bar on landscape phones has small touch targets
 type: improvement
 severity: medium
-status: pending
+status: triaged
 created: 2026-11-06
+triaged: 2026-11-06
+task-id: TSK-171
 ---
 
 ## Summary

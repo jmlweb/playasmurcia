@@ -3,8 +3,10 @@ id: RPT-077
 title: Topbar P3 polish items from the critique
 type: improvement
 severity: low
-status: pending
+status: triaged
 created: 2026-11-06
+triaged: 2026-11-06
+task-id: TSK-177
 ---
 
 ## Summary
