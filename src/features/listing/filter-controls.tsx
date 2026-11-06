@@ -2,26 +2,55 @@ import type { ReactNode } from 'react'
 
 import { cn } from '@/lib/cn'
 
+const optionStateClass = {
+  pressed: 'border-ocean-600 bg-ocean-600 font-medium text-white',
+  idle: 'border-gray-200 bg-white text-gray-700 hover:border-ocean-300 hover:text-ocean-700',
+  unavailable: 'cursor-not-allowed border-gray-200 bg-gray-50 text-gray-500',
+} as const
+
+function optionState(pressed: boolean, disabled: boolean) {
+  if (pressed) return optionStateClass.pressed
+  return disabled ? optionStateClass.unavailable : optionStateClass.idle
+}
+
+/** Results this option would leave; hidden once the option is selected. */
+function OptionCount({ count }: { count: number }) {
+  return <span className="font-normal tabular-nums">{count}</span>
+}
+
 type FilterChipProps = {
   label: ReactNode
   pressed: boolean
   onToggle: () => void
+  /** Beaches left if this option were added; 0 disables an unselected chip */
+  count?: number
 }
 
-export function FilterChip({ label, pressed, onToggle }: FilterChipProps) {
+export function FilterChip({
+  label,
+  pressed,
+  onToggle,
+  count,
+}: FilterChipProps) {
+  const isDisabled = !pressed && count === 0
+
+  // aria-disabled, not disabled: the chip stays reachable so a keyboard user
+  // hears that it exists and leaves no results
   return (
     <button
+      aria-disabled={isDisabled || undefined}
       aria-pressed={pressed}
       className={cn(
-        'rounded-full border px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none',
-        pressed
-          ? 'border-ocean-600 bg-ocean-600 font-medium text-white'
-          : 'border-gray-200 bg-white text-gray-700 hover:border-ocean-300 hover:text-ocean-700',
+        'inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none pointer-coarse:min-h-11',
+        optionState(pressed, isDisabled),
       )}
       type="button"
-      onClick={onToggle}
+      onClick={() => {
+        if (!isDisabled) onToggle()
+      }}
     >
       {label}
+      {count !== undefined && !pressed && <OptionCount count={count} />}
     </button>
   )
 }
@@ -30,6 +59,7 @@ type SegmentedOption<TValue extends string> = {
   value: TValue
   label: string
   title?: string
+  count?: number
 }
 
 type SegmentedFilterProps<TValue extends string> = {
@@ -51,25 +81,32 @@ export function SegmentedFilter<TValue extends string>({
     <div aria-label={label} className="flex gap-px" role="group">
       {options.map((option, index) => {
         const isSelected = selected.includes(option.value)
+        const isDisabled = !isSelected && option.count === 0
         return (
           <button
             key={option.value}
+            aria-disabled={isDisabled || undefined}
             aria-pressed={isSelected}
             className={cn(
-              'flex-1 border px-2 py-1.5 text-sm transition-colors focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none',
+              'inline-flex flex-1 items-center justify-center gap-1 border px-1.5 py-1.5 text-sm transition-colors focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none pointer-coarse:min-h-11',
               index === 0 && 'rounded-l-full',
               index === options.length - 1 && 'rounded-r-full',
-              isSelected
-                ? 'border-ocean-600 bg-ocean-600 font-medium text-white'
-                : 'border-gray-200 bg-white text-gray-700 hover:border-ocean-300 hover:text-ocean-700',
+              optionState(isSelected, isDisabled),
             )}
-            title={option.title}
+            title={
+              option.count === undefined
+                ? option.title
+                : `${option.title ?? option.label} · ${option.count} ${option.count === 1 ? 'playa' : 'playas'}`
+            }
             type="button"
             onClick={() => {
-              onToggle(option.value)
+              if (!isDisabled) onToggle(option.value)
             }}
           >
             {option.label}
+            {option.count !== undefined && !isSelected && (
+              <OptionCount count={option.count} />
+            )}
           </button>
         )
       })}

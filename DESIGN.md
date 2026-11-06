@@ -235,7 +235,7 @@ Depth means interactivity. The page is flat tonal layering of sand, white and te
 
 ### Named Rules
 
-**The Lift Means Clickable Rule.** If nothing happens when you press it, it does not get a shadow. Static content sits unboxed between hairlines. The beach side-rail panels and the explorer filter panel still carry a resting shadow. Treat them as exceptions to retire, not as a pattern to copy.
+**The Lift Means Clickable Rule.** If nothing happens when you press it, it does not get a shadow. Static content sits unboxed between hairlines. The beach side-rail panels still carry a resting shadow. Treat them as exceptions to retire, not as a pattern to copy.
 
 ## Shapes
 

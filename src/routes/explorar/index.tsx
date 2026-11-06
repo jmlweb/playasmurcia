@@ -2,14 +2,14 @@ import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import { lazy, Suspense, useCallback, useMemo, useState } from 'react'
 
-import type { BeachSearchParams } from '@/lib/beach-filters'
+import type { BeachSearchParams, FilterContext } from '@/lib/beach-filters'
 
 import { PageHero } from '@/components/layout/page-hero'
-import { EmptyState } from '@/components/ui/empty-state'
 import { BeachCard } from '@/features/beaches/beach-card'
-import { useCardFlags } from '@/features/beaches/use-card-flags'
+import { useCardFlagsState } from '@/features/beaches/use-card-flags'
 import { useCardWeather } from '@/features/beaches/use-card-weather'
 import { ActiveFilterChips } from '@/features/explorer/active-filter-chips'
+import { EmptyResults } from '@/features/explorer/empty-results'
 import { useUserLocation } from '@/features/explorer/use-user-location'
 import {
   FilterPanel,
@@ -19,7 +19,11 @@ import { Pagination } from '@/features/listing/pagination'
 import { ResultsSummary } from '@/features/listing/results-summary'
 import { SearchBar } from '@/features/listing/search-bar'
 import { SortSelect } from '@/features/listing/sort-select'
-import { applyFiltersAndSort, countActiveFilters } from '@/lib/beach-filters'
+import {
+  applyFiltersAndSort,
+  beachCountLabel,
+  countActiveFilters,
+} from '@/lib/beach-filters'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
 import { validateSearch } from '@/lib/explorer-search'
 import { haversineKm } from '@/lib/geo'
@@ -79,16 +83,68 @@ export const Route = createFileRoute('/explorar/')({
   component: ExplorerPage,
 })
 
+function ViewToggle({
+  value,
+  onChange,
+  className = 'inline-flex',
+}: {
+  value: 'list' | 'map'
+  onChange: (next: 'list' | 'map') => void
+  className?: string
+}) {
+  return (
+    <div
+      aria-label="Vista"
+      className={`${className} overflow-hidden rounded-full border border-gray-200 bg-white text-sm font-medium`}
+      role="group"
+    >
+      {(['list', 'map'] as const).map((option) => (
+        <button
+          key={option}
+          aria-pressed={value === option}
+          className={`px-3 py-2 transition-colors focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none focus-visible:ring-inset sm:px-4 pointer-coarse:min-h-11 ${value === option ? 'bg-ocean-600 text-white' : 'text-gray-700 hover:bg-gray-50'}`}
+          type="button"
+          onClick={() => {
+            onChange(option)
+          }}
+        >
+          {option === 'list' ? 'Lista' : 'Mapa'}
+        </button>
+      ))}
+    </div>
+  )
+}
+
 function ExplorerPage() {
   const { beaches, municipalities, services, activities, tags, seas } =
     Route.useLoaderData()
   const weatherData = useCardWeather(beaches)
-  const flagData = useCardFlags(beaches)
+  const { flags: flagData, isSettled: flagsSettled } =
+    useCardFlagsState(beaches)
   const search = Route.useSearch()
   const navigate = useNavigate({ from: Route.fullPath })
 
   const PAGE_SIZE = 15
-  const filters: BeachSearchParams = search
+  // "Bandera verde hoy" needs the live 112 feed, which is silent off season:
+  // without green flags to filter by, the filter neither shows nor applies
+  const greenFlagCodes = useMemo(
+    () =>
+      new Set(
+        Object.entries(flagData)
+          .filter(([, flag]) => flag === 'VERDE')
+          .map(([code]) => code),
+      ),
+    [flagData],
+  )
+  const flagGreenAvailable = flagsSettled && greenFlagCodes.size > 0
+  const filters: BeachSearchParams = useMemo(
+    () => (flagGreenAvailable ? search : { ...search, flagGreen: undefined }),
+    [search, flagGreenAvailable],
+  )
+  const filterContext: FilterContext = useMemo(
+    () => ({ greenFlagCodes: flagGreenAvailable ? greenFlagCodes : undefined }),
+    [flagGreenAvailable, greenFlagCodes],
+  )
   const { state: locationState, request: requestLocation } = useUserLocation()
   const position =
     locationState.status === 'granted' ? locationState.position : undefined
@@ -131,8 +187,14 @@ function ExplorerPage() {
   }
 
   const allFiltered = useMemo(
-    () => applyFiltersAndSort(beaches, { ...filters, sort }, position),
-    [beaches, filters, sort, position],
+    () =>
+      applyFiltersAndSort(
+        beaches,
+        { ...filters, sort },
+        position,
+        filterContext,
+      ),
+    [beaches, filters, sort, position, filterContext],
   )
   const mapMarkers = useMemo(
     () =>
@@ -166,9 +228,6 @@ function ExplorerPage() {
     [beaches],
   )
 
-  const hasActiveFilters =
-    Boolean(filters.q?.trim()) || countActiveFilters(filters) > 0
-
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false)
 
   return (
@@ -181,18 +240,17 @@ function ExplorerPage() {
           { label: 'Todas las playas' },
         ]}
         optimizedName="hero-explorar"
+        size="compact"
         tone="soft"
       >
-        <p className="mb-3 text-sm font-semibold tracking-widest text-white uppercase">
+        <p className="mb-3 hidden text-sm font-semibold tracking-widest text-white uppercase sm:block">
           Costa Cálida
         </p>
-        <h1 className="mb-4 text-4xl font-normal tracking-tight text-white sm:text-5xl">
+        <h1 className="mb-4 text-4xl font-normal tracking-tight text-white max-sm:mb-5 sm:text-5xl">
           Todas las playas
         </h1>
-        <p className="mb-8 max-w-xl text-lg text-ocean-100">
-          {hasActiveFilters
-            ? `Mostrando ${allFiltered.length} de ${beaches.length} playas`
-            : `Filtra entre ${beaches.length} playas y calas del litoral murciano`}
+        <p className="mb-8 hidden max-w-xl text-lg text-ocean-100 sm:block">
+          Filtra entre {beaches.length} playas y calas del litoral murciano
         </p>
         <div className="max-w-2xl">
           <SearchBar
@@ -210,18 +268,13 @@ function ExplorerPage() {
         <div className="lg:flex lg:gap-10">
           <FilterPanel
             activities={activities}
+            beaches={beaches}
+            context={filterContext}
             filters={filters}
+            flagGreenAvailable={flagGreenAvailable}
             mobileOpen={mobileFilterOpen}
             municipalities={municipalities}
-            nearby={{
-              isLoading: locationState.status === 'loading',
-              isActive: sort === 'cercania',
-              onToggle: () => {
-                handleSortChange(
-                  sort === 'cercania' ? 'recomendados' : 'cercania',
-                )
-              },
-            }}
+            resultCount={allFiltered.length}
             seas={seas}
             services={services}
             tags={tags}
@@ -234,47 +287,51 @@ function ExplorerPage() {
           />
 
           <div className="min-w-0 flex-1">
-            <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-              <div className="flex items-center gap-3">
-                <FilterToggleButton
-                  activeCount={countActiveFilters(filters)}
-                  onClick={() => {
-                    setMobileFilterOpen(true)
-                  }}
-                />
-                <ResultsSummary
-                  currentPage={safePage}
-                  suffix=" encontradas"
-                  totalItems={allFiltered.length}
-                  totalPages={view === 'map' ? 1 : totalPages}
-                />
-              </div>
+            {/* Phones: the filter button stays in reach while the list scrolls */}
+            <div className="sticky top-[4.5625rem] z-30 -mx-4 mb-4 flex items-center justify-between gap-3 border-b border-gray-200/60 bg-sand-50 px-4 py-2 sm:top-[3.8125rem] sm:-mx-6 sm:px-6 lg:hidden">
+              <FilterToggleButton
+                activeCount={countActiveFilters(filters)}
+                expanded={mobileFilterOpen}
+                onClick={() => {
+                  setMobileFilterOpen(true)
+                }}
+              />
+              <p
+                aria-hidden="true"
+                className="min-w-0 truncate text-sm text-gray-600 tabular-nums"
+              >
+                {beachCountLabel(allFiltered.length)}
+              </p>
+              <ViewToggle value={view} onChange={setView} />
+            </div>
+
+            <div
+              className="mb-6 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 outline-none"
+              id="resultados"
+              tabIndex={-1}
+            >
+              <ResultsSummary
+                live
+                currentPage={safePage}
+                suffix=" encontradas"
+                totalItems={allFiltered.length}
+                totalPages={view === 'map' ? 1 : totalPages}
+              />
               <div className="flex flex-wrap items-center gap-3">
                 <SortSelect
                   includeNearby
                   value={sort}
                   onChange={handleSortChange}
                 />
-                <span aria-hidden="true" className="h-6 w-px bg-gray-200" />
-                <div
-                  aria-label="Vista"
-                  className="inline-flex overflow-hidden rounded-full border border-gray-200 bg-white text-sm font-medium"
-                  role="group"
-                >
-                  {(['list', 'map'] as const).map((option) => (
-                    <button
-                      key={option}
-                      aria-pressed={view === option}
-                      className={`px-4 py-2 transition-colors focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none focus-visible:ring-inset ${view === option ? 'bg-ocean-600 text-white' : 'text-gray-700 hover:bg-gray-50'}`}
-                      type="button"
-                      onClick={() => {
-                        setView(option)
-                      }}
-                    >
-                      {option === 'list' ? 'Lista' : 'Mapa'}
-                    </button>
-                  ))}
-                </div>
+                <span
+                  aria-hidden="true"
+                  className="hidden h-6 w-px bg-gray-200 lg:block"
+                />
+                <ViewToggle
+                  className="hidden lg:inline-flex"
+                  value={view}
+                  onChange={setView}
+                />
               </div>
             </div>
 
@@ -292,6 +349,7 @@ function ExplorerPage() {
               municipalities={municipalities}
               seas={seas}
               services={services}
+              showClearAll={allFiltered.length > 0}
               tags={tags}
               onClearAll={() => {
                 updateFilters({ sort })
@@ -337,38 +395,18 @@ function ExplorerPage() {
                 />
               </>
             ) : (
-              <EmptyState
-                action={
-                  hasActiveFilters ? (
-                    <button
-                      className="rounded-full bg-ocean-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-ocean-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
-                      type="button"
-                      onClick={() => {
-                        updateFilters({ sort })
-                      }}
-                    >
-                      Limpiar filtros
-                    </button>
-                  ) : undefined
-                }
-                description="Prueba a modificar los filtros o el texto de búsqueda"
-                icon={
-                  <svg
-                    aria-hidden="true"
-                    className="h-14 w-14"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                    />
-                  </svg>
-                }
-                title="No se encontraron playas"
+              <EmptyResults
+                activities={activities}
+                beaches={beaches}
+                context={filterContext}
+                filters={filters}
+                municipalities={municipalities}
+                seas={seas}
+                services={services}
+                tags={tags}
+                onChange={(next: BeachSearchParams) => {
+                  updateFilters({ ...next, sort })
+                }}
               />
             )}
           </div>

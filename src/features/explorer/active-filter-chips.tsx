@@ -1,27 +1,19 @@
 import { useMemo } from 'react'
 
 import type { BeachSearchParams } from '@/lib/beach-filters'
-import type { Activity, Municipality, Sea, Service, Tag } from '@/types/beach'
 
-import {
-  AccessDifficultyLabels,
-  NeedFilterKeys,
-  NeedFilterLabels,
-  OccupancyLabels,
-} from '@/lib/beach-filters'
+import { type FilterLookups, listActiveFilters } from '@/lib/active-filters'
 
-type ActiveFilterChipsProps = {
+type ActiveFilterChipsProps = FilterLookups & {
+  /** Hidden when another control on the page already offers the reset */
+  showClearAll?: boolean
   filters: BeachSearchParams
-  municipalities: Municipality[]
-  seas: Sea[]
-  services: Service[]
-  activities: Activity[]
-  tags: Tag[]
   onUpdateFilters: (next: BeachSearchParams) => void
   onClearAll: () => void
 }
 
 export function ActiveFilterChips({
+  showClearAll = true,
   filters,
   municipalities,
   seas,
@@ -31,135 +23,17 @@ export function ActiveFilterChips({
   onUpdateFilters,
   onClearAll,
 }: ActiveFilterChipsProps) {
-  const chips = useMemo(() => {
-    const result: { key: string; label: string; onRemove: () => void }[] = []
-    if (filters.municipality) {
-      for (const i of filters.municipality) {
-        const m = municipalities[i]
-        if (m)
-          result.push({
-            key: `m-${i}`,
-            label: m.name,
-            onRemove: () => {
-              onUpdateFilters({
-                ...filters,
-                municipality: filters.municipality?.filter((v) => v !== i),
-              })
-            },
-          })
-      }
-    }
-    if (filters.sea) {
-      for (const i of filters.sea) {
-        const s = seas[i]
-        if (s)
-          result.push({
-            key: `s-${i}`,
-            label: s.name,
-            onRemove: () => {
-              onUpdateFilters({
-                ...filters,
-                sea: filters.sea?.filter((v) => v !== i),
-              })
-            },
-          })
-      }
-    }
-    if (filters.services) {
-      for (const i of filters.services) {
-        const s = services[i]
-        if (s)
-          result.push({
-            key: `sv-${i}`,
-            label: s.name,
-            onRemove: () => {
-              onUpdateFilters({
-                ...filters,
-                services: filters.services?.filter((v) => v !== i),
-              })
-            },
-          })
-      }
-    }
-    if (filters.activities) {
-      for (const i of filters.activities) {
-        const a = activities[i]
-        if (a)
-          result.push({
-            key: `a-${i}`,
-            label: a.name,
-            onRemove: () => {
-              onUpdateFilters({
-                ...filters,
-                activities: filters.activities?.filter((v) => v !== i),
-              })
-            },
-          })
-      }
-    }
-    if (filters.tags) {
-      for (const i of filters.tags) {
-        const t = tags[i]
-        if (t)
-          result.push({
-            key: `t-${i}`,
-            label: t.name,
-            onRemove: () => {
-              onUpdateFilters({
-                ...filters,
-                tags: filters.tags?.filter((v) => v !== i),
-              })
-            },
-          })
-      }
-    }
-    for (const key of NeedFilterKeys) {
-      if (filters[key]) {
-        result.push({
-          key: `need-${key}`,
-          label: NeedFilterLabels[key],
-          onRemove: () => {
-            onUpdateFilters({ ...filters, [key]: undefined })
-          },
-        })
-      }
-    }
-    for (const level of filters.accessDifficulty ?? []) {
-      result.push({
-        key: `access-${level}`,
-        label: AccessDifficultyLabels[level],
-        onRemove: () => {
-          onUpdateFilters({
-            ...filters,
-            accessDifficulty: filters.accessDifficulty?.filter(
-              (v) => v !== level,
-            ),
-          })
-        },
-      })
-    }
-    for (const level of filters.occupancy ?? []) {
-      result.push({
-        key: `occupancy-${level}`,
-        label: OccupancyLabels[level],
-        onRemove: () => {
-          onUpdateFilters({
-            ...filters,
-            occupancy: filters.occupancy?.filter((v) => v !== level),
-          })
-        },
-      })
-    }
-    return result
-  }, [
-    filters,
-    municipalities,
-    seas,
-    services,
-    activities,
-    tags,
-    onUpdateFilters,
-  ])
+  const chips = useMemo(
+    () =>
+      listActiveFilters(filters, {
+        municipalities,
+        seas,
+        services,
+        activities,
+        tags,
+      }),
+    [filters, municipalities, seas, services, activities, tags],
+  )
 
   if (chips.length === 0) return null
 
@@ -168,9 +42,12 @@ export function ActiveFilterChips({
       {chips.map((chip) => (
         <button
           key={chip.key}
-          className="inline-flex items-center gap-1.5 rounded-full bg-ocean-50 px-3 py-1 text-sm text-ocean-700 transition-colors hover:bg-ocean-100 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-1 focus-visible:outline-none"
+          aria-label={`Quitar ${chip.label}`}
+          className="inline-flex items-center gap-1.5 rounded-full bg-ocean-50 px-3 py-1 text-sm text-ocean-700 transition-colors hover:bg-ocean-100 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-1 focus-visible:outline-none pointer-coarse:min-h-11 pointer-coarse:px-4"
           type="button"
-          onClick={chip.onRemove}
+          onClick={() => {
+            onUpdateFilters(chip.without)
+          }}
         >
           {chip.label}
           <svg
@@ -189,13 +66,15 @@ export function ActiveFilterChips({
           </svg>
         </button>
       ))}
-      <button
-        className="rounded-full text-sm text-gray-500 underline underline-offset-2 hover:text-gray-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-1 focus-visible:outline-none"
-        type="button"
-        onClick={onClearAll}
-      >
-        Limpiar todo
-      </button>
+      {showClearAll && (
+        <button
+          className="rounded-full text-sm text-gray-600 underline underline-offset-2 hover:text-gray-800 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-1 focus-visible:outline-none pointer-coarse:min-h-11 pointer-coarse:px-3"
+          type="button"
+          onClick={onClearAll}
+        >
+          Limpiar todo
+        </button>
+      )}
     </div>
   )
 }

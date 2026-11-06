@@ -133,6 +133,14 @@ So weather is **not** limited to beaches with `aemetId`; those codes only gate t
 
 - Need filters (`dogFriendly`, `lifeguard`, `childSafe`, `naturalShade`, `nudist`) are boolean and live in the URL as `true`; a beach with the field missing never matches an active filter
 - `accessDifficulty` (`easy` | `moderate` | `hard`) and `occupancy` (`low` | `medium` | `high`) are multi-select; beaches with no value are excluded when active
+- "Para hoy" group: `lifeguard`, `blueFlag` (`certifications` includes `blue-flag`) and `flagGreen`. `flagGreen` ("Bandera verde hoy") filters by today's green 112 flag from the live feed. It is offered and applied only once the feed has answered and at least one beach shows a green flag, so it never appears off season; a `flagGreen=true` URL is ignored until then (source or silence)
+- Every filter option shows how many beaches would remain if it were selected (`countResultsWith` in `src/lib/beach-filters.ts`), and an unselected option with 0 is disabled. Options inside a group that widens the result (municipio, mar, acceso, ocupación) count that option alone; options that narrow it (servicios, actividades, ambiente, needs) are added to the current choice
+- The panel has two top-level groups: "Para hoy" (bandera verde, socorrista, Bandera Azul) and "Cómo es la playa" (Acceso, Ocupación en verano, Necesidades, Municipio, Mar). Servicios, Actividades and Ambiente sit behind "Más filtros", which opens by itself when one of them is active. The help lines under Acceso and Ocupación restate `docs/data-schema.md`: access is how hard the beach is to reach, occupancy is a typical peak-summer day
+- In Servicios, Actividades and Ambiente an unselected option that would leave every current result (count equals the result total) is hidden, since it filters nothing; a selected option always stays. A group with no visible option is not rendered
+- "Cerca de mí" is only in the sort menu, not a filter chip
+- Unselected options with 0 results stay focusable with `aria-disabled` so keyboard users can hear them; the number is part of the accessible name
+- "Ambiente" is the `tags` group. Tags that repeat another option (Chiringuito, Snorkel, Nudista, Playa canina) are hidden from the list unless already selected; they still filter through Servicios, Actividades and Necesidades
+- When nothing matches, the empty state lists up to four filters whose removal brings beaches back, each with the resulting count (`src/features/explorer/empty-results.tsx`)
 - "Cerca de mí" (`sort=cercania`) asks for browser geolocation only on click. The position stays in component state: it is never put in the URL, storage or sent to the server. Without a position the sort falls back to "Recomendados"
 
 ## Content Guidelines

@@ -55,6 +55,7 @@ playasmurcia/
 │   │   ├── beaches/        # Beach domain (cards, detail widgets, gallery, maps)
 │   │   ├── home/           # Homepage sections (hero, coast today strip, featured grid, municipalities)
 │   │   ├── collections/    # Single collection card (4:3 photo, title, description, count)
+│   │   ├── explorer/       # Explorer-only UI (active filter chips, empty-results suggestions, map, geolocation)
 │   │   ├── listing/        # Shared list/explorer (pagination, filters, chip filter bar, results summary, search, zone sections)
 │   │   ├── municipalities/ # Reusable municipality card (photo, meta line, CTA)
 │   │   └── webmcp/         # WebMCP tools for in-browser agents (server fns + hook)

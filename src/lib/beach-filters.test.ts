@@ -5,6 +5,7 @@ import type { Beach } from '@/types/beach'
 import {
   applyFiltersAndSort,
   countActiveFilters,
+  countResultsWith,
   filterBeaches,
   sortBeaches,
 } from './beach-filters'
@@ -303,5 +304,33 @@ describe('sortBeaches by proximity', () => {
     const input = [far, near]
     sortBeaches(input, 'cercania', [37.6, -0.97])
     expect(input[0].name).toBe('Lejos')
+  })
+})
+
+describe('blueFlag and flagGreen filters', () => {
+  const blue = makeBeach({ name: 'Playa Azul', certifications: ['blue-flag'] })
+  const plain = makeBeach({ name: 'Playa Llana' })
+
+  it('keeps only blue-flag beaches', () => {
+    expect(filterBeaches([blue, plain], { blueFlag: true })).toEqual([blue])
+  })
+
+  it('keeps only beaches with a green flag today', () => {
+    const context = { greenFlagCodes: new Set([plain.code]) }
+    expect(filterBeaches([blue, plain], { flagGreen: true }, context)).toEqual([
+      plain,
+    ])
+  })
+
+  it('ignores flagGreen while no flag data is available', () => {
+    expect(filterBeaches([blue, plain], { flagGreen: true })).toHaveLength(2)
+  })
+
+  it('counts both toward the active filters', () => {
+    expect(countActiveFilters({ blueFlag: true, flagGreen: true })).toBe(2)
+  })
+
+  it('counts results if a patch were applied', () => {
+    expect(countResultsWith([blue, plain], {}, { blueFlag: true })).toBe(1)
   })
 })

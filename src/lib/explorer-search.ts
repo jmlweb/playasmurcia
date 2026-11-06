@@ -48,6 +48,8 @@ export function validateSearch(
     ...Object.fromEntries(
       NeedFilterKeys.map((key) => [key, parseFlag(search[key])]),
     ),
+    blueFlag: parseFlag(search.blueFlag),
+    flagGreen: parseFlag(search.flagGreen),
     accessDifficulty: parseEnumArray(
       search.accessDifficulty,
       AccessDifficultyLabels,

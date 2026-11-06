@@ -20,6 +20,12 @@ export const NeedFilterLabels: Record<NeedFilterKey, string> = {
   nudist: 'Nudista',
 }
 
+export const TodayFilterLabels = {
+  flagGreen: 'Bandera verde hoy',
+  lifeguard: 'Con socorrista',
+  blueFlag: 'Bandera Azul',
+} as const
+
 export const AccessDifficultyLabels = {
   easy: 'Acceso fácil',
   moderate: 'Acceso moderado',
@@ -46,6 +52,8 @@ export type BeachSearchParams = {
   childSafe?: true
   naturalShade?: true
   nudist?: true
+  blueFlag?: true
+  flagGreen?: true
   accessDifficulty?: AccessDifficulty[]
   occupancy?: OccupancyLevel[]
   sort?:
@@ -65,6 +73,8 @@ export function countActiveFilters(filters: BeachSearchParams): number {
     (filters.activities?.length ?? 0) +
     (filters.tags?.length ?? 0) +
     NeedFilterKeys.filter((key) => filters[key]).length +
+    (filters.blueFlag ? 1 : 0) +
+    (filters.flagGreen ? 1 : 0) +
     (filters.accessDifficulty?.length ?? 0) +
     (filters.occupancy?.length ?? 0)
   )
@@ -79,9 +89,29 @@ export function normalizeText(text: string): string {
     .replace(/[\u0300-\u036f]/g, '')
 }
 
+/** Live data some filters need; without it those filters are ignored. */
+export type FilterContext = {
+  greenFlagCodes?: ReadonlySet<string>
+}
+
+export function beachCountLabel(count: number): string {
+  return `${count} ${count === 1 ? 'playa' : 'playas'}`
+}
+
+/** Results if `patch` were applied on top of the current filters. */
+export function countResultsWith(
+  beaches: Beach[],
+  filters: BeachSearchParams,
+  patch: Partial<BeachSearchParams>,
+  context?: FilterContext,
+): number {
+  return filterBeaches(beaches, { ...filters, ...patch }, context).length
+}
+
 export function filterBeaches(
   beaches: Beach[],
   params: BeachSearchParams,
+  context?: FilterContext,
 ): Beach[] {
   let result = beaches
 
@@ -125,6 +155,17 @@ export function filterBeaches(
     if (params[key]) {
       result = result.filter((beach) => beach[key] === true)
     }
+  }
+
+  if (params.blueFlag) {
+    result = result.filter((beach) =>
+      beach.certifications?.includes('blue-flag'),
+    )
+  }
+
+  if (params.flagGreen && context?.greenFlagCodes) {
+    const green = context.greenFlagCodes
+    result = result.filter((beach) => green.has(beach.code))
   }
 
   if (params.accessDifficulty && params.accessDifficulty.length > 0) {
@@ -199,6 +240,11 @@ export function applyFiltersAndSort(
   beaches: Beach[],
   params: BeachSearchParams,
   origin?: LatLng,
+  context?: FilterContext,
 ): Beach[] {
-  return sortBeaches(filterBeaches(beaches, params), params.sort, origin)
+  return sortBeaches(
+    filterBeaches(beaches, params, context),
+    params.sort,
+    origin,
+  )
 }

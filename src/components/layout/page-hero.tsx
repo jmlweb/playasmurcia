@@ -31,8 +31,8 @@ type PageHeroProps = {
   breadcrumb?: BreadcrumbItem[]
   /** Duotone strength: `soft` and `lifted` brighten photos that are too dark under `default` */
   tone?: HeroTone
-  /** `home` is taller than the listing/detail heroes */
-  size?: 'home' | 'listing'
+  /** `home` is taller than the listing/detail heroes; `compact` is for task pages where results should start near the fold */
+  size?: 'home' | 'listing' | 'compact'
   /** Original raster URL, e.g. `pictureUrl('hero.png')` */
   backgroundImage?: string
   backgroundAlt?: string
@@ -120,10 +120,11 @@ export function PageHero({
   imageWidth,
   imageHeight,
 }: PageHeroProps) {
-  const heightClass =
-    size === 'home'
-      ? 'min-h-[min(52svh,640px)] sm:min-h-[min(72svh,640px)]'
-      : 'min-h-[320px] sm:min-h-[420px]'
+  const heightClass = {
+    home: 'min-h-[min(52svh,640px)] sm:min-h-[min(72svh,640px)]',
+    listing: 'min-h-[320px] sm:min-h-[420px]',
+    compact: 'min-h-[260px] sm:min-h-[300px]',
+  }[size]
   // The short phone hero fills with text, which climbs past the base scrim
   const scrimReachClass =
     size === 'home'
