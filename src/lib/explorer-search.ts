@@ -54,6 +54,12 @@ function parsePage(value: unknown): number | undefined {
   return typeof value === 'number' && value > 0 ? Math.floor(value) : undefined
 }
 
+function parseNeedFilters(search: Record<string, unknown>) {
+  return Object.fromEntries(
+    NeedFilterKeys.map((key) => [key, parseFlag(search[key])]),
+  )
+}
+
 /** Sort and page of a listing that has no position to rank "Cerca de mí" by */
 export function validateListingSearch(
   search: Record<string, unknown>,
@@ -62,6 +68,20 @@ export function validateListingSearch(
   return {
     sort: sort === 'cercania' ? undefined : sort,
     page: parsePage(search.page),
+  }
+}
+
+export function validateMunicipalitySearch(
+  search: Record<string, unknown>,
+): BeachSearchParams & ListingSearchParams {
+  return {
+    ...validateListingSearch(search),
+    ...parseNeedFilters(search),
+    accessDifficulty: parseEnumArray(
+      search.accessDifficulty,
+      AccessDifficultyLabels,
+    ),
+    occupancy: parseEnumArray(search.occupancy, OccupancyLabels),
   }
 }
 
@@ -75,9 +95,7 @@ export function validateSearch(
     services: parseNumberArray(search.services),
     activities: parseNumberArray(search.activities),
     tags: parseNumberArray(search.tags),
-    ...Object.fromEntries(
-      NeedFilterKeys.map((key) => [key, parseFlag(search[key])]),
-    ),
+    ...parseNeedFilters(search),
     accessDifficulty: parseEnumArray(
       search.accessDifficulty,
       AccessDifficultyLabels,

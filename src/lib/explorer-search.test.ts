@@ -1,6 +1,10 @@
 import { describe, expect, it } from 'vitest'
 
-import { validateListingSearch, validateSearch } from './explorer-search'
+import {
+  validateListingSearch,
+  validateMunicipalitySearch,
+  validateSearch,
+} from './explorer-search'
 
 describe('validateSearch need filters', () => {
   it('accepts boolean and string true flags', () => {
@@ -51,5 +55,28 @@ describe('validateListingSearch', () => {
 
   it('drops nearby sort, which a listing without a position cannot honour', () => {
     expect(validateListingSearch({ sort: 'cercania' }).sort).toBeUndefined()
+  })
+})
+
+describe('validateMunicipalitySearch', () => {
+  it('keeps the filters the page offers', () => {
+    expect(
+      validateMunicipalitySearch({
+        dogFriendly: true,
+        occupancy: ['low'],
+        accessDifficulty: ['easy'],
+      }),
+    ).toMatchObject({
+      dogFriendly: true,
+      occupancy: ['low'],
+      accessDifficulty: ['easy'],
+    })
+  })
+
+  it('ignores filters the page cannot show', () => {
+    const result = validateMunicipalitySearch({ q: 'cala', municipality: [1] })
+
+    expect(result).not.toHaveProperty('q')
+    expect(result).not.toHaveProperty('municipality')
   })
 })
