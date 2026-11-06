@@ -1,6 +1,7 @@
 import { Popover } from '@base-ui/react/popover'
 import { Link, useRouterState } from '@tanstack/react-router'
 import { useEffect, useRef, useState } from 'react'
+import { flushSync } from 'react-dom'
 
 import type { NavData } from '@/lib/nav-builders'
 
@@ -19,16 +20,23 @@ const simpleNavLinks = [
 const isInSection = (pathname: string, section: readonly string[]) =>
   section.some((root) => pathname === root || pathname.startsWith(`${root}/`))
 
+const collectionsSection = ['/colecciones']
+
+const currentValue = (pathname: string, to: string) =>
+  pathname === to ? 'page' : 'true'
+
 const SM_BREAKPOINT_QUERY = '(min-width: 640px)'
 
 function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname })
+  const inSection = isInSection(pathname, collectionsSection)
 
   return (
     <Popover.Root>
       <Popover.Trigger
         openOnHover
-        className={`group inline-flex items-center gap-1 text-sm font-medium transition-colors hover:text-white focus-visible:rounded focus-visible:text-white focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-900 focus-visible:outline-none ${isInSection(pathname, ['/colecciones']) ? 'border-b-2 border-ocean-400 pb-0.5 text-white' : 'text-ocean-200'}`}
+        aria-current={inSection ? 'true' : undefined}
+        className={`group inline-flex items-center gap-1 text-sm font-medium transition-colors hover:text-white focus-visible:rounded focus-visible:text-white focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-900 focus-visible:outline-none ${inSection ? 'border-b-2 border-ocean-400 pb-0.5 text-white' : 'text-ocean-200'}`}
         closeDelay={150}
       >
         {label}
@@ -39,80 +47,40 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
         <Popover.Positioner
           align="center"
           className="z-50"
+          collisionAvoidance={{ side: 'none' }}
           collisionPadding={12}
           side="bottom"
           sideOffset={12}
         >
-          <Popover.Popup className="w-[32rem] rounded-xl border border-white/10 bg-ocean-800 p-5 shadow-2xl">
-            <div className="grid grid-cols-2 gap-6">
-              <div>
-                <p className="mb-3 text-xs font-semibold tracking-wider text-ocean-400 uppercase">
-                  Municipios
-                </p>
-                <ul className="space-y-1">
-                  {navData.municipalities.map((m) => {
-                    const href = `/municipios/${m.slug}`
-                    const active = pathname.startsWith(href)
-                    return (
-                      <li key={m.slug}>
-                        <Link
-                          aria-current={active ? 'page' : undefined}
-                          className={`flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-800 focus-visible:outline-none ${active ? 'bg-ocean-700 font-semibold text-white' : 'text-ocean-100 hover:bg-ocean-700 hover:text-white focus-visible:bg-ocean-700 focus-visible:text-white'}`}
-                          params={{ slug: m.slug }}
-                          to="/municipios/$slug"
-                        >
-                          {m.name}
-                          <span className="ml-2 rounded-full bg-ocean-700/60 px-2 py-0.5 text-xs text-ocean-300">
-                            {m.beachCount}
-                          </span>
-                        </Link>
-                      </li>
-                    )
-                  })}
-                </ul>
-                <div className="mt-3 border-t border-ocean-700 pt-3">
-                  <Link
-                    className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-ocean-300 transition-colors hover:bg-ocean-700 hover:text-white focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-800 focus-visible:outline-none"
-                    to="/municipios"
-                  >
-                    Ver todos →
-                  </Link>
-                </div>
-              </div>
-
-              <div>
-                <p className="mb-3 text-xs font-semibold tracking-wider text-ocean-400 uppercase">
-                  Colecciones
-                </p>
-                <ul className="space-y-1">
-                  {navData.characteristics.map((c) => {
-                    const active = pathname.startsWith(c.href)
-                    return (
-                      <li key={c.href}>
-                        <Link
-                          aria-current={active ? 'page' : undefined}
-                          className={`flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-800 focus-visible:outline-none ${active ? 'bg-ocean-700 font-semibold text-white' : 'text-ocean-100 hover:bg-ocean-700 hover:text-white focus-visible:bg-ocean-700 focus-visible:text-white'}`}
-                          params={{ slug: c.href.split('/').pop()! }}
-                          to="/colecciones/$slug"
-                        >
-                          {c.label}
-                          <span className="ml-2 rounded-full bg-ocean-700/60 px-2 py-0.5 text-xs text-ocean-300">
-                            {c.count}
-                          </span>
-                        </Link>
-                      </li>
-                    )
-                  })}
-                </ul>
-                <div className="mt-3 border-t border-ocean-700 pt-3">
-                  <Link
-                    className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-ocean-300 transition-colors hover:bg-ocean-700 hover:text-white focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-800 focus-visible:outline-none"
-                    to="/colecciones"
-                  >
-                    Ver todas →
-                  </Link>
-                </div>
-              </div>
+          <Popover.Popup className="max-h-[var(--available-height)] w-72 overflow-y-auto overscroll-contain rounded-xl border border-white/10 bg-ocean-800 p-3 shadow-2xl">
+            <ul className="space-y-1">
+              {navData.characteristics.map((c) => {
+                const active = pathname.startsWith(c.href)
+                return (
+                  <li key={c.href}>
+                    <Link
+                      aria-current={active ? 'page' : undefined}
+                      className={`flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-800 focus-visible:outline-none ${active ? 'bg-ocean-700 font-semibold text-white' : 'text-ocean-100 hover:bg-ocean-700 hover:text-white focus-visible:bg-ocean-700 focus-visible:text-white'}`}
+                      params={{ slug: c.href.split('/').pop()! }}
+                      to="/colecciones/$slug"
+                    >
+                      {c.label}
+                      <span className="ml-2 rounded-full bg-ocean-700/60 px-2 py-0.5 text-xs text-ocean-200 tabular-nums">
+                        {c.count}
+                      </span>
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+            <div className="mt-2 border-t border-ocean-700 pt-2">
+              <Link
+                activeOptions={{ exact: true }}
+                className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-ocean-200 transition-colors hover:bg-ocean-700 hover:text-white focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-800 focus-visible:outline-none"
+                to="/colecciones"
+              >
+                Ver todas →
+              </Link>
             </div>
           </Popover.Popup>
         </Popover.Positioner>
@@ -130,14 +98,17 @@ function MobileDropdown({
   navData: NavData
   onNavigate: () => void
 }) {
-  const [open, setOpen] = useState(false)
   const pathname = useRouterState({ select: (s) => s.location.pathname })
+  const inSection = isInSection(pathname, collectionsSection)
+  // The panel mounts on every open, so this follows the current page
+  const [open, setOpen] = useState(inSection)
 
   return (
     <div>
       <button
+        aria-current={inSection ? 'true' : undefined}
         aria-expanded={open}
-        className={`flex min-h-11 w-full items-center justify-between text-sm font-medium text-ocean-200 transition-colors hover:text-white ${darkFocusRing}`}
+        className={`flex min-h-11 w-full items-center justify-between text-sm font-medium transition-colors hover:text-white ${inSection ? 'border-l-2 border-ocean-400 pl-2 text-white' : 'text-ocean-200'} ${darkFocusRing}`}
         type="button"
         onClick={() => {
           setOpen((prev) => !prev)
@@ -150,29 +121,6 @@ function MobileDropdown({
       </button>
       {open && (
         <div className="pb-2 pl-3">
-          <p className="mb-1.5 text-xs font-semibold tracking-wider text-ocean-400 uppercase">
-            Municipios
-          </p>
-          {navData.municipalities.map((m) => {
-            const href = `/municipios/${m.slug}`
-            const active = pathname === href
-            return (
-              <Link
-                key={m.slug}
-                aria-current={active ? 'page' : undefined}
-                className={`flex min-h-11 items-center justify-between text-sm transition-colors hover:text-white ${active ? 'font-semibold text-white' : 'text-ocean-200'} ${darkFocusRing}`}
-                params={{ slug: m.slug }}
-                to="/municipios/$slug"
-                onClick={onNavigate}
-              >
-                {m.name}
-                <span className="text-xs text-ocean-400">{m.beachCount}</span>
-              </Link>
-            )
-          })}
-          <p className="mt-3 mb-1.5 text-xs font-semibold tracking-wider text-ocean-400 uppercase">
-            Colecciones
-          </p>
           {navData.characteristics.map((c) => {
             const active = pathname === c.href
             return (
@@ -185,13 +133,51 @@ function MobileDropdown({
                 onClick={onNavigate}
               >
                 {c.label}
-                <span className="text-xs text-ocean-400">{c.count}</span>
+                <span className="text-xs text-ocean-200 tabular-nums">
+                  {c.count}
+                </span>
               </Link>
             )
           })}
+          <Link
+            activeOptions={{ exact: true }}
+            className={`flex min-h-11 items-center text-sm font-medium transition-colors hover:text-white ${pathname === '/colecciones' ? 'text-white' : 'text-ocean-200'} ${darkFocusRing}`}
+            to="/colecciones"
+            onClick={onNavigate}
+          >
+            Ver todas →
+          </Link>
         </div>
       )}
     </div>
+  )
+}
+
+function TodayLink({
+  className,
+  onNavigate,
+}: {
+  className: string
+  onNavigate: () => void
+}) {
+  const pathname = useRouterState({ select: (s) => s.location.pathname })
+
+  return (
+    <Link
+      activeOptions={{ exact: true, includeHash: true }}
+      className={className}
+      hash="hoy"
+      to="/"
+      onClick={(event) => {
+        onNavigate()
+        if (pathname !== '/') return
+        // An unchanged hash would not scroll the strip back into view
+        event.preventDefault()
+        document.getElementById('hoy')?.scrollIntoView()
+      }}
+    >
+      Hoy
+    </Link>
   )
 }
 
@@ -199,6 +185,9 @@ export function Navbar({ navData }: { navData: NavData }) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
   const pathname = useRouterState({ select: (s) => s.location.pathname })
+  const closeMenu = () => {
+    setMobileOpen(false)
+  }
 
   // Closes during render (not in an effect) for back/forward navigation too
   const [prevPathname, setPrevPathname] = useState(pathname)
@@ -247,9 +236,7 @@ export function Navbar({ navData }: { navData: NavData }) {
           <Link
             className={`flex items-center gap-2 text-base font-bold tracking-tight text-white transition-opacity hover:opacity-80 sm:text-lg ${darkFocusRing}`}
             to="/"
-            onClick={() => {
-              setMobileOpen(false)
-            }}
+            onClick={closeMenu}
           >
             <svg
               aria-hidden="true"
@@ -267,13 +254,18 @@ export function Navbar({ navData }: { navData: NavData }) {
             </svg>
             Playas de Murcia
           </Link>
-          <div className="ml-auto hidden items-center gap-6 sm:flex">
+          <div className="ml-auto hidden items-center gap-4 sm:flex md:gap-6">
+            <TodayLink
+              className={`text-sm font-medium text-ocean-200 transition-colors hover:text-white focus-visible:text-white ${darkFocusRing}`}
+              onNavigate={closeMenu}
+            />
             {simpleNavLinks.map(({ to, label, section }) => {
               const active = isInSection(pathname, section)
               return (
                 <Link
                   key={to}
-                  aria-current={active ? 'page' : undefined}
+                  activeOptions={{ exact: true }}
+                  aria-current={active ? currentValue(pathname, to) : undefined}
                   className={`text-sm font-medium transition-colors ${active ? 'border-b-2 border-ocean-400 pb-0.5 text-white' : 'text-ocean-200 hover:text-white focus-visible:text-white'} ${darkFocusRing}`}
                   to={to}
                 >
@@ -281,17 +273,25 @@ export function Navbar({ navData }: { navData: NavData }) {
                 </Link>
               )
             })}
-            <NavDropdown label="Descubrir" navData={navData} />
+            <NavDropdown label="Colecciones" navData={navData} />
           </div>
           <Link
             aria-label="Buscar playas"
             className="ml-auto flex h-11 w-11 items-center justify-center rounded-md text-ocean-300 transition-colors hover:text-white focus-visible:text-white focus-visible:ring-2 focus-visible:ring-ocean-400 focus-visible:outline-none sm:ml-5 sm:h-auto sm:w-auto sm:p-1"
             hash="buscar"
             to="/explorar"
-            onClick={() => {
-              setMobileOpen(false)
-              // Already on the explorer the hash may not change, so route focus never runs
-              document.getElementById('buscar')?.focus()
+            onClick={(event) => {
+              // The explorer stays inert until the menu has closed, and deferring
+              // the focus past this tap would lose the phone keyboard
+              // eslint-disable-next-line @eslint-react/dom-no-flush-sync
+              flushSync(closeMenu)
+              if (pathname !== '/explorar') return
+              // An unchanged location never runs route focus, and navigating
+              // anyway cancels the smooth scroll to the input
+              event.preventDefault()
+              const input = document.getElementById('buscar')
+              input?.scrollIntoView({ block: 'center' })
+              input?.focus({ preventScroll: true })
             }}
           >
             <svg
@@ -358,28 +358,29 @@ export function Navbar({ navData }: { navData: NavData }) {
             className="absolute inset-x-0 top-full max-h-[calc(100dvh-73px)] overflow-y-auto overscroll-contain border-t border-white/10 bg-nav px-4 pt-2 pb-4 sm:hidden"
             id="mobile-menu"
           >
+            <TodayLink
+              className={`flex min-h-11 items-center text-sm font-medium text-ocean-200 transition-colors hover:text-white ${darkFocusRing}`}
+              onNavigate={closeMenu}
+            />
             {simpleNavLinks.map(({ to, label, section }) => {
               const active = isInSection(pathname, section)
               return (
                 <Link
                   key={to}
-                  aria-current={active ? 'page' : undefined}
+                  activeOptions={{ exact: true }}
+                  aria-current={active ? currentValue(pathname, to) : undefined}
                   className={`flex min-h-11 items-center text-sm font-medium transition-colors ${active ? 'border-l-2 border-ocean-400 pl-2 text-white' : 'text-ocean-200 hover:text-white'} ${darkFocusRing}`}
                   to={to}
-                  onClick={() => {
-                    setMobileOpen(false)
-                  }}
+                  onClick={closeMenu}
                 >
                   {label}
                 </Link>
               )
             })}
             <MobileDropdown
-              label="Descubrir"
+              label="Colecciones"
               navData={navData}
-              onNavigate={() => {
-                setMobileOpen(false)
-              }}
+              onNavigate={closeMenu}
             />
           </div>
         )}

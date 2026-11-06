@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { Navbar } from './navbar'
@@ -11,8 +11,15 @@ vi.mock('@tanstack/react-router', () => ({
     children,
     to,
     params: _params,
+    activeOptions: _activeOptions,
+    hash: _hash,
     ...props
-  }: React.ComponentProps<'a'> & { to: string; params?: unknown }) => (
+  }: React.ComponentProps<'a'> & {
+    to: string
+    params?: unknown
+    activeOptions?: unknown
+    hash?: string
+  }) => (
     <a href={to} {...props}>
       {children}
     </a>
@@ -28,6 +35,12 @@ const navData = {
 
 const openMenu = () => {
   fireEvent.click(screen.getByRole('button', { name: 'Abrir menú' }))
+}
+
+const getMenu = () => {
+  const menu = document.getElementById('mobile-menu')
+  if (!menu) throw new Error('Mobile menu is not open')
+  return menu
 }
 
 const renderNavbar = (pathname = '/') => {
@@ -66,12 +79,20 @@ describe('Navbar', () => {
   })
 
   it.each([
-    ['/playas/cala-cortina', 'Todas las playas'],
-    ['/explorar', 'Todas las playas'],
-    ['/municipios/cartagena', 'Municipios'],
-  ])('marks the section of %s as current', (pathname, label) => {
+    ['/playas/cala-cortina', 'Todas las playas', 'true'],
+    ['/explorar', 'Todas las playas', 'page'],
+    ['/municipios', 'Municipios', 'page'],
+    ['/municipios/cartagena', 'Municipios', 'true'],
+  ])('marks the section of %s as current', (pathname, label, current) => {
     renderNavbar(pathname)
-    expect(screen.getByRole('link', { name: label }).ariaCurrent).toBe('page')
+    expect(screen.getByRole('link', { name: label }).ariaCurrent).toBe(current)
+  })
+
+  it('names the collections trigger and marks it inside its section', () => {
+    renderNavbar('/colecciones/mar-menor')
+    expect(
+      screen.getByRole('button', { name: 'Colecciones' }).ariaCurrent,
+    ).toBe('true')
   })
 
   it('does not treat a shared prefix as the same section', () => {
@@ -103,6 +124,107 @@ describe('Navbar', () => {
     expect(document.documentElement.style.overflow).toBe('')
     expect(page?.hasAttribute('inert')).toBe(false)
     expect(document.activeElement).toBe(toggle)
+  })
+
+  it('lists collections with their index on phones, without municipalities', () => {
+    renderNavbar()
+    openMenu()
+    fireEvent.click(
+      within(getMenu()).getByRole('button', { name: 'Colecciones' }),
+    )
+    const links = within(getMenu())
+      .getAllByRole('link')
+      .map((link) => link.getAttribute('href'))
+    expect(links).toContain('/colecciones')
+    expect(links).toContain('/colecciones/$slug')
+    expect(links).not.toContain('/municipios/$slug')
+  })
+
+  it('opens the phone collections group inside its section', () => {
+    renderNavbar('/colecciones')
+    openMenu()
+    const toggle = within(getMenu()).getByRole('button', {
+      name: 'Colecciones',
+    })
+    expect(toggle.getAttribute('aria-expanded')).toBe('true')
+    expect(toggle.ariaCurrent).toBe('true')
+  })
+
+  it('keeps the phone collections group closed elsewhere', () => {
+    renderNavbar('/municipios')
+    openMenu()
+    expect(
+      within(getMenu())
+        .getByRole('button', { name: 'Colecciones' })
+        .getAttribute('aria-expanded'),
+    ).toBe('false')
+  })
+
+  describe('search', () => {
+    const scrollIntoView = vi.fn()
+
+    const renderExplorer = () => {
+      renderNavbar('/explorar')
+      const input = document.createElement('input')
+      input.id = 'buscar'
+      input.scrollIntoView = scrollIntoView
+      document.getElementById('main-content')?.append(input)
+      return input
+    }
+
+    it('brings the input into view before focusing it on the explorer', () => {
+      const input = renderExplorer()
+      const notPrevented = fireEvent.click(
+        screen.getByRole('link', { name: 'Buscar playas' }),
+      )
+      expect(scrollIntoView).toHaveBeenCalledWith({ block: 'center' })
+      expect(document.activeElement).toBe(input)
+      expect(notPrevented).toBe(false)
+    })
+
+    it('closes the menu first so the input is no longer inert', () => {
+      const input = renderExplorer()
+      openMenu()
+      expect(input.closest('[inert]')).toBeTruthy()
+      fireEvent.click(screen.getByRole('link', { name: 'Buscar playas' }))
+      expect(document.getElementById('mobile-menu')).toBeNull()
+      expect(input.closest('[inert]')).toBeNull()
+      expect(document.activeElement).toBe(input)
+    })
+
+    it('navigates normally from any other page', () => {
+      renderNavbar('/municipios')
+      const notPrevented = fireEvent.click(
+        screen.getByRole('link', { name: 'Buscar playas' }),
+      )
+      expect(notPrevented).toBe(true)
+    })
+  })
+
+  describe('today link', () => {
+    it('scrolls back to the strip when already on the homepage', () => {
+      renderNavbar('/')
+      const strip = document.createElement('section')
+      strip.id = 'hoy'
+      const scrollIntoView = vi.fn()
+      strip.scrollIntoView = scrollIntoView
+      document.getElementById('main-content')?.append(strip)
+      const notPrevented = fireEvent.click(
+        within(screen.getByRole('navigation')).getAllByRole('link', {
+          name: 'Hoy',
+        })[0],
+      )
+      expect(scrollIntoView).toHaveBeenCalled()
+      expect(notPrevented).toBe(false)
+    })
+
+    it('navigates to the homepage from any other page', () => {
+      renderNavbar('/municipios')
+      const notPrevented = fireEvent.click(
+        screen.getByRole('link', { name: 'Hoy' }),
+      )
+      expect(notPrevented).toBe(true)
+    })
   })
 
   it('closes the menu when the path changes', () => {

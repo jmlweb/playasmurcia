@@ -122,6 +122,7 @@ export function CoastTodayStrip({
     <section
       aria-labelledby="coast-today-heading"
       className="mx-auto max-w-7xl px-4 pt-4 sm:px-6 sm:pt-6 lg:px-8"
+      id="hoy"
     >
       <h2
         className="overline-accent font-sans text-sm font-semibold tracking-wider text-ocean-600 uppercase"

@@ -282,9 +282,9 @@ The whole set is smooth as beach pebbles: rounded, tactile and quiet, changing c
 ### Navigation
 
 - **Bar:** Sticky Chart Night bar with a `white/10` bottom border, slightly translucent from `sm` up.
-- **Links:** 14px medium in Sounding Blue, white on hover and focus.
-- **Descubrir popover:** Night-blue panel (`ocean-800`) with 12px corners, a Floating panel shadow and a two-column list with count pills.
-- **Mobile:** A hamburger opens a panel under the bar with collapsible groups and 44px rows. It scrolls on its own, locks the page behind it and closes on navigation or Esc.
+- **Links:** Hoy, Todas las playas, Municipios and Colecciones, in that order. 14px medium in Sounding Blue, white on hover and focus. Hoy leads to the homepage coast strip and carries no live data itself.
+- **Colecciones popover:** Night-blue panel (`ocean-800`) with 12px corners, a Floating panel shadow and a single list with count pills, closing on a link to `/colecciones`. It scrolls within the viewport on short screens.
+- **Mobile:** A hamburger opens a panel under the bar with the same four items in 44px rows. Colecciones is a collapsible group, open by default inside its section. It scrolls on its own, locks the page behind it and closes on navigation or Esc.
 - **Footer:** Night Water with three columns and count pills, closing on a line naming the data sources and stating the site is personal and ad-free.
 
 ### Beach Card Weather Pill
