@@ -145,8 +145,14 @@ function ExplorerPage() {
   }
 
   const allFiltered = useMemo(
-    () => applyFiltersAndSort(beaches, { ...filters, sort }, position),
-    [beaches, filters, sort, position],
+    () =>
+      applyFiltersAndSort(
+        beaches,
+        { ...filters, sort },
+        position,
+        (id) => municipalities[id]?.name ?? '',
+      ),
+    [beaches, filters, sort, position, municipalities],
   )
   const mapMarkers = useMemo(
     () =>

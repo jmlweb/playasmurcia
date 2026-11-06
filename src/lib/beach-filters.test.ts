@@ -217,6 +217,19 @@ describe('sortBeaches', () => {
     expect(result[1].municipality).toBeLessThanOrEqual(result[2].municipality)
   })
 
+  it('sorts by municipality name when names are available', () => {
+    const names = ['Cartagena', '', '', 'Águilas', 'Mazarrón', '', 'La Unión']
+    const result = sortBeaches(
+      beaches,
+      'municipality',
+      undefined,
+      (id) => names[id],
+    )
+    expect([
+      ...new Set(result.map((beach) => names[beach.municipality])),
+    ]).toEqual(['Águilas', 'Cartagena', 'La Unión', 'Mazarrón'])
+  })
+
   it('sorts by length descending (longest first)', () => {
     const result = sortBeaches(beaches, 'length')
     expect(result[0].length).toBe(2000)

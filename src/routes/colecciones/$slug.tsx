@@ -103,9 +103,14 @@ function CollectionPage() {
     useState<NonNullable<BeachSearchParams['sort']>>('recomendados')
   const sortedItems = useMemo(() => {
     const itemByCode = new Map(items.map((i) => [i.beach.code, i]))
+    const municipalityNames = new Map(
+      items.map((i) => [i.beach.municipality, i.municipality.name]),
+    )
     return sortBeaches(
       items.map((i) => i.beach),
       sort,
+      undefined,
+      (id) => municipalityNames.get(id) ?? '',
     )
       .map((beach) => itemByCode.get(beach.code))
       .filter((item): item is NonNullable<typeof item> => item != null)

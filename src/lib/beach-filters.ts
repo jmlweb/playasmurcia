@@ -70,6 +70,8 @@ export function countActiveFilters(filters: BeachSearchParams): number {
   )
 }
 
+type MunicipalityName = (municipalityId: number) => string
+
 const OccupancyOrder = { low: 0, medium: 1, high: 2 } as const
 
 export function normalizeText(text: string): string {
@@ -179,6 +181,7 @@ export function sortBeaches(
   beaches: Beach[],
   sort: BeachSearchParams['sort'],
   origin?: LatLng,
+  municipalityName?: MunicipalityName,
 ): Beach[] {
   const copy = [...beaches]
 
@@ -207,7 +210,13 @@ export function sortBeaches(
         normalizeText(a.name).localeCompare(normalizeText(b.name)),
       )
     case 'municipality':
-      return copy.sort((a, b) => a.municipality - b.municipality)
+      return copy.sort((a, b) =>
+        municipalityName
+          ? normalizeText(municipalityName(a.municipality)).localeCompare(
+              normalizeText(municipalityName(b.municipality)),
+            )
+          : a.municipality - b.municipality,
+      )
     case 'length':
       return copy.sort((a, b) => {
         if (a.length == null && b.length == null) return 0
@@ -230,6 +239,12 @@ export function applyFiltersAndSort(
   beaches: Beach[],
   params: BeachSearchParams,
   origin?: LatLng,
+  municipalityName?: MunicipalityName,
 ): Beach[] {
-  return sortBeaches(filterBeaches(beaches, params), params.sort, origin)
+  return sortBeaches(
+    filterBeaches(beaches, params),
+    params.sort,
+    origin,
+    municipalityName,
+  )
 }
