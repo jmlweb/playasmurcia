@@ -8,6 +8,7 @@ import {
 import { createServerFn } from '@tanstack/react-start'
 import { useEffect, useRef, useState } from 'react'
 
+import { NotFound } from '@/components/layout/not-found'
 import { ResponsiveImage } from '@/components/ui/responsive-image'
 import { ActivitiesGrid } from '@/features/beaches/activities-grid'
 import { BeachConditions } from '@/features/beaches/beach-conditions'
@@ -121,6 +122,7 @@ function BeachErrorComponent({ reset }: ErrorComponentProps) {
 }
 
 export const Route = createFileRoute('/playas/$slug')({
+  notFoundComponent: NotFound,
   loader: async ({ params }) => {
     const data = await fetchBeachData({ data: { slug: params.slug } })
     if (!data) {

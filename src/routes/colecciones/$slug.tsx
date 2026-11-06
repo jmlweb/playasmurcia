@@ -9,6 +9,7 @@ import { useMemo } from 'react'
 
 import type { BeachSearchParams } from '@/lib/beach-filters'
 
+import { NotFound } from '@/components/layout/not-found'
 import { PageHero } from '@/components/layout/page-hero'
 import { EmptyState } from '@/components/ui/empty-state'
 import { BeachCard } from '@/features/beaches/beach-card'
@@ -74,6 +75,7 @@ const fetchCollectionData = createServerFn({ method: 'GET' })
 
 export const Route = createFileRoute('/colecciones/$slug')({
   validateSearch: validateListingSearch,
+  notFoundComponent: NotFound,
   loader: async ({ params }) => {
     const data = await fetchCollectionData({ data: { slug: params.slug } })
     if (!data) throw notFound()

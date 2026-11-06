@@ -10,6 +10,7 @@ import { Fragment, useMemo } from 'react'
 
 import type { BeachSearchParams } from '@/lib/beach-filters'
 
+import { NotFound } from '@/components/layout/not-found'
 import { PageHero } from '@/components/layout/page-hero'
 import { EmptyState } from '@/components/ui/empty-state'
 import { BeachCard } from '@/features/beaches/beach-card'
@@ -86,6 +87,7 @@ const LIFTED_HERO_SLUGS = new Set(['lorca', 'mazarron'])
 
 export const Route = createFileRoute('/municipios/$slug')({
   validateSearch: validateMunicipalitySearch,
+  notFoundComponent: NotFound,
   beforeLoad: ({ params }) => {
     const target = RETIRED_MUNICIPALITY_SLUGS[params.slug]
     if (target) {
