@@ -85,6 +85,37 @@ export function validateMunicipalitySearch(
   }
 }
 
+function nonEmpty<TValue>(values: TValue[] | undefined) {
+  return values?.length ? values : undefined
+}
+
+/**
+ * Next URL state for a filter change. `next` is the whole filter selection: a
+ * filter it omits is off, so a reset only has to leave keys out.
+ */
+export function mergeExplorerSearch(
+  prev: ExplorerSearchParams,
+  next: BeachSearchParams,
+  page?: number,
+): ExplorerSearchParams {
+  return {
+    ...prev,
+    ...next,
+    ...Object.fromEntries(
+      NeedFilterKeys.map((key) => [key, next[key] || undefined]),
+    ),
+    municipality: nonEmpty(next.municipality),
+    sea: nonEmpty(next.sea),
+    services: nonEmpty(next.services),
+    activities: nonEmpty(next.activities),
+    tags: nonEmpty(next.tags),
+    accessDifficulty: nonEmpty(next.accessDifficulty),
+    occupancy: nonEmpty(next.occupancy),
+    q: next.q || undefined,
+    page: page && page > 1 ? page : undefined,
+  }
+}
+
 export function validateSearch(
   search: Record<string, unknown>,
 ): ExplorerSearchParams {

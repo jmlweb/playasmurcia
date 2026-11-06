@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import {
+  mergeExplorerSearch,
   validateListingSearch,
   validateMunicipalitySearch,
   validateSearch,
@@ -78,5 +79,51 @@ describe('validateMunicipalitySearch', () => {
 
     expect(result).not.toHaveProperty('q')
     expect(result).not.toHaveProperty('municipality')
+  })
+})
+
+describe('mergeExplorerSearch', () => {
+  const prev = {
+    lifeguard: true,
+    nudist: true,
+    sea: [1],
+    q: 'cala',
+    sort: 'name',
+    page: 3,
+  } as const
+
+  it('clears boolean filters that next leaves out', () => {
+    const result = mergeExplorerSearch({ ...prev, sea: [1] }, { sort: 'name' })
+
+    expect(result).toMatchObject({
+      lifeguard: undefined,
+      nudist: undefined,
+      sea: undefined,
+      q: undefined,
+      sort: 'name',
+      page: undefined,
+    })
+  })
+
+  it('keeps the boolean filters next carries', () => {
+    const result = mergeExplorerSearch(
+      { ...prev, sea: [1] },
+      { lifeguard: true },
+    )
+
+    expect(result.lifeguard).toBe(true)
+    expect(result.nudist).toBeUndefined()
+  })
+
+  it('keeps sort when next omits it, and drops page 1 and empty arrays', () => {
+    const result = mergeExplorerSearch({ ...prev, sea: [1] }, { sea: [] }, 1)
+
+    expect(result.sort).toBe('name')
+    expect(result.sea).toBeUndefined()
+    expect(result.page).toBeUndefined()
+  })
+
+  it('sets a later page', () => {
+    expect(mergeExplorerSearch({}, {}, 2).page).toBe(2)
   })
 })
