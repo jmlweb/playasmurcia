@@ -1,6 +1,7 @@
 import { writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
+import { runWithDbScope } from '../src/db/request-scope'
 import { collections } from '../src/lib/collections'
 import {
   beachToSlug,
@@ -81,7 +82,7 @@ ${urls.join('\n')}
   console.log(`Sitemap generated with ${urls.length} URLs → public/sitemap.xml`)
 }
 
-generateSitemap()
+runWithDbScope(generateSitemap)
   .then(() => process.exit(0))
   .catch((err) => {
     console.error('Failed to generate sitemap:', err)

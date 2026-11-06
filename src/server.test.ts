@@ -15,12 +15,10 @@ vi.mock('@tanstack/react-start/server', () => ({
 describe('Worker entry', () => {
   afterEach(() => {
     vi.unstubAllEnvs()
-    vi.unstubAllGlobals()
   })
 
   it('runs the app inside a database scope', async () => {
     vi.stubEnv('DATABASE_URL', 'http://db.test')
-    vi.stubGlobal('navigator', { userAgent: 'Cloudflare-Workers' })
     expect(() => getDb()).toThrow(DbScopeError)
 
     const { default: worker } = await import('./server')

@@ -1,4 +1,6 @@
-import { describe, expect, it } from 'vitest'
+import { aroundAll, describe, expect, it } from 'vitest'
+
+import { runWithDbScope } from '@/db/request-scope'
 
 import {
   beachToSlug,
@@ -16,6 +18,10 @@ import {
   getService,
   municipalityToSlug,
 } from './db-data/beach-queries'
+
+aroundAll(async (runSuite) => {
+  await runWithDbScope(runSuite)
+})
 
 describe('db-data module', () => {
   describe('getAllBeaches', () => {

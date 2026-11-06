@@ -10,16 +10,10 @@ import * as schema from './schema'
 
 export class DbScopeError extends Error {
   constructor() {
-    super('Database accessed outside runWithDbScope in a Worker')
+    super('Database accessed outside runWithDbScope')
     this.name = 'DbScopeError'
   }
 }
-
-// Scripts and tests run in Node, where one long-lived client is safe
-let processDb: Database | undefined
-
-const isWorkerRuntime = (): boolean =>
-  globalThis.navigator?.userAgent === 'Cloudflare-Workers'
 
 function createDb(): Database {
   // DATABASE_URL first so local `file:./local.db` wins when both are in `.env`
@@ -41,13 +35,9 @@ function createDb(): Database {
  */
 export function getDb(): Database {
   const scope = getDbScope()
-  if (scope) {
-    scope.db ??= createDb()
-    return scope.db
-  }
-  if (isWorkerRuntime()) throw new DbScopeError()
-  processDb ??= createDb()
-  return processDb
+  if (!scope) throw new DbScopeError()
+  scope.db ??= createDb()
+  return scope.db
 }
 
 // Keep backwards-compatible export that lazy-initializes
