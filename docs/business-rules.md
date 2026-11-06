@@ -11,6 +11,7 @@ Scripts that exist in `scripts/` and require periodic execution:
 | `add-certifications.js`        | Update Blue Flag, Q Quality, Ecoplayas certifications                     | Annual (spring)                      |
 | `add-lifeguard-info.js`        | Update COPLA lifeguard data                                               | Seasonal (pre-summer)                |
 | `add-bathing-water-quality.ts` | Set official EU bathing-water class from EEA / NÁYADE sampling points     | Annual (after EEA release, ~June)    |
+| `assign-zones.ts`              | Set `zone` from ITREM locality labels and the curation in `zones.json`    | After adding beaches or zone edits   |
 | `validate-beaches.js`          | Validate all beach data integrity                                         | Before releases                      |
 | `migrate-to-database.ts`       | Migrate JSON data to SQLite/Turso                                         | Once (or after JSON changes)         |
 | `validate-migration.ts`        | Validate database matches JSON source                                     | After migration                      |
@@ -63,6 +64,16 @@ The 500 m limit is a trade-off: beach coordinates can be hundreds of metres from
 The beach page shows the class with "Clasificación oficial UE, temporada <season>. Fuente: EEA / NÁYADE (Ministerio de Sanidad)", linked to `profileUrl`.
 
 Run it once a year after the EEA publishes the new season (around June), review the counts it prints, then migrate.
+
+## Beach Zones
+
+`zone` places a beach in a locality or tourism area inside (or, for La Manga del Mar Menor, across) municipalities. `pnpm tsx scripts/assign-zones.ts` resolves it per beach code, in this order:
+
+1. `unresolved` in `data/zones.json`: no zone. Each entry says why (for example, ITREM says La Manga but the beach is on the mainland shore)
+2. `manual`: the hand-picked zone, with its reason. It fills gaps (no ITREM page, no label, or a label that only names the municipality) and overrides labels that lump places together, such as Calblanque beaches labelled `LA MANGA DEL MAR MENOR`
+3. Otherwise the zone that `itremLabels` gives the beach's ITREM label
+
+An ITREM label missing from `itremLabels` stops the script: a new label needs a curation decision, never a default. The municipality page groups its beaches into one section per zone, in the coastal order of the zone list, with unresolved beaches last under "Otras playas". It skips grouping when all its beaches would fall into one section (La Unión). The beach page shows "Zone · Municipality" under the name, or only the municipality when the zone has the same name (Los Alcázares, Águilas). Details and sources: [data-schema.md](./data-schema.md#zones).
 
 ## Weather: AEMET and Open-Meteo
 

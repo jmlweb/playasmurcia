@@ -380,6 +380,21 @@ describe('db-data module', () => {
       expect(dbBeach?.coordinates[1]).toBeCloseTo(jsonBeach!.coordinates[1], 4)
     })
 
+    it('stores the zone of every beach, and none for unresolved ones', async () => {
+      const jsonBeaches = (await import('../../data/beaches.json')).default as {
+        code: string
+        zone?: string
+      }[]
+      const dbBeaches = await getAllBeaches()
+      const dbZones = new Map(dbBeaches.map((b) => [b.code, b.zone]))
+
+      for (const jsonBeach of jsonBeaches) {
+        expect(dbZones.get(jsonBeach.code), jsonBeach.code).toBe(jsonBeach.zone)
+      }
+      expect((await getBeachByCode('590'))?.zone).toBe('calblanque')
+      expect((await getBeachByCode('528'))?.zone).toBeUndefined()
+    })
+
     it('municipalities match between JSON and DB', async () => {
       const jsonMunicipalities = (
         await import('../../data/municipalities.json')

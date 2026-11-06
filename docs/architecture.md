@@ -53,7 +53,7 @@ playasmurcia/
 │   │   ├── beaches/        # Beach domain (cards, detail widgets, gallery, maps)
 │   │   ├── home/           # Homepage sections (hero, featured grid, municipalities)
 │   │   ├── collections/    # Single collection card (4:3 photo, title, description, count)
-│   │   ├── listing/        # Shared list/explorer (pagination, filters, chip filter bar, results summary, search)
+│   │   ├── listing/        # Shared list/explorer (pagination, filters, chip filter bar, results summary, search, zone sections)
 │   │   ├── municipalities/ # Reusable municipality card (photo, meta line, CTA)
 │   │   └── webmcp/         # WebMCP tools for in-browser agents (server fns + hook)
 │   ├── lib/
@@ -74,6 +74,7 @@ playasmurcia/
 │   │   ├── security-headers.ts  # Response security headers + CSP
 │   │   ├── cn.ts           # clsx + tailwind-merge helper
 │   │   ├── slugs.ts        # Slug generation
+│   │   ├── zones.ts        # Beach zones from data/zones.json: lookup, ITREM label mapping, grouping
 │   │   ├── status-styles.ts     # Badge Tailwind class maps
 │   │   ├── images.ts
 │   │   ├── schema.ts       # JSON-LD
@@ -226,6 +227,8 @@ Runtime reads use a network-accessible libSQL URL (`TURSO_DATABASE_URL` / `DATAB
 Authoritative **editorial source** for bulk fields; after edits, run migration so Turso stays in sync. Schemas: [data-schema.md](./data-schema.md).
 
 Exception: `data/certification-seasons.json` is not migrated. `src/lib/certification-seasons.ts` imports it statically (`resolveJsonModule`), so a new season year ships with the next deploy without a DB migration.
+
+`data/zones.json` is bundled the same way by `src/lib/zones.ts` for zone names, kinds and order. The per-beach `zone` id itself lives in `beaches.json` and the `beaches.zone` column, so it does need the migration. `data/source/itrem-localities.json` is evidence only: neither bundled nor migrated.
 
 ## Scripts and deployment
 

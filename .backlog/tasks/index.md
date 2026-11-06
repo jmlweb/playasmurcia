@@ -4,10 +4,10 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 36 |
+| Pending | 35 |
 | Active | 0 |
 | Blocked | 0 |
-| Complete | 131 |
+| Complete | 132 |
 
 ## Active Tasks
 
@@ -31,7 +31,6 @@ _No active tasks._
 | TSK-142 | Photos for the 53 beaches with no pictures | P3 | data, images | 2026-10-28 |
 | TSK-143 | Seasonal access restrictions (Calblanque, Cabo Cope, Cala Cerrada) | P4 | data, access | 2026-10-28 |
 | TSK-145 | Fix: Explorer page param below 1 renders an empty results grid | P4 | bug, explorer | 2026-11-03 |
-| TSK-146 | Beach zones from ITREM locality labels | P2 | data, external-source, feature | 2026-11-04 |
 | TSK-147 | Official beach width and length from ITREM; review OSM length | P3 | data, external-source, cleanup | 2026-11-04 |
 | TSK-148 | Municipality facts: population, appraised housing value, tourist offices | P3 | data, external-source, municipalities | 2026-11-04 |
 | TSK-149 | Smoke-free beaches from the regional network | P4 | data, external-source | 2026-11-04 |
@@ -58,6 +57,7 @@ _No active tasks._
 
 | ID | Title | Completed |
 |----|-------|-----------|
+| TSK-146 | Beach zones from ITREM locality labels | 2026-11-06 |
 | TSK-153 | Beach detail: surface safety and key facts first | 2026-11-06 |
 | TSK-161 | Fix: Family signals contradict childSafe | 2026-11-06 |
 | TSK-144 | Fix: AEMET beach forecast parser expects an invented payload shape, so the AEMET widget never renders | 2026-11-05 |
@@ -67,4 +67,3 @@ _No active tasks._
 | TSK-135 | Finish or revert the uncommitted shoreBearing recompute | 2026-10-28 |
 | TSK-129 | Fix: COPLA flag lookup misses beaches whose feed name carries a segment suffix | 2026-10-27 |
 | TSK-126 | Fix: Nearby beaches lose their distance order | 2026-10-25 |
-| TSK-125 | Fix: COPLA 'PLAYA CERRADA' flag is mapped to 'Sin bandera' | 2026-10-23 |

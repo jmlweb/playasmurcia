@@ -32,6 +32,7 @@ export function mapBeachFromDB(dbBeach: {
   certifications: string | null
   bestSeason: string | null
   district: string | null
+  zone: string | null
   phone: string | null
   email: string | null
   realUrl: string | null
@@ -95,6 +96,7 @@ export function mapBeachFromDB(dbBeach: {
       )[],
     }),
     ...(dbBeach.district && { district: dbBeach.district }),
+    ...(dbBeach.zone && { zone: dbBeach.zone }),
     ...(dbBeach.phone && { phone: dbBeach.phone }),
     ...(dbBeach.email && { email: dbBeach.email }),
     ...(dbBeach.realUrl && { realUrl: dbBeach.realUrl }),

@@ -72,6 +72,7 @@ export const beaches = sqliteTable(
     certifications: text('certifications'),
     bestSeason: text('best_season'),
     district: text('district'),
+    zone: text('zone'),
     phone: text('phone'),
     email: text('email'),
     realUrl: text('real_url'),
