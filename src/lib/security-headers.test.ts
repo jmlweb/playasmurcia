@@ -1,8 +1,27 @@
-import { describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { withSecurityHeaders } from './security-headers'
 
 describe('withSecurityHeaders', () => {
+  afterEach(() => {
+    vi.unstubAllEnvs()
+    vi.resetModules()
+  })
+
+  it('keeps the live-mode origin out of production builds', async () => {
+    vi.stubEnv('DEV', false)
+    vi.resetModules()
+    const { withSecurityHeaders: withProductionHeaders } =
+      await import('./security-headers')
+
+    const csp = withProductionHeaders(
+      new Response(''),
+      'https://www.playasmurcia.com/',
+    ).headers.get('Content-Security-Policy')
+
+    expect(csp).not.toContain('localhost')
+  })
+
   it('adds the baseline headers and keeps status and body', async () => {
     const result = withSecurityHeaders(
       new Response('hola', { status: 404 }),
