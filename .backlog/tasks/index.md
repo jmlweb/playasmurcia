@@ -4,7 +4,7 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 37 |
+| Pending | 38 |
 | Active | 0 |
 | Blocked | 0 |
 | Complete | 129 |
@@ -54,6 +54,7 @@ _No active tasks._
 | TSK-166 | Fix: Beach detail copy and accessibility defects | P4 | ui, bug, accessibility | 2026-11-04 |
 | TSK-167 | Fix: Replace Piedra Mala annotated cover | P4 | images, content, bug | 2026-11-04 |
 | TSK-169 | Fix: 17 descriptions join unrelated facts with y socorrista | P4 | data, content | 2026-11-04 |
+| TSK-170 | Fix: COPLA flag lookup still misses four beaches whose feed entry uses a different name | P3 |  | 2026-11-06 |
 
 ## Recently Completed
 
