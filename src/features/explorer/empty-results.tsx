@@ -96,14 +96,14 @@ export function EmptyResults({
                 {suggestions.map(({ key, label, next, count }) => (
                   <li key={key}>
                     <button
-                      className="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm text-gray-700 transition-colors hover:border-ocean-300 hover:text-ocean-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none"
+                      className="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm text-gray-700 transition-colors hover:border-ocean-300 hover:text-ocean-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none pointer-coarse:min-h-11"
                       type="button"
                       onClick={() => {
                         onChange(next)
                       }}
                     >
-                      Quitar {label}
-                      <span className="ml-1.5 text-gray-600 tabular-nums">
+                      Quitar {label}{' '}
+                      <span className="ml-1 text-gray-600 tabular-nums">
                         {beachCountLabel(count)}
                       </span>
                     </button>
@@ -112,7 +112,7 @@ export function EmptyResults({
               </ul>
             )}
             <button
-              className="rounded-full bg-ocean-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-ocean-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
+              className="rounded-full bg-ocean-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-ocean-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none pointer-coarse:min-h-11"
               type="button"
               onClick={() => {
                 onChange({})

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 
 import type { BeachSearchParams } from '@/lib/beach-filters'
 
@@ -34,8 +34,10 @@ export function SortSelect({
   const [open, setOpen] = useState(false)
   const [focusedIndex, setFocusedIndex] = useState(-1)
   const containerRef = useRef<HTMLDivElement>(null)
-  const menuRef = useRef<HTMLUListElement>(null)
+  const listRef = useRef<HTMLUListElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
+  const labelId = useId()
+  const triggerId = useId()
   const currentLabel =
     options.find((o) => o.value === value)?.label ?? 'Nombre A-Z'
 
@@ -69,13 +71,13 @@ export function SortSelect({
 
   // Keep DOM focus in sync with focusedIndex
   useEffect(() => {
-    if (!open || focusedIndex < 0 || !menuRef.current) return
+    if (!open || focusedIndex < 0 || !listRef.current) return
     const items =
-      menuRef.current.querySelectorAll<HTMLElement>('[role="menuitem"]')
+      listRef.current.querySelectorAll<HTMLElement>('[role="option"]')
     items[focusedIndex].focus()
   }, [open, focusedIndex])
 
-  function handleMenuKeyDown(e: React.KeyboardEvent) {
+  function handleListKeyDown(e: React.KeyboardEvent) {
     if (e.key === 'Escape') {
       setOpen(false)
       triggerRef.current?.focus()
@@ -87,6 +89,12 @@ export function SortSelect({
     } else if (e.key === 'ArrowUp') {
       e.preventDefault()
       setFocusedIndex((prev) => (prev - 1 + options.length) % options.length)
+    } else if (e.key === 'Home') {
+      e.preventDefault()
+      setFocusedIndex(0)
+    } else if (e.key === 'End') {
+      e.preventDefault()
+      setFocusedIndex(options.length - 1)
     } else if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault()
       if (focusedIndex >= 0) {
@@ -101,15 +109,17 @@ export function SortSelect({
 
   return (
     <div ref={containerRef} className="relative">
-      <div className="flex items-center gap-2">
-        <span className="text-sm whitespace-nowrap text-gray-500">
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="text-sm whitespace-nowrap text-gray-500" id={labelId}>
           Ordenar por
         </span>
         <button
           ref={triggerRef}
           aria-expanded={open}
-          aria-haspopup="menu"
+          aria-haspopup="listbox"
+          aria-labelledby={`${labelId} ${triggerId}`}
           className="flex cursor-pointer items-center gap-1.5 rounded-full border border-gray-200 bg-white py-2 pr-3 pl-3.5 text-sm font-medium text-gray-700 transition-all hover:border-gray-300 focus-visible:border-ocean-400 focus-visible:ring-2 focus-visible:ring-ocean-400 focus-visible:outline-none pointer-coarse:min-h-11"
+          id={triggerId}
           type="button"
           onClick={() => {
             setOpen((prev) => !prev)
@@ -126,22 +136,23 @@ export function SortSelect({
       </div>
       {open && (
         <ul
-          ref={menuRef}
+          ref={listRef}
+          aria-labelledby={labelId}
           className="absolute right-0 z-20 mt-1 min-w-[10rem] overflow-hidden rounded-xl border border-gray-200 bg-white py-1 shadow-lg"
-          role="menu"
-          onKeyDown={handleMenuKeyDown}
+          role="listbox"
+          onKeyDown={handleListKeyDown}
         >
           {options.map((option) => (
             <li
               key={option.value}
-              aria-current={option.value === value ? true : undefined}
+              aria-selected={option.value === value}
               className={cn(
-                'focus-visible:ring-ocean-500 cursor-pointer px-4 py-2 text-sm transition-colors focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-inset',
+                'focus-visible:ring-ocean-500 cursor-pointer px-4 py-2 text-sm transition-colors focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-inset pointer-coarse:flex pointer-coarse:min-h-11 pointer-coarse:items-center',
                 option.value === value
                   ? 'bg-ocean-50 text-ocean-700 font-medium'
                   : 'text-gray-700 hover:bg-gray-50',
               )}
-              role="menuitem"
+              role="option"
               tabIndex={-1}
               onClick={() => {
                 onChange(option.value)

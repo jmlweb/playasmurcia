@@ -1,3 +1,5 @@
+import type { MouseEvent, ReactNode } from 'react'
+
 import { cn } from '@/lib/cn'
 
 const SIBLING_COUNT = 1
@@ -40,14 +42,67 @@ function getPageNumbers(
   ]
 }
 
+const FocusRing =
+  'focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none'
+
+const StepClass = cn(
+  'flex h-10 min-w-10 items-center justify-center rounded-lg px-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-40 sm:px-3 pointer-coarse:h-11',
+  FocusRing,
+)
+
+function isPlainClick(e: MouseEvent) {
+  return !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0
+}
+
+/** A link when the page has a URL, so it can be crawled or opened in a new tab. */
+function PageControl({
+  children,
+  disabled = false,
+  href,
+  onSelect,
+  ...rest
+}: {
+  'aria-current'?: 'page'
+  'aria-label': string
+  children: ReactNode
+  className: string
+  disabled?: boolean
+  href?: string
+  onSelect: () => void
+}) {
+  if (href && !disabled) {
+    return (
+      <a
+        {...rest}
+        href={href}
+        onClick={(e) => {
+          if (!isPlainClick(e)) return
+          e.preventDefault()
+          onSelect()
+        }}
+      >
+        {children}
+      </a>
+    )
+  }
+  return (
+    <button {...rest} disabled={disabled} type="button" onClick={onSelect}>
+      {children}
+    </button>
+  )
+}
+
 export function Pagination({
   currentPage,
   totalPages,
   onPageChange,
+  getPageHref,
 }: {
   currentPage: number
   totalPages: number
   onPageChange: (page: number) => void
+  /** Pages with their own URL render as links */
+  getPageHref?: (page: number) => string
 }) {
   if (totalPages <= 1) return null
 
@@ -57,12 +112,12 @@ export function Pagination({
     <nav aria-label="Paginación" className="mt-10 flex justify-center">
       <ul className="flex flex-wrap items-center justify-center gap-0.5 sm:gap-1">
         <li>
-          <button
+          <PageControl
             aria-label="Página anterior"
-            className="flex h-10 min-w-10 items-center justify-center rounded-lg px-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-40 sm:px-3"
+            className={StepClass}
             disabled={currentPage === 1}
-            type="button"
-            onClick={() => {
+            href={getPageHref?.(currentPage - 1)}
+            onSelect={() => {
               onPageChange(currentPage - 1)
             }}
           >
@@ -81,45 +136,49 @@ export function Pagination({
               />
             </svg>
             <span className="sr-only sm:not-sr-only">Anterior</span>
-          </button>
+          </PageControl>
         </li>
 
         {pages.map((page) =>
           typeof page === 'string' ? (
             <li key={page}>
-              <span className="flex h-10 w-6 items-center justify-center text-sm text-gray-400 sm:w-10">
+              <span
+                aria-hidden="true"
+                className="flex h-10 w-6 items-center justify-center text-sm text-gray-600 sm:w-10"
+              >
                 …
               </span>
             </li>
           ) : (
             <li key={page}>
-              <button
+              <PageControl
                 aria-current={page === currentPage ? 'page' : undefined}
                 aria-label={`Página ${page}`}
                 className={cn(
-                  'flex h-10 w-9 items-center justify-center rounded-lg text-sm font-medium transition-colors sm:w-10',
+                  'flex h-10 w-9 items-center justify-center rounded-lg text-sm font-medium transition-colors sm:w-10 pointer-coarse:h-11',
+                  FocusRing,
                   page === currentPage
                     ? 'bg-ocean-600 text-white'
                     : 'text-gray-700 hover:bg-gray-100',
                 )}
-                type="button"
-                onClick={() => {
+                href={getPageHref?.(page)}
+                onSelect={() => {
                   onPageChange(page)
                 }}
               >
                 {page}
-              </button>
+              </PageControl>
             </li>
           ),
         )}
 
         <li>
-          <button
+          <PageControl
             aria-label="Página siguiente"
-            className="flex h-10 min-w-10 items-center justify-center rounded-lg px-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-40 sm:px-3"
+            className={StepClass}
             disabled={currentPage === totalPages}
-            type="button"
-            onClick={() => {
+            href={getPageHref?.(currentPage + 1)}
+            onSelect={() => {
               onPageChange(currentPage + 1)
             }}
           >
@@ -138,7 +197,7 @@ export function Pagination({
                 strokeWidth={2}
               />
             </svg>
-          </button>
+          </PageControl>
         </li>
       </ul>
     </nav>

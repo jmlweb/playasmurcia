@@ -37,6 +37,8 @@ describe('validateSearch need filters', () => {
 describe('mergeExplorerSearch', () => {
   const prev = {
     lifeguard: true,
+    blueFlag: true,
+    flagGreen: true,
     nudist: true,
     sea: [1],
     q: 'cala',
@@ -49,6 +51,8 @@ describe('mergeExplorerSearch', () => {
 
     expect(result).toMatchObject({
       lifeguard: undefined,
+      blueFlag: undefined,
+      flagGreen: undefined,
       nudist: undefined,
       sea: undefined,
       q: undefined,
@@ -64,7 +68,7 @@ describe('mergeExplorerSearch', () => {
     )
 
     expect(result.lifeguard).toBe(true)
-    expect(result.nudist).toBeUndefined()
+    expect(result.blueFlag).toBeUndefined()
   })
 
   it('keeps sort when next omits it, and drops page 1 and empty arrays', () => {

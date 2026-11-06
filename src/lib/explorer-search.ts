@@ -35,6 +35,8 @@ function parseEnumArray<TValue extends string>(
   return valid.length > 0 ? [...new Set(valid)] : undefined
 }
 
+const BooleanFilterKeys = [...NeedFilterKeys, 'blueFlag', 'flagGreen'] as const
+
 function nonEmpty<TValue>(values: TValue[] | undefined) {
   return values?.length ? values : undefined
 }
@@ -52,7 +54,7 @@ export function mergeExplorerSearch(
     ...prev,
     ...next,
     ...Object.fromEntries(
-      NeedFilterKeys.map((key) => [key, next[key] || undefined]),
+      BooleanFilterKeys.map((key) => [key, next[key] || undefined]),
     ),
     municipality: nonEmpty(next.municipality),
     sea: nonEmpty(next.sea),

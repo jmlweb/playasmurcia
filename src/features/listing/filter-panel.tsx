@@ -5,7 +5,9 @@ import {
   useMemo,
   useRef,
   useState,
+  useSyncExternalStore,
 } from 'react'
+import { createPortal } from 'react-dom'
 
 import type {
   Activity,
@@ -31,7 +33,7 @@ import {
 } from '@/lib/beach-filters'
 import { cn } from '@/lib/cn'
 
-import { FilterChip, SegmentedFilter, toggleValue } from './filter-controls'
+import { FilterRow, SegmentedFilter, toggleValue } from './filter-controls'
 
 const AccessOptions = [
   { value: 'easy', label: 'Fácil', title: AccessDifficultyLabels.easy },
@@ -244,44 +246,29 @@ function FilterGroup({
   )
 }
 
-/** Top-level heading that splits the panel into "now" and "what it is like" */
-function GroupHeading({ id, children }: { id?: string; children: ReactNode }) {
-  return (
-    <h3
-      className="mb-3 text-xs font-semibold tracking-wider text-gray-600 uppercase"
-      id={id}
-    >
-      {children}
-    </h3>
-  )
-}
-
 function FilterSection({
   label,
   children,
   activeCount = 0,
   grouped = false,
-  help,
 }: {
   label: string
   children: ReactNode
   activeCount?: number
   /** Chips carry no group role of their own, so the section names them */
   grouped?: boolean
-  /** One line that says what the options mean */
-  help?: string
 }) {
   const headingId = useId()
 
   return (
     <section className="mb-5">
-      <h4
+      <h3
         className="mb-2 flex items-center gap-2 text-sm font-medium text-gray-800"
         id={headingId}
       >
         {label}
         <CountBadge count={activeCount} />
-      </h4>
+      </h3>
       {grouped ? (
         <div aria-labelledby={headingId} role="group">
           {children}
@@ -289,7 +276,6 @@ function FilterSection({
       ) : (
         children
       )}
-      {help && <p className="mt-2 text-xs text-gray-600">{help}</p>}
     </section>
   )
 }
@@ -307,7 +293,7 @@ function CheckboxItem({ label, checked, count, onChange }: CheckboxItemProps) {
   return (
     <label
       className={cn(
-        'flex items-center gap-2.5 rounded-lg px-1 py-2 text-sm transition-colors pointer-coarse:py-3',
+        'group flex items-center gap-2.5 rounded-lg py-2 text-sm transition-colors pointer-coarse:py-3',
         isDisabled
           ? 'cursor-not-allowed text-gray-500'
           : 'cursor-pointer text-gray-600 hover:text-gray-900',
@@ -322,10 +308,16 @@ function CheckboxItem({ label, checked, count, onChange }: CheckboxItemProps) {
           if (!isDisabled) onChange(e.target.checked)
         }}
       />
-      <span className={checked ? 'font-medium text-gray-900' : ''}>
+      <span
+        className={cn('min-w-0 flex-1', checked && 'font-medium text-gray-900')}
+      >
         {label}
       </span>
-      {!checked && <span className="tabular-nums">{count}</span>}
+      {!checked && (
+        <span className="tabular-nums opacity-0 transition-opacity group-focus-within:opacity-100 group-hover:opacity-100 pointer-coarse:opacity-100">
+          {count}
+        </span>
+      )}
     </label>
   )
 }
@@ -417,7 +409,6 @@ function FilterContent({
           counts.indexed.tags[index],
         ),
     )
-  const todayHeadingId = useId()
 
   function clearAll() {
     onChange({
@@ -435,7 +426,9 @@ function FilterContent({
         )}
       >
         {showHeading && (
-          <h2 className="text-base font-semibold text-gray-900">Filtros</h2>
+          <h2 className="font-(family-name:--default-font-family) text-base font-semibold text-gray-900">
+            Filtros
+          </h2>
         )}
         {totalActive > 0 && (
           <button
@@ -448,18 +441,10 @@ function FilterContent({
         )}
       </div>
 
-      <section className="mb-6">
-        <GroupHeading id={todayHeadingId}>
-          Para hoy
-          <CountBadge count={todayActive} />
-        </GroupHeading>
-        <div
-          aria-labelledby={todayHeadingId}
-          className="flex flex-wrap gap-2"
-          role="group"
-        >
+      <FilterSection grouped activeCount={todayActive} label="Para hoy">
+        <div className="-mx-2">
           {flagGreenAvailable && (
-            <FilterChip
+            <FilterRow
               count={counts.flags.flagGreen}
               label={TodayFilterLabels.flagGreen}
               pressed={Boolean(filters.flagGreen)}
@@ -468,7 +453,7 @@ function FilterContent({
               }}
             />
           )}
-          <FilterChip
+          <FilterRow
             count={counts.flags.lifeguard}
             label={TodayFilterLabels.lifeguard}
             pressed={Boolean(filters.lifeguard)}
@@ -476,7 +461,7 @@ function FilterContent({
               toggleFlag('lifeguard')
             }}
           />
-          <FilterChip
+          <FilterRow
             count={counts.flags.blueFlag}
             label={TodayFilterLabels.blueFlag}
             pressed={Boolean(filters.blueFlag)}
@@ -485,107 +470,93 @@ function FilterContent({
             }}
           />
         </div>
-      </section>
+      </FilterSection>
 
-      <div className="border-t border-gray-100 pt-5">
-        <GroupHeading>Cómo es la playa</GroupHeading>
-
-        <FilterSection
-          help="Lo difícil que es llegar a la playa."
+      <FilterSection label="Acceso">
+        <SegmentedFilter
           label="Acceso"
-        >
-          <SegmentedFilter
-            label="Acceso"
-            options={AccessOptions.map((option) => ({
-              ...option,
-              count: counts.access[option.value],
-            }))}
-            selected={filters.accessDifficulty ?? []}
-            onToggle={(value) => {
-              onChange({
-                ...filters,
-                accessDifficulty: toggleValue(filters.accessDifficulty, value),
-              })
-            }}
-          />
-        </FilterSection>
+          options={AccessOptions.map((option) => ({
+            ...option,
+            count: counts.access[option.value],
+          }))}
+          selected={filters.accessDifficulty ?? []}
+          onToggle={(value) => {
+            onChange({
+              ...filters,
+              accessDifficulty: toggleValue(filters.accessDifficulty, value),
+            })
+          }}
+        />
+      </FilterSection>
 
-        <FilterSection
-          help="Afluencia habitual en un día de pleno verano."
+      <FilterSection label="Ocupación en verano">
+        <SegmentedFilter
           label="Ocupación en verano"
-        >
-          <SegmentedFilter
-            label="Ocupación en verano"
-            options={OccupancyOptions.map((option) => ({
-              ...option,
-              count: counts.occupancy[option.value],
-            }))}
-            selected={filters.occupancy ?? []}
-            onToggle={(value) => {
-              onChange({
-                ...filters,
-                occupancy: toggleValue(filters.occupancy, value),
-              })
-            }}
-          />
-        </FilterSection>
+          options={OccupancyOptions.map((option) => ({
+            ...option,
+            count: counts.occupancy[option.value],
+          }))}
+          selected={filters.occupancy ?? []}
+          onToggle={(value) => {
+            onChange({
+              ...filters,
+              occupancy: toggleValue(filters.occupancy, value),
+            })
+          }}
+        />
+      </FilterSection>
 
-        <FilterSection grouped activeCount={needsActive} label="Necesidades">
-          <div className="flex flex-wrap gap-2">
-            {OtherNeedKeys.map((key) => (
-              <FilterChip
-                key={key}
-                count={counts.flags[key]}
-                label={NeedFilterLabels[key]}
-                pressed={Boolean(filters[key])}
-                onToggle={() => {
-                  toggleFlag(key)
-                }}
-              />
-            ))}
-          </div>
-        </FilterSection>
+      <FilterSection grouped activeCount={filters.sea?.length ?? 0} label="Mar">
+        <div className="-mx-2">
+          {seas.map((s, i) => (
+            <FilterRow
+              key={s.name}
+              count={counts.indexed.sea[i]}
+              label={s.name}
+              pressed={(filters.sea ?? []).includes(i)}
+              onToggle={() => {
+                toggleArrayFilter('sea', i, filters.sea)
+              }}
+            />
+          ))}
+        </div>
+      </FilterSection>
 
-        <FilterSection
-          grouped
-          activeCount={filters.municipality?.length ?? 0}
-          label="Municipio"
-        >
-          <div className="flex flex-wrap gap-2">
-            {municipalities.map((m, i) => (
-              <FilterChip
-                key={m.name}
-                count={counts.indexed.municipality[i]}
-                label={m.name}
-                pressed={(filters.municipality ?? []).includes(i)}
-                onToggle={() => {
-                  toggleArrayFilter('municipality', i, filters.municipality)
-                }}
-              />
-            ))}
-          </div>
-        </FilterSection>
+      <FilterSection grouped activeCount={needsActive} label="Necesidades">
+        <div className="-mx-2">
+          {OtherNeedKeys.map((key) => (
+            <FilterRow
+              key={key}
+              count={counts.flags[key]}
+              label={NeedFilterLabels[key]}
+              pressed={Boolean(filters[key])}
+              onToggle={() => {
+                toggleFlag(key)
+              }}
+            />
+          ))}
+        </div>
+      </FilterSection>
 
-        <FilterSection
-          grouped
-          activeCount={filters.sea?.length ?? 0}
-          label="Mar"
-        >
-          <div className="flex flex-wrap gap-2">
-            {seas.map((s, i) => (
-              <FilterChip
-                key={s.name}
-                count={counts.indexed.sea[i]}
-                label={s.name}
-                pressed={(filters.sea ?? []).includes(i)}
-                onToggle={() => {
-                  toggleArrayFilter('sea', i, filters.sea)
-                }}
-              />
-            ))}
-          </div>
-        </FilterSection>
-      </div>
+      <FilterSection
+        grouped
+        activeCount={filters.municipality?.length ?? 0}
+        label="Municipio"
+      >
+        <div className="-mx-2">
+          {municipalities.map((m, i) => (
+            <FilterRow
+              key={m.name}
+              count={counts.indexed.municipality[i]}
+              label={m.name}
+              pressed={(filters.municipality ?? []).includes(i)}
+              onToggle={() => {
+                toggleArrayFilter('municipality', i, filters.municipality)
+              }}
+            />
+          ))}
+        </div>
+      </FilterSection>
 
       <Disclosure
         activeCount={moreActive}
@@ -667,9 +638,6 @@ export function FilterToggleButton({
       aria-controls={expanded ? FilterDialogId : undefined}
       aria-expanded={expanded}
       aria-haspopup="dialog"
-      aria-label={
-        activeCount > 0 ? `Filtros, ${activeCount} activos` : 'Filtros'
-      }
       className="flex min-h-11 items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:border-ocean-300 hover:text-ocean-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none lg:hidden"
       type="button"
       onClick={onClick}
@@ -690,8 +658,49 @@ export function FilterToggleButton({
       </svg>
       Filtros
       <CountBadge count={activeCount} />
+      {activeCount > 0 && (
+        <span className="sr-only">
+          {activeCount === 1 ? 'activo' : 'activos'}
+        </span>
+      )}
     </button>
   )
+}
+
+// Tailwind's lg breakpoint, where the sidebar replaces the dialog
+const DesktopQuery = '(min-width: 64rem)'
+
+function subscribeToDesktop(onChange: () => void) {
+  const query = window.matchMedia(DesktopQuery)
+  query.addEventListener('change', onChange)
+  return () => {
+    query.removeEventListener('change', onChange)
+  }
+}
+
+// The server renders the sidebar so it reaches crawlers and agents; phones
+// then drop it, or every toggle would recount all options for a hidden copy
+function useIsDesktop() {
+  return useSyncExternalStore(
+    subscribeToDesktop,
+    () => window.matchMedia(DesktopQuery).matches,
+    () => true,
+  )
+}
+
+/** Hides everything but the dialog from focus and assistive tech. */
+function makeBackgroundInert(dialog: Element | null) {
+  const background = Array.from(document.body.children).filter(
+    (el) => el !== dialog && !el.hasAttribute('inert'),
+  )
+  background.forEach((el) => {
+    el.setAttribute('inert', '')
+  })
+  return () => {
+    background.forEach((el) => {
+      el.removeAttribute('inert')
+    })
+  }
 }
 
 const FOCUSABLE_SELECTOR =
@@ -722,6 +731,7 @@ export function FilterPanel(
     onMobileCloseRef.current = onMobileClose
   })
   const previousFocusRef = useRef<HTMLElement | null>(null)
+  const isDesktop = useIsDesktop()
 
   useEffect(() => {
     if (!mobileOpen) return
@@ -732,6 +742,17 @@ export function FilterPanel(
     // Lock body scroll
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
+
+    const restoreBackground = makeBackgroundInert(
+      document.getElementById(FilterDialogId),
+    )
+
+    // The dialog is hidden from lg up, which would strand the inert page
+    const desktopQuery = window.matchMedia(DesktopQuery)
+    function closeOnDesktop(e: MediaQueryListEvent) {
+      if (e.matches) onMobileCloseRef.current()
+    }
+    desktopQuery.addEventListener('change', closeOnDesktop)
 
     // Move focus into the modal
     const panel = panelRef.current
@@ -771,21 +792,23 @@ export function FilterPanel(
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown)
+      desktopQuery.removeEventListener('change', closeOnDesktop)
       document.body.style.overflow = previousOverflow
+      // An inert element cannot take focus, so this order matters
+      restoreBackground()
       previousFocusRef.current?.focus()
     }
   }, [mobileOpen])
 
   return (
     <>
-      {/* Mobile modal */}
-      <div className="lg:hidden">
-        {/* Mobile modal overlay */}
-        {mobileOpen && (
+      {/* In body, not the page tree: the whole page around it goes inert */}
+      {mobileOpen &&
+        createPortal(
           <div
             aria-label="Filtros"
             aria-modal="true"
-            className="fixed inset-0 z-50"
+            className="fixed inset-0 z-50 lg:hidden"
             id={FilterDialogId}
             role="dialog"
           >
@@ -801,7 +824,9 @@ export function FilterPanel(
               className="animate-slide-in-left fixed inset-y-0 left-0 w-80 max-w-[85vw] overflow-y-auto bg-white px-6 pt-6 shadow-2xl"
             >
               <div className="mb-4 flex items-center justify-between">
-                <h2 className="text-lg font-semibold text-gray-900">Filtros</h2>
+                <h2 className="font-(family-name:--default-font-family) text-lg font-semibold text-gray-900">
+                  Filtros
+                </h2>
                 <button
                   aria-label="Cerrar filtros"
                   className="-mr-2.5 flex size-11 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-600 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none"
@@ -841,9 +866,9 @@ export function FilterPanel(
                 </button>
               </div>
             </div>
-          </div>
+          </div>,
+          document.body,
         )}
-      </div>
 
       {/* Desktop sidebar */}
       <aside aria-label="Filtros" className="hidden w-72 shrink-0 lg:block">
@@ -857,18 +882,22 @@ export function FilterPanel(
         >
           Saltar a los resultados
         </a>
-        <DesktopSidebar>
-          <FilterContent {...contentProps} />
-        </DesktopSidebar>
+        {isDesktop && (
+          <DesktopSidebar>
+            <FilterContent {...contentProps} />
+          </DesktopSidebar>
+        )}
       </aside>
     </>
   )
 }
 
 // Capped to the viewport so the groups at the bottom stay reachable
+// Scroll must chain to the page: the box starts below the fold under the hero,
+// so containing it strands the wheel with the panel's end still off screen
 function DesktopSidebar({ children }: { children: ReactNode }) {
   return (
-    <div className="sticky top-20 max-h-[calc(100svh-6rem)] [scrollbar-width:thin] overflow-y-auto overscroll-contain rounded-2xl border border-gray-200/60 bg-white p-6">
+    <div className="sticky top-20 max-h-[calc(100svh-6rem)] [scrollbar-width:thin] overflow-y-auto rounded-2xl border border-gray-200/60 bg-white p-6">
       {children}
     </div>
   )

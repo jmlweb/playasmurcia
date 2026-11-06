@@ -1,6 +1,13 @@
 import type { ReactNode } from 'react'
 
+import { CheckIcon } from '@/components/ui/icons'
 import { cn } from '@/lib/cn'
+
+const segmentStateClass = {
+  pressed: 'bg-ocean-600 font-medium text-white',
+  idle: 'text-gray-700 hover:bg-ocean-50 hover:text-ocean-700',
+  unavailable: 'cursor-not-allowed bg-gray-50 text-gray-500',
+} as const
 
 const optionStateClass = {
   pressed: 'border-ocean-600 bg-ocean-600 font-medium text-white',
@@ -55,6 +62,57 @@ export function FilterChip({
   )
 }
 
+const rowStateClass = {
+  pressed: 'rounded-lg bg-ocean-50 font-medium text-ocean-600',
+  idle: 'text-gray-700 hover:rounded-lg hover:border-transparent hover:bg-ocean-50 hover:text-ocean-700',
+  unavailable: 'cursor-not-allowed text-gray-500',
+} as const
+
+export function FilterRow({
+  label,
+  pressed,
+  onToggle,
+  count,
+}: FilterChipProps) {
+  const isDisabled = !pressed && count === 0
+
+  // aria-disabled, not disabled: see FilterChip
+  return (
+    <button
+      aria-disabled={isDisabled || undefined}
+      aria-pressed={pressed}
+      className={cn(
+        'group flex min-h-8 w-full items-center gap-2 border-b px-2 py-1 text-left text-sm transition-colors last:border-b-0 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none focus-visible:ring-inset pointer-coarse:min-h-11',
+        pressed ? 'border-transparent' : 'border-gray-100',
+        pressed
+          ? rowStateClass.pressed
+          : isDisabled
+            ? rowStateClass.unavailable
+            : rowStateClass.idle,
+      )}
+      type="button"
+      onClick={() => {
+        if (!isDisabled) onToggle()
+      }}
+    >
+      {pressed && <CheckIcon className="h-4 w-4 shrink-0" />}
+      {/* The space keeps label and count apart in the accessible name */}
+      <span className="min-w-0 flex-1">{label}</span>{' '}
+      {count !== undefined && !pressed && (
+        // Faded, not removed: screen readers still hear the count
+        <span
+          className={cn(
+            'tabular-nums opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100 pointer-coarse:opacity-100',
+            isDisabled ? 'text-inherit' : 'text-gray-600',
+          )}
+        >
+          {count}
+        </span>
+      )}
+    </button>
+  )
+}
+
 type SegmentedOption<TValue extends string> = {
   value: TValue
   label: string
@@ -78,8 +136,12 @@ export function SegmentedFilter<TValue extends string>({
   onToggle,
 }: SegmentedFilterProps<TValue>) {
   return (
-    <div aria-label={label} className="flex gap-px" role="group">
-      {options.map((option, index) => {
+    <div
+      aria-label={label}
+      className="flex divide-x divide-gray-200 overflow-hidden rounded-full border border-gray-200 bg-white"
+      role="group"
+    >
+      {options.map((option) => {
         const isSelected = selected.includes(option.value)
         const isDisabled = !isSelected && option.count === 0
         return (
@@ -88,10 +150,12 @@ export function SegmentedFilter<TValue extends string>({
             aria-disabled={isDisabled || undefined}
             aria-pressed={isSelected}
             className={cn(
-              'inline-flex flex-1 items-center justify-center gap-1 border px-1.5 py-1.5 text-sm transition-colors focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none pointer-coarse:min-h-11',
-              index === 0 && 'rounded-l-full',
-              index === options.length - 1 && 'rounded-r-full',
-              optionState(isSelected, isDisabled),
+              'inline-flex min-h-9 flex-1 items-center justify-center px-1.5 py-1.5 text-sm transition-colors pointer-coarse:min-h-11 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none focus-visible:ring-inset',
+              isSelected
+                ? segmentStateClass.pressed
+                : isDisabled
+                  ? segmentStateClass.unavailable
+                  : segmentStateClass.idle,
             )}
             title={
               option.count === undefined
@@ -105,7 +169,10 @@ export function SegmentedFilter<TValue extends string>({
           >
             {option.label}
             {option.count !== undefined && !isSelected && (
-              <OptionCount count={option.count} />
+              <span className="sr-only pointer-coarse:not-sr-only pointer-coarse:ml-1 pointer-coarse:font-normal pointer-coarse:tabular-nums">
+                {' '}
+                {option.count}
+              </span>
             )}
           </button>
         )

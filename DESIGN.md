@@ -112,7 +112,7 @@ components:
     textColor: '{colors.ink}'
     typography: '{typography.body}'
     rounded: '{rounded.full}'
-    padding: '14px 40px 14px 48px'
+    padding: '14px 44px 14px 48px'
   nav-bar:
     backgroundColor: '{colors.chart-night}'
     textColor: '{colors.sounding-blue}'
@@ -257,8 +257,9 @@ The whole set is smooth as beach pebbles: rounded, tactile and quiet, changing c
 
 ### Chips
 
-- **Filter chip:** White with a Hairline border and Storm Ink text. It selects to solid Harbour Teal with white text.
-- **Segmented control:** Adjacent chips with the outer corners rounded, used for Acceso and Ocupación.
+- **Filter chip:** White with a Hairline border and Storm Ink text. It selects to solid Harbour Teal with white text. Used in `ChipFilterBar`.
+- **Segmented control:** One outlined pill split by hairlines, used for Acceso and Ocupación.
+- **Filter row:** Full-width row split by hairlines, with the label left and a tabular Slate Ink count right that appears on hover or keyboard focus, and stays visible on touch screens, where hover does not exist. It selects to Harbour Teal text with a check on a Shallow Water fill. Used for unordered options in the explorer.
 - **Photo pill:** `white/95` with Ink text at 12px, maximum two per card and never wrapping.
 - **Body tag:** 12px outline chip with a Hairline border.
 
@@ -277,7 +278,8 @@ The whole set is smooth as beach pebbles: rounded, tactile and quiet, changing c
 
 - **Style:** Search is a white pill with a `white/30` border and raised shadow, built to sit on heroes, with a 20px leading icon.
 - **Focus:** Shadow grows, plus the standard visible ring.
-- **Sort select:** Compact white pill with a Hairline border.
+- **Sort select:** Compact white pill with a Hairline border, opening a single-choice listbox.
+- **Clear search:** A 44px wide custom button. The native search cancel button is hidden so only one shows.
 
 ### Navigation
 
@@ -306,6 +308,10 @@ A 24px Buoy Coral bar followed by a tracked, uppercase Harbour Teal label. It si
 ### Beach Hero
 
 Full-color photo at the detail tier with an Abyss scrim from 85% at the base to 10% at the top, or to 55% on phones, where the shorter hero puts the breadcrumb and title high on the photo. Breadcrumb, serif title, locality and tags stack bottom-left. Without a photo, it falls back to the night-water gradient.
+
+### Explorer Map
+
+Clusters are solid Harbour Teal circles of 44px with a white ring and a tabular white count, never the library's traffic-light defaults, and each announces its beach count. On touch screens one finger keeps scrolling the page and two fingers move the map, with a one-line hint under it.
 
 ### Empty State
 

@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from '@tanstack/react-router'
+import { createFileRoute, useNavigate, useRouter } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import { lazy, Suspense, useCallback, useMemo, useState } from 'react'
 
@@ -123,6 +123,7 @@ function ExplorerPage() {
     useCardFlagsState(beaches)
   const search = Route.useSearch()
   const navigate = useNavigate({ from: Route.fullPath })
+  const router = useRouter()
 
   const PAGE_SIZE = 15
   // "Bandera verde hoy" needs the live 112 feed, which is silent off season:
@@ -159,7 +160,10 @@ function ExplorerPage() {
     (next: BeachSearchParams, page?: number) => {
       void navigate({
         search: (prev) => mergeExplorerSearch(prev, next, page),
-        replace: true,
+        // A page is a place Back should return to; a filter tweak is not
+        replace: page === undefined,
+        // Scrolling stays here: a filter keeps its place, a page goes to results
+        resetScroll: false,
       })
     },
     [navigate],
@@ -167,8 +171,17 @@ function ExplorerPage() {
 
   function handlePageChange(page: number) {
     updateFilters({ ...filters, sort }, page)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    const results = document.getElementById('resultados')
+    results?.focus({ preventScroll: true })
+    // No explicit behavior: html's scroll-behavior honours reduced motion
+    results?.scrollIntoView({ block: 'start' })
   }
+
+  const getPageHref = (page: number) =>
+    router.buildLocation({
+      to: '/explorar',
+      search: { ...search, page: page > 1 ? page : undefined },
+    }).href
 
   const allFiltered = useMemo(
     () =>
@@ -272,7 +285,7 @@ function ExplorerPage() {
 
           <div className="min-w-0 flex-1">
             {/* Phones: the filter button stays in reach while the list scrolls */}
-            <div className="sticky top-[4.5625rem] z-30 -mx-4 mb-4 flex items-center justify-between gap-3 border-b border-gray-200/60 bg-sand-50 px-4 py-2 sm:top-[3.8125rem] sm:-mx-6 sm:px-6 lg:hidden">
+            <div className="sticky top-[4.5625rem] z-30 -mx-4 mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-gray-200/60 bg-sand-50 px-4 py-2 sm:top-[3.8125rem] sm:-mx-6 sm:px-6 lg:hidden">
               <FilterToggleButton
                 activeCount={countActiveFilters(filters)}
                 expanded={mobileFilterOpen}
@@ -282,25 +295,30 @@ function ExplorerPage() {
               />
               <p
                 aria-hidden="true"
-                className="min-w-0 truncate text-sm text-gray-600 tabular-nums"
+                className="min-w-0 flex-1 basis-0 truncate text-center text-sm text-gray-600 tabular-nums"
               >
                 {beachCountLabel(allFiltered.length)}
               </p>
               <ViewToggle value={view} onChange={setView} />
             </div>
 
+            <h2 className="sr-only">Resultados</h2>
+            {/* scroll-mt clears the phone filter bar, which html's scroll-padding does not count */}
             <div
-              className="mb-6 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 outline-none"
+              className="mb-6 flex scroll-mt-16 flex-wrap items-center justify-between gap-x-3 gap-y-2 outline-none lg:scroll-mt-0"
               id="resultados"
               tabIndex={-1}
             >
-              <ResultsSummary
-                live
-                currentPage={safePage}
-                suffix=" encontradas"
-                totalItems={allFiltered.length}
-                totalPages={view === 'map' ? 1 : totalPages}
-              />
+              {/* Phones read the count in the sticky bar; the live region stays for screen readers */}
+              <div className="max-lg:sr-only">
+                <ResultsSummary
+                  live
+                  currentPage={safePage}
+                  suffix=" encontradas"
+                  totalItems={allFiltered.length}
+                  totalPages={view === 'map' ? 1 : totalPages}
+                />
+              </div>
               <div className="flex flex-wrap items-center gap-3">
                 <SortSelect
                   includeNearby
@@ -374,6 +392,7 @@ function ExplorerPage() {
                 </div>
                 <Pagination
                   currentPage={safePage}
+                  getPageHref={getPageHref}
                   totalPages={totalPages}
                   onPageChange={handlePageChange}
                 />

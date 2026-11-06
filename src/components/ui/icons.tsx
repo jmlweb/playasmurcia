@@ -1270,6 +1270,25 @@ export function WaveMarkIcon({ className = 'h-6 w-6' }: IconProps) {
   )
 }
 
+export function CheckIcon({ className = 'h-4 w-4' }: IconProps) {
+  return (
+    <svg
+      aria-hidden="true"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M5 13l4 4L19 7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2.5}
+      />
+    </svg>
+  )
+}
+
 export function ChevronDownIcon({ className = 'h-4 w-4' }: IconProps) {
   return (
     <svg

@@ -66,7 +66,7 @@ export function SearchBar({
       </div>
       <input
         aria-label="Buscar playa por nombre"
-        className="w-full rounded-full border border-white/30 bg-white/95 py-3.5 pr-10 pl-12 text-base text-gray-900 placeholder-gray-500 shadow-lg backdrop-blur-xl transition-shadow focus:bg-white/95 focus:shadow-xl focus-visible:ring-2 focus-visible:ring-ocean-400 focus-visible:outline-none"
+        className="w-full rounded-full border border-white/30 bg-white/95 py-3.5 pr-11 pl-12 text-base text-gray-900 placeholder-gray-600 shadow-lg backdrop-blur-xl transition-shadow focus:bg-white/95 focus:shadow-xl focus-visible:ring-2 focus-visible:ring-ocean-400 focus-visible:outline-none [&::-webkit-search-cancel-button]:appearance-none"
         id={inputId}
         placeholder={placeholder}
         type="search"
@@ -76,11 +76,12 @@ export function SearchBar({
       {localValue && (
         <button
           aria-label="Limpiar búsqueda"
-          className="absolute inset-y-0 right-0 z-10 flex cursor-pointer items-center pr-3 text-gray-500 hover:text-gray-600"
+          className="absolute inset-y-0 right-0 z-10 flex w-11 cursor-pointer items-center justify-center rounded-full text-gray-500 hover:text-gray-600 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none focus-visible:ring-inset"
           type="button"
           onClick={handleClear}
         >
           <svg
+            aria-hidden="true"
             className="h-5 w-5"
             fill="none"
             stroke="currentColor"
