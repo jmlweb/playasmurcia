@@ -29,10 +29,12 @@ Development happens on `main`; every push deploys to www.playasmurcia.com. Route
 | Layer                  | Status                                             | File(s)                                                           |
 | ---------------------- | -------------------------------------------------- | ----------------------------------------------------------------- |
 | Database schema        | Active                                             | `src/db/schema.ts`                                                |
-| Database client        | Active                                             | `src/db/client.ts`                                                |
+| Database client        | Active — one client per request (see below)        | `src/db/client.ts`, `src/db/request-scope.ts`                     |
 | Data access (async)    | **Active** — used by routes                        | `src/lib/db-data.ts`                                              |
 | JSON source files      | **Source for migration** — edit then migrate to DB | `data/*.json`                                                     |
 | Migration / validation | Ready                                              | `scripts/migrate-to-database.ts`, `scripts/validate-migration.ts` |
+
+The Worker entry (`src/server.ts`) runs every request inside `runWithDbScope`, an `AsyncLocalStorage` scope. `getDb()` and the `db` proxy create the libSQL client on first use and reuse it for that request only. Never keep a client in module state on Workers: its concurrency limiter would run one request's queries in another request's context. Outside a scope, `getDb()` throws in workerd; in Node (scripts and tests) it uses one process-wide client.
 
 ## Project Structure
 
