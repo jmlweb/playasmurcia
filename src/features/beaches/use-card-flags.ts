@@ -37,7 +37,16 @@ const fetchCardFlags = createServerFn({ method: 'POST' })
 export function useCardFlags(
   beaches: readonly { code: string }[],
 ): Record<string, BeachFlag> {
+  return useCardFlagsState(beaches).flags
+}
+
+/** Same as useCardFlags, for callers that must not guess before flags land. */
+export function useCardFlagsState(beaches: readonly { code: string }[]): {
+  flags: Record<string, BeachFlag>
+  isSettled: boolean
+} {
   const [flags, setFlags] = useState<Record<string, BeachFlag>>({})
+  const [isSettled, setIsSettled] = useState(false)
 
   useEffect(() => {
     if (beaches.length === 0) return
@@ -49,10 +58,13 @@ export function useCardFlags(
       .catch(() => {
         // Cards stay without flags
       })
+      .finally(() => {
+        if (!cancelled) setIsSettled(true)
+      })
     return () => {
       cancelled = true
     }
   }, [beaches])
 
-  return flags
+  return { flags, isSettled }
 }

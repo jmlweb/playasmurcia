@@ -1,4 +1,5 @@
 import type { BeachSearchParams } from '@/lib/beach-filters'
+import type { CoastToday } from '@/lib/coast-today'
 import type { WebMcpTool, WebMcpToolInput } from '@/lib/webmcp'
 
 import type {
@@ -19,6 +20,7 @@ export type BeachToolDeps = {
   getBeachWeather: (
     input: WebMcpToolInput,
   ) => ReturnType<typeof getBeachWeatherFn>
+  getCoastToday: () => Promise<CoastToday>
   navigate: (target: WebMcpNavigation) => void
 }
 
@@ -146,6 +148,14 @@ export function createBeachTools(deps: BeachToolDeps): WebMcpTool[] {
         const weather = await deps.getBeachWeather(input)
         return weather ?? { error: 'Beach not found', slug: input.slug }
       },
+    },
+    {
+      name: 'get_coast_today',
+      description:
+        'Current conditions per sea (mar-menor, mar-mediterraneo), as shown on the homepage: temperature and wind ranges from reference beaches, and counts of the 112 flags published today. A sea has no flags field when none were published, for example off-season. weatherTime and flagsTime are the source reading times, Europe/Madrid.',
+      inputSchema: { type: 'object', properties: {} },
+      annotations: { readOnlyHint: true },
+      execute: () => deps.getCoastToday(),
     },
   ]
 }

@@ -66,12 +66,11 @@ function FlagLine({ flags }: { flags: FlagCounts }) {
     const count = flags[flag]
     return count ? [{ flag, count }] : []
   })
-  const total = shown.reduce((sum, { count }) => sum + count, 0)
 
   return (
-    <span className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-0.5 text-sm text-gray-700 tabular-nums">
+    <span className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[13px] text-gray-700 tabular-nums sm:gap-x-3 sm:text-sm">
       {shown.map(({ flag, count }) => (
-        <span key={flag} className="flex items-center gap-1.5">
+        <span key={flag} className="flex items-center gap-1 sm:gap-1.5">
           <span
             aria-hidden="true"
             className={`h-2.5 w-2.5 rounded-full ${FlagBadges[flag]?.dot ?? ''}`}
@@ -79,19 +78,25 @@ function FlagLine({ flags }: { flags: FlagCounts }) {
           {count} {FlagLabels[flag][count === 1 ? 0 : 1]}
         </span>
       ))}
-      <span className="text-[13px] text-gray-600">de {total} con dato hoy</span>
     </span>
   )
 }
 
 const sourceLine = (today: CoastToday | undefined): string | undefined => {
   const seas = Object.values(today?.seas ?? {})
+  const flagged = seas
+    .flatMap(({ flags }) => Object.values(flags ?? {}))
+    .reduce((sum, count) => sum + count, 0)
   const parts = [
     ...(seas.some(({ weather }) => weather)
       ? ['Open-Meteo', ...(today?.weatherTime ? [today.weatherTime] : [])]
       : []),
     ...(seas.some(({ flags }) => flags)
-      ? ['112', ...(today?.flagsTime ? [today.flagsTime] : [])]
+      ? [
+          '112',
+          ...(today?.flagsTime ? [today.flagsTime] : []),
+          `${String(flagged)} playas con dato hoy`,
+        ]
       : []),
   ]
   return parts.length > 0 ? parts.join(' · ') : undefined
@@ -100,12 +105,14 @@ const sourceLine = (today: CoastToday | undefined): string | undefined => {
 type CoastTodayStripProps = {
   today: CoastToday | undefined
   isLoading: boolean
+  expectsFlags: boolean
   beachCounts: Record<CoastSeaSlug, number>
 }
 
 export function CoastTodayStrip({
   today,
   isLoading,
+  expectsFlags,
   beachCounts,
 }: CoastTodayStripProps) {
   const sources = sourceLine(today)
@@ -142,7 +149,11 @@ export function CoastTodayStrip({
                     </span>
                   </span>
                   {sea?.weather && <WeatherLine weather={sea.weather} />}
-                  {isLoading && <span className="block h-6" />}
+                  {isLoading && (
+                    <span
+                      className={`block ${expectsFlags ? 'h-12' : 'h-6'}`}
+                    />
+                  )}
                   {sea?.flags && <FlagLine flags={sea.flags} />}
                 </span>
                 <svg

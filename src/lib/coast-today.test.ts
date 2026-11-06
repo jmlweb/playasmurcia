@@ -11,6 +11,8 @@ import {
   countBeachesBySea,
   countFlags,
   formatRange,
+  isFlagSeason,
+  latestWeatherTime,
   summarizeSeaWeather,
 } from './coast-today'
 import { SEA_MAR_MENOR, SEA_MEDITERRANEO } from './collections'
@@ -147,6 +149,31 @@ describe('buildCoastToday', () => {
     expect(today.weatherTime).toBeUndefined()
     expect(today.flagsTime).toBeUndefined()
     expect(today.seas['mar-menor']).toEqual({})
+  })
+})
+
+describe('latestWeatherTime', () => {
+  it('returns the newest time, ignoring points without one', () => {
+    expect(
+      latestWeatherTime([
+        point({ observedAt: '2026-07-14T11:00' }),
+        point({ observedAt: '2026-07-14T11:15' }),
+        point(),
+      ]),
+    ).toBe('11:15')
+  })
+
+  it('returns nothing when no point has a time', () => {
+    expect(latestWeatherTime([point()])).toBeUndefined()
+  })
+})
+
+describe('isFlagSeason', () => {
+  it('covers June to September', () => {
+    expect(isFlagSeason(new Date(2026, 5, 1))).toBe(true)
+    expect(isFlagSeason(new Date(2026, 8, 30))).toBe(true)
+    expect(isFlagSeason(new Date(2026, 4, 31))).toBe(false)
+    expect(isFlagSeason(new Date(2026, 9, 1))).toBe(false)
   })
 })
 

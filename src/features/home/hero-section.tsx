@@ -21,8 +21,7 @@ export function HeroSection({ totalBeaches }: { totalBeaches: number }) {
         Playas de la Región de Murcia
       </h1>
       <p className="animate-fade-up mb-6 max-w-2xl text-lg leading-relaxed text-ocean-100 [animation-delay:150ms] sm:mb-8 sm:text-xl">
-        <b>252</b> km de litoral y <b>{totalBeaches}</b> playas entre el
-        Mediterráneo y el Mar Menor.
+        <b>{totalBeaches}</b> playas entre el Mediterráneo y el Mar Menor.
       </p>
       <div className="animate-fade-up flex flex-wrap items-center gap-x-5 gap-y-2 [animation-delay:225ms] sm:gap-4">
         <Link

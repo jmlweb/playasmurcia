@@ -91,11 +91,24 @@ export function countFlags(
   )
 }
 
-const latestTime = (times: readonly string[]): string | undefined =>
-  times.reduce<string | undefined>(
-    (latest, time) => (latest === undefined || time > latest ? time : latest),
-    undefined,
-  )
+// HH:MM of the newest reading, from timestamps like 2026-07-14T11:15
+export const latestWeatherTime = (
+  points: Iterable<CardWeather>,
+): string | undefined =>
+  [...points]
+    .flatMap(({ observedAt }) => (observedAt ? [observedAt] : []))
+    .reduce<string | undefined>(
+      (latest, time) => (latest === undefined || time > latest ? time : latest),
+      undefined,
+    )
+    ?.slice(11, 16)
+
+// The 112 feed only carries flags in summer; its last 2026 entries are from
+// mid-September. Outside these months the strip must not hold room for them.
+export const isFlagSeason = (date: Date = new Date()): boolean => {
+  const month = date.getMonth()
+  return month >= 5 && month <= 8
+}
 
 export function buildCoastToday({
   beaches,
@@ -132,10 +145,7 @@ export function buildCoastToday({
     }),
   )
 
-  const observed = [...weather.values()].flatMap(({ observedAt }) =>
-    observedAt ? [observedAt] : [],
-  )
-  const weatherTime = latestTime(observed)?.slice(11, 16)
+  const weatherTime = latestWeatherTime(weather.values())
 
   return {
     seas,

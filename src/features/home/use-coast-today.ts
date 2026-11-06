@@ -7,7 +7,7 @@ import type { CoastToday } from '@/lib/coast-today'
 // read right before leaving, so the two-hour card cache would be too old
 const COAST_WEATHER_TTL_SECONDS = 30 * 60
 
-const fetchCoastToday = createServerFn({ method: 'POST' }).handler(
+export const fetchCoastToday = createServerFn({ method: 'POST' }).handler(
   async (): Promise<CoastToday> => {
     const [
       { getBeachFlagTargets, getBeachWeatherTargets },

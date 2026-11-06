@@ -75,6 +75,12 @@ describe('FeaturedBeachCard', () => {
     },
   )
 
+  it('holds the label back until flags settle', () => {
+    renderCard({ isFlagPending: true })
+
+    expect(screen.getByText('Imprescindible').className).toContain('invisible')
+  })
+
   it('omits the fact line when the beach has no facts', () => {
     const { container } = renderCard({
       beach: {

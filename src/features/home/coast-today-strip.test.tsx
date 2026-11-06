@@ -55,6 +55,7 @@ const renderStrip = (today: CoastToday | undefined, isLoading = false) =>
   render(
     <CoastTodayStrip
       beachCounts={beachCounts}
+      expectsFlags={false}
       isLoading={isLoading}
       today={today}
     />,
@@ -79,8 +80,11 @@ describe('CoastTodayStrip', () => {
     expect(screen.getByText('38 verdes')).toBeTruthy()
     expect(screen.getByText('1 roja')).toBeTruthy()
     expect(screen.getByText('2 cerradas')).toBeTruthy()
-    expect(screen.getByText('de 42 con dato hoy')).toBeTruthy()
-    expect(screen.getByText('Open-Meteo · 11:15 · 112 · 11:40')).toBeTruthy()
+    expect(
+      screen.getByText(
+        'Open-Meteo · 11:15 · 112 · 11:40 · 85 playas con dato hoy',
+      ),
+    ).toBeTruthy()
   })
 
   it('drops flags and the 112 source when no flags were published', () => {

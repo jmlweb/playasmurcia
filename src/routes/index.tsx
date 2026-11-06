@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import { useMemo } from 'react'
 
-import { useCardFlags } from '@/features/beaches/use-card-flags'
+import { useCardFlagsState } from '@/features/beaches/use-card-flags'
 import { useCardWeather } from '@/features/beaches/use-card-weather'
 import { CoastTodayStrip } from '@/features/home/coast-today-strip'
 import { FeaturedSection } from '@/features/home/featured-section'
@@ -11,7 +11,7 @@ import { MunicipalitiesSection } from '@/features/home/municipalities-section'
 import { useCoastToday } from '@/features/home/use-coast-today'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
-import { countBeachesBySea } from '@/lib/coast-today'
+import { countBeachesBySea, isFlagSeason } from '@/lib/coast-today'
 import { addMunicipalityCovers } from '@/lib/home-curation'
 import { beachToSlug } from '@/lib/slugs'
 
@@ -41,6 +41,7 @@ const fetchHomeData = createServerFn({ method: 'GET' }).handler(async () => {
     featured,
     municipalities,
     municipalityNav,
+    expectsFlags: isFlagSeason(),
     seaBeachCounts: countBeachesBySea(beaches),
     tags,
     totalBeaches: beaches.length,
@@ -65,6 +66,7 @@ export const Route = createFileRoute('/')({
 
 function HomePage() {
   const {
+    expectsFlags,
     featured,
     municipalities,
     municipalityNav,
@@ -74,7 +76,8 @@ function HomePage() {
   } = Route.useLoaderData()
   const coastToday = useCoastToday()
   const weatherData = useCardWeather(featured)
-  const flagData = useCardFlags(featured)
+  const { flags: flagData, isSettled: areFlagsSettled } =
+    useCardFlagsState(featured)
 
   const slugMap = useMemo(
     () => new Map(featured.map((b) => [b.code, beachToSlug(b)])),
@@ -89,6 +92,7 @@ function HomePage() {
       <HeroSection totalBeaches={totalBeaches} />
       <CoastTodayStrip
         beachCounts={seaBeachCounts}
+        expectsFlags={expectsFlags}
         isLoading={coastToday.isLoading}
         today={coastToday.today}
       />
@@ -96,6 +100,7 @@ function HomePage() {
         ref={featuredRef}
         featured={featured}
         flagData={flagData}
+        isFlagPending={!areFlagsSettled}
         municipalities={municipalities}
         slugMap={slugMap}
         tags={tags}

@@ -18,6 +18,7 @@ type FeaturedBeachCardProps = {
   slug: string
   weather?: CardWeather
   flag?: BeachFlag
+  isFlagPending?: boolean
 }
 
 // An editorial "must see" must never sit on a beach that is unsafe today
@@ -30,6 +31,7 @@ export function FeaturedBeachCard({
   slug,
   weather,
   flag,
+  isFlagPending = false,
 }: FeaturedBeachCardProps) {
   const { baseName, ext } = parseImageFilename(
     beach.pictures?.[0] ?? 'default-beach.png',
@@ -58,7 +60,9 @@ export function FeaturedBeachCard({
       {/* The scrim follows the text, not the card, so pale sand behind the label stays dark while the tall desktop card keeps its photo */}
       <div className="relative bg-linear-to-t from-black/75 via-black/60 via-70% to-transparent p-6 pt-16 sm:p-8 sm:pt-20">
         {!isUnsafeToday(flag) && (
-          <p className="mb-2 text-xs font-semibold tracking-[0.2em] text-white uppercase">
+          <p
+            className={`mb-2 text-xs font-semibold tracking-[0.2em] text-white uppercase ${isFlagPending ? 'invisible' : ''}`}
+          >
             Imprescindible
           </p>
         )}

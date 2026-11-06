@@ -195,7 +195,7 @@ so markdown responses never carry it. The homepage also links
 `src/features/webmcp/` registers three read-only tools with the browser's
 WebMCP `ModelContext` (W3C WebML CG draft, Chromium origin trial) after
 hydration: `search_beaches` (name, municipality, sea, services, activities,
-tags, flags, sort, limit), `get_beach` (slug) and `get_beach_weather` (slug).
+tags, flags, sort, limit), `get_beach` (slug), `get_beach_weather` (slug) and `get_coast_today`.
 `src/lib/webmcp.ts` feature-detects `document.modelContext` (falling back to
 the deprecated `navigator.modelContext`) and no-ops elsewhere, so browsers
 without the API are unaffected. Agent input is coerced in `tool-input.ts`,

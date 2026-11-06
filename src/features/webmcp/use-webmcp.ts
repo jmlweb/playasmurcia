@@ -1,6 +1,7 @@
 import { useNavigate } from '@tanstack/react-router'
 import { useEffect } from 'react'
 
+import { fetchCoastToday } from '@/features/home/use-coast-today'
 import { getModelContext, registerWebMcpTools } from '@/lib/webmcp'
 
 import { createBeachTools } from './beach-tools'
@@ -23,6 +24,7 @@ export function useWebMcp(): void {
         searchBeaches: (input) => searchBeachesFn({ data: input }),
         getBeach: (input) => getBeachFn({ data: input }),
         getBeachWeather: (input) => getBeachWeatherFn({ data: input }),
+        getCoastToday: () => fetchCoastToday(),
         navigate: (target) => {
           void navigate(target)
         },

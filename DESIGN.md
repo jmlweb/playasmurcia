@@ -161,7 +161,7 @@ A cool teal scale taken from deep water, a warm sand neutral, and one small cora
 ### Secondary
 
 - **Buoy Coral** (`coral-400`): The short overline bar before section labels. Nothing larger.
-- **Lantern Coral** (`coral-300`): Tracked eyebrows on solid dark surfaces only. It does not clear 4.5:1 over photographs: measured at 375px it dropped to 2.2:1 on the duotone hero and 1.6:1 on a true-color photo. Eyebrows over photographs are white over a scrim that reaches them. The Explorar, Colecciones and Municipios heroes still use it over photos, dipping to 2.9:1. Treat them as exceptions to retire, not as a pattern to copy.
+- **Lantern Coral** (`coral-300`): Tracked eyebrows on solid dark surfaces only. It does not clear 4.5:1 over photographs: measured at 375px it dropped to 2.2:1 on the duotone hero and 1.6:1 on a true-color photo. Eyebrows over photographs are white over a scrim that reaches them.
 
 ### Neutral
 
@@ -213,7 +213,7 @@ A cool teal scale taken from deep water, a warm sand neutral, and one small cora
 
 Content sits in a centered container of 1280px (`max-w-7xl`) with side padding of 16px, 24px and 32px as width grows. Backgrounds run full-bleed while content stays inside. Sections stack on a 64px to 80px vertical rhythm, and static blocks inside a page use a 48px rhythm separated by hairlines.
 
-Card grids run three columns on desktop, two on tablet and one on mobile. The beach detail page uses a two-thirds main column plus a sticky side rail for practical information and weather. The explorer uses a sticky filter sidebar at desktop widths and a slide-in filter panel on mobile. Layouts are mobile-first and checked at 375px, 768px and 1280px.
+Card grids run three columns on desktop, two on tablet and one on mobile. The homepage municipality list runs four columns from `lg`, and on phones each card becomes a compact row, so eight cards do not fill several screens. The beach detail page uses a two-thirds main column plus a sticky side rail for practical information and weather. The explorer uses a sticky filter sidebar at desktop widths and a slide-in filter panel on mobile. Layouts are mobile-first and checked at 375px, 768px and 1280px.
 
 Heroes come in four height tiers: homepage `min(52svh, 640px)` on phones and `min(72svh, 640px)` from `sm` up, beach detail `min(38svh, 300px)` on phones and `min(60svh, 560px)` from `sm` up, photo listing 320px on phones and 420px from `sm` up, and compact gradient for pages and beaches with no photo. Text anchors bottom-left inside the container. The first content after any hero starts 32px below it, 48px from `sm` up, on every route. The homepage Coast Today strip is the one exception: it sits 16px below, 24px from `sm` up, because it must clear the fold.
 
@@ -293,7 +293,7 @@ The signature data element. A solid `white/95` pill in the top-left of the photo
 
 ### Coast Today
 
-The homepage strip under the hero, headed "Hoy en la costa". Two link rows, Mar Menor first, side by side from `sm` up, unboxed on sand between hairlines. Each row carries the sea name and beach count in Title and Slate Ink, then temperature and wind as ranges in tabular numerals, then flag counts as dots beside text labels. A sources line closes the strip. The heading is the one `h2` set in Inter, at Label size, because a Headline would outrank the data. The sky glyph appears only when every reference point agrees. Only facts with data appear. If no source answers, the rows remain as links and the heading becomes "La costa por mares".
+The homepage strip under the hero, headed "Hoy en la costa". Two link rows, Mar Menor first, side by side from `sm` up, unboxed on sand between hairlines. Each row carries the sea name and beach count in Title and Slate Ink, then temperature and wind as ranges in tabular numerals, then flag counts as dots beside text labels. A sources line closes the strip and states how many beaches reported a flag today. Room for flag lines is reserved only from June to September, when the 112 feed publishes them. The heading is the one `h2` set in Inter, at Label size, because a Headline would outrank the data. The sky glyph appears only when every reference point agrees. Only facts with data appear. If no source answers, the rows remain as links and the heading becomes "La costa por mares".
 
 ### Beach Conditions
 

@@ -8,21 +8,22 @@ import type { NavMunicipalityWithBlueFlag } from './nav-builders'
 export const FEATURED_BEACH_CODES = [
   '645', // Playa de El Rincón
   '512', // Cala Cortina
-  '654', // Playa de El Mojón
+  '668', // Playa de Colón, so the Mar Menor is always represented
   '590', // Playa de Calblanque
   '589', // Playa La Carolina
   '614', // Playa de El Hornillo
 ] as const
 
-// One daylight water-and-sand photo per coastal municipality. Order is
-// irrelevant: each code is matched to its municipality through the beach.
+// One daylight water-and-sand photo per coastal municipality, none of them a
+// featured beach, so no photo repeats on the page. Order is irrelevant: each
+// code is matched to its municipality through the beach.
 const MUNICIPALITY_COVER_CODES = [
-  '512', // Cartagena: Cala Cortina
+  '556', // Cartagena: Cala del Barco
   '663', // Lorca: Cala de Calnegre
-  '589', // Águilas: Playa La Carolina
-  '645', // Mazarrón: Playa de El Rincón
-  '668', // San Javier: Playa de Colón
-  '692', // Los Alcázares: Playa Carrión
+  '615', // Águilas: Playa Amarilla
+  '646', // Mazarrón: Playa de Bolnuevo
+  '543', // San Javier: Playa Chica
+  '690', // Los Alcázares: Playa del Espejo
   '546', // San Pedro del Pinatar: Playa de La Torre Derribada
   '560', // La Unión: Playa de Portmán
 ] as const
