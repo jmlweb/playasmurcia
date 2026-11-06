@@ -244,7 +244,10 @@ function ExplorerPage() {
                 />
                 <ResultsSummary
                   currentPage={safePage}
-                  suffix=" encontradas"
+                  itemLabel={{
+                    singular: 'playa encontrada',
+                    plural: 'playas encontradas',
+                  }}
                   totalItems={allFiltered.length}
                   totalPages={view === 'map' ? 1 : totalPages}
                 />

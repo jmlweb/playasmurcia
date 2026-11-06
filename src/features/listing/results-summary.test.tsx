@@ -18,18 +18,22 @@ describe('ResultsSummary', () => {
     expect(screen.getByText(/playa/).textContent).toBe('1 playa')
   })
 
-  it('appends the suffix after the label', () => {
+  it.each([
+    [1, '1 playa encontrada'],
+    [4, '4 playas encontradas'],
+  ])('agrees a custom label with a total of %i', (totalItems, expected) => {
     render(
       <ResultsSummary
         currentPage={1}
-        suffix=" encontradas"
-        totalItems={4}
+        itemLabel={{
+          singular: 'playa encontrada',
+          plural: 'playas encontradas',
+        }}
+        totalItems={totalItems}
         totalPages={1}
       />,
     )
 
-    expect(screen.getByText(/encontradas/).textContent).toBe(
-      '4 playas encontradas',
-    )
+    expect(screen.getByText(/encontrada/).textContent).toBe(expected)
   })
 })
