@@ -221,7 +221,7 @@ export async function fetchOpenMeteoForecast(
 // Batch current weather for cards
 // ---------------------------------------------------------------------------
 
-const CARD_CACHE_NS = 'open-meteo-card-v2'
+const CARD_CACHE_NS = 'open-meteo-card-v3'
 const CARD_CACHE_TTL = 2 * 60 * 60 // 2 hours
 // Cards are decorative: a slow upstream must not hold the whole page response
 const CARD_FETCH_TIMEOUT_MS = 2000

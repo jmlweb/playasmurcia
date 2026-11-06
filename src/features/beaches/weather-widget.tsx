@@ -8,6 +8,8 @@ import { appendLaterDays } from '@/lib/forecast-days'
 import { getWaveExposure } from '@/lib/wave-exposure'
 import { formatWaveHeight, getWaveLevel } from '@/lib/wave-level'
 
+import { parseBeachCodeInput } from './beach-code-input'
+
 // ---------------------------------------------------------------------------
 // Unified forecast types
 // ---------------------------------------------------------------------------
@@ -63,18 +65,20 @@ type UnifiedForecast = {
 // ---------------------------------------------------------------------------
 
 const fetchAemetWeather = createServerFn({ method: 'GET' })
-  .validator((data: { aemetId: string }) => {
-    if (typeof data.aemetId !== 'string' || !data.aemetId.trim()) {
-      throw new Error('Invalid AEMET id')
-    }
-    return { aemetId: data.aemetId.trim() }
-  })
+  .validator(parseBeachCodeInput)
   .handler(async ({ data }) => {
-    const { dropPastDays, fetchAemetForecast, getDayDescription } =
-      await import('@/lib/aemet')
+    const [
+      { getBeachWeatherTargets },
+      { dropPastDays, fetchAemetForecast, getDayDescription },
+    ] = await Promise.all([
+      import('@/lib/db-data/beach-queries'),
+      import('@/lib/aemet'),
+    ])
     const apiKey = process.env.AEMET_API_KEY ?? ''
     if (!apiKey) return null
-    const forecast = await fetchAemetForecast(data.aemetId, apiKey)
+    const target = (await getBeachWeatherTargets([data.code])).at(0)
+    if (!target?.aemetId) return null
+    const forecast = await fetchAemetForecast(target.aemetId, apiKey)
     if (!forecast) return null
 
     const days: UnifiedDay[] = dropPastDays(forecast.dias, new Date()).map(
@@ -97,19 +101,16 @@ const fetchAemetWeather = createServerFn({ method: 'GET' })
   })
 
 const fetchOpenMeteoWeather = createServerFn({ method: 'GET' })
-  .validator((data: { latitude: number; longitude: number }) => {
-    const { latitude, longitude } = data
-    if (typeof latitude !== 'number' || !Number.isFinite(latitude)) {
-      throw new Error('Invalid latitude')
-    }
-    if (typeof longitude !== 'number' || !Number.isFinite(longitude)) {
-      throw new Error('Invalid longitude')
-    }
-    return { latitude, longitude }
-  })
+  .validator(parseBeachCodeInput)
   .handler(async ({ data }) => {
-    const { fetchOpenMeteoForecast } = await import('@/lib/open-meteo')
-    const forecast = await fetchOpenMeteoForecast(data.latitude, data.longitude)
+    const [{ getBeachWeatherTargets }, { fetchOpenMeteoForecast }] =
+      await Promise.all([
+        import('@/lib/db-data/beach-queries'),
+        import('@/lib/open-meteo'),
+      ])
+    const target = (await getBeachWeatherTargets([data.code])).at(0)
+    if (!target) return null
+    const forecast = await fetchOpenMeteoForecast(...target.coordinates)
     if (!forecast) return null
 
     return {
@@ -130,19 +131,16 @@ const fetchOpenMeteoWeather = createServerFn({ method: 'GET' })
   })
 
 const fetchMarineWeatherFn = createServerFn({ method: 'GET' })
-  .validator((data: { latitude: number; longitude: number }) => {
-    const { latitude, longitude } = data
-    if (typeof latitude !== 'number' || !Number.isFinite(latitude)) {
-      throw new Error('Invalid latitude')
-    }
-    if (typeof longitude !== 'number' || !Number.isFinite(longitude)) {
-      throw new Error('Invalid longitude')
-    }
-    return { latitude, longitude }
-  })
+  .validator(parseBeachCodeInput)
   .handler(async ({ data }) => {
-    const { fetchMarineWeather } = await import('@/lib/open-meteo')
-    return fetchMarineWeather(data.latitude, data.longitude)
+    const [{ getBeachWeatherTargets }, { fetchMarineWeather }] =
+      await Promise.all([
+        import('@/lib/db-data/beach-queries'),
+        import('@/lib/open-meteo'),
+      ])
+    const target = (await getBeachWeatherTargets([data.code])).at(0)
+    if (!target) return null
+    return fetchMarineWeather(...target.coordinates)
   })
 
 // ---------------------------------------------------------------------------
@@ -471,8 +469,8 @@ function WeatherSkeleton() {
 // ---------------------------------------------------------------------------
 
 type WeatherWidgetProps = {
-  aemetId?: string
-  coordinates: [number, number]
+  beachCode: string
+  hasAemetForecast: boolean
   /** Degrees the beach faces seaward; omit where open-sea waves do not apply. */
   shoreBearing?: number
 }
@@ -484,32 +482,31 @@ type FetchState =
   | { status: 'success'; forecast: UnifiedForecast }
 
 export function WeatherWidget({
-  aemetId,
-  coordinates,
+  beachCode,
+  hasAemetForecast,
   shoreBearing,
 }: WeatherWidgetProps) {
   const [state, setState] = useState<FetchState>({ status: 'idle' })
 
   // Reset to loading during render (not in an effect) when the location changes
-  const requestKey = `${aemetId ?? ''}|${coordinates[0]}|${coordinates[1]}`
-  const [prevRequestKey, setPrevRequestKey] = useState(requestKey)
-  if (requestKey !== prevRequestKey) {
-    setPrevRequestKey(requestKey)
+  const [prevBeachCode, setPrevBeachCode] = useState(beachCode)
+  if (beachCode !== prevBeachCode) {
+    setPrevBeachCode(beachCode)
     setState({ status: 'loading' })
   }
 
   useEffect(() => {
     let cancelled = false
 
-    const coordData = { latitude: coordinates[0], longitude: coordinates[1] }
-    const marinePromise = fetchMarineWeatherFn({ data: coordData }).catch(
+    const requestData = { code: beachCode }
+    const marinePromise = fetchMarineWeatherFn({ data: requestData }).catch(
       () => null,
     )
 
-    const buildForecast = aemetId
+    const buildForecast = hasAemetForecast
       ? Promise.all([
-          fetchAemetWeather({ data: { aemetId } }).catch(() => null),
-          fetchOpenMeteoWeather({ data: coordData }).catch(() => null),
+          fetchAemetWeather({ data: requestData }).catch(() => null),
+          fetchOpenMeteoWeather({ data: requestData }).catch(() => null),
           marinePromise,
         ]).then(([aemet, om, marine]) => {
           // AEMET beach forecasts are seasonal and the key may be missing; fall
@@ -536,7 +533,7 @@ export function WeatherWidget({
           }
         })
       : Promise.all([
-          fetchOpenMeteoWeather({ data: coordData }),
+          fetchOpenMeteoWeather({ data: requestData }),
           marinePromise,
         ]).then(([om, marine]) => {
           if (!om) return null
@@ -563,7 +560,7 @@ export function WeatherWidget({
     return () => {
       cancelled = true
     }
-  }, [aemetId, coordinates[0], coordinates[1]])
+  }, [beachCode, hasAemetForecast])
 
   if (state.status === 'idle' || state.status === 'loading') {
     return <WeatherSkeleton />
