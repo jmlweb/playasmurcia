@@ -7,7 +7,6 @@ import type { CardWeather } from '@/lib/open-meteo'
 import type { Beach, Municipality, Tag } from '@/types/beach'
 
 import { BeachCard } from '@/features/beaches/beach-card'
-import { latestWeatherTime } from '@/lib/coast-today'
 
 import { FeaturedBeachCard } from './featured-beach-card'
 
@@ -34,8 +33,6 @@ export function FeaturedSection({
 }: FeaturedSectionProps) {
   const lead = featured.at(0)
   const rest = featured.slice(1)
-  const weatherPoints = Object.values(weatherData)
-  const weatherTime = latestWeatherTime(weatherPoints)
 
   return (
     <section
@@ -50,14 +47,6 @@ export function FeaturedSection({
           <h2 className="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
             Por dónde empezar
           </h2>
-          <p className="mt-2 max-w-2xl text-gray-600">
-            Seis playas elegidas a mano como primera muestra de la costa, no un
-            ranking.
-          </p>
-          <p className="mt-1 min-h-5 text-[13px] text-gray-600 tabular-nums">
-            {weatherPoints.length > 0 &&
-              `Tiempo: Open-Meteo${weatherTime ? ` · ${weatherTime}` : ''}`}
-          </p>
         </div>
       </div>
 
