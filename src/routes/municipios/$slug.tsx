@@ -3,12 +3,14 @@ import {
   Link,
   notFound,
   redirect,
+  useNavigate,
 } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
-import { Fragment, useMemo, useState } from 'react'
+import { Fragment, useMemo } from 'react'
 
 import type { BeachSearchParams } from '@/lib/beach-filters'
 
+import { NotFound } from '@/components/layout/not-found'
 import { PageHero } from '@/components/layout/page-hero'
 import { EmptyState } from '@/components/ui/empty-state'
 import { BeachCard } from '@/features/beaches/beach-card'
@@ -21,6 +23,7 @@ import { SortSelect } from '@/features/listing/sort-select'
 import { ZoneSections } from '@/features/listing/zone-sections'
 import { filterBeaches, sortBeaches } from '@/lib/beach-filters'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
+import { validateMunicipalitySearch } from '@/lib/explorer-search'
 import { parseImageFilename, pictureUrl } from '@/lib/images'
 import { generateMunicipalitySchema } from '@/lib/schema'
 import { beachToSlug } from '@/lib/slugs'
@@ -83,6 +86,8 @@ const RETIRED_MUNICIPALITY_SLUGS: Record<string, string> = {
 const LIFTED_HERO_SLUGS = new Set(['lorca', 'mazarron'])
 
 export const Route = createFileRoute('/municipios/$slug')({
+  validateSearch: validateMunicipalitySearch,
+  notFoundComponent: NotFound,
   beforeLoad: ({ params }) => {
     const target = RETIRED_MUNICIPALITY_SLUGS[params.slug]
     if (target) {
@@ -137,19 +142,19 @@ function MunicipalityPage() {
   const weatherData = useCardWeather(beaches)
   const flagData = useCardFlags(beaches)
   const PAGE_SIZE = 15
-  const [sort, setSort] =
-    useState<NonNullable<BeachSearchParams['sort']>>('recomendados')
-  const [filters, setFilters] = useState<BeachSearchParams>({})
+  const filters = Route.useSearch()
+  const navigate = useNavigate({ from: Route.fullPath })
+  const sort = filters.sort ?? 'recomendados'
   const sortedBeaches = useMemo(
     () => sortBeaches(filterBeaches(beaches, filters), sort),
     [beaches, filters, sort],
   )
   // Zone sections replace pagination: splitting a zone across pages hides it
   const groupedByZone = useMemo(() => shouldGroupByZone(beaches), [beaches])
-  const [currentPage, setCurrentPage] = useState(1)
   const totalPages = groupedByZone
     ? 1
     : Math.ceil(sortedBeaches.length / PAGE_SIZE)
+  const currentPage = Math.min(filters.page ?? 1, totalPages || 1)
   const visibleBeaches = groupedByZone
     ? sortedBeaches
     : sortedBeaches.slice(
@@ -168,12 +173,28 @@ function MunicipalityPage() {
   )
 
   function handleFiltersChange(next: BeachSearchParams) {
-    setFilters(next)
-    setCurrentPage(1)
+    void navigate({
+      search: (prev) => ({ ...next, sort: prev.sort, page: undefined }),
+      resetScroll: false,
+    })
+  }
+
+  function handleSortChange(nextSort: NonNullable<BeachSearchParams['sort']>) {
+    void navigate({
+      search: (prev) => ({
+        ...prev,
+        sort: nextSort === 'recomendados' ? undefined : nextSort,
+        page: undefined,
+      }),
+      resetScroll: false,
+    })
   }
 
   function handlePageChange(page: number) {
-    setCurrentPage(page)
+    void navigate({
+      search: (prev) => ({ ...prev, page: page > 1 ? page : undefined }),
+      resetScroll: false,
+    })
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
@@ -222,7 +243,7 @@ function MunicipalityPage() {
                 totalItems={sortedBeaches.length}
                 totalPages={totalPages}
               />
-              <SortSelect value={sort} onChange={setSort} />
+              <SortSelect value={sort} onChange={handleSortChange} />
             </div>
             {sortedBeaches.length === 0 && (
               <EmptyState

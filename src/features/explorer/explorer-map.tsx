@@ -8,6 +8,7 @@ import {
   mapboxAttribution,
   mapboxUrl,
   markerIcon,
+  removeLeafletMap,
 } from '@/features/beaches/leaflet-map'
 
 export type ExplorerMapMarker = {
@@ -64,7 +65,7 @@ export function ExplorerMap({ markers }: { markers: ExplorerMapMarker[] }) {
     }).addTo(map)
     mapRef.current = map
     return () => {
-      map.remove()
+      removeLeafletMap(map)
       mapRef.current = null
       layerRef.current = null
     }

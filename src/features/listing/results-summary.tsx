@@ -3,7 +3,6 @@ type ResultsSummaryProps = {
   currentPage: number
   totalPages: number
   itemLabel?: { singular: string; plural: string }
-  suffix?: string
   /** Announce count changes to screen readers */
   live?: boolean
 }
@@ -13,7 +12,6 @@ export function ResultsSummary({
   currentPage,
   totalPages,
   itemLabel = { singular: 'playa', plural: 'playas' },
-  suffix = '',
   live = false,
 }: ResultsSummaryProps) {
   const label = totalItems === 1 ? itemLabel.singular : itemLabel.plural
@@ -27,7 +25,6 @@ export function ResultsSummary({
     >
       <strong className="font-semibold text-gray-900">{totalItems}</strong>{' '}
       {label}
-      {suffix}
       {totalPages > 1 && (
         <>
           {' · '}página{' '}

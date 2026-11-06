@@ -44,6 +44,7 @@ playasmurcia/
 │   ├── routes/             # File-based routing
 │   │   ├── __root.tsx
 │   │   ├── index.tsx       # Home (/)
+│   │   ├── $.tsx           # 404 for unmatched URLs
 │   │   ├── explorar/       # Full beach explorer (/explorar)
 │   │   ├── playas/$slug.tsx
 │   │   ├── municipios/     # Index + $slug
@@ -120,6 +121,7 @@ TanStack Router — files under `src/routes/`:
 | `/municipios/:slug`  | `municipios/$slug.tsx`  | Beaches in one municipality                     |
 | `/colecciones`       | `colecciones/index.tsx` | Thematic collections index                      |
 | `/colecciones/:slug` | `colecciones/$slug.tsx` | One collection                                  |
+| any unmatched URL    | `$.tsx`                 | 404 with its own title                          |
 
 Root layout in `__root.tsx` provides document shell, meta, and global styles.
 

@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import type { Beach } from '@/types/beach'
 
 import {
+  dropUnknownFilterIds,
   applyFiltersAndSort,
   countActiveFilters,
   countResultsWith,
@@ -167,6 +168,43 @@ describe('filterBeaches', () => {
   })
 })
 
+describe('filterBeaches search text', () => {
+  it('treats repeated inner spaces as one', () => {
+    const single = filterBeaches(beaches, { q: 'cala abierta' })
+    expect(single.length).toBeGreaterThan(0)
+    expect(filterBeaches(beaches, { q: 'cala   abierta' })).toEqual(single)
+  })
+
+  it('keeps ñ and n interchangeable so a keyboard without ñ still finds names', () => {
+    const withTilde = [{ ...beaches[0], name: 'Peñas Blancas' }]
+    expect(filterBeaches(withTilde, { q: 'penas' })).toHaveLength(1)
+  })
+})
+
+describe('dropUnknownFilterIds', () => {
+  const catalog = {
+    municipalities: ['Cartagena', 'Lorca'],
+    seas: ['Mar Menor'],
+    services: [],
+    activities: [],
+    tags: [],
+  }
+
+  it('removes ids outside the catalog and keeps the rest of the params', () => {
+    expect(
+      dropUnknownFilterIds(
+        { municipality: [1, 99], sea: [5], q: 'cala', sort: 'name' },
+        catalog,
+      ),
+    ).toMatchObject({
+      municipality: [1],
+      sea: undefined,
+      q: 'cala',
+      sort: 'name',
+    })
+  })
+})
+
 describe('sortBeaches', () => {
   it('sorts by name A-Z by default', () => {
     const result = sortBeaches(beaches, 'name')
@@ -178,6 +216,19 @@ describe('sortBeaches', () => {
     const result = sortBeaches(beaches, 'municipality')
     expect(result[0].municipality).toBeLessThanOrEqual(result[1].municipality)
     expect(result[1].municipality).toBeLessThanOrEqual(result[2].municipality)
+  })
+
+  it('sorts by municipality name when names are available', () => {
+    const names = ['Cartagena', '', '', 'Águilas', 'Mazarrón', '', 'La Unión']
+    const result = sortBeaches(
+      beaches,
+      'municipality',
+      undefined,
+      (id) => names[id],
+    )
+    expect([
+      ...new Set(result.map((beach) => names[beach.municipality])),
+    ]).toEqual(['Águilas', 'Cartagena', 'La Unión', 'Mazarrón'])
   })
 
   it('sorts by length descending (longest first)', () => {

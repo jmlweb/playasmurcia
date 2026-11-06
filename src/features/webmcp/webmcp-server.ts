@@ -33,7 +33,12 @@ export const searchBeachesFn = createServerFn({ method: 'GET' })
         loadCatalog(),
       ])
     const { params, unresolved } = resolve.buildSearchParams(data, catalog)
-    const beaches = applyFiltersAndSort(await getAllBeaches(), params)
+    const beaches = applyFiltersAndSort(
+      await getAllBeaches(),
+      params,
+      undefined,
+      (id) => catalog.municipalities[id]?.name ?? '',
+    )
 
     return {
       total: beaches.length,

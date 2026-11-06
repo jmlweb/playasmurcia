@@ -6,7 +6,11 @@ import {
   OccupancyLabels,
 } from '@/lib/beach-filters'
 
-type ExplorerSearchParams = BeachSearchParams & { page?: number }
+type ListingSearchParams = Pick<BeachSearchParams, 'sort'> & { page?: number }
+type ExplorerSearchParams = BeachSearchParams & {
+  page?: number
+  view?: 'map'
+}
 
 function parseNumberArray(value: unknown): number[] | undefined {
   if (Array.isArray(value)) {
@@ -36,6 +40,51 @@ function parseEnumArray<TValue extends string>(
 }
 
 const BooleanFilterKeys = [...NeedFilterKeys, 'blueFlag', 'flagGreen'] as const
+function parseSort(value: unknown): BeachSearchParams['sort'] {
+  return value === 'recomendados' ||
+    value === 'name' ||
+    value === 'municipality' ||
+    value === 'length' ||
+    value === 'occupancy' ||
+    value === 'cercania'
+    ? value
+    : undefined
+}
+
+function parsePage(value: unknown): number | undefined {
+  return typeof value === 'number' && value > 0 ? Math.floor(value) : undefined
+}
+
+function parseNeedFilters(search: Record<string, unknown>) {
+  return Object.fromEntries(
+    NeedFilterKeys.map((key) => [key, parseFlag(search[key])]),
+  )
+}
+
+/** Sort and page of a listing that has no position to rank "Cerca de mí" by */
+export function validateListingSearch(
+  search: Record<string, unknown>,
+): ListingSearchParams {
+  const sort = parseSort(search.sort)
+  return {
+    sort: sort === 'cercania' ? undefined : sort,
+    page: parsePage(search.page),
+  }
+}
+
+export function validateMunicipalitySearch(
+  search: Record<string, unknown>,
+): BeachSearchParams & ListingSearchParams {
+  return {
+    ...validateListingSearch(search),
+    ...parseNeedFilters(search),
+    accessDifficulty: parseEnumArray(
+      search.accessDifficulty,
+      AccessDifficultyLabels,
+    ),
+    occupancy: parseEnumArray(search.occupancy, OccupancyLabels),
+  }
+}
 
 function nonEmpty<TValue>(values: TValue[] | undefined) {
   return values?.length ? values : undefined
@@ -78,9 +127,7 @@ export function validateSearch(
     services: parseNumberArray(search.services),
     activities: parseNumberArray(search.activities),
     tags: parseNumberArray(search.tags),
-    ...Object.fromEntries(
-      NeedFilterKeys.map((key) => [key, parseFlag(search[key])]),
-    ),
+    ...parseNeedFilters(search),
     blueFlag: parseFlag(search.blueFlag),
     flagGreen: parseFlag(search.flagGreen),
     accessDifficulty: parseEnumArray(
@@ -88,18 +135,8 @@ export function validateSearch(
       AccessDifficultyLabels,
     ),
     occupancy: parseEnumArray(search.occupancy, OccupancyLabels),
-    sort:
-      search.sort === 'recomendados' ||
-      search.sort === 'name' ||
-      search.sort === 'municipality' ||
-      search.sort === 'length' ||
-      search.sort === 'occupancy' ||
-      search.sort === 'cercania'
-        ? search.sort
-        : undefined,
-    page:
-      typeof search.page === 'number' && search.page > 0
-        ? Math.floor(search.page)
-        : undefined,
+    sort: parseSort(search.sort),
+    page: parsePage(search.page),
+    view: search.view === 'map' ? 'map' : undefined,
   }
 }

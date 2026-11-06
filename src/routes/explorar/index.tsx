@@ -1,6 +1,18 @@
-import { createFileRoute, useNavigate, useRouter } from '@tanstack/react-router'
+import {
+  ClientOnly,
+  createFileRoute,
+  useNavigate,
+  useRouter,
+} from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
-import { lazy, Suspense, useCallback, useMemo, useState } from 'react'
+import {
+  lazy,
+  Suspense,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 
 import type { BeachSearchParams, FilterContext } from '@/lib/beach-filters'
 
@@ -10,7 +22,10 @@ import { useCardFlagsState } from '@/features/beaches/use-card-flags'
 import { useCardWeather } from '@/features/beaches/use-card-weather'
 import { ActiveFilterChips } from '@/features/explorer/active-filter-chips'
 import { EmptyResults } from '@/features/explorer/empty-results'
-import { useUserLocation } from '@/features/explorer/use-user-location'
+import {
+  hasGeolocationGrant,
+  useUserLocation,
+} from '@/features/explorer/use-user-location'
 import {
   FilterPanel,
   FilterToggleButton,
@@ -23,6 +38,7 @@ import {
   applyFiltersAndSort,
   beachCountLabel,
   countActiveFilters,
+  dropUnknownFilterIds,
 } from '@/lib/beach-filters'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
 import { mergeExplorerSearch, validateSearch } from '@/lib/explorer-search'
@@ -64,6 +80,10 @@ const ExplorerMap = lazy(() =>
   import('@/features/explorer/explorer-map').then((m) => ({
     default: m.ExplorerMap,
   })),
+)
+
+const MapPlaceholder = () => (
+  <div className="h-96 animate-pulse rounded-2xl bg-gray-100" />
 )
 
 export const Route = createFileRoute('/explorar/')({
@@ -138,10 +158,24 @@ function ExplorerPage() {
     [flagData],
   )
   const flagGreenAvailable = flagsSettled && greenFlagCodes.size > 0
-  const filters: BeachSearchParams = useMemo(
-    () => (flagGreenAvailable ? search : { ...search, flagGreen: undefined }),
-    [search, flagGreenAvailable],
-  )
+  const filters: BeachSearchParams = useMemo(() => {
+    const known = dropUnknownFilterIds(search, {
+      municipalities,
+      seas,
+      services,
+      activities,
+      tags,
+    })
+    return flagGreenAvailable ? known : { ...known, flagGreen: undefined }
+  }, [
+    search,
+    flagGreenAvailable,
+    municipalities,
+    seas,
+    services,
+    activities,
+    tags,
+  ])
   const filterContext: FilterContext = useMemo(
     () => ({ greenFlagCodes: flagGreenAvailable ? greenFlagCodes : undefined }),
     [flagGreenAvailable, greenFlagCodes],
@@ -149,25 +183,65 @@ function ExplorerPage() {
   const { state: locationState, request: requestLocation } = useUserLocation()
   const position =
     locationState.status === 'granted' ? locationState.position : undefined
-  const [view, setView] = useState<'list' | 'map'>('list')
+  const view = search.view ?? 'list'
   // "Cerca de mí" in a shared URL has no position to rank by on this device
   const requestedSort = filters.sort ?? 'recomendados'
   const sort =
     requestedSort === 'cercania' && !position ? 'recomendados' : requestedSort
   const currentPage = search.page ?? 1
 
+  // Only restores silently: a page load must never raise a permission prompt
+  useEffect(() => {
+    if (requestedSort !== 'cercania' || position) return
+    if (locationState.status === 'loading') return
+    const dropNearbySort = () => {
+      void navigate({
+        search: (prev) => ({ ...prev, sort: undefined }),
+        replace: true,
+        resetScroll: false,
+      })
+    }
+    if (locationState.status === 'error') {
+      dropNearbySort()
+      return
+    }
+    let isStale = false
+    void hasGeolocationGrant().then((isGranted) => {
+      if (isStale) return
+      if (isGranted) requestLocation()
+      else dropNearbySort()
+    })
+    return () => {
+      isStale = true
+    }
+  }, [requestedSort, position, locationState.status, navigate, requestLocation])
+
   const updateFilters = useCallback(
-    (next: BeachSearchParams, page?: number) => {
+    (
+      next: BeachSearchParams,
+      page?: number,
+      history: 'push' | 'replace' = 'push',
+    ) => {
       void navigate({
         search: (prev) => mergeExplorerSearch(prev, next, page),
-        // A page is a place Back should return to; a filter tweak is not
-        replace: page === undefined,
+        replace: history === 'replace',
         // Scrolling stays here: a filter keeps its place, a page goes to results
         resetScroll: false,
       })
     },
     [navigate],
   )
+
+  function handleViewChange(nextView: 'list' | 'map') {
+    void navigate({
+      search: (prev) => ({
+        ...prev,
+        view: nextView === 'map' ? 'map' : undefined,
+      }),
+      replace: true,
+      resetScroll: false,
+    })
+  }
 
   function handlePageChange(page: number) {
     updateFilters({ ...filters, sort }, page)
@@ -189,9 +263,10 @@ function ExplorerPage() {
         beaches,
         { ...filters, sort },
         position,
+        (id) => municipalities[id]?.name ?? '',
         filterContext,
       ),
-    [beaches, filters, sort, position, filterContext],
+    [beaches, filters, sort, position, municipalities, filterContext],
   )
   const mapMarkers = useMemo(
     () =>
@@ -254,7 +329,12 @@ function ExplorerPage() {
             inputId="buscar"
             value={filters.q ?? ''}
             onChange={(q: string) => {
-              updateFilters({ ...filters, q: q || undefined })
+              // Each debounced keystroke would otherwise be its own Back step
+              updateFilters(
+                { ...filters, q: q || undefined },
+                undefined,
+                'replace',
+              )
             }}
           />
         </div>
@@ -299,7 +379,7 @@ function ExplorerPage() {
               >
                 {beachCountLabel(allFiltered.length)}
               </p>
-              <ViewToggle value={view} onChange={setView} />
+              <ViewToggle value={view} onChange={handleViewChange} />
             </div>
 
             <h2 className="sr-only">Resultados</h2>
@@ -314,7 +394,10 @@ function ExplorerPage() {
                 <ResultsSummary
                   live
                   currentPage={safePage}
-                  suffix=" encontradas"
+                  itemLabel={{
+                    singular: 'playa encontrada',
+                    plural: 'playas encontradas',
+                  }}
                   totalItems={allFiltered.length}
                   totalPages={view === 'map' ? 1 : totalPages}
                 />
@@ -332,7 +415,7 @@ function ExplorerPage() {
                 <ViewToggle
                   className="hidden lg:inline-flex"
                   value={view}
-                  onChange={setView}
+                  onChange={handleViewChange}
                 />
               </div>
             </div>
@@ -360,13 +443,12 @@ function ExplorerPage() {
             />
 
             {allFiltered.length > 0 && view === 'map' ? (
-              <Suspense
-                fallback={
-                  <div className="h-96 animate-pulse rounded-2xl bg-gray-100" />
-                }
-              >
-                <ExplorerMap markers={mapMarkers} />
-              </Suspense>
+              // Leaflet reads `window` on import, so it cannot run during SSR
+              <ClientOnly fallback={<MapPlaceholder />}>
+                <Suspense fallback={<MapPlaceholder />}>
+                  <ExplorerMap markers={mapMarkers} />
+                </Suspense>
+              </ClientOnly>
             ) : allFiltered.length > 0 ? (
               <>
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
