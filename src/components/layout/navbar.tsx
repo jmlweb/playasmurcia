@@ -6,7 +6,7 @@ import { flushSync } from 'react-dom'
 import type { NavData } from '@/lib/nav-builders'
 
 import { darkFocusRing } from '@/components/layout/focus-ring'
-import { ChevronDownIcon } from '@/components/ui/icons'
+import { ChevronDownIcon, WaveMarkIcon } from '@/components/ui/icons'
 
 const simpleNavLinks = [
   {
@@ -238,20 +238,7 @@ export function Navbar({ navData }: { navData: NavData }) {
             to="/"
             onClick={closeMenu}
           >
-            <svg
-              aria-hidden="true"
-              className="h-6 w-6 shrink-0 text-ocean-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M3 15c0 0 2-2 4-2s4 2 6 2 4-2 4-2M3 10c0 0 2-2 4-2s4 2 6 2 4-2 4-2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-              />
-            </svg>
+            <WaveMarkIcon className="h-6 w-6 shrink-0 text-ocean-400" />
             Playas de Murcia
           </Link>
           <div className="ml-auto hidden items-center gap-4 sm:flex md:gap-6">

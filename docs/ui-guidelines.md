@@ -303,6 +303,15 @@ Editorial JSON and the database store **machine-oriented** values (English enums
 - Prefer CSS-based responsive techniques over JavaScript-driven layout changes
 - Test layouts at common breakpoints: 375px (mobile), 768px (tablet), 1280px (desktop)
 
+### Site footer
+
+- Colophon on `ocean-900`, not a sitemap: brand with the shared `WaveMarkIcon`, one factual line computed from the data (never hard-coded), then the link groups, then the mapped sources, the personal and ad-free line and the copyright, all at 14px.
+- Column labels are `<p>` elements in `coral-300` at 0.2em tracking, not `h2`, which is serif by default. Municipios and Colecciones are `<nav aria-labelledby>` landmarks, each closing on its index link; "Todas las playas" sits under the brand line.
+- Rows put the name left and the count right, with `tabular-nums` and an `aria-label` that carries the unit ("Cartagena, 69 playas"). Collections with no beaches are dropped.
+- Below `sm`, Municipios and Colecciones collapse into native `<details>` sharing one `name`, so only one stays open, and every link is at least 44px tall. From `sm` up, `.footer-disclosure` in `src/styles.css` keeps them open through `::details-content`; browsers without it keep the disclosure.
+- Link only to pages that exist. Each source names the fact it supplies, in a `dl` on the same columns as the link groups, with a fixed label width, so rows stay even and both blocks align.
+- The current page reads in white and semibold through `aria-[current=page]`, so all footer `Link`s set `activeOptions={{ exact: true }}`.
+
 ## Performance
 
 - Consider Core Web Vitals (LCP, FID, CLS) without sacrificing functionality

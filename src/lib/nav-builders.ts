@@ -52,9 +52,9 @@ export function buildMunicipalityNavWithBlueFlag(
   })
 }
 
-// Latitude alone misorders the coast (Lorca's beaches sit north of Águilas but
-// the coastline ends at Águilas), so the walk from north-east to south-west is
-// listed by hand. Unknown slugs go last, in their original order.
+// Latitude alone cannot rank the coast (Cartagena's beaches span La Unión's), so
+// the walk from north-east to south-west is listed by hand. Unknown slugs go
+// last, in their original order.
 const COAST_ORDER = [
   'san-pedro-del-pinatar',
   'san-javier',
@@ -62,8 +62,8 @@ const COAST_ORDER = [
   'cartagena',
   'la-union',
   'mazarron',
-  'aguilas',
   'lorca',
+  'aguilas',
 ] as const
 
 export function sortMunicipalitiesByCoast<T extends { slug: string }>(
@@ -91,13 +91,10 @@ const FOOTER_COLLECTIONS = [
 export function buildCharacteristicCounts(
   beaches: Beach[],
 ): NavCharacteristic[] {
-  return FOOTER_COLLECTIONS.map(({ label, slug }) => {
+  return FOOTER_COLLECTIONS.flatMap(({ label, slug }) => {
     const collection = getCollectionBySlug(slug)
-    return {
-      label,
-      href: `/colecciones/${slug}`,
-      count: collection ? beaches.filter(collection.filterFn).length : 0,
-    }
+    const count = collection ? beaches.filter(collection.filterFn).length : 0
+    return count > 0 ? [{ label, href: `/colecciones/${slug}`, count }] : []
   })
 }
 

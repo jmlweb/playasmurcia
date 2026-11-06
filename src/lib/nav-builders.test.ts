@@ -112,9 +112,13 @@ describe('nav-builders', () => {
 
     it('returns correct hrefs', () => {
       const result = buildCharacteristicCounts(beaches)
-      expect(result[0].href).toBe('/colecciones/mar-menor')
-      expect(result[1].href).toBe('/colecciones/mar-mediterraneo')
-      expect(result[2].href).toBe('/colecciones/bandera-azul')
+      const byLabel = new Map(result.map((c) => [c.label, c.href]))
+      expect(byLabel.get('Mediterráneo')).toBe('/colecciones/mar-mediterraneo')
+      expect(byLabel.get('Bandera Azul')).toBe('/colecciones/bandera-azul')
+    })
+
+    it('drops collections with no beaches', () => {
+      expect(buildCharacteristicCounts([])).toStrictEqual([])
     })
   })
 
@@ -138,7 +142,7 @@ describe('sortMunicipalitiesByCoast', () => {
 
     expect(
       sortMunicipalitiesByCoast(items).map((item) => item.slug),
-    ).toStrictEqual(['san-javier', 'cartagena', 'aguilas', 'lorca'])
+    ).toStrictEqual(['san-javier', 'cartagena', 'lorca', 'aguilas'])
   })
 
   it('puts unknown slugs last and keeps the input intact', () => {

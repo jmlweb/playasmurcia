@@ -1251,6 +1251,25 @@ export function BlueFlagBadgeIcon({ className = 'h-4 w-4' }: IconProps) {
 // Chevron icons (shared across nav dropdowns, sort, filter)
 // ---------------------------------------------------------------------------
 
+export function WaveMarkIcon({ className = 'h-6 w-6' }: IconProps) {
+  return (
+    <svg
+      aria-hidden="true"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M3 15c0 0 2-2 4-2s4 2 6 2 4-2 4-2M3 10c0 0 2-2 4-2s4 2 6 2 4-2 4-2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+      />
+    </svg>
+  )
+}
+
 export function ChevronDownIcon({ className = 'h-4 w-4' }: IconProps) {
   return (
     <svg

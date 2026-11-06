@@ -242,3 +242,27 @@
     background-size: 200px 200px;
   }
 }
+
+/* Unlayered on purpose: the summary's `flex` utility would beat a layered rule */
+.footer-group-label {
+  display: none;
+}
+
+/* Collapsed on phones only. Browsers without ::details-content keep the
+   disclosure, which is the safe fallback: nothing becomes unreachable. */
+@supports selector(::details-content) {
+  @media (min-width: 40rem) {
+    .footer-group-label {
+      display: block;
+    }
+
+    .footer-disclosure > summary {
+      display: none;
+    }
+
+    .footer-disclosure::details-content {
+      display: block;
+      content-visibility: visible;
+    }
+  }
+}

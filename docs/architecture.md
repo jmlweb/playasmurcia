@@ -72,6 +72,7 @@ playasmurcia/
 │   │   ├── beach-status-112.ts  # 112 COPLA live flag/sea state
 │   │   ├── beach-filters.ts     # Filter/sort pure functions
 │   │   ├── canonical.ts    # Canonical URL / og:url helpers
+│   │   ├── coast-summary.ts # Beach and municipality totals for the footer colophon
 │   │   ├── geo.ts          # Haversine distance
 │   │   ├── security-headers.ts  # Response security headers + CSP
 │   │   ├── cn.ts           # clsx + tailwind-merge helper
