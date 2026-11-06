@@ -1,33 +1,16 @@
 import { Link } from '@tanstack/react-router'
 
-import type { WeatherIconType } from '@/components/ui/icons'
 import type { BeachFlag } from '@/lib/beach-status-112'
 import type { CardWeather } from '@/lib/open-meteo'
 import type { Beach, Municipality, Tag } from '@/types/beach'
 
-import { WeatherIcon } from '@/components/ui/icons'
 import { ResponsiveImage } from '@/components/ui/responsive-image'
 import { formatDistance } from '@/lib/geo'
 import { parseImageFilename } from '@/lib/images'
 import { seasonalOccupancy } from '@/lib/occupancy'
 import { OccupancyStyles } from '@/lib/status-styles'
 
-const FlagBadges: Partial<Record<BeachFlag, { label: string; dot: string }>> = {
-  VERDE: { label: 'Bandera verde', dot: 'bg-emerald-500' },
-  AMARILLA: { label: 'Bandera amarilla', dot: 'bg-yellow-400' },
-  ROJA: { label: 'Bandera roja', dot: 'bg-red-500' },
-  'PLAYA CERRADA': { label: 'Playa cerrada', dot: 'bg-rose-900' },
-}
-
-const validWeatherIcons = new Set([
-  'sunny',
-  'partly-cloudy',
-  'cloudy',
-  'rain',
-  'storm',
-  'fog',
-  'haze',
-])
+import { beachFactLine, FlagPill, WeatherPill } from './card-pills'
 
 type BeachCardProps = {
   beach: Beach
@@ -58,6 +41,7 @@ export function BeachCard({
   const allTags = (beach.tags ?? []).map((i) => tags[i]).filter(Boolean)
   const overlayTags = allTags.slice(0, 2)
   const bodyTags = allTags.slice(2, 4)
+  const facts = beachFactLine(beach)
   const occupancy =
     beach.occupancyLevel && seasonalOccupancy(beach.occupancyLevel)
 
@@ -103,25 +87,12 @@ export function BeachCard({
         )}
         <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent" />
         {weather && (
-          <span className="absolute top-3 left-3 flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-sm font-medium text-gray-800 shadow-sm backdrop-blur-sm">
-            <WeatherIcon
-              className="h-4 w-4"
-              type={
-                validWeatherIcons.has(weather.icon)
-                  ? (weather.icon as WeatherIconType)
-                  : 'unknown'
-              }
-            />
-            {weather.temp}°
-            {weather.windSpeed !== undefined && weather.windDirection && (
-              <span
-                aria-label={`Viento ${String(weather.windSpeed)} kilómetros por hora, dirección ${weather.windDirection}`}
-                className="border-l border-gray-300 pl-1.5 text-xs font-normal text-gray-600"
-              >
-                {weather.windSpeed} km/h {weather.windDirection}
-              </span>
-            )}
-          </span>
+          <WeatherPill
+            className="absolute top-3 left-3"
+            // Both top pills only fit a 3-column card without this glyph
+            showWindGlyph={!occupancy}
+            weather={weather}
+          />
         )}
         {occupancy && (
           <span
@@ -130,15 +101,7 @@ export function BeachCard({
             {OccupancyStyles[occupancy].label}
           </span>
         )}
-        {flag && FlagBadges[flag] && (
-          <span className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-0.5 text-sm font-medium text-gray-900 shadow-sm backdrop-blur-sm">
-            <span
-              aria-hidden="true"
-              className={`h-2.5 w-2.5 rounded-full ${FlagBadges[flag].dot}`}
-            />
-            {FlagBadges[flag].label}
-          </span>
-        )}
+        {flag && <FlagPill className="absolute bottom-3 left-3" flag={flag} />}
         {overlayTags.length > 0 && (
           <div className="absolute right-3 bottom-3 flex min-w-0 flex-nowrap justify-end gap-1.5">
             {overlayTags.map((tag) => (
@@ -160,12 +123,8 @@ export function BeachCard({
           {municipality.name}
           {distanceKm !== undefined && ` · a ${formatDistance(distanceKm)}`}
         </p>
-        {(beach.length ?? beach.soilType) && (
-          <p className="mt-1 truncate text-[13px] text-gray-600">
-            {beach.length
-              ? `${beach.length} m · ${beach.soilType}`
-              : beach.soilType}
-          </p>
+        {facts && (
+          <p className="mt-1 truncate text-[13px] text-gray-600">{facts}</p>
         )}
         {bodyTags.length > 0 && (
           <ul className="mt-3 flex flex-wrap gap-1.5">

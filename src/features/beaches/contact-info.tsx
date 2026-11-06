@@ -111,7 +111,7 @@ export function ContactInfo({
               </svg>
             </span>
             <a
-              className="rounded text-sm text-ocean-600 hover:text-ocean-700 hover:underline focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none"
+              className="rounded text-sm break-all text-ocean-600 hover:text-ocean-700 hover:underline focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none"
               href={`https://www.instagram.com/explore/tags/${instagramHashtag.replace('#', '')}/`}
               rel="noopener noreferrer"
               target="_blank"

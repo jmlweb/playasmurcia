@@ -142,7 +142,7 @@ function CollectionPage() {
         </p>
       </PageHero>
 
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pt-8 pb-16 sm:px-6 sm:pt-12 sm:pb-20 lg:px-8">
         {items.length > 0 && (
           <div className="mb-6 flex items-center justify-between">
             <ResultsSummary

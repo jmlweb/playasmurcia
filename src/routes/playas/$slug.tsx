@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from 'react'
 
 import { ResponsiveImage } from '@/components/ui/responsive-image'
 import { ActivitiesGrid } from '@/features/beaches/activities-grid'
+import { BeachConditions } from '@/features/beaches/beach-conditions'
 import { BeachHero } from '@/features/beaches/beach-hero'
 import { BeachRichText } from '@/features/beaches/beach-rich-text'
 import { BeachSafetyBar } from '@/features/beaches/beach-safety-bar'
@@ -112,7 +113,7 @@ function BeachErrorComponent({ reset }: ErrorComponentProps) {
           className="rounded-full border border-gray-300 px-6 py-2.5 text-sm font-semibold text-gray-700 transition-colors hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
           to="/explorar"
         >
-          Ver todas las playas
+          Todas las playas
         </Link>
       </div>
     </main>
@@ -200,6 +201,13 @@ function BeachPage() {
           },
           { label: beach.name },
         ]}
+        conditions={
+          <BeachConditions
+            key={beach.code}
+            beachCode={beach.code}
+            hasOpenSeaWaves={beach.sea !== MAR_MENOR_SEA}
+          />
+        }
         municipalityName={municipality.name}
         name={beach.name}
         picture={pictures[0]}
@@ -215,7 +223,7 @@ function BeachPage() {
         zone={beach.zone}
       />
 
-      <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 sm:pt-12 lg:px-8">
         <BeachSafetyBar
           beachName={beach.name}
           coordinates={beach.coordinates}

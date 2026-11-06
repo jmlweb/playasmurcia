@@ -1,12 +1,15 @@
+// Dev-only allowance so impeccable live mode can load
+const liveDevSource = import.meta.env.DEV ? ' http://localhost:8400' : ''
+
 // Enforcing: verified against production with zero violations before the switch.
 // 'unsafe-inline' is needed for TanStack Start's hydration scripts and JSON-LD.
 const contentSecurityPolicy = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  `script-src 'self' 'unsafe-inline'${liveDevSource}`,
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' https://fonts.gstatic.com",
   "img-src 'self' data: blob: https://img.playasmurcia.com https://api.mapbox.com https://unpkg.com",
-  "connect-src 'self' https://api.mapbox.com https://events.mapbox.com",
+  `connect-src 'self' https://api.mapbox.com https://events.mapbox.com${liveDevSource}`,
   "frame-ancestors 'self'",
   "base-uri 'self'",
   "form-action 'self'",

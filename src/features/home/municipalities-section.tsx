@@ -29,9 +29,9 @@ export function MunicipalitiesSection({
             </h2>
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 xl:gap-6">
           {municipalityNav.map((m) => (
-            <MunicipalityCard key={m.slug} {...m} />
+            <MunicipalityCard key={m.slug} {...m} isRowOnPhone />
           ))}
         </div>
       </div>

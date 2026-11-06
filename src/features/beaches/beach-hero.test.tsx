@@ -29,3 +29,35 @@ describe('BeachHero', () => {
     expect(screen.getByText('Los Alcázares')).toBeTruthy()
   })
 })
+
+describe('BeachHero sizing', () => {
+  const heroClass = (picture?: string) =>
+    render(
+      <BeachHero
+        breadcrumb={[{ label: 'Playa Isla Plana' }]}
+        municipalityName="Cartagena"
+        name="Playa Isla Plana"
+        picture={picture}
+      />,
+    ).container.querySelector('section')?.className
+
+  it('collapses to its content without a photo', () => {
+    expect(heroClass()).not.toContain('min-h-')
+  })
+
+  it('keeps a minimum height with a photo', () => {
+    expect(heroClass('cala_1.jpg')).toContain('min-h-')
+  })
+
+  it('renders the conditions slot', () => {
+    render(
+      <BeachHero
+        breadcrumb={[{ label: 'Playa Isla Plana' }]}
+        conditions={<p>Viento 6 km/h NE</p>}
+        municipalityName="Cartagena"
+        name="Playa Isla Plana"
+      />,
+    )
+    expect(screen.getByText('Viento 6 km/h NE')).toBeTruthy()
+  })
+})

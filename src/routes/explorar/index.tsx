@@ -67,7 +67,7 @@ export const Route = createFileRoute('/explorar/')({
   loader: () => fetchExplorerData(),
   head: ({ loaderData }) => ({
     meta: [
-      { title: 'Explorar playas - Playas de Murcia' },
+      { title: 'Todas las playas - Playas de Murcia' },
       {
         name: 'description',
         content: `Explora y filtra las ${loaderData?.beaches.length ?? 194} playas de la Región de Murcia. Busca por municipio, mar, servicios, actividades y más.`,
@@ -178,16 +178,16 @@ function ExplorerPage() {
         backgroundImage={pictureUrl('hero-explorar.png')}
         breadcrumb={[
           { label: 'Inicio', href: '/' },
-          { label: 'Explorar playas' },
+          { label: 'Todas las playas' },
         ]}
         optimizedName="hero-explorar"
         tone="soft"
       >
-        <p className="mb-3 text-sm font-semibold tracking-widest text-coral-300 uppercase">
-          Costa de Murcia
+        <p className="mb-3 text-sm font-semibold tracking-widest text-white uppercase">
+          Costa Cálida
         </p>
         <h1 className="mb-4 text-4xl font-normal tracking-tight text-white sm:text-5xl">
-          Explorar playas
+          Todas las playas
         </h1>
         <p className="mb-8 max-w-xl text-lg text-ocean-100">
           {hasActiveFilters
@@ -196,6 +196,7 @@ function ExplorerPage() {
         </p>
         <div className="max-w-2xl">
           <SearchBar
+            inputId="buscar"
             value={filters.q ?? ''}
             onChange={(q: string) => {
               updateFilters({ ...filters, q: q || undefined })
@@ -204,7 +205,7 @@ function ExplorerPage() {
         </div>
       </PageHero>
 
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pt-8 pb-8 sm:px-6 sm:pt-12 lg:px-8">
         {/* Flex only on desktop: on mobile FilterPanel leaves an empty wrapper that the gap would indent the results by */}
         <div className="lg:flex lg:gap-10">
           <FilterPanel

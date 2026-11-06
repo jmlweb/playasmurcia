@@ -52,3 +52,9 @@ public/pictures/optimized/
 *.db-shm
 *.db-wal
 drizzle/
+
+# Impeccable
+.impeccable/
+
+# Impeccable platform binaries
+.github/skills/impeccable/scripts/bin/

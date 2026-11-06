@@ -502,3 +502,71 @@ describe('getBatchBeachFlags', () => {
     expect((await getBatchBeachFlags(beaches)).size).toBe(0)
   })
 })
+
+describe('getTodayBeachFlags', () => {
+  beforeEach(() => {
+    mockFetch.mockReset()
+  })
+
+  afterEach(() => {
+    vi.resetModules()
+  })
+
+  const beaches = [
+    { code: 'A', name: 'Calabardina', municipalityName: 'Aguilas' },
+    { code: 'B', name: 'Las Higuericas', municipalityName: 'Aguilas' },
+  ]
+  // 22:30 UTC is already 15/07 in Madrid
+  const now = new Date('2026-07-14T22:30:00Z')
+
+  it('keeps flags dated today in Madrid and the newest report time', async () => {
+    const xml = buildXml([
+      { playa: 'CALABARDINA', dia: '15/07/2026', hora: '9:05' },
+      {
+        playa: 'LAS HIGUERICAS',
+        bandera: 'ROJA',
+        dia: '15/07/2026',
+        hora: '11:40',
+      },
+    ])
+    mockFetch.mockResolvedValueOnce({ ok: true, text: async () => xml })
+    const { getTodayBeachFlags } = await freshModule()
+
+    const { flags, latestTime } = await getTodayBeachFlags(beaches, now)
+
+    expect(flags.get('A')).toBe('VERDE')
+    expect(flags.get('B')).toBe('ROJA')
+    expect(latestTime).toBe('11:40')
+  })
+
+  it('drops yesterday, which getBatchBeachFlags would still accept', async () => {
+    const xml = buildXml([{ playa: 'CALABARDINA', dia: '14/07/2026' }])
+    mockFetch.mockResolvedValueOnce({ ok: true, text: async () => xml })
+    const { getTodayBeachFlags } = await freshModule()
+
+    const { flags, latestTime } = await getTodayBeachFlags(beaches, now)
+
+    expect(flags.size).toBe(0)
+    expect(latestTime).toBeUndefined()
+  })
+
+  it('ignores SIN BANDERA entries', async () => {
+    const xml = buildXml([
+      { playa: 'CALABARDINA', dia: '15/07/2026', bandera: 'SIN BANDERA' },
+    ])
+    mockFetch.mockResolvedValueOnce({ ok: true, text: async () => xml })
+    const { getTodayBeachFlags } = await freshModule()
+
+    const { flags, latestTime } = await getTodayBeachFlags(beaches, now)
+
+    expect(flags.size).toBe(0)
+    expect(latestTime).toBeUndefined()
+  })
+
+  it('returns no flags when the feed fails', async () => {
+    mockFetch.mockRejectedValueOnce(new Error('network'))
+    const { getTodayBeachFlags } = await freshModule()
+
+    expect((await getTodayBeachFlags(beaches, now)).flags.size).toBe(0)
+  })
+})

@@ -294,3 +294,53 @@ export async function getBatchBeachFlags(
   }
   return result
 }
+
+export type TodayBeachFlags = {
+  flags: Map<string, BeachFlag>
+  latestTime?: string
+}
+
+const madridDayFormat = new Intl.DateTimeFormat('en-GB', {
+  timeZone: 'Europe/Madrid',
+  day: '2-digit',
+  month: '2-digit',
+  year: 'numeric',
+})
+
+/**
+ * Flags the feed published today, Madrid time, with the newest report time.
+ * Stricter than getBatchBeachFlags: a two-day-old flag is fine on a card but
+ * would be false under a heading that says "hoy".
+ */
+export async function getTodayBeachFlags(
+  beaches: { code: string; name: string; municipalityName: string }[],
+  now: Date = new Date(),
+): Promise<TodayBeachFlags> {
+  let entries: CoplaEntry[]
+  try {
+    entries = await fetchAndCacheEntries()
+  } catch {
+    return { flags: new Map() }
+  }
+
+  const today = madridDayFormat.format(now)
+  const todayEntries = entries.filter((entry) => entry.dia === today)
+  if (todayEntries.length === 0) return { flags: new Map() }
+
+  const flags = new Map<string, BeachFlag>()
+  let latestTime: string | undefined
+  for (const beach of beaches) {
+    const entry = findCoplaEntry(
+      todayEntries,
+      beach.name,
+      beach.municipalityName,
+    )
+    if (!entry) continue
+    const flag = toBeachFlag(entry.bandera)
+    if (flag === 'SIN BANDERA') continue
+    flags.set(beach.code, flag)
+    const time = entry.hora.padStart(5, '0')
+    if (latestTime === undefined || time > latestTime) latestTime = time
+  }
+  return latestTime === undefined ? { flags } : { flags, latestTime }
+}

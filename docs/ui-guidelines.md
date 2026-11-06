@@ -161,9 +161,9 @@ Height tiers create visual hierarchy between the homepage, beach detail and inne
 
 | Tier                     | Height                    | Usage                                                                  |
 | ------------------------ | ------------------------- | ---------------------------------------------------------------------- |
-| **Homepage** (immersive) | `min(72vh, 640px)`        | Homepage hero only — full-bleed photo, staggered animation             |
-| **Beach detail**         | `min(60vh, 560px)`        | `/playas/$slug` — first beach photo as hero; gradient tier if no photo |
-| **Photo listing**        | ~420px                    | Listing pages with a photo (municipios, colecciones, explorar)         |
+| **Homepage** (immersive) | `min(72svh, 640px)`       | Homepage hero only — full-bleed photo, staggered animation             |
+| **Beach detail**         | `min(38svh, 300px)`, `min(60svh, 560px)` from `sm` | `/playas/$slug` — first beach photo as hero with recent conditions; compact gradient tier if no photo |
+| **Photo listing**        | 320px, 420px from `sm`    | Listing pages with a photo (municipios, colecciones, explorar)         |
 | **Inner page** (compact) | `py-14 sm:py-18 lg:py-20` | Pages without a photo — gradient background, functional header         |
 
 ### Photo heroes
@@ -171,7 +171,7 @@ Height tiers create visual hierarchy between the homepage, beach detail and inne
 - **Full-bleed photo, no panel.** Do not place a centered glass/`backdrop-blur` box behind the hero text — it hides the photo (≈90% on mobile) and reads as a dated template pattern.
 - **Duotone treatment**: the photo is grayscale (`grayscale contrast-125`) multiplied by an `ocean-400` layer, then a bottom-weighted `ocean-950` gradient (85% → transparent over ~55%). Every photo reads as the same teal tone, so white text always passes contrast. Detail is traded for legibility on purpose. For photos that end up too dark, `PageHero` takes `tone`: `soft` (mid point, used by `/explorar`) or `lifted` (brightened image, `ocean-300` tint, weaker gradient; used by `/municipios/lorca` and `/municipios/mazarron`).
 - **Text block**: left-aligned to the `max-w-7xl` container, anchored bottom-left, padding 48px desktop / 24px mobile.
-- **Eyebrow**: small tracked caps must reach ≥ 4.5:1 — use `coral-300` or `white/80` over the scrim; never place small text over unscrimmed photo areas.
+- **Eyebrow**: small tracked caps must reach ≥ 4.5:1 — use white over a scrim that reaches the text, and measure it over the image; `coral-300` does not clear 4.5:1 on photos; never place small text over unscrimmed photo areas.
 - **Implementation**: `PageHero` takes `size="home"` for the immersive tier (default is the ~420px listing tier) and a `breadcrumb` prop rendered inside the hero above the eyebrow. Subtitles use `text-ocean-100`.
 - **Copy**: subtitle max one line on desktop (≈2 on mobile).
 - **Uniqueness**: each collection/municipality uses its own hero photo; do not reuse the same image on an index and its detail pages.

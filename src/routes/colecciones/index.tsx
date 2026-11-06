@@ -64,8 +64,8 @@ function ColeccionesPage() {
         breadcrumb={[{ label: 'Inicio', href: '/' }, { label: 'Colecciones' }]}
         optimizedName="hero-colecciones"
       >
-        <p className="mb-3 text-sm font-semibold tracking-widest text-coral-300 uppercase">
-          Costa de Murcia
+        <p className="mb-3 text-sm font-semibold tracking-widest text-white uppercase">
+          Costa Cálida
         </p>
         <h1 className="mb-4 text-4xl font-normal tracking-tight text-white sm:text-5xl">
           Colecciones de playas
@@ -75,7 +75,7 @@ function ColeccionesPage() {
         </p>
       </PageHero>
 
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pt-8 pb-16 sm:px-6 sm:pt-12 sm:pb-20 lg:px-8">
         <section className="mb-12">
           <h2 className="mb-5 text-3xl font-semibold text-gray-900">
             Playas por mar

@@ -53,7 +53,7 @@ playasmurcia/
 │   │   └── ui/             # Generic UI (icons, responsive-image, empty-state)
 │   ├── features/
 │   │   ├── beaches/        # Beach domain (cards, detail widgets, gallery, maps)
-│   │   ├── home/           # Homepage sections (hero, featured grid, municipalities)
+│   │   ├── home/           # Homepage sections (hero, coast today strip, featured grid, municipalities)
 │   │   ├── collections/    # Single collection card (4:3 photo, title, description, count)
 │   │   ├── listing/        # Shared list/explorer (pagination, filters, chip filter bar, results summary, search, zone sections)
 │   │   ├── municipalities/ # Reusable municipality card (photo, meta line, CTA)
@@ -82,6 +82,7 @@ playasmurcia/
 │   │   ├── schema.ts       # JSON-LD
 │   │   └── collections.ts
 │   ├── hooks/
+│   │   ├── use-route-focus.ts    # Moves focus to the hash target or h1 after navigation
 │   │   └── use-scroll-reveal.ts  # IntersectionObserver scroll reveal
 │   ├── db/
 │   ├── types/
@@ -196,7 +197,7 @@ so markdown responses never carry it. The homepage also links
 `src/features/webmcp/` registers three read-only tools with the browser's
 WebMCP `ModelContext` (W3C WebML CG draft, Chromium origin trial) after
 hydration: `search_beaches` (name, municipality, sea, services, activities,
-tags, flags, sort, limit), `get_beach` (slug) and `get_beach_weather` (slug).
+tags, flags, sort, limit), `get_beach` (slug), `get_beach_weather` (slug) and `get_coast_today`.
 `src/lib/webmcp.ts` feature-detects `document.modelContext` (falling back to
 the deprecated `navigator.modelContext`) and no-ops elsewhere, so browsers
 without the API are unaffected. Agent input is coerced in `tool-input.ts`,

@@ -31,8 +31,8 @@ const ACTIVITY_WINDSURF = 7
 const ACTIVITY_KITESURF = 8
 
 // Seas (data/seas.json)
-const SEA_MEDITERRANEO = 0
-const SEA_MAR_MENOR = 1
+export const SEA_MEDITERRANEO = 0
+export const SEA_MAR_MENOR = 1
 
 // ---------------------------------------------------------------------------
 

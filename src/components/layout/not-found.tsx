@@ -33,7 +33,7 @@ export function NotFound() {
           className="rounded-full border border-gray-300 px-6 py-2.5 text-sm font-semibold text-gray-700 transition-colors hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
           to="/explorar"
         >
-          Explorar playas
+          Todas las playas
         </Link>
       </div>
     </main>

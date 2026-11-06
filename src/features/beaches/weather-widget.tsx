@@ -9,6 +9,7 @@ import { getWaveExposure } from '@/lib/wave-exposure'
 import { formatWaveHeight, getWaveLevel } from '@/lib/wave-level'
 
 import { parseBeachCodeInput } from './beach-code-input'
+import { fetchMarineWeatherFn } from './use-beach-waves'
 
 // ---------------------------------------------------------------------------
 // Unified forecast types
@@ -128,19 +129,6 @@ const fetchOpenMeteoWeather = createServerFn({ method: 'GET' })
       })),
       current: forecast.current,
     }
-  })
-
-const fetchMarineWeatherFn = createServerFn({ method: 'GET' })
-  .validator(parseBeachCodeInput)
-  .handler(async ({ data }) => {
-    const [{ getBeachWeatherTargets }, { fetchMarineWeather }] =
-      await Promise.all([
-        import('@/lib/db-data/beach-queries'),
-        import('@/lib/open-meteo'),
-      ])
-    const target = (await getBeachWeatherTargets([data.code])).at(0)
-    if (!target) return null
-    return fetchMarineWeather(...target.coordinates)
   })
 
 // ---------------------------------------------------------------------------

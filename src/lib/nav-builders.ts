@@ -79,6 +79,8 @@ export function sortMunicipalitiesByCoast<T extends { slug: string }>(
 // Footer counts must match the collection pages they link to, so they reuse
 // each collection's filter instead of duplicating the criteria here.
 const FOOTER_COLLECTIONS = [
+  { label: 'Mar Menor', slug: 'mar-menor' },
+  { label: 'Mediterráneo', slug: 'mar-mediterraneo' },
   { label: 'Bandera Azul', slug: 'bandera-azul' },
   { label: 'Accesibles', slug: 'accesibles' },
   { label: 'Nudistas', slug: 'playas-nudistas' },

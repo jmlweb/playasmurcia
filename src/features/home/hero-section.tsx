@@ -14,22 +14,21 @@ export function HeroSection({ totalBeaches }: { totalBeaches: number }) {
       optimizedName="hero"
       size="home"
     >
-      <p className="animate-fade-up mb-4 text-xs font-semibold tracking-[0.2em] text-coral-300 uppercase sm:text-sm">
+      <p className="animate-fade-up mb-4 text-xs font-semibold tracking-[0.2em] text-white uppercase sm:text-sm">
         Costa Cálida &middot; Región de Murcia
       </p>
-      <h1 className="animate-fade-up mb-4 text-4xl font-normal tracking-tight text-white [animation-delay:75ms] sm:text-5xl lg:text-6xl">
-        Encuentra tu playa ideal
+      <h1 className="animate-fade-up mb-4 text-4xl font-normal tracking-tight text-balance text-white [animation-delay:75ms] sm:text-5xl lg:text-6xl">
+        Playas de la Región de Murcia
       </h1>
-      <p className="animate-fade-up mb-8 max-w-2xl text-lg leading-relaxed text-ocean-100 [animation-delay:150ms] sm:text-xl">
-        <b>252</b> km de litoral y <b>{totalBeaches}</b> playas entre el
-        Mediterráneo y el Mar Menor.
+      <p className="animate-fade-up mb-6 max-w-2xl text-lg leading-relaxed text-ocean-100 [animation-delay:150ms] sm:mb-8 sm:text-xl">
+        <b>{totalBeaches}</b> playas entre el Mediterráneo y el Mar Menor.
       </p>
-      <div className="animate-fade-up flex flex-col items-start gap-4 [animation-delay:225ms] sm:flex-row sm:items-center">
+      <div className="animate-fade-up flex flex-wrap items-center gap-x-5 gap-y-2 [animation-delay:225ms] sm:gap-4">
         <Link
-          className="inline-flex items-center gap-2 rounded-full bg-ocean-500 px-8 py-3.5 text-base font-semibold text-white shadow-lg transition-all hover:bg-ocean-400 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-ocean-400 focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-900 focus-visible:outline-none"
+          className="inline-flex items-center gap-2 rounded-full bg-ocean-500 px-5 py-3 text-base font-semibold text-white shadow-lg transition-all hover:bg-ocean-400 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-ocean-400 focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-900 focus-visible:outline-none sm:px-8 sm:py-3.5"
           to="/explorar"
         >
-          Explorar todas las playas
+          Todas las playas
           <svg
             aria-hidden="true"
             className="arrow-nudge h-5 w-5"
@@ -46,7 +45,7 @@ export function HeroSection({ totalBeaches }: { totalBeaches: number }) {
           </svg>
         </Link>
         <Link
-          className="inline-flex items-center gap-2 rounded-full border border-white/30 px-8 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
+          className="inline-flex min-h-11 items-center gap-2 rounded-full text-base font-semibold text-white underline underline-offset-4 transition-all hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none sm:border sm:border-white/30 sm:px-8 sm:py-3.5 sm:no-underline sm:backdrop-blur-sm"
           to="/colecciones"
         >
           Ver colecciones

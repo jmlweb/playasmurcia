@@ -14,6 +14,7 @@ function makeDeps(overrides: Partial<BeachToolDeps> = {}): BeachToolDeps {
     })),
     getBeach: vi.fn(async () => null),
     getBeachWeather: vi.fn(async () => null),
+    getCoastToday: vi.fn(async () => ({ seas: {} })),
     navigate: vi.fn(),
     ...overrides,
   }
@@ -26,12 +27,13 @@ const toolNamed = (deps: BeachToolDeps, name: string) => {
 }
 
 describe('createBeachTools', () => {
-  it('exposes three read-only tools with object schemas', () => {
+  it('exposes four read-only tools with object schemas', () => {
     const tools = createBeachTools(makeDeps())
     expect(tools.map((t) => t.name)).toEqual([
       'search_beaches',
       'get_beach',
       'get_beach_weather',
+      'get_coast_today',
     ])
     for (const tool of tools) {
       expect(tool.annotations?.readOnlyHint).toBe(true)
