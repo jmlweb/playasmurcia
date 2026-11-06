@@ -37,7 +37,7 @@ Scope: the `zone` field, its display on the beach page, and grouping on the muni
 
 ## Learnings
 
-- LRN-036: ITREM beach pages: code alone selects the page, unknown codes answer 200 with the list page
+- LRN-038: ITREM beach pages: code alone selects the page, unknown codes answer 200 with the list page
 ## Progress Log
 
 - [2026-11-04] Created

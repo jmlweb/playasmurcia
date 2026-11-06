@@ -8,6 +8,9 @@ const seas = JSON.parse(readFileSync('./data/seas.json', 'utf-8'))
 const zoneCuration = JSON.parse(readFileSync('./data/zones.json', 'utf-8'))
 const zonesById = new Map(zoneCuration.zones.map((zone) => [zone.id, zone]))
 
+const tags = JSON.parse(readFileSync('./data/tags.json', 'utf-8'))
+const familiarTagIndex = tags.findIndex((tag) => tag.id === 'familiar')
+
 const errors = []
 const warnings = []
 
@@ -100,6 +103,18 @@ beaches.forEach((beach, index) => {
     // Only "- " bullets are supported; "* " bullets and headings show literally
     if (/^\s*(\*\s|#)/m.test(text)) {
       errors.push(`${prefix}: ${field} uses unsupported markdown ('* ' or '#')`)
+    }
+  }
+
+  // childSafe false vetoes every family promise (see docs/business-rules.md)
+  if (beach.childSafe === false) {
+    if (beach.tags?.includes(familiarTagIndex)) {
+      errors.push(`${prefix}: tag 'familiar' contradicts childSafe false`)
+    }
+    if (/familia/i.test(beach.metaDescription ?? '')) {
+      errors.push(
+        `${prefix}: metaDescription promises families but childSafe is false`,
+      )
     }
   }
 

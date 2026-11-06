@@ -1,5 +1,5 @@
 ---
-id: LRN-036
+id: LRN-038
 title: ITREM beach pages: code alone selects the page, unknown codes answer 200 with the list page
 status: active
 tags: [data, external-source, itrem]

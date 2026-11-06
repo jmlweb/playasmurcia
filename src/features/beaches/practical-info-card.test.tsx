@@ -16,10 +16,24 @@ describe('PracticalInfoCard', () => {
     ).toBeTruthy()
   })
 
-  it('renders length with meters unit inside accordion', () => {
+  it('renders length with meters unit without a disclosure', () => {
     render(<PracticalInfoCard length={750} />)
     expect(screen.getByText('750 m')).toBeTruthy()
-    expect(screen.getByText('Más detalles')).toBeTruthy()
+    expect(screen.queryByText('Más detalles')).toBeNull()
+  })
+
+  it('shows length, shade and orientation without opening anything', () => {
+    render(
+      <PracticalInfoCard
+        length={500}
+        naturalShade={false}
+        orientation="south"
+      />,
+    )
+    expect(screen.getByText('Longitud')).toBeTruthy()
+    expect(screen.getByText('Sombra natural')).toBeTruthy()
+    expect(screen.getByText('Orientación')).toBeTruthy()
+    expect(document.querySelector('details')).toBeNull()
   })
 
   it('renders soil type', () => {
@@ -52,17 +66,17 @@ describe('PracticalInfoCard', () => {
     expect(screen.queryByText('Mejor temporada')).toBeNull()
   })
 
-  it('renders badges without accordion when only badge data is present', () => {
+  it('renders badges when only badge data is present', () => {
     render(<PracticalInfoCard childSafe waterQuality="excellent" />)
     expect(screen.queryByText('Más detalles')).toBeNull()
   })
 
-  it('renders both badges and accordion when both types of data exist', () => {
+  it('renders both badges and details when both types of data exist', () => {
     render(
       <PracticalInfoCard length={500} occupancyLevel="low" waves="Moderado" />,
     )
     expect(screen.getByText('Baja')).toBeTruthy()
-    expect(screen.getByText('Más detalles')).toBeTruthy()
+    expect(document.querySelector('details')).toBeNull()
     expect(screen.getByText('500 m')).toBeTruthy()
   })
   it('cites the official source and season under the water quality', () => {
