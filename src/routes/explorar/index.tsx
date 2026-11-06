@@ -1,4 +1,8 @@
-import { createFileRoute, useNavigate } from '@tanstack/react-router'
+import {
+  ClientOnly,
+  createFileRoute,
+  useNavigate,
+} from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import {
   lazy,
@@ -76,6 +80,10 @@ const ExplorerMap = lazy(() =>
   })),
 )
 
+const MapPlaceholder = () => (
+  <div className="h-96 animate-pulse rounded-2xl bg-gray-100" />
+)
+
 export const Route = createFileRoute('/explorar/')({
   validateSearch,
   loader: () => fetchExplorerData(),
@@ -116,7 +124,7 @@ function ExplorerPage() {
   const { state: locationState, request: requestLocation } = useUserLocation()
   const position =
     locationState.status === 'granted' ? locationState.position : undefined
-  const [view, setView] = useState<'list' | 'map'>('list')
+  const view = search.view ?? 'list'
   // "Cerca de mí" in a shared URL has no position to rank by on this device
   const requestedSort = filters.sort ?? 'recomendados'
   const sort =
@@ -178,6 +186,17 @@ function ExplorerPage() {
     },
     [navigate],
   )
+
+  function handleViewChange(nextView: 'list' | 'map') {
+    void navigate({
+      search: (prev) => ({
+        ...prev,
+        view: nextView === 'map' ? 'map' : undefined,
+      }),
+      replace: true,
+      resetScroll: false,
+    })
+  }
 
   function handlePageChange(page: number) {
     updateFilters({ ...filters, sort }, page)
@@ -336,7 +355,7 @@ function ExplorerPage() {
                       className={`px-4 py-2 transition-colors focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none focus-visible:ring-inset ${view === option ? 'bg-ocean-600 text-white' : 'text-gray-700 hover:bg-gray-50'}`}
                       type="button"
                       onClick={() => {
-                        setView(option)
+                        handleViewChange(option)
                       }}
                     >
                       {option === 'list' ? 'Lista' : 'Mapa'}
@@ -368,13 +387,12 @@ function ExplorerPage() {
             />
 
             {allFiltered.length > 0 && view === 'map' ? (
-              <Suspense
-                fallback={
-                  <div className="h-96 animate-pulse rounded-2xl bg-gray-100" />
-                }
-              >
-                <ExplorerMap markers={mapMarkers} />
-              </Suspense>
+              // Leaflet reads `window` on import, so it cannot run during SSR
+              <ClientOnly fallback={<MapPlaceholder />}>
+                <Suspense fallback={<MapPlaceholder />}>
+                  <ExplorerMap markers={mapMarkers} />
+                </Suspense>
+              </ClientOnly>
             ) : allFiltered.length > 0 ? (
               <>
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">

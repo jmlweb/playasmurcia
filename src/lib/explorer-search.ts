@@ -6,7 +6,10 @@ import {
   OccupancyLabels,
 } from '@/lib/beach-filters'
 
-type ExplorerSearchParams = BeachSearchParams & { page?: number }
+type ExplorerSearchParams = BeachSearchParams & {
+  page?: number
+  view?: 'map'
+}
 
 function parseNumberArray(value: unknown): number[] | undefined {
   if (Array.isArray(value)) {
@@ -66,5 +69,6 @@ export function validateSearch(
       typeof search.page === 'number' && search.page > 0
         ? Math.floor(search.page)
         : undefined,
+    view: search.view === 'map' ? 'map' : undefined,
   }
 }

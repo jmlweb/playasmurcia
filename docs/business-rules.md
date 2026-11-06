@@ -135,7 +135,8 @@ So weather is **not** limited to beaches with `aemetId`; those codes only gate t
 - `accessDifficulty` (`easy` | `moderate` | `hard`) and `occupancy` (`low` | `medium` | `high`) are multi-select; beaches with no value are excluded when active
 - "Cerca de mí" (`sort=cercania`) asks for browser geolocation only on click. The position stays in component state: it is never put in the URL, storage or sent to the server. Without a position the sort falls back to "Recomendados"
 - Loading a URL with `sort=cercania` never raises a permission prompt: the position is read only if the browser already reports `granted`. Otherwise `sort` is removed from the URL
-- History: page, filter and sort changes add an entry, so Back steps through them. Search text replaces the current entry
+- Listing state lives in the URL. `/explorar`: filters, `sort`, `page`, `q`, `view=map`
+- History: page, filter and sort changes add an entry, so Back steps through them. Search text and the list/map toggle replace the current entry
 - Sort "Municipio" is alphabetical by name, ignoring accents. Search text ignores accents, `ñ` included, and treats repeated spaces as one
 - `/explorar` ignores filter ids that are not in the catalogue, so a stale link cannot empty the list with a filter no chip can show
 

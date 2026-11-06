@@ -33,3 +33,10 @@ describe('validateSearch need filters', () => {
     expect(validateSearch({}).accessDifficulty).toBeUndefined()
   })
 })
+
+describe('validateSearch view', () => {
+  it('keeps the map view and drops anything else', () => {
+    expect(validateSearch({ view: 'map' }).view).toBe('map')
+    expect(validateSearch({ view: 'list' }).view).toBeUndefined()
+  })
+})
