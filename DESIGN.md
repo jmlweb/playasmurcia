@@ -288,7 +288,7 @@ The whole set is smooth as beach pebbles: rounded, tactile and quiet, changing c
 
 ### Beach Card Weather Pill
 
-The signature data element. A `white/90` pill in the top-left of the photo shows the current temperature, a thin divider, then wind speed and direction. It brings live conditions onto the photo without leaving the card.
+The signature data element. A solid `white/95` pill in the top-left of the photo, the same family and height as the flag pill, with no blur. It shows a monoline sky glyph and the temperature in semibold, then a wind glyph with speed and direction at 12px, all in tabular numerals. Glyphs are single-color Harbour Teal on `currentColor` (`WeatherGlyph`), not the multicolor forecast icons. The wind glyph drops when the occupancy pill shares the row, so both fit a 288px card. It brings recent conditions onto the photo without leaving the card.
 
 ### Beach Conditions
 

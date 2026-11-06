@@ -5,7 +5,7 @@ import type { BeachFlag } from '@/lib/beach-status-112'
 import type { CardWeather } from '@/lib/open-meteo'
 import type { Beach, Municipality, Tag } from '@/types/beach'
 
-import { WeatherIcon } from '@/components/ui/icons'
+import { WeatherGlyph } from '@/components/ui/icons'
 import { ResponsiveImage } from '@/components/ui/responsive-image'
 import { formatDistance } from '@/lib/geo'
 import { parseImageFilename } from '@/lib/images'
@@ -105,21 +105,30 @@ export function BeachCard({
         )}
         <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent" />
         {weather && (
-          <span className="absolute top-3 left-3 flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-sm font-medium text-gray-800 shadow-sm backdrop-blur-sm">
-            <WeatherIcon
-              className="h-4 w-4"
-              type={
-                validWeatherIcons.has(weather.icon)
-                  ? (weather.icon as WeatherIconType)
-                  : 'unknown'
-              }
-            />
-            {weather.temp}°
+          <span className="absolute top-3 left-3 flex items-center gap-2 rounded-full bg-white/95 px-2.5 py-0.5 text-sm font-semibold whitespace-nowrap text-gray-900 tabular-nums shadow-sm">
+            <span className="flex items-center gap-1">
+              <WeatherGlyph
+                className="h-4 w-4 shrink-0 text-ocean-600"
+                type={
+                  validWeatherIcons.has(weather.icon)
+                    ? (weather.icon as WeatherIconType)
+                    : 'unknown'
+                }
+              />
+              {weather.temp}°
+            </span>
             {weather.windSpeed !== undefined && weather.windDirection && (
               <span
                 aria-label={`Viento ${String(weather.windSpeed)} kilómetros por hora, dirección ${weather.windDirection}`}
-                className="border-l border-gray-300 pl-1.5 text-xs font-normal text-gray-600"
+                className="flex items-center gap-1 text-xs font-medium text-gray-700"
               >
+                {/* Both top pills only fit a 3-column card without this glyph */}
+                {!occupancy && (
+                  <WeatherGlyph
+                    className="h-3.5 w-3.5 shrink-0 text-ocean-600"
+                    type="wind"
+                  />
+                )}
                 {weather.windSpeed} km/h {weather.windDirection}
               </span>
             )}

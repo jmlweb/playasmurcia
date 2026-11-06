@@ -175,6 +175,64 @@ export function WeatherIcon({
   }
 }
 
+// Single-color set for small sizes over photos, where the multicolor icons
+// above lose their shapes
+const weatherGlyphPaths: Record<WeatherIconType | 'wind', readonly string[]> = {
+  sunny: [
+    'M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0',
+    'M12 2v2M12 20v2M2 12h2M20 12h2',
+    'm4.93 4.93 1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41',
+  ],
+  'partly-cloudy': [
+    'M12 2v2M20 12h2M4.93 4.93l1.41 1.41M19.07 4.93l-1.41 1.41',
+    'M15.95 12.65a4 4 0 0 0-5.93-4.13',
+    'M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z',
+  ],
+  cloudy: ['M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z'],
+  rain: [
+    'M4 14.9A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.24',
+    'M16 14v6M8 14v6M12 16v6',
+  ],
+  storm: [
+    'M6 16.33A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 .5 8.97',
+    'm13 12-3 5h4l-3 5',
+  ],
+  fog: ['M3 8h18M5 12h14M7 16h10'],
+  haze: ['M3 8h18M5 12h14M7 16h10'],
+  unknown: [
+    'M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0',
+    'M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3',
+    'M12 17h.01',
+  ],
+  wind: [
+    'M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2',
+    'M9.6 4.6A2 2 0 1 1 11 8H2',
+    'M12.6 19.4A2 2 0 1 0 14 16H2',
+  ],
+}
+
+export function WeatherGlyph({
+  type,
+  className = 'h-5 w-5',
+}: IconProps & { type: WeatherIconType | 'wind' }) {
+  return (
+    <svg
+      aria-hidden="true"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      viewBox="0 0 24 24"
+    >
+      {weatherGlyphPaths[type].map((d) => (
+        <path key={d} d={d} />
+      ))}
+    </svg>
+  )
+}
+
 // ---------------------------------------------------------------------------
 // Service icons (replace DB emoji)
 // ---------------------------------------------------------------------------
