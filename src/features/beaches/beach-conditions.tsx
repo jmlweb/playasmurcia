@@ -7,7 +7,7 @@ import type { CardWeather } from '@/lib/open-meteo'
 import { WeatherIcon } from '@/components/ui/icons'
 import { formatWaveHeight } from '@/lib/wave-level'
 
-import { FlagBadges, validWeatherIcons } from './beach-card'
+import { FlagBadges, validWeatherIcons } from './card-pills'
 import { useBeachWaveHeight } from './use-beach-waves'
 import { useCardFlags } from './use-card-flags'
 import { useCardWeather } from './use-card-weather'

@@ -161,7 +161,7 @@ A cool teal scale taken from deep water, a warm sand neutral, and one small cora
 ### Secondary
 
 - **Buoy Coral** (`coral-400`): The short overline bar before section labels. Nothing larger.
-- **Lantern Coral** (`coral-300`): Tracked eyebrows over photographs and dark heroes, where it clears 4.5:1.
+- **Lantern Coral** (`coral-300`): Tracked eyebrows on solid dark surfaces only. It does not clear 4.5:1 over photographs: measured at 375px it dropped to 2.2:1 on the duotone hero and 1.6:1 on a true-color photo. Eyebrows over photographs are white over a scrim that reaches them. The Explorar, Colecciones and Municipios heroes still use it over photos, dipping to 2.9:1. Treat them as exceptions to retire, not as a pattern to copy.
 
 ### Neutral
 
@@ -207,7 +207,7 @@ A cool teal scale taken from deep water, a warm sand neutral, and one small cora
 
 **The One Weight Rule.** DM Serif Display ships Regular 400 only. Never apply a bold or semibold utility to it, because the browser synthesizes the weight.
 
-**The Stable Object Rule.** The same object keeps the same typeface everywhere. Serif stops at `h1` and `h2`, and a card title is always Inter.
+**The Stable Object Rule.** The same object keeps the same typeface everywhere. Serif stops at `h1` and `h2`, and a card title is always Inter. The Coast Today heading is the single exception.
 
 ## Layout
 
@@ -215,7 +215,7 @@ Content sits in a centered container of 1280px (`max-w-7xl`) with side padding o
 
 Card grids run three columns on desktop, two on tablet and one on mobile. The beach detail page uses a two-thirds main column plus a sticky side rail for practical information and weather. The explorer uses a sticky filter sidebar at desktop widths and a slide-in filter panel on mobile. Layouts are mobile-first and checked at 375px, 768px and 1280px.
 
-Heroes come in four height tiers: homepage `min(72svh, 640px)`, beach detail `min(38svh, 300px)` on phones and `min(60svh, 560px)` from `sm` up, photo listing 320px on phones and 420px from `sm` up, and compact gradient for pages and beaches with no photo. Text anchors bottom-left inside the container. The first content after any hero starts 32px below it, 48px from `sm` up, on every route.
+Heroes come in four height tiers: homepage `min(52svh, 640px)` on phones and `min(72svh, 640px)` from `sm` up, beach detail `min(38svh, 300px)` on phones and `min(60svh, 560px)` from `sm` up, photo listing 320px on phones and 420px from `sm` up, and compact gradient for pages and beaches with no photo. Text anchors bottom-left inside the container. The first content after any hero starts 32px below it, 48px from `sm` up, on every route. The homepage Coast Today strip is the one exception: it sits 16px below, 24px from `sm` up, because it must clear the fold.
 
 ### Named Rules
 
@@ -253,7 +253,7 @@ The whole set is smooth as beach pebbles: rounded, tactile and quiet, changing c
 - **Primary:** Harbour Teal with white text at 14px semibold, used on light pages.
 - **Hero:** Channel Teal with white text at 16px semibold and a raised shadow, used on dark heroes.
 - **Hover / Focus:** Color shift in 150ms with no transform. Focus uses a 2px ring in `ocean-500` with 2px offset. Hero variants use a matching ring offset against dark.
-- **Secondary:** Transparent on dark heroes with a `white/30` border. On light pages, a bordered pill with `ocean-200` border and Harbour Teal text that fills with Shallow Water on hover, used for back links.
+- **Secondary:** Transparent on dark heroes with a `white/30` border. On the homepage hero at phone width it drops to an underlined text link beside the primary button, so the hero stays short. On light pages, a bordered pill with `ocean-200` border and Harbour Teal text that fills with Shallow Water on hover, used for back links.
 
 ### Chips
 
@@ -271,6 +271,7 @@ The whole set is smooth as beach pebbles: rounded, tactile and quiet, changing c
 - **Internal Padding:** 24px under a 3:2 photo.
 - **Hover:** Shadow and ring over 500ms, photo scale to 1.05 under `motion-safe`, title shifts to Harbour Teal.
 - **No photo:** An intentional Deep Channel to Night Water gradient with a quiet icon, never a gray box.
+- **Homepage lead card:** Text on the photo over a scrim that belongs to the text block, so it reaches the white label at any card height and leaves the rest of the photo clear, with the same weather and flag pills as a Beach Card along the top and the same length and sand fact line. The "Imprescindible" label disappears on a red flag or closure.
 
 ### Inputs / Fields
 
@@ -289,6 +290,10 @@ The whole set is smooth as beach pebbles: rounded, tactile and quiet, changing c
 ### Beach Card Weather Pill
 
 The signature data element. A solid `white/95` pill in the top-left of the photo, the same family and height as the flag pill, with no blur. It shows a monoline sky glyph and the temperature in semibold, then a wind glyph with speed and direction at 12px, all in tabular numerals. Glyphs are single-color Harbour Teal on `currentColor` (`WeatherGlyph`), not the multicolor forecast icons. The wind glyph drops when the occupancy pill shares the row, so both fit a 288px card. It brings recent conditions onto the photo without leaving the card.
+
+### Coast Today
+
+The homepage strip under the hero, headed "Hoy en la costa". Two link rows, Mar Menor first, side by side from `sm` up, unboxed on sand between hairlines. Each row carries the sea name and beach count in Title and Slate Ink, then temperature and wind as ranges in tabular numerals, then flag counts as dots beside text labels. A sources line closes the strip. The heading is the one `h2` set in Inter, at Label size, because a Headline would outrank the data. The sky glyph appears only when every reference point agrees. Only facts with data appear. If no source answers, the rows remain as links and the heading becomes "La costa por mares".
 
 ### Beach Conditions
 

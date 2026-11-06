@@ -118,6 +118,34 @@ describe('fetchBatchCardWeather', () => {
   })
 })
 
+describe('fetchBatchCardWeather reading time', () => {
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
+
+  it('keeps the upstream reading time', async () => {
+    global.fetch = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        current: {
+          time: '2026-07-14T11:15',
+          temperature_2m: 25,
+          weather_code: 0,
+          wind_speed_10m: 12,
+          wind_direction_10m: 90,
+        },
+      }),
+    })
+
+    const result = await fetchBatchCardWeather(
+      [{ code: 'time', coordinates: [37.6, -0.9] }],
+      { ttlSeconds: 1800 },
+    )
+
+    expect(result.get('time')?.observedAt).toBe('2026-07-14T11:15')
+  })
+})
+
 describe('fetchMarineWeather', () => {
   afterEach(() => {
     vi.restoreAllMocks()

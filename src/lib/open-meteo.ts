@@ -98,6 +98,8 @@ export type CardWeather = {
   // Optional: entries cached before wind was added lack them
   windSpeed?: number
   windDirection?: string
+  // Local time of the upstream reading, e.g. 2026-07-14T11:15
+  observedAt?: string
 }
 
 // ---------------------------------------------------------------------------
@@ -130,6 +132,7 @@ type MultiCurrentResponse = {
   latitude: number
   longitude: number
   current: {
+    time: string
     temperature_2m: number
     weather_code: number
     wind_speed_10m: number
@@ -261,15 +264,17 @@ async function fetchCardWeatherChunk(
  */
 export async function fetchBatchCardWeather(
   beaches: { code: string; coordinates: [number, number] }[],
+  { ttlSeconds = CARD_CACHE_TTL }: { ttlSeconds?: number } = {},
 ): Promise<Map<string, CardWeather>> {
   const result = new Map<string, CardWeather>()
   if (beaches.length === 0) return result
 
-  // Build a stable cache key from sorted beach codes
-  const cacheKey = beaches
+  // Build a stable cache key from sorted beach codes. The TTL is part of it so
+  // a fresher caller is never served an entry stored for a longer one.
+  const cacheKey = `${String(ttlSeconds)}:${beaches
     .map((b) => b.code)
     .sort()
-    .join(',')
+    .join(',')}`
 
   const cached = await edgeCacheGet<[string, CardWeather][]>(
     CARD_CACHE_NS,
@@ -321,6 +326,7 @@ export async function fetchBatchCardWeather(
         icon: wmoToIcon(resp.current.weather_code),
         windSpeed: Math.round(resp.current.wind_speed_10m),
         windDirection: degreesToDirection(resp.current.wind_direction_10m),
+        observedAt: resp.current.time,
       }
       for (const code of coordMap.get(`${coord.lat},${coord.lng}`) ?? []) {
         result.set(code, weather)
@@ -334,7 +340,7 @@ export async function fetchBatchCardWeather(
       CARD_CACHE_NS,
       cacheKey,
       Array.from(result.entries()),
-      CARD_CACHE_TTL,
+      ttlSeconds,
     )
   }
 

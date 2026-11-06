@@ -52,8 +52,10 @@ export function FeaturedSection({
         {lead && (
           <FeaturedBeachCard
             beach={lead}
+            flag={flagData[lead.code]}
             municipality={municipalities[lead.municipality]}
             slug={slugMap.get(lead.code) ?? lead.code}
+            weather={weatherData[lead.code]}
           />
         )}
         {rest.map((beach, i) => (

@@ -64,6 +64,38 @@ export async function getBeachWeatherTargets(
   }))
 }
 
+export type BeachFlagTarget = {
+  code: string
+  name: string
+  municipalityName: string
+  sea: number
+}
+
+/**
+ * The columns 112 flag matching needs for the whole coast, without the
+ * relations getAllBeaches loads.
+ */
+export async function getBeachFlagTargets(): Promise<BeachFlagTarget[]> {
+  const [rows, municipalities] = await Promise.all([
+    db
+      .select({
+        code: schema.beaches.code,
+        name: schema.beaches.name,
+        municipalityId: schema.beaches.municipalityId,
+        seaId: schema.beaches.seaId,
+      })
+      .from(schema.beaches),
+    getMunicipalityMap(),
+  ])
+
+  return rows.map(({ code, name, municipalityId, seaId }) => ({
+    code,
+    name,
+    municipalityName: municipalities.get(municipalityId - 1)?.name ?? '',
+    sea: seaId - 1,
+  }))
+}
+
 /**
  * Finds a beach by its unique code
  */

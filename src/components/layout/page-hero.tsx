@@ -122,8 +122,13 @@ export function PageHero({
 }: PageHeroProps) {
   const heightClass =
     size === 'home'
-      ? 'min-h-[min(72svh,640px)]'
+      ? 'min-h-[min(52svh,640px)] sm:min-h-[min(72svh,640px)]'
       : 'min-h-[320px] sm:min-h-[420px]'
+  // The short phone hero fills with text, which climbs past the base scrim
+  const scrimReachClass =
+    size === 'home'
+      ? 'max-sm:via-ocean-950/60 max-sm:via-70% max-sm:to-ocean-950/15'
+      : ''
 
   return (
     <section
@@ -145,7 +150,7 @@ export function PageHero({
             className={`absolute inset-0 mix-blend-multiply ${tintToneClass[tone]}`}
           />
           <div
-            className={`absolute inset-0 bg-linear-to-t ${scrimToneClass[tone]} to-transparent`}
+            className={`absolute inset-0 bg-linear-to-t ${scrimToneClass[tone]} to-transparent ${scrimReachClass}`}
           />
         </>
       ) : (

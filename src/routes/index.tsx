@@ -4,11 +4,14 @@ import { useMemo } from 'react'
 
 import { useCardFlags } from '@/features/beaches/use-card-flags'
 import { useCardWeather } from '@/features/beaches/use-card-weather'
+import { CoastTodayStrip } from '@/features/home/coast-today-strip'
 import { FeaturedSection } from '@/features/home/featured-section'
 import { HeroSection } from '@/features/home/hero-section'
 import { MunicipalitiesSection } from '@/features/home/municipalities-section'
+import { useCoastToday } from '@/features/home/use-coast-today'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
+import { countBeachesBySea } from '@/lib/coast-today'
 import { addMunicipalityCovers } from '@/lib/home-curation'
 import { beachToSlug } from '@/lib/slugs'
 
@@ -19,7 +22,7 @@ const fetchHomeData = createServerFn({ method: 'GET' }).handler(async () => {
     getAllMunicipalities,
     getAllTags,
   } = await import('@/lib/db-data/beach-queries')
-  const { buildMunicipalityNavWithBlueFlag } =
+  const { buildMunicipalityNavWithBlueFlag, sortMunicipalitiesByCoast } =
     await import('@/lib/nav-builders')
   const [featured, beaches, municipalities, tags] = await Promise.all([
     getFeaturedBeaches(),
@@ -27,14 +30,18 @@ const fetchHomeData = createServerFn({ method: 'GET' }).handler(async () => {
     getAllMunicipalities(),
     getAllTags(),
   ])
-  const municipalityNav = addMunicipalityCovers(
-    buildMunicipalityNavWithBlueFlag(beaches, municipalities),
-    beaches,
+  // Covers match by array index, so the coast sort must come after them
+  const municipalityNav = sortMunicipalitiesByCoast(
+    addMunicipalityCovers(
+      buildMunicipalityNavWithBlueFlag(beaches, municipalities),
+      beaches,
+    ),
   )
   return {
     featured,
     municipalities,
     municipalityNav,
+    seaBeachCounts: countBeachesBySea(beaches),
     tags,
     totalBeaches: beaches.length,
   }
@@ -57,8 +64,15 @@ export const Route = createFileRoute('/')({
 })
 
 function HomePage() {
-  const { featured, municipalities, municipalityNav, tags, totalBeaches } =
-    Route.useLoaderData()
+  const {
+    featured,
+    municipalities,
+    municipalityNav,
+    seaBeachCounts,
+    tags,
+    totalBeaches,
+  } = Route.useLoaderData()
+  const coastToday = useCoastToday()
   const weatherData = useCardWeather(featured)
   const flagData = useCardFlags(featured)
 
@@ -73,6 +87,11 @@ function HomePage() {
   return (
     <main className="min-h-screen bg-sand-50">
       <HeroSection totalBeaches={totalBeaches} />
+      <CoastTodayStrip
+        beachCounts={seaBeachCounts}
+        isLoading={coastToday.isLoading}
+        today={coastToday.today}
+      />
       <FeaturedSection
         ref={featuredRef}
         featured={featured}

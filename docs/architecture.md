@@ -51,7 +51,7 @@ playasmurcia/
 │   │   └── ui/             # Generic UI (icons, responsive-image, empty-state)
 │   ├── features/
 │   │   ├── beaches/        # Beach domain (cards, detail widgets, gallery, maps)
-│   │   ├── home/           # Homepage sections (hero, featured grid, municipalities)
+│   │   ├── home/           # Homepage sections (hero, coast today strip, featured grid, municipalities)
 │   │   ├── collections/    # Single collection card (4:3 photo, title, description, count)
 │   │   ├── listing/        # Shared list/explorer (pagination, filters, chip filter bar, results summary, search, zone sections)
 │   │   ├── municipalities/ # Reusable municipality card (photo, meta line, CTA)
