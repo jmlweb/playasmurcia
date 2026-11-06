@@ -1,6 +1,17 @@
-import { createFileRoute, useNavigate } from '@tanstack/react-router'
+import {
+  ClientOnly,
+  createFileRoute,
+  useNavigate,
+} from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
-import { lazy, Suspense, useCallback, useMemo, useState } from 'react'
+import {
+  lazy,
+  Suspense,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 
 import type { BeachSearchParams } from '@/lib/beach-filters'
 
@@ -10,7 +21,10 @@ import { BeachCard } from '@/features/beaches/beach-card'
 import { useCardFlags } from '@/features/beaches/use-card-flags'
 import { useCardWeather } from '@/features/beaches/use-card-weather'
 import { ActiveFilterChips } from '@/features/explorer/active-filter-chips'
-import { useUserLocation } from '@/features/explorer/use-user-location'
+import {
+  hasGeolocationGrant,
+  useUserLocation,
+} from '@/features/explorer/use-user-location'
 import {
   FilterPanel,
   FilterToggleButton,
@@ -19,7 +33,11 @@ import { Pagination } from '@/features/listing/pagination'
 import { ResultsSummary } from '@/features/listing/results-summary'
 import { SearchBar } from '@/features/listing/search-bar'
 import { SortSelect } from '@/features/listing/sort-select'
-import { applyFiltersAndSort, countActiveFilters } from '@/lib/beach-filters'
+import {
+  applyFiltersAndSort,
+  countActiveFilters,
+  dropUnknownFilterIds,
+} from '@/lib/beach-filters'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
 import { mergeExplorerSearch, validateSearch } from '@/lib/explorer-search'
 import { haversineKm } from '@/lib/geo'
@@ -62,6 +80,10 @@ const ExplorerMap = lazy(() =>
   })),
 )
 
+const MapPlaceholder = () => (
+  <div className="h-96 animate-pulse rounded-2xl bg-gray-100" />
+)
+
 export const Route = createFileRoute('/explorar/')({
   validateSearch,
   loader: () => fetchExplorerData(),
@@ -88,26 +110,77 @@ function ExplorerPage() {
   const navigate = useNavigate({ from: Route.fullPath })
 
   const PAGE_SIZE = 15
-  const filters: BeachSearchParams = search
+  const filters: BeachSearchParams = useMemo(
+    () =>
+      dropUnknownFilterIds(search, {
+        municipalities,
+        seas,
+        services,
+        activities,
+        tags,
+      }),
+    [search, municipalities, seas, services, activities, tags],
+  )
   const { state: locationState, request: requestLocation } = useUserLocation()
   const position =
     locationState.status === 'granted' ? locationState.position : undefined
-  const [view, setView] = useState<'list' | 'map'>('list')
+  const view = search.view ?? 'list'
   // "Cerca de mí" in a shared URL has no position to rank by on this device
   const requestedSort = filters.sort ?? 'recomendados'
   const sort =
     requestedSort === 'cercania' && !position ? 'recomendados' : requestedSort
   const currentPage = search.page ?? 1
 
+  // Only restores silently: a page load must never raise a permission prompt
+  useEffect(() => {
+    if (requestedSort !== 'cercania' || position) return
+    if (locationState.status === 'loading') return
+    const dropNearbySort = () => {
+      void navigate({
+        search: (prev) => ({ ...prev, sort: undefined }),
+        replace: true,
+        resetScroll: false,
+      })
+    }
+    if (locationState.status === 'error') {
+      dropNearbySort()
+      return
+    }
+    let isStale = false
+    void hasGeolocationGrant().then((isGranted) => {
+      if (isStale) return
+      if (isGranted) requestLocation()
+      else dropNearbySort()
+    })
+    return () => {
+      isStale = true
+    }
+  }, [requestedSort, position, locationState.status, navigate, requestLocation])
+
   const updateFilters = useCallback(
-    (next: BeachSearchParams, page?: number) => {
+    (
+      next: BeachSearchParams,
+      page?: number,
+      history: 'push' | 'replace' = 'push',
+    ) => {
       void navigate({
         search: (prev) => mergeExplorerSearch(prev, next, page),
-        replace: true,
+        replace: history === 'replace',
       })
     },
     [navigate],
   )
+
+  function handleViewChange(nextView: 'list' | 'map') {
+    void navigate({
+      search: (prev) => ({
+        ...prev,
+        view: nextView === 'map' ? 'map' : undefined,
+      }),
+      replace: true,
+      resetScroll: false,
+    })
+  }
 
   function handlePageChange(page: number) {
     updateFilters({ ...filters, sort }, page)
@@ -115,8 +188,14 @@ function ExplorerPage() {
   }
 
   const allFiltered = useMemo(
-    () => applyFiltersAndSort(beaches, { ...filters, sort }, position),
-    [beaches, filters, sort, position],
+    () =>
+      applyFiltersAndSort(
+        beaches,
+        { ...filters, sort },
+        position,
+        (id) => municipalities[id]?.name ?? '',
+      ),
+    [beaches, filters, sort, position, municipalities],
   )
   const mapMarkers = useMemo(
     () =>
@@ -183,7 +262,12 @@ function ExplorerPage() {
             inputId="buscar"
             value={filters.q ?? ''}
             onChange={(q: string) => {
-              updateFilters({ ...filters, q: q || undefined })
+              // Each debounced keystroke would otherwise be its own Back step
+              updateFilters(
+                { ...filters, q: q || undefined },
+                undefined,
+                'replace',
+              )
             }}
           />
         </div>
@@ -228,7 +312,10 @@ function ExplorerPage() {
                 />
                 <ResultsSummary
                   currentPage={safePage}
-                  suffix=" encontradas"
+                  itemLabel={{
+                    singular: 'playa encontrada',
+                    plural: 'playas encontradas',
+                  }}
                   totalItems={allFiltered.length}
                   totalPages={view === 'map' ? 1 : totalPages}
                 />
@@ -252,7 +339,7 @@ function ExplorerPage() {
                       className={`px-4 py-2 transition-colors focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none focus-visible:ring-inset ${view === option ? 'bg-ocean-600 text-white' : 'text-gray-700 hover:bg-gray-50'}`}
                       type="button"
                       onClick={() => {
-                        setView(option)
+                        handleViewChange(option)
                       }}
                     >
                       {option === 'list' ? 'Lista' : 'Mapa'}
@@ -284,13 +371,12 @@ function ExplorerPage() {
             />
 
             {allFiltered.length > 0 && view === 'map' ? (
-              <Suspense
-                fallback={
-                  <div className="h-96 animate-pulse rounded-2xl bg-gray-100" />
-                }
-              >
-                <ExplorerMap markers={mapMarkers} />
-              </Suspense>
+              // Leaflet reads `window` on import, so it cannot run during SSR
+              <ClientOnly fallback={<MapPlaceholder />}>
+                <Suspense fallback={<MapPlaceholder />}>
+                  <ExplorerMap markers={mapMarkers} />
+                </Suspense>
+              </ClientOnly>
             ) : allFiltered.length > 0 ? (
               <>
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">

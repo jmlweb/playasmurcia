@@ -1,6 +1,11 @@
 import { describe, expect, it } from 'vitest'
 
-import { mergeExplorerSearch, validateSearch } from './explorer-search'
+import {
+  mergeExplorerSearch,
+  validateListingSearch,
+  validateMunicipalitySearch,
+  validateSearch,
+} from './explorer-search'
 
 describe('validateSearch need filters', () => {
   it('accepts boolean and string true flags', () => {
@@ -31,6 +36,49 @@ describe('validateSearch need filters', () => {
   it('returns undefined when no valid level remains', () => {
     expect(validateSearch({ occupancy: ['nope'] }).occupancy).toBeUndefined()
     expect(validateSearch({}).accessDifficulty).toBeUndefined()
+  })
+})
+
+describe('validateSearch view', () => {
+  it('keeps the map view and drops anything else', () => {
+    expect(validateSearch({ view: 'map' }).view).toBe('map')
+    expect(validateSearch({ view: 'list' }).view).toBeUndefined()
+  })
+})
+
+describe('validateListingSearch', () => {
+  it('keeps sort and page', () => {
+    expect(validateListingSearch({ sort: 'name', page: 2 })).toEqual({
+      sort: 'name',
+      page: 2,
+    })
+  })
+
+  it('drops nearby sort, which a listing without a position cannot honour', () => {
+    expect(validateListingSearch({ sort: 'cercania' }).sort).toBeUndefined()
+  })
+})
+
+describe('validateMunicipalitySearch', () => {
+  it('keeps the filters the page offers', () => {
+    expect(
+      validateMunicipalitySearch({
+        dogFriendly: true,
+        occupancy: ['low'],
+        accessDifficulty: ['easy'],
+      }),
+    ).toMatchObject({
+      dogFriendly: true,
+      occupancy: ['low'],
+      accessDifficulty: ['easy'],
+    })
+  })
+
+  it('ignores filters the page cannot show', () => {
+    const result = validateMunicipalitySearch({ q: 'cala', municipality: [1] })
+
+    expect(result).not.toHaveProperty('q')
+    expect(result).not.toHaveProperty('municipality')
   })
 })
 

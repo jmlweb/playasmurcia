@@ -70,6 +70,8 @@ export function countActiveFilters(filters: BeachSearchParams): number {
   )
 }
 
+type MunicipalityName = (municipalityId: number) => string
+
 const OccupancyOrder = { low: 0, medium: 1, high: 2 } as const
 
 export function normalizeText(text: string): string {
@@ -79,6 +81,37 @@ export function normalizeText(text: string): string {
     .replace(/[\u0300-\u036f]/g, '')
 }
 
+type FilterCatalog = {
+  municipalities: readonly unknown[]
+  seas: readonly unknown[]
+  services: readonly unknown[]
+  activities: readonly unknown[]
+  tags: readonly unknown[]
+}
+
+function keepKnownIds(
+  ids: number[] | undefined,
+  catalog: readonly unknown[],
+): number[] | undefined {
+  const known = ids?.filter((id) => catalog[id] !== undefined)
+  return known?.length ? known : undefined
+}
+
+/** Stale or hand-edited URLs must not empty the list with a filter no chip can show */
+export function dropUnknownFilterIds<TParams extends BeachSearchParams>(
+  params: TParams,
+  catalog: FilterCatalog,
+): TParams {
+  return {
+    ...params,
+    municipality: keepKnownIds(params.municipality, catalog.municipalities),
+    sea: keepKnownIds(params.sea, catalog.seas),
+    services: keepKnownIds(params.services, catalog.services),
+    activities: keepKnownIds(params.activities, catalog.activities),
+    tags: keepKnownIds(params.tags, catalog.tags),
+  }
+}
+
 export function filterBeaches(
   beaches: Beach[],
   params: BeachSearchParams,
@@ -86,7 +119,7 @@ export function filterBeaches(
   let result = beaches
 
   if (params.q?.trim()) {
-    const query = normalizeText(params.q.trim())
+    const query = normalizeText(params.q.trim()).replace(/\s+/g, ' ')
     result = result.filter((beach) => normalizeText(beach.name).includes(query))
   }
 
@@ -148,6 +181,7 @@ export function sortBeaches(
   beaches: Beach[],
   sort: BeachSearchParams['sort'],
   origin?: LatLng,
+  municipalityName?: MunicipalityName,
 ): Beach[] {
   const copy = [...beaches]
 
@@ -176,7 +210,13 @@ export function sortBeaches(
         normalizeText(a.name).localeCompare(normalizeText(b.name)),
       )
     case 'municipality':
-      return copy.sort((a, b) => a.municipality - b.municipality)
+      return copy.sort((a, b) =>
+        municipalityName
+          ? normalizeText(municipalityName(a.municipality)).localeCompare(
+              normalizeText(municipalityName(b.municipality)),
+            )
+          : a.municipality - b.municipality,
+      )
     case 'length':
       return copy.sort((a, b) => {
         if (a.length == null && b.length == null) return 0
@@ -199,6 +239,12 @@ export function applyFiltersAndSort(
   beaches: Beach[],
   params: BeachSearchParams,
   origin?: LatLng,
+  municipalityName?: MunicipalityName,
 ): Beach[] {
-  return sortBeaches(filterBeaches(beaches, params), params.sort, origin)
+  return sortBeaches(
+    filterBeaches(beaches, params),
+    params.sort,
+    origin,
+    municipalityName,
+  )
 }
