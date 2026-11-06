@@ -18,6 +18,16 @@ export const markerIcon = L.icon({
   shadowSize: [41, 41],
 })
 
+/**
+ * Every animated zoom in Leaflet 1.9.4 arms a 250 ms timer that `remove()` does
+ * not clear, and that timer throws once the panes are gone. Lowering the private
+ * flag makes it return early, so zooms can stay animated.
+ */
+export function removeLeafletMap(map: L.Map) {
+  Object.assign(map, { _animatingZoom: false })
+  map.remove()
+}
+
 type LeafletMapProps = {
   coordinates: [number, number]
   beachName: string
@@ -82,7 +92,7 @@ export function LeafletMap({ coordinates, beachName }: LeafletMapProps) {
     mapInstance.current = map
 
     return () => {
-      map.remove()
+      removeLeafletMap(map)
       mapInstance.current = null
     }
   }, [coordinates, beachName])

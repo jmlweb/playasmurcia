@@ -9,6 +9,7 @@ import {
   mapboxAttribution,
   mapboxUrl,
   markerIcon,
+  removeLeafletMap,
 } from '@/features/beaches/leaflet-map'
 
 export type ExplorerMapMarker = {
@@ -46,7 +47,7 @@ export function ExplorerMap({ markers }: { markers: ExplorerMapMarker[] }) {
     layerRef.current = L.markerClusterGroup({ maxClusterRadius: 50 }).addTo(map)
     mapRef.current = map
     return () => {
-      map.remove()
+      removeLeafletMap(map)
       mapRef.current = null
       layerRef.current = null
     }
