@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import type { Beach } from '@/types/beach'
 
 import {
+  dropUnknownFilterIds,
   applyFiltersAndSort,
   countActiveFilters,
   filterBeaches,
@@ -176,6 +177,30 @@ describe('filterBeaches search text', () => {
   it('keeps ñ and n interchangeable so a keyboard without ñ still finds names', () => {
     const withTilde = [{ ...beaches[0], name: 'Peñas Blancas' }]
     expect(filterBeaches(withTilde, { q: 'penas' })).toHaveLength(1)
+  })
+})
+
+describe('dropUnknownFilterIds', () => {
+  const catalog = {
+    municipalities: ['Cartagena', 'Lorca'],
+    seas: ['Mar Menor'],
+    services: [],
+    activities: [],
+    tags: [],
+  }
+
+  it('removes ids outside the catalog and keeps the rest of the params', () => {
+    expect(
+      dropUnknownFilterIds(
+        { municipality: [1, 99], sea: [5], q: 'cala', sort: 'name' },
+        catalog,
+      ),
+    ).toMatchObject({
+      municipality: [1],
+      sea: undefined,
+      q: 'cala',
+      sort: 'name',
+    })
   })
 })
 

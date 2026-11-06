@@ -19,7 +19,11 @@ import { Pagination } from '@/features/listing/pagination'
 import { ResultsSummary } from '@/features/listing/results-summary'
 import { SearchBar } from '@/features/listing/search-bar'
 import { SortSelect } from '@/features/listing/sort-select'
-import { applyFiltersAndSort, countActiveFilters } from '@/lib/beach-filters'
+import {
+  applyFiltersAndSort,
+  countActiveFilters,
+  dropUnknownFilterIds,
+} from '@/lib/beach-filters'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
 import { validateSearch } from '@/lib/explorer-search'
 import { haversineKm } from '@/lib/geo'
@@ -88,7 +92,17 @@ function ExplorerPage() {
   const navigate = useNavigate({ from: Route.fullPath })
 
   const PAGE_SIZE = 15
-  const filters: BeachSearchParams = search
+  const filters: BeachSearchParams = useMemo(
+    () =>
+      dropUnknownFilterIds(search, {
+        municipalities,
+        seas,
+        services,
+        activities,
+        tags,
+      }),
+    [search, municipalities, seas, services, activities, tags],
+  )
   const { state: locationState, request: requestLocation } = useUserLocation()
   const position =
     locationState.status === 'granted' ? locationState.position : undefined

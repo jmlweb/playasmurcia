@@ -79,6 +79,37 @@ export function normalizeText(text: string): string {
     .replace(/[\u0300-\u036f]/g, '')
 }
 
+type FilterCatalog = {
+  municipalities: readonly unknown[]
+  seas: readonly unknown[]
+  services: readonly unknown[]
+  activities: readonly unknown[]
+  tags: readonly unknown[]
+}
+
+function keepKnownIds(
+  ids: number[] | undefined,
+  catalog: readonly unknown[],
+): number[] | undefined {
+  const known = ids?.filter((id) => catalog[id] !== undefined)
+  return known?.length ? known : undefined
+}
+
+/** Stale or hand-edited URLs must not empty the list with a filter no chip can show */
+export function dropUnknownFilterIds<TParams extends BeachSearchParams>(
+  params: TParams,
+  catalog: FilterCatalog,
+): TParams {
+  return {
+    ...params,
+    municipality: keepKnownIds(params.municipality, catalog.municipalities),
+    sea: keepKnownIds(params.sea, catalog.seas),
+    services: keepKnownIds(params.services, catalog.services),
+    activities: keepKnownIds(params.activities, catalog.activities),
+    tags: keepKnownIds(params.tags, catalog.tags),
+  }
+}
+
 export function filterBeaches(
   beaches: Beach[],
   params: BeachSearchParams,
