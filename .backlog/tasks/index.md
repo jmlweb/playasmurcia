@@ -4,11 +4,7 @@
 
 | Status | Count |
 |--------|-------|
-<<<<<<< HEAD
 | Pending | 36 |
-=======
-| Pending | 36 |
->>>>>>> origin/main
 | Active | 0 |
 | Blocked | 0 |
 | Complete | 131 |
