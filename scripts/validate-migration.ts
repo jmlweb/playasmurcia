@@ -3,6 +3,7 @@ import { dirname, join } from "node:path"
 import { fileURLToPath } from "node:url"
 import { eq, sql } from "drizzle-orm"
 import { db } from "../src/db/client"
+import { runWithDbScope } from "../src/db/request-scope"
 import {
   activities,
   beachActivities,
@@ -576,4 +577,4 @@ async function main(): Promise<void> {
   }
 }
 
-main()
+runWithDbScope(main)
