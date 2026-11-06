@@ -161,9 +161,9 @@ Height tiers create visual hierarchy between the homepage, beach detail and inne
 
 | Tier                     | Height                    | Usage                                                                  |
 | ------------------------ | ------------------------- | ---------------------------------------------------------------------- |
-| **Homepage** (immersive) | `min(72vh, 640px)`        | Homepage hero only — full-bleed photo, staggered animation             |
-| **Beach detail**         | `min(60vh, 560px)`        | `/playas/$slug` — first beach photo as hero; gradient tier if no photo |
-| **Photo listing**        | ~420px                    | Listing pages with a photo (municipios, colecciones, explorar)         |
+| **Homepage** (immersive) | `min(72svh, 640px)`       | Homepage hero only — full-bleed photo, staggered animation             |
+| **Beach detail**         | `min(38svh, 300px)`, `min(60svh, 560px)` from `sm` | `/playas/$slug` — first beach photo as hero with recent conditions; compact gradient tier if no photo |
+| **Photo listing**        | 320px, 420px from `sm`    | Listing pages with a photo (municipios, colecciones, explorar)         |
 | **Inner page** (compact) | `py-14 sm:py-18 lg:py-20` | Pages without a photo — gradient background, functional header         |
 
 ### Photo heroes

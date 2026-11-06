@@ -80,7 +80,6 @@ function HomePage() {
         municipalities={municipalities}
         slugMap={slugMap}
         tags={tags}
-        totalBeaches={totalBeaches}
         weatherData={weatherData}
       />
       <MunicipalitiesSection

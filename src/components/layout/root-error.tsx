@@ -29,7 +29,7 @@ export function RootErrorComponent({ reset }: ErrorComponentProps) {
           className="rounded-full px-6 py-2.5 text-sm font-semibold text-gray-500 transition-colors hover:text-gray-700 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
           to="/explorar"
         >
-          Ver todas las playas
+          Todas las playas
         </Link>
       </div>
     </main>

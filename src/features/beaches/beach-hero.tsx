@@ -15,7 +15,9 @@ type BeachHeroProps = {
   breadcrumb: BreadcrumbItem[]
   /** First beach picture; without it the hero falls back to the ocean gradient */
   picture?: string
-  /** Tags row rendered under the location line */
+  /** Live conditions rendered under the location line */
+  conditions?: ReactNode
+  /** Tags row rendered under the conditions */
   tags?: ReactNode
 }
 
@@ -25,12 +27,19 @@ export function BeachHero({
   zone,
   breadcrumb,
   picture,
+  conditions,
   tags,
 }: BeachHeroProps) {
   const image = picture ? parseImageFilename(picture) : null
+  // Without a photo a tall hero is empty space, so it collapses to its content
+  const heightClass = image
+    ? 'min-h-[min(38svh,300px)] sm:min-h-[min(60svh,560px)]'
+    : ''
 
   return (
-    <section className="hero-noise relative flex min-h-[min(60vh,560px)] items-end overflow-hidden bg-ocean-900">
+    <section
+      className={`${heightClass} hero-noise relative flex items-end overflow-hidden bg-ocean-900`}
+    >
       {image ? (
         <>
           <ResponsiveImage
@@ -60,6 +69,7 @@ export function BeachHero({
         <p className="mt-1 text-lg text-white/90">
           {formatBeachLocation(zone, municipalityName)}
         </p>
+        {conditions}
         {tags ? <div className="mt-3">{tags}</div> : null}
       </div>
     </section>

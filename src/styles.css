@@ -41,6 +41,14 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
+    /* Anchors must clear the sticky bar (61-73px) */
+    scroll-padding-top: 5rem;
+  }
+
+  /* Focus lands here only programmatically, so no ring on a non-control */
+  #main-content:focus,
+  h1[tabindex='-1']:focus {
+    outline: none;
   }
 
   @media (prefers-reduced-motion: reduce) {

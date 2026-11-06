@@ -112,8 +112,9 @@ describe('nav-builders', () => {
 
     it('returns correct hrefs', () => {
       const result = buildCharacteristicCounts(beaches)
-      expect(result[0].href).toBe('/colecciones/bandera-azul')
-      expect(result[1].href).toBe('/colecciones/accesibles')
+      expect(result[0].href).toBe('/colecciones/mar-menor')
+      expect(result[1].href).toBe('/colecciones/mar-mediterraneo')
+      expect(result[2].href).toBe('/colecciones/bandera-azul')
     })
   })
 

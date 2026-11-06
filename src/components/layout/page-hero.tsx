@@ -121,7 +121,9 @@ export function PageHero({
   imageHeight,
 }: PageHeroProps) {
   const heightClass =
-    size === 'home' ? 'min-h-[min(72vh,640px)]' : 'min-h-[420px]'
+    size === 'home'
+      ? 'min-h-[min(72svh,640px)]'
+      : 'min-h-[320px] sm:min-h-[420px]'
 
   return (
     <section

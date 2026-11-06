@@ -15,6 +15,7 @@ import { NotFound } from '@/components/layout/not-found'
 import { RootErrorComponent } from '@/components/layout/root-error'
 import { SiteFooter } from '@/components/layout/site-footer'
 import { useWebMcp } from '@/features/webmcp/use-webmcp'
+import { useRouteFocus } from '@/hooks/use-route-focus'
 import { pictureUrl } from '@/lib/images'
 
 import appCss from '../styles.css?url'
@@ -23,15 +24,20 @@ const fetchNavData = createServerFn({ method: 'GET' }).handler(
   async (): Promise<NavData> => {
     const { getAllBeaches, getAllMunicipalities } =
       await import('@/lib/db-data/beach-queries')
-    const { buildMunicipalityNav, buildCharacteristicCounts } =
-      await import('@/lib/nav-builders')
+    const {
+      buildCharacteristicCounts,
+      buildMunicipalityNav,
+      sortMunicipalitiesByCoast,
+    } = await import('@/lib/nav-builders')
     const [beaches, municipalities] = await Promise.all([
       getAllBeaches(),
       getAllMunicipalities(),
     ])
 
     return {
-      municipalities: buildMunicipalityNav(beaches, municipalities),
+      municipalities: sortMunicipalitiesByCoast(
+        buildMunicipalityNav(beaches, municipalities),
+      ),
       characteristics: buildCharacteristicCounts(beaches),
     }
   },
@@ -99,6 +105,7 @@ export const Route = createRootRoute({
 function RootComponent() {
   const navData = Route.useLoaderData()
   useWebMcp()
+  useRouteFocus()
 
   return (
     <html lang="es">
@@ -113,7 +120,7 @@ function RootComponent() {
           Saltar al contenido
         </a>
         <Navbar navData={navData} />
-        <div id="main-content">
+        <div id="main-content" tabIndex={-1}>
           <Outlet />
         </div>
         <SiteFooter

@@ -215,7 +215,7 @@ Content sits in a centered container of 1280px (`max-w-7xl`) with side padding o
 
 Card grids run three columns on desktop, two on tablet and one on mobile. The beach detail page uses a two-thirds main column plus a sticky side rail for practical information and weather. The explorer uses a sticky filter sidebar at desktop widths and a slide-in filter panel on mobile. Layouts are mobile-first and checked at 375px, 768px and 1280px.
 
-Heroes come in four height tiers: homepage `min(72vh, 640px)`, beach detail `min(60vh, 560px)`, photo listing about 420px, and compact gradient for pages with no photo. Text anchors bottom-left inside the container.
+Heroes come in four height tiers: homepage `min(72svh, 640px)`, beach detail `min(38svh, 300px)` on phones and `min(60svh, 560px)` from `sm` up, photo listing 320px on phones and 420px from `sm` up, and compact gradient for pages and beaches with no photo. Text anchors bottom-left inside the container.
 
 ### Named Rules
 
@@ -283,12 +283,16 @@ The whole set is smooth as beach pebbles: rounded, tactile and quiet, changing c
 - **Bar:** Sticky Chart Night bar with a `white/10` bottom border, slightly translucent from `sm` up.
 - **Links:** 14px medium in Sounding Blue, white on hover and focus.
 - **Descubrir popover:** Night-blue panel (`ocean-800`) with 12px corners, a Floating panel shadow and a two-column list with count pills.
-- **Mobile:** A hamburger opens a slide-in panel with collapsible groups.
-- **Footer:** Night Water with three columns and count pills.
+- **Mobile:** A hamburger opens a panel under the bar with collapsible groups and 44px rows. It scrolls on its own, locks the page behind it and closes on navigation or Esc.
+- **Footer:** Night Water with three columns and count pills, closing on a line naming the data sources and stating the site is personal and ad-free.
 
 ### Beach Card Weather Pill
 
 The signature data element. A `white/90` pill in the top-left of the photo shows the current temperature, a thin divider, then wind speed and direction. It brings live conditions onto the photo without leaving the card.
+
+### Beach Conditions
+
+White text on the beach hero scrim, under the location line: sky icon and temperature, wind, waves on the open sea, and the 112 flag in season, followed by a line naming the sources. No panel goes behind it. Only facts with data appear, and the line disappears when no source answers.
 
 ### Overline
 

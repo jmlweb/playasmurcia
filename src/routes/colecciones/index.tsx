@@ -65,7 +65,7 @@ function ColeccionesPage() {
         optimizedName="hero-colecciones"
       >
         <p className="mb-3 text-sm font-semibold tracking-widest text-coral-300 uppercase">
-          Costa de Murcia
+          Costa Cálida
         </p>
         <h1 className="mb-4 text-4xl font-normal tracking-tight text-white sm:text-5xl">
           Colecciones de playas

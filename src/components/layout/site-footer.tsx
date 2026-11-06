@@ -96,22 +96,31 @@ export function SiteFooter({
               </Link>
               <Link
                 className="text-sm text-ocean-200 transition-colors hover:text-white"
+                to="/municipios"
+              >
+                Todos los municipios
+              </Link>
+              <Link
+                className="text-sm text-ocean-200 transition-colors hover:text-white"
                 to="/colecciones"
               >
-                Colecciones
+                Todas las colecciones
               </Link>
             </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-ocean-800 pt-6 sm:flex-row">
-          <p className="text-xs text-ocean-200">
-            Datos del Ministerio de Transición Ecológica
-          </p>
-          <p className="text-xs text-ocean-200">
-            &copy; {currentYear} Playas de Murcia
-          </p>
+        <div className="mt-10 flex flex-col justify-between gap-3 border-t border-ocean-800 pt-6 text-xs text-ocean-200 sm:flex-row sm:gap-8">
+          <div className="max-w-2xl space-y-1">
+            <p>
+              Fuentes: Ministerio para la Transición Ecológica y el Reto
+              Demográfico, 112 Región de Murcia, AEMET, Open-Meteo y EEA /
+              NÁYADE (Ministerio de Sanidad).
+            </p>
+            <p>Proyecto personal, sin publicidad ni fines comerciales.</p>
+          </div>
+          <p className="shrink-0">&copy; {currentYear} Playas de Murcia</p>
         </div>
       </div>
     </footer>

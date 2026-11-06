@@ -4,12 +4,15 @@ type SearchBarProps = {
   value: string
   onChange: (value: string) => void
   placeholder?: string
+  /** Lets `#id` links move focus to the input */
+  inputId?: string
 }
 
 export function SearchBar({
   value,
   onChange,
   placeholder = 'Buscar playa...',
+  inputId,
 }: SearchBarProps) {
   const [localValue, setLocalValue] = useState(value)
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -64,6 +67,7 @@ export function SearchBar({
       <input
         aria-label="Buscar playa por nombre"
         className="w-full rounded-full border border-white/30 bg-white/95 py-3.5 pr-10 pl-12 text-base text-gray-900 placeholder-gray-500 shadow-lg backdrop-blur-xl transition-shadow focus:bg-white/95 focus:shadow-xl focus-visible:ring-2 focus-visible:ring-ocean-400 focus-visible:outline-none"
+        id={inputId}
         placeholder={placeholder}
         type="search"
         value={localValue}

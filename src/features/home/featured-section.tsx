@@ -18,7 +18,6 @@ type FeaturedSectionProps = {
   slugMap: Map<string, string>
   weatherData: Record<string, CardWeather>
   flagData: Record<string, BeachFlag>
-  totalBeaches: number
 }
 
 export function FeaturedSection({
@@ -29,7 +28,6 @@ export function FeaturedSection({
   slugMap,
   weatherData,
   flagData,
-  totalBeaches,
 }: FeaturedSectionProps) {
   const lead = featured.at(0)
   const rest = featured.slice(1)
@@ -45,7 +43,7 @@ export function FeaturedSection({
             Selección destacada
           </p>
           <h2 className="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
-            Playas que no te puedes perder
+            Por dónde empezar
           </h2>
         </div>
       </div>
@@ -77,7 +75,7 @@ export function FeaturedSection({
           className="inline-flex items-center gap-2 rounded-full bg-ocean-500 px-8 py-3.5 text-base font-semibold text-white shadow-sm transition-all hover:bg-ocean-600 hover:shadow-md focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
           to="/explorar"
         >
-          Ver las {totalBeaches} playas
+          Todas las playas
           <svg
             aria-hidden="true"
             className="arrow-nudge h-5 w-5"
