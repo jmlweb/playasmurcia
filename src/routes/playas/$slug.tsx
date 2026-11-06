@@ -257,8 +257,8 @@ function BeachPage() {
             />
 
             <WeatherWidget
-              aemetId={beach.aemetId}
-              coordinates={beach.coordinates}
+              beachCode={beach.code}
+              hasAemetForecast={!!beach.aemetId}
               shoreBearing={
                 beach.sea === MAR_MENOR_SEA ? undefined : beach.shoreBearing
               }

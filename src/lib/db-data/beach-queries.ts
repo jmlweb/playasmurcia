@@ -34,6 +34,36 @@ export async function getAllBeaches(): Promise<Beach[]> {
   return dbBeaches.map(mapBeachFromDB)
 }
 
+export type BeachWeatherTarget = {
+  code: string
+  coordinates: [number, number]
+  aemetId?: string
+}
+
+/**
+ * Where to request weather for each known code; unknown codes are dropped.
+ * Selects only these columns because it runs on every listing and detail view.
+ */
+export async function getBeachWeatherTargets(
+  codes: string[],
+): Promise<BeachWeatherTarget[]> {
+  const rows = await db
+    .select({
+      code: schema.beaches.code,
+      latitude: schema.beaches.latitude,
+      longitude: schema.beaches.longitude,
+      aemetId: schema.beaches.aemetId,
+    })
+    .from(schema.beaches)
+    .where(inArray(schema.beaches.code, codes))
+
+  return rows.map(({ code, latitude, longitude, aemetId }) => ({
+    code,
+    coordinates: [latitude, longitude],
+    ...(aemetId && { aemetId }),
+  }))
+}
+
 /**
  * Finds a beach by its unique code
  */

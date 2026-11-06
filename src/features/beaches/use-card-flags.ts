@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react'
 
 import type { BeachFlag } from '@/lib/beach-status-112'
 
-import { parseCardFlagsInput } from './card-flags-input'
+import { parseBeachCodesInput } from './beach-code-input'
 
 const fetchCardFlags = createServerFn({ method: 'POST' })
-  .validator(parseCardFlagsInput)
+  .validator(parseBeachCodesInput)
   .handler(async ({ data }) => {
     const [{ getAllBeaches, getMunicipalityMap }, { getBatchBeachFlags }] =
       await Promise.all([

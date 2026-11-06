@@ -3,15 +3,21 @@ import { useEffect, useState } from 'react'
 
 import type { CardWeather } from '@/lib/open-meteo'
 
-import type { CardWeatherBeach } from './card-weather-input'
-
-import { parseCardWeatherInput } from './card-weather-input'
+import { parseBeachCodesInput } from './beach-code-input'
 
 const fetchCardWeather = createServerFn({ method: 'POST' })
-  .validator(parseCardWeatherInput)
+  .validator(parseBeachCodesInput)
   .handler(async ({ data }) => {
-    const { fetchBatchCardWeather } = await import('@/lib/open-meteo')
-    const weatherMap = await fetchBatchCardWeather(data.beaches)
+    const [{ getBeachWeatherTargets }, { fetchBatchCardWeather }] =
+      await Promise.all([
+        import('@/lib/db-data/beach-queries'),
+        import('@/lib/open-meteo'),
+      ])
+    // Coordinates must come from the DB: the batch cache is keyed by code, so
+    // caller-supplied ones would be served to every visitor of that listing
+    const weatherMap = await fetchBatchCardWeather(
+      await getBeachWeatherTargets(data.codes),
+    )
     return Object.fromEntries(weatherMap)
   })
 
@@ -20,19 +26,14 @@ const fetchCardWeather = createServerFn({ method: 'POST' })
  * delays the page itself. Cards render without weather until it arrives.
  */
 export function useCardWeather(
-  beaches: readonly CardWeatherBeach[],
+  beaches: readonly { code: string }[],
 ): Record<string, CardWeather> {
   const [weather, setWeather] = useState<Record<string, CardWeather>>({})
 
   useEffect(() => {
     if (beaches.length === 0) return
     let cancelled = false
-    // Send only what the server needs, not whole beach records
-    const payload = beaches.map(({ code, coordinates }) => ({
-      code,
-      coordinates,
-    }))
-    fetchCardWeather({ data: { beaches: payload } })
+    fetchCardWeather({ data: { codes: beaches.map(({ code }) => code) } })
       .then((result) => {
         if (!cancelled) setWeather(result)
       })

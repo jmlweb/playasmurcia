@@ -7,6 +7,7 @@ import {
   getAllServices,
   getBeachByCode,
   getBeachBySlug,
+  getBeachWeatherTargets,
   getBeachesByMunicipality,
   getMunicipality,
   getMunicipalityBySlug,
@@ -55,6 +56,25 @@ describe('db-data module', () => {
       const beach = await getBeachByCode('999999')
 
       expect(beach).toBeUndefined()
+    })
+  })
+
+  describe('getBeachWeatherTargets', () => {
+    it('returns the stored location of known codes and drops unknown ones', async () => {
+      const beach = await getBeachByCode('575')
+      const targets = await getBeachWeatherTargets(['575', '999999'])
+
+      expect(targets).toEqual([
+        {
+          code: '575',
+          coordinates: beach?.coordinates,
+          ...(beach?.aemetId && { aemetId: beach.aemetId }),
+        },
+      ])
+    })
+
+    it('returns nothing for an empty list', async () => {
+      expect(await getBeachWeatherTargets([])).toEqual([])
     })
   })
 
