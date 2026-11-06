@@ -44,10 +44,10 @@ export const Route = createFileRoute('/')({
   loader: () => fetchHomeData(),
   head: ({ loaderData }) => ({
     meta: [
-      { title: 'Playas de Murcia - Descubre la Costa Cálida' },
+      { title: 'Playas de Murcia - Guía de la Costa Cálida' },
       {
         name: 'description',
-        content: `Descubre las mejores playas de la Región de Murcia. ${loaderData?.totalBeaches ?? 194} playas y calas en la Costa Cálida, entre el Mediterráneo y el Mar Menor.`,
+        content: `Guía de las ${loaderData?.totalBeaches ?? 193} playas y calas de la Región de Murcia, en la Costa Cálida, entre el Mediterráneo y el Mar Menor.`,
       },
       ogUrlMeta('/'),
     ],

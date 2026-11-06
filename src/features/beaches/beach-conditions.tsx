@@ -36,12 +36,12 @@ export function BeachConditions({
 
   return (
     // Height reserved so the hero does not jump when data arrives after mount
-    <div className="mt-3 min-h-14">
+    <div className="mt-3 min-h-17 sm:min-h-11">
       {sources.length > 0 && (
         <>
           <ul
             aria-label="Condiciones recientes"
-            className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm font-medium text-white tabular-nums"
+            className="flex min-h-6 flex-wrap items-center gap-x-4 gap-y-1 text-sm font-medium text-white tabular-nums"
           >
             {weather && (
               <li className="flex items-center gap-1.5">

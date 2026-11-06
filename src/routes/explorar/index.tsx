@@ -205,7 +205,7 @@ function ExplorerPage() {
         </div>
       </PageHero>
 
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pt-8 pb-8 sm:px-6 sm:pt-12 lg:px-8">
         {/* Flex only on desktop: on mobile FilterPanel leaves an empty wrapper that the gap would indent the results by */}
         <div className="lg:flex lg:gap-10">
           <FilterPanel

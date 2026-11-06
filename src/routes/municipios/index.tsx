@@ -68,7 +68,7 @@ function MunicipiosPage() {
         </p>
       </PageHero>
 
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pt-8 pb-16 sm:px-6 sm:pt-12 sm:pb-20 lg:px-8">
         <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {municipalities.map((municipality) => (
             <li key={municipality.slug}>

@@ -1,5 +1,7 @@
 import { Link } from '@tanstack/react-router'
 
+import { darkFocusRing } from '@/components/layout/focus-ring'
+
 type FooterMunicipality = {
   name: string
   slug: string
@@ -32,7 +34,7 @@ export function SiteFooter({
           {/* Branding */}
           <div>
             <Link
-              className="text-lg font-bold text-white transition-opacity hover:opacity-80"
+              className={`text-lg font-bold text-white transition-opacity hover:opacity-80 ${darkFocusRing}`}
               to="/"
             >
               Playas de Murcia
@@ -52,7 +54,7 @@ export function SiteFooter({
               {municipalities.map((m) => (
                 <li key={m.slug}>
                   <Link
-                    className="group flex items-center gap-1.5 text-sm text-ocean-200 transition-colors hover:text-white"
+                    className={`group flex items-center gap-1.5 text-sm text-ocean-200 transition-colors hover:text-white ${darkFocusRing}`}
                     params={{ slug: m.slug }}
                     to="/municipios/$slug"
                   >
@@ -75,7 +77,7 @@ export function SiteFooter({
               {characteristics.map((c) => (
                 <li key={c.href}>
                   <Link
-                    className="group flex items-center gap-1.5 text-sm text-ocean-200 transition-colors hover:text-white"
+                    className={`group flex items-center gap-1.5 text-sm text-ocean-200 transition-colors hover:text-white ${darkFocusRing}`}
                     params={{ slug: c.href.split('/').pop()! }}
                     to="/colecciones/$slug"
                   >
@@ -89,19 +91,19 @@ export function SiteFooter({
             </ul>
             <div className="mt-4 flex flex-col gap-2 border-t border-ocean-800 pt-4">
               <Link
-                className="text-sm text-ocean-200 transition-colors hover:text-white"
+                className={`text-sm text-ocean-200 transition-colors hover:text-white ${darkFocusRing}`}
                 to="/explorar"
               >
                 Todas las playas
               </Link>
               <Link
-                className="text-sm text-ocean-200 transition-colors hover:text-white"
+                className={`text-sm text-ocean-200 transition-colors hover:text-white ${darkFocusRing}`}
                 to="/municipios"
               >
                 Todos los municipios
               </Link>
               <Link
-                className="text-sm text-ocean-200 transition-colors hover:text-white"
+                className={`text-sm text-ocean-200 transition-colors hover:text-white ${darkFocusRing}`}
                 to="/colecciones"
               >
                 Todas las colecciones

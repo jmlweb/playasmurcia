@@ -215,7 +215,7 @@ Content sits in a centered container of 1280px (`max-w-7xl`) with side padding o
 
 Card grids run three columns on desktop, two on tablet and one on mobile. The beach detail page uses a two-thirds main column plus a sticky side rail for practical information and weather. The explorer uses a sticky filter sidebar at desktop widths and a slide-in filter panel on mobile. Layouts are mobile-first and checked at 375px, 768px and 1280px.
 
-Heroes come in four height tiers: homepage `min(72svh, 640px)`, beach detail `min(38svh, 300px)` on phones and `min(60svh, 560px)` from `sm` up, photo listing 320px on phones and 420px from `sm` up, and compact gradient for pages and beaches with no photo. Text anchors bottom-left inside the container.
+Heroes come in four height tiers: homepage `min(72svh, 640px)`, beach detail `min(38svh, 300px)` on phones and `min(60svh, 560px)` from `sm` up, photo listing 320px on phones and 420px from `sm` up, and compact gradient for pages and beaches with no photo. Text anchors bottom-left inside the container. The first content after any hero starts 32px below it, 48px from `sm` up, on every route.
 
 ### Named Rules
 
@@ -300,7 +300,7 @@ A 24px Buoy Coral bar followed by a tracked, uppercase Harbour Teal label. It si
 
 ### Beach Hero
 
-Full-color photo at the detail tier with an Abyss scrim from 85% at the base to 10% at the top. Breadcrumb, serif title, locality and tags stack bottom-left. Without a photo, it falls back to the night-water gradient.
+Full-color photo at the detail tier with an Abyss scrim from 85% at the base to 10% at the top, or to 55% on phones, where the shorter hero puts the breadcrumb and title high on the photo. Breadcrumb, serif title, locality and tags stack bottom-left. Without a photo, it falls back to the night-water gradient.
 
 ### Empty State
 

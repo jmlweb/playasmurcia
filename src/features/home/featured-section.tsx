@@ -35,7 +35,7 @@ export function FeaturedSection({
   return (
     <section
       ref={ref}
-      className="reveal mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20"
+      className="reveal mx-auto max-w-7xl px-4 pt-8 pb-12 sm:px-6 sm:pt-12 sm:pb-16 lg:px-8 lg:pb-20"
     >
       <div className="mb-8">
         <div>

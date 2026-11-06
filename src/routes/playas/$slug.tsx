@@ -223,7 +223,7 @@ function BeachPage() {
         zone={beach.zone}
       />
 
-      <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 sm:pt-12 lg:px-8">
         <BeachSafetyBar
           beachName={beach.name}
           coordinates={beach.coordinates}

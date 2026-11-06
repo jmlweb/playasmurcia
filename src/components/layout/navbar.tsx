@@ -4,12 +4,13 @@ import { useEffect, useRef, useState } from 'react'
 
 import type { NavData } from '@/lib/nav-builders'
 
+import { darkFocusRing } from '@/components/layout/focus-ring'
 import { ChevronDownIcon } from '@/components/ui/icons'
 
 const simpleNavLinks = [
   {
     to: '/explorar' as const,
-    label: 'Playas',
+    label: 'Todas las playas',
     section: ['/explorar', '/playas'],
   },
   { to: '/municipios' as const, label: 'Municipios', section: ['/municipios'] },
@@ -71,7 +72,7 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
                 </ul>
                 <div className="mt-3 border-t border-ocean-700 pt-3">
                   <Link
-                    className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-ocean-300 transition-colors hover:bg-ocean-700 hover:text-white"
+                    className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-ocean-300 transition-colors hover:bg-ocean-700 hover:text-white focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-800 focus-visible:outline-none"
                     to="/municipios"
                   >
                     Ver todos →
@@ -105,7 +106,7 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
                 </ul>
                 <div className="mt-3 border-t border-ocean-700 pt-3">
                   <Link
-                    className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-ocean-300 transition-colors hover:bg-ocean-700 hover:text-white"
+                    className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-ocean-300 transition-colors hover:bg-ocean-700 hover:text-white focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-800 focus-visible:outline-none"
                     to="/colecciones"
                   >
                     Ver todas →
@@ -136,7 +137,7 @@ function MobileDropdown({
     <div>
       <button
         aria-expanded={open}
-        className="flex min-h-11 w-full items-center justify-between text-sm font-medium text-ocean-200 transition-colors hover:text-white"
+        className={`flex min-h-11 w-full items-center justify-between text-sm font-medium text-ocean-200 transition-colors hover:text-white ${darkFocusRing}`}
         type="button"
         onClick={() => {
           setOpen((prev) => !prev)
@@ -159,7 +160,7 @@ function MobileDropdown({
               <Link
                 key={m.slug}
                 aria-current={active ? 'page' : undefined}
-                className={`flex min-h-11 items-center justify-between text-sm transition-colors hover:text-white ${active ? 'font-semibold text-white' : 'text-ocean-200'}`}
+                className={`flex min-h-11 items-center justify-between text-sm transition-colors hover:text-white ${active ? 'font-semibold text-white' : 'text-ocean-200'} ${darkFocusRing}`}
                 params={{ slug: m.slug }}
                 to="/municipios/$slug"
                 onClick={onNavigate}
@@ -178,7 +179,7 @@ function MobileDropdown({
               <Link
                 key={c.href}
                 aria-current={active ? 'page' : undefined}
-                className={`flex min-h-11 items-center justify-between text-sm transition-colors hover:text-white ${active ? 'font-semibold text-white' : 'text-ocean-200'}`}
+                className={`flex min-h-11 items-center justify-between text-sm transition-colors hover:text-white ${active ? 'font-semibold text-white' : 'text-ocean-200'} ${darkFocusRing}`}
                 params={{ slug: c.href.split('/').pop()! }}
                 to="/colecciones/$slug"
                 onClick={onNavigate}
@@ -211,6 +212,12 @@ export function Navbar({ navData }: { navData: NavData }) {
     const root = document.documentElement
     const previousOverflow = root.style.overflow
     root.style.overflow = 'hidden'
+    // Keeps Tab inside the open menu: the page behind is covered, not gone
+    const covered = [
+      document.getElementById('main-content'),
+      document.querySelector('body > footer'),
+    ]
+    covered.forEach((element) => element?.setAttribute('inert', ''))
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key !== 'Escape') return
@@ -227,6 +234,7 @@ export function Navbar({ navData }: { navData: NavData }) {
     breakpoint.addEventListener('change', handleBreakpoint)
     return () => {
       root.style.overflow = previousOverflow
+      covered.forEach((element) => element?.removeAttribute('inert'))
       document.removeEventListener('keydown', handleKeyDown)
       breakpoint.removeEventListener('change', handleBreakpoint)
     }
@@ -237,7 +245,7 @@ export function Navbar({ navData }: { navData: NavData }) {
       <nav aria-label="Principal">
         <div className="mx-auto flex max-w-7xl items-center px-4 py-3.5 sm:px-6 sm:py-4 lg:px-8">
           <Link
-            className="flex items-center gap-2 text-base font-bold tracking-tight text-white transition-opacity hover:opacity-80 sm:text-lg"
+            className={`flex items-center gap-2 text-base font-bold tracking-tight text-white transition-opacity hover:opacity-80 sm:text-lg ${darkFocusRing}`}
             to="/"
             onClick={() => {
               setMobileOpen(false)
@@ -266,7 +274,7 @@ export function Navbar({ navData }: { navData: NavData }) {
                 <Link
                   key={to}
                   aria-current={active ? 'page' : undefined}
-                  className={`text-sm font-medium transition-colors ${active ? 'border-b-2 border-ocean-400 pb-0.5 text-white' : 'text-ocean-200 hover:text-white focus-visible:text-white focus-visible:underline focus-visible:outline-none'}`}
+                  className={`text-sm font-medium transition-colors ${active ? 'border-b-2 border-ocean-400 pb-0.5 text-white' : 'text-ocean-200 hover:text-white focus-visible:text-white'} ${darkFocusRing}`}
                   to={to}
                 >
                   {label}
@@ -356,7 +364,7 @@ export function Navbar({ navData }: { navData: NavData }) {
                 <Link
                   key={to}
                   aria-current={active ? 'page' : undefined}
-                  className={`flex min-h-11 items-center text-sm font-medium transition-colors ${active ? 'border-l-2 border-ocean-400 pl-2 text-white' : 'text-ocean-200 hover:text-white'}`}
+                  className={`flex min-h-11 items-center text-sm font-medium transition-colors ${active ? 'border-l-2 border-ocean-400 pl-2 text-white' : 'text-ocean-200 hover:text-white'} ${darkFocusRing}`}
                   to={to}
                   onClick={() => {
                     setMobileOpen(false)

@@ -51,7 +51,7 @@ export function BeachHero({
             variant="full"
           />
           {/* Scrim keeps white text legible over any photo, bright sand included */}
-          <div className="absolute inset-0 bg-linear-to-t from-ocean-950/85 via-ocean-950/35 via-55% to-ocean-950/10" />
+          <div className="absolute inset-0 bg-linear-to-t from-ocean-950/85 via-ocean-950/65 via-65% to-ocean-950/55 sm:via-ocean-950/35 sm:via-55% sm:to-ocean-950/10" />
         </>
       ) : (
         <>

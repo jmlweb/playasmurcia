@@ -80,6 +80,7 @@ playasmurcia/
 │   │   ├── schema.ts       # JSON-LD
 │   │   └── collections.ts
 │   ├── hooks/
+│   │   ├── use-route-focus.ts    # Moves focus to the hash target or h1 after navigation
 │   │   └── use-scroll-reveal.ts  # IntersectionObserver scroll reveal
 │   ├── db/
 │   ├── types/

@@ -55,7 +55,7 @@ export function Pagination({
 
   return (
     <nav aria-label="Paginación" className="mt-10 flex justify-center">
-      <ul className="flex items-center gap-0.5 sm:gap-1">
+      <ul className="flex flex-wrap items-center justify-center gap-0.5 sm:gap-1">
         <li>
           <button
             aria-label="Página anterior"
