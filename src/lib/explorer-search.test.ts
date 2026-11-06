@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { validateSearch } from './explorer-search'
+import { validateListingSearch, validateSearch } from './explorer-search'
 
 describe('validateSearch need filters', () => {
   it('accepts boolean and string true flags', () => {
@@ -38,5 +38,18 @@ describe('validateSearch view', () => {
   it('keeps the map view and drops anything else', () => {
     expect(validateSearch({ view: 'map' }).view).toBe('map')
     expect(validateSearch({ view: 'list' }).view).toBeUndefined()
+  })
+})
+
+describe('validateListingSearch', () => {
+  it('keeps sort and page', () => {
+    expect(validateListingSearch({ sort: 'name', page: 2 })).toEqual({
+      sort: 'name',
+      page: 2,
+    })
+  })
+
+  it('drops nearby sort, which a listing without a position cannot honour', () => {
+    expect(validateListingSearch({ sort: 'cercania' }).sort).toBeUndefined()
   })
 })

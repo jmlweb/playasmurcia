@@ -6,6 +6,7 @@ import {
   OccupancyLabels,
 } from '@/lib/beach-filters'
 
+type ListingSearchParams = Pick<BeachSearchParams, 'sort'> & { page?: number }
 type ExplorerSearchParams = BeachSearchParams & {
   page?: number
   view?: 'map'
@@ -38,6 +39,32 @@ function parseEnumArray<TValue extends string>(
   return valid.length > 0 ? [...new Set(valid)] : undefined
 }
 
+function parseSort(value: unknown): BeachSearchParams['sort'] {
+  return value === 'recomendados' ||
+    value === 'name' ||
+    value === 'municipality' ||
+    value === 'length' ||
+    value === 'occupancy' ||
+    value === 'cercania'
+    ? value
+    : undefined
+}
+
+function parsePage(value: unknown): number | undefined {
+  return typeof value === 'number' && value > 0 ? Math.floor(value) : undefined
+}
+
+/** Sort and page of a listing that has no position to rank "Cerca de mí" by */
+export function validateListingSearch(
+  search: Record<string, unknown>,
+): ListingSearchParams {
+  const sort = parseSort(search.sort)
+  return {
+    sort: sort === 'cercania' ? undefined : sort,
+    page: parsePage(search.page),
+  }
+}
+
 export function validateSearch(
   search: Record<string, unknown>,
 ): ExplorerSearchParams {
@@ -56,19 +83,8 @@ export function validateSearch(
       AccessDifficultyLabels,
     ),
     occupancy: parseEnumArray(search.occupancy, OccupancyLabels),
-    sort:
-      search.sort === 'recomendados' ||
-      search.sort === 'name' ||
-      search.sort === 'municipality' ||
-      search.sort === 'length' ||
-      search.sort === 'occupancy' ||
-      search.sort === 'cercania'
-        ? search.sort
-        : undefined,
-    page:
-      typeof search.page === 'number' && search.page > 0
-        ? Math.floor(search.page)
-        : undefined,
+    sort: parseSort(search.sort),
+    page: parsePage(search.page),
     view: search.view === 'map' ? 'map' : undefined,
   }
 }

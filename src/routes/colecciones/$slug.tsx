@@ -1,6 +1,11 @@
-import { createFileRoute, Link, notFound } from '@tanstack/react-router'
+import {
+  createFileRoute,
+  Link,
+  notFound,
+  useNavigate,
+} from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 
 import type { BeachSearchParams } from '@/lib/beach-filters'
 
@@ -19,6 +24,7 @@ import {
   filterBeachesByCollection,
   getCollectionBySlug,
 } from '@/lib/collections'
+import { validateListingSearch } from '@/lib/explorer-search'
 import { pictureUrl } from '@/lib/images'
 
 const fetchCollectionData = createServerFn({ method: 'GET' })
@@ -67,6 +73,7 @@ const fetchCollectionData = createServerFn({ method: 'GET' })
   })
 
 export const Route = createFileRoute('/colecciones/$slug')({
+  validateSearch: validateListingSearch,
   loader: async ({ params }) => {
     const data = await fetchCollectionData({ data: { slug: params.slug } })
     if (!data) throw notFound()
@@ -99,8 +106,9 @@ function CollectionPage() {
   const weatherData = useCardWeather(beaches)
   const flagData = useCardFlags(beaches)
   const PAGE_SIZE = 15
-  const [sort, setSort] =
-    useState<NonNullable<BeachSearchParams['sort']>>('recomendados')
+  const search = Route.useSearch()
+  const navigate = useNavigate({ from: Route.fullPath })
+  const sort = search.sort ?? 'recomendados'
   const sortedItems = useMemo(() => {
     const itemByCode = new Map(items.map((i) => [i.beach.code, i]))
     const municipalityNames = new Map(
@@ -115,15 +123,27 @@ function CollectionPage() {
       .map((beach) => itemByCode.get(beach.code))
       .filter((item): item is NonNullable<typeof item> => item != null)
   }, [items, sort])
-  const [currentPage, setCurrentPage] = useState(1)
   const totalPages = Math.ceil(sortedItems.length / PAGE_SIZE)
+  const currentPage = Math.min(search.page ?? 1, totalPages || 1)
   const visibleItems = sortedItems.slice(
     (currentPage - 1) * PAGE_SIZE,
     currentPage * PAGE_SIZE,
   )
 
+  function handleSortChange(nextSort: NonNullable<BeachSearchParams['sort']>) {
+    void navigate({
+      search: {
+        sort: nextSort === 'recomendados' ? undefined : nextSort,
+      },
+      resetScroll: false,
+    })
+  }
+
   function handlePageChange(page: number) {
-    setCurrentPage(page)
+    void navigate({
+      search: (prev) => ({ ...prev, page: page > 1 ? page : undefined }),
+      resetScroll: false,
+    })
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
@@ -155,7 +175,7 @@ function CollectionPage() {
               totalItems={sortedItems.length}
               totalPages={totalPages}
             />
-            <SortSelect value={sort} onChange={setSort} />
+            <SortSelect value={sort} onChange={handleSortChange} />
           </div>
         )}
 
