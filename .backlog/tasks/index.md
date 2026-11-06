@@ -4,10 +4,10 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 37 |
+| Pending | 36 |
 | Active | 0 |
 | Blocked | 0 |
-| Complete | 129 |
+| Complete | 130 |
 
 ## Active Tasks
 
@@ -31,7 +31,6 @@ _No active tasks._
 | TSK-142 | Photos for the 53 beaches with no pictures | P3 | data, images | 2026-10-28 |
 | TSK-143 | Seasonal access restrictions (Calblanque, Cabo Cope, Cala Cerrada) | P4 | data, access | 2026-10-28 |
 | TSK-145 | Fix: Explorer page param below 1 renders an empty results grid | P4 | bug, explorer | 2026-11-03 |
-| TSK-146 | Beach zones from ITREM locality labels | P2 | data, external-source, feature | 2026-11-04 |
 | TSK-147 | Official beach width and length from ITREM; review OSM length | P3 | data, external-source, cleanup | 2026-11-04 |
 | TSK-148 | Municipality facts: population, appraised housing value, tourist offices | P3 | data, external-source, municipalities | 2026-11-04 |
 | TSK-149 | Smoke-free beaches from the regional network | P4 | data, external-source | 2026-11-04 |
@@ -59,6 +58,7 @@ _No active tasks._
 
 | ID | Title | Completed |
 |----|-------|-----------|
+| TSK-146 | Beach zones from ITREM locality labels | 2026-11-06 |
 | TSK-144 | Fix: AEMET beach forecast parser expects an invented payload shape, so the AEMET widget never renders | 2026-11-05 |
 | TSK-168 | Fix: Five beaches have no reachable page because their slugs collide | 2026-11-05 |
 | TSK-134 | Blue Flag and Q certifications with season year | 2026-11-03 |
@@ -68,4 +68,3 @@ _No active tasks._
 | TSK-126 | Fix: Nearby beaches lose their distance order | 2026-10-25 |
 | TSK-125 | Fix: COPLA 'PLAYA CERRADA' flag is mapped to 'Sin bandera' | 2026-10-23 |
 | TSK-116 | Shore Bearing per Beach and Wave Exposure Label | 2026-10-20 |
-| TSK-115 | Wave Forecast (Oleaje) on Beach Detail Page | 2026-10-19 |

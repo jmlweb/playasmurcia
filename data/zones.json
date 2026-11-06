@@ -1,0 +1,557 @@
+{
+  "zones": [
+    {
+      "id": "el-mojon",
+      "name": "El Mojón",
+      "kind": "locality",
+      "municipalities": [
+        6
+      ]
+    },
+    {
+      "id": "las-salinas",
+      "name": "Salinas de San Pedro",
+      "kind": "area",
+      "municipalities": [
+        6
+      ]
+    },
+    {
+      "id": "lo-pagan",
+      "name": "Lo Pagán",
+      "kind": "locality",
+      "municipalities": [
+        6
+      ]
+    },
+    {
+      "id": "santiago-de-la-ribera",
+      "name": "Santiago de la Ribera",
+      "kind": "locality",
+      "municipalities": [
+        4
+      ]
+    },
+    {
+      "id": "la-manga",
+      "name": "La Manga del Mar Menor",
+      "kind": "area",
+      "municipalities": [
+        4,
+        0
+      ]
+    },
+    {
+      "id": "los-alcazares",
+      "name": "Los Alcázares",
+      "kind": "locality",
+      "municipalities": [
+        5
+      ]
+    },
+    {
+      "id": "los-narejos",
+      "name": "Los Narejos",
+      "kind": "locality",
+      "municipalities": [
+        5
+      ]
+    },
+    {
+      "id": "los-urrutias",
+      "name": "Los Urrutias",
+      "kind": "locality",
+      "municipalities": [
+        0
+      ]
+    },
+    {
+      "id": "los-nietos",
+      "name": "Los Nietos",
+      "kind": "locality",
+      "municipalities": [
+        0
+      ]
+    },
+    {
+      "id": "islas-menores",
+      "name": "Islas Menores",
+      "kind": "locality",
+      "municipalities": [
+        0
+      ]
+    },
+    {
+      "id": "mar-de-cristal",
+      "name": "Mar de Cristal",
+      "kind": "locality",
+      "municipalities": [
+        0
+      ]
+    },
+    {
+      "id": "playa-honda",
+      "name": "Playa Honda",
+      "kind": "locality",
+      "municipalities": [
+        0
+      ]
+    },
+    {
+      "id": "cabo-de-palos",
+      "name": "Cabo de Palos",
+      "kind": "locality",
+      "municipalities": [
+        0
+      ]
+    },
+    {
+      "id": "calblanque",
+      "name": "Calblanque",
+      "kind": "area",
+      "municipalities": [
+        0
+      ]
+    },
+    {
+      "id": "portman",
+      "name": "Portmán",
+      "kind": "locality",
+      "municipalities": [
+        7
+      ]
+    },
+    {
+      "id": "cartagena",
+      "name": "Cartagena",
+      "kind": "locality",
+      "municipalities": [
+        0
+      ]
+    },
+    {
+      "id": "el-portus",
+      "name": "El Portús",
+      "kind": "locality",
+      "municipalities": [
+        0
+      ]
+    },
+    {
+      "id": "cabo-tinoso",
+      "name": "Cabo Tiñoso",
+      "kind": "area",
+      "municipalities": [
+        0
+      ]
+    },
+    {
+      "id": "la-azohia",
+      "name": "La Azohía",
+      "kind": "locality",
+      "municipalities": [
+        0
+      ]
+    },
+    {
+      "id": "isla-plana",
+      "name": "Isla Plana",
+      "kind": "locality",
+      "municipalities": [
+        0
+      ]
+    },
+    {
+      "id": "puerto-de-mazarron",
+      "name": "Puerto de Mazarrón",
+      "kind": "locality",
+      "municipalities": [
+        3
+      ]
+    },
+    {
+      "id": "bolnuevo",
+      "name": "Bolnuevo",
+      "kind": "locality",
+      "municipalities": [
+        3
+      ]
+    },
+    {
+      "id": "canada-de-gallego",
+      "name": "Cañada de Gallego",
+      "kind": "locality",
+      "municipalities": [
+        3
+      ]
+    },
+    {
+      "id": "puntas-de-calnegre",
+      "name": "Puntas de Calnegre",
+      "kind": "locality",
+      "municipalities": [
+        1
+      ]
+    },
+    {
+      "id": "garrobillo",
+      "name": "Garrobillo",
+      "kind": "locality",
+      "municipalities": [
+        1
+      ]
+    },
+    {
+      "id": "cabo-cope",
+      "name": "Cabo Cope",
+      "kind": "area",
+      "municipalities": [
+        2
+      ]
+    },
+    {
+      "id": "calabardina",
+      "name": "Calabardina",
+      "kind": "locality",
+      "municipalities": [
+        2
+      ]
+    },
+    {
+      "id": "aguilas",
+      "name": "Águilas",
+      "kind": "locality",
+      "municipalities": [
+        2
+      ]
+    },
+    {
+      "id": "el-cocon",
+      "name": "El Cocón",
+      "kind": "locality",
+      "municipalities": [
+        2
+      ]
+    },
+    {
+      "id": "cuatro-calas",
+      "name": "Cuatro Calas",
+      "kind": "area",
+      "municipalities": [
+        2
+      ]
+    }
+  ],
+  "itremLabels": {
+    "CABO DE PALOS (Cartagena), Cartagena": "cabo-de-palos",
+    "CABO DE PALOS (Cartagena), LA MANGA DEL MAR MENOR": "cabo-de-palos",
+    "CALABARDINA (Águilas)": "calabardina",
+    "CALARREONA (Águilas)": "cuatro-calas",
+    "CAMPO (Águilas)": "aguilas",
+    "COPE (Águilas)": "cabo-cope",
+    "Cartagena": null,
+    "Cartagena, LA MANGA Cartagena (Cartagena), LA MANGA Cartagena (LA MANGA DEL MAR MENOR), LA MANGA DEL MAR MENOR": "la-manga",
+    "Cartagena, LA MANGA DEL MAR MENOR": "la-manga",
+    "EL COCÓN  (Águilas)": "el-cocon",
+    "EL MOJON  (San Pedro del Pinatar)": "el-mojon",
+    "EL PORTÚS (Cartagena)": "el-portus",
+    "GARROBILLO (Lorca)": "garrobillo",
+    "IFRE-CAÑADA DE GALLEGO (Mazarrón)": "canada-de-gallego",
+    "ISLA PLANA (Cartagena)": "isla-plana",
+    "ISLAS MENORES (Cartagena)": "islas-menores",
+    "LA AZOHIA  (Cartagena)": "la-azohia",
+    "LAS SALINAS  (San Pedro del Pinatar)": "las-salinas",
+    "LENTISCAR (Cartagena)": "los-urrutias",
+    "LO PAGAN (San Pedro del Pinatar)": "lo-pagan",
+    "LOS NIETOS  (Cartagena)": "los-nietos",
+    "LOS URRUTIAS  (Cartagena)": "los-urrutias",
+    "Los Alcázares": null,
+    "MAR DE CRISTAL (Cartagena)": "mar-de-cristal",
+    "Mazarrón": null,
+    "Moreras / Bolnuevo (Mazarrón)": "bolnuevo",
+    "PERIN (Cartagena)": "cabo-tinoso",
+    "PINILLA Y GARROBILLO (Lorca)": "garrobillo",
+    "PORTMAN (La Unión)": "portman",
+    "PUERTO DE MAZARRÓN (Mazarrón)": "puerto-de-mazarron",
+    "PUNTA CALERA (Los Alcázares)": "los-narejos",
+    "RAMONETE (Lorca)": "puntas-de-calnegre",
+    "SANTIAGO DE LA RIBERA (San Javier)": "santiago-de-la-ribera",
+    "San Javier, LA MANGA DEL MAR MENOR": "la-manga",
+    "San Pedro del Pinatar": null,
+    "Águilas": null
+  },
+  "manual": {
+    "510": {
+      "zone": "cabo-tinoso",
+      "reason": "No ITREM page. Cala on the Cabo Tiñoso coast, next to Cala Abierta (ITREM: PERIN)."
+    },
+    "511": {
+      "zone": "el-portus",
+      "reason": "No ITREM page. Wild cala reached from El Portús, as its description says."
+    },
+    "512": {
+      "zone": "cartagena",
+      "reason": "ITREM gives only the municipality. Cala Cortina is the beach of Cartagena city."
+    },
+    "513": {
+      "zone": "calblanque",
+      "reason": "No ITREM page. Cala inside the Calblanque regional park."
+    },
+    "514": {
+      "zone": "calblanque",
+      "reason": "No ITREM page. Cala inside the Calblanque regional park."
+    },
+    "516": {
+      "zone": "calblanque",
+      "reason": "No ITREM page. Cala inside the Calblanque regional park."
+    },
+    "517": {
+      "zone": "calblanque",
+      "reason": "No ITREM page. Cala inside the Calblanque regional park."
+    },
+    "519": {
+      "zone": "cabo-de-palos",
+      "reason": "No ITREM page. Cala on the Cabo de Palos headland, between Cala Reona and Cala de las Melvas (ITREM: CABO DE PALOS)."
+    },
+    "520": {
+      "zone": "cabo-de-palos",
+      "reason": "No ITREM page. Cala on the Cabo de Palos headland, between Cala Reona and Cala de las Melvas (ITREM: CABO DE PALOS)."
+    },
+    "521": {
+      "zone": "cabo-de-palos",
+      "reason": "No ITREM page. Cala on the Cabo de Palos headland, between Cala Reona and Cala de las Melvas (ITREM: CABO DE PALOS)."
+    },
+    "522": {
+      "zone": "cabo-de-palos",
+      "reason": "No ITREM page. Cala on the Cabo de Palos headland, between Cala Reona and Cala de las Melvas (ITREM: CABO DE PALOS)."
+    },
+    "523": {
+      "zone": "cabo-de-palos",
+      "reason": "No ITREM page. Cala on the Cabo de Palos headland, between Cala Reona and Cala de las Melvas (ITREM: CABO DE PALOS)."
+    },
+    "525": {
+      "zone": "cabo-de-palos",
+      "reason": "ITREM says LA MANGA DEL MAR MENOR, but this Playa de Levante is in Cabo de Palos, next to Cala de las Melvas."
+    },
+    "526": {
+      "zone": "la-manga",
+      "reason": "No ITREM page. On the La Manga strip, next to Playa de Gollerón (ITREM: LA MANGA DEL MAR MENOR)."
+    },
+    "529": {
+      "zone": "playa-honda",
+      "reason": "ITREM says LA MANGA DEL MAR MENOR, but the beach is on the mainland Mar Menor shore at the Playa Honda and Playa Paraíso developments."
+    },
+    "532": {
+      "zone": "los-urrutias",
+      "reason": "No ITREM page. North of Punta Brava (ITREM: LENTISCAR), next to Los Urrutias, as its description says."
+    },
+    "533": {
+      "zone": "los-alcazares",
+      "reason": "ITREM gives only the municipality. Beach of Los Alcázares town."
+    },
+    "534": {
+      "zone": "los-alcazares",
+      "reason": "ITREM gives only the municipality. Beach of Los Alcázares town."
+    },
+    "546": {
+      "zone": "las-salinas",
+      "reason": "ITREM gives only the municipality. Inside the Salinas y Arenales de San Pedro regional park, as its description says."
+    },
+    "553": {
+      "zone": "cabo-tinoso",
+      "reason": "No ITREM page. Cala on the Cabo Tiñoso coast, next to Cala Abierta (ITREM: PERIN)."
+    },
+    "554": {
+      "zone": "cabo-tinoso",
+      "reason": "No ITREM page. Cala on the Cabo Tiñoso coast, next to Cala Abierta (ITREM: PERIN)."
+    },
+    "555": {
+      "zone": "el-portus",
+      "reason": "No ITREM page. Wild cala reached from El Portús, as its description says."
+    },
+    "556": {
+      "zone": "calblanque",
+      "reason": "ITREM says LA MANGA DEL MAR MENOR, but the beach is inside the Calblanque regional park, south of Cabo de Palos."
+    },
+    "557": {
+      "zone": "calblanque",
+      "reason": "No ITREM page. Cala inside the Calblanque regional park."
+    },
+    "558": {
+      "zone": "cabo-de-palos",
+      "reason": "No ITREM page. Cala on the Cabo de Palos headland, between Cala Reona and Cala de las Melvas (ITREM: CABO DE PALOS)."
+    },
+    "559": {
+      "zone": "cabo-de-palos",
+      "reason": "No ITREM page. Cala on the Cabo de Palos headland, between Cala Reona and Cala de las Melvas (ITREM: CABO DE PALOS)."
+    },
+    "566": {
+      "zone": "cuatro-calas",
+      "reason": "ITREM gives only the municipality. One of the Cuatro Calas south of Águilas, as its description says."
+    },
+    "568": {
+      "zone": "cabo-de-palos",
+      "reason": "No ITREM page. Cala on the Cabo de Palos headland, between Cala Reona and Cala de las Melvas (ITREM: CABO DE PALOS)."
+    },
+    "569": {
+      "zone": "cabo-de-palos",
+      "reason": "No ITREM page. Cala on the Cabo de Palos headland, between Cala Reona and Cala de las Melvas (ITREM: CABO DE PALOS)."
+    },
+    "570": {
+      "zone": "los-urrutias",
+      "reason": "No ITREM page. Estrella de Mar development, just south of Los Urrutias."
+    },
+    "571": {
+      "zone": "calblanque",
+      "reason": "No ITREM page. Cala inside the Calblanque regional park."
+    },
+    "572": {
+      "zone": "calblanque",
+      "reason": "No ITREM page. Cala inside the Calblanque regional park."
+    },
+    "573": {
+      "zone": "cabo-de-palos",
+      "reason": "No ITREM page. Cala on the Cabo de Palos headland, between Cala Reona and Cala de las Melvas (ITREM: CABO DE PALOS)."
+    },
+    "574": {
+      "zone": "cabo-tinoso",
+      "reason": "No ITREM page. Cala on the Cabo Tiñoso coast, next to Cala Abierta (ITREM: PERIN)."
+    },
+    "583": {
+      "zone": "el-portus",
+      "reason": "No ITREM page. Next to Playa El Portús (ITREM: EL PORTÚS)."
+    },
+    "584": {
+      "zone": "calblanque",
+      "reason": "No ITREM page. Cala inside the Calblanque regional park."
+    },
+    "585": {
+      "zone": "los-alcazares",
+      "reason": "ITREM gives only the municipality. Beach of Los Alcázares town."
+    },
+    "589": {
+      "zone": "cuatro-calas",
+      "reason": "ITREM says EL COCÓN, but the beach is one of the Cuatro Calas, as its description says."
+    },
+    "590": {
+      "zone": "calblanque",
+      "reason": "ITREM says LA MANGA DEL MAR MENOR, but the beach is inside the Calblanque regional park, south of Cabo de Palos."
+    },
+    "593": {
+      "zone": "cuatro-calas",
+      "reason": "ITREM gives only the municipality. One of the Cuatro Calas south of Águilas, as its description says."
+    },
+    "595": {
+      "zone": "calblanque",
+      "reason": "No ITREM page. Cala inside the Calblanque regional park."
+    },
+    "596": {
+      "zone": "aguilas",
+      "reason": "ITREM gives only the municipality. Beach of Águilas town."
+    },
+    "601": {
+      "zone": "cabo-tinoso",
+      "reason": "No ITREM page. Cala on the Cabo Tiñoso coast, next to Cala Abierta (ITREM: PERIN)."
+    },
+    "603": {
+      "zone": "cabo-tinoso",
+      "reason": "No ITREM page. Cala on the Cabo Tiñoso coast, next to Cala Abierta (ITREM: PERIN)."
+    },
+    "612": {
+      "zone": "aguilas",
+      "reason": "ITREM gives only the municipality. Beach of Águilas town."
+    },
+    "613": {
+      "zone": "aguilas",
+      "reason": "ITREM gives only the municipality. Beach of Águilas town."
+    },
+    "614": {
+      "zone": "aguilas",
+      "reason": "ITREM gives only the municipality. Beach of Águilas town."
+    },
+    "625": {
+      "zone": "cuatro-calas",
+      "reason": "ITREM says EL COCÓN, but the beach is one of the Cuatro Calas, as its description says."
+    },
+    "627": {
+      "zone": "calblanque",
+      "reason": "No ITREM page. Cala inside the Calblanque regional park."
+    },
+    "651": {
+      "zone": "puerto-de-mazarron",
+      "reason": "ITREM gives only the municipality. East of Playa de El Rihuete (ITREM: PUERTO DE MAZARRÓN)."
+    },
+    "652": {
+      "zone": "puerto-de-mazarron",
+      "reason": "ITREM gives only the municipality. East of Playa de El Rihuete (ITREM: PUERTO DE MAZARRÓN)."
+    },
+    "653": {
+      "zone": "puerto-de-mazarron",
+      "reason": "ITREM gives only the municipality. East of Playa de El Rihuete (ITREM: PUERTO DE MAZARRÓN)."
+    },
+    "654": {
+      "zone": "puerto-de-mazarron",
+      "reason": "ITREM gives only the municipality. East of Playa de El Rihuete (ITREM: PUERTO DE MAZARRÓN)."
+    },
+    "655": {
+      "zone": "isla-plana",
+      "reason": "No ITREM page. Within 1.5 km of Playa Isla Plana (ITREM: ISLA PLANA)."
+    },
+    "656": {
+      "zone": "isla-plana",
+      "reason": "No ITREM page. Within 1.5 km of Playa Isla Plana (ITREM: ISLA PLANA)."
+    },
+    "658": {
+      "zone": "cabo-tinoso",
+      "reason": "No ITREM page. Cala on the Cabo Tiñoso coast, next to Cala Abierta (ITREM: PERIN)."
+    },
+    "660": {
+      "zone": "aguilas",
+      "reason": "ITREM gives only the municipality. Beach of Águilas town."
+    },
+    "688": {
+      "zone": "playa-honda",
+      "reason": "ITREM says LA MANGA DEL MAR MENOR, but the beach is on the mainland Mar Menor shore at the Playa Honda and Playa Paraíso developments."
+    },
+    "690": {
+      "zone": "los-alcazares",
+      "reason": "ITREM gives only the municipality. Beach of Los Alcázares town."
+    },
+    "691": {
+      "zone": "los-alcazares",
+      "reason": "ITREM gives only the municipality. Beach of Los Alcázares town."
+    },
+    "692": {
+      "zone": "los-alcazares",
+      "reason": "ITREM gives only the municipality. Beach of Los Alcázares town."
+    },
+    "693": {
+      "zone": "aguilas",
+      "reason": "No ITREM page. Beach of Águilas town, between Playa de Poniente and Playa Las Delicias."
+    },
+    "4893": {
+      "zone": "puerto-de-mazarron",
+      "reason": "ITREM gives only the municipality. East of Playa de El Rihuete (ITREM: PUERTO DE MAZARRÓN)."
+    },
+    "4894": {
+      "zone": "bolnuevo",
+      "reason": "ITREM gives only the municipality. Las Moreras is part of the Moreras / Bolnuevo label."
+    },
+    "7051": {
+      "zone": "cabo-cope",
+      "reason": "No ITREM page. Between beaches ITREM labels COPE."
+    },
+    "7052": {
+      "zone": "cabo-cope",
+      "reason": "No ITREM page. Between beaches ITREM labels COPE."
+    },
+    "7053": {
+      "zone": "cabo-cope",
+      "reason": "No ITREM page. Between beaches ITREM labels COPE."
+    }
+  },
+  "unresolved": {
+    "528": "ITREM says LA MANGA DEL MAR MENOR, but the coordinates sit on the mainland Mar Menor shore near Playa Paraíso. No source confirms either zone.",
+    "689": "ITREM says LA MANGA DEL MAR MENOR, but the beach is on the mainland Mar Menor shore near El Algar, between Mar de Cristal and Playa Honda. No source confirms either zone."
+  }
+}

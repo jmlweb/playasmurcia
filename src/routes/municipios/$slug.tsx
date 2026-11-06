@@ -5,7 +5,7 @@ import {
   redirect,
 } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
-import { useMemo, useState } from 'react'
+import { Fragment, useMemo, useState } from 'react'
 
 import type { BeachSearchParams } from '@/lib/beach-filters'
 
@@ -18,11 +18,13 @@ import { ChipFilterBar } from '@/features/listing/chip-filter-bar'
 import { Pagination } from '@/features/listing/pagination'
 import { ResultsSummary } from '@/features/listing/results-summary'
 import { SortSelect } from '@/features/listing/sort-select'
+import { ZoneSections } from '@/features/listing/zone-sections'
 import { filterBeaches, sortBeaches } from '@/lib/beach-filters'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
 import { parseImageFilename, pictureUrl } from '@/lib/images'
 import { generateMunicipalitySchema } from '@/lib/schema'
 import { beachToSlug } from '@/lib/slugs'
+import { shouldGroupByZone } from '@/lib/zones'
 
 const fetchMunicipalityData = createServerFn({ method: 'GET' })
   .validator((data: { slug: string }) => {
@@ -142,11 +144,27 @@ function MunicipalityPage() {
     () => sortBeaches(filterBeaches(beaches, filters), sort),
     [beaches, filters, sort],
   )
+  // Zone sections replace pagination: splitting a zone across pages hides it
+  const groupedByZone = useMemo(() => shouldGroupByZone(beaches), [beaches])
   const [currentPage, setCurrentPage] = useState(1)
-  const totalPages = Math.ceil(sortedBeaches.length / PAGE_SIZE)
-  const visibleBeaches = sortedBeaches.slice(
-    (currentPage - 1) * PAGE_SIZE,
-    currentPage * PAGE_SIZE,
+  const totalPages = groupedByZone
+    ? 1
+    : Math.ceil(sortedBeaches.length / PAGE_SIZE)
+  const visibleBeaches = groupedByZone
+    ? sortedBeaches
+    : sortedBeaches.slice(
+        (currentPage - 1) * PAGE_SIZE,
+        currentPage * PAGE_SIZE,
+      )
+  const renderBeachCard = (beach: (typeof beaches)[number]) => (
+    <BeachCard
+      beach={beach}
+      flag={flagData[beach.code]}
+      municipality={municipality}
+      slug={beachToSlug(beach)}
+      tags={tags}
+      weather={weatherData[beach.code]}
+    />
   )
 
   function handleFiltersChange(next: BeachSearchParams) {
@@ -212,24 +230,27 @@ function MunicipalityPage() {
                 title="Sin resultados"
               />
             )}
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
-              {visibleBeaches.map((beach) => (
-                <BeachCard
-                  key={beach.code}
-                  beach={beach}
-                  flag={flagData[beach.code]}
-                  municipality={municipality}
-                  slug={beachToSlug(beach)}
-                  tags={tags}
-                  weather={weatherData[beach.code]}
+            {groupedByZone ? (
+              <ZoneSections
+                beaches={visibleBeaches}
+                renderBeach={renderBeachCard}
+              />
+            ) : (
+              <>
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
+                  {visibleBeaches.map((beach) => (
+                    <Fragment key={beach.code}>
+                      {renderBeachCard(beach)}
+                    </Fragment>
+                  ))}
+                </div>
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={handlePageChange}
                 />
-              ))}
-            </div>
-            <Pagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={handlePageChange}
-            />
+              </>
+            )}
           </>
         ) : (
           <EmptyState

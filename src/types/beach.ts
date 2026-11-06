@@ -27,6 +27,8 @@ export type Beach = {
   certifications?: Certification[]
   bestSeason?: ('spring' | 'summer' | 'autumn' | 'winter')[]
   district?: string
+  // Id from data/zones.json; see src/lib/zones.ts
+  zone?: string
   phone?: string
   email?: string
   realUrl?: string

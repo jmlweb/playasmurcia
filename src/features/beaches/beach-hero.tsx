@@ -5,20 +5,24 @@ import type { BreadcrumbItem } from '@/components/layout/breadcrumb'
 import { Breadcrumb } from '@/components/layout/breadcrumb'
 import { ResponsiveImage } from '@/components/ui/responsive-image'
 import { parseImageFilename } from '@/lib/images'
+import { formatBeachLocation } from '@/lib/zones'
 
 type BeachHeroProps = {
   name: string
   municipalityName: string
+  /** Zone id from data/zones.json, shown before the municipality */
+  zone?: string
   breadcrumb: BreadcrumbItem[]
   /** First beach picture; without it the hero falls back to the ocean gradient */
   picture?: string
-  /** Tags row rendered under the municipality */
+  /** Tags row rendered under the location line */
   tags?: ReactNode
 }
 
 export function BeachHero({
   name,
   municipalityName,
+  zone,
   breadcrumb,
   picture,
   tags,
@@ -53,7 +57,9 @@ export function BeachHero({
         <h1 className="max-w-3xl text-3xl font-normal tracking-tight text-white sm:text-5xl">
           {name}
         </h1>
-        <p className="mt-1 text-lg text-white/90">{municipalityName}</p>
+        <p className="mt-1 text-lg text-white/90">
+          {formatBeachLocation(zone, municipalityName)}
+        </p>
         {tags ? <div className="mt-3">{tags}</div> : null}
       </div>
     </section>

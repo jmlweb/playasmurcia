@@ -169,6 +169,7 @@ pnpm tsx scripts/script-name.ts
 | `fix-orthography.js`             | Proofread Markdown with local Ollama (`/api/chat`); default scope `docs/**/*.md`                  | Ad hoc (review diffs before `--write`)                |
 | `screenshot.ts`                  | Capture page screenshots via Playwright (desktop/mobile, full-page)                               | Ad hoc (UI reviews)                                   |
 | `add-bathing-water-quality.ts`   | Set the official EU bathing-water class and season from the EEA / NÁYADE dataset                  | Annual (after the EEA season release, around June); then migrate |
+| `assign-zones.ts`                | Set `zone` in `beaches.json` from the ITREM locality snapshot and `data/zones.json`; `--fetch` refreshes the snapshot | After adding beaches or editing `data/zones.json`; then migrate |
 | `optimize-images.ts`             | Generate WebP/AVIF variants and responsive thumbnails in `public/pictures/optimized/`             | After adding or replacing source images               |
 | `normalize-brightness.ts`        | Normalize brightness/contrast of source photos via histogram stretching (in-place)                | Before `optimize:images`, after new source images     |
 | `sort-pictures-by-resolution.ts` | Sort `pictures` arrays in `beaches.json` by image resolution (highest first)                      | After adding new pictures; then migrate               |
@@ -220,6 +221,16 @@ node scripts/validate-beaches.js
 ```
 
 Sets `waterQuality` and `waterQualitySource` in `data/beaches.json` from the EEA bathing water map service (the EEA republishes the NÁYADE data of the Ministerio de Sanidad). It picks the newest bathing season the EEA publishes, so run it once a year after the release (around June). No API key or env var is needed. Beaches without a classified Región de Murcia sampling point within 500 m lose their class. The matching rules are in [business-rules.md](./business-rules.md#bathing-water-quality). Afterwards run the Turso migration (see [Keeping remote DB in sync](#keeping-remote-db-in-sync)).
+
+#### Beach zones (`assign-zones.ts`)
+
+```bash
+pnpm tsx scripts/assign-zones.ts            # Use the committed ITREM snapshot
+pnpm tsx scripts/assign-zones.ts --fetch    # Refresh data/source/itrem-localities.json first (~1 min, 193 requests)
+node scripts/validate-beaches.js
+```
+
+Sets `zone` in `data/beaches.json` from `data/source/itrem-localities.json` and the hand curation in `data/zones.json`. `--fetch` reads each ITREM page (`https://itrem.carm.es/es/playa/<slug>-<code>/`, decoded as Latin-1) with a 250 ms pause between requests. No API key or env var is needed. A new beach or a new ITREM label makes the script or `validate-beaches.js` fail until `data/zones.json` gets a curated entry. Run it when beaches are added or the curation changes. Rules: [business-rules.md](./business-rules.md#beach-zones). Afterwards migrate Turso: the `zone` column must exist first (`pnpm drizzle-kit push` against production), then run the data migration (see [Keeping remote DB in sync](#keeping-remote-db-in-sync)).
 
 #### Spell-check Markdown (`fix-orthography.js`)
 

@@ -15,6 +15,8 @@ This document describes the data structure for beaches in the Region of Murcia, 
 | `services.json` | Beach services (indexed array) | 9 services |
 | `tags.json` | Beach tags for categorization (indexed array) | 17 tags |
 | `certification-seasons.json` | Season year of each certification list, keyed by certification (`{ "blue-flag": 2026, "q-quality": 2024 }`). Written by `scripts/add-certifications.js`; not migrated to the DB — the site bundles it at build time | 2 entries |
+| `zones.json` | Hand-curated beach zones (see [Zones](#zones)): the zone list, the mapping of every ITREM locality label, manual assignments with a reason, and `unresolved` beaches with a reason. Bundled by `src/lib/zones.ts` for names and order | 30 zones |
+| `source/itrem-localities.json` | Raw ITREM locality labels per beach code, fetched on 2026-11-06 by `scripts/assign-zones.ts --fetch`. Evidence for `zone`; not migrated, not bundled | 193 codes |
 
 ## Data Sources
 
@@ -25,6 +27,7 @@ Data is aggregated from multiple official sources:
 - **112 Region of Murcia**: https://www.112rmurcia.es - Emergency/safety info
 - **Descriptions**: Hand-edited Spanish copy (Oct 2026 rewrite), grounded in the beach's own data fields. EN/FR/DE `translations` are older Gemma output, not shown on the site
 - **Access**: Hand-edited Spanish copy (Oct 2026 rewrite), rebuilt from the official texts of the first import
+- **Zones**: Locality line of the ITREM beach pages (Instituto de Turismo de la Región de Murcia), `https://itrem.carm.es/es/playa/<slug>-<code>/`, curated by hand in `zones.json`. See [Zones](#zones)
 
 ## Schemas
 
@@ -65,6 +68,7 @@ interface Beach {
   certifications?: ("blue-flag" | "q-quality" | "ecoplayas")[]  // Official certifications; season year per list in certification-seasons.json
   bestSeason?: ("spring" | "summer" | "autumn" | "winter")[]  // Best visiting seasons
   district?: string         // District within municipality
+  zone?: string             // Zone id from zones.json (e.g. "la-manga"); absent only for beaches in zones.json `unresolved`
   phone?: string            // Emergency contact
   email?: string            // Contact email
   realUrl?: string          // Official website URL
@@ -136,6 +140,33 @@ interface Sea {
 }
 ```
 
+### Zones
+
+A zone is the place visitors use to think about the coast: a locality (Lo Pagán, Santiago de la Ribera, Isla Plana) or a tourism area (La Manga del Mar Menor, Calblanque, Cabo Cope). The municipality page groups its beaches by zone. `district` cannot do this: it is sparse and mixes naming styles.
+
+**Source.** ITREM beach pages, `https://itrem.carm.es/es/playa/<slug>-<code>/`, show a locality line under the beach name, such as `LO PAGAN (San Pedro del Pinatar)`. The page ID is our beach `code`, and the slug part of the URL is ignored. The line is not in the open dataset `Playas.json`. The pages are served as ISO-8859-1 (Latin-1), so decode them as Latin-1 before reading names.
+
+**Coverage on 2026-11-06** (`data/source/itrem-localities.json`): 157 of 193 codes have a page, 154 pages have a label, and there are 36 distinct labels. 21 labels name only the municipality (for example `Mazarrón`). The task that introduced zones measured 148 labels and 34 values on 2026-11-04; the snapshot is the reference.
+
+**Curation** (`data/zones.json`):
+
+```typescript
+{
+  zones: { id: string; name: string; kind: "locality" | "area"; municipalities: number[] }[]  // Coastal order, north to south-west
+  itremLabels: Record<string, string | null>   // Every raw ITREM label → zone id; null when it names only the municipality
+  manual: Record<string, { zone: string; reason: string }>  // Beach code → zone, overriding or filling in ITREM
+  unresolved: Record<string, string>           // Beach code → why no zone is assigned
+}
+```
+
+- Zone names restore the diacritics ITREM drops (`LO PAGAN` → `Lo Pagán`, `LA AZOHIA` → `La Azohía`).
+- `kind: "area"` marks tourism or protected areas (La Manga del Mar Menor, Calblanque, Cabo Tiñoso, Cabo Cope, Cuatro Calas, Salinas de San Pedro); everything else is a locality.
+- A zone can span municipalities: La Manga del Mar Menor is in Cartagena and San Javier.
+- Calblanque is not La Manga: ITREM labels some Calblanque beaches `LA MANGA DEL MAR MENOR`, and `manual` overrides them.
+- Every beach has a zone or an entry in `unresolved`. The 60 beaches without a usable label (no page, no label, or a municipality-only label) were reviewed by hand against name, description, neighbours and coordinates.
+
+`scripts/assign-zones.ts` writes `zone` into `beaches.json` (`unresolved` first, then `manual`, then the label). It fails on an ITREM label that `itremLabels` does not list.
+
 ## Database Schema
 
 The database (Turso/libSQL via Drizzle ORM) mirrors the JSON data with proper relational structure. Defined in `src/db/schema.ts`.
@@ -149,7 +180,7 @@ The database (Turso/libSQL via Drizzle ORM) mirrors the JSON data with proper re
 | `services` | `id` (int) | `service_id` (unique), `name`, `icon` | 9 rows |
 | `activities` | `id` (int) | `activity_id` (unique), `name`, `icon` | 10 rows |
 | `tags` | `id` (int) | `tag_id` (unique), `name` | 17 rows |
-| `beaches` | `id` (auto) | `code` (unique), `name`, FK `municipality_id`, FK `sea_id`, `picture_quality_score` (nullable int) | 194 rows |
+| `beaches` | `id` (auto) | `code` (unique), `name`, FK `municipality_id`, FK `sea_id`, `picture_quality_score` (nullable int), `zone` (nullable text, zone id) | 194 rows |
 
 ### Junction Tables
 
@@ -259,6 +290,7 @@ beaches ──< beach_tags >── tags
 - `services`: Array of valid indices 0-8
 - `tags`: Array of valid indices 0-16
 - `nearby`: Array of valid beach `code` values
+- `zone`: A zone id from `zones.json` whose `municipalities` include the beach's municipality. Required unless the code is in `zones.json` `unresolved`, which forbids it
 
 ## Editing Guidelines
 

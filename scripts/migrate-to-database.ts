@@ -34,6 +34,7 @@ type JsonBeach = {
   metaDescription?: string
   seoKeywords?: Array<string>
   district?: string
+  zone?: string
   phone?: string
   email?: string
   realUrl?: string
@@ -268,6 +269,7 @@ async function main() {
           certifications: serializeArray(beach.certifications) || null,
           bestSeason: serializeArray(beach.bestSeason) || null,
           district: beach.district || null,
+          zone: beach.zone || null,
           phone: beach.phone || null,
           email: beach.email || null,
           realUrl: beach.realUrl || null,

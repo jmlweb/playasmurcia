@@ -39,3 +39,4 @@
 | LRN-033 | Redirect map must not redirect a live slug | slugs, redirects | active | 2026-11-04 |
 | LRN-034 | Fresh worktree needs a local DB for build and DB tests | worktree, build, testing | active | 2026-11-04 |
 | LRN-035 | AEMET API keys expire and the widget hides the failure | weather, aemet, external-source | active | 2026-11-05 |
+| LRN-036 | ITREM beach pages: code alone selects the page, unknown codes answer 200 with the list page | data, external-source, itrem | active | 2026-11-06 |

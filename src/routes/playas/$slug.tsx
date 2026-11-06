@@ -211,6 +211,7 @@ function BeachPage() {
             />
           ) : undefined
         }
+        zone={beach.zone}
       />
 
       {pictures.length > 1 && (

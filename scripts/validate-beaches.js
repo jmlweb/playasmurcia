@@ -5,6 +5,8 @@ const municipalities = JSON.parse(
   readFileSync('./data/municipalities.json', 'utf-8'),
 )
 const seas = JSON.parse(readFileSync('./data/seas.json', 'utf-8'))
+const zoneCuration = JSON.parse(readFileSync('./data/zones.json', 'utf-8'))
+const zonesById = new Map(zoneCuration.zones.map((zone) => [zone.id, zone]))
 
 const errors = []
 const warnings = []
@@ -157,6 +159,26 @@ beaches.forEach((beach, index) => {
   ) {
     errors.push(
       `${prefix}: pictureQualityScore must be 0, 1, 2, or 3 if present`,
+    )
+  }
+
+  // Every beach needs a zone or a reviewed reason in data/zones.json for having none
+  const isUnresolved = beach.code in zoneCuration.unresolved
+  if (beach.zone === undefined) {
+    if (!isUnresolved) {
+      errors.push(`${prefix}: missing zone and not listed as unresolved`)
+    }
+  } else if (isUnresolved) {
+    errors.push(
+      `${prefix}: has zone '${beach.zone}' but is listed as unresolved`,
+    )
+  } else if (!zonesById.has(beach.zone)) {
+    errors.push(`${prefix}: unknown zone '${beach.zone}'`)
+  } else if (
+    !zonesById.get(beach.zone).municipalities.includes(beach.municipality)
+  ) {
+    errors.push(
+      `${prefix}: zone '${beach.zone}' is not in municipality ${beach.municipality}`,
     )
   }
 })

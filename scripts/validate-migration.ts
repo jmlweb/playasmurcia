@@ -48,6 +48,7 @@ interface BeachJSON {
   metaDescription?: string
   seoKeywords?: Array<string>
   district?: string
+  zone?: string
   phone?: string
   email?: string
   realUrl?: string
