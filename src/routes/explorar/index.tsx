@@ -21,7 +21,7 @@ import { SearchBar } from '@/features/listing/search-bar'
 import { SortSelect } from '@/features/listing/sort-select'
 import { applyFiltersAndSort, countActiveFilters } from '@/lib/beach-filters'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
-import { validateSearch } from '@/lib/explorer-search'
+import { mergeExplorerSearch, validateSearch } from '@/lib/explorer-search'
 import { haversineKm } from '@/lib/geo'
 import { pictureUrl } from '@/lib/images'
 import { beachToSlug } from '@/lib/slugs'
@@ -102,23 +102,7 @@ function ExplorerPage() {
   const updateFilters = useCallback(
     (next: BeachSearchParams, page?: number) => {
       void navigate({
-        search: (prev) => ({
-          ...prev,
-          ...next,
-          municipality: next.municipality?.length
-            ? next.municipality
-            : undefined,
-          sea: next.sea?.length ? next.sea : undefined,
-          services: next.services?.length ? next.services : undefined,
-          activities: next.activities?.length ? next.activities : undefined,
-          tags: next.tags?.length ? next.tags : undefined,
-          accessDifficulty: next.accessDifficulty?.length
-            ? next.accessDifficulty
-            : undefined,
-          occupancy: next.occupancy?.length ? next.occupancy : undefined,
-          q: next.q || undefined,
-          page: page && page > 1 ? page : undefined,
-        }),
+        search: (prev) => mergeExplorerSearch(prev, next, page),
         replace: true,
       })
     },
