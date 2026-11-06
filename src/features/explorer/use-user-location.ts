@@ -20,6 +20,18 @@ function describeError(error: GeolocationPositionError): string {
   return 'No hemos podido determinar tu ubicación.'
 }
 
+/** Tells whether the position can be read without showing a permission prompt */
+export async function hasGeolocationGrant(): Promise<boolean> {
+  try {
+    const { state } = await navigator.permissions.query({
+      name: 'geolocation',
+    })
+    return state === 'granted'
+  } catch {
+    return false
+  }
+}
+
 /**
  * Asks for the browser position only when `request` is called. The position
  * lives in component state only: never in the URL, storage or the server.

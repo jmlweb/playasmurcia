@@ -1,6 +1,13 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
-import { lazy, Suspense, useCallback, useMemo, useState } from 'react'
+import {
+  lazy,
+  Suspense,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 
 import type { BeachSearchParams } from '@/lib/beach-filters'
 
@@ -10,7 +17,10 @@ import { BeachCard } from '@/features/beaches/beach-card'
 import { useCardFlags } from '@/features/beaches/use-card-flags'
 import { useCardWeather } from '@/features/beaches/use-card-weather'
 import { ActiveFilterChips } from '@/features/explorer/active-filter-chips'
-import { useUserLocation } from '@/features/explorer/use-user-location'
+import {
+  hasGeolocationGrant,
+  useUserLocation,
+} from '@/features/explorer/use-user-location'
 import {
   FilterPanel,
   FilterToggleButton,
@@ -112,6 +122,32 @@ function ExplorerPage() {
   const sort =
     requestedSort === 'cercania' && !position ? 'recomendados' : requestedSort
   const currentPage = search.page ?? 1
+
+  // Only restores silently: a page load must never raise a permission prompt
+  useEffect(() => {
+    if (requestedSort !== 'cercania' || position) return
+    if (locationState.status === 'loading') return
+    const dropNearbySort = () => {
+      void navigate({
+        search: (prev) => ({ ...prev, sort: undefined }),
+        replace: true,
+        resetScroll: false,
+      })
+    }
+    if (locationState.status === 'error') {
+      dropNearbySort()
+      return
+    }
+    let isStale = false
+    void hasGeolocationGrant().then((isGranted) => {
+      if (isStale) return
+      if (isGranted) requestLocation()
+      else dropNearbySort()
+    })
+    return () => {
+      isStale = true
+    }
+  }, [requestedSort, position, locationState.status, navigate, requestLocation])
 
   const updateFilters = useCallback(
     (next: BeachSearchParams, page?: number) => {
