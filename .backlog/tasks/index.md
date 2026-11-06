@@ -5,14 +5,13 @@
 | Status | Count |
 |--------|-------|
 | Pending | 35 |
-| Active | 2 |
+| Active | 0 |
 | Blocked | 0 |
-| Complete | 129 |
+| Complete | 131 |
 
 ## Active Tasks
 
-- TSK-153: Beach detail: surface safety and key facts first (P2)
-- TSK-161: Fix: Family signals contradict childSafe (P2)
+_No active tasks._
 
 ## Pending Tasks
 
@@ -58,6 +57,8 @@
 
 | ID | Title | Completed |
 |----|-------|-----------|
+| TSK-153 | Beach detail: surface safety and key facts first | 2026-11-06 |
+| TSK-161 | Fix: Family signals contradict childSafe | 2026-11-06 |
 | TSK-144 | Fix: AEMET beach forecast parser expects an invented payload shape, so the AEMET widget never renders | 2026-11-05 |
 | TSK-168 | Fix: Five beaches have no reachable page because their slugs collide | 2026-11-05 |
 | TSK-134 | Blue Flag and Q certifications with season year | 2026-11-03 |
@@ -66,5 +67,3 @@
 | TSK-129 | Fix: COPLA flag lookup misses beaches whose feed name carries a segment suffix | 2026-10-27 |
 | TSK-126 | Fix: Nearby beaches lose their distance order | 2026-10-25 |
 | TSK-125 | Fix: COPLA 'PLAYA CERRADA' flag is mapped to 'Sin bandera' | 2026-10-23 |
-| TSK-116 | Shore Bearing per Beach and Wave Exposure Label | 2026-10-20 |
-| TSK-115 | Wave Forecast (Oleaje) on Beach Detail Page | 2026-10-19 |
