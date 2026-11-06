@@ -86,7 +86,7 @@ export function filterBeaches(
   let result = beaches
 
   if (params.q?.trim()) {
-    const query = normalizeText(params.q.trim())
+    const query = normalizeText(params.q.trim()).replace(/\s+/g, ' ')
     result = result.filter((beach) => normalizeText(beach.name).includes(query))
   }
 

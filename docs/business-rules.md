@@ -134,6 +134,7 @@ So weather is **not** limited to beaches with `aemetId`; those codes only gate t
 - Need filters (`dogFriendly`, `lifeguard`, `childSafe`, `naturalShade`, `nudist`) are boolean and live in the URL as `true`; a beach with the field missing never matches an active filter
 - `accessDifficulty` (`easy` | `moderate` | `hard`) and `occupancy` (`low` | `medium` | `high`) are multi-select; beaches with no value are excluded when active
 - "Cerca de mí" (`sort=cercania`) asks for browser geolocation only on click. The position stays in component state: it is never put in the URL, storage or sent to the server. Without a position the sort falls back to "Recomendados"
+- Search text ignores accents, `ñ` included, and treats repeated spaces as one
 
 ## Content Guidelines
 

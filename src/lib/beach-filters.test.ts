@@ -166,6 +166,19 @@ describe('filterBeaches', () => {
   })
 })
 
+describe('filterBeaches search text', () => {
+  it('treats repeated inner spaces as one', () => {
+    const single = filterBeaches(beaches, { q: 'cala abierta' })
+    expect(single.length).toBeGreaterThan(0)
+    expect(filterBeaches(beaches, { q: 'cala   abierta' })).toEqual(single)
+  })
+
+  it('keeps ñ and n interchangeable so a keyboard without ñ still finds names', () => {
+    const withTilde = [{ ...beaches[0], name: 'Peñas Blancas' }]
+    expect(filterBeaches(withTilde, { q: 'penas' })).toHaveLength(1)
+  })
+})
+
 describe('sortBeaches', () => {
   it('sorts by name A-Z by default', () => {
     const result = sortBeaches(beaches, 'name')
