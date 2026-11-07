@@ -46,6 +46,13 @@ const navItemUnderline = (active: boolean) =>
     ? 'border-b-2 border-ocean-400 pb-0.5'
     : 'border-b-2 border-transparent pb-0.5'
 
+// Touch screens from `sm` up (landscape phones, tablets) get 44px targets:
+// the box grows and the negative margin gives the height back to the row,
+// so the bar keeps its 61px and the pointer layout stays untouched
+const touchNavTarget = 'pointer-coarse:-my-3 pointer-coarse:min-h-11'
+const touchSearchTarget =
+  'sm:pointer-coarse:-m-2 sm:pointer-coarse:ml-3 sm:pointer-coarse:h-11 sm:pointer-coarse:w-11'
+
 function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname })
   const inSection = isInSection(pathname, collectionsSection)
@@ -73,7 +80,7 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
         ref={triggerRef}
         openOnHover
         aria-current={inSection ? 'true' : undefined}
-        className={`group inline-flex items-center text-sm font-medium transition-colors hover:text-white focus-visible:text-white ${inSection ? 'text-white' : 'text-ocean-200'} ${darkFocusRing}`}
+        className={`group inline-flex items-center text-sm font-medium transition-colors hover:text-white focus-visible:text-white ${inSection ? 'text-white' : 'text-ocean-200'} ${touchNavTarget} ${darkFocusRing}`}
         closeDelay={150}
       >
         <span
@@ -105,7 +112,7 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
                   <li key={c.href}>
                     <Link
                       aria-current={active ? 'page' : undefined}
-                      className={`flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-800 focus-visible:outline-none ${active ? 'bg-ocean-700 font-semibold text-white' : 'text-ocean-100 hover:bg-ocean-700 hover:text-white focus-visible:bg-ocean-700 focus-visible:text-white'}`}
+                      className={`flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-800 focus-visible:outline-none pointer-coarse:min-h-11 ${active ? 'bg-ocean-700 font-semibold text-white' : 'text-ocean-100 hover:bg-ocean-700 hover:text-white focus-visible:bg-ocean-700 focus-visible:text-white'}`}
                       params={{ slug: c.href.split('/').pop()! }}
                       to="/colecciones/$slug"
                     >
@@ -124,7 +131,7 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
             <div className="mt-2 border-t border-ocean-700 pt-2">
               <Link
                 activeOptions={{ exact: true }}
-                className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-ocean-200 transition-colors hover:bg-ocean-700 hover:text-white focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-800 focus-visible:outline-none"
+                className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-ocean-200 transition-colors hover:bg-ocean-700 hover:text-white focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-800 focus-visible:outline-none pointer-coarse:min-h-11"
                 to="/colecciones"
               >
                 Ver todas →
@@ -293,7 +300,7 @@ export function Navbar({ navData }: { navData: NavData }) {
           </Link>
           <div className="ml-auto hidden items-center gap-4 sm:flex md:gap-6">
             <TodayLink
-              className={`inline-flex items-center text-sm font-medium text-ocean-200 transition-colors hover:text-white focus-visible:text-white ${navItemUnderline(false)} ${darkFocusRing}`}
+              className={`inline-flex items-center text-sm font-medium text-ocean-200 transition-colors hover:text-white focus-visible:text-white ${navItemUnderline(false)} ${touchNavTarget} ${darkFocusRing}`}
               onNavigate={closeMenu}
             />
             {simpleNavLinks.map(({ to, label, section }) => {
@@ -303,7 +310,7 @@ export function Navbar({ navData }: { navData: NavData }) {
                   key={to}
                   activeOptions={{ exact: true }}
                   aria-current={active ? currentValue(pathname, to) : undefined}
-                  className={`inline-flex items-center text-sm font-medium transition-colors ${active ? 'text-white' : 'text-ocean-200 hover:text-white focus-visible:text-white'} ${darkFocusRing}`}
+                  className={`inline-flex items-center text-sm font-medium transition-colors ${active ? 'text-white' : 'text-ocean-200 hover:text-white focus-visible:text-white'} ${touchNavTarget} ${darkFocusRing}`}
                   to={to}
                 >
                   <span className={navItemUnderline(active)}>{label}</span>
@@ -316,7 +323,7 @@ export function Navbar({ navData }: { navData: NavData }) {
               on /explorar next to "Todas las playas", and ignores the hash */}
           <a
             aria-label="Buscar playas"
-            className={`ml-auto flex h-11 w-11 items-center justify-center rounded-md text-ocean-200 transition-colors hover:text-white focus-visible:text-white sm:ml-5 sm:h-7 sm:w-7 ${darkFocusRing}`}
+            className={`ml-auto flex h-11 w-11 items-center justify-center rounded-md text-ocean-200 transition-colors hover:text-white focus-visible:text-white sm:ml-5 sm:h-7 sm:w-7 ${touchSearchTarget} ${darkFocusRing}`}
             href="/explorar#buscar"
             onClick={(event) => {
               if (!isPlainClick(event)) return
