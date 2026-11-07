@@ -18,7 +18,15 @@ export function haversineKm(from: LatLng, to: LatLng): number {
   return 2 * EARTH_RADIUS_KM * Math.asin(Math.sqrt(a))
 }
 
+/**
+ * Rounds before choosing the unit, so 0.95 km reads "1,0 km" rather than
+ * "1000 m" and 9.96 km reads "10 km" rather than "10,0 km".
+ */
 export function formatDistance(km: number): string {
-  if (km < 1) return `${Math.round(km * 10) * 100} m`
-  return `${km < 10 ? km.toFixed(1).replace('.', ',') : Math.round(km)} km`
+  const tenthsOfKm = Math.round(km * 10)
+  if (tenthsOfKm < 10) return `${tenthsOfKm * 100} m`
+  if (tenthsOfKm < 100) {
+    return `${(tenthsOfKm / 10).toFixed(1).replace('.', ',')} km`
+  }
+  return `${Math.round(km)} km`
 }

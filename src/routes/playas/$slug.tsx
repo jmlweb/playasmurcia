@@ -311,7 +311,7 @@ function BeachPage() {
 
         {nearbyItems.length > 0 && (
           <div className="mt-12 border-t border-gray-200/60 pt-8">
-            <NearbyCarousel items={nearbyItems} />
+            <NearbyCarousel currentBeach={beach} items={nearbyItems} />
           </div>
         )}
       </div>
