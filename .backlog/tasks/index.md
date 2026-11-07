@@ -5,15 +5,13 @@
 | Status | Count |
 |--------|-------|
 | Pending | 23 |
-| Active | 3 |
+| Active | 0 |
 | Blocked | 0 |
-| Complete | 152 |
+| Complete | 155 |
 
 ## Active Tasks
 
-- TSK-164: Fix: Remove synthetic bold from DM Serif headings site-wide (P4)
-- TSK-165: Fix: Weather icon and caption contrast violations (P4)
-- TSK-166: Fix: Beach detail copy and accessibility defects (P4)
+_No active tasks._
 
 ## Pending Tasks
 

@@ -33,7 +33,7 @@ export function Breadcrumb({
             <Link
               className={
                 isOnPhoto
-                  ? 'hover:underline focus-visible:underline focus-visible:outline-none'
+                  ? 'underline decoration-white/50 underline-offset-2 hover:decoration-white focus-visible:decoration-white focus-visible:outline-none'
                   : 'transition-colors hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:underline focus-visible:outline-none'
               }
               to={item.href}
@@ -43,7 +43,9 @@ export function Breadcrumb({
           ) : (
             <span
               aria-current="page"
-              className={isOnPhoto ? 'text-white' : 'text-gray-600'}
+              className={
+                isOnPhoto ? 'font-semibold text-white' : 'text-gray-600'
+              }
             >
               {item.label}
             </span>

@@ -59,7 +59,7 @@ Both are loaded from Google Fonts.
 | `text-base` / `text-lg` | Body       | Paragraphs, descriptions         |
 | `text-sm`               | Caption    | Metadata, labels, secondary info |
 
-**Weight usage**: Bold (`font-bold`) for headings and emphasis, regular for body text. Avoid light weights for body text.
+**Weight usage**: serif headings (`h1`, `h2`) are always `font-normal` (400); the base rule sets `font-synthesis-weight: none`, so `font-semibold` or `font-bold` on a serif heading has no effect and must not be used. Sans card titles and emphasis use `font-semibold`/`font-bold`; body text is regular. Avoid light weights for body text.
 
 **Caption contrast floor**: secondary text on white or `sand-50` must be at least `gray-600` at 13px (`text-[13px]`) or `gray-500` at 14px (`text-sm`) — both ≥ 4.5:1. `gray-400` (2.6:1 on white) is for decorative or disabled text only, never for metadata users need to read (e.g. length · sand type on cards).
 
@@ -196,7 +196,7 @@ Decorative blur circles are optional — use `opacity-20` minimum if present, ot
 
 ## Breadcrumbs
 
-Present on every page except the homepage. On pages with a `PageHero` the breadcrumb is rendered **inside the hero**, above the eyebrow, via the `breadcrumb` prop (`tone="onPhoto"`: `text-sm text-white/80`, `mb-4`). Pages without a hero (beach detail) place it in the main content area (light background).
+Present on every page except the homepage. On pages with a `PageHero` the breadcrumb is rendered **inside the hero**, above the eyebrow, via the `breadcrumb` prop (`tone="onPhoto"`: `text-sm text-white`, `mb-4`; links underlined with `decoration-white/50`, current item `font-semibold`; solid white, because `white/80` measured 2.6:1 to 3.7:1 over bright sand on desktop heroes). Pages without a hero (beach detail) place it in the main content area (light background).
 
 **Styling**: `text-sm text-gray-500` with separator `<span className="mx-2" aria-hidden="true">/</span>`. Links use `hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:underline`. Current page uses `text-gray-600` with `aria-current="page"`.
 
@@ -258,7 +258,7 @@ When a page or section has no results (empty search, empty collection, no beache
 
 - Container: `rounded-2xl border border-dashed border-gray-200 py-20 text-center`
 - Icon: `text-gray-300 mb-5 h-14 w-14` (centered, using a relevant SVG — typically a magnifying glass)
-- Title: `text-lg font-semibold text-gray-900 mb-1`
+- Title: `text-lg font-normal text-gray-900 mb-1` (serif `h2`, weight 400)
 - Description: `text-sm text-gray-500`
 - Optional action button: standard primary pill button (`bg-ocean-600 text-white rounded-full`)
 
