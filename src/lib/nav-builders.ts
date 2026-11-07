@@ -52,28 +52,14 @@ export function buildMunicipalityNavWithBlueFlag(
   })
 }
 
-// Latitude alone cannot rank the coast (Cartagena's beaches span La Unión's), so
-// the walk from north-east to south-west is listed by hand. Unknown slugs go
-// last, in their original order.
-const COAST_ORDER = [
-  'san-pedro-del-pinatar',
-  'san-javier',
-  'los-alcazares',
-  'cartagena',
-  'la-union',
-  'mazarron',
-  'lorca',
-  'aguilas',
-] as const
+// Alphabetical, not geographic: a coast-walk order was hard to scan. The Spanish
+// collator ranks accented initials (Águilas) with their base letter.
+const municipalityCollator = new Intl.Collator('es')
 
-export function sortMunicipalitiesByCoast<T extends { slug: string }>(
+export function sortMunicipalitiesAlphabetically<T extends { name: string }>(
   items: readonly T[],
 ): T[] {
-  const rank = (slug: string): number => {
-    const index = (COAST_ORDER as readonly string[]).indexOf(slug)
-    return index === -1 ? COAST_ORDER.length : index
-  }
-  return [...items].sort((a, b) => rank(a.slug) - rank(b.slug))
+  return [...items].sort((a, b) => municipalityCollator.compare(a.name, b.name))
 }
 
 // Footer counts must match the collection pages they link to, so they reuse

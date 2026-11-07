@@ -11,8 +11,10 @@ const fetchMunicipalitiesData = createServerFn({ method: 'GET' }).handler(
     const { getAllBeaches, getAllMunicipalities } =
       await import('@/lib/db-data/beach-queries')
     const { addMunicipalityCovers } = await import('@/lib/home-curation')
-    const { buildMunicipalityNavWithBlueFlag, sortMunicipalitiesByCoast } =
-      await import('@/lib/nav-builders')
+    const {
+      buildMunicipalityNavWithBlueFlag,
+      sortMunicipalitiesAlphabetically,
+    } = await import('@/lib/nav-builders')
     const [beaches, municipalities] = await Promise.all([
       getAllBeaches(),
       getAllMunicipalities(),
@@ -23,7 +25,7 @@ const fetchMunicipalitiesData = createServerFn({ method: 'GET' }).handler(
       buildMunicipalityNavWithBlueFlag(beaches, municipalities),
       beaches,
     )
-    return sortMunicipalitiesByCoast(withCovers).filter(
+    return sortMunicipalitiesAlphabetically(withCovers).filter(
       (municipality) => municipality.beachCount > 0,
     )
   },

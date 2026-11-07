@@ -179,7 +179,7 @@ export function SiteFooter({
 
           <FooterLinkGroup
             id="footer-municipios"
-            label="Municipios, de norte a sur"
+            label="Municipios, por orden alfabético"
           >
             {municipalities.map((m) => (
               <li key={m.slug}>

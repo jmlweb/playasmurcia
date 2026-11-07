@@ -27,7 +27,7 @@ const fetchNavData = createServerFn({ method: 'GET' }).handler(
     const {
       buildCharacteristicCounts,
       buildMunicipalityNav,
-      sortMunicipalitiesByCoast,
+      sortMunicipalitiesAlphabetically,
     } = await import('@/lib/nav-builders')
     const [beaches, municipalities] = await Promise.all([
       getAllBeaches(),
@@ -35,7 +35,7 @@ const fetchNavData = createServerFn({ method: 'GET' }).handler(
     ])
 
     return {
-      municipalities: sortMunicipalitiesByCoast(
+      municipalities: sortMunicipalitiesAlphabetically(
         buildMunicipalityNav(beaches, municipalities),
       ),
       characteristics: buildCharacteristicCounts(beaches),

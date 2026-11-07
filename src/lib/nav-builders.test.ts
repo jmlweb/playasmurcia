@@ -7,7 +7,7 @@ import {
   buildMunicipalityNav,
   buildMunicipalityNavWithBlueFlag,
   countBlueFlag,
-  sortMunicipalitiesByCoast,
+  sortMunicipalitiesAlphabetically,
 } from './nav-builders'
 
 const municipalities: Municipality[] = [
@@ -134,27 +134,32 @@ describe('nav-builders', () => {
   })
 })
 
-describe('sortMunicipalitiesByCoast', () => {
-  it('orders municipalities along the coast, north-east to south-west', () => {
-    const items = ['lorca', 'cartagena', 'san-javier', 'aguilas'].map(
-      (slug) => ({ slug }),
-    )
+describe('sortMunicipalitiesAlphabetically', () => {
+  it('orders municipalities alphabetically, accents included', () => {
+    const items = [
+      'Lorca',
+      'Cartagena',
+      'La Unión',
+      'Águilas',
+      'Los Alcázares',
+    ].map((name) => ({ name }))
 
     expect(
-      sortMunicipalitiesByCoast(items).map((item) => item.slug),
-    ).toStrictEqual(['san-javier', 'cartagena', 'lorca', 'aguilas'])
+      sortMunicipalitiesAlphabetically(items).map((item) => item.name),
+    ).toStrictEqual([
+      'Águilas',
+      'Cartagena',
+      'La Unión',
+      'Lorca',
+      'Los Alcázares',
+    ])
   })
 
-  it('puts unknown slugs last and keeps the input intact', () => {
-    const items = [{ slug: 'nuevo' }, { slug: 'lorca' }, { slug: 'cartagena' }]
+  it('keeps the input intact', () => {
+    const items = [{ name: 'Lorca' }, { name: 'Cartagena' }]
 
-    expect(
-      sortMunicipalitiesByCoast(items).map((item) => item.slug),
-    ).toStrictEqual(['cartagena', 'lorca', 'nuevo'])
-    expect(items.map((item) => item.slug)).toStrictEqual([
-      'nuevo',
-      'lorca',
-      'cartagena',
-    ])
+    sortMunicipalitiesAlphabetically(items)
+
+    expect(items.map((item) => item.name)).toStrictEqual(['Lorca', 'Cartagena'])
   })
 })

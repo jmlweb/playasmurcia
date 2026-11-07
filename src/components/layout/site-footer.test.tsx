@@ -70,7 +70,7 @@ describe('SiteFooter', () => {
     ).toStrictEqual(['footer-municipios', 'footer-colecciones'])
     expect(
       screen.queryByRole('navigation', {
-        name: 'Municipios, de norte a sur',
+        name: 'Municipios, por orden alfabético',
         hidden: true,
       }),
     ).not.toBeNull()
@@ -103,9 +103,9 @@ describe('SiteFooter', () => {
         .getByRole('link', { name, hidden: true })
         .getAttribute('href')
 
-    expect(hrefIn('Todos los municipios', 'Municipios, de norte a sur')).toBe(
-      '/municipios',
-    )
+    expect(
+      hrefIn('Todos los municipios', 'Municipios, por orden alfabético'),
+    ).toBe('/municipios')
     expect(hrefIn('Todas las colecciones', 'Colecciones destacadas')).toBe(
       '/colecciones',
     )

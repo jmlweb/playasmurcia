@@ -180,6 +180,10 @@ So weather is **not** limited to beaches with `aemetId`; those codes only gate t
 - Sort "Municipio" is alphabetical by name, ignoring accents. Search text ignores accents, `ñ` included, and treats repeated spaces as one
 - `/explorar` ignores filter ids that are not in the catalogue, so a stale link cannot empty the list with a filter no chip can show
 
+## Municipality Order
+
+Every municipality list (home, `/municipios`, header and footer navigation) is alphabetical by name, using `Intl.Collator('es')` through `sortMunicipalitiesAlphabetically` in `src/lib/nav-builders.ts`. Accented initials sort with their base letter (Águilas first). Decision 2026-11-07: the earlier north-to-south coast order was hard to scan. Zones inside one municipality keep their coastal order (`data/zones.json`); that is a separate rule.
+
 ## Content Guidelines
 
 ### Description Field

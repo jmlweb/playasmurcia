@@ -22,7 +22,7 @@ const fetchHomeData = createServerFn({ method: 'GET' }).handler(async () => {
     getAllMunicipalities,
     getAllTags,
   } = await import('@/lib/db-data/beach-queries')
-  const { buildMunicipalityNavWithBlueFlag, sortMunicipalitiesByCoast } =
+  const { buildMunicipalityNavWithBlueFlag, sortMunicipalitiesAlphabetically } =
     await import('@/lib/nav-builders')
   const [featured, beaches, municipalities, tags] = await Promise.all([
     getFeaturedBeaches(),
@@ -30,8 +30,8 @@ const fetchHomeData = createServerFn({ method: 'GET' }).handler(async () => {
     getAllMunicipalities(),
     getAllTags(),
   ])
-  // Covers match by array index, so the coast sort must come after them
-  const municipalityNav = sortMunicipalitiesByCoast(
+  // Covers match by array index, so the sort must come after them
+  const municipalityNav = sortMunicipalitiesAlphabetically(
     addMunicipalityCovers(
       buildMunicipalityNavWithBlueFlag(beaches, municipalities),
       beaches,
