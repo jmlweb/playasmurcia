@@ -23,6 +23,7 @@ const CertificationConfig: Record<
     description: 'Distintivo de calidad turística de las playas españolas',
     icon: ({ className }) => (
       <span
+        aria-hidden="true"
         className={`flex h-5 w-5 shrink-0 items-center justify-center text-sm font-bold ${className ?? ''}`}
       >
         Q
@@ -52,16 +53,16 @@ export function CertificationsBadge({
       <h2 className="mb-4 text-3xl font-normal tracking-tight text-gray-900">
         Certificaciones
       </h2>
-      <ul className="flex flex-wrap gap-3">
+      <ul className="space-y-3">
         {certifications.map((cert) => {
           const config = CertificationConfig[cert]
           const seasonYear = getCertificationSeasonYear(cert)
           return (
             <li
               key={cert}
-              className="flex items-center gap-2 rounded-lg border border-gray-200 px-4 py-2.5 text-gray-900"
+              className="flex max-w-[58ch] items-start gap-2.5 text-gray-900"
             >
-              <config.icon className="h-5 w-5 text-ocean-600" />
+              <config.icon className="mt-0.5 h-5 w-5 text-ocean-600" />
               <div>
                 <p className="text-sm font-semibold">{config.label}</p>
                 {seasonYear !== undefined && (
@@ -69,7 +70,9 @@ export function CertificationsBadge({
                     Temporada {seasonYear}
                   </p>
                 )}
-                <p className="text-xs text-gray-600">{config.description}</p>
+                <p className="text-sm text-pretty text-gray-600">
+                  {config.description}
+                </p>
               </div>
             </li>
           )

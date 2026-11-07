@@ -1,7 +1,13 @@
+import { useMemo } from 'react'
+
 import type { Beach, Municipality } from '@/types/beach'
 
 import { ResponsiveImage } from '@/components/ui/responsive-image'
 import { parseImageFilename } from '@/lib/images'
+
+import { FlagPill, WeatherPill } from './card-pills'
+import { useCardFlags } from './use-card-flags'
+import { useCardWeather } from './use-card-weather'
 
 type NearbyBeachItem = {
   beach: Beach
@@ -21,12 +27,20 @@ const FADE_MOBILE_ONLY =
   'pr-12 max-lg:[mask-image:linear-gradient(to_right,#000_calc(100%-3rem),transparent)] lg:pr-0'
 
 export function NearbyCarousel({ items }: NearbyCarouselProps) {
+  const beaches = useMemo(() => items.map(({ beach }) => beach), [items])
+  const weather = useCardWeather(beaches)
+  const flags = useCardFlags(beaches)
+
   if (items.length === 0) {
     return null
   }
 
   return (
-    <section aria-label="Playas cercanas">
+    <section
+      aria-label="Playas cercanas"
+      className="scroll-mt-20"
+      id="playas-cercanas"
+    >
       <h2 className="mb-4 text-3xl font-normal tracking-tight text-gray-900">
         Playas cercanas
       </h2>
@@ -79,6 +93,19 @@ export function NearbyCarousel({ items }: NearbyCarouselProps) {
                       />
                     </svg>
                   </div>
+                )}
+                {weather[beach.code] && (
+                  <WeatherPill
+                    className="absolute top-2 left-2"
+                    showWindGlyph={false}
+                    weather={weather[beach.code]}
+                  />
+                )}
+                {flags[beach.code] && (
+                  <FlagPill
+                    className="absolute bottom-2 left-2"
+                    flag={flags[beach.code]}
+                  />
                 )}
               </div>
               <div className="p-3">

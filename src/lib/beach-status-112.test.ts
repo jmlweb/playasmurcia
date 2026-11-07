@@ -78,11 +78,10 @@ describe('getBeachStatus', () => {
     vi.resetModules()
   })
 
-  it('returns null when fetch fails', async () => {
+  it('throws when fetch fails', async () => {
     mockFetch.mockRejectedValueOnce(new Error('network error'))
     const { getBeachStatus } = await freshModule()
-    const result = await getBeachStatus('Calabardina', 'Aguilas')
-    expect(result).toBeNull()
+    await expect(getBeachStatus('Calabardina', 'Aguilas')).rejects.toThrow()
   })
 
   it('returns null when beach is not found in XML', async () => {
@@ -199,11 +198,10 @@ describe('getBeachStatus', () => {
     expect(result?.flag).toBe('PLAYA CERRADA')
   })
 
-  it('returns null when HTTP response is not ok', async () => {
+  it('throws when HTTP response is not ok', async () => {
     mockFetch.mockResolvedValueOnce({ ok: false, status: 503 })
     const { getBeachStatus } = await freshModule()
-    const result = await getBeachStatus('Calabardina', 'Aguilas')
-    expect(result).toBeNull()
+    await expect(getBeachStatus('Calabardina', 'Aguilas')).rejects.toThrow()
   })
 
   it('matches multiple entries and returns the correct one', async () => {

@@ -1,9 +1,10 @@
 import { render, screen, within } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import type { BeachFlag, BeachStatus112 } from '@/lib/beach-status-112'
 
 import { BeachStatusWidget } from './beach-status-widget'
+import { useBeachStatus } from './use-beach-status'
 
 const fetchBeachStatus = vi.hoisted(() =>
   vi.fn<() => Promise<BeachStatus112 | null>>(),
@@ -15,6 +16,10 @@ vi.mock('@tanstack/react-start', () => ({
   }),
 }))
 
+function Widget() {
+  return <BeachStatusWidget state={useBeachStatus('Calarreona', 'Águilas')} />
+}
+
 const statusWithFlag = (flag: BeachFlag): BeachStatus112 => ({
   flag,
   seaState: 'BUENO',
@@ -25,9 +30,7 @@ const statusWithFlag = (flag: BeachFlag): BeachStatus112 => ({
 
 async function renderFlagCircle(flag: BeachFlag) {
   fetchBeachStatus.mockResolvedValueOnce(statusWithFlag(flag))
-  const { container, unmount } = render(
-    <BeachStatusWidget beachName="Calarreona" municipalityName="Águilas" />,
-  )
+  const { container, unmount } = render(<Widget />)
   const circle = await within(container).findByRole('img')
   const rendered = {
     label: circle.getAttribute('aria-label'),
@@ -40,9 +43,7 @@ async function renderFlagCircle(flag: BeachFlag) {
 describe('BeachStatusWidget', () => {
   it('labels a closed beach "Playa cerrada"', async () => {
     fetchBeachStatus.mockResolvedValueOnce(statusWithFlag('PLAYA CERRADA'))
-    render(
-      <BeachStatusWidget beachName="Calarreona" municipalityName="Águilas" />,
-    )
+    render(<Widget />)
 
     expect(await screen.findByText('Playa cerrada')).toBeTruthy()
     expect(screen.queryByText('Sin bandera')).toBeNull()
@@ -70,13 +71,41 @@ describe('BeachStatusWidget', () => {
       ...statusWithFlag('VERDE'),
       isOffSeason: true,
     })
-    render(
-      <BeachStatusWidget beachName="Calarreona" municipalityName="Águilas" />,
-    )
+    render(<Widget />)
     expect(
       await screen.findByText(
         'Bandera del 112: se publica de junio a septiembre.',
       ),
     ).toBeTruthy()
+  })
+
+  describe('in season', () => {
+    afterEach(() => {
+      vi.useRealTimers()
+    })
+
+    it('says the lookup failed rather than showing nothing', async () => {
+      vi.useFakeTimers({
+        now: new Date('2026-07-15T12:00:00'),
+        toFake: ['Date'],
+      })
+      fetchBeachStatus.mockRejectedValueOnce(new Error('down'))
+      render(<Widget />)
+      expect(
+        await screen.findByText(/No hemos podido consultar la bandera/),
+      ).toBeTruthy()
+    })
+
+    it('says when the 112 has no flag for the beach', async () => {
+      vi.useFakeTimers({
+        now: new Date('2026-07-15T12:00:00'),
+        toFake: ['Date'],
+      })
+      fetchBeachStatus.mockResolvedValueOnce(null)
+      render(<Widget />)
+      expect(
+        await screen.findByText('El 112 no publica bandera para esta playa.'),
+      ).toBeTruthy()
+    })
   })
 })

@@ -46,6 +46,8 @@ export function LeafletMap({ coordinates, beachName }: LeafletMapProps) {
       zoom: 14,
       scrollWheelZoom: false,
       zoomControl: false,
+      // One finger keeps scrolling the page, as in the explorer map
+      dragging: !window.matchMedia('(pointer: coarse)').matches,
     })
 
     L.control
@@ -64,7 +66,7 @@ export function LeafletMap({ coordinates, beachName }: LeafletMapProps) {
         a.innerHTML =
           '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>'
         a.style.cssText =
-          'display:flex;align-items:center;justify-content:center;width:30px;height:30px;cursor:pointer'
+          'display:flex;align-items:center;justify-content:center;cursor:pointer'
 
         L.DomEvent.disableClickPropagation(btn)
         L.DomEvent.on(a, 'click', (e) => {

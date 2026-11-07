@@ -47,6 +47,8 @@ export function BeachHero({
             baseName={image.baseName}
             className="absolute inset-0 h-full w-full object-cover"
             ext={image.ext}
+            // A short phone hero crops wide photos to their height, so width alone undersells them
+            fullSizes="(max-width: 640px) 150vw, (max-width: 1024px) 100vw, 1200px"
             priority="high"
             variant="full"
           />

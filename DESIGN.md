@@ -299,7 +299,7 @@ The homepage strip under the hero, headed "Hoy en la costa". Two link rows, Mar 
 
 ### Beach Conditions
 
-White text on the beach hero scrim, under the location line: sky icon and temperature, wind, waves on the open sea, and the 112 flag in season, followed by a line naming the sources. No panel goes behind it. Only facts with data appear, and the line disappears when no source answers. Directions are spelled out, because a bare "NO" reads as a negation. Live waves read "Oleaje hoy" and the stored value reads "Oleaje habitual". The Mar Menor shows no wave data anywhere.
+White text on the beach hero scrim, under the location line: what it is like now, as sky icon and temperature, wind, waves on the open sea, and the 112 flag in season. No panel goes behind it. Only facts with data appear. Sources and data time are stated once, under the forecast. Directions are spelled out, because a bare "NO" reads as a negation. Live waves read "Oleaje hoy" and the stored value reads "Oleaje habitual". The Mar Menor shows no wave data anywhere.
 
 ### Overline
 
@@ -323,7 +323,15 @@ Información práctica sits in the main column, unboxed. "Antes de ir" holds wha
 
 ### Beach Forecast
 
-A flat Shallow Water panel with today on top and the next six days in one row, hairlines instead of cells. Weekend day names are Harbour Teal, because "this weekend" is half of the decision. Out of season, one line under it says when the 112 publishes flags.
+A flat Shallow Water panel. "Hoy" with the day name adds what the hero does not say: high and low, sky, feels-like, wind ahead, water, UV and waves in plain words. The next six days sit in one row, hairlines instead of cells, with weekend names in Harbour Teal. It closes on the sources and the data time. AEMET and Open-Meteo merge per day, so every day carries minimum and rain. Under it, one line says when the 112 publishes flags, or, in season, that the lookup failed or that the 112 has no flag for this beach. Silence would read as "no problem".
+
+### Beach Flag Alert
+
+A red flag or closure goes first in the rail, above `Cómo llegar`, in a light red panel with its time, source and a link to nearby beaches. A closed beach also demotes directions to the secondary button. This is the only red surface on the page, and it never carries a neutral fact.
+
+### Nearby Beaches
+
+The page closes on the alternatives: compact cards with the Beach Card weather and flag pills, so a rejected beach has an answer here. No-photo cards use the intentional gradient.
 
 ### Motion
 

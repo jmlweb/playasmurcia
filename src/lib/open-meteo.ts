@@ -78,6 +78,8 @@ export type OpenMeteoCurrent = {
 
 export type OpenMeteoForecast = {
   days: OpenMeteoForecastDay[]
+  /** Madrid local time of `current`; entries cached earlier lack it */
+  observedAt?: string
   current?: OpenMeteoCurrent
 }
 
@@ -108,6 +110,7 @@ export type CardWeather = {
 
 type OpenMeteoResponse = {
   current?: {
+    time?: string
     temperature_2m: number
     apparent_temperature: number
     weather_code: number
@@ -201,6 +204,7 @@ export async function fetchOpenMeteoForecast(
 
     if (data.current) {
       const c = data.current
+      forecast.observedAt = c.time
       forecast.current = {
         temp: Math.round(c.temperature_2m),
         apparentTemp: Math.round(c.apparent_temperature),

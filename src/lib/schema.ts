@@ -1,7 +1,9 @@
-import type { Beach, Municipality, Service } from '@/types/beach'
+import type { Beach, Certification, Municipality, Service } from '@/types/beach'
 
 import { getBeachSummary } from './beach-summary'
+import { getCertificationSeasonYear } from './certification-seasons'
 import { parseImageFilename, pictureUrl } from './images'
+import { WaterQualityStyles } from './status-styles'
 
 const SITE_URL = process.env.SITE_URL ?? 'https://www.playasmurcia.com'
 
@@ -30,7 +32,7 @@ type PostalAddress = {
 type LocationFeatureSpecification = {
   '@type': 'LocationFeatureSpecification'
   name: string
-  value: boolean
+  value: boolean | string
 }
 
 export type BeachSchema = {
@@ -62,19 +64,18 @@ function mapServicesToAmenities(
   serviceIndices: number[],
   services: Service[],
 ): LocationFeatureSpecification[] {
-  return serviceIndices
-    .map((index) => {
-      const service = services.at(index)
-      if (!service) return null
-      const amenityName = SERVICE_TO_AMENITY[service.id]
-      if (!amenityName) return null
-      return {
+  return serviceIndices.flatMap((index) => {
+    const service = services.at(index)
+    const amenityName = service && SERVICE_TO_AMENITY[service.id]
+    if (!amenityName) return []
+    return [
+      {
         '@type': 'LocationFeatureSpecification' as const,
         name: amenityName,
         value: true,
-      }
-    })
-    .filter((item): item is LocationFeatureSpecification => item !== null)
+      },
+    ]
+  })
 }
 
 function mapSafetyFacts(beach: Beach): LocationFeatureSpecification[] {
@@ -85,6 +86,33 @@ function mapSafetyFacts(beach: Beach): LocationFeatureSpecification[] {
     '@type': 'LocationFeatureSpecification' as const,
     ...fact,
   }))
+}
+
+const CertificationNames: Record<Certification, string> = {
+  'blue-flag': 'Bandera Azul',
+  'q-quality': 'Q de Calidad',
+  ecoplayas: 'Ecoplayas',
+}
+
+function mapOfficialFacts(beach: Beach): LocationFeatureSpecification[] {
+  const certifications = (beach.certifications ?? []).map((certification) => {
+    const year = getCertificationSeasonYear(certification)
+    return {
+      '@type': 'LocationFeatureSpecification' as const,
+      name: CertificationNames[certification],
+      value: year === undefined ? true : `Temporada ${String(year)}`,
+    }
+  })
+  return beach.waterQuality
+    ? [
+        ...certifications,
+        {
+          '@type': 'LocationFeatureSpecification' as const,
+          name: 'Calidad del agua',
+          value: WaterQualityStyles[beach.waterQuality].label,
+        },
+      ]
+    : certifications
 }
 
 export function generateMunicipalitySchema(
@@ -141,6 +169,7 @@ export function generateBeachSchema(
     amenityFeature: [
       ...mapServicesToAmenities(beach.services, services),
       ...mapSafetyFacts(beach),
+      ...mapOfficialFacts(beach),
     ],
     isAccessibleForFree: true,
     ...(firstImage && { image: firstImage }),

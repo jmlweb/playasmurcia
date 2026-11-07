@@ -37,6 +37,32 @@ Orientation was calculated based on coordinates:
 | Mar Mediterráneo + latitude > 37.55    | east        |
 | Mar Mediterráneo + latitude <= 37.55   | southeast   |
 
+## Beach Coordinates
+
+`coordinates` drive the map pin and the "Cómo llegar" destination, so they must sit on the beach. On 2026-11-07, 73 of 193 points that were in the water or inland were moved onto the sand after checking satellite imagery (Esri World Imagery, a mosaic of mixed dates). Moves are good to roughly 10-20 m. A long beach keeps one point near its middle.
+
+Unresolved, and left unchanged: Playa de El Palomarico (open sea, no coast within 700 m), Playa de Percheles (among greenhouses), Playa del Vivero (in housing, shore unclear) and Playa de Calabarrilla (cliff slope).
+
+## Beach Forecast
+
+`fetchBeachForecast` (`src/lib/beach-forecast.ts`) is the one forecast of a beach. The page, its markdown and the `get_beach_weather` WebMCP tool all read it, so they cannot disagree.
+
+- With an `aemetId`, AEMET wins what it publishes (sky, maximum, UV, sea) and Open-Meteo fills what it lacks (minimum, rain, wind). Days AEMET does not cover come from Open-Meteo. See `mergeForecastDays`.
+- `observedAt` is the Madrid time Open-Meteo stamped on the observation, shown as "Datos de las HH:MM". It is the data's time, not the fetch time.
+- The Mar Menor carries no wave data at all, AEMET's included.
+
+## Flag States
+
+`getBeachStatus` returns `null` when the 112 has no entry for a beach and throws when the feed fails, so the page can tell them apart.
+
+| State | Page |
+| --- | --- |
+| Red flag or closure, in season | Alert first in the rail. A closure demotes the directions button |
+| Other flag, in season | Card under the forecast |
+| No entry, June to September | "El 112 no publica bandera para esta playa." |
+| Feed failure, June to September | "No hemos podido consultar la bandera", with a link to the source |
+| Off season | "Bandera del 112: se publica de junio a septiembre." |
+
 ## Shore Bearing
 
 `shoreBearing` is the compass bearing (integer degrees, 0 = north, 90 = east) that the beach faces seaward. It is a separate, finer field than `orientation`.
@@ -54,7 +80,7 @@ New beaches need a hand-set `shoreBearing`; `node scripts/validate-beaches.js` f
 
 On the Mar Menor the opposite holds: `shoreBearing` is unreliable, because the nearest OSM coastline on La Manga is often the Mediterranean side (9 beaches disagree with `orientation` by 90° or more). `orientation` stays authoritative there, and the page passes no `shoreBearing` for the lagoon, so these values reach no one.
 
-The forecast shows live waves as "Oleaje hoy" and says whether they enter head-on ("entra de frente" / "no entra de frente") from `getWaveExposure`. The stored `waves` value reads "Oleaje habitual", and `SIN DETERMINAR` is hidden. The Mar Menor shows no wave data.
+The forecast shows live waves as "Oleaje hoy" and says whether they arrive head-on ("Llega de frente a la playa" / "No llega de frente a la playa") from `getWaveExposure`. The stored `waves` value reads "Oleaje habitual", and `SIN DETERMINAR` is hidden. The Mar Menor shows no wave data.
 
 ## Bathing-Water Quality
 

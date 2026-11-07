@@ -242,19 +242,14 @@ async function fetchAndCacheEntries(): Promise<CoplaEntry[]> {
 
 /**
  * Returns the current beach flag status from the 112 Murcia COPLA service.
- * Returns null if no matching entry is found.
+ * Returns null if no matching entry is found, and throws when the feed fails,
+ * so callers can tell "no flag for this beach" from "could not ask".
  */
 export async function getBeachStatus(
   beachName: string,
   municipalityName: string,
 ): Promise<BeachStatus112 | null> {
-  let entries: CoplaEntry[]
-  try {
-    entries = await fetchAndCacheEntries()
-  } catch {
-    return null
-  }
-
+  const entries = await fetchAndCacheEntries()
   const entry = findCoplaEntry(entries, beachName, municipalityName)
 
   if (!entry) return null

@@ -1,42 +1,13 @@
-import { createServerFn } from '@tanstack/react-start'
-import { useEffect, useState } from 'react'
-
-import type { BeachFlag, BeachStatus112 } from '@/lib/beach-status-112'
+import type { BeachFlag } from '@/lib/beach-status-112'
 
 import {
   FlagLabels,
   OFF_SEASON_FLAG_NOTE,
   SeaStateLabels,
+  STATUS_SOURCE_URL,
 } from '@/lib/beach-status-labels'
 
-// ---------------------------------------------------------------------------
-// Server function
-// ---------------------------------------------------------------------------
-
-const fetchBeachStatus = createServerFn({ method: 'GET' })
-  .validator((data: { beachName: string; municipalityName: string }) => {
-    if (typeof data.beachName !== 'string' || !data.beachName.trim()) {
-      throw new Error('Invalid beach name')
-    }
-    if (
-      typeof data.municipalityName !== 'string' ||
-      !data.municipalityName.trim()
-    ) {
-      throw new Error('Invalid municipality name')
-    }
-    return {
-      beachName: data.beachName.trim(),
-      municipalityName: data.municipalityName.trim(),
-    }
-  })
-  .handler(async ({ data }) => {
-    const { getBeachStatus } = await import('@/lib/beach-status-112')
-    return getBeachStatus(data.beachName, data.municipalityName)
-  })
-
-// ---------------------------------------------------------------------------
-// Flag helpers
-// ---------------------------------------------------------------------------
+import type { BeachStatusState } from './use-beach-status'
 
 type FlagCircleProps = {
   flag: BeachFlag
@@ -59,10 +30,6 @@ function FlagCircle({ flag }: FlagCircleProps) {
   )
 }
 
-// ---------------------------------------------------------------------------
-// Skeleton
-// ---------------------------------------------------------------------------
-
 function BeachStatusSkeleton() {
   return (
     <section
@@ -83,78 +50,51 @@ function BeachStatusSkeleton() {
   )
 }
 
-// ---------------------------------------------------------------------------
-// Main widget
-// ---------------------------------------------------------------------------
-
 type BeachStatusWidgetProps = {
-  beachName: string
-  municipalityName: string
+  state: BeachStatusState
 }
 
-type FetchState =
-  | { status: 'idle' }
-  | { status: 'loading' }
-  | { status: 'notfound' }
-  | { status: 'error' }
-  | { status: 'success'; data: BeachStatus112 }
-
-export function BeachStatusWidget({
-  beachName,
-  municipalityName,
-}: BeachStatusWidgetProps) {
-  const [state, setState] = useState<FetchState>({ status: 'idle' })
-
-  // Reset to loading during render (not in an effect) when the target beach changes
-  const requestKey = `${beachName}|${municipalityName}`
-  const [prevRequestKey, setPrevRequestKey] = useState(requestKey)
-  if (requestKey !== prevRequestKey) {
-    setPrevRequestKey(requestKey)
-    setState({ status: 'loading' })
-  }
-
-  useEffect(() => {
-    let cancelled = false
-
-    fetchBeachStatus({ data: { beachName, municipalityName } })
-      .then((data) => {
-        if (cancelled) return
-        if (!data) {
-          setState({ status: 'notfound' })
-        } else {
-          setState({ status: 'success', data })
-        }
-      })
-      .catch(() => {
-        if (!cancelled) setState({ status: 'error' })
-      })
-
-    return () => {
-      cancelled = true
-    }
-  }, [beachName, municipalityName])
-
+export function BeachStatusWidget({ state }: BeachStatusWidgetProps) {
   if (state.status === 'idle' || state.status === 'loading') {
     return <BeachStatusSkeleton />
   }
 
-  // No match from 112 or fetch error — collapse smoothly to avoid layout shift
-  if (state.status === 'notfound' || state.status === 'error') {
+  const isOffSeason =
+    state.status === 'success' ? state.data.isOffSeason : !state.isInSeason
+
+  // A line, not a card: otherwise nobody learns flags are seasonal, and an empty
+  // card would take room from the forecast for most of the year.
+  if (isOffSeason) {
+    return <p className="text-sm text-gray-600">{OFF_SEASON_FLAG_NOTE}</p>
+  }
+
+  if (state.status === 'notfound') {
     return (
-      <div
-        aria-hidden="true"
-        className="max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-in-out"
-      />
+      <p className="text-sm text-gray-600">
+        El 112 no publica bandera para esta playa.
+      </p>
+    )
+  }
+
+  // In season silence would read as "no problem", so say the lookup failed
+  if (state.status === 'error') {
+    return (
+      <p className="text-sm text-gray-700">
+        No hemos podido consultar la bandera. Compruébala en{' '}
+        <a
+          className="rounded font-medium text-ocean-700 underline underline-offset-2 hover:text-ocean-800 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none"
+          href={STATUS_SOURCE_URL}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          112 Región de Murcia
+        </a>
+        .
+      </p>
     )
   }
 
   const { data } = state
-
-  // A line, not a card: otherwise nobody learns flags are seasonal, and an empty
-  // card would take room from the forecast for most of the year.
-  if (data.isOffSeason) {
-    return <p className="text-sm text-gray-600">{OFF_SEASON_FLAG_NOTE}</p>
-  }
 
   return (
     <section

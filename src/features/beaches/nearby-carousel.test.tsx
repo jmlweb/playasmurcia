@@ -1,9 +1,19 @@
 import { render, screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
 import type { Beach, Municipality } from '@/types/beach'
 
 import { NearbyCarousel } from './nearby-carousel'
+
+vi.mock('./use-card-weather', () => ({
+  useCardWeather: () => ({
+    '001': { temp: 19, icon: 'sunny', windSpeed: 8, windDirection: 'N' },
+  }),
+}))
+
+vi.mock('./use-card-flags', () => ({
+  useCardFlags: () => ({ '001': 'ROJA' }),
+}))
 
 function makeBeach(overrides: Partial<Beach> = {}): Beach {
   return {
@@ -129,5 +139,21 @@ describe('NearbyCarousel', () => {
       />,
     )
     expect(screen.getByText('Cartagena')).toBeTruthy()
+  })
+
+  it('shows live conditions so the visitor can compare', () => {
+    render(
+      <NearbyCarousel
+        items={[
+          {
+            beach: makeBeach(),
+            municipality: mockMunicipality,
+            slug: 'playa-test',
+          },
+        ]}
+      />,
+    )
+    expect(screen.getByText('19°')).toBeTruthy()
+    expect(screen.getByText('Bandera roja')).toBeTruthy()
   })
 })

@@ -3,12 +3,15 @@ type BeachSafetyBarProps = {
   coordinates: [number, number]
   /** Only an explicit `false` warns; a missing value says nothing */
   lifeguard?: boolean
+  /** Directions stay available but stop being the primary action */
+  isClosed?: boolean
 }
 
 export function BeachSafetyBar({
   beachName,
   coordinates,
   lifeguard,
+  isClosed = false,
 }: BeachSafetyBarProps) {
   const [lat, lng] = coordinates
   const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`
@@ -42,7 +45,7 @@ export function BeachSafetyBar({
       )}
       <a
         aria-label={`Cómo llegar a ${beachName} (se abre en Google Maps en una pestaña nueva)`}
-        className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full bg-ocean-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-ocean-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
+        className={`inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none ${isClosed ? 'border border-ocean-200 text-ocean-600 hover:bg-ocean-50' : 'bg-ocean-600 text-white hover:bg-ocean-700'}`}
         href={directionsUrl}
         rel="noopener noreferrer"
         target="_blank"

@@ -74,7 +74,11 @@ describe('db-data module', () => {
         {
           code: '575',
           coordinates: beach?.coordinates,
+          sea: beach?.sea,
           ...(beach?.aemetId && { aemetId: beach.aemetId }),
+          ...(beach?.shoreBearing != null && {
+            shoreBearing: beach.shoreBearing,
+          }),
         },
       ])
     })

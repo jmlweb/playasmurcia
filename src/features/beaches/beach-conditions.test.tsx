@@ -56,9 +56,6 @@ describe('BeachConditions', () => {
     expect(screen.getByText('Viento 12 km/h Noreste')).toBeTruthy()
     expect(screen.getByText('Oleaje hoy 0,4 m')).toBeTruthy()
     expect(screen.getByText('Bandera verde')).toBeTruthy()
-    expect(
-      screen.getByText('Datos recientes: Open-Meteo y 112 Región de Murcia'),
-    ).toBeTruthy()
   })
 
   it('shows nothing when no source has data', () => {
@@ -66,17 +63,13 @@ describe('BeachConditions', () => {
     renderConditions()
 
     expect(screen.queryByRole('list')).toBeNull()
-    expect(screen.queryByText(/Datos recientes/)).toBeNull()
   })
 
-  it('names only the source that answered', () => {
+  it('shows a flag on its own', () => {
     mockConditions({ flags: { [code]: 'ROJA' } })
     renderConditions()
 
     expect(screen.getByText('Bandera roja')).toBeTruthy()
-    expect(
-      screen.getByText('Datos recientes: 112 Región de Murcia'),
-    ).toBeTruthy()
   })
 
   it('does not request waves for the Mar Menor', () => {

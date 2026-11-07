@@ -11,6 +11,8 @@ type ResponsiveImageProps = Omit<ImgHTMLAttributes<HTMLImageElement>, 'src'> & {
   priority?: 'high' | 'low'
   /** Which variant set to use */
   variant?: 'full' | 'thumb'
+  /** Overrides the `full` variant's `sizes`, for images that crop rather than scale */
+  fullSizes?: string
 }
 
 /**
@@ -23,6 +25,7 @@ export function ResponsiveImage({
   ext,
   priority = 'low',
   variant = 'full',
+  fullSizes = '(max-width: 1024px) 100vw, 1200px',
   alt = '',
   className,
   width,
@@ -72,12 +75,12 @@ export function ResponsiveImage({
   return (
     <picture style={{ display: 'contents' }}>
       <source
-        sizes="(max-width: 1024px) 100vw, 1200px"
+        sizes={fullSizes}
         srcSet={`${opt}-medium.avif 800w, ${opt}-full.avif 1200w, ${opt}.avif 1600w`}
         type="image/avif"
       />
       <source
-        sizes="(max-width: 1024px) 100vw, 1200px"
+        sizes={fullSizes}
         srcSet={`${opt}-medium.webp 800w, ${opt}-full.webp 1200w, ${opt}.webp 1600w`}
         type="image/webp"
       />

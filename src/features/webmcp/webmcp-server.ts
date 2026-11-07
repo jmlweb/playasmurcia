@@ -90,42 +90,32 @@ export const getBeachFn = createServerFn({ method: 'GET' })
 export const getBeachWeatherFn = createServerFn({ method: 'GET' })
   .validator(parseSlugInput)
   .handler(async ({ data }) => {
-    const [
-      { getBeachBySlug },
-      { fetchOpenMeteoForecast, fetchMarineWeather },
-      { getWaveLevel },
-      { MAR_MENOR_SEA },
-    ] = await Promise.all([
-      import('@/lib/db-data/beach-queries'),
-      import('@/lib/open-meteo'),
-      import('@/lib/wave-level'),
-      import('@/lib/beach-facts'),
-    ])
+    const [{ getBeachBySlug }, { fetchBeachForecast }, { getWaveLevel }] =
+      await Promise.all([
+        import('@/lib/db-data/beach-queries'),
+        import('@/lib/beach-forecast'),
+        import('@/lib/wave-level'),
+      ])
     const beach = await getBeachBySlug(data.slug)
     if (!beach) return null
 
-    const hasOpenSeaWaves = beach.sea !== MAR_MENOR_SEA
-    const [latitude, longitude] = beach.coordinates
-    const [forecast, marine] = await Promise.all([
-      fetchOpenMeteoForecast(latitude, longitude),
-      fetchMarineWeather(latitude, longitude),
-    ])
+    const forecast = await fetchBeachForecast(beach)
+    const waveHeight = forecast?.waves?.height
 
     return {
       beach: beach.name,
+      source: forecast?.source ?? null,
+      observedAt: forecast?.observedAt ?? null,
       current: forecast?.current ?? null,
       forecast: forecast?.days.slice(0, 3) ?? [],
-      sea: marine
+      sea: forecast
         ? {
-            waterTemp: marine.currentTemp,
-            ...(hasOpenSeaWaves && {
-              waveHeight: marine.waveHeight,
-              waveLevel:
-                marine.waveHeight !== undefined
-                  ? getWaveLevel(marine.waveHeight)
-                  : undefined,
-              waveDirection: marine.waveDirection,
-            }),
+            waterTemp: forecast.waterTemp,
+            waveHeight,
+            waveLevel:
+              waveHeight !== undefined ? getWaveLevel(waveHeight) : undefined,
+            waveDirection: forecast.waves?.direction,
+            waveExposure: forecast.waves?.exposure,
           }
         : null,
     }

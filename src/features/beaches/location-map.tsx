@@ -17,16 +17,18 @@ const LeafletMap = lazy(() =>
 )
 
 function staticMapUrl(lat: number, lng: number) {
-  return `https://api.mapbox.com/styles/v1/mapbox/navigation-day-v1/static/pin-l+e74c3c(${lng},${lat})/${lng},${lat},14,0/600x360@2x?access_token=${MAPBOX_TOKEN}`
+  return `https://api.mapbox.com/styles/v1/mapbox/navigation-day-v1/static/pin-l+14637e(${lng},${lat})/${lng},${lat},14,0/600x360@2x?access_token=${MAPBOX_TOKEN}`
 }
 
 function StaticMapPlaceholder({
   lat,
   lng,
+  beachName,
   onActivate,
 }: {
   lat: number
   lng: number
+  beachName: string
   onActivate: () => void
 }) {
   return (
@@ -37,14 +39,14 @@ function StaticMapPlaceholder({
       onClick={onActivate}
     >
       <img
-        alt="Mapa estático de la ubicación"
+        alt={`Mapa de ${beachName}`}
         className="h-full w-full object-cover"
         loading="lazy"
         src={staticMapUrl(lat, lng)}
       />
       <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/10">
-        <span className="rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-gray-700 shadow-md backdrop-blur-sm transition-transform group-hover:scale-105">
-          Toca para interactuar con el mapa
+        <span className="rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-gray-700 shadow-md">
+          Abrir mapa
         </span>
       </div>
     </button>
@@ -103,13 +105,23 @@ export function LocationMap({ coordinates, beachName }: LocationMapProps) {
         {shouldLoad ? (
           <Suspense
             fallback={
-              <StaticMapPlaceholder lat={lat} lng={lng} onActivate={activate} />
+              <StaticMapPlaceholder
+                beachName={beachName}
+                lat={lat}
+                lng={lng}
+                onActivate={activate}
+              />
             }
           >
             <LeafletMap beachName={beachName} coordinates={coordinates} />
           </Suspense>
         ) : (
-          <StaticMapPlaceholder lat={lat} lng={lng} onActivate={activate} />
+          <StaticMapPlaceholder
+            beachName={beachName}
+            lat={lat}
+            lng={lng}
+            onActivate={activate}
+          />
         )}
         <div className="flex items-center justify-between border-t border-gray-100 px-4 py-3">
           <p className="text-xs text-gray-500">
@@ -117,7 +129,7 @@ export function LocationMap({ coordinates, beachName }: LocationMapProps) {
           </p>
           <a
             aria-label={`Cómo llegar a ${beachName} (se abre en Google Maps en una pestaña nueva)`}
-            className="inline-flex items-center gap-1.5 rounded-full bg-ocean-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-ocean-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
+            className="inline-flex min-h-11 items-center gap-1.5 rounded-full bg-ocean-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-ocean-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
             href={directionsUrl}
             rel="noopener noreferrer"
             target="_blank"

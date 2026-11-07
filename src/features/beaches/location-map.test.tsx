@@ -23,7 +23,7 @@ describe('LocationMap', () => {
 
   it('renders a static map image as placeholder', () => {
     render(<LocationMap beachName="Playa Test" coordinates={coords} />)
-    const img = screen.getByAltText('Mapa estático de la ubicación')
+    const img = screen.getByAltText('Mapa de Playa Test')
     expect(img).toBeTruthy()
     expect(img.getAttribute('src')).toContain('37.6894')
     expect(img.getAttribute('src')).toContain('-0.9812')

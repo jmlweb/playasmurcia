@@ -38,6 +38,8 @@ export type BeachWeatherTarget = {
   code: string
   coordinates: [number, number]
   aemetId?: string
+  sea: number
+  shoreBearing?: number
 }
 
 /**
@@ -53,15 +55,22 @@ export async function getBeachWeatherTargets(
       latitude: schema.beaches.latitude,
       longitude: schema.beaches.longitude,
       aemetId: schema.beaches.aemetId,
+      seaId: schema.beaches.seaId,
+      shoreBearing: schema.beaches.shoreBearing,
     })
     .from(schema.beaches)
     .where(inArray(schema.beaches.code, codes))
 
-  return rows.map(({ code, latitude, longitude, aemetId }) => ({
-    code,
-    coordinates: [latitude, longitude],
-    ...(aemetId && { aemetId }),
-  }))
+  return rows.map(
+    ({ code, latitude, longitude, aemetId, seaId, shoreBearing }) => ({
+      code,
+      coordinates: [latitude, longitude],
+      // Same 0-based index as `Beach.sea`
+      sea: seaId - 1,
+      ...(aemetId && { aemetId }),
+      ...(shoreBearing != null && { shoreBearing }),
+    }),
+  )
 }
 
 export type BeachFlagTarget = {

@@ -12,10 +12,9 @@ import { NotFound } from '@/components/layout/not-found'
 import { ResponsiveImage } from '@/components/ui/responsive-image'
 import { ActivitiesGrid } from '@/features/beaches/activities-grid'
 import { BeachConditions } from '@/features/beaches/beach-conditions'
+import { BeachDecisionRail } from '@/features/beaches/beach-decision-rail'
 import { BeachHero } from '@/features/beaches/beach-hero'
 import { BeachRichText } from '@/features/beaches/beach-rich-text'
-import { BeachSafetyBar } from '@/features/beaches/beach-safety-bar'
-import { BeachStatusWidget } from '@/features/beaches/beach-status-widget'
 import { CertificationsBadge } from '@/features/beaches/certifications-badge'
 import { ContactInfo } from '@/features/beaches/contact-info'
 import { LocationMap } from '@/features/beaches/location-map'
@@ -23,7 +22,6 @@ import { NearbyCarousel } from '@/features/beaches/nearby-carousel'
 import { PracticalInfoCard } from '@/features/beaches/practical-info-card'
 import { ServicesGrid } from '@/features/beaches/services-grid'
 import { TagsSection } from '@/features/beaches/tags-section'
-import { WeatherWidget } from '@/features/beaches/weather-widget'
 import { MAR_MENOR_SEA } from '@/lib/beach-facts'
 import { getBeachSummary } from '@/lib/beach-summary'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
@@ -228,23 +226,12 @@ function BeachPage() {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           {/* Today's decision first: above the description on phones, pinned beside it on desktop */}
           <div className="space-y-4 lg:sticky lg:top-20 lg:col-start-3 lg:row-start-1 lg:self-start">
-            <BeachSafetyBar
+            <BeachDecisionRail
+              beachCode={beach.code}
               beachName={beach.name}
               coordinates={beach.coordinates}
+              hasNearbyBeaches={nearbyItems.length > 0}
               lifeguard={beach.lifeguard}
-            />
-
-            <WeatherWidget
-              beachCode={beach.code}
-              hasAemetForecast={!!beach.aemetId}
-              hasOpenSeaWaves={beach.sea !== MAR_MENOR_SEA}
-              shoreBearing={
-                beach.sea === MAR_MENOR_SEA ? undefined : beach.shoreBearing
-              }
-            />
-
-            <BeachStatusWidget
-              beachName={beach.name}
               municipalityName={municipality.name}
             />
           </div>
@@ -434,8 +421,22 @@ function BeachGallery({
 
   return (
     <>
+      <div className="mb-4 flex items-center justify-between gap-4">
+        <h2 className="text-3xl font-normal tracking-tight text-gray-900">
+          Fotos
+        </h2>
+        <button
+          className="inline-flex min-h-11 shrink-0 items-center rounded-full border border-ocean-200 px-4 text-sm font-semibold text-ocean-600 transition-colors hover:bg-ocean-50 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
+          type="button"
+          onClick={() => {
+            openLightbox(0)
+          }}
+        >
+          Ver las {parsedPictures.length} fotos
+        </button>
+      </div>
       <div
-        className={`relative grid aspect-[16/10] gap-2 sm:aspect-auto sm:h-80 sm:gap-3 ${stacked.length > 0 ? 'grid-cols-[2fr_1fr]' : ''}`}
+        className={`grid aspect-[16/10] gap-2 sm:aspect-auto sm:h-80 sm:gap-3 ${stacked.length > 0 ? 'grid-cols-[2fr_1fr]' : ''}`}
       >
         {mosaicButton(1)}
         {stacked.length > 0 && (
@@ -443,29 +444,6 @@ function BeachGallery({
             {stacked.map((_, i) => mosaicButton(i + 2))}
           </div>
         )}
-        <button
-          className="absolute right-3 bottom-3 flex min-h-11 items-center gap-2 rounded-full bg-white px-4 text-sm font-medium text-gray-900 shadow-md transition-colors hover:bg-gray-100 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
-          type="button"
-          onClick={() => {
-            openLightbox(0)
-          }}
-        >
-          <svg
-            aria-hidden="true"
-            className="h-4 w-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M4 6h4M4 12h4M4 18h4M12 6h8M12 12h8M12 18h8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-            />
-          </svg>
-          Ver las {parsedPictures.length} fotos
-        </button>
       </div>
 
       <Lightbox
@@ -524,7 +502,10 @@ function Lightbox({
     >
       {image && (
         <div
-          className="relative flex max-h-[90vh] max-w-[90vw] items-center justify-center"
+          className="relative flex h-full w-full items-center justify-center"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) onClose()
+          }}
           onTouchEnd={handleTouchEnd}
           onTouchStart={(e) => {
             swipeStartX.current = e.touches[0].clientX
@@ -533,7 +514,7 @@ function Lightbox({
           {/* Close */}
           <button
             aria-label="Cerrar visor"
-            className="absolute top-2 right-2 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-black/80 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+            className="absolute top-3 right-3 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-black/80 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
             type="button"
             onClick={onClose}
           >

@@ -266,3 +266,12 @@
     }
   }
 }
+
+/* Unlayered and more specific: leaflet.css is unlayered and loads with the map */
+@media (pointer: coarse) {
+  .leaflet-container.leaflet-touch .leaflet-bar a {
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+  }
+}

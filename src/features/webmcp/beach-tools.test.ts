@@ -87,6 +87,8 @@ describe('createBeachTools', () => {
     const deps = makeDeps({
       getBeachWeather: vi.fn(async () => ({
         beach: 'X',
+        source: null,
+        observedAt: null,
         current: null,
         forecast: [],
         sea: null,
