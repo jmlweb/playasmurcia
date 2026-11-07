@@ -24,7 +24,12 @@ describe('formatDistance', () => {
   it.each([
     [0.04, '0 m'],
     [0.46, '500 m'],
+    [0.94, '900 m'],
+    [0.95, '1,0 km'],
+    [0.999, '1,0 km'],
     [3.26, '3,3 km'],
+    [9.94, '9,9 km'],
+    [9.96, '10 km'],
     [12.4, '12 km'],
   ])('formats %s km as %s', (km, expected) => {
     expect(formatDistance(km)).toBe(expected)
