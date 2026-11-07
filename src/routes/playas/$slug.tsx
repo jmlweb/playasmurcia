@@ -421,7 +421,7 @@ function BeachGallery({
 
   return (
     <>
-      <div className="mb-4 flex items-center justify-between gap-4">
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-4">
         <h2 className="text-3xl font-normal tracking-tight text-gray-900">
           Fotos
         </h2>
