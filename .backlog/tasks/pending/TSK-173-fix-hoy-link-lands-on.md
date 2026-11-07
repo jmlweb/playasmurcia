@@ -3,7 +3,7 @@ id: TSK-173
 title: Fix: Hoy link lands on non-today strip when live data fails
 status: pending
 priority: P4
-tags: []
+tags: [bug, home]
 created: 2026-11-06
 source: report/RPT-073
 depends-on: []
@@ -43,3 +43,4 @@ Source report: `.backlog/reports/complete/RPT-073-hoy-link-lands-on-non-today.md
 ## Progress Log
 
 - [2026-11-06] Created
+- [2026-11-07] Tagged in 2026-11-07 grooming. Navbar tasks run in order 175, 176, 174, 177, 171 because they edit the same file.

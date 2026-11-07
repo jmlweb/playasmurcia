@@ -3,8 +3,10 @@ id: RPT-078
 title: Impeccable audit of the explorer: 13/20, clear-all kept boolean filters
 type: finding
 severity: high
-status: pending
+status: triaged
 created: 2026-11-06
+triaged: 2026-11-07
+task-id: TSK-178
 ---
 
 ## Summary

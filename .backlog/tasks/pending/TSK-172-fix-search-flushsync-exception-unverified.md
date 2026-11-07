@@ -3,7 +3,7 @@ id: TSK-172
 title: Fix: Search flushSync exception unverified on real phones
 status: pending
 priority: P4
-tags: []
+tags: [bug, navbar, needs-device]
 created: 2026-11-06
 source: report/RPT-071
 depends-on: []
@@ -19,7 +19,7 @@ Commit 41c5d16 added an `eslint-disable` for `@eslint-react/dom-no-flush-sync` i
 
 ### Details
 
-`src/components/layout/navbar.tsx:286-287` calls `flushSync(closeMenu)` so the explorer stops being `inert` before the search input takes focus. Without it, focus runs while `#main-content` is still inert and fails when the phone menu is open.
+`src/components/layout/navbar.tsx:273-274` calls `flushSync(closeMenu)` so the explorer stops being `inert` before the search input takes focus. Without it, focus runs while `#main-content` is still inert and fails when the phone menu is open.
 
 The alternative is deferring focus with `requestAnimationFrame` after closing the menu. It needs no lint exception, but it runs outside the tap, and iOS may then refuse to open the keyboard.
 
@@ -42,3 +42,4 @@ Source report: `.backlog/reports/complete/RPT-071-search-flushsync-exception-unv
 ## Progress Log
 
 - [2026-11-06] Created
+- [2026-11-07] Tagged in 2026-11-07 grooming. Navbar tasks run in order 175, 176, 174, 177, 171 because they edit the same file.
