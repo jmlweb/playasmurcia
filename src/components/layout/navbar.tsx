@@ -40,30 +40,59 @@ const isPlainClick = (event: MouseEvent) =>
 // Read as "43 playas" / "1 playa"; the pill still shows the bare number
 const beachCountUnit = (count: number) => (count === 1 ? ' playa' : ' playas')
 
+// Inactive items reserve the active underline's space, so the text never moves
+const navItemUnderline = (active: boolean) =>
+  active
+    ? 'border-b-2 border-ocean-400 pb-0.5'
+    : 'border-b-2 border-transparent pb-0.5'
+
 function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname })
   const inSection = isInSection(pathname, collectionsSection)
+  const triggerRef = useRef<HTMLButtonElement>(null)
+
+  // Hangs the popup from the bar's bottom edge instead of the trigger text,
+  // which sits inside the bar; a fixed offset would depend on the bar padding
+  const barAnchor = () => {
+    const trigger = triggerRef.current
+    const bar = trigger?.closest('header')
+    if (!trigger || !bar) return trigger
+    return {
+      contextElement: trigger,
+      getBoundingClientRect: () => {
+        const { x, width } = trigger.getBoundingClientRect()
+        const { y, height } = bar.getBoundingClientRect()
+        return new DOMRect(x, y, width, height)
+      },
+    }
+  }
 
   return (
     <Popover.Root>
       <Popover.Trigger
+        ref={triggerRef}
         openOnHover
         aria-current={inSection ? 'true' : undefined}
-        className={`group inline-flex items-center gap-1 text-sm font-medium transition-colors hover:text-white focus-visible:rounded focus-visible:text-white focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-900 focus-visible:outline-none ${inSection ? 'border-b-2 border-ocean-400 pb-0.5 text-white' : 'text-ocean-200'}`}
+        className={`group inline-flex items-center text-sm font-medium transition-colors hover:text-white focus-visible:text-white ${inSection ? 'text-white' : 'text-ocean-200'} ${darkFocusRing}`}
         closeDelay={150}
       >
-        {label}
-        <ChevronDownIcon className="h-3.5 w-3.5 transition-transform group-data-[popup-open]:rotate-180" />
+        <span
+          className={`inline-flex items-center gap-1 ${navItemUnderline(inSection)}`}
+        >
+          {label}
+          <ChevronDownIcon className="h-3.5 w-3.5 group-data-[popup-open]:rotate-180 motion-safe:transition-transform" />
+        </span>
       </Popover.Trigger>
 
       <Popover.Portal>
         <Popover.Positioner
-          align="center"
+          align="end"
+          anchor={barAnchor}
           className="z-50"
           collisionAvoidance={{ side: 'none' }}
           collisionPadding={12}
           side="bottom"
-          sideOffset={12}
+          sideOffset={8}
         >
           <Popover.Popup
             aria-label={label}
@@ -127,7 +156,7 @@ function MobileDropdown({
       <button
         aria-current={inSection ? 'true' : undefined}
         aria-expanded={open}
-        className={`flex min-h-11 w-full items-center justify-between text-sm font-medium transition-colors hover:text-white ${inSection ? 'border-l-2 border-ocean-400 pl-2 text-white' : 'text-ocean-200'} ${darkFocusRing}`}
+        className={`flex min-h-11 w-full items-center justify-between text-base font-medium transition-colors hover:text-white ${inSection ? 'border-l-2 border-ocean-400 pl-2 text-white' : 'text-ocean-200'} ${darkFocusRing}`}
         type="button"
         onClick={() => {
           setOpen((prev) => !prev)
@@ -135,7 +164,7 @@ function MobileDropdown({
       >
         {label}
         <ChevronDownIcon
-          className={`h-4 w-4 transition-transform ${open ? 'rotate-180' : ''}`}
+          className={`h-4 w-4 motion-safe:transition-transform ${open ? 'rotate-180' : ''}`}
         />
       </button>
       {open && (
@@ -146,7 +175,7 @@ function MobileDropdown({
               <Link
                 key={c.href}
                 aria-current={active ? 'page' : undefined}
-                className={`flex min-h-11 items-center justify-between text-sm transition-colors hover:text-white ${active ? 'font-semibold text-white' : 'text-ocean-200'} ${darkFocusRing}`}
+                className={`flex min-h-11 items-center justify-between text-base transition-colors hover:text-white ${active ? 'font-semibold text-white' : 'text-ocean-200'} ${darkFocusRing}`}
                 params={{ slug: c.href.split('/').pop()! }}
                 to="/colecciones/$slug"
                 onClick={onNavigate}
@@ -161,7 +190,7 @@ function MobileDropdown({
           })}
           <Link
             activeOptions={{ exact: true }}
-            className={`flex min-h-11 items-center text-sm font-medium transition-colors hover:text-white ${pathname === '/colecciones' ? 'text-white' : 'text-ocean-200'} ${darkFocusRing}`}
+            className={`flex min-h-11 items-center text-base font-medium transition-colors hover:text-white ${pathname === '/colecciones' ? 'text-white' : 'text-ocean-200'} ${darkFocusRing}`}
             to="/colecciones"
             onClick={onNavigate}
           >
@@ -264,7 +293,7 @@ export function Navbar({ navData }: { navData: NavData }) {
           </Link>
           <div className="ml-auto hidden items-center gap-4 sm:flex md:gap-6">
             <TodayLink
-              className={`text-sm font-medium text-ocean-200 transition-colors hover:text-white focus-visible:text-white ${darkFocusRing}`}
+              className={`inline-flex items-center text-sm font-medium text-ocean-200 transition-colors hover:text-white focus-visible:text-white ${navItemUnderline(false)} ${darkFocusRing}`}
               onNavigate={closeMenu}
             />
             {simpleNavLinks.map(({ to, label, section }) => {
@@ -274,10 +303,10 @@ export function Navbar({ navData }: { navData: NavData }) {
                   key={to}
                   activeOptions={{ exact: true }}
                   aria-current={active ? currentValue(pathname, to) : undefined}
-                  className={`text-sm font-medium transition-colors ${active ? 'border-b-2 border-ocean-400 pb-0.5 text-white' : 'text-ocean-200 hover:text-white focus-visible:text-white'} ${darkFocusRing}`}
+                  className={`inline-flex items-center text-sm font-medium transition-colors ${active ? 'text-white' : 'text-ocean-200 hover:text-white focus-visible:text-white'} ${darkFocusRing}`}
                   to={to}
                 >
-                  {label}
+                  <span className={navItemUnderline(active)}>{label}</span>
                 </Link>
               )
             })}
@@ -287,7 +316,7 @@ export function Navbar({ navData }: { navData: NavData }) {
               on /explorar next to "Todas las playas", and ignores the hash */}
           <a
             aria-label="Buscar playas"
-            className="ml-auto flex h-11 w-11 items-center justify-center rounded-md text-ocean-300 transition-colors hover:text-white focus-visible:text-white focus-visible:ring-2 focus-visible:ring-ocean-400 focus-visible:outline-none sm:ml-5 sm:h-auto sm:w-auto sm:p-1"
+            className={`ml-auto flex h-11 w-11 items-center justify-center rounded-md text-ocean-200 transition-colors hover:text-white focus-visible:text-white sm:ml-5 sm:h-7 sm:w-7 ${darkFocusRing}`}
             href="/explorar#buscar"
             onClick={(event) => {
               if (!isPlainClick(event)) return
@@ -309,7 +338,7 @@ export function Navbar({ navData }: { navData: NavData }) {
           >
             <svg
               aria-hidden="true"
-              className="h-5 w-5 sm:h-4.5 sm:w-4.5"
+              className="h-5 w-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -327,7 +356,7 @@ export function Navbar({ navData }: { navData: NavData }) {
             aria-controls="mobile-menu"
             aria-expanded={mobileOpen}
             aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
-            className="rounded-lg p-2.5 text-ocean-200 hover:text-white focus-visible:ring-2 focus-visible:ring-ocean-400 focus-visible:outline-none sm:hidden"
+            className={`rounded-lg p-2.5 text-ocean-200 hover:text-white sm:hidden ${darkFocusRing}`}
             type="button"
             onClick={() => {
               setMobileOpen((prev) => !prev)
@@ -368,11 +397,11 @@ export function Navbar({ navData }: { navData: NavData }) {
         </div>
         {mobileOpen && (
           <div
-            className="absolute inset-x-0 top-full max-h-[calc(100dvh-73px)] overflow-y-auto overscroll-contain border-t border-white/10 bg-nav px-4 pt-2 pb-4 sm:hidden"
+            className="absolute inset-x-0 top-full max-h-[calc(100dvh-100%)] overflow-y-auto overscroll-contain border-t border-white/10 bg-nav px-4 pt-2 pb-4 sm:hidden"
             id="mobile-menu"
           >
             <TodayLink
-              className={`flex min-h-11 items-center text-sm font-medium text-ocean-200 transition-colors hover:text-white ${darkFocusRing}`}
+              className={`flex min-h-11 items-center text-base font-medium text-ocean-200 transition-colors hover:text-white ${darkFocusRing}`}
               onNavigate={closeMenu}
             />
             {simpleNavLinks.map(({ to, label, section }) => {
@@ -382,7 +411,7 @@ export function Navbar({ navData }: { navData: NavData }) {
                   key={to}
                   activeOptions={{ exact: true }}
                   aria-current={active ? currentValue(pathname, to) : undefined}
-                  className={`flex min-h-11 items-center text-sm font-medium transition-colors ${active ? 'border-l-2 border-ocean-400 pl-2 text-white' : 'text-ocean-200 hover:text-white'} ${darkFocusRing}`}
+                  className={`flex min-h-11 items-center text-base font-medium transition-colors ${active ? 'border-l-2 border-ocean-400 pl-2 text-white' : 'text-ocean-200 hover:text-white'} ${darkFocusRing}`}
                   to={to}
                   onClick={closeMenu}
                 >
