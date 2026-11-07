@@ -1,13 +1,14 @@
 ---
 id: TSK-127
 title: Fix: Explorer search validation accepts empty, unknown and prototype-key filter values
-status: active
+status: complete
 priority: P4
 tags: [bug, explorer]
 created: 2026-10-21
 source: report/RPT-054
 depends-on: []
 started: 2026-11-07
+completed: 2026-11-07
 ---
 
 # Fix: Explorer search validation accepts empty, unknown and prototype-key filter values
@@ -18,9 +19,9 @@ started: 2026-11-07
 
 ## Acceptance Criteria
 
-- [ ] parseNumberArray rejects empty strings and non-integer or negative values
-- [ ] parseEnumArray uses an own-property check so prototype keys are rejected
-- [ ] Unit tests cover ?municipality=, ?municipality=1.5 and ?accessDifficulty=toString
+- [x] parseNumberArray rejects empty strings and non-integer or negative values
+- [x] parseEnumArray uses an own-property check so prototype keys are rejected
+- [x] Unit tests cover ?municipality=, ?municipality=1.5 and ?accessDifficulty=toString
 
 ## Notes
 
@@ -30,3 +31,5 @@ started: 2026-11-07
 
 - [2026-10-21] Created
 - [2026-11-07] Started
+- [2026-11-07] parseId accepts only finite non-negative integers from non-blank strings or numbers; parseEnumArray uses Object.hasOwn; tests for empty, 1.5, negative, toString/constructor. Commit a78f861, merged 11ebd56.
+- [2026-11-07] Completed

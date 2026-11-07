@@ -5,20 +5,15 @@
 | Status | Count |
 |--------|-------|
 | Pending | 23 |
-| Active | 10 |
+| Active | 5 |
 | Blocked | 0 |
-| Complete | 145 |
+| Complete | 150 |
 
 ## Active Tasks
 
-- TSK-127: Fix: Explorer search validation accepts empty, unknown and prototype-key filter values (P4)
-- TSK-131: Fix: Weather forecast day labels shift one day back for visitors west of UTC (P4)
-- TSK-137: Data hygiene: soilType normalization, static waves, beach count (P3)
-- TSK-145: Fix: Explorer page param below 1 renders an empty results grid (P4)
 - TSK-164: Fix: Remove synthetic bold from DM Serif headings site-wide (P4)
 - TSK-165: Fix: Weather icon and caption contrast violations (P4)
 - TSK-166: Fix: Beach detail copy and accessibility defects (P4)
-- TSK-167: Fix: Replace Piedra Mala annotated cover (P3)
 - TSK-171: Fix: Desktop bar on landscape phones has small touch targets (P3)
 - TSK-177: Fix: Topbar P3 polish items from the critique (P4)
 
@@ -54,13 +49,13 @@
 
 | ID | Title | Completed |
 |----|-------|-----------|
+| TSK-127 | Fix: Explorer search validation accepts empty, unknown and prototype-key filter values | 2026-11-07 |
 | TSK-128 | Fix: formatDistance shows 1000 m and 10,0 km at unit boundaries | 2026-11-07 |
+| TSK-131 | Fix: Weather forecast day labels shift one day back for visitors west of UTC | 2026-11-07 |
+| TSK-137 | Data hygiene: soilType normalization, static waves, beach count | 2026-11-07 |
+| TSK-145 | Fix: Explorer page param below 1 renders an empty results grid | 2026-11-07 |
 | TSK-154 | Merge Cómo llegar and map into one section | 2026-11-07 |
 | TSK-155 | Restyle beach map to match the brand | 2026-11-07 |
 | TSK-156 | Compact the beach weather forecast | 2026-11-07 |
 | TSK-157 | Calm static content on beach detail | 2026-11-07 |
 | TSK-158 | Show distance on nearby beach cards | 2026-11-07 |
-| TSK-162 | Fix: Verify El Rincón hero photo provenance | 2026-11-07 |
-| TSK-163 | Fix: Map raw waves enum to Spanish labels | 2026-11-07 |
-| TSK-170 | Fix: COPLA flag lookup still misses four beaches whose feed entry uses a different name | 2026-11-07 |
-| TSK-174 | Fix: Explorer exposes two current items in the navbar | 2026-11-07 |
