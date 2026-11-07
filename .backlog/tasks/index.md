@@ -4,14 +4,15 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 26 |
-| Active | 0 |
+| Pending | 24 |
+| Active | 2 |
 | Blocked | 0 |
 | Complete | 155 |
 
 ## Active Tasks
 
-_No active tasks._
+- TSK-142: Photos for the 53 beaches with no pictures (P3)
+- TSK-148: Municipality facts: population, appraised housing value, tourist offices (P3)
 
 ## Pending Tasks
 
@@ -24,10 +25,8 @@ _No active tasks._
 | TSK-139 | Sunrise and sunset per beach; derive puesta-sol tag | P3 | data, feature | 2026-10-28 |
 | TSK-140 | Protected-area membership (Natura 2000 and regional parks) | P3 | data, external-source, geo | 2026-10-28 |
 | TSK-141 | Accessible beaches: assisted bathing and amphibious chairs | P3 | data, accessibility | 2026-10-28 |
-| TSK-142 | Photos for the 53 beaches with no pictures | P3 | data, images | 2026-10-28 |
 | TSK-143 | Seasonal access restrictions (Calblanque, Cabo Cope, Cala Cerrada) | P4 | data, access | 2026-10-28 |
 | TSK-147 | Official beach width and length from ITREM; review OSM length | P3 | data, external-source, cleanup | 2026-11-04 |
-| TSK-148 | Municipality facts: population, appraised housing value, tourist offices | P3 | data, external-source, municipalities | 2026-11-04 |
 | TSK-149 | Smoke-free beaches from the regional network | P4 | data, external-source | 2026-11-04 |
 | TSK-150 | Marinas and Cabo de Palos-Islas Hormigas marine reserve | P4 | data, external-source, geo | 2026-11-04 |
 | TSK-151 | Municipality income and tourist housing from INE | P4 | data, external-source, municipalities | 2026-11-04 |

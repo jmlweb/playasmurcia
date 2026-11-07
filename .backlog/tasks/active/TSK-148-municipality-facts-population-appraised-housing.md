@@ -1,12 +1,13 @@
 ---
 id: TSK-148
 title: Municipality facts: population, appraised housing value, tourist offices
-status: pending
+status: active
 priority: P3
 tags: [data, external-source, municipalities]
 created: 2026-11-04
 source: manual
 depends-on: []
+started: 2026-11-07
 ---
 
 # Municipality facts: population, appraised housing value, tourist offices
@@ -40,3 +41,4 @@ Sources: https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/2883?tip=AM&nult=1 
 ## Progress Log
 
 - [2026-11-04] Created
+- [2026-11-07] Started

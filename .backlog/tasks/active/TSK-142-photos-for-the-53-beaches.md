@@ -1,12 +1,13 @@
 ---
 id: TSK-142
 title: Photos for the 53 beaches with no pictures
-status: pending
+status: active
 priority: P3
 tags: [data, images]
 created: 2026-10-28
 source: manual
 depends-on: []
+started: 2026-11-07
 ---
 
 # Photos for the 53 beaches with no pictures
@@ -28,3 +29,4 @@ depends-on: []
 ## Progress Log
 
 - [2026-10-28] Created
+- [2026-11-07] Started
