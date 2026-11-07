@@ -45,7 +45,12 @@ export function LeafletMap({ coordinates, beachName }: LeafletMapProps) {
       center: [lat, lng],
       zoom: 14,
       scrollWheelZoom: false,
+      zoomControl: false,
     })
+
+    L.control
+      .zoom({ zoomInTitle: 'Acercar', zoomOutTitle: 'Alejar' })
+      .addTo(map)
 
     const FullscreenControl = L.Control.extend({
       options: { position: 'topleft' },
@@ -87,7 +92,21 @@ export function LeafletMap({ coordinates, beachName }: LeafletMapProps) {
       detectRetina: true,
     }).addTo(map)
 
-    L.marker([lat, lng], { icon: markerIcon }).addTo(map).bindPopup(beachName)
+    L.marker([lat, lng], {
+      icon: markerIcon,
+      alt: `Ubicación de ${beachName}`,
+    })
+      .addTo(map)
+      .bindPopup(beachName)
+
+    // Credits stay visible and clickable, but keyboard users should not have to
+    // tab through them to leave the map
+    map
+      .getContainer()
+      .querySelectorAll('.leaflet-control-attribution a')
+      .forEach((link) => {
+        link.setAttribute('tabindex', '-1')
+      })
 
     mapInstance.current = map
 
@@ -100,7 +119,9 @@ export function LeafletMap({ coordinates, beachName }: LeafletMapProps) {
   return (
     <div
       ref={mapRef}
+      aria-label={`Mapa de ${beachName}`}
       className="z-0 w-full"
+      role="region"
       style={{
         height: 'min(360px, 60vh)',
       }}

@@ -63,7 +63,7 @@ interface Beach {
   // Optional
   occupancyLevel?: "low" | "medium" | "high"  // Typical crowd level
   campingNearby?: boolean        // Camping within 3km
-  metaDescription?: string       // SEO meta description (140-170 chars)
+  metaDescription?: string       // Generated and no longer rendered; pages use getBeachSummary(description)
   seoKeywords?: string[]         // SEO keywords (5-10 items)
   certifications?: ("blue-flag" | "q-quality" | "ecoplayas")[]  // Official certifications; season year per list in certification-seasons.json
   bestSeason?: ("spring" | "summer" | "autumn" | "winter")[]  // Best visiting seasons
@@ -73,7 +73,7 @@ interface Beach {
   email?: string            // Contact email
   realUrl?: string          // Official website URL
   waves?: string            // Wave conditions (MODERADO, etc.)
-  pictures?: string[]       // Image filenames
+  pictures?: string[]       // Image filenames; pictures[0] is the hand-picked cover
   pictureQualityScore?: 0 | 1 | 2 | 3  // Derived from `pictures` + `public/pictures` files (see `pnpm score:picture-quality`)
   aemetId?: string          // AEMET beach code for weather API
   length?: number           // Beach length in meters (from OSM)
@@ -259,7 +259,7 @@ beaches ──< beach_tags >── tags
 
 ### Images
 
-- `pictures`: Array of filenames (not full URLs)
+- `pictures`: Array of filenames (not full URLs). `pictures[0]` is the cover used by the hero, cards and social image
 - `pictureQualityScore`: Optional 0–3. **0** = no `pictures` entries; **1** = entries exist but no usable raster on disk or best short side under 600; **2** = short side under 1200; **3** = short side 1200+. Regenerate with `pnpm score:picture-quality`.
 - To drop sub-threshold files from `pictures` arrays (and optionally from disk), run `pnpm run prune:small-pictures -- --dry-run` then without `--dry-run`; use `--delete-files` only after checking the dry-run output.
 - Base URL: `https://www.turismoregiondemurcia.es/webs/murciaturistica/fotos/1/playas/`

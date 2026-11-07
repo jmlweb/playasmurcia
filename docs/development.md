@@ -172,7 +172,7 @@ pnpm tsx scripts/script-name.ts
 | `assign-zones.ts`                | Set `zone` in `beaches.json` from the ITREM locality snapshot and `data/zones.json`; `--fetch` refreshes the snapshot | After adding beaches or editing `data/zones.json`; then migrate |
 | `optimize-images.ts`             | Generate WebP/AVIF variants and responsive thumbnails in `public/pictures/optimized/`             | After adding or replacing source images               |
 | `normalize-brightness.ts`        | Normalize brightness/contrast of source photos via histogram stretching (in-place)                | Before `optimize:images`, after new source images     |
-| `sort-pictures-by-resolution.ts` | Sort `pictures` arrays in `beaches.json` by image resolution (highest first)                      | After adding new pictures; then migrate               |
+| `sort-pictures-by-resolution.ts` | Sort `pictures` arrays in `beaches.json` by image resolution (highest first), keeping the cover `pictures[0]` in place | After adding new pictures; then migrate               |
 | `source-wikimedia-pictures.ts`   | Search and review Wikimedia Commons / Flickr CC photos for beaches                                | Ad hoc (when beaches need photos)                     |
 | `download-playas-nexo-images.ts` | Download beach images from CARM Nexo open data portal                                             | One-off (initial image sourcing)                      |
 | `sync-pictures-to-r2.sh`         | Mirror `public/pictures/` to the R2 bucket with rclone (uploads changes, deletes removed files)    | After any script that adds, prunes or re-encodes pictures |

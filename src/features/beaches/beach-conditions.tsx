@@ -5,6 +5,7 @@ import type { BeachFlag } from '@/lib/beach-status-112'
 import type { CardWeather } from '@/lib/open-meteo'
 
 import { WeatherIcon } from '@/components/ui/icons'
+import { formatCompassDirection } from '@/lib/beach-facts'
 import { formatWaveHeight } from '@/lib/wave-level'
 
 import { FlagBadges, validWeatherIcons } from './card-pills'
@@ -58,11 +59,12 @@ export function BeachConditions({
             )}
             {weather?.windSpeed !== undefined && weather.windDirection && (
               <li>
-                Viento {weather.windSpeed} km/h {weather.windDirection}
+                Viento {weather.windSpeed} km/h{' '}
+                {formatCompassDirection(weather.windDirection)}
               </li>
             )}
             {waveHeight !== undefined && (
-              <li>Oleaje {formatWaveHeight(waveHeight)} m</li>
+              <li>Oleaje hoy {formatWaveHeight(waveHeight)} m</li>
             )}
             {flagBadge && (
               <li className="flex items-center gap-1.5">

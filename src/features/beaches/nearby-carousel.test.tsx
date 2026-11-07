@@ -112,7 +112,7 @@ describe('NearbyCarousel', () => {
         ]}
       />,
     )
-    expect(screen.getByText('Sin foto')).toBeTruthy()
+    expect(screen.getByText('Sin Foto')).toBeTruthy()
     expect(screen.queryByRole('img', { name: 'Sin Foto' })).toBeNull()
   })
 

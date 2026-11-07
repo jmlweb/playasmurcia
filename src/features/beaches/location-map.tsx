@@ -96,7 +96,9 @@ export function LocationMap({ coordinates, beachName }: LocationMapProps) {
 
   return (
     <section ref={sectionRef} aria-label="Ubicación">
-      <h2 className="mb-4 text-xl font-semibold text-gray-900">Ubicación</h2>
+      <h2 className="mb-4 text-3xl font-normal tracking-tight text-gray-900">
+        Ubicación
+      </h2>
       <div className="overflow-hidden rounded-2xl border border-gray-200/60 shadow-sm">
         {shouldLoad ? (
           <Suspense

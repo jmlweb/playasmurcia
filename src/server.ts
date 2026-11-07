@@ -7,6 +7,7 @@ import {
 import type { CacheVariant } from '@/lib/html-cache'
 
 import { runWithDbScope } from '@/db/request-scope'
+import { withBeachConditions } from '@/lib/beach-conditions-markdown'
 import { isCacheableRequest, withHtmlCache } from '@/lib/html-cache'
 import {
   asHtmlRequest,
@@ -80,7 +81,10 @@ const handleRequest = async (
     return withDiscoveryLinks(await renderHtml(), request.url)
   }
   return cached(request, 'markdown', async () =>
-    toMarkdownResponse(await renderHtml(), request.url),
+    withBeachConditions(
+      await toMarkdownResponse(await renderHtml(), request.url),
+      request.url,
+    ),
   )
 }
 

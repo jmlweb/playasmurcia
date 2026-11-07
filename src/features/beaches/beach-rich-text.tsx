@@ -4,8 +4,8 @@ import type { InlineSegment } from '@/lib/description-markdown'
 import { parseDescription } from '@/lib/description-markdown'
 
 const VARIANT_CLASSES = {
-  lead: 'text-lg leading-[1.6] text-gray-700',
-  body: 'leading-relaxed text-gray-600',
+  lead: 'max-w-[68ch] text-lg leading-[1.6] text-pretty text-gray-700',
+  body: 'max-w-[68ch] leading-relaxed text-pretty text-gray-600',
 } as const
 
 type BeachRichTextProps = {
@@ -62,12 +62,10 @@ export function BeachRichText({ text, variant = 'lead' }: BeachRichTextProps) {
         return block.type === 'tip' ? (
           <aside
             key={i}
-            className="rounded-r-xl border-l-4 border-ocean-500 bg-ocean-50/60 px-4 py-3 text-gray-700"
+            className="max-w-[68ch] rounded-xl bg-ocean-50 px-4 py-3 text-gray-700"
           >
-            <p className="mb-1 text-xs font-semibold tracking-wide text-ocean-700 uppercase">
-              Consejo
-            </p>
-            <p className="leading-relaxed">
+            <p className="mb-1 text-sm font-semibold text-ocean-700">Consejo</p>
+            <p className="leading-relaxed first-letter:uppercase">
               <Inline segments={block.inline} />
             </p>
           </aside>

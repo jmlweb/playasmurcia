@@ -72,6 +72,10 @@ playasmurcia/
 │   │   ├── forecast-days.ts   # Merges AEMET and Open-Meteo days
 │   │   ├── open-meteo.ts   # Coordinate-based weather
 │   │   ├── beach-status-112.ts  # 112 COPLA live flag/sea state
+│   │   ├── beach-status-labels.ts  # Spanish flag and sea-state labels
+│   │   ├── beach-facts.ts  # Display formatting for beach facts (wind, waves, length, phones)
+│   │   ├── beach-summary.ts  # Meta and JSON-LD summary from the hand-edited description
+│   │   ├── beach-conditions-markdown.ts  # Live conditions appended to beach markdown
 │   │   ├── beach-filters.ts     # Filter/sort pure functions
 │   │   ├── canonical.ts    # Canonical URL / og:url helpers
 │   │   ├── coast-summary.ts # Beach and municipality totals for the footer colophon
@@ -189,6 +193,14 @@ buttons, SVG and `aria-hidden` content are dropped. The markdown is cached
 under its own key variant (`/markdown/<version>/…`), and every HTML or markdown
 document carries `Vary: Accept`. Markdown responses also send the
 `Content-Signal` header that `public/robots.txt` declares.
+
+Live data reaches people through client-side widgets that never run for a
+markdown request, so `withBeachConditions`
+(`src/lib/beach-conditions-markdown.ts`) appends a "Condiciones recientes"
+section to beach pages: Open-Meteo conditions and forecast, waves on the open
+sea, and the 112 flag, with the time they were fetched. It sits inside the
+markdown cache entry, so it can be up to one edge TTL old and says so. It uses
+Open-Meteo only, not AEMET.
 
 HTML responses advertise the markdown copy with an RFC 8288 `Link` header
 (`<path>; rel="alternate"; type="text/markdown"`), added outside the HTML cache

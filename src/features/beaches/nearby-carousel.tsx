@@ -27,7 +27,7 @@ export function NearbyCarousel({ items }: NearbyCarouselProps) {
 
   return (
     <section aria-label="Playas cercanas">
-      <h2 className="mb-4 text-xl font-semibold text-gray-900">
+      <h2 className="mb-4 text-3xl font-normal tracking-tight text-gray-900">
         Playas cercanas
       </h2>
       <div
@@ -57,10 +57,10 @@ export function NearbyCarousel({ items }: NearbyCarouselProps) {
                     variant="thumb"
                   />
                 ) : (
-                  <div className="flex h-full w-full flex-col items-center justify-center bg-gradient-to-br from-ocean-50 to-sand-100">
+                  <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-ocean-700 to-ocean-900">
                     <svg
                       aria-hidden="true"
-                      className="mb-1 h-8 w-8 text-ocean-200"
+                      className="h-8 w-8 text-ocean-200"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -78,7 +78,6 @@ export function NearbyCarousel({ items }: NearbyCarouselProps) {
                         strokeWidth={1.5}
                       />
                     </svg>
-                    <span className="text-xs text-gray-400">Sin foto</span>
                   </div>
                 )}
               </div>

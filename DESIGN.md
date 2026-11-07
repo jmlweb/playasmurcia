@@ -213,7 +213,7 @@ A cool teal scale taken from deep water, a warm sand neutral, and one small cora
 
 Content sits in a centered container of 1280px (`max-w-7xl`) with side padding of 16px, 24px and 32px as width grows. Backgrounds run full-bleed while content stays inside. Sections stack on a 64px to 80px vertical rhythm, and static blocks inside a page use a 48px rhythm separated by hairlines.
 
-Card grids run three columns on desktop, two on tablet and one on mobile. The homepage municipality list runs four columns from `lg`, and on phones each card becomes a compact row, so eight cards do not fill several screens. The beach detail page uses a two-thirds main column plus a sticky side rail for practical information and weather. The explorer uses a sticky filter sidebar at desktop widths and a slide-in filter panel on mobile. Layouts are mobile-first and checked at 375px, 768px and 1280px.
+Card grids run three columns on desktop, two on tablet and one on mobile. The homepage municipality list runs four columns from `lg`, and on phones each card becomes a compact row, so eight cards do not fill several screens. The beach detail page uses a two-thirds main column plus a sticky side rail for today's decision: the directions button, any lifeguard warning, the forecast and the 112 flag. On phones the rail comes first, directly under the hero. The main column runs description, practical facts, gallery, services, activities, access, map and contact. The explorer uses a sticky filter sidebar at desktop widths and a slide-in filter panel on mobile. Layouts are mobile-first and checked at 375px, 768px and 1280px.
 
 Heroes come in four height tiers: homepage `min(52svh, 640px)` on phones and `min(72svh, 640px)` from `sm` up, beach detail `min(38svh, 300px)` on phones and `min(60svh, 560px)` from `sm` up, photo listing 320px on phones and 420px from `sm` up, and compact gradient for pages and beaches with no photo. Text anchors bottom-left inside the container. The first content after any hero starts 32px below it, 48px from `sm` up, on every route. The homepage Coast Today strip is the one exception: it sits 16px below, 24px from `sm` up, because it must clear the fold.
 
@@ -235,7 +235,7 @@ Depth means interactivity. The page is flat tonal layering of sand, white and te
 
 ### Named Rules
 
-**The Lift Means Clickable Rule.** If nothing happens when you press it, it does not get a shadow. Static content sits unboxed between hairlines. The beach side-rail panels still carry a resting shadow. Treat them as exceptions to retire, not as a pattern to copy.
+**The Lift Means Clickable Rule.** If nothing happens when you press it, it does not get a shadow. Static content sits unboxed between hairlines. The beach side-rail panels are flat Shallow Water, with no shadow, border or gradient.
 
 ## Shapes
 
@@ -299,7 +299,7 @@ The homepage strip under the hero, headed "Hoy en la costa". Two link rows, Mar 
 
 ### Beach Conditions
 
-White text on the beach hero scrim, under the location line: sky icon and temperature, wind, waves on the open sea, and the 112 flag in season, followed by a line naming the sources. No panel goes behind it. Only facts with data appear, and the line disappears when no source answers.
+White text on the beach hero scrim, under the location line: sky icon and temperature, wind, waves on the open sea, and the 112 flag in season, followed by a line naming the sources. No panel goes behind it. Only facts with data appear, and the line disappears when no source answers. Directions are spelled out, because a bare "NO" reads as a negation. Live waves read "Oleaje hoy" and the stored value reads "Oleaje habitual". The Mar Menor shows no wave data anywhere.
 
 ### Overline
 
@@ -317,6 +317,14 @@ Clusters are solid Harbour Teal circles of 44px with a white ring and a tabular 
 
 A dashed Hairline container with 16px corners, a large pale icon, a semibold title and a Fog description.
 
+### Beach Facts
+
+Información práctica sits in the main column, unboxed. "Antes de ir" holds what decides the trip and "La playa" holds what describes the place. Each fact is a Slate Ink label over a medium Ink value, under a hairline, in two columns on phones and three from `sm` up.
+
+### Beach Forecast
+
+A flat Shallow Water panel with today on top and the next six days in one row, hairlines instead of cells. Weekend day names are Harbour Teal, because "this weekend" is half of the decision. Out of season, one line under it says when the 112 publishes flags.
+
 ### Motion
 
 Motion is slow and settled. Entrances use `cubic-bezier(0.16, 1, 0.3, 1)` over 600ms to 700ms, duotone heroes drift with a 20s zoom to 1.06, and CTA arrows nudge 4px on hover. Everything that moves is disabled under `prefers-reduced-motion`.
@@ -331,7 +339,7 @@ Motion is slow and settled. Entrances use `cubic-bezier(0.16, 1, 0.3, 1)` over 6
 - **Do** show a no-photo beach with the intentional night-water gradient, so a sparse record looks considered.
 - **Do** pin card CTAs with `mt-auto` so they align across a row.
 - **Do** put SVG icons on `currentColor` at 20px or 24px for all functional UI.
-- **Do** select cover photos with `pictureQualityScore` 3 for heroes, featured slots and collection or municipality covers.
+- **Do** select cover photos with `pictureQualityScore` 3 for heroes, featured slots and collection or municipality covers. A beach's cover is `pictures[0]`, chosen by eye.
 - **Do** use one card treatment per object type across the site.
 
 ### Don't:

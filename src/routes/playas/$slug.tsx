@@ -24,14 +24,14 @@ import { PracticalInfoCard } from '@/features/beaches/practical-info-card'
 import { ServicesGrid } from '@/features/beaches/services-grid'
 import { TagsSection } from '@/features/beaches/tags-section'
 import { WeatherWidget } from '@/features/beaches/weather-widget'
+import { MAR_MENOR_SEA } from '@/lib/beach-facts'
+import { getBeachSummary } from '@/lib/beach-summary'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
-import { stripDescriptionMarkdown } from '@/lib/description-markdown'
 import { parseImageFilename, pictureUrl } from '@/lib/images'
 import { generateBeachSchema } from '@/lib/schema'
 import { beachToSlug, municipalityToSlug } from '@/lib/slugs'
 
-// Index into data/seas.json; the lagoon is not exposed to open-sea waves
-const MAR_MENOR_SEA = 1
+const SWIPE_THRESHOLD_PX = 48
 
 const fetchRenamedBeachSlug = createServerFn({ method: 'GET' })
   .validator((data: { slug: string }) => ({ slug: data.slug.trim() }))
@@ -149,8 +149,7 @@ export const Route = createFileRoute('/playas/$slug')({
     const slug = beachToSlug(beach)
 
     const schema = generateBeachSchema(beach, municipality, services, slug)
-    const description =
-      beach.metaDescription ?? stripDescriptionMarkdown(beach.description)
+    const description = getBeachSummary(beach.name, beach.description)
     const ogImage = beach.pictures?.[0]
       ? pictureUrl(
           `${parseImageFilename(beach.pictures[0]).baseName}.${parseImageFilename(beach.pictures[0]).ext}`,
@@ -225,51 +224,20 @@ function BeachPage() {
         zone={beach.zone}
       />
 
-      <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 sm:pt-12 lg:px-8">
-        <BeachSafetyBar
-          beachName={beach.name}
-          coordinates={beach.coordinates}
-          lifeguard={beach.lifeguard}
-        />
-      </div>
-
-      {pictures.length > 1 && (
-        <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
-          <BeachGallery beachName={beach.name} pictures={pictures} />
-        </div>
-      )}
-
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pt-8 pb-8 sm:px-6 sm:pt-12 lg:px-8">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
-          {/* Description — order 1 on mobile, col-span-2 row 1 on desktop */}
-          <section className="order-1 lg:col-span-2 lg:row-start-1">
-            <BeachRichText text={beach.description} />
-            {beach.certifications && beach.certifications.length > 0 && (
-              <div className="mt-6">
-                <CertificationsBadge certifications={beach.certifications} />
-              </div>
-            )}
-          </section>
-
-          {/* Sidebar — order 2 on mobile (after description, before services); key facts come before the forecast, spans both rows on desktop */}
-          <div className="order-2 space-y-6 lg:sticky lg:top-20 lg:col-start-3 lg:row-span-2 lg:row-start-1 lg:self-start">
-            <PracticalInfoCard
-              accessDifficulty={beach.accessDifficulty}
-              bestSeason={beach.bestSeason}
-              childSafe={beach.childSafe}
-              length={beach.length}
-              naturalShade={beach.naturalShade}
-              occupancyLevel={beach.occupancyLevel}
-              orientation={beach.orientation}
-              soilType={beach.soilType}
-              waterQuality={beach.waterQuality}
-              waterQualitySource={beach.waterQualitySource}
-              waves={beach.waves}
+          {/* Today's decision first: above the description on phones, pinned beside it on desktop */}
+          <div className="space-y-4 lg:sticky lg:top-20 lg:col-start-3 lg:row-start-1 lg:self-start">
+            <BeachSafetyBar
+              beachName={beach.name}
+              coordinates={beach.coordinates}
+              lifeguard={beach.lifeguard}
             />
 
             <WeatherWidget
               beachCode={beach.code}
               hasAemetForecast={!!beach.aemetId}
+              hasOpenSeaWaves={beach.sea !== MAR_MENOR_SEA}
               shoreBearing={
                 beach.sea === MAR_MENOR_SEA ? undefined : beach.shoreBearing
               }
@@ -281,9 +249,38 @@ function BeachPage() {
             />
           </div>
 
-          {/* Remaining main content — order 3 on mobile, col-span-2 row 2 on desktop */}
-          <div className="order-3 divide-y divide-gray-200 lg:col-span-2 lg:row-start-2 [&>*]:py-12 [&>*:first-child]:pt-0 [&>*:last-child]:pb-0">
-            {/* Services */}
+          <div className="min-w-0 divide-y divide-gray-200 lg:col-span-2 lg:row-start-1 [&>*]:py-12 [&>*:first-child]:pt-0 [&>*:last-child]:pb-0">
+            <section>
+              <BeachRichText text={beach.description} />
+              {beach.certifications && beach.certifications.length > 0 && (
+                <div className="mt-8">
+                  <CertificationsBadge certifications={beach.certifications} />
+                </div>
+              )}
+            </section>
+
+            <PracticalInfoCard
+              accessDifficulty={beach.accessDifficulty}
+              bestSeason={beach.bestSeason}
+              childSafe={beach.childSafe}
+              dogFriendly={beach.dogFriendly}
+              length={beach.length}
+              lifeguard={beach.lifeguard}
+              naturalShade={beach.naturalShade}
+              occupancyLevel={beach.occupancyLevel}
+              orientation={beach.orientation}
+              soilType={beach.soilType}
+              waterQuality={beach.waterQuality}
+              waterQualitySource={beach.waterQualitySource}
+              waves={beach.waves}
+            />
+
+            {pictures.length > 1 && (
+              <div>
+                <BeachGallery beachName={beach.name} pictures={pictures} />
+              </div>
+            )}
+
             {beach.services.length > 0 && (
               <div>
                 <ServicesGrid
@@ -293,7 +290,6 @@ function BeachPage() {
               </div>
             )}
 
-            {/* Activities */}
             {beach.activities.length > 0 && (
               <div>
                 <ActivitiesGrid
@@ -303,17 +299,15 @@ function BeachPage() {
               </div>
             )}
 
-            {/* How to get there */}
             {beach.access && (
               <section>
-                <h2 className="mb-3 text-xl font-semibold text-gray-900">
+                <h2 className="mb-3 text-3xl font-normal tracking-tight text-gray-900">
                   Cómo llegar
                 </h2>
                 <BeachRichText text={beach.access} variant="body" />
               </section>
             )}
 
-            {/* Map + Contact */}
             <LocationMap
               beachName={beach.name}
               coordinates={beach.coordinates}
@@ -347,7 +341,7 @@ function BeachGallery({
 }) {
   const parsedPictures = pictures.map((p, i) => ({
     ...parseImageFilename(p),
-    alt: `${beachName} - foto ${i + 1}`,
+    alt: `${beachName}, foto ${i + 1} de ${pictures.length}`,
   }))
 
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
@@ -441,7 +435,7 @@ function BeachGallery({
   return (
     <>
       <div
-        className={`relative grid aspect-[16/10] gap-2 sm:aspect-[2/1] sm:gap-3 ${stacked.length > 0 ? 'grid-cols-[2fr_1fr]' : ''}`}
+        className={`relative grid aspect-[16/10] gap-2 sm:aspect-auto sm:h-80 sm:gap-3 ${stacked.length > 0 ? 'grid-cols-[2fr_1fr]' : ''}`}
       >
         {mosaicButton(1)}
         {stacked.length > 0 && (
@@ -450,7 +444,7 @@ function BeachGallery({
           </div>
         )}
         <button
-          className="absolute right-3 bottom-3 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-gray-900 shadow-md transition-colors hover:bg-gray-100 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
+          className="absolute right-3 bottom-3 flex min-h-11 items-center gap-2 rounded-full bg-white px-4 text-sm font-medium text-gray-900 shadow-md transition-colors hover:bg-gray-100 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
           type="button"
           onClick={() => {
             openLightbox(0)
@@ -505,6 +499,17 @@ function Lightbox({
   onNext: () => void
 }) {
   const image = currentIndex !== null ? images[currentIndex] : null
+  const swipeStartX = useRef<number | null>(null)
+
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    const startX = swipeStartX.current
+    swipeStartX.current = null
+    if (startX === null) return
+    const distance = e.changedTouches[0].clientX - startX
+    if (Math.abs(distance) < SWIPE_THRESHOLD_PX) return
+    if (distance > 0) onPrev()
+    else onNext()
+  }
 
   return (
     <dialog
@@ -518,11 +523,17 @@ function Lightbox({
       onClick={onBackdropClick}
     >
       {image && (
-        <div className="relative flex max-h-[90vh] max-w-[90vw] items-center justify-center">
+        <div
+          className="relative flex max-h-[90vh] max-w-[90vw] items-center justify-center"
+          onTouchEnd={handleTouchEnd}
+          onTouchStart={(e) => {
+            swipeStartX.current = e.touches[0].clientX
+          }}
+        >
           {/* Close */}
           <button
             aria-label="Cerrar visor"
-            className="absolute top-2 right-2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-black/80 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+            className="absolute top-2 right-2 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-black/80 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
             type="button"
             onClick={onClose}
           >
@@ -546,7 +557,7 @@ function Lightbox({
           {currentIndex !== null && currentIndex > 0 && (
             <button
               aria-label="Foto anterior"
-              className="absolute top-1/2 left-3 z-10 -translate-y-1/2 rounded-full bg-black/40 p-2 text-white backdrop-blur-sm transition-colors hover:bg-black/60 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+              className="absolute top-1/2 left-3 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-black/80 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
               type="button"
               onClick={onPrev}
             >
@@ -571,7 +582,7 @@ function Lightbox({
           {currentIndex !== null && currentIndex < images.length - 1 && (
             <button
               aria-label="Foto siguiente"
-              className="absolute top-1/2 right-3 z-10 -translate-y-1/2 rounded-full bg-black/40 p-2 text-white backdrop-blur-sm transition-colors hover:bg-black/60 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+              className="absolute top-1/2 right-3 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-black/80 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
               type="button"
               onClick={onNext}
             >
@@ -594,7 +605,7 @@ function Lightbox({
 
           {/* Counter */}
           {images.length > 1 && currentIndex !== null && (
-            <div className="absolute bottom-3 left-1/2 z-10 -translate-x-1/2 rounded-full bg-black/40 px-3 py-1 text-xs text-white backdrop-blur-sm">
+            <div className="absolute bottom-3 left-1/2 z-10 -translate-x-1/2 rounded-full bg-black/60 px-3 py-1 text-xs text-white">
               {currentIndex + 1} / {images.length}
             </div>
           )}

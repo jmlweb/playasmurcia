@@ -4,6 +4,19 @@ import type { Beach, Municipality, Service } from '@/types/beach'
 
 import { generateBeachSchema } from './schema'
 
+const SAFETY_FACTS = [
+  {
+    '@type': 'LocationFeatureSpecification',
+    name: 'Lifeguard',
+    value: false,
+  },
+  {
+    '@type': 'LocationFeatureSpecification',
+    name: 'Dogs Allowed',
+    value: false,
+  },
+]
+
 describe('generateBeachSchema', () => {
   const mockMunicipality: Municipality = {
     name: 'Cartagena',
@@ -55,7 +68,9 @@ describe('generateBeachSchema', () => {
     expect(schema['@context']).toBe('https://schema.org')
     expect(schema['@type']).toBe('Beach')
     expect(schema.name).toBe('Cala Abierta')
-    expect(schema.description).toBe('Una hermosa cala con arena gris.')
+    expect(schema.description).toBe(
+      'Cala Abierta: Una hermosa cala con arena gris.',
+    )
     expect(schema.isAccessibleForFree).toBe(true)
   })
 
@@ -106,6 +121,7 @@ describe('generateBeachSchema', () => {
         name: 'Restroom',
         value: true,
       },
+      ...SAFETY_FACTS,
     ])
   })
 
@@ -160,10 +176,11 @@ describe('generateBeachSchema', () => {
         name: 'Wheelchair Accessible',
         value: true,
       },
+      ...SAFETY_FACTS,
     ])
   })
 
-  it('falls back to description when metaDescription is missing', () => {
+  it('uses the description when metaDescription is missing', () => {
     const schema = generateBeachSchema(
       mockBeach,
       mockMunicipality,
@@ -171,7 +188,9 @@ describe('generateBeachSchema', () => {
       'cala-abierta',
     )
 
-    expect(schema.description).toBe('Una hermosa cala con arena gris.')
+    expect(schema.description).toBe(
+      'Cala Abierta: Una hermosa cala con arena gris.',
+    )
   })
 
   it('strips description markdown in the fallback', () => {
@@ -186,12 +205,10 @@ describe('generateBeachSchema', () => {
       'cala-abierta',
     )
 
-    expect(schema.description).toBe(
-      'Una cala con arena gris. Consejo: trae agua.',
-    )
+    expect(schema.description).toBe('Cala Abierta: Una cala con arena gris.')
   })
 
-  it('uses metaDescription when available', () => {
+  it('prefers the hand-edited description over metaDescription', () => {
     const beachWithMetaDescription: Beach = {
       ...mockBeach,
       metaDescription: 'Meta description for SEO purposes.',
@@ -204,7 +221,9 @@ describe('generateBeachSchema', () => {
       'cala-abierta',
     )
 
-    expect(schema.description).toBe('Meta description for SEO purposes.')
+    expect(schema.description).toBe(
+      'Cala Abierta: Una hermosa cala con arena gris.',
+    )
   })
 
   it('returns empty amenityFeature array when services array is empty', () => {
@@ -220,7 +239,7 @@ describe('generateBeachSchema', () => {
       'cala-abierta',
     )
 
-    expect(schema.amenityFeature).toEqual([])
+    expect(schema.amenityFeature).toEqual(SAFETY_FACTS)
   })
 
   it('filters out invalid service indices', () => {
@@ -239,6 +258,7 @@ describe('generateBeachSchema', () => {
     expect(schema.amenityFeature).toEqual([
       { '@type': 'LocationFeatureSpecification', name: 'Parking', value: true },
       { '@type': 'LocationFeatureSpecification', name: 'Shower', value: true },
+      ...SAFETY_FACTS,
     ])
   })
 

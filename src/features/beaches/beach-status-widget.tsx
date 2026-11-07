@@ -1,11 +1,13 @@
 import { createServerFn } from '@tanstack/react-start'
 import { useEffect, useState } from 'react'
 
-import type {
-  BeachFlag,
-  BeachStatus112,
-  SeaState,
-} from '@/lib/beach-status-112'
+import type { BeachFlag, BeachStatus112 } from '@/lib/beach-status-112'
+
+import {
+  FlagLabels,
+  OFF_SEASON_FLAG_NOTE,
+  SeaStateLabels,
+} from '@/lib/beach-status-labels'
 
 // ---------------------------------------------------------------------------
 // Server function
@@ -35,21 +37,6 @@ const fetchBeachStatus = createServerFn({ method: 'GET' })
 // ---------------------------------------------------------------------------
 // Flag helpers
 // ---------------------------------------------------------------------------
-
-const FlagLabels: Record<BeachFlag, string> = {
-  VERDE: 'Bandera verde',
-  AMARILLA: 'Bandera amarilla',
-  ROJA: 'Bandera roja',
-  'PLAYA CERRADA': 'Playa cerrada',
-  'SIN BANDERA': 'Sin bandera',
-}
-
-const SeaStateLabels: Record<SeaState, string> = {
-  BUENO: 'Mar en calma',
-  REGULAR: 'Mar moderado',
-  MALO: 'Mar agitado',
-  'SIN ESTADO': 'Estado desconocido',
-}
 
 type FlagCircleProps = {
   flag: BeachFlag
@@ -81,7 +68,7 @@ function BeachStatusSkeleton() {
     <section
       aria-busy="true"
       aria-label="Cargando estado de la playa"
-      className="rounded-2xl border border-ocean-100 bg-ocean-50/40 p-6 shadow-sm"
+      className="rounded-2xl bg-ocean-50 p-5"
     >
       <div className="mb-4 h-5 w-40 animate-pulse rounded bg-ocean-200/60" />
       <div className="space-y-3">
@@ -163,16 +150,18 @@ export function BeachStatusWidget({
 
   const { data } = state
 
-  // Off-season the 112 feed has nothing to report; an empty card would push
-  // the practical info below the fold for most of the year.
-  if (data.isOffSeason) return null
+  // A line, not a card: otherwise nobody learns flags are seasonal, and an empty
+  // card would take room from the forecast for most of the year.
+  if (data.isOffSeason) {
+    return <p className="text-sm text-gray-600">{OFF_SEASON_FLAG_NOTE}</p>
+  }
 
   return (
     <section
       aria-label="Estado de bandera de playa"
-      className="rounded-2xl border border-ocean-100 bg-ocean-50/40 p-5 shadow-sm"
+      className="rounded-2xl bg-ocean-50 p-5"
     >
-      <h2 className="mb-4 text-base font-semibold text-ocean-800">
+      <h2 className="mb-4 text-2xl font-normal tracking-tight text-gray-900">
         Estado de la playa
       </h2>
 
@@ -208,20 +197,18 @@ export function BeachStatusWidget({
               strokeWidth="2"
             />
           </svg>
-          <span className="text-sm text-gray-600">
+          <span className="text-sm text-gray-700">
             {SeaStateLabels[data.seaState]}
           </span>
         </div>
 
         {/* Last updated */}
-        <p className="text-xs text-gray-400">
+        <p className="text-xs text-gray-600">
           Actualizado: {data.date} a las {data.time}
         </p>
       </div>
 
-      <p className="mt-3 text-right text-xs text-ocean-400">
-        Fuente: 112 Región de Murcia
-      </p>
+      <p className="mt-3 text-xs text-gray-600">Fuente: 112 Región de Murcia</p>
     </section>
   )
 }

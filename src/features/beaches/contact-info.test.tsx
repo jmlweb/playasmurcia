@@ -14,10 +14,20 @@ describe('ContactInfo', () => {
     expect(screen.getByRole('heading', { name: 'Contacto' })).toBeTruthy()
   })
 
+  it('gives each number in a shared field its own tel link', () => {
+    render(<ContactInfo phone="968 47 37 07 / 112" />)
+    expect(
+      screen.getByRole('link', { name: '968 47 37 07' }).getAttribute('href'),
+    ).toBe('tel:968473707')
+    expect(screen.getByRole('link', { name: '112' }).getAttribute('href')).toBe(
+      'tel:112',
+    )
+  })
+
   it('renders a tel link for phone', () => {
     render(<ContactInfo phone="968 123 456" />)
     const link = screen.getByRole('link', { name: '968 123 456' })
-    expect(link.getAttribute('href')).toBe('tel:968 123 456')
+    expect(link.getAttribute('href')).toBe('tel:968123456')
   })
 
   it('renders a mailto link for email', () => {

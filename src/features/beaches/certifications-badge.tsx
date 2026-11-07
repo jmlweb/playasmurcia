@@ -10,20 +10,17 @@ const CertificationConfig: Record<
   {
     label: string
     description: string
-    colorClass: string
     icon: (p: { className?: string }) => JSX.Element
   }
 > = {
   'blue-flag': {
     label: 'Bandera Azul',
     description: 'Certificación internacional de calidad ambiental y servicios',
-    colorClass: 'bg-blue-50 border-blue-200 text-blue-800',
     icon: BlueFlagCertIcon,
   },
   'q-quality': {
     label: 'Q de Calidad',
     description: 'Distintivo de calidad turística de las playas españolas',
-    colorClass: 'bg-yellow-50 border-yellow-200 text-yellow-800',
     icon: ({ className }) => (
       <span
         className={`flex h-5 w-5 shrink-0 items-center justify-center text-sm font-bold ${className ?? ''}`}
@@ -35,7 +32,6 @@ const CertificationConfig: Record<
   ecoplayas: {
     label: 'Ecoplayas',
     description: 'Reconocimiento a la gestión medioambiental sostenible',
-    colorClass: 'bg-green-50 border-green-200 text-green-800',
     icon: LeafIcon,
   },
 }
@@ -53,7 +49,7 @@ export function CertificationsBadge({
 
   return (
     <section aria-label="Certificaciones">
-      <h2 className="mb-4 text-xl font-semibold text-gray-900">
+      <h2 className="mb-4 text-3xl font-normal tracking-tight text-gray-900">
         Certificaciones
       </h2>
       <ul className="flex flex-wrap gap-3">
@@ -63,16 +59,17 @@ export function CertificationsBadge({
           return (
             <li
               key={cert}
-              className={`flex items-center gap-2 rounded-lg border px-4 py-2.5 ${config.colorClass}`}
-              title={config.description}
+              className="flex items-center gap-2 rounded-lg border border-gray-200 px-4 py-2.5 text-gray-900"
             >
-              <config.icon className="h-5 w-5" />
+              <config.icon className="h-5 w-5 text-ocean-600" />
               <div>
                 <p className="text-sm font-semibold">{config.label}</p>
                 {seasonYear !== undefined && (
-                  <p className="text-xs font-medium">Temporada {seasonYear}</p>
+                  <p className="text-xs font-medium text-gray-700">
+                    Temporada {seasonYear}
+                  </p>
                 )}
-                <p className="text-xs opacity-75">{config.description}</p>
+                <p className="text-xs text-gray-600">{config.description}</p>
               </div>
             </li>
           )

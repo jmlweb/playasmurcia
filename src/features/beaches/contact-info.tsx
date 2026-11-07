@@ -1,3 +1,8 @@
+import { parsePhoneNumbers, toTelHref } from '@/lib/beach-facts'
+
+const LINK_CLASS =
+  'inline-flex min-h-11 items-center rounded text-ocean-600 hover:text-ocean-700 hover:underline focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none'
+
 type ContactInfoProps = {
   phone?: string
   email?: string
@@ -19,11 +24,13 @@ export function ContactInfo({
 
   return (
     <section aria-label="Información de contacto">
-      <h2 className="mb-4 text-xl font-semibold text-gray-900">Contacto</h2>
-      <ul className="space-y-3">
+      <h2 className="mb-4 text-3xl font-normal tracking-tight text-gray-900">
+        Contacto
+      </h2>
+      <ul className="space-y-1">
         {phone && (
           <li className="flex items-center gap-3">
-            <span aria-hidden="true" className="text-ocean-400">
+            <span aria-hidden="true" className="text-ocean-500">
               <svg
                 className="h-5 w-5"
                 fill="none"
@@ -38,17 +45,22 @@ export function ContactInfo({
                 />
               </svg>
             </span>
-            <a
-              className="rounded text-sm text-ocean-600 hover:text-ocean-700 hover:underline focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none"
-              href={`tel:${phone}`}
-            >
-              {phone}
-            </a>
+            <span className="flex flex-wrap gap-x-4">
+              {parsePhoneNumbers(phone).map((phoneNumber) => (
+                <a
+                  key={phoneNumber}
+                  className={LINK_CLASS}
+                  href={toTelHref(phoneNumber)}
+                >
+                  {phoneNumber}
+                </a>
+              ))}
+            </span>
           </li>
         )}
         {email && (
           <li className="flex items-center gap-3">
-            <span aria-hidden="true" className="text-ocean-400">
+            <span aria-hidden="true" className="text-ocean-500">
               <svg
                 className="h-5 w-5"
                 fill="none"
@@ -63,17 +75,14 @@ export function ContactInfo({
                 />
               </svg>
             </span>
-            <a
-              className="rounded text-sm text-ocean-600 hover:text-ocean-700 hover:underline focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none"
-              href={`mailto:${email}`}
-            >
+            <a className={LINK_CLASS} href={`mailto:${email}`}>
               {email}
             </a>
           </li>
         )}
         {realUrl && (
           <li className="flex items-center gap-3">
-            <span aria-hidden="true" className="text-ocean-400">
+            <span aria-hidden="true" className="text-ocean-500">
               <svg
                 className="h-5 w-5"
                 fill="none"
@@ -89,7 +98,7 @@ export function ContactInfo({
               </svg>
             </span>
             <a
-              className="rounded text-sm text-ocean-600 hover:text-ocean-700 hover:underline focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none"
+              className={LINK_CLASS}
               href={realUrl}
               rel="noopener noreferrer"
               target="_blank"
@@ -100,7 +109,7 @@ export function ContactInfo({
         )}
         {instagramHashtag && (
           <li className="flex items-center gap-3">
-            <span aria-hidden="true" className="text-ocean-400">
+            <span aria-hidden="true" className="text-ocean-500">
               <svg
                 aria-hidden="true"
                 className="h-5 w-5"
@@ -111,7 +120,7 @@ export function ContactInfo({
               </svg>
             </span>
             <a
-              className="rounded text-sm break-all text-ocean-600 hover:text-ocean-700 hover:underline focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none"
+              className={`${LINK_CLASS} break-all`}
               href={`https://www.instagram.com/explore/tags/${instagramHashtag.replace('#', '')}/`}
               rel="noopener noreferrer"
               target="_blank"

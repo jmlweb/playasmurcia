@@ -21,12 +21,14 @@ export function ActivitiesGrid({
 
   return (
     <section aria-label="Actividades disponibles">
-      <h2 className="mb-4 text-xl font-semibold text-gray-900">Actividades</h2>
-      <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+      <h2 className="mb-4 text-3xl font-normal tracking-tight text-gray-900">
+        Actividades
+      </h2>
+      <ul className="grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-3">
         {resolvedActivities.map((activity) => (
           <li
             key={activity.id}
-            className="flex items-center gap-2.5 rounded-xl bg-sand-100 px-3.5 py-3 text-sm text-gray-700"
+            className="flex items-center gap-2.5 text-gray-700"
           >
             <ActivityIcon
               className="h-5 w-5 text-ocean-500"

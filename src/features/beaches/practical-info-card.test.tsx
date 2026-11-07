@@ -41,9 +41,24 @@ describe('PracticalInfoCard', () => {
     expect(screen.getByText('Arena fina')).toBeTruthy()
   })
 
-  it('renders waves', () => {
-    render(<PracticalInfoCard waves="Moderado" />)
+  it('labels the usual waves apart from today and hides unknown ones', () => {
+    render(<PracticalInfoCard length={100} waves="MODERADO" />)
+    expect(screen.getByText('Oleaje habitual')).toBeTruthy()
     expect(screen.getByText('Moderado')).toBeTruthy()
+  })
+
+  it('stays silent for an undetermined wave value', () => {
+    render(<PracticalInfoCard length={100} waves="SIN DETERMINAR" />)
+    expect(screen.queryByText('Oleaje habitual')).toBeNull()
+  })
+
+  it('groups the decision facts apart from the description of the beach', () => {
+    render(<PracticalInfoCard dogFriendly lifeguard length={4531} />)
+    expect(screen.getByRole('heading', { name: 'Antes de ir' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'La playa' })).toBeTruthy()
+    expect(screen.getByText('Socorrista en temporada')).toBeTruthy()
+    expect(screen.getByText('Se admiten perros')).toBeTruthy()
+    expect(screen.getByText('4,5 km')).toBeTruthy()
   })
 
   it('renders orientation', () => {

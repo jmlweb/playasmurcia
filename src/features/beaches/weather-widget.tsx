@@ -2,8 +2,10 @@ import { createServerFn } from '@tanstack/react-start'
 import { useEffect, useState } from 'react'
 
 import type { WeatherIconType } from '@/components/ui/icons'
+import type { WaveExposure } from '@/lib/wave-exposure'
 
 import { WeatherIcon } from '@/components/ui/icons'
+import { formatCompassDirection } from '@/lib/beach-facts'
 import { appendLaterDays } from '@/lib/forecast-days'
 import { getWaveExposure } from '@/lib/wave-exposure'
 import { formatWaveHeight, getWaveLevel } from '@/lib/wave-level'
@@ -178,38 +180,6 @@ function getSkyIconType(descripcion: string): WeatherIconType {
 }
 
 // ---------------------------------------------------------------------------
-// Wind direction label
-// ---------------------------------------------------------------------------
-
-const WindDirectionLabel: Record<string, string> = {
-  N: 'Norte',
-  NE: 'NE',
-  E: 'Este',
-  SE: 'SE',
-  S: 'Sur',
-  SO: 'SO',
-  O: 'Oeste',
-  NO: 'NO',
-  C: 'Calma',
-}
-
-function formatWindDirection(dir: string): string {
-  return WindDirectionLabel[dir.toUpperCase()] ?? dir
-}
-
-// ---------------------------------------------------------------------------
-// UV Index badge
-// ---------------------------------------------------------------------------
-
-function uvBadgeClass(uv: number): string {
-  if (uv <= 2) return 'bg-emerald-100 text-emerald-700'
-  if (uv <= 5) return 'bg-yellow-100 text-yellow-700'
-  if (uv <= 7) return 'bg-orange-100 text-orange-700'
-  if (uv <= 10) return 'bg-red-100 text-red-700'
-  return 'bg-purple-100 text-purple-700'
-}
-
-// ---------------------------------------------------------------------------
 // Day helpers
 // ---------------------------------------------------------------------------
 
@@ -224,12 +194,18 @@ function formatDayLabel(timestamp: number): string {
 // Sub-components
 // ---------------------------------------------------------------------------
 
+const WaveExposureLabels: Record<WaveExposure, string> = {
+  expuesta: 'entra de frente',
+  resguardada: 'no entra de frente',
+}
+
 type TodayCardProps = {
   day: UnifiedDay
   current?: CurrentWeather
   waterTemp?: number
   waves?: Waves
   shoreBearing?: number
+  hasOpenSeaWaves: boolean
 }
 
 function TodayCard({
@@ -238,6 +214,7 @@ function TodayCard({
   waterTemp,
   waves,
   shoreBearing,
+  hasOpenSeaWaves,
 }: TodayCardProps) {
   const iconType = current?.skyIcon
     ? (current.skyIcon as WeatherIconType)
@@ -254,7 +231,7 @@ function TodayCard({
   const waveLabel =
     day.wavesDescription ??
     (waveHeight != null ? getWaveLevel(waveHeight) : undefined)
-  const hasWaves = waveLabel != null
+  const hasWaves = hasOpenSeaWaves && waveLabel != null
   const waveExposure =
     shoreBearing != null && waves?.directionDegrees != null
       ? getWaveExposure(shoreBearing, waves.directionDegrees)
@@ -271,7 +248,7 @@ function TodayCard({
                 {current.temp}°
               </p>
               {current.apparentTemp !== current.temp && (
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-gray-600">
                   Sensación {current.apparentTemp}°
                 </p>
               )}
@@ -281,7 +258,7 @@ function TodayCard({
               <p className="text-4xl font-light tracking-tight text-gray-900">
                 {day.tMaxima}°
                 {day.tMinima !== -999 && (
-                  <span className="text-lg text-gray-400">
+                  <span className="text-lg text-gray-600">
                     {' '}
                     / {day.tMinima}°
                   </span>
@@ -290,7 +267,7 @@ function TodayCard({
             )
           )}
           {skyDesc && (
-            <p className="text-sm text-gray-500 first-letter:uppercase">
+            <p className="text-sm text-gray-600 first-letter:uppercase">
               {skyDesc}
             </p>
           )}
@@ -298,14 +275,14 @@ function TodayCard({
       </div>
 
       {/* Detail row: min/max (when current shown), wind, water temp, waves, UV */}
-      <div className="mt-3 grid grid-cols-2 items-center gap-x-4 gap-y-1.5 border-t border-gray-100 pt-3">
+      <div className="mt-3 grid grid-cols-2 items-center gap-x-4 gap-y-1.5 border-t border-ocean-200/60 pt-3 tabular-nums">
         {current && hasTemp && (
-          <span className="text-sm text-gray-500">
+          <span className="text-sm text-gray-700">
             Máx {day.tMaxima}°{day.tMinima !== -999 && ` / Mín ${day.tMinima}°`}
           </span>
         )}
         {windSpeed > 0 && (
-          <span className="flex items-center gap-1.5 text-sm text-gray-500">
+          <span className="flex items-center gap-1.5 text-sm text-gray-700">
             <svg
               aria-hidden="true"
               className="h-4 w-4 flex-shrink-0"
@@ -320,7 +297,7 @@ function TodayCard({
                 strokeWidth="2"
               />
             </svg>
-            {windSpeed} km/h {formatWindDirection(windDir)}
+            {windSpeed} km/h {formatCompassDirection(windDir)}
           </span>
         )}
         {waterTemp != null && (
@@ -343,7 +320,7 @@ function TodayCard({
           </span>
         )}
         {hasWaves && (
-          <span className="col-span-2 flex items-center gap-1.5 text-sm text-gray-500">
+          <span className="col-span-2 flex items-center gap-1.5 text-sm text-gray-700">
             <svg
               aria-hidden="true"
               className="h-4 w-4 flex-shrink-0"
@@ -359,9 +336,10 @@ function TodayCard({
               />
             </svg>
             <span>
-              Oleaje
+              Oleaje hoy
               {waveHeight != null && ` ${formatWaveHeight(waveHeight)} m`}
-              {waves?.direction && ` ${formatWindDirection(waves.direction)}`}
+              {waves?.direction &&
+                ` ${formatCompassDirection(waves.direction)}`}
               {' · '}
               <span className="inline-block first-letter:uppercase">
                 {waveLabel}
@@ -369,21 +347,13 @@ function TodayCard({
               {waveExposure && (
                 <>
                   {' · '}
-                  <span className="inline-block first-letter:uppercase">
-                    {waveExposure}
-                  </span>
+                  {WaveExposureLabels[waveExposure]}
                 </>
               )}
             </span>
           </span>
         )}
-        {hasUV && (
-          <span
-            className={`rounded-full px-2 py-0.5 text-xs font-medium ${uvBadgeClass(uvIndex)}`}
-          >
-            UV {uvIndex}
-          </span>
-        )}
+        {hasUV && <span className="text-sm text-gray-700">UV {uvIndex}</span>}
       </div>
     </div>
   )
@@ -400,27 +370,31 @@ function ForecastDayCard({ day }: ForecastDayCardProps) {
   const hasTemp = day.tMaxima !== -999
   const showRain =
     day.precipitationProbability != null && day.precipitationProbability > 0
+  const isWeekend = [0, 6].includes(new Date(day.fecha).getDay())
 
   return (
-    <div className="flex min-w-0 flex-col items-center gap-1.5 rounded-xl border border-ocean-200/60 bg-ocean-50/70 px-1.5 py-3 text-center">
-      <span className="text-xs font-medium tracking-wide text-gray-500 uppercase">
+    <li className="flex min-w-0 flex-col items-center gap-1 text-center tabular-nums">
+      <span
+        className={`text-xs ${isWeekend ? 'font-semibold text-ocean-700' : 'font-medium text-gray-600'}`}
+      >
         {formatDayLabel(day.fecha)}
       </span>
-      <WeatherIcon className="h-8 w-8" type={iconType} />
+      <WeatherIcon className="h-6 w-6" type={iconType} />
       {hasTemp && (
-        <div className="text-sm">
-          <span className="font-semibold text-gray-900">{day.tMaxima}°</span>
-          {day.tMinima !== -999 && (
-            <span className="text-gray-400"> / {day.tMinima}°</span>
-          )}
-        </div>
-      )}
-      {showRain && (
-        <span className="text-[0.65rem] leading-tight text-blue-500">
-          {day.precipitationProbability}%💧
+        <span className="text-sm font-semibold text-gray-900">
+          {day.tMaxima}°
         </span>
       )}
-    </div>
+      {hasTemp && day.tMinima !== -999 && (
+        <span className="text-xs text-gray-600">{day.tMinima}°</span>
+      )}
+      {showRain && (
+        <span className="flex items-center text-xs text-ocean-700">
+          <span className="sr-only">Lluvia </span>
+          {day.precipitationProbability}%
+        </span>
+      )}
+    </li>
   )
 }
 
@@ -433,7 +407,7 @@ function WeatherSkeleton() {
     <section
       aria-busy="true"
       aria-label="Cargando previsión meteorológica"
-      className="rounded-2xl border border-ocean-100 bg-gradient-to-br from-sky-50/80 to-ocean-50/40 p-6 shadow-sm"
+      className="rounded-2xl bg-ocean-50 p-5"
     >
       <div className="mb-4 h-5 w-36 animate-pulse rounded bg-ocean-100/60" />
       <div className="flex items-center gap-4">
@@ -443,11 +417,7 @@ function WeatherSkeleton() {
           <div className="h-3 w-40 animate-pulse rounded bg-ocean-100/60" />
         </div>
       </div>
-      <div className="mt-4 flex gap-2 overflow-hidden">
-        <div className="h-20 w-24 flex-shrink-0 animate-pulse rounded-xl bg-ocean-100/40" />
-        <div className="h-20 w-24 flex-shrink-0 animate-pulse rounded-xl bg-ocean-100/40" />
-        <div className="h-20 w-24 flex-shrink-0 animate-pulse rounded-xl bg-ocean-100/40" />
-      </div>
+      <div className="mt-4 h-24 animate-pulse rounded-xl bg-ocean-100/40" />
     </section>
   )
 }
@@ -461,6 +431,8 @@ type WeatherWidgetProps = {
   hasAemetForecast: boolean
   /** Degrees the beach faces seaward; omit where open-sea waves do not apply. */
   shoreBearing?: number
+  /** False for the Mar Menor: open-sea wave data does not describe the lagoon */
+  hasOpenSeaWaves: boolean
 }
 
 type FetchState =
@@ -473,8 +445,10 @@ export function WeatherWidget({
   beachCode,
   hasAemetForecast,
   shoreBearing,
+  hasOpenSeaWaves,
 }: WeatherWidgetProps) {
   const [state, setState] = useState<FetchState>({ status: 'idle' })
+  const [attempt, setAttempt] = useState(0)
 
   // Reset to loading during render (not in an effect) when the location changes
   const [prevBeachCode, setPrevBeachCode] = useState(beachCode)
@@ -548,7 +522,7 @@ export function WeatherWidget({
     return () => {
       cancelled = true
     }
-  }, [beachCode, hasAemetForecast])
+  }, [beachCode, hasAemetForecast, attempt])
 
   if (state.status === 'idle' || state.status === 'loading') {
     return <WeatherSkeleton />
@@ -558,14 +532,24 @@ export function WeatherWidget({
     return (
       <section
         aria-label="Previsión meteorológica"
-        className="rounded-2xl border border-dashed border-ocean-200 bg-ocean-50/30 p-6"
+        className="rounded-2xl border border-dashed border-ocean-200 p-5"
       >
-        <h2 className="mb-3 text-xl font-semibold text-ocean-600">
-          Previsión meteorológica
+        <h2 className="mb-3 text-2xl font-normal tracking-tight text-gray-900">
+          Previsión
         </h2>
-        <p className="text-sm text-gray-400">
-          Previsión no disponible en este momento.
+        <p className="text-sm text-gray-600">
+          No hemos podido cargar la previsión.
         </p>
+        <button
+          className="mt-3 inline-flex min-h-11 items-center rounded-full border border-ocean-200 px-5 text-sm font-semibold text-ocean-600 transition-colors hover:bg-ocean-50 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
+          type="button"
+          onClick={() => {
+            setState({ status: 'loading' })
+            setAttempt((current) => current + 1)
+          }}
+        >
+          Reintentar
+        </button>
       </section>
     )
   }
@@ -579,30 +563,31 @@ export function WeatherWidget({
   return (
     <section
       aria-label="Previsión meteorológica"
-      className="rounded-2xl border border-ocean-100 bg-gradient-to-br from-sky-50/80 to-ocean-50/40 p-6 shadow-sm"
+      className="rounded-2xl bg-ocean-50 p-5"
     >
-      <h2 className="mb-4 text-xl font-semibold text-gray-900">
-        Previsión meteorológica
+      <h2 className="mb-4 text-2xl font-normal tracking-tight text-gray-900">
+        Previsión
       </h2>
 
       <TodayCard
         current={forecast.current}
         day={today}
+        hasOpenSeaWaves={hasOpenSeaWaves}
         shoreBearing={shoreBearing}
         waterTemp={forecast.waterTemp}
         waves={forecast.waves}
       />
 
       {nextDays.length > 0 && (
-        <div className="mt-4 grid grid-cols-3 gap-2">
+        <ul className="mt-4 grid auto-cols-fr grid-flow-col gap-1 border-t border-ocean-200/60 pt-3">
           {nextDays.map((day) => (
             <ForecastDayCard key={day.fecha} day={day} />
           ))}
-        </div>
+        </ul>
       )}
 
-      <footer className="mt-4 border-t border-ocean-100 pt-3">
-        <p className="text-xs text-gray-400">
+      <footer className="mt-3">
+        <p className="text-xs text-gray-600">
           Fuente: {ForecastSourceLabel[forecast.source]}
         </p>
       </footer>

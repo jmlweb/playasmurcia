@@ -21,12 +21,14 @@ export function ServicesGrid({
 
   return (
     <section aria-label="Servicios disponibles">
-      <h2 className="mb-4 text-xl font-semibold text-gray-900">Servicios</h2>
-      <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+      <h2 className="mb-4 text-3xl font-normal tracking-tight text-gray-900">
+        Servicios
+      </h2>
+      <ul className="grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-3">
         {resolvedServices.map((service) => (
           <li
             key={service.id}
-            className="flex items-center gap-2.5 rounded-xl bg-ocean-50/60 px-3.5 py-3 text-sm text-gray-700"
+            className="flex items-center gap-2.5 text-gray-700"
           >
             <ServiceIcon
               className="h-5 w-5 text-ocean-500"

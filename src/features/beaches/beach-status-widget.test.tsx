@@ -64,4 +64,19 @@ describe('BeachStatusWidget', () => {
       expect(closed.className).not.toBe(other.className)
     }
   })
+
+  it('explains that flags are seasonal instead of showing nothing', async () => {
+    fetchBeachStatus.mockResolvedValueOnce({
+      ...statusWithFlag('VERDE'),
+      isOffSeason: true,
+    })
+    render(
+      <BeachStatusWidget beachName="Calarreona" municipalityName="Águilas" />,
+    )
+    expect(
+      await screen.findByText(
+        'Bandera del 112: se publica de junio a septiembre.',
+      ),
+    ).toBeTruthy()
+  })
 })

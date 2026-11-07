@@ -94,14 +94,17 @@ export const getBeachWeatherFn = createServerFn({ method: 'GET' })
       { getBeachBySlug },
       { fetchOpenMeteoForecast, fetchMarineWeather },
       { getWaveLevel },
+      { MAR_MENOR_SEA },
     ] = await Promise.all([
       import('@/lib/db-data/beach-queries'),
       import('@/lib/open-meteo'),
       import('@/lib/wave-level'),
+      import('@/lib/beach-facts'),
     ])
     const beach = await getBeachBySlug(data.slug)
     if (!beach) return null
 
+    const hasOpenSeaWaves = beach.sea !== MAR_MENOR_SEA
     const [latitude, longitude] = beach.coordinates
     const [forecast, marine] = await Promise.all([
       fetchOpenMeteoForecast(latitude, longitude),
@@ -115,12 +118,14 @@ export const getBeachWeatherFn = createServerFn({ method: 'GET' })
       sea: marine
         ? {
             waterTemp: marine.currentTemp,
-            waveHeight: marine.waveHeight,
-            waveLevel:
-              marine.waveHeight !== undefined
-                ? getWaveLevel(marine.waveHeight)
-                : undefined,
-            waveDirection: marine.waveDirection,
+            ...(hasOpenSeaWaves && {
+              waveHeight: marine.waveHeight,
+              waveLevel:
+                marine.waveHeight !== undefined
+                  ? getWaveLevel(marine.waveHeight)
+                  : undefined,
+              waveDirection: marine.waveDirection,
+            }),
           }
         : null,
     }

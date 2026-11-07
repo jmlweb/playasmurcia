@@ -1,10 +1,9 @@
 import type { Beach, Municipality, Service } from '@/types/beach'
 
-import { stripDescriptionMarkdown } from './description-markdown'
+import { getBeachSummary } from './beach-summary'
+import { parseImageFilename, pictureUrl } from './images'
 
 const SITE_URL = process.env.SITE_URL ?? 'https://www.playasmurcia.com'
-const PICTURES_BASE_URL =
-  'https://www.turismoregiondemurcia.es/webs/murciaturistica/fotos/1/playas/'
 
 export type MunicipalitySchema = {
   '@context': 'https://schema.org'
@@ -78,6 +77,16 @@ function mapServicesToAmenities(
     .filter((item): item is LocationFeatureSpecification => item !== null)
 }
 
+function mapSafetyFacts(beach: Beach): LocationFeatureSpecification[] {
+  return [
+    { name: 'Lifeguard', value: beach.lifeguard },
+    { name: 'Dogs Allowed', value: beach.dogFriendly },
+  ].map((fact) => ({
+    '@type': 'LocationFeatureSpecification' as const,
+    ...fact,
+  }))
+}
+
 export function generateMunicipalitySchema(
   municipality: Municipality,
   beachCount: number,
@@ -105,15 +114,18 @@ export function generateBeachSchema(
   slug: string,
 ): BeachSchema {
   const pictures = beach.pictures ?? []
-  const firstImage =
-    pictures.length > 0 ? `${PICTURES_BASE_URL}${pictures[0]}` : undefined
+  const cover = pictures.at(0)
+  const firstImage = cover
+    ? pictureUrl(
+        `${parseImageFilename(cover).baseName}.${parseImageFilename(cover).ext}`,
+      )
+    : undefined
 
   return {
     '@context': 'https://schema.org',
     '@type': 'Beach',
     name: beach.name,
-    description:
-      beach.metaDescription ?? stripDescriptionMarkdown(beach.description),
+    description: getBeachSummary(beach.name, beach.description),
     url: `${SITE_URL}/playas/${slug}`,
     geo: {
       '@type': 'GeoCoordinates',
@@ -126,7 +138,10 @@ export function generateBeachSchema(
       addressRegion: 'Murcia',
       addressCountry: 'ES',
     },
-    amenityFeature: mapServicesToAmenities(beach.services, services),
+    amenityFeature: [
+      ...mapServicesToAmenities(beach.services, services),
+      ...mapSafetyFacts(beach),
+    ],
     isAccessibleForFree: true,
     ...(firstImage && { image: firstImage }),
   }

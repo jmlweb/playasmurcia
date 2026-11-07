@@ -13,7 +13,7 @@ type BeachHeroProps = {
   /** Zone id from data/zones.json, shown before the municipality */
   zone?: string
   breadcrumb: BreadcrumbItem[]
-  /** First beach picture; without it the hero falls back to the ocean gradient */
+  /** Cover picture; without it the hero falls back to the ocean gradient */
   picture?: string
   /** Live conditions rendered under the location line */
   conditions?: ReactNode

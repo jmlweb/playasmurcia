@@ -50,6 +50,12 @@ Derivation (one-off, the script was removed after use):
 
 New beaches need a hand-set `shoreBearing`; `node scripts/validate-beaches.js` fails without one.
 
+`orientation` and `shoreBearing` must agree on the open sea. On 2026-11-07, 30 open-sea beaches that differed by 90° or more had `orientation` reset to the 8-point bin of `shoreBearing`, after satellite checks of the doubtful ones. Most were south-facing beaches stored as `east`.
+
+On the Mar Menor the opposite holds: `shoreBearing` is unreliable, because the nearest OSM coastline on La Manga is often the Mediterranean side (9 beaches disagree with `orientation` by 90° or more). `orientation` stays authoritative there, and the page passes no `shoreBearing` for the lagoon, so these values reach no one.
+
+The forecast shows live waves as "Oleaje hoy" and says whether they enter head-on ("entra de frente" / "no entra de frente") from `getWaveExposure`. The stored `waves` value reads "Oleaje habitual", and `SIN DETERMINAR` is hidden. The Mar Menor shows no wave data.
+
 ## Bathing-Water Quality
 
 `waterQuality` is the official EU class (Directive 2006/7/EC) of a sampling point, never an estimate. `pnpm tsx scripts/add-bathing-water-quality.ts` sets it:
@@ -307,7 +313,7 @@ Collections are defined in `src/lib/collections.ts`. Two use stricter criteria b
 
 `childSafe` is the safety signal and always wins over the family promise:
 
-- A beach with `childSafe: false` never carries the `familiar` tag and its `metaDescription` never says "familia", "familiar" or "ideal para familias". `scripts/validate-beaches.js` fails on either.
+- A beach with `childSafe: false` never carries the `familiar` tag and its stored `metaDescription` (no longer rendered, see `getBeachSummary`) never says "familia", "familiar" or "ideal para familias". `scripts/validate-beaches.js` fails on either.
 - The **Playas familiares** collection needs a lifeguard, `childSafe: true` and the `familiar` or `aguas-tranquilas` tag.
 - `familiar` is not implied by `childSafe: true`: it is an editorial extra on top of it.
 - Do not flip `childSafe` to resolve a contradiction unless the evidence shows it is wrong.

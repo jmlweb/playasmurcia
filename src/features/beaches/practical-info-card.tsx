@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 
 import type { WaterQuality, WaterQualitySource } from '@/types/beach'
 
+import { formatBeachLength, formatUsualWaves } from '@/lib/beach-facts'
 import {
   AccessDifficultyStyles,
   OccupancyStyles,
@@ -28,28 +29,13 @@ const SeasonConfig = {
 
 const OccupancySteps = { low: 1, medium: 2, high: 3 } as const
 
-function SummaryItem({
-  label,
-  children,
-}: {
-  label: string
-  children: ReactNode
-}) {
-  return (
-    <div className="rounded-xl bg-gray-50 p-3.5">
-      <dt className="mb-1.5 text-xs font-medium tracking-wide text-gray-400 uppercase">
-        {label}
-      </dt>
-      <dd className="text-[15px] font-semibold text-gray-900">{children}</dd>
-    </div>
-  )
-}
-
 const SOURCE_LABEL = 'EEA / NÁYADE (Ministerio de Sanidad)'
+
+const yesNo = (value: boolean): string => (value ? 'Sí' : 'No')
 
 function WaterQualityCitation({ source }: { source: WaterQualitySource }) {
   return (
-    <p className="mt-1 text-xs font-normal text-gray-500">
+    <p className="mt-1 text-sm font-normal text-gray-600">
       Clasificación oficial UE, temporada {source.season}. Fuente:{' '}
       {source.profileUrl ? (
         <a
@@ -85,6 +71,31 @@ function OccupancyMeter({ level }: { level: 'low' | 'medium' | 'high' }) {
   )
 }
 
+type Fact = { label: string; value: ReactNode; isWide?: boolean }
+
+function FactGroup({ title, facts }: { title: string; facts: Fact[] }) {
+  if (facts.length === 0) return null
+
+  return (
+    <div>
+      <h3 className="mb-3 text-lg font-semibold text-gray-900">{title}</h3>
+      <dl className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3">
+        {facts.map((fact) => (
+          <div
+            key={fact.label}
+            className={`border-t border-gray-200 pt-2 ${fact.isWide ? 'col-span-full' : ''}`}
+          >
+            <dt className="text-sm text-gray-600">{fact.label}</dt>
+            <dd className="mt-0.5 font-medium text-gray-900 tabular-nums">
+              {fact.value}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  )
+}
+
 type PracticalInfoCardProps = {
   length?: number
   soilType?: string
@@ -93,6 +104,8 @@ type PracticalInfoCardProps = {
   accessDifficulty?: 'easy' | 'moderate' | 'hard'
   childSafe?: boolean
   naturalShade?: boolean
+  lifeguard?: boolean
+  dogFriendly?: boolean
   waterQuality?: WaterQuality
   waterQualitySource?: WaterQualitySource
   bestSeason?: ('spring' | 'summer' | 'autumn' | 'winter')[]
@@ -107,107 +120,99 @@ export function PracticalInfoCard({
   accessDifficulty,
   childSafe,
   naturalShade,
+  lifeguard,
+  dogFriendly,
   waterQuality,
   waterQualitySource,
   bestSeason,
   orientation,
 }: PracticalInfoCardProps) {
-  const hasAnyInfo =
-    length !== undefined ||
-    soilType ||
-    waves ||
-    occupancyLevel ||
-    accessDifficulty ||
-    bestSeason?.length ||
-    orientation ||
-    naturalShade !== undefined
+  const usualWaves = formatUsualWaves(waves)
 
-  if (!hasAnyInfo) {
+  const beforeGoing: Fact[] = [
+    ...(lifeguard === undefined
+      ? []
+      : [{ label: 'Socorrista en temporada', value: yesNo(lifeguard) }]),
+    ...(accessDifficulty
+      ? [
+          {
+            label: 'Acceso',
+            value: AccessDifficultyStyles[accessDifficulty].label,
+          },
+        ]
+      : []),
+    ...(childSafe === undefined
+      ? []
+      : [{ label: 'Apta para niños', value: yesNo(childSafe) }]),
+    ...(dogFriendly === undefined
+      ? []
+      : [{ label: 'Se admiten perros', value: yesNo(dogFriendly) }]),
+    ...(naturalShade === undefined
+      ? []
+      : [{ label: 'Sombra natural', value: yesNo(naturalShade) }]),
+    ...(occupancyLevel
+      ? [
+          {
+            label: 'Ocupación en verano',
+            value: <OccupancyMeter level={occupancyLevel} />,
+          },
+        ]
+      : []),
+    ...(waterQuality
+      ? [
+          {
+            label: 'Calidad del agua',
+            isWide: true,
+            value: (
+              <>
+                {WaterQualityStyles[waterQuality].label}
+                {waterQualitySource && (
+                  <WaterQualityCitation source={waterQualitySource} />
+                )}
+              </>
+            ),
+          },
+        ]
+      : []),
+  ]
+
+  const theBeach: Fact[] = [
+    ...(length === undefined
+      ? []
+      : [{ label: 'Longitud', value: formatBeachLength(length) }]),
+    ...(soilType ? [{ label: 'Suelo', value: soilType }] : []),
+    ...(usualWaves ? [{ label: 'Oleaje habitual', value: usualWaves }] : []),
+    ...(orientation
+      ? [
+          {
+            label: 'Orientación',
+            value: OrientationLabels[orientation] ?? orientation,
+          },
+        ]
+      : []),
+    ...(bestSeason && bestSeason.length > 0
+      ? [
+          {
+            label: 'Mejor temporada',
+            value: bestSeason.map((s) => SeasonConfig[s]).join(', '),
+          },
+        ]
+      : []),
+  ]
+
+  if (beforeGoing.length === 0 && theBeach.length === 0) {
     return null
   }
 
-  const hasBadges =
-    waterQuality != null ||
-    occupancyLevel != null ||
-    accessDifficulty != null ||
-    childSafe !== undefined
-
-  const details: { label: string; value: string; icon: string }[] = []
-  if (length !== undefined)
-    details.push({ label: 'Longitud', value: `${length} m`, icon: '📏' })
-  if (soilType)
-    details.push({ label: 'Tipo de suelo', value: soilType, icon: '🏖' })
-  if (waves) details.push({ label: 'Oleaje', value: waves, icon: '🌊' })
-  if (orientation)
-    details.push({
-      label: 'Orientación',
-      value: OrientationLabels[orientation] ?? orientation,
-      icon: '🧭',
-    })
-  if (naturalShade !== undefined)
-    details.push({
-      label: 'Sombra natural',
-      value: naturalShade ? 'Sí' : 'No',
-      icon: '🌳',
-    })
-  if (bestSeason && bestSeason.length > 0)
-    details.push({
-      label: 'Mejor temporada',
-      value: bestSeason.map((s) => SeasonConfig[s]).join(', '),
-      icon: '☀️',
-    })
-
   return (
-    <section
-      aria-label="Información práctica"
-      className="rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm"
-    >
-      <h2 className="mb-4 text-xl font-semibold text-gray-900">
+    <section aria-label="Información práctica">
+      <h2 className="mb-6 text-3xl font-normal tracking-tight text-gray-900">
         Información práctica
       </h2>
-
-      {hasBadges && (
-        <dl className="mb-5 grid grid-cols-2 gap-3">
-          {waterQuality && (
-            <SummaryItem label="Calidad del agua">
-              {WaterQualityStyles[waterQuality].label}
-              {waterQualitySource && (
-                <WaterQualityCitation source={waterQualitySource} />
-              )}
-            </SummaryItem>
-          )}
-          {occupancyLevel && (
-            <SummaryItem label="Ocupación en verano">
-              <OccupancyMeter level={occupancyLevel} />
-            </SummaryItem>
-          )}
-          {accessDifficulty && (
-            <SummaryItem label="Acceso">
-              {AccessDifficultyStyles[accessDifficulty].label}
-            </SummaryItem>
-          )}
-          {childSafe !== undefined && (
-            <SummaryItem label="Apta para niños">
-              {childSafe ? 'Sí' : 'No'}
-            </SummaryItem>
-          )}
-        </dl>
-      )}
-
-      {details.length > 0 && (
-        <dl className="grid grid-cols-2 gap-3">
-          {details.map((d) => (
-            <div key={d.label} className="rounded-xl bg-gray-50 px-3.5 py-3">
-              <dt className="text-xs font-medium tracking-wide text-gray-400 uppercase">
-                {d.label}
-              </dt>
-              <dd className="mt-1 text-sm font-semibold text-gray-900">
-                {d.value}
-              </dd>
-            </div>
-          ))}
-        </dl>
-      )}
+      <div className="space-y-8">
+        <FactGroup facts={beforeGoing} title="Antes de ir" />
+        <FactGroup facts={theBeach} title="La playa" />
+      </div>
     </section>
   )
 }

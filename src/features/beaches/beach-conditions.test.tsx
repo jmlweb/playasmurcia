@@ -53,8 +53,8 @@ describe('BeachConditions', () => {
     renderConditions()
 
     expect(screen.getByText('19°')).toBeTruthy()
-    expect(screen.getByText('Viento 12 km/h NE')).toBeTruthy()
-    expect(screen.getByText('Oleaje 0,4 m')).toBeTruthy()
+    expect(screen.getByText('Viento 12 km/h Noreste')).toBeTruthy()
+    expect(screen.getByText('Oleaje hoy 0,4 m')).toBeTruthy()
     expect(screen.getByText('Bandera verde')).toBeTruthy()
     expect(
       screen.getByText('Datos recientes: Open-Meteo y 112 Región de Murcia'),

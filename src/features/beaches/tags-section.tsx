@@ -19,16 +19,16 @@ export function TagsSection({
 
   const tagClass =
     variant === 'dark'
-      ? 'bg-white/15 text-white backdrop-blur-sm border border-white/20 rounded-full px-3 py-1 text-sm font-medium'
+      ? "text-sm font-medium text-white/90 not-last:after:ml-2 not-last:after:content-['·']"
       : 'bg-ocean-50 text-ocean-700 rounded-full px-3 py-1 text-sm font-medium'
 
   return (
-    <div aria-label="Etiquetas" className="flex flex-wrap gap-2">
+    <ul aria-label="Etiquetas" className="flex flex-wrap gap-x-2 gap-y-1">
       {resolvedTags.map((tag) => (
-        <span key={tag.id} className={tagClass}>
+        <li key={tag.id} className={tagClass}>
           {tag.name}
-        </span>
+        </li>
       ))}
-    </div>
+    </ul>
   )
 }
