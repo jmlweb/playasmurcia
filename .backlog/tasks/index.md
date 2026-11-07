@@ -5,22 +5,14 @@
 | Status | Count |
 |--------|-------|
 | Pending | 32 |
-| Active | 10 |
+| Active | 2 |
 | Blocked | 0 |
-| Complete | 135 |
+| Complete | 143 |
 
 ## Active Tasks
 
-- TSK-128: Fix: formatDistance shows 1000 m and 10,0 km at unit boundaries (P3)
 - TSK-154: Merge Cómo llegar and map into one section (P3)
 - TSK-155: Restyle beach map to match the brand (P3)
-- TSK-158: Show distance on nearby beach cards (P3)
-- TSK-162: Fix: Verify El Rincón hero photo provenance (P2)
-- TSK-170: Fix: COPLA flag lookup still misses four beaches whose feed entry uses a different name (P2)
-- TSK-174: Fix: Explorer exposes two current items in the navbar (P4)
-- TSK-175: Fix: Colecciones popover has no accessible name (P4)
-- TSK-176: Fix: Navbar beach counts have no unit for screen readers (P4)
-- TSK-179: Fix: Horizontal scroll from the footer at 200% text size (P3)
 
 ## Pending Tasks
 
@@ -63,13 +55,13 @@
 
 | ID | Title | Completed |
 |----|-------|-----------|
+| TSK-128 | Fix: formatDistance shows 1000 m and 10,0 km at unit boundaries | 2026-11-07 |
 | TSK-156 | Compact the beach weather forecast | 2026-11-07 |
 | TSK-157 | Calm static content on beach detail | 2026-11-07 |
+| TSK-158 | Show distance on nearby beach cards | 2026-11-07 |
+| TSK-162 | Fix: Verify El Rincón hero photo provenance | 2026-11-07 |
 | TSK-163 | Fix: Map raw waves enum to Spanish labels | 2026-11-07 |
-| TSK-146 | Beach zones from ITREM locality labels | 2026-11-06 |
-| TSK-153 | Beach detail: surface safety and key facts first | 2026-11-06 |
-| TSK-161 | Fix: Family signals contradict childSafe | 2026-11-06 |
-| TSK-144 | Fix: AEMET beach forecast parser expects an invented payload shape, so the AEMET widget never renders | 2026-11-05 |
-| TSK-168 | Fix: Five beaches have no reachable page because their slugs collide | 2026-11-05 |
-| TSK-134 | Blue Flag and Q certifications with season year | 2026-11-03 |
-| TSK-133 | Official bathing-water quality from NÁYADE / EEA | 2026-10-31 |
+| TSK-170 | Fix: COPLA flag lookup still misses four beaches whose feed entry uses a different name | 2026-11-07 |
+| TSK-174 | Fix: Explorer exposes two current items in the navbar | 2026-11-07 |
+| TSK-175 | Fix: Colecciones popover has no accessible name | 2026-11-07 |
+| TSK-176 | Fix: Navbar beach counts have no unit for screen readers | 2026-11-07 |

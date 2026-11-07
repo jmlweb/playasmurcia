@@ -1,13 +1,14 @@
 ---
 id: TSK-174
 title: Fix: Explorer exposes two current items in the navbar
-status: active
+status: complete
 priority: P4
 tags: [bug, navbar, accessibility]
 created: 2026-11-06
 source: report/RPT-074
 depends-on: [TSK-176]
 started: 2026-11-07
+completed: 2026-11-07
 ---
 
 # Fix: Explorer exposes two current items in the navbar
@@ -35,10 +36,10 @@ Source report: `.backlog/reports/complete/RPT-074-explorer-exposes-two-current-i
 
 ## Acceptance Criteria
 
-- [ ] On /explorar and /explorar#buscar, only "Todas las playas" carries aria-current
-- [ ] The search control no longer matches as active
-- [ ] Search still navigates to /explorar#buscar from other routes and still focuses the input, including with the phone menu open
-- [ ] Regression test covers the single current item
+- [x] On /explorar and /explorar#buscar, only "Todas las playas" carries aria-current
+- [x] The search control no longer matches as active
+- [x] Search still navigates to /explorar#buscar from other routes and still focuses the input, including with the phone menu open
+- [x] Regression test covers the single current item
 
 ## Notes
 
@@ -49,3 +50,5 @@ Source report: `.backlog/reports/complete/RPT-074-explorer-exposes-two-current-i
 - [2026-11-06] Created
 - [2026-11-07] Tagged in 2026-11-07 grooming. Navbar tasks run in order 175, 176, 174, 177, 171 because they edit the same file.
 - [2026-11-07] Started
+- [2026-11-07] Search control is a plain anchor that navigates through useNavigate; modified clicks stay native. Commit 474f297.
+- [2026-11-07] Completed

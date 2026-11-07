@@ -1,13 +1,14 @@
 ---
 id: TSK-176
 title: Fix: Navbar beach counts have no unit for screen readers
-status: active
+status: complete
 priority: P4
 tags: [bug, navbar, accessibility]
 created: 2026-11-06
 source: report/RPT-076
 depends-on: [TSK-175]
 started: 2026-11-07
+completed: 2026-11-07
 ---
 
 # Fix: Navbar beach counts have no unit for screen readers
@@ -34,9 +35,9 @@ Source report: `.backlog/reports/complete/RPT-076-navbar-beach-counts-have-no.md
 
 ## Acceptance Criteria
 
-- [ ] Popover and phone menu counts expose a visually hidden unit: "43 playas", and "1 playa" for a count of one
-- [ ] Visible layout does not change
-- [ ] Tests that match link names are updated
+- [x] Popover and phone menu counts expose a visually hidden unit: "43 playas", and "1 playa" for a count of one
+- [x] Visible layout does not change
+- [x] Tests that match link names are updated
 
 ## Notes
 
@@ -47,3 +48,5 @@ Source report: `.backlog/reports/complete/RPT-076-navbar-beach-counts-have-no.md
 - [2026-11-06] Created
 - [2026-11-07] Tagged in 2026-11-07 grooming. Navbar tasks run in order 175, 176, 174, 177, 171 because they edit the same file.
 - [2026-11-07] Started
+- [2026-11-07] sr-only unit via beachCountUnit helper. Commit e24366f.
+- [2026-11-07] Completed

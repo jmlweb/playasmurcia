@@ -1,13 +1,14 @@
 ---
 id: TSK-170
 title: Fix: COPLA flag lookup still misses four beaches whose feed entry uses a different name
-status: active
+status: complete
 priority: P2
 tags: [bug, safety, data]
 created: 2026-11-06
 source: report/RPT-070
 depends-on: []
 started: 2026-11-07
+completed: 2026-11-07
 ---
 
 # Fix: COPLA flag lookup still misses four beaches whose feed entry uses a different name
@@ -22,11 +23,11 @@ Suggested fix: when no name rule matches, fall back to the nearest feed entry in
 
 ## Acceptance Criteria
 
-- [ ] Playa de El Rihuete (581), Cala de Calnegre (663), Playa Calnegre (592) and Playa de La Chapineta (580) resolve to their nearby COPLA feed entries
-- [ ] Every beach that matches a feed entry today still maps to the same entry
-- [ ] No beach matches a feed entry from another municipality or more than a small radius away
-- [ ] Unit tests cover the new fallback and a negative case
-- [ ] pnpm build, pnpm test and pnpm check pass
+- [x] Playa de El Rihuete (581), Cala de Calnegre (663), Playa Calnegre (592) and Playa de La Chapineta (580) resolve to their nearby COPLA feed entries
+- [x] Every beach that matches a feed entry today still maps to the same entry
+- [x] No beach matches a feed entry from another municipality or more than a small radius away
+- [x] Unit tests cover the new fallback and a negative case
+- [x] pnpm build, pnpm test and pnpm check pass
 
 ## Notes
 
@@ -37,3 +38,5 @@ Suggested fix: when no name rule matches, fall back to the nearest feed entry in
 - [2026-11-06] Created
 - [2026-11-07] Raised to P2 and tagged in 2026-11-07 grooming: a missing flag or closure on four beaches is safety data. Must ship before the June season, when the 112 feed publishes flags.
 - [2026-11-07] Started
+- [2026-11-07] Explicit COPLA_FEED_ALIASES map instead of a distance fallback: feed entries already matched by name sit up to 3.16 km away and a 0.5 km radius would give ~27 beaches a neighbour's flag. Commit b1f1038.
+- [2026-11-07] Completed
