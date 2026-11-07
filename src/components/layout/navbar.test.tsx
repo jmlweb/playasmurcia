@@ -30,8 +30,12 @@ const navData = {
   municipalities: [{ name: 'Cartagena', slug: 'cartagena', beachCount: 69 }],
   characteristics: [
     { label: 'Mar Menor', href: '/colecciones/mar-menor', count: 43 },
+    { label: 'Nudista', href: '/colecciones/nudista', count: 1 },
   ],
 }
+
+// dom-accessibility-api joins inline nodes without the spaces browsers keep
+const joinedName = (...words: string[]) => new RegExp(`^${words.join('\\s?')}$`)
 
 const openMenu = () => {
   fireEvent.click(screen.getByRole('button', { name: 'Abrir menú' }))
@@ -103,6 +107,22 @@ describe('Navbar', () => {
     ).toBeTruthy()
   })
 
+  it('reads the collection counts with their unit', async () => {
+    renderNavbar()
+    fireEvent.click(screen.getByRole('button', { name: 'Colecciones' }))
+    const dialog = await screen.findByRole('dialog', { name: 'Colecciones' })
+    expect(
+      within(dialog).getByRole('link', {
+        name: joinedName('Mar Menor', '43', 'playas'),
+      }),
+    ).toBeTruthy()
+    expect(
+      within(dialog).getByRole('link', {
+        name: joinedName('Nudista', '1', 'playa'),
+      }),
+    ).toBeTruthy()
+  })
+
   it('does not treat a shared prefix as the same section', () => {
     renderNavbar('/playas-raras')
     expect(
@@ -146,6 +166,16 @@ describe('Navbar', () => {
     expect(links).toContain('/colecciones')
     expect(links).toContain('/colecciones/$slug')
     expect(links).not.toContain('/municipios/$slug')
+    expect(
+      within(getMenu()).getByRole('link', {
+        name: joinedName('Mar Menor', '43', 'playas'),
+      }),
+    ).toBeTruthy()
+    expect(
+      within(getMenu()).getByRole('link', {
+        name: joinedName('Nudista', '1', 'playa'),
+      }),
+    ).toBeTruthy()
   })
 
   it('opens the phone collections group inside its section', () => {

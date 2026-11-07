@@ -27,6 +27,9 @@ const currentValue = (pathname: string, to: string) =>
 
 const SM_BREAKPOINT_QUERY = '(min-width: 640px)'
 
+// Read as "43 playas" / "1 playa"; the pill still shows the bare number
+const beachCountUnit = (count: number) => (count === 1 ? ' playa' : ' playas')
+
 function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname })
   const inSection = isInSection(pathname, collectionsSection)
@@ -70,6 +73,9 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
                       {c.label}
                       <span className="ml-2 rounded-full bg-ocean-700/60 px-2 py-0.5 text-xs text-ocean-200 tabular-nums">
                         {c.count}
+                        <span className="sr-only">
+                          {beachCountUnit(c.count)}
+                        </span>
                       </span>
                     </Link>
                   </li>
@@ -138,6 +144,7 @@ function MobileDropdown({
                 {c.label}
                 <span className="text-xs text-ocean-200 tabular-nums">
                   {c.count}
+                  <span className="sr-only">{beachCountUnit(c.count)}</span>
                 </span>
               </Link>
             )
