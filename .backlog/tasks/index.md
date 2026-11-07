@@ -4,7 +4,7 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 32 |
+| Pending | 33 |
 | Active | 2 |
 | Blocked | 0 |
 | Complete | 143 |
@@ -50,6 +50,7 @@
 | TSK-177 | Fix: Topbar P3 polish items from the critique | P4 | ui, navbar | 2026-11-06 |
 | TSK-178 | Measure explorer filter latency on a production build | P4 | performance, explorer | 2026-11-07 |
 | TSK-180 | Fix: Shared flagGreen URL loses the filter before flags settle | P4 | bug, explorer | 2026-11-07 |
+| TSK-181 | Fix: 54 beaches carry a stale pictureQualityScore | P4 | data, images, cleanup | 2026-11-07 |
 
 ## Recently Completed
 
