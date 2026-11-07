@@ -15,6 +15,7 @@ This document describes the data structure for beaches in the Region of Murcia, 
 | `services.json` | Beach services (indexed array) | 9 services |
 | `tags.json` | Beach tags for categorization (indexed array) | 17 tags |
 | `certification-seasons.json` | Season year of each certification list, keyed by certification (`{ "blue-flag": 2026, "q-quality": 2024 }`). Written by `scripts/add-certifications.js`; not migrated to the DB — the site bundles it at build time | 2 entries |
+| `picture-credits.json` | Author, licence and source page of pictures sourced from Wikimedia Commons, keyed by the picture filename used in `pictures` (`{ "wm-geo-567.jpg": { author, license, source, title, descriptionUrl } }`). Written by `scripts/source-wikimedia-pictures.ts` when a candidate is approved; not migrated to the DB. Only CC BY, CC BY-SA, CC0 and public domain are accepted. Pictures from earlier sourcing runs have no entry yet | 2 entries |
 | `zones.json` | Hand-curated beach zones (see [Zones](#zones)): the zone list, the mapping of every ITREM locality label, manual assignments with a reason, and `unresolved` beaches with a reason. Bundled by `src/lib/zones.ts` for names and order | 30 zones |
 | `source/itrem-localities.json` | Raw ITREM locality labels per beach code, fetched on 2026-11-06 by `scripts/assign-zones.ts --fetch`. Evidence for `zone`; not migrated, not bundled | 193 codes |
 

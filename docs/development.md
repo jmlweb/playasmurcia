@@ -174,7 +174,7 @@ pnpm tsx scripts/script-name.ts
 | `optimize-images.ts`             | Generate WebP/AVIF variants and responsive thumbnails in `public/pictures/optimized/`             | After adding or replacing source images               |
 | `normalize-brightness.ts`        | Normalize brightness/contrast of source photos via histogram stretching (in-place)                | Before `optimize:images`, after new source images     |
 | `sort-pictures-by-resolution.ts` | Sort `pictures` arrays in `beaches.json` by image resolution (highest first), keeping the cover `pictures[0]` in place | After adding new pictures; then migrate               |
-| `source-wikimedia-pictures.ts`   | Search and review Wikimedia Commons / Flickr CC photos for beaches                                | Ad hoc (when beaches need photos)                     |
+| `source-wikimedia-pictures.ts`   | Search and review Wikimedia Commons CC photos for beaches. `--search` fills `data/source/wikimedia-candidates/`; `--review` is interactive; `--pick 544=1,567=2` approves candidate numbers non-interactively. Approved pictures are copied to `public/pictures/` and credited in `data/picture-credits.json` (author, licence, source). Accepted licences: CC BY, CC BY-SA, CC0, public domain | Ad hoc (when beaches need photos)                     |
 | `download-playas-nexo-images.ts` | Download beach images from CARM Nexo open data portal                                             | One-off (initial image sourcing)                      |
 | `sync-pictures-to-r2.sh`         | Mirror `public/pictures/` to the R2 bucket with rclone (uploads changes, deletes removed files)    | After any script that adds, prunes or re-encodes pictures |
 
