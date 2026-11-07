@@ -4,9 +4,14 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { Navbar } from './navbar'
 
 const useRouterState = vi.hoisted(() => vi.fn())
+const navigate = vi.hoisted(() => vi.fn())
+const routerLocation = vi.hoisted(() => ({ pathname: '/' }))
 
 vi.mock('@tanstack/react-router', () => ({
   useRouterState,
+  useNavigate: () => navigate,
+  // Like the real Link, marks an exact path match current after the caller's
+  // props and ignores the hash
   Link: ({
     children,
     to,
@@ -19,19 +24,27 @@ vi.mock('@tanstack/react-router', () => ({
     params?: unknown
     activeOptions?: unknown
     hash?: string
-  }) => (
-    <a href={to} {...props}>
-      {children}
-    </a>
-  ),
+  }) => {
+    const current =
+      routerLocation.pathname === to ? 'page' : props['aria-current']
+    return (
+      <a href={to} {...props} aria-current={current}>
+        {children}
+      </a>
+    )
+  },
 }))
 
 const navData = {
   municipalities: [{ name: 'Cartagena', slug: 'cartagena', beachCount: 69 }],
   characteristics: [
     { label: 'Mar Menor', href: '/colecciones/mar-menor', count: 43 },
+    { label: 'Nudista', href: '/colecciones/nudista', count: 1 },
   ],
 }
+
+// dom-accessibility-api joins inline nodes without the spaces browsers keep
+const joinedName = (...words: string[]) => new RegExp(`^${words.join('\\s?')}$`)
 
 const openMenu = () => {
   fireEvent.click(screen.getByRole('button', { name: 'Abrir menú' }))
@@ -44,6 +57,7 @@ const getMenu = () => {
 }
 
 const renderNavbar = (pathname = '/') => {
+  routerLocation.pathname = pathname
   useRouterState.mockImplementation(
     ({
       select,
@@ -69,6 +83,7 @@ describe('Navbar', () => {
 
   afterEach(() => {
     vi.unstubAllGlobals()
+    navigate.mockReset()
   })
 
   it('names the primary navigation inside a banner', () => {
@@ -88,11 +103,48 @@ describe('Navbar', () => {
     expect(screen.getByRole('link', { name: label }).ariaCurrent).toBe(current)
   })
 
+  it('exposes a single current item on the explorer', () => {
+    renderNavbar('/explorar')
+    const current = screen
+      .getByRole('banner')
+      .querySelectorAll('[aria-current]')
+    expect([...current].map((el) => el.textContent)).toEqual([
+      'Todas las playas',
+    ])
+    expect(
+      screen.getByRole('link', { name: 'Buscar playas' }).ariaCurrent,
+    ).toBeNull()
+  })
+
   it('names the collections trigger and marks it inside its section', () => {
     renderNavbar('/colecciones/mar-menor')
     expect(
       screen.getByRole('button', { name: 'Colecciones' }).ariaCurrent,
     ).toBe('true')
+  })
+
+  it('names the collections popover after its trigger', async () => {
+    renderNavbar()
+    fireEvent.click(screen.getByRole('button', { name: 'Colecciones' }))
+    expect(
+      await screen.findByRole('dialog', { name: 'Colecciones' }),
+    ).toBeTruthy()
+  })
+
+  it('reads the collection counts with their unit', async () => {
+    renderNavbar()
+    fireEvent.click(screen.getByRole('button', { name: 'Colecciones' }))
+    const dialog = await screen.findByRole('dialog', { name: 'Colecciones' })
+    expect(
+      within(dialog).getByRole('link', {
+        name: joinedName('Mar Menor', '43', 'playas'),
+      }),
+    ).toBeTruthy()
+    expect(
+      within(dialog).getByRole('link', {
+        name: joinedName('Nudista', '1', 'playa'),
+      }),
+    ).toBeTruthy()
   })
 
   it('does not treat a shared prefix as the same section', () => {
@@ -138,6 +190,16 @@ describe('Navbar', () => {
     expect(links).toContain('/colecciones')
     expect(links).toContain('/colecciones/$slug')
     expect(links).not.toContain('/municipios/$slug')
+    expect(
+      within(getMenu()).getByRole('link', {
+        name: joinedName('Mar Menor', '43', 'playas'),
+      }),
+    ).toBeTruthy()
+    expect(
+      within(getMenu()).getByRole('link', {
+        name: joinedName('Nudista', '1', 'playa'),
+      }),
+    ).toBeTruthy()
   })
 
   it('opens the phone collections group inside its section', () => {
@@ -192,12 +254,23 @@ describe('Navbar', () => {
       expect(document.activeElement).toBe(input)
     })
 
-    it('navigates normally from any other page', () => {
+    it('navigates through the router from any other page', () => {
       renderNavbar('/municipios')
       const notPrevented = fireEvent.click(
         screen.getByRole('link', { name: 'Buscar playas' }),
       )
+      expect(notPrevented).toBe(false)
+      expect(navigate).toHaveBeenCalledWith({ to: '/explorar', hash: 'buscar' })
+    })
+
+    it('leaves modified clicks to the browser', () => {
+      renderNavbar('/municipios')
+      const notPrevented = fireEvent.click(
+        screen.getByRole('link', { name: 'Buscar playas' }),
+        { metaKey: true },
+      )
       expect(notPrevented).toBe(true)
+      expect(navigate).not.toHaveBeenCalled()
     })
   })
 
