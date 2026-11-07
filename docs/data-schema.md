@@ -6,17 +6,18 @@ This document describes the data structure for beaches in the Region of Murcia, 
 
 ## Data Files
 
-| File | Description | Count |
-|------|-------------|-------|
-| `beaches.json` | Main dataset with all beach information | 193 beaches |
-| `municipalities.json` | Coastal municipalities with INE codes | 8 municipalities |
-| `seas.json` | Sea names (indexed array) | 2 seas |
-| `activities.json` | Beach activities (indexed array) | 10 activities |
-| `services.json` | Beach services (indexed array) | 9 services |
-| `tags.json` | Beach tags for categorization (indexed array) | 17 tags |
-| `certification-seasons.json` | Season year of each certification list, keyed by certification (`{ "blue-flag": 2026, "q-quality": 2024 }`). Written by `scripts/add-certifications.js`; not migrated to the DB — the site bundles it at build time | 2 entries |
-| `zones.json` | Hand-curated beach zones (see [Zones](#zones)): the zone list, the mapping of every ITREM locality label, manual assignments with a reason, and `unresolved` beaches with a reason. Bundled by `src/lib/zones.ts` for names and order | 30 zones |
-| `source/itrem-localities.json` | Raw ITREM locality labels per beach code, fetched on 2026-11-06 by `scripts/assign-zones.ts --fetch`. Evidence for `zone`; not migrated, not bundled | 193 codes |
+| File                           | Description                                                                                                                                                                                                                           | Count            |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| `beaches.json`                 | Main dataset with all beach information                                                                                                                                                                                               | 193 beaches      |
+| `municipalities.json`          | Coastal municipalities with INE codes                                                                                                                                                                                                 | 8 municipalities |
+| `seas.json`                    | Sea names (indexed array)                                                                                                                                                                                                             | 2 seas           |
+| `activities.json`              | Beach activities (indexed array)                                                                                                                                                                                                      | 10 activities    |
+| `services.json`                | Beach services (indexed array)                                                                                                                                                                                                        | 9 services       |
+| `tags.json`                    | Beach tags for categorization (indexed array)                                                                                                                                                                                         | 17 tags          |
+| `certification-seasons.json`   | Season year of each certification list, keyed by certification (`{ "blue-flag": 2026, "q-quality": 2024 }`). Written by `scripts/add-certifications.js`; not migrated to the DB — the site bundles it at build time                   | 2 entries        |
+| `zones.json`                   | Hand-curated beach zones (see [Zones](#zones)): the zone list, the mapping of every ITREM locality label, manual assignments with a reason, and `unresolved` beaches with a reason. Bundled by `src/lib/zones.ts` for names and order | 30 zones         |
+| `municipality-facts.json`      | Official facts per municipality, keyed by INE code (see [Municipality facts](#municipality-facts)). Bundled by `src/lib/municipality-facts.ts` at build time; not migrated to the DB                                                  | 3 blocks         |
+| `source/itrem-localities.json` | Raw ITREM locality labels per beach code, fetched on 2026-11-06 by `scripts/assign-zones.ts --fetch`. Evidence for `zone`; not migrated, not bundled                                                                                  | 193 codes        |
 
 ## Data Sources
 
@@ -36,60 +37,65 @@ Data is aggregated from multiple official sources:
 ```typescript
 interface Beach {
   // Required - Basic
-  code: string              // Unique beach identifier
-  name: string              // Beach name (Spanish)
-  municipality: number      // Index into municipalities.json
-  sea: number               // Index into seas.json (0=Mediterráneo, 1=Mar Menor)
-  coordinates: [number, number]  // [latitude, longitude]
+  code: string // Unique beach identifier
+  name: string // Beach name (Spanish)
+  municipality: number // Index into municipalities.json
+  sea: number // Index into seas.json (0=Mediterráneo, 1=Mar Menor)
+  coordinates: [number, number] // [latitude, longitude]
 
   // Required - Characteristics
-  soilType: string          // Sand/rock type description
-  nudist: boolean           // Nudist beach
-  promenade: boolean        // Has seafront promenade
-  anchorageZone: boolean    // Boat anchoring allowed
-  dogFriendly: boolean      // Officially allows dogs
-  lifeguard: boolean        // Has lifeguard service (COPLA) in summer
-  services: number[]        // Indices into services.json
-  activities: number[]      // Indices into activities.json
+  soilType: string // Sand/rock type description
+  nudist: boolean // Nudist beach
+  promenade: boolean // Has seafront promenade
+  anchorageZone: boolean // Boat anchoring allowed
+  dogFriendly: boolean // Officially allows dogs
+  lifeguard: boolean // Has lifeguard service (COPLA) in summer
+  services: number[] // Indices into services.json
+  activities: number[] // Indices into activities.json
 
   // Required - Content
-  description: string       // Hand-edited tourist description, markdown subset (see below)
-  access: string            // Hand-edited directions, same markdown subset as description
-  nearby: string[]          // Nearby beach codes, closest first
-  orientation: string       // Cardinal direction (east, southeast, etc.)
-  shoreBearing: number      // Integer 0-359, compass degrees the beach faces seaward (see Shore Bearing in business-rules.md)
-  instagramHashtag: string  // Instagram hashtag for the beach
+  description: string // Hand-edited tourist description, markdown subset (see below)
+  access: string // Hand-edited directions, same markdown subset as description
+  nearby: string[] // Nearby beach codes, closest first
+  orientation: string // Cardinal direction (east, southeast, etc.)
+  shoreBearing: number // Integer 0-359, compass degrees the beach faces seaward (see Shore Bearing in business-rules.md)
+  instagramHashtag: string // Instagram hashtag for the beach
 
   // Optional
-  occupancyLevel?: "low" | "medium" | "high"  // Typical crowd level
-  campingNearby?: boolean        // Camping within 3km
-  metaDescription?: string       // Generated and no longer rendered; pages use getBeachSummary(description)
-  seoKeywords?: string[]         // SEO keywords (5-10 items)
-  certifications?: ("blue-flag" | "q-quality" | "ecoplayas")[]  // Official certifications; season year per list in certification-seasons.json
-  bestSeason?: ("spring" | "summer" | "autumn" | "winter")[]  // Best visiting seasons
-  district?: string         // District within municipality
-  zone?: string             // Zone id from zones.json (e.g. "la-manga"); absent only for beaches in zones.json `unresolved`
-  phone?: string            // Emergency contact
-  email?: string            // Contact email
-  realUrl?: string          // Official website URL
-  waves?: string            // Wave conditions (MODERADO, etc.)
-  pictures?: string[]       // Image filenames; pictures[0] is the hand-picked cover
-  pictureQualityScore?: 0 | 1 | 2 | 3  // Derived from `pictures` + `public/pictures` files (see `pnpm score:picture-quality`)
-  aemetId?: string          // AEMET beach code for weather API
-  length?: number           // Beach length in meters (from OSM)
-  accessDifficulty?: "easy" | "moderate" | "hard"  // How difficult to reach (~61% easy, ~22% moderate, ~17% hard)
-  childSafe?: boolean       // Safe for young children (~38% true)
-  naturalShade?: boolean    // Has natural shade from cliffs/trees (~29% true)
-  waterQuality?: "excellent" | "good" | "sufficient" | "poor"  // Official EU bathing-water class (Directive 2006/7/EC); absent when no sampling point matches
-  waterQualitySource?: {    // Set exactly when waterQuality is set (pnpm tsx scripts/add-bathing-water-quality.ts)
-    season: number          // Bathing season the class belongs to (e.g. 2025)
+  occupancyLevel?: 'low' | 'medium' | 'high' // Typical crowd level
+  campingNearby?: boolean // Camping within 3km
+  metaDescription?: string // Generated and no longer rendered; pages use getBeachSummary(description)
+  seoKeywords?: string[] // SEO keywords (5-10 items)
+  certifications?: ('blue-flag' | 'q-quality' | 'ecoplayas')[] // Official certifications; season year per list in certification-seasons.json
+  bestSeason?: ('spring' | 'summer' | 'autumn' | 'winter')[] // Best visiting seasons
+  district?: string // District within municipality
+  zone?: string // Zone id from zones.json (e.g. "la-manga"); absent only for beaches in zones.json `unresolved`
+  phone?: string // Emergency contact
+  email?: string // Contact email
+  realUrl?: string // Official website URL
+  waves?: string // Wave conditions (MODERADO, etc.)
+  pictures?: string[] // Image filenames; pictures[0] is the hand-picked cover
+  pictureQualityScore?: 0 | 1 | 2 | 3 // Derived from `pictures` + `public/pictures` files (see `pnpm score:picture-quality`)
+  aemetId?: string // AEMET beach code for weather API
+  length?: number // Beach length in meters (from OSM)
+  accessDifficulty?: 'easy' | 'moderate' | 'hard' // How difficult to reach (~61% easy, ~22% moderate, ~17% hard)
+  childSafe?: boolean // Safe for young children (~38% true)
+  naturalShade?: boolean // Has natural shade from cliffs/trees (~29% true)
+  waterQuality?: 'excellent' | 'good' | 'sufficient' | 'poor' // Official EU bathing-water class (Directive 2006/7/EC); absent when no sampling point matches
+  waterQualitySource?: {
+    // Set exactly when waterQuality is set (pnpm tsx scripts/add-bathing-water-quality.ts)
+    season: number // Bathing season the class belongs to (e.g. 2025)
     samplingPointId: string // EEA bathingWaterIdentifier, always "ES620…" (Región de Murcia)
     samplingPointName: string
-    distanceMeters: number  // Integer, beach coordinates to sampling point, at most 500
-    profileUrl?: string     // NÁYADE bathing-water profile (https), cited on the beach page
+    distanceMeters: number // Integer, beach coordinates to sampling point, at most 500
+    profileUrl?: string // NÁYADE bathing-water profile (https), cited on the beach page
   }
-  translations?: { en: { description: string }, fr: { description: string }, de: { description: string } }
-  tags?: number[]           // Indices into tags.json
+  translations?: {
+    en: { description: string }
+    fr: { description: string }
+    de: { description: string }
+  }
+  tags?: number[] // Indices into tags.json
 }
 ```
 
@@ -97,9 +103,9 @@ interface Beach {
 
 ```typescript
 interface Activity {
-  id: string    // Unique identifier (e.g., "swimming")
-  name: string  // Spanish display name (e.g., "Natación")
-  icon: string  // Icon identifier for UI
+  id: string // Unique identifier (e.g., "swimming")
+  name: string // Spanish display name (e.g., "Natación")
+  icon: string // Icon identifier for UI
 }
 ```
 
@@ -107,9 +113,9 @@ interface Activity {
 
 ```typescript
 interface Service {
-  id: string    // Unique identifier (e.g., "parking")
-  name: string  // Spanish display name (e.g., "Parking")
-  icon: string  // Icon identifier for UI
+  id: string // Unique identifier (e.g., "parking")
+  name: string // Spanish display name (e.g., "Parking")
+  icon: string // Icon identifier for UI
 }
 ```
 
@@ -117,8 +123,8 @@ interface Service {
 
 ```typescript
 interface Tag {
-  id: string    // Unique identifier (e.g., "familiar")
-  name: string  // Spanish display name (e.g., "Familiar")
+  id: string // Unique identifier (e.g., "familiar")
+  name: string // Spanish display name (e.g., "Familiar")
 }
 ```
 
@@ -126,8 +132,8 @@ interface Tag {
 
 ```typescript
 interface Municipality {
-  name: string  // Municipality name (Spanish)
-  id: string    // 5-digit INE code (starts with "30")
+  name: string // Municipality name (Spanish)
+  id: string // 5-digit INE code (starts with "30")
 }
 ```
 
@@ -135,10 +141,44 @@ interface Municipality {
 
 ```typescript
 interface Sea {
-  name: string         // Sea name (Spanish)
-  jellyfishRisk: string  // Risk level: "low" | "moderate"
+  name: string // Sea name (Spanish)
+  jellyfishRisk: string // Risk level: "low" | "moderate"
 }
 ```
+
+### Municipality facts
+
+`data/municipality-facts.json` has three blocks. Each `values` map is keyed by the 5-digit INE code from `municipalities.json`. A municipality without a key shows nothing for that block (no estimate).
+
+```typescript
+{
+  population: {
+    source: string
+    sourceUrl: string
+    year: number
+    values: Record<string, number>
+  }
+  appraisedValue: {
+    source: string
+    sourceUrl: string
+    quarter: string
+    regionalAverage: number
+    values: Record<string, number>
+  } // €/m²
+  touristOffices: {
+    source: string
+    verifiedOn: string
+    values: Record<
+      string,
+      { name: string; address: string; phone: string; url: string }[]
+    >
+  }
+}
+```
+
+- **Population**: INE table 2883, 1 January 2025, all 8 municipalities. API: `https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/2883?tip=AM&nult=1` (series "<Municipality>. Total. Total habitantes. Personas.").
+- **Appraised value**: mean appraised value of free-market housing ("Total vivienda libre" block only, not "up to 5 years old"), Ministry of Transport, published by CREM (`sec71.pdf`), Q2 2026. Only Águilas, Cartagena, Lorca, Mazarrón and San Javier appear in the table; San Pedro del Pinatar, La Unión and Los Alcázares have no figure. It is municipality-wide, so Lorca's value mostly reflects inland housing. It is not a median or a sale price, and the page says so. Notarial (Penotariado) data is excluded: no documented API or reuse terms.
+- **Tourist offices**: the CARM open dataset `OficinasdeTurismo.json` (22 entries for our municipalities, last updated Feb 2024) was only a lead. On 2026-11-07 each office was re-checked on the municipality's own site and the file stores the current values. The dataset was stale for Lorca (moved to Palacio de Guevara), Mazarrón (new phone), La Unión (now at the Museo Minero) and San Javier (Plaza de España). Cartagena and San Pedro del Pinatar show no office until their official pages are readable; the Águilas information points (Calabardina, La Colonia, Las Delicias) and the La Manga points are not listed for the same reason.
 
 ### Zones
 
@@ -173,32 +213,32 @@ The database (Turso/libSQL via Drizzle ORM) mirrors the JSON data with proper re
 
 ### Entity Tables
 
-| Table | PK | Key Columns | Notes |
-|-------|----|-------------|-------|
-| `municipalities` | `id` (int) | `name`, `ine_code` | 8 rows |
-| `seas` | `id` (int) | `name`, `jellyfish_risk` | 2 rows |
-| `services` | `id` (int) | `service_id` (unique), `name`, `icon` | 9 rows |
-| `activities` | `id` (int) | `activity_id` (unique), `name`, `icon` | 10 rows |
-| `tags` | `id` (int) | `tag_id` (unique), `name` | 17 rows |
-| `beaches` | `id` (auto) | `code` (unique), `name`, FK `municipality_id`, FK `sea_id`, `picture_quality_score` (nullable int), `zone` (nullable text, zone id) | 193 rows |
+| Table            | PK          | Key Columns                                                                                                                         | Notes    |
+| ---------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `municipalities` | `id` (int)  | `name`, `ine_code`                                                                                                                  | 8 rows   |
+| `seas`           | `id` (int)  | `name`, `jellyfish_risk`                                                                                                            | 2 rows   |
+| `services`       | `id` (int)  | `service_id` (unique), `name`, `icon`                                                                                               | 9 rows   |
+| `activities`     | `id` (int)  | `activity_id` (unique), `name`, `icon`                                                                                              | 10 rows  |
+| `tags`           | `id` (int)  | `tag_id` (unique), `name`                                                                                                           | 17 rows  |
+| `beaches`        | `id` (auto) | `code` (unique), `name`, FK `municipality_id`, FK `sea_id`, `picture_quality_score` (nullable int), `zone` (nullable text, zone id) | 193 rows |
 
 ### Junction Tables
 
-| Table | FKs | Notes |
-|-------|-----|-------|
-| `beach_services` | `beach_id` → beaches, `service_id` → services | Cascade delete on beach |
+| Table              | FKs                                              | Notes                   |
+| ------------------ | ------------------------------------------------ | ----------------------- |
+| `beach_services`   | `beach_id` → beaches, `service_id` → services    | Cascade delete on beach |
 | `beach_activities` | `beach_id` → beaches, `activity_id` → activities | Cascade delete on beach |
-| `beach_tags` | `beach_id` → beaches, `tag_id` → tags | Cascade delete on beach |
+| `beach_tags`       | `beach_id` → beaches, `tag_id` → tags            | Cascade delete on beach |
 
 ### Key Differences from JSON
 
-| Aspect | JSON | Database |
-|--------|------|----------|
-| References | Array indices (e.g., `municipality: 3`) | Foreign keys (`municipality_id`) |
-| Many-to-many | Integer arrays (e.g., `services: [0, 2, 5]`) | Junction tables |
-| Array fields | Native arrays | JSON TEXT columns (`nearby`, `seoKeywords`, `certifications`, `bestSeason`, `pictures`) |
-| Object fields | Native objects | JSON TEXT column `water_quality_source` (`waterQualitySource`) |
-| Coordinates | `[lat, lng]` tuple | Separate `latitude`/`longitude` REAL columns |
+| Aspect        | JSON                                         | Database                                                                                |
+| ------------- | -------------------------------------------- | --------------------------------------------------------------------------------------- |
+| References    | Array indices (e.g., `municipality: 3`)      | Foreign keys (`municipality_id`)                                                        |
+| Many-to-many  | Integer arrays (e.g., `services: [0, 2, 5]`) | Junction tables                                                                         |
+| Array fields  | Native arrays                                | JSON TEXT columns (`nearby`, `seoKeywords`, `certifications`, `bestSeason`, `pictures`) |
+| Object fields | Native objects                               | JSON TEXT column `water_quality_source` (`waterQualitySource`)                          |
+| Coordinates   | `[lat, lng]` tuple                           | Separate `latitude`/`longitude` REAL columns                                            |
 
 ## JSON Relationships
 
@@ -267,20 +307,20 @@ beaches ──< beach_tags >── tags
 
 ### Codes
 
-| Field | Format | Example |
-|-------|--------|---------|
-| `code` | Unique string | `"575"` |
-| `aemetId` | 7-digit, starts with "30" | `"3001610"` |
-| Municipality ID | 5-digit INE, starts with "30" | `"30016"` |
+| Field           | Format                        | Example     |
+| --------------- | ----------------------------- | ----------- |
+| `code`          | Unique string                 | `"575"`     |
+| `aemetId`       | 7-digit, starts with "30"     | `"3001610"` |
+| Municipality ID | 5-digit INE, starts with "30" | `"30016"`   |
 
 ### Text Fields
 
-| Field | Language | Constraints |
-|-------|----------|-------------|
-| `name` | Spanish | May include "Cala", "Playa" prefix |
-| `description` | Spanish | 2-3 sentences plus optional tip. Markdown subset: paragraphs separated by a blank line, `**bold**`, and a final `**Consejo:**` paragraph rendered as a callout. Every `**` must be paired (checked by `validate-beaches.js`) |
-| `access` | Spanish | Directions only (see `docs/business-rules.md`). Same markdown subset as `description`, plus `- ` bullet lists and `[text](https://…)` links. Links must use https, and `* ` bullets or `#` headings are rejected (both checked by `validate-beaches.js`) |
-| `soilType` | Spanish | Descriptive, one of 25 canonical values. Sand follows `Arena <grain>[ y <colour or mix>]` with the grain first (`Arena fina y blanca`, never `Arena blanca y fina`); other materials are `Bolos`, `Grava`, `Roca`, `Piedras y roca`, their mixes, or `Sin determinar` |
+| Field         | Language | Constraints                                                                                                                                                                                                                                                           |
+| ------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`        | Spanish  | May include "Cala", "Playa" prefix                                                                                                                                                                                                                                    |
+| `description` | Spanish  | 2-3 sentences plus optional tip. Markdown subset: paragraphs separated by a blank line, `**bold**`, and a final `**Consejo:**` paragraph rendered as a callout. Every `**` must be paired (checked by `validate-beaches.js`)                                          |
+| `access`      | Spanish  | Directions only (see `docs/business-rules.md`). Same markdown subset as `description`, plus `- ` bullet lists and `[text](https://…)` links. Links must use https, and `* ` bullets or `#` headings are rejected (both checked by `validate-beaches.js`)              |
+| `soilType`    | Spanish  | Descriptive, one of 25 canonical values. Sand follows `Arena <grain>[ y <colour or mix>]` with the grain first (`Arena fina y blanca`, never `Arena blanca y fina`); other materials are `Bolos`, `Grava`, `Roca`, `Piedras y roca`, their mixes, or `Sin determinar` |
 
 ### References
 

@@ -21,6 +21,7 @@ import { Pagination } from '@/features/listing/pagination'
 import { ResultsSummary } from '@/features/listing/results-summary'
 import { SortSelect } from '@/features/listing/sort-select'
 import { ZoneSections } from '@/features/listing/zone-sections'
+import { MunicipalityFactsPanel } from '@/features/municipalities/municipality-facts-panel'
 import { filterBeaches, sortBeaches } from '@/lib/beach-filters'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
 import { validateMunicipalitySearch } from '@/lib/explorer-search'
@@ -234,6 +235,10 @@ function MunicipalityPage() {
 
       {/* Beach grid */}
       <div className="mx-auto max-w-7xl px-4 pt-8 pb-16 sm:px-6 sm:pt-12 sm:pb-20 lg:px-8">
+        <MunicipalityFactsPanel
+          ineCode={municipality.id}
+          name={municipality.name}
+        />
         {beaches.length > 0 ? (
           <>
             <ChipFilterBar filters={filters} onChange={handleFiltersChange} />
