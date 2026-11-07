@@ -4,9 +4,14 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { Navbar } from './navbar'
 
 const useRouterState = vi.hoisted(() => vi.fn())
+const navigate = vi.hoisted(() => vi.fn())
+const routerLocation = vi.hoisted(() => ({ pathname: '/' }))
 
 vi.mock('@tanstack/react-router', () => ({
   useRouterState,
+  useNavigate: () => navigate,
+  // Like the real Link, marks an exact path match current after the caller's
+  // props and ignores the hash
   Link: ({
     children,
     to,
@@ -19,11 +24,15 @@ vi.mock('@tanstack/react-router', () => ({
     params?: unknown
     activeOptions?: unknown
     hash?: string
-  }) => (
-    <a href={to} {...props}>
-      {children}
-    </a>
-  ),
+  }) => {
+    const current =
+      routerLocation.pathname === to ? 'page' : props['aria-current']
+    return (
+      <a href={to} {...props} aria-current={current}>
+        {children}
+      </a>
+    )
+  },
 }))
 
 const navData = {
@@ -48,6 +57,7 @@ const getMenu = () => {
 }
 
 const renderNavbar = (pathname = '/') => {
+  routerLocation.pathname = pathname
   useRouterState.mockImplementation(
     ({
       select,
@@ -73,6 +83,7 @@ describe('Navbar', () => {
 
   afterEach(() => {
     vi.unstubAllGlobals()
+    navigate.mockReset()
   })
 
   it('names the primary navigation inside a banner', () => {
@@ -90,6 +101,19 @@ describe('Navbar', () => {
   ])('marks the section of %s as current', (pathname, label, current) => {
     renderNavbar(pathname)
     expect(screen.getByRole('link', { name: label }).ariaCurrent).toBe(current)
+  })
+
+  it('exposes a single current item on the explorer', () => {
+    renderNavbar('/explorar')
+    const current = screen
+      .getByRole('banner')
+      .querySelectorAll('[aria-current]')
+    expect([...current].map((el) => el.textContent)).toEqual([
+      'Todas las playas',
+    ])
+    expect(
+      screen.getByRole('link', { name: 'Buscar playas' }).ariaCurrent,
+    ).toBeNull()
   })
 
   it('names the collections trigger and marks it inside its section', () => {
@@ -230,12 +254,23 @@ describe('Navbar', () => {
       expect(document.activeElement).toBe(input)
     })
 
-    it('navigates normally from any other page', () => {
+    it('navigates through the router from any other page', () => {
       renderNavbar('/municipios')
       const notPrevented = fireEvent.click(
         screen.getByRole('link', { name: 'Buscar playas' }),
       )
+      expect(notPrevented).toBe(false)
+      expect(navigate).toHaveBeenCalledWith({ to: '/explorar', hash: 'buscar' })
+    })
+
+    it('leaves modified clicks to the browser', () => {
+      renderNavbar('/municipios')
+      const notPrevented = fireEvent.click(
+        screen.getByRole('link', { name: 'Buscar playas' }),
+        { metaKey: true },
+      )
       expect(notPrevented).toBe(true)
+      expect(navigate).not.toHaveBeenCalled()
     })
   })
 

@@ -1,5 +1,7 @@
+import type { MouseEvent } from 'react'
+
 import { Popover } from '@base-ui/react/popover'
-import { Link, useRouterState } from '@tanstack/react-router'
+import { Link, useNavigate, useRouterState } from '@tanstack/react-router'
 import { useEffect, useRef, useState } from 'react'
 import { flushSync } from 'react-dom'
 
@@ -26,6 +28,14 @@ const currentValue = (pathname: string, to: string) =>
   pathname === to ? 'page' : 'true'
 
 const SM_BREAKPOINT_QUERY = '(min-width: 640px)'
+
+// Modified or non-primary clicks (new tab, middle button) belong to the browser
+const isPlainClick = (event: MouseEvent) =>
+  event.button === 0 &&
+  !event.metaKey &&
+  !event.ctrlKey &&
+  !event.shiftKey &&
+  !event.altKey
 
 // Read as "43 playas" / "1 playa"; the pill still shows the bare number
 const beachCountUnit = (count: number) => (count === 1 ? ' playa' : ' playas')
@@ -195,6 +205,7 @@ export function Navbar({ navData }: { navData: NavData }) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
   const pathname = useRouterState({ select: (s) => s.location.pathname })
+  const navigate = useNavigate()
   const closeMenu = () => {
     setMobileOpen(false)
   }
@@ -272,20 +283,25 @@ export function Navbar({ navData }: { navData: NavData }) {
             })}
             <NavDropdown label="Colecciones" navData={navData} />
           </div>
-          <Link
+          {/* A plain anchor, not a router Link: the router would mark it current
+              on /explorar next to "Todas las playas", and ignores the hash */}
+          <a
             aria-label="Buscar playas"
             className="ml-auto flex h-11 w-11 items-center justify-center rounded-md text-ocean-300 transition-colors hover:text-white focus-visible:text-white focus-visible:ring-2 focus-visible:ring-ocean-400 focus-visible:outline-none sm:ml-5 sm:h-auto sm:w-auto sm:p-1"
-            hash="buscar"
-            to="/explorar"
+            href="/explorar#buscar"
             onClick={(event) => {
+              if (!isPlainClick(event)) return
+              event.preventDefault()
               // The explorer stays inert until the menu has closed, and deferring
               // the focus past this tap would lose the phone keyboard
               // eslint-disable-next-line @eslint-react/dom-no-flush-sync
               flushSync(closeMenu)
-              if (pathname !== '/explorar') return
+              if (pathname !== '/explorar') {
+                void navigate({ to: '/explorar', hash: 'buscar' })
+                return
+              }
               // An unchanged location never runs route focus, and navigating
               // anyway cancels the smooth scroll to the input
-              event.preventDefault()
               const input = document.getElementById('buscar')
               input?.scrollIntoView({ block: 'center' })
               input?.focus({ preventScroll: true })
@@ -305,7 +321,7 @@ export function Navbar({ navData }: { navData: NavData }) {
                 strokeWidth={2}
               />
             </svg>
-          </Link>
+          </a>
           <button
             ref={menuButtonRef}
             aria-controls="mobile-menu"
