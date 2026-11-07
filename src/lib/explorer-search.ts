@@ -54,8 +54,11 @@ function parseSort(value: unknown): BeachSearchParams['sort'] {
     : undefined
 }
 
+/** Floor before the range check: `0.5` must not survive as page 0 */
 function parsePage(value: unknown): number | undefined {
-  return typeof value === 'number' && value > 0 ? Math.floor(value) : undefined
+  if (typeof value !== 'number') return undefined
+  const page = Math.floor(value)
+  return Number.isInteger(page) && page >= 1 ? page : undefined
 }
 
 function parseNeedFilters(search: Record<string, unknown>) {

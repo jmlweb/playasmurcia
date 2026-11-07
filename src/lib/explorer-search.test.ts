@@ -75,6 +75,30 @@ describe('validateSearch id filters', () => {
   })
 })
 
+describe('validateSearch page', () => {
+  it('keeps whole pages from 1 and floors fractions', () => {
+    expect(validateSearch({ page: 1 }).page).toBe(1)
+    expect(validateSearch({ page: 3 }).page).toBe(3)
+    expect(validateSearch({ page: 2.7 }).page).toBe(2)
+  })
+
+  it('drops pages that floor below 1', () => {
+    expect(validateSearch({ page: 0.5 }).page).toBeUndefined()
+    expect(validateSearch({ page: 0 }).page).toBeUndefined()
+    expect(validateSearch({ page: -2 }).page).toBeUndefined()
+    expect(validateListingSearch({ page: 0.5 }).page).toBeUndefined()
+    expect(validateMunicipalitySearch({ page: 0 }).page).toBeUndefined()
+  })
+
+  it('drops non-finite and non-numeric pages', () => {
+    expect(validateSearch({ page: Number.NaN }).page).toBeUndefined()
+    expect(
+      validateSearch({ page: Number.POSITIVE_INFINITY }).page,
+    ).toBeUndefined()
+    expect(validateSearch({ page: '2' }).page).toBeUndefined()
+  })
+})
+
 describe('validateSearch view', () => {
   it('keeps the map view and drops anything else', () => {
     expect(validateSearch({ view: 'map' }).view).toBe('map')
