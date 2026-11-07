@@ -19,7 +19,7 @@ export function Breadcrumb({
     <nav
       aria-label="Ruta de navegación"
       className={
-        isOnPhoto ? 'mb-4 text-sm text-white/80' : 'mb-8 text-sm text-gray-500'
+        isOnPhoto ? 'mb-4 text-sm text-white' : 'mb-8 text-sm text-gray-500'
       }
     >
       {items.map((item, i) => (
@@ -33,7 +33,7 @@ export function Breadcrumb({
             <Link
               className={
                 isOnPhoto
-                  ? 'transition-colors hover:text-white focus-visible:text-white focus-visible:underline focus-visible:outline-none'
+                  ? 'hover:underline focus-visible:underline focus-visible:outline-none'
                   : 'transition-colors hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:underline focus-visible:outline-none'
               }
               to={item.href}

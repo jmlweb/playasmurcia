@@ -156,7 +156,7 @@ export function LocationMap({
           />
         )}
         <div className="flex items-center justify-between border-t border-gray-100 px-4 py-3">
-          <p className="text-xs text-gray-500">
+          <p className="text-[13px] text-gray-600">
             {lat.toFixed(5)}, {lng.toFixed(5)}
           </p>
           <a

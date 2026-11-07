@@ -24,7 +24,7 @@ export function MunicipalitiesSection({
             <p className="overline-accent mb-2 text-sm font-semibold tracking-wider text-ocean-600 uppercase">
               Explora por zona
             </p>
-            <h2 className="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-normal tracking-tight text-gray-900 sm:text-4xl">
               Municipios costeros
             </h2>
           </div>

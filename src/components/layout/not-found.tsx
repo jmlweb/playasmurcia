@@ -8,7 +8,7 @@ export function NotFound() {
   return (
     <main className="flex min-h-[60vh] flex-col items-center justify-center bg-sand-50 px-4 py-16 text-center">
       <p className="mb-3 text-7xl font-normal text-ocean-700">404</p>
-      <h1 className="mb-2 text-2xl font-semibold text-gray-900">
+      <h1 className="mb-2 text-2xl font-normal text-gray-900">
         Página no encontrada
       </h1>
       <p className="mb-6 text-gray-500">

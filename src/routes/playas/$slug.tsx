@@ -93,7 +93,7 @@ function BeachErrorComponent({ reset }: ErrorComponentProps) {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-sand-50 px-4 text-center">
       <p className="mb-3 text-7xl font-extrabold text-ocean-200">!</p>
-      <h1 className="mb-2 text-2xl font-semibold text-gray-900">
+      <h1 className="mb-2 text-2xl font-normal text-gray-900">
         No pudimos cargar esta playa
       </h1>
       <p className="mb-8 text-gray-500">
@@ -264,7 +264,11 @@ function BeachPage() {
 
             {pictures.length > 1 && (
               <div>
-                <BeachGallery beachName={beach.name} pictures={pictures} />
+                <BeachGallery
+                  beachName={beach.name}
+                  municipalityName={municipality.name}
+                  pictures={pictures}
+                />
               </div>
             )}
 
@@ -313,14 +317,17 @@ function BeachPage() {
 
 function BeachGallery({
   beachName,
+  municipalityName,
   pictures,
 }: {
   beachName: string
+  municipalityName: string
   pictures: string[]
 }) {
+  // Pictures carry no caption, so the alt names the place and the position
   const parsedPictures = pictures.map((p, i) => ({
     ...parseImageFilename(p),
-    alt: `${beachName}, foto ${i + 1} de ${pictures.length}`,
+    alt: `${beachName}, ${municipalityName}: fotografía ${i + 1} de ${pictures.length}`,
   }))
 
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
