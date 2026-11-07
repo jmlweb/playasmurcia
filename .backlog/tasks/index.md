@@ -4,7 +4,7 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 23 |
+| Pending | 26 |
 | Active | 0 |
 | Blocked | 0 |
 | Complete | 155 |
@@ -40,6 +40,9 @@ _No active tasks._
 | TSK-178 | Measure explorer filter latency on a production build | P4 | performance, explorer | 2026-11-07 |
 | TSK-180 | Fix: Shared flagGreen URL loses the filter before flags settle | P4 | bug, explorer | 2026-11-07 |
 | TSK-181 | Fix: 54 beaches carry a stale pictureQualityScore | P4 | data, images, cleanup | 2026-11-07 |
+| TSK-182 | Fix: Align hero and gallery alt text formats | P4 | ui, accessibility | 2026-11-07 |
+| TSK-183 | Fix: Guard parseOpenMeteoDate against invalid dates | P4 | bug, weather | 2026-11-07 |
+| TSK-184 | Content: Replace weak low-score covers that show no beach | P4 | images, content | 2026-11-07 |
 
 ## Recently Completed
 
