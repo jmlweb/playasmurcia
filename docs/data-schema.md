@@ -8,7 +8,7 @@ This document describes the data structure for beaches in the Region of Murcia, 
 
 | File | Description | Count |
 |------|-------------|-------|
-| `beaches.json` | Main dataset with all beach information | 194 beaches |
+| `beaches.json` | Main dataset with all beach information | 193 beaches |
 | `municipalities.json` | Coastal municipalities with INE codes | 8 municipalities |
 | `seas.json` | Sea names (indexed array) | 2 seas |
 | `activities.json` | Beach activities (indexed array) | 10 activities |
@@ -180,7 +180,7 @@ The database (Turso/libSQL via Drizzle ORM) mirrors the JSON data with proper re
 | `services` | `id` (int) | `service_id` (unique), `name`, `icon` | 9 rows |
 | `activities` | `id` (int) | `activity_id` (unique), `name`, `icon` | 10 rows |
 | `tags` | `id` (int) | `tag_id` (unique), `name` | 17 rows |
-| `beaches` | `id` (auto) | `code` (unique), `name`, FK `municipality_id`, FK `sea_id`, `picture_quality_score` (nullable int), `zone` (nullable text, zone id) | 194 rows |
+| `beaches` | `id` (auto) | `code` (unique), `name`, FK `municipality_id`, FK `sea_id`, `picture_quality_score` (nullable int), `zone` (nullable text, zone id) | 193 rows |
 
 ### Junction Tables
 
@@ -280,7 +280,7 @@ beaches ──< beach_tags >── tags
 | `name` | Spanish | May include "Cala", "Playa" prefix |
 | `description` | Spanish | 2-3 sentences plus optional tip. Markdown subset: paragraphs separated by a blank line, `**bold**`, and a final `**Consejo:**` paragraph rendered as a callout. Every `**` must be paired (checked by `validate-beaches.js`) |
 | `access` | Spanish | Directions only (see `docs/business-rules.md`). Same markdown subset as `description`, plus `- ` bullet lists and `[text](https://…)` links. Links must use https, and `* ` bullets or `#` headings are rejected (both checked by `validate-beaches.js`) |
-| `soilType` | Spanish | Descriptive (e.g., "Arena fina y dorada") |
+| `soilType` | Spanish | Descriptive, one of 25 canonical values. Sand follows `Arena <grain>[ y <colour or mix>]` with the grain first (`Arena fina y blanca`, never `Arena blanca y fina`); other materials are `Bolos`, `Grava`, `Roca`, `Piedras y roca`, their mixes, or `Sin determinar` |
 
 ### References
 
