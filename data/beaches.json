@@ -490,7 +490,7 @@
         "description": "Cala Blanca in Lorca ist ein kleines, verstecktes Paradies mit grobem Sand, Kies und Felsen direkt am erfrischenden Mittelmeer. Genießen Sie die natürliche Umgebung, ideal zum Entspannen und Sonnenbaden. Obwohl es keine Annehmlichkeiten wie einen Promenade oder einen Anlegesteg gibt, bietet es eine ruhige Oase für alle, die einen authentischen Strand in der Region Murcia suchen."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 3,
     "shoreBearing": 124
   },
   {
@@ -795,7 +795,7 @@
         "description": "Cala Cerrada in Cartagena bietet Ihnen eine ruhige, sandige Bucht in Grau und Weiß am Mittelmeer. Genießen Sie eine entspannte Atmosphäre in dieser Bucht, ideal für einen sonnigen Tag und ein erfrischendes Bad. Obwohl es keinen Hafen oder Liegeplatz gibt, macht seine natürliche Schönheit es zu einem perfekten Ort zum Abschalten."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
@@ -909,7 +909,7 @@
         "description": "Cala Cortina in Cartagena ist ein Paradies aus grobem Sand und kristallklarem Wasser des Mittelmeers. Dieser Strand, der mit der Blaue Flagge ausgezeichnet ist, bietet eine familienfreundliche und leicht erreichbare Umgebung, ideal zum Sonnenbaden und Schwimmen. Dank seiner Zugänglichkeit und Sicherheit ist er eine perfekte Option für Familien und Besucher, die Ruhe und Qualität bei ihrem Strandurlaub suchen."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
@@ -1037,7 +1037,7 @@
         "description": "La Cala de Calnegre in Lorca ist ein Paradies aus feinem, goldenem Sand im Herzen des Mittelmeers. Mit ihrer Blaue Flagge garantiert sie klares, sicheres Wasser zum Baden. Darüber hinaus ist die Bucht leicht erreichbar und bietet alle notwendigen Einrichtungen für einen komfortablen und entspannten Aufenthalt."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "shoreBearing": 166,
     "waterQualitySource": {
       "season": 2025,
@@ -1147,7 +1147,7 @@
         "description": "La Cala de La Gruta in Lorca erwartet Sie mit ihrem feinen Sand und der erfrischenden Umarmung des Mittelmeers. Genießen Sie diese ruhige Oase, ideal zum Entspannen und um die Küste von Murcia zu erkunden. Obwohl es keinen Hafen oder einen Uferpromenade gibt, bietet sie eine natürliche und entspannte Atmosphäre für einen angenehmen Ausflug."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 3,
     "shoreBearing": 139
   },
   {
@@ -1569,7 +1569,7 @@
         "description": "Cala de los Abejorros in Aguilas ist eine ruhige Sand- und Kiesbucht an der kristallklaren Mittelmeerpromenade. Sie bietet eine wilde und friedliche Naturlandschaft, ideal zum Sonnenbaden und für ein erfrischendes Bad. Obwohl es hier keine nahegelegenen Einrichtungen gibt, ist sie aufgrund ihrer natürlichen Schönheit und entspannten Atmosphäre ein besonderer Ort für alle, die dem Trubel entfliehen möchten."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 3,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
     "shoreBearing": 126
@@ -1883,7 +1883,7 @@
         "description": "Cala del Ciscal in Lorca erwartet Sie mit ihrem feinen, goldenen Sand und lädt dazu ein, das erfrischende Mittelmeer zu genießen. Diese ruhige Bucht bietet eine wunderschöne, natürliche Landschaft, ideal zum Entspannen und Abschalten. Obwohl sie keine Annehmlichkeiten wie einen Uferpromenade oder eine Anlegestelle bietet, macht ihre friedliche Atmosphäre sie zu einem perfekten Ort für einen entspannten Ausflug."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 3,
     "shoreBearing": 193
   },
   {
@@ -1903,7 +1903,9 @@
     "sea": 0,
     "promenade": false,
     "access": "Está a **5 km de la RM-D20**: un camino sin asfaltar llega a la costa y un sendero natural baja hasta la arena.\n\nDesde Lorca, por la autovía RM-11 en dirección a Águilas:\n\n- **Hacia las calas orientales:** toma el desvío RM-332 hacia Ramonete y, en el km 15, la RM-D21.\n- **Hacia las calas occidentales:** sigue hasta Águilas y toma el desvío a Calabardina y Cabo Cope, donde empieza un camino de tierra.",
-    "pictures": [],
+    "pictures": [
+      "wm-geo-567.jpg"
+    ],
     "coordinates": [
       37.496904,
       -1.441985
@@ -1979,7 +1981,7 @@
         "description": "Die Cala del Cuartel del Ciscar in Lorca empfängt Sie mit ihren kristallklaren Gewässern des Mittelmeers und einem schönen, mittleren, weißen Sandstrand, der perfekt zum Sonnenbaden einlädt. Diese ruhige Bucht bietet eine natürliche und entspannende Umgebung, ideal zum Abschalten und Genießen eines Tages am Strand. Obwohl sie keine Annehmlichkeiten wie einen Uferpromenade oder eine Anlegestelle bietet, ist sie aufgrund ihrer Schönheit und Ruhe ein besonderer Ort in der Region Murcia."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 2,
     "shoreBearing": 130
   },
   {
@@ -2191,7 +2193,7 @@
         "description": "La Cala del Pino in Cartagena erwartet Sie mit ihren weichen, goldenen Sanden, die vom Mar Menor stammen. Es ist ein idealer Ort, um ein entspanntes und erholsames Bad zu genießen, der Öffentlichkeit zugänglich. Obwohl es keinen Hafen oder einen Uferweg gibt, macht seine natürliche Schönheit und die einfache Anfahrt es zu einem perfekten Ziel für einen Familienausflug."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
@@ -2803,7 +2805,7 @@
         "description": "Cala Honda in Lorca erwartet Sie mit ihren kristallklaren Mittelmeerwasser und feinem Sand mit Kies, der zum Entspannen einlädt. Genießen Sie eine ruhige, natürliche Landschaft, ideal für einen Tag in der Sonne und zum Baden. Obwohl es keine Annehmlichkeiten wie einen Uferpromenade oder einen Anlegesteg gibt, ist es aufgrund seiner Schönheit und der entspannten Atmosphäre der perfekte Ort, um dem Alltag zu entfliehen."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 3,
     "shoreBearing": 164
   },
   {
@@ -3101,7 +3103,7 @@
         "description": "Cala Leña in Lorca bietet Ihnen eine kleine Schönheitsecke im Mittelmeer. Die kristallklaren Gewässer und der sandige Boden, vermischt mit Kies, laden zu einer erfrischenden Schwimmsession ein. Obwohl es keinen Hafenpromenade gibt und keine Blaue Flagge weht, ist diese Bucht ein ruhiger Ort zum Entspannen und Genießen der Küste von Murcia."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 3,
     "shoreBearing": 141
   },
   {
@@ -3729,7 +3731,7 @@
         "description": "Cala Reona in Cartagena erwartet Sie mit einem traumhaften Strand. Sein feiner, goldener Sand lädt zum Entspannen und Genießen des warmen Mittelmeers ein. Obwohl es keinen Hafen oder Liegeplatz gibt, bietet es eine ruhige und angenehme Umgebung, um einen Tag am Meer an der Küste von Murcia zu verbringen."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
@@ -4451,7 +4453,7 @@
         "description": "Der gelbe Strand in Mazarrón empfängt Sie mit seinem Sand mit Kies und dem warmen Wasser des Mittelmeers. Genießen Sie einen Tag in der Sonne und schwimmen Sie an diesem ruhigen Strand, der ideal für Familien und alle ist, die einen einfachen und natürlichen Ort suchen. Obwohl er keinen Uferpromenade oder Anlegesteg hat, bietet er eine entspannte Umgebung, um die Küste von Murcia zu genießen."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
     "shoreBearing": 130
@@ -4782,7 +4784,7 @@
         "description": "Playa Baño de las Mujeres in Lorca bietet eine ruhige Ecke des Mittelmeers, die sich durch feinen Sand und Kies auszeichnet. Genießen Sie eine entspannende, natürliche Landschaft, ideal zum Abschalten und Sonnenbaden. Obwohl es keinen Uferpromenade und keinen direkten Anlegesteg gibt, bietet ihre Schönheit und Atmosphäre ein einzigartiges Erlebnis in der Region Murcia."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "shoreBearing": 145,
     "waterQualitySource": {
       "season": 2025,
@@ -4901,7 +4903,7 @@
         "description": "Playa Barnuevo in Santiago de la Ribera bietet Ihnen ein Abschnitt feinen, goldenen Sandes im Mar Menor, ideal zum Entspannen und Genießen der Sonne. Mit einfachem Zugang und einem angenehmen Uferweg ist es ein perfekter Ort für Familien und Besucher. Auch wenn sie kein Blauen Flaggen-Siegel hat, macht ihre Zugänglichkeit und familiäre Atmosphäre sie zu einer attraktiven Option in der Region Murcia."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
@@ -5015,7 +5017,7 @@
         "description": "Playa Cabezo de la Pelea in Mazarrón bietet Ihnen eine wilde und authentische Küstenlandschaft. Die kristallklaren Gewässer des Mittelmeers treffen auf feinen Sand und Kies, wodurch eine einzigartige natürliche Umgebung entsteht. Obwohl es keine Annehmlichkeiten wie einen Uferpromenade oder einen Anlegesteg gibt, ist es ein ideales Reiseziel für alle, die Ruhe suchen und die natürliche Schönheit der Küste von Murcia genießen möchten."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 3,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
     "shoreBearing": 133
@@ -5321,7 +5323,7 @@
         "description": "Cala Flores in Cartagena heißt Sie mit ihrem feinen, goldenen Sand willkommen und lädt Sie ein, das erfrischende Mittelmeer zu genießen. Diese ruhige Bucht bietet eine ideale natürliche Umgebung zum Entspannen und Abschalten. Obwohl es keine Annehmlichkeiten wie einen Uferpromenade oder eine Anlegestelle gibt, ist sie aufgrund ihrer natürlichen Schönheit und des klaren Wassers der perfekte Ort für einen entspannten Ausflug."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 3,
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
@@ -6100,7 +6102,7 @@
         "description": "Playa Cueva de Los Lobos in Mazarrón erwartet Sie mit ihrem Sand mit Kiesanteil und dem erfrischenden Mittelmeerwasser. Diese natürliche Bucht, obwohl sie kein Blauer Flaggsymbol hat, bietet eine ruhige und wilde Umgebung, ideal zum Sonnenbaden und Schwimmen. Ihre natürliche Schönheit macht sie zu einem perfekten Ort zum Entspannen und Genießen der marinen Landschaft der Region Murcia."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
     "shoreBearing": 147
@@ -6321,7 +6323,7 @@
         "description": "Der Strand von Bahia in Mazarrón ist ein Paradies aus feinem, goldenem Sand, das von den warmen Gewässern des Mittelmeers umspült wird. Mit seiner Blaue Flagge garantiert er Wasserqualität und die Sicherheit der Badesuchenden. Genießen Sie diesen wunderschönen Ort in der Region Murcia, ideal zum Entspannen und Sonnenbaden."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
     "shoreBearing": 182,
@@ -6441,7 +6443,7 @@
         "description": "Der Strand von Bolnuevo in Mazarrón erwartet Sie mit seinem goldenen, groben Sand, der perfekt ist, um einen Tag in der Sonne im Mittelmeer zu verbringen. Dieser gut erreichbare Strand bietet eine familiäre und ruhige Atmosphäre, ideal zum Entspannen und Genießen des Meeres. Obwohl er keinen Uferpromenade oder Anlegesteg hat, ist seine natürliche Schönheit und der einfache Zugang ein perfekter Ort für einen Tagesausflug ans Meer."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
     "shoreBearing": 190
@@ -6887,7 +6889,7 @@
         "description": "Playa de Calblanque ist ein verstecktes Paradies in Cartagena, in der Region Murcia, mit feinem, goldenem Sand, der zum Entspannen unter der Sonne des Mittelmeers einlädt. Ihre kristallklaren Gewässer und unberührte Naturlandschaften machen sie zu einem idealen Ort, um einen Tag im Sommer in einer ruhigen und wilden Umgebung zu genießen. Obwohl es keine Annehmlichkeiten wie einen Uferweg oder eine Anlegestelle gibt, ist seine natürliche Schönheit unvergleichlich."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
@@ -7357,7 +7359,7 @@
         "description": "Der Strand von El Hornillo in Aguilas bietet eine ruhige Küstenlandschaft mit mittelgrobem Sand, ideal zum Genießen des Mittelmeers. Mit seinen kristallklaren Gewässern ist es ein perfekter Ort zum Entspannen und Verbringen eines Tages am Strand. Obwohl es keine Annehmlichkeiten wie einen Uferpromenade oder eine Anlegestelle gibt, macht seine natürliche Schönheit und seine entspannte Atmosphäre es zu einem angenehmen Ziel für alle, die eine Auszeit am Meer suchen."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
     "shoreBearing": 161,
@@ -8025,7 +8027,7 @@
         "description": "Die Islas Menores in Cartagena erwarten Sie mit ihrem weichen, goldenen Sand und dem warmen Wasser des Mar Menor. Dieser leicht erreichbare Strand, ideal für Familien und Menschen mit eingeschränkter Mobilität, bietet eine ruhige Umgebung zum Sonnenbaden und Entspannen am Meer. Obwohl es keinen Uferpromenade und keine Anlegestelle gibt, ist seine natürliche Schönheit und seine Lage auf den Islas Menores ein perfekter Ort für einen entspannten Ausflug."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
@@ -8140,7 +8142,7 @@
         "description": "Playa de la Azohía – El Cuartel, in Cartagena, ist ein Paradies aus Sand und Kies direkt am Mittelmeer. Mit ihrer Blaue Flagge garantiert sie Wasserqualität und Sicherheit sowie ist die Strand ein barrierefreier Ort für alle. Genießen Sie einen Tag unter der Sonne und am Strand an diesem wunderschönen Strand der Region Murcia, perfekt für Familien und Besucher, die Ruhe und eine saubere Umgebung suchen."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
@@ -8246,7 +8248,7 @@
         "description": "Am Playa La Cañada del Negro in Aguilas erwartet Sie ein atemberaubendes Naturszenario mit schwarzem Kieselstrand und dem erfrischenden Mittelmeer. Es ist ein idealer Ort, um die Ruhe und Schönheit der Küste Murcia zu genießen, obwohl es hier keine Annehmlichkeiten wie einen Promenade oder einen Anlegesteg gibt. Perfekt für alle, die eine unberührte und abgelegene Strandlandschaft suchen."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 3,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
     "shoreBearing": 170,
@@ -8572,7 +8574,7 @@
         "description": "Am Strand Playa de La Cola in Aguilas erwartet Sie eine Küstenlandschaft mit Sand und Kies, gesäumt vom warmen Wasser des Mittelmeers. Es ist ein idealer Ort, um einen sonnigen Tag zu verbringen und sich zu erfrischen. Obwohl es keinen Hafen oder Anlegesteg gibt, lädt die natürliche Schönheit dieser Küste Murcia dazu ein, sich zu entspannen und die Küste Murcia zu genießen."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 3,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
     "shoreBearing": 183,
@@ -8912,7 +8914,7 @@
         "description": "Am Strand Playa de La Ermita in Mazarrón erwartet Sie eine ruhige, sandige Bucht mit hellem, goldenem Sand am Mittelmeer. Genießen Sie einen angenehmen Spaziergang am Strand und eine familiäre Atmosphäre, ideal zum Entspannen und Sonnenbaden. Obwohl der Strand keine Blaue Flagge hat und keine Anlegemöglichkeit bietet, ist er ein perfekter Ort, um einen Tag im Sommer in der Region Murcia zu verbringen."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
     "shoreBearing": 164,
@@ -9701,7 +9703,9 @@
     "sea": 0,
     "promenade": false,
     "access": "Por la **avenida del Puerto**, en dirección al parque regional de las Salinas y Arenales; la playa queda a la derecha del puerto.\n\n- **A pie:** hay un camino peatonal desde la playa de La Mota.\n- **Por la AP-7:** toma la salida 774.\n- **Por la N-332:** desde Cartagena hacia San Pedro del Pinatar.",
-    "pictures": [],
+    "pictures": [
+      "wikimedia-544.jpg"
+    ],
     "coordinates": [
       37.81367,
       -0.75766
@@ -9778,7 +9782,7 @@
         "description": "Playa La Llana, auch bekannt als Playa Punta de Algas in San Pedro del Pinatar, bietet eine ruhige Atmosphäre in der Region Murcia. Ihre feinen, grauen Sandstrände laden zum Entspannen am Mittelmeer ein und bieten eine natürliche, friedliche Landschaft. Obwohl es keine Annehmlichkeiten wie einen Uferpromenade oder eine Anlegestelle gibt, ist es ein ideales Ziel für alle, die einen ruhigen, unberührten Strand suchen."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 2,
     "phone": "968 182 301",
     "email": "turismo@sanpedrodelpinatar.es",
     "realUrl": "https://www.sanpedrodelpinatar.es/concejalias/turismo/lugares-de-interes/playas-de-la-llana/",
@@ -10832,7 +10836,7 @@
         "description": "Playa de las Chapas in Mazarrón erwartet Sie mit ihrem feinen, Kieselstrand und der erfrischenden Umarmung des Mittelmeers. Genießen Sie das kristallklare Wasser und die ruhige, natürliche Umgebung, ideal zum Entspannen und Sonnenbaden. Obwohl es keinen Hafen oder Liegeplätze gibt, bietet sie den perfekten Rückzugsort für alle, die einen ruhigen und familienfreundlichen Strand suchen."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 3,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
     "shoreBearing": 135
@@ -10932,7 +10936,7 @@
         "description": "Playa de las Minas in Mazarrón erwartet Sie mit ihrem feinen, grauen Sand, einer ruhigen und entspannenden Küstenlandschaft direkt am Mittelmeer. Genießen Sie das kristallklare Wasser und die natürliche Schönheit des Murcianischen Beckens, das sie umgibt. Es ist ein idealer Ort zum Flanieren, Sonnenbaden und für einen entspannten Tag am Strand in der Region Murcia."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 3,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
     "shoreBearing": 141,
@@ -11149,7 +11153,7 @@
         "description": "Am Playa de Las Palmeras in Los Alcázares erwartet Sie ein Abschnitt feinen, grauen Sandes am Mar Menor. Der Strand ist gut erreichbar und ideal für Familien und Besucher, die einen ruhigen Ort zum Sonnenbaden und Schwimmen suchen. Obwohl es keinen Uferpromenade oder Anlegesteg gibt, ist die entspannte Atmosphäre und der weiche Sand eine angenehme Option in der Region Murcia."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 575 756",
     "email": "turismo@losalcazares.es",
     "realUrl": "https://turismo.losalcazares.es/playas-2/",
@@ -11351,7 +11355,7 @@
         "description": "Am Playa de Las Salinas in Los Alcázares erwartet Sie ein einzigartiges Landschaftsbild mit seinem groben, grauen Sand, das vom Mar Menor stammt. Ideal zum Sonnenbaden und Entspannen, allerdings ohne zusätzliche Einrichtungen oder Dienstleistungen. Genießen Sie die natürliche und ruhige Atmosphäre, perfekt für alle, die ein authentisches Erlebnis in der Region Murcia suchen."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 575 756",
     "email": "turismo@losalcazares.es",
     "realUrl": "https://turismo.losalcazares.es/playas-2/",
@@ -11463,7 +11467,7 @@
         "description": "Der Strand Levante in Aguilas erwartet Sie mit seinem feinen, grauen Sand, der perfekt zum Genießen des warmen Mittelmeers ist. Dieser Strand mit Blaue-Flagge garantiert die Wasserqualität und die Sicherheit der Besucher. Außerdem ist er barrierefrei und mit verschiedenen Einrichtungen ausgestattet, ideal für einen entspannten Tag in der Region Murcia."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
     "shoreBearing": 167,
@@ -11800,7 +11804,7 @@
         "description": "Am Strand Playa de Los Cocedores in Aguilas erwartet Sie eine natürliche Umgebung mit Sand und Kies, ideal zum Genießen des Mittelmeers. Dieser Strand, mit seiner wilden Schönheit, ist perfekt für alle, die Ruhe und einen direkten Kontakt zur Natur suchen. Obwohl er keine Annehmlichkeiten wie eine Promenade oder einen Anlegesteg bietet, macht seine einzigartige Landschaft ihn zu einem interessanten Ziel in der Region Murcia."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
     "shoreBearing": 116,
     "waterQualitySource": {
@@ -11908,7 +11912,7 @@
         "description": "Der Strand von Los Hierros in Lorca erwartet Sie mit einer einzigartigen vulkanischen Landschaft und einem kristallklaren Mittelmeer. Sein Sand mit Kies, kombiniert mit der beeindruckenden Felsformation, bietet ein besonderes Erlebnis. Genießen Sie die natürliche Schönheit dieses Strandes, der ideal zum Flanieren und Genießen der Aussicht ist – allerdings gibt es hier keine Annehmlichkeiten wie eine Promenade oder eine Anlegestelle."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 1,
     "shoreBearing": 125
   },
   {
@@ -12011,7 +12015,7 @@
         "description": "Der Strand von Los Narejos in Los Alcázares ist ein ideales Ziel, um das Mar Menor mit seinem feinen, warmen Sand zu genießen. Er bietet eine ruhige und gut erreichbare Umgebung, perfekt für Familien und alle, die eine entspannte Auszeit am Wasser suchen. Obwohl es keinen Uferpromenade oder Anlegesteg gibt, ist er dank seiner einfachen Anbindung ein attraktiver Ort in der Region Murcia."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 3,
     "phone": "968 575 756",
     "email": "turismo@losalcazares.es",
     "realUrl": "https://turismo.losalcazares.es/playas-2/",
@@ -12123,7 +12127,7 @@
         "description": "Der Strand von Los Urrutias in Cartagena bietet einen ruhigen Spaziergang über seinen sandigen, hellgrauen Strand, der von den warmen Gewässern des Mar Menor gesäumt wird. Er ist ein leicht erreichbarer Ort für alle Besucher und ideal, um einen entspannten Tag am Strand in der Region Murcia zu verbringen. Obwohl es keinen Uferpromenade oder Anlegestelle gibt, macht seine familiäre Atmosphäre ihn zu einem perfekten Ort für einen Strandtag."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
@@ -12243,7 +12247,7 @@
         "description": "Der Cristal-Strand in Cartagena, Murcia, ist ein ideales Reiseziel, um das kristallklare Wasser des Mittelmeeres zu genießen und die feine, goldene Sandbank zum Entspannen zu nutzen. Er ist barrierefrei und familienfreundlich und bietet einen ruhigen und angenehmen Tag am Strand. Obwohl es keinen Uferpromenade und keine Anlegestelle gibt, ist seine natürliche Schönheit eine bezaubernde Option in der Region Murcia."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
@@ -12467,7 +12471,7 @@
         "description": "Der Strand von Percheles in Mazarrón erwartet Sie mit seinem feinen, grauen Sand und dem warmen Wasser des Mittelmeers. Dieser Strand bietet eine ruhige und familienfreundliche Umgebung, ideal zum Sonnenbaden und Entspannen am Meer. Genießen Sie die weitläufigen Strände, perfekt zum Entspannen und für unvergessliche Momente."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 3,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
     "shoreBearing": 130
@@ -13205,7 +13209,7 @@
         "description": "Playa del Ballenato in Mazarrón bietet Ihnen einen einzigartigen Küstenlandschaft mit grobem Sand, Kies und Felsen, die vom Mittelmeer stammen. Es ist ein idealer Ort, um die Natur und die Meeresaussichten zu genießen, obwohl es keinen Hafenpromenade und keine Anlegestelle gibt. Ein ruhiger Ort für alle, die einen Tag am Strand in der Region Murcia verbringen möchten."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 3,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
     "shoreBearing": 146
@@ -13513,7 +13517,7 @@
         "description": "Am Playa del Barranco Ancho in Mazarrón erwartet Sie eine wilde und ruhige Naturlandschaft, ideal für alle, die Privatsphäre und einen direkten Kontakt zum Mittelmeer suchen. Ihr Sandstrand besteht aus Sand und Kies, und es gibt einen Bereich für Nacktbademöglichkeiten, was diesen besonderen Ort zu einem einzigartigen Erlebnis an der Küste von Murcia macht. Obwohl es hier keine Kinoschmiede oder Anlegestellen gibt, ist seine natürliche Schönheit und die entspannte Atmosphäre ein besonderes Highlight."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 3,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
     "shoreBearing": 151
@@ -13924,7 +13928,7 @@
         "description": "Am Playa del Espejo in Los Alcázares, in der Region Murcia, erwartet Sie eine ruhige Umgebung zum Entspannen am Mar Menor. Der feine, warme Sand lädt zum Verweilen ein und bietet Kindern viel Spaß. Auch ohne Uferpromenade ist der Strand leicht erreichbar und bietet allen Besuchern ein angenehmes Erlebnis."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 575 756",
     "email": "turismo@losalcazares.es",
     "realUrl": "https://turismo.losalcazares.es/playas-2/",
@@ -14764,7 +14768,7 @@
         "description": "Am Strand von Puerto de Mazarrón, in Mazarrón, Region Murcia, erwartet Sie feiner, goldener Sand, der Sie zum Genießen des warmen Mittelmeers einlädt. Dieser Strand ist für alle Besucher zugänglich. Genießen Sie einen Tag in der Sonne in einer ruhigen und angenehmen Umgebung, perfekt für Familien und alle, die Entspannung suchen."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
     "shoreBearing": 107,
@@ -16205,7 +16209,7 @@
         "description": "Playa El Portús in Cartagena bietet eine ruhige Ecke aus Sand und Kies direkt am Mittelmeer. Es ist ein Strand mit Charakter, beliebt bei der Nudisten-Community und ideal für alle, die Ruhe und Naturverbundenheit suchen. Obwohl es keine Annehmlichkeiten wie eine Promenade oder eine Anlegestelle gibt, macht seine entspannte Atmosphäre ihn zu einem besonderen Ort, um einen Tag am Strand zu genießen."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
@@ -16524,7 +16528,7 @@
         "description": "Playa El Siscal in Lorca bietet eine ruhige Oase im Mittelmeer mit feinem Sand und Kies. Genießen Sie das kristallklare Wasser und die privilegierte natürliche Umgebung, ideal zum Entspannen und für einen entspannten Tag am Strand. Obwohl es keinen Hafen oder Liegeplatz gibt, ist es ein perfekter Ort für alle, die eine ruhige Auszeit in der Region Murcia suchen."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "shoreBearing": 193
   },
   {
@@ -16843,7 +16847,7 @@
         "description": "Playa Fatares in Cartagena bietet eine wilde und authentische Küstenlandschaft mit ihrem groben Sand und Kies, umarmt vom Mittelmeer. Ideal für alle, die einen ruhigen und weniger überfüllten Strand suchen, perfekt, um die Natur und die Sonne zu genießen. Obwohl sie keine Annehmlichkeiten wie eine Promenade oder eine Anlegestelle bietet, macht ihre natürliche Schönheit sie zu einem einzigartigen Ziel in der Region Murcia."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 3,
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
@@ -17072,7 +17076,7 @@
         "description": "Playa Honda in Cartagena erwartet Sie mit ihrem feinen, goldenen Sand, das durch das Mar Menor entstanden ist. Dieser leicht erreichbare Strand bietet eine ruhige und familienfreundliche Umgebung, ideal zum Sonnenbaden und Schwimmen im kristallklaren Wasser. Obwohl es keinen Uferpromenade oder Anlegesteg gibt, macht sein weicher Sand und die gute Erreichbarkeit ihn zu einem perfekten Ziel für eine entspannende Ausflug."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
@@ -17515,7 +17519,7 @@
         "description": "Playa La Calabardina in Aguilas bietet Ihnen eine ruhige Oase mit feinem, grauen Sand des Mittelmeers. Es ist ein zugänglicher Strand mit ruhigem Wasser, ideal zum Sonnenbaden und Entspannen. Obwohl es keinen Uferpromenade oder Anlegestelle gibt, macht seine natürliche Schönheit es zu einem perfekten Ort für einen Familienausflug."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
     "shoreBearing": 202,
@@ -17939,7 +17943,7 @@
         "description": "Playa La Galera in Cartagena bietet ein einzigartiges Küstenpanorama mit Sand und Felsen, das von den warmen Gewässern des Mittelmeers umspült wird. Genießen Sie die Felsformationen und die ruhige natürliche Umgebung, ideal zum Entspannen und Genießen der Schönheit des Mittelmeers. Obwohl es keine Annehmlichkeiten wie eine Promenade oder eine Anlegestelle gibt, ist es ein perfekter Ort für einen authentischen Ausflug."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 3,
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
@@ -18677,7 +18681,7 @@
         "description": "Playa Las Antillas in San Javier bietet eine ruhige Umgebung am Mar Menor, ideal zum Sonnenbaden und Entspannen am Strand. Ihr grobes Sand sorgt dafür, dass man Burgen bauen und sich wohlfühlen kann. Obwohl es keinen Strandpromenade oder Anlegestelle gibt, ist es ein einfacher und leicht erreichbarer Ort für Familien und alle, die eine entspannte Atmosphäre suchen."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
@@ -19660,7 +19664,7 @@
         "description": "Playa Negrete in Cartagena ist ein Paradies aus feinem, goldenem Sand, wo das Mittelmeer Sie zu einer erfrischenden Schwimmmöglichkeit einlädt. Diese natürliche Schatzinsel bietet eine ruhige und wilde Umgebung, ideal für alle, die dem Trubel entfliehen und die Schönheit der Küstenlandschaft genießen möchten. Obwohl es keine Annehmlichkeiten wie einen Uferpromenade oder eine Anlegestelle gibt, macht der Sand und das kristallklare Wasser es zu einem idealen Ziel für Naturliebhaber und alle, die Ruhe suchen."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
@@ -19770,7 +19774,7 @@
         "description": "Playa Paraíso in Cartagena bietet Ihnen eine ruhige Oase im Mar Menor mit feinem Sand, ideal für einen entspannten Tag in der Sonne. Dieser leicht erreichbare Strand, perfekt für Familien und Menschen mit eingeschränkter Mobilität, verfügt über grundlegende Einrichtungen und eine familiäre Atmosphäre. Genießen Sie sein kristallklares und entspannendes Wasser, obwohl es keinen Uferpromenade oder Anlegesteg gibt."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
@@ -19995,7 +19999,7 @@
         "description": "Playa Parazuelos in Mazarrón bietet Ihnen eine natürliche und ruhige Umgebung an der Mittelmeerküste. Ihr Sand mit Kies lädt zum Entspannen und Sonnenbaden ein, während das kristallklare Wasser des Meeres zu einer erfrischenden Schwimmmöglichkeit einlädt. Obwohl es keine Annehmlichkeiten wie einen Uferpromenade oder eine Anlegestelle gibt, ist es ein idealer Ort für diejenigen, die einen authentischen und charmanten Strand in der Region Murcia suchen."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 3,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
     "shoreBearing": 121
@@ -20091,7 +20095,7 @@
         "description": "Der Strand Parreño in Cartagena bietet eine ruhige Oase an der Mittelmeerküste. Seine sanften, feinen und goldenen Sanddünen laden zum Sonnenbaden und Entspannen am Meer ein. Obwohl es keinen Uferpromenade und keine Anlegemöglichkeiten gibt, ist dieser Strand ideal für alle, die Ruhe und einen direkten Kontakt zur Schönheit des Mittelmeers suchen."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 3,
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
@@ -20204,7 +20208,7 @@
         "description": "Der Strand Playa Pedrucho in San Javier erwartet Sie mit seinem feinen, goldenen Sand, der perfekt zum Genießen des warmen Mittelmeers ist. Dieser leicht erreichbare Strand bietet eine ruhige und familienfreundliche Umgebung, ideal zum Entspannen und Sonnenbaden. Obwohl er keinen Uferpromenade oder Anlegesteg hat, ist seine natürliche Schönheit und seine Zugänglichkeit ein perfekter Ort für einen unkomplizierten Ausflug."
       }
     },
-    "pictureQualityScore": 2,
+    "pictureQualityScore": 3,
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
@@ -20653,7 +20657,7 @@
         "description": "Der Strand Puntas de Calnegre in Lorca erwartet Sie mit seinen kristallklaren Gewässern des Mittelmeers und einem Sand- und Kiesbett, das ideal zum Sonnenbaden einlädt. Dieser gut erreichbare Strand, obwohl er keinen Uferpromenade oder Anlegesteg hat, bietet eine ruhige und angenehme Umgebung zum Entspannen. Genießen Sie seine natürliche Schönheit in dieser wunderschönen Lagune der Region Murcia."
       }
     },
-    "pictureQualityScore": 0,
+    "pictureQualityScore": 3,
     "shoreBearing": 112,
     "waterQualitySource": {
       "season": 2025,

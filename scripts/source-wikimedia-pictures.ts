@@ -1,21 +1,24 @@
 /**
  * Semi-automated workflow to source beach pictures from multiple open sources.
  *
- * Sources:
+ * Sources (Wikimedia Commons only; accepted licences: CC BY, CC BY-SA, CC0, public domain):
  *   1. Wikimedia Commons text search (beach name + municipality)
- *   2. Wikimedia Commons geosearch (coordinates within 500m radius)
- *   3. Flickr CC-licensed photos (text + geo search)
+ *   2. Wikimedia Commons geosearch (coordinates within 2 km)
+ *   3. Wikimedia Commons municipality categories
  *
  * Phase 1 (--search): Searches all sources, downloads candidate images to
  *   data/source/wikimedia-candidates/<beachCode>/ and writes a manifest.
  *
  * Phase 2 (--review): Interactive CLI to review candidates per beach.
  *   User picks images, they're copied to public/pictures/ and added to beaches.json.
+ *   Author and licence of each pick are saved to data/picture-credits.json.
+ *   --pick <code>=<n>,... approves candidates non-interactively.
  *
  * Usage:
  *   pnpm tsx scripts/source-wikimedia-pictures.ts --search
  *   pnpm tsx scripts/source-wikimedia-pictures.ts --review
  *   pnpm tsx scripts/source-wikimedia-pictures.ts --search --review
+ *   pnpm tsx scripts/source-wikimedia-pictures.ts --pick 544=1,567=2
  */
 
 import { createInterface } from "node:readline"
@@ -28,6 +31,7 @@ const MUNICIPALITIES_PATH = join(ROOT, "data", "municipalities.json")
 const CANDIDATES_DIR = join(ROOT, "data", "source", "wikimedia-candidates")
 const MANIFEST_PATH = join(CANDIDATES_DIR, "manifest.json")
 const PUBLIC_PICTURES = join(ROOT, "public", "pictures")
+const CREDITS_PATH = join(ROOT, "data", "picture-credits.json")
 
 const UA =
   "PlayasMurcia-ImageBot/1.0 (https://www.playasmurcia.com; contact@playasmurcia.com)"
@@ -53,8 +57,23 @@ const WM_BEACH_CATEGORIES: Record<string, Array<string>> = {
 const ACCEPTED_LICENSES_WM = new Set([
   "cc-by-sa-4.0", "cc-by-sa-3.0", "cc-by-sa-2.5", "cc-by-sa-2.0",
   "cc-by-4.0", "cc-by-3.0", "cc-by-2.5", "cc-by-2.0",
-  "cc-zero", "pd", "public domain",
+  "cc-zero", "cc0", "cc0-1.0", "public-domain",
 ])
+
+/**
+ * Commons reports names such as "CC BY-SA 4.0"; normalise before matching.
+ * Unknown or empty licences are rejected (NC/ND variants never match).
+ */
+function isAcceptedLicense(license: string): boolean {
+  const normalised = license.trim().toLowerCase().replace(/\s+/g, "-")
+  // Ported licences carry a jurisdiction suffix, e.g. "CC BY-SA 3.0 es".
+  const unported = normalised.replace(/^(cc-by(?:-sa)?-\d\.\d)-[a-z]{2,3}$/, "$1")
+  return (
+    ACCEPTED_LICENSES_WM.has(unported) ||
+    normalised === "pd" ||
+    normalised.startsWith("pd-")
+  )
+}
 
 type Beach = {
   code: string
@@ -78,6 +97,14 @@ type Candidate = {
   height: number
   descriptionUrl: string
   filename: string
+}
+
+type PictureCredit = {
+  author: string
+  license: string
+  source: string
+  title: string
+  descriptionUrl: string
 }
 
 type Manifest = {
@@ -186,10 +213,7 @@ async function wmGetImageInfo(titles: Array<string>): Promise<Array<Candidate | 
     if (info.width < 400 && info.height < 400) return null
 
     const license = (info.extmetadata?.LicenseShortName?.value ?? "").toLowerCase()
-    const isAccepted = [...ACCEPTED_LICENSES_WM].some(
-      (l) => license.includes(l) || l.includes(license),
-    )
-    if (!isAccepted && license !== "") return null
+    if (!isAcceptedLicense(license)) return null
 
     return {
       beachCode: "", source: "wikimedia" as const,
@@ -200,6 +224,54 @@ async function wmGetImageInfo(titles: Array<string>): Promise<Array<Candidate | 
       filename: "",
     }
   })
+}
+
+/** Fetch author and licence for one Commons file, for attribution. */
+async function wmGetCredit(candidate: Candidate): Promise<PictureCredit> {
+  const params = new URLSearchParams({
+    action: "query", format: "json",
+    titles: candidate.title,
+    prop: "imageinfo",
+    iiprop: "extmetadata",
+  })
+  const data = (await fetchJson(`${COMMONS_API}?${params}`)) as {
+    query?: {
+      pages?: Record<
+        string,
+        {
+          imageinfo?: Array<{
+            extmetadata?: {
+              Artist?: { value?: string }
+              LicenseShortName?: { value?: string }
+            }
+          }>
+        }
+      >
+    }
+  }
+  const meta = Object.values(data.query?.pages ?? {})[0]?.imageinfo?.[0]?.extmetadata
+  // Artist is an HTML fragment (often a link); keep the text only.
+  const author = (meta?.Artist?.value ?? "")
+    .replace(/<[^>]*>/g, "")
+    .replace(/&amp;/g, "&")
+    .replace(/\s+/g, " ")
+    .trim()
+  return {
+    author: author || "Unknown",
+    license: meta?.LicenseShortName?.value ?? candidate.license,
+    source: "Wikimedia Commons",
+    title: candidate.title,
+    descriptionUrl: candidate.descriptionUrl,
+  }
+}
+
+async function appendCredit(filename: string, credit: PictureCredit): Promise<void> {
+  let credits: Record<string, PictureCredit> = {}
+  try {
+    credits = JSON.parse(await readFile(CREDITS_PATH, "utf-8"))
+  } catch { /* first credit */ }
+  credits[filename] = credit
+  await writeFile(CREDITS_PATH, JSON.stringify(credits, null, 2) + "\n")
 }
 
 // ─── Wikimedia Category Search ───────────────────────────────────────
@@ -366,7 +438,19 @@ async function runSearch(): Promise<void> {
 
 // ─── Phase 2: Review ─────────────────────────────────────────────────
 
-async function runReview(): Promise<void> {
+/** Parse `--pick 520=1,521=2` into { "520": "1", "521": "2" } (non-interactive review). */
+function parsePicks(args: Array<string>): Record<string, string> | null {
+  const idx = args.indexOf("--pick")
+  if (idx === -1) return null
+  return Object.fromEntries(
+    (args[idx + 1] ?? "")
+      .split(",")
+      .filter(Boolean)
+      .map((pair) => pair.split("=") as [string, string]),
+  )
+}
+
+async function runReview(picks: Record<string, string> | null): Promise<void> {
   const beaches = JSON.parse(await readFile(BEACHES_PATH, "utf-8")) as Array<Beach>
   const municipalities = JSON.parse(await readFile(MUNICIPALITIES_PATH, "utf-8")) as Array<Municipality>
 
@@ -419,9 +503,9 @@ async function runReview(): Promise<void> {
       console.log(`        ${c.descriptionUrl}`)
     }
 
-    const answer = await ask(
-      `\n    Pick (1-${candidates.length}), [s]kip, [q]uit: `,
-    )
+    const answer = picks
+      ? (picks[beach.code] ?? "s")
+      : await ask(`\n    Pick (1-${candidates.length}), [s]kip, [q]uit: `)
 
     if (answer.toLowerCase() === "q") {
       console.log("\nQuitting review.")
@@ -447,7 +531,12 @@ async function runReview(): Promise<void> {
     const destPath = join(PUBLIC_PICTURES, destFilename)
 
     try {
+      const credit = await wmGetCredit(chosen)
+      if (!isAcceptedLicense(credit.license)) {
+        throw new Error(`licence not accepted: ${credit.license || "unknown"}`)
+      }
       await copyFile(srcPath, destPath)
+      await appendCredit(destFilename, credit)
       if (!beach.pictures) beach.pictures = []
       beach.pictures.push(destFilename)
       console.log(`    ✓ Added ${destFilename}`)
@@ -483,13 +572,15 @@ async function runReview(): Promise<void> {
 async function main(): Promise<void> {
   const args = process.argv.slice(2)
   const doSearch = args.includes("--search")
-  const doReview = args.includes("--review")
+  const picks = parsePicks(args)
+  const doReview = args.includes("--review") || picks !== null
 
   if (!doSearch && !doReview) {
     console.log("Usage:")
     console.log("  pnpm tsx scripts/source-wikimedia-pictures.ts --search")
     console.log("  pnpm tsx scripts/source-wikimedia-pictures.ts --review")
     console.log("  pnpm tsx scripts/source-wikimedia-pictures.ts --search --review")
+    console.log("  pnpm tsx scripts/source-wikimedia-pictures.ts --pick 520=1,521=2   # non-interactive review")
     process.exit(0)
   }
 
@@ -498,7 +589,7 @@ async function main(): Promise<void> {
     await runSearch()
   }
   if (doReview) {
-    await runReview()
+    await runReview(picks)
   }
 }
 
