@@ -2,11 +2,11 @@
   { "id": "swimming", "name": "Natación", "icon": "🏊" },
   { "id": "snorkeling", "name": "Snorkel", "icon": "🤿" },
   { "id": "kayak", "name": "Kayak", "icon": "🛶" },
-  { "id": "paddleboard", "name": "Paddle Surf", "icon": "🏄" },
+  { "id": "paddleboard", "name": "Paddle surf", "icon": "🏄" },
   { "id": "diving", "name": "Buceo", "icon": "🫧" },
   { "id": "fishing", "name": "Pesca", "icon": "🎣" },
   { "id": "sailing", "name": "Vela", "icon": "⛵" },
   { "id": "windsurf", "name": "Windsurf", "icon": "🏄‍♂️" },
   { "id": "kitesurf", "name": "Kitesurf", "icon": "🪁" },
-  { "id": "volleyball", "name": "Vóley Playa", "icon": "🏐" }
+  { "id": "volleyball", "name": "Vóley playa", "icon": "🏐" }
 ]

@@ -712,8 +712,8 @@
     "promenade": false,
     "access": "Por la carretera comarcal de **Cartagena a Mazarrón**.\n\n- **A pie:** por un camino de tierra.\n- **En barco:** también se puede llegar por mar.",
     "pictures": [
-      "cerrada-cartagena-3_g.jpg",
       "recurso-1-658-2p_g.jpg",
+      "cerrada-cartagena-3_g.jpg",
       "recurso-1-658-1p_g.jpg"
     ],
     "coordinates": [
@@ -832,7 +832,7 @@
       "606"
     ],
     "description": "Cala Cortina es **la playa más cercana a la ciudad de Cartagena**, a unos 4 kilómetros por la carretera de Escombreras, y en verano se llena. La arena es gruesa, el agua suele estar en calma y hay socorrista y puesto de primeros auxilios.",
-    "orientation": "east",
+    "orientation": "southwest",
     "instagramHashtag": "#CalaCortina",
     "dogFriendly": false,
     "lifeguard": true,
@@ -1290,7 +1290,7 @@
       "563"
     ],
     "description": "Cala de **suelo de bolos** cerca de Cabo de Palos, con chiringuito, duchas y aseos, y normalmente poca gente. El oleaje suele ser suave.\n\n**Consejo:** lleva escarpines, porque aquí no hay arena.",
-    "orientation": "east",
+    "orientation": "northwest",
     "instagramHashtag": "#CalaDeLasMelvas",
     "dogFriendly": false,
     "lifeguard": false,
@@ -1896,7 +1896,7 @@
     "phone": "968 47 37 07 /112",
     "email": "112lorca@lorca.es",
     "realUrl": "http://www.emergencias.lorca.es/playas-de-lorca.asp",
-    "soilType": "Arena  media y blanca",
+    "soilType": "Arena media y blanca",
     "waves": "MODERADO",
     "anchorageZone": false,
     "nudist": false,
@@ -2094,11 +2094,11 @@
     "promenade": false,
     "access": "Entre los **kilómetros 3 y 4 de la Gran Vía de La Manga**, en el lado del Mar Menor, junto al Monte Blanco.",
     "pictures": [
+      "recurso-1-577-2p_g.jpg",
       "cala-pino-cartagena-5_g.jpg",
       "cala-pino-cartagena-6_g.jpg",
       "cala-pino-cartagena-7_g.jpg",
       "cala-pino-cartagena-8_g.jpg",
-      "recurso-1-577-2p_g.jpg",
       "recurso-1-577-3p_g.jpg",
       "recurso-1-577-4p_g.jpg",
       "recurso-1-577-10p_g.jpg"
@@ -2930,7 +2930,7 @@
       "525"
     ],
     "description": "Las Escalerillas es una **cala de roca, sin arena**, cerca de Cabo de Palos. El agua suele estar en calma y es raro encontrarla llena.\n\n**Consejo:** trae una esterilla gruesa para tumbarte sobre la piedra.",
-    "orientation": "east",
+    "orientation": "north",
     "instagramHashtag": "#CalaLasEscalerillas",
     "dogFriendly": false,
     "lifeguard": false,
@@ -3436,7 +3436,7 @@
       "658"
     ],
     "description": "Cala Mojarra, junto al cabezo del Atalayón, tiene 162 metros de arena fina con grava, zonas de roca y el agua normalmente en calma. Para ser una cala pequeña está **bien equipada**, con duchas, aseos y hamacas.",
-    "orientation": "southeast",
+    "orientation": "northeast",
     "instagramHashtag": "#CalaMojarra",
     "dogFriendly": false,
     "lifeguard": false,
@@ -4256,10 +4256,10 @@
     "promenade": false,
     "access": "En el **km 4,2** de la Gran Vía de La Manga.",
     "pictures": [
+      "recurso-1-538-6p_g.jpg",
       "recurso-1-538-3p_g.jpg",
       "recurso-1-538-1p_g.jpg",
       "recurso-1-538-4p_g.jpg",
-      "recurso-1-538-6p_g.jpg",
       "recurso-1-538-8p_g.jpg"
     ],
     "coordinates": [
@@ -4373,8 +4373,8 @@
     "promenade": false,
     "access": "Desde la carretera, un camino sin asfaltar baja hasta la costa. Los vehículos a motor tienen el **acceso restringido**, así que el último tramo se hace a pie.",
     "pictures": [
-      "amarilla-mazarron-2_g.jpg",
-      "PLAYAS_1_586_1_g.jpg"
+      "PLAYAS_1_586_1_g.jpg",
+      "amarilla-mazarron-2_g.jpg"
     ],
     "coordinates": [
       37.560294,
@@ -4574,10 +4574,10 @@
     "promenade": false,
     "access": "Entre los **kilómetros 3,5 y 4,9** de la Gran Vía de La Manga, de la urbanización Star Alfa a Gaviotas.",
     "pictures": [
+      "recurso-1-671-1p_g.jpg",
       "recurso-1-671-3p_g.jpg",
       "recurso-1-671-4p_g.jpg",
       "recurso-1-671-2p_g.jpg",
-      "recurso-1-671-1p_g.jpg",
       "recurso-1-671-13p_g.jpg"
     ],
     "coordinates": [
@@ -5348,8 +5348,8 @@
     "promenade": false,
     "access": "Desde la **AP-7, salida 800**, sigue por la vía rápida **MU-312** hacia Cabo de Palos.",
     "pictures": [
-      "recurso-1-569-1p_g.jpg",
       "recurso-1-569-3p_g.jpg",
+      "recurso-1-569-1p_g.jpg",
       "recurso-1-569-2p_g.jpg"
     ],
     "coordinates": [
@@ -5451,9 +5451,9 @@
     "promenade": false,
     "access": "En el **km 3,5 de la Gran Vía de La Manga**. Está junto a la zona de ocio de la Plaza Bohemia.",
     "pictures": [
+      "recurso-1-592-1p_g.jpg",
       "recurso-1-592-2p_g.jpg",
       "recurso-1-592-3p_g.jpg",
-      "recurso-1-592-1p_g.jpg",
       "recurso-1-592-4p_g.jpg"
     ],
     "coordinates": [
@@ -5469,7 +5469,7 @@
     ],
     "aemetId": "3001655",
     "description": "En el kilómetro 3,5 de La Manga, **del lado del Mediterráneo**, Calnegre tiene 242 metros de arena fina y dorada, socorrista y bandera azul. No hay sombra natural y hay días con algo de oleaje.\n\n**Consejo:** no la confundas con la Cala de Calnegre de Lorca.",
-    "orientation": "southeast",
+    "orientation": "northeast",
     "instagramHashtag": "#PlayaCalnegre",
     "dogFriendly": false,
     "lifeguard": true,
@@ -5557,10 +5557,10 @@
     "promenade": false,
     "access": "El pueblo está **bien señalizado desde la autovía**, y la playa queda en el frente urbano de Los Alcázares.",
     "pictures": [
+      "recurso-1-692-3p_g.jpg",
       "recurso-1-692-2p_g.jpg",
       "recurso-1-692-1p_g.jpg",
       "recurso-1-692-4p_g.jpg",
-      "recurso-1-692-3p_g.jpg",
       "recurso-1-692-5p_g.jpg"
     ],
     "coordinates": [
@@ -5678,10 +5678,10 @@
     "promenade": false,
     "access": "En el **km 3 de la Gran Vía de La Manga**. Toma la salida 21.",
     "pictures": [
+      "recurso-1-687-1p_g.jpg",
       "recurso-1-687-8p_g.jpg",
       "recurso-1-687-3p_g.jpg",
       "recurso-1-687-4p_g.jpg",
-      "recurso-1-687-1p_g.jpg",
       "recurso-1-687-7p_g.jpg",
       "recurso-1-687-2p_g.jpg",
       "recurso-1-687-9p_g.jpg",
@@ -6235,8 +6235,8 @@
     "promenade": false,
     "access": "En el **km 1,610 de la carretera del Puerto de Mazarrón a Bolnuevo**, dentro del casco urbano del Puerto de Mazarrón.",
     "pictures": [
-      "bahia-mazarron-2_g.jpg",
-      "wikimedia-662.jpg"
+      "wikimedia-662.jpg",
+      "bahia-mazarron-2_g.jpg"
     ],
     "coordinates": [
       37.558255,
@@ -6251,7 +6251,7 @@
       "680"
     ],
     "description": "A un paso del casco urbano del Puerto de Mazarrón, Bahía tiene 384 metros de arena fina y dorada y **agua tranquila**. Hay socorrista y bandera azul, y es cómoda para ir con niños.",
-    "orientation": "east",
+    "orientation": "south",
     "instagramHashtag": "#PlayaDeBahia",
     "dogFriendly": false,
     "lifeguard": true,
@@ -6352,10 +6352,10 @@
     "promenade": false,
     "access": "En el pueblo de **Bolnuevo**, en la calle Pedro López Meca.",
     "pictures": [
+      "recurso-1-646-1p_g.jpg",
       "bolnuevo-mazarron-8_g.jpg",
       "recurso-1-646-2p_g.jpg",
       "recurso-1-646-5p_g.jpg",
-      "recurso-1-646-1p_g.jpg",
       "recurso-1-646-4p_g.jpg",
       "recurso-1-646-3p_g.jpg",
       "recurso-1-646-7p_g.jpg",
@@ -6374,7 +6374,7 @@
       "586"
     ],
     "description": "Bolnuevo es conocida por sus **Gredas**, formaciones de arenisca esculpidas por la erosión junto a la playa, y por la **torre vigía de los Caballos**. La arena es gruesa y dorada, con socorrista, y hay días con algo de oleaje.",
-    "orientation": "east",
+    "orientation": "south",
     "instagramHashtag": "#PlayaDeBolnuevo",
     "dogFriendly": false,
     "lifeguard": true,
@@ -6557,9 +6557,9 @@
     "promenade": false,
     "access": "Por la **carretera de Vera a Águilas (A-332)**, bien señalizada.",
     "pictures": [
+      "recurso-1-593-4p_g.jpg",
       "recurso-1-593-2p_g.jpg",
       "recurso-1-593-3p_g.jpg",
-      "recurso-1-593-4p_g.jpg",
       "recurso-1-593-5p_g.jpg"
     ],
     "coordinates": [
@@ -6670,8 +6670,8 @@
     "promenade": false,
     "access": "En el **km 3,8 de la carretera de Vera**. El acceso está señalizado desde la vía principal.",
     "pictures": [
-      "recurso-1-679-5p_g.jpg",
       "recurso-1-679-6p_g.jpg",
+      "recurso-1-679-5p_g.jpg",
       "recurso-1-679-3p_g.jpg",
       "recurso-1-679-4p_g.jpg"
     ],
@@ -7147,8 +7147,8 @@
     "promenade": false,
     "access": "En los **km 2,670, 3,070 y 3,550 de la carretera del Puerto de Mazarrón a Bolnuevo**.",
     "pictures": [
-      "recurso-1-675-8p_g.jpg",
       "recurso-1-675-7p_g.jpg",
+      "recurso-1-675-8p_g.jpg",
       "recurso-1-675-9p_g.jpg",
       "recurso-1-675-10p_g.jpg",
       "recurso-1-675-11p_g.jpg",
@@ -7170,7 +7170,7 @@
       "662"
     ],
     "description": "El Castellar tiene **más de 1,5 kilómetros** de arena gruesa y dorada entre el Puerto de Mazarrón y Bolnuevo, con oleaje suave y socorrista. Es cómoda para ir con niños.",
-    "orientation": "east",
+    "orientation": "southwest",
     "instagramHashtag": "#PlayaDeElCastellar",
     "dogFriendly": false,
     "lifeguard": true,
@@ -7268,11 +7268,11 @@
     "promenade": false,
     "access": "En la **urbanización de El Hornillo**, dentro del casco urbano de Águilas.\n\n- **Aparcamiento:** junto a la playa.",
     "pictures": [
+      "recurso-1-614-3p_g.jpg",
       "hornillo-aguilas-7_g.jpg",
       "hornillo-aguilas-8_g.jpg",
       "hornillo-aguilas-9_g.jpg",
       "recurso-1-614-1p_g.jpg",
-      "recurso-1-614-3p_g.jpg",
       "recurso-1-614-6p_g.jpg",
       "recurso-1-614-4p_g.jpg",
       "recurso-1-614-2p_g.jpg",
@@ -7405,7 +7405,7 @@
       "4893"
     ],
     "description": "El Mojón de Mazarrón, **junto al límite con Cartagena**, tiene unos 1,3 kilómetros de arena fina y gris, socorrista y bandera azul. A veces hay oleaje.",
-    "orientation": "east",
+    "orientation": "south",
     "instagramHashtag": "#PlayaDeElMojon",
     "dogFriendly": false,
     "lifeguard": true,
@@ -7744,7 +7744,7 @@
       "600"
     ],
     "description": "El Rincón es una playa corta de arena fina y gris en la urbanización **Punta Bella de Bolnuevo**. No hay socorrista y el oleaje puede ser moderado.",
-    "orientation": "east",
+    "orientation": "south",
     "instagramHashtag": "#PlayaDeElRincon",
     "dogFriendly": false,
     "lifeguard": false,
@@ -7934,11 +7934,11 @@
     "sea": 1,
     "promenade": false,
     "pictures": [
+      "recurso-1-530-7p_g.jpg",
       "islas-menores-cartagena-9_g.jpg",
       "recurso-1-530-1p_g.jpg",
       "recurso-1-530-3p_g.jpg",
       "recurso-1-530-8p_g.jpg",
-      "recurso-1-530-7p_g.jpg",
       "recurso-1-530-6p_g.jpg",
       "recurso-1-530-4p_g.jpg",
       "recurso-1-530-2p_g.jpg",
@@ -8055,8 +8055,8 @@
     "promenade": false,
     "access": "Por la carretera de **Cartagena a Mazarrón (RM-E22)**, que lleva hasta La Azohía.",
     "pictures": [
-      "azohia-cuartel-cartagena-4_g.jpg",
       "recurso-1-582-1p_g.jpg",
+      "azohia-cuartel-cartagena-4_g.jpg",
       "recurso-1-582-2p_g.jpg",
       "recurso-1-582-3p_g.jpg"
     ],
@@ -8073,7 +8073,7 @@
       "524"
     ],
     "description": "En La Azohía, pueblo pesquero **al pie de la torre de Santa Elena**, la playa de El Cuartel tiene 314 metros de arena media y grava, socorrista y bandera azul. Hay días con algo de oleaje.",
-    "orientation": "east",
+    "orientation": "northwest",
     "instagramHashtag": "#PlayaDeLaAzohiaElCuartel",
     "dogFriendly": false,
     "lifeguard": true,
@@ -8401,7 +8401,7 @@
       "658"
     ],
     "description": "Con **más de kilómetro y medio** de arena fina y grava, La Chapineta es la playa larga entre San Ginés y La Azohía. No hay socorrista ni sombra natural, y a veces hay oleaje, pero rara vez falta sitio.",
-    "orientation": "east",
+    "orientation": "southwest",
     "instagramHashtag": "#PlayaDeLaChapineta",
     "dogFriendly": false,
     "lifeguard": false,
@@ -8602,8 +8602,8 @@
     "promenade": false,
     "access": "En el **casco urbano de Águilas**, así que se llega andando desde el centro.",
     "pictures": [
-      "recurso-1-612-1p_g.jpg",
       "recurso-1-612-3p_g.jpg",
+      "recurso-1-612-1p_g.jpg",
       "recurso-1-612-2p_g.jpg"
     ],
     "coordinates": [
@@ -9044,11 +9044,11 @@
     "promenade": false,
     "access": "En el **km 2,5 de la Gran Vía de La Manga**. Toma la salida de la urbanización La Gola.",
     "pictures": [
+      "recurso-1-607-2p_g.jpg",
       "recurso-1-607-4p_g.jpg",
       "recurso-1-607-5p_g.jpg",
       "recurso-1-607-7p_g.jpg",
       "recurso-1-607-8p_g.jpg",
-      "recurso-1-607-2p_g.jpg",
       "recurso-1-607-3p_g.jpg",
       "recurso-1-607-11p_g.jpg"
     ],
@@ -9181,7 +9181,7 @@
       "643"
     ],
     "description": "La Grúa forma parte del conjunto de **calas nudistas** al oeste de Bolnuevo, junto a Cala de Leño. Tiene 174 metros de arena media y grava, y se llega por un camino estrecho y sin asfaltar.",
-    "orientation": "east",
+    "orientation": "south",
     "instagramHashtag": "#PlayaDeLaGrua",
     "dogFriendly": false,
     "lifeguard": false,
@@ -9399,7 +9399,7 @@
       "647"
     ],
     "description": "**Frente a un islote**, en el Puerto de Mazarrón, La Isla tiene 871 metros de arena fina con bolos y agua tranquila. Hay socorrista y es cómoda para ir con niños.",
-    "orientation": "east",
+    "orientation": "south",
     "instagramHashtag": "#PlayaDeLaIsla",
     "dogFriendly": false,
     "lifeguard": true,
@@ -10265,7 +10265,7 @@
       "655"
     ],
     "description": "La Raja es una **playa de bolos** de 356 metros al este del Puerto de Mazarrón. Se llega con una caminata corta y el mar puede estar algo movido.\n\n**Consejo:** trae escarpines.",
-    "orientation": "east",
+    "orientation": "southwest",
     "instagramHashtag": "#PlayaDeLaRaja",
     "dogFriendly": false,
     "lifeguard": false,
@@ -10453,7 +10453,7 @@
       "680"
     ],
     "description": "La Reya, también llamada **Junta de los Mares**, tiene casi un kilómetro de arena fina y dorada con agua tranquila, socorrista y bandera azul.",
-    "orientation": "east",
+    "orientation": "south",
     "instagramHashtag": "#PlayaDeLaReyajuntaDeLosMares",
     "dogFriendly": false,
     "lifeguard": true,
@@ -11375,9 +11375,9 @@
     "promenade": false,
     "access": "En pleno **casco urbano de Águilas, junto al puerto**.\n\n- **Aparcamiento:** en la calzada y en la zona del puerto, frente al Monumento al Ferrocarril.",
     "pictures": [
+      "recurso-1-693-2p_g.jpg",
       "levante-aguilas-3_g.jpg",
-      "recurso-1-693-1p_g.jpg",
-      "recurso-1-693-2p_g.jpg"
+      "recurso-1-693-1p_g.jpg"
     ],
     "coordinates": [
       37.408536843847926,
@@ -11507,7 +11507,7 @@
     ],
     "aemetId": "3001653",
     "description": "Playa urbana de **Cabo de Palos**, con 222 metros de arena fina y dorada junto al pueblo, socorrista y bandera azul. Hay días con algo de oleaje y en verano se llena.",
-    "orientation": "east",
+    "orientation": "north",
     "instagramHashtag": "#PlayaDeLevante",
     "dogFriendly": false,
     "lifeguard": true,
@@ -11719,9 +11719,9 @@
     "promenade": false,
     "access": "En el extremo suroeste del litoral de Águilas, junto a la **playa de Calacerrada**. Se llega por la carretera de Vera.",
     "pictures": [
+      "recurso-1-566-1p_g.jpg",
       "cocedores-aguilas-3_g.jpg",
-      "cocedores-aguilas-2_g.jpg",
-      "recurso-1-566-1p_g.jpg"
+      "cocedores-aguilas-2_g.jpg"
     ],
     "coordinates": [
       37.377302,
@@ -12154,8 +12154,8 @@
     "promenade": false,
     "access": "En el **km 4,650 de la carretera de Cabo de Palos a El Albujón**, en la urbanización Mar de Cristal. Desde la autovía, sigue en dirección a La Manga.",
     "pictures": [
-      "mar-cristal-cartagena-4_g.jpg",
       "recurso-1-676-2p_g.jpg",
+      "mar-cristal-cartagena-4_g.jpg",
       "recurso-1-676-3p_g.jpg",
       "recurso-1-676-1p_g.jpg"
     ],
@@ -12276,8 +12276,8 @@
     "promenade": false,
     "access": "En el **km 2,670 de la carretera del Puerto de Mazarrón a Bolnuevo**, con acceso por calles urbanas.",
     "pictures": [
-      "recurso-1-683-10p_g.jpg",
-      "PLAYAS_1_683_5_g.jpg"
+      "PLAYAS_1_683_5_g.jpg",
+      "recurso-1-683-10p_g.jpg"
     ],
     "coordinates": [
       37.559206,
@@ -12392,8 +12392,8 @@
     "promenade": false,
     "access": "En el **km 3,900 de la A-42**. Un camino sin asfaltar baja hasta la costa.",
     "pictures": [
-      "percheles-mazarron-2_g.jpg",
-      "percheles-mazarron_g.jpg"
+      "percheles-mazarron_g.jpg",
+      "percheles-mazarron-2_g.jpg"
     ],
     "coordinates": [
       37.5529873,
@@ -12507,7 +12507,7 @@
       "600"
     ],
     "description": "Piedra Mala, en el poblado de Bolnuevo, es una playa de arena gruesa y gris **entre rocas** a la que se llega por una carretera estrecha sin asfaltar. No hay ningún servicio y suele haber poca gente.",
-    "orientation": "east",
+    "orientation": "southwest",
     "instagramHashtag": "#PlayaDePiedraMala",
     "dogFriendly": false,
     "lifeguard": false,
@@ -12831,7 +12831,7 @@
       "513"
     ],
     "description": "La playa de Portmán está en la bahía del mismo nombre, **marcada por décadas de vertidos de la minería** y hoy en proceso de recuperación. Tiene arena fina y dorada y un chiringuito, y hay días con algo de oleaje.",
-    "orientation": "east",
+    "orientation": "south",
     "instagramHashtag": "#PlayaDePortman",
     "dogFriendly": false,
     "lifeguard": false,
@@ -13229,9 +13229,9 @@
     "promenade": false,
     "access": "En el **km 0,5 de la Gran Vía de La Manga**.",
     "pictures": [
+      "recurso-1-686-6p_g.jpg",
       "recurso-1-686-9p_g.jpg",
-      "recurso-1-686-5p_g.jpg",
-      "recurso-1-686-6p_g.jpg"
+      "recurso-1-686-5p_g.jpg"
     ],
     "coordinates": [
       37.65382309857175,
@@ -13840,8 +13840,8 @@
     "promenade": false,
     "access": "El pueblo está **bien señalizado desde la autovía**, y la playa queda en el frente urbano de Los Alcázares.",
     "pictures": [
-      "espejo-alcazares-6_g.jpg",
       "espejo-alcazares-4_g.jpg",
+      "espejo-alcazares-6_g.jpg",
       "espejo-alcazares-5_g.jpg",
       "recurso-1-690-4p_g.jpg",
       "recurso-1-690-3p_g.jpg",
@@ -13958,9 +13958,9 @@
     "promenade": false,
     "access": "Entre los **kilómetros 10 y 12,5** de la Gran Vía de La Manga, de Pueblo Cálido a la entrada de Puerto Mayor.",
     "pictures": [
+      "recurso-1-536-5p_g.jpg",
       "recurso-1-536-4p_g.jpg",
       "recurso-1-536-2p_g.jpg",
-      "recurso-1-536-5p_g.jpg",
       "recurso-1-536-11p_g.jpg",
       "recurso-1-536-9p_g.jpg",
       "recurso-1-536-12p_g.jpg"
@@ -14175,8 +14175,8 @@
     "promenade": false,
     "access": "Por la **carretera del faro**.",
     "pictures": [
-      "recurso-1-695-7p_g.jpg",
       "recurso-1-695-4p_g.jpg",
+      "recurso-1-695-7p_g.jpg",
       "recurso-1-695-1p_g.jpg",
       "recurso-1-695-5p_g.jpg",
       "recurso-1-695-6p_g.jpg"
@@ -14194,7 +14194,7 @@
       "513"
     ],
     "description": "El Lastre está en La Unión, **junto a la carretera del faro de Portmán**, con arena fina con grava y zonas de roca. Hay socorrista y el oleaje puede ser moderado.",
-    "orientation": "east",
+    "orientation": "southwest",
     "instagramHashtag": "#PlayaDelLastre",
     "dogFriendly": false,
     "lifeguard": true,
@@ -14686,9 +14686,9 @@
     "promenade": false,
     "access": "En el **Puerto de Mazarrón**, con acceso por calles urbanas.",
     "pictures": [
+      "recurso-1-650-6p_g.jpg",
       "puerto-mazarron-4_g.jpg",
       "recurso-1-650-7p_g.jpg",
-      "recurso-1-650-6p_g.jpg",
       "PLAYAS_1_650_2_g.jpg"
     ],
     "coordinates": [
@@ -16137,7 +16137,7 @@
       "554"
     ],
     "description": "**Playa nudista** de Cartagena, con 502 metros de arena media y grava y bandera azul. Llegar exige caminar y suele haber poca gente, incluso en verano. Tiene socorrista, chiringuito, duchas y aseos, y hay **un camping cerca**.",
-    "orientation": "east",
+    "orientation": "south",
     "instagramHashtag": "#PlayaElPortus",
     "dogFriendly": false,
     "lifeguard": true,
@@ -16646,8 +16646,8 @@
     "promenade": false,
     "access": "Entre los **kilómetros 13,9 y 16,3** de la Gran Vía de La Manga.",
     "pictures": [
-      "recurso-1-562-12p_g.jpg",
       "recurso-1-562-9p_g.jpg",
+      "recurso-1-562-12p_g.jpg",
       "recurso-1-562-4p_g.jpg",
       "recurso-1-562-8p_g.jpg",
       "recurso-1-562-6p_g.jpg",
@@ -16668,7 +16668,7 @@
       "537"
     ],
     "description": "Ensenada del Esparto tiene **más de 1,7 kilómetros** de arena fina y gris en el lado mediterráneo de La Manga, con socorrista y bandera azul. El mar puede estar algo movido.",
-    "orientation": "southeast",
+    "orientation": "north",
     "instagramHashtag": "#PlayaEnsenadaDelEsparto",
     "dogFriendly": false,
     "lifeguard": true,
@@ -16767,8 +16767,8 @@
     "promenade": false,
     "access": "Está lejos de la red de carreteras: solo se llega **a pie, por un sendero, o en barco**.",
     "pictures": [
-      "fatares-cartagena_g.jpg",
       "fatares-cartagena-3_g.jpg",
+      "fatares-cartagena_g.jpg",
       "fatares-cartagena-4_g.jpg",
       "fatares-cartagena-5_g.jpg",
       "fatares-cartagena-2_g.jpg"
@@ -16785,7 +16785,7 @@
       "601"
     ],
     "description": "Cerca de El Portús, Fatares es una **playa salvaje** de arena gruesa y grava a la que se llega por un sendero. No hay servicios, solo aparcamiento al inicio del camino, y el mar puede tener oleaje moderado.",
-    "orientation": "east",
+    "orientation": "south",
     "instagramHashtag": "#PlayaFatares",
     "dogFriendly": false,
     "lifeguard": false,
@@ -16871,11 +16871,11 @@
     "promenade": false,
     "access": "En el **km 2,5 de la Gran Vía de La Manga**. A la arena se baja por una rampa.",
     "pictures": [
+      "recurso-1-591-7p_g.jpg",
       "recurso-1-591-5p_g.jpg",
       "recurso-1-591-4p_g.jpg",
       "recurso-1-591-3p_g.jpg",
       "recurso-1-591-6p_g.jpg",
-      "recurso-1-591-7p_g.jpg",
       "recurso-1-591-8p_g.jpg",
       "recurso-1-591-10p_g.jpg"
     ],
@@ -16987,8 +16987,8 @@
     "promenade": false,
     "access": "En el núcleo urbano de **Playa Honda**.",
     "pictures": [
-      "honda-cartagena-5_g.jpg",
       "recurso-1-688-1p_g.jpg",
+      "honda-cartagena-5_g.jpg",
       "recurso-1-688-6p_g.jpg",
       "recurso-1-688-5p_g.jpg",
       "recurso-1-688-4p_g.jpg"
@@ -17210,10 +17210,10 @@
     "promenade": false,
     "access": "Por la carretera **RM-E22**, de Cartagena a Mazarrón, que pasa por Isla Plana.",
     "pictures": [
+      "recurso-1-657-7p_g.jpg",
       "recurso-1-657-6p_g.jpg",
       "recurso-1-657-4p_g.jpg",
       "recurso-1-657-5p_g.jpg",
-      "recurso-1-657-7p_g.jpg",
       "recurso-1-657-2p_g.jpg"
     ],
     "coordinates": [
@@ -17228,7 +17228,7 @@
       "654"
     ],
     "description": "Con solo 76 metros de arena media y grava, la playa del pueblo de Isla Plana tiene **socorrista y puesto de primeros auxilios**. En verano se llena enseguida.\n\n**Consejo:** si buscas más sitio, La Caleta y Cabezo del Mojón están al lado.",
-    "orientation": "east",
+    "orientation": "south",
     "instagramHashtag": "#PlayaIslaPlana",
     "dogFriendly": false,
     "lifeguard": true,
@@ -17430,12 +17430,12 @@
     "promenade": false,
     "access": "En el **km 7,5 de la carretera de Calabardina**, frente al pueblo.\n\n- **Aparcamiento:** en la calzada junto al paseo marítimo, que da directamente a la arena.",
     "pictures": [
+      "recurso-1-619-4p_g.jpg",
       "calabardina-aguilas-6_g.jpg",
       "calabardina-aguilas-7_g.jpg",
       "recurso-1-619-7p_g.jpg",
       "recurso-1-619-5p_g.jpg",
       "recurso-1-619-6p_g.jpg",
-      "recurso-1-619-4p_g.jpg",
       "recurso-1-619-2p_g.jpg"
     ],
     "coordinates": [
@@ -17564,7 +17564,7 @@
       "580"
     ],
     "description": "Entre Isla Plana y La Azohía, La Calera es una playa de grava de unos 900 metros donde **se puede ir con perro**. Solo tiene aparcamiento.\n\n**Consejo:** lleva agua para ti y para el perro, y calzado cómodo para la grava.",
-    "orientation": "east",
+    "orientation": "southwest",
     "instagramHashtag": "#PlayaLaCalera",
     "dogFriendly": true,
     "lifeguard": false,
@@ -17881,7 +17881,7 @@
       "522"
     ],
     "description": "La Galera es una cala de **piedra y roca muy fotogénica** cerca de Cabo de Palos. No hay arena ni servicios, salvo aparcamiento, y el mar puede estar algo movido.\n\n**Consejo:** es más un sitio para una visita corta y unas fotos que para pasar el día.",
-    "orientation": "east",
+    "orientation": "northwest",
     "instagramHashtag": "#PlayaLaGalera",
     "dogFriendly": false,
     "lifeguard": false,
@@ -18302,7 +18302,7 @@
       "571"
     ],
     "description": "Playa Larga está en el **parque regional de Calblanque**, con arena media y grava y el agua normalmente en calma. Tiene duchas y aseos, pero no hay socorrista.",
-    "orientation": "east",
+    "orientation": "south",
     "instagramHashtag": "#PlayaLarga",
     "dogFriendly": false,
     "lifeguard": false,
@@ -19163,8 +19163,8 @@
     "promenade": false,
     "access": "Entre los **kilómetros 8,9 y 12,2** de la Gran Vía de La Manga.",
     "pictures": [
-      "recurso-1-542-5p_g.jpg",
       "recurso-1-542-7p_g.jpg",
+      "recurso-1-542-5p_g.jpg",
       "recurso-1-542-6p_g.jpg"
     ],
     "coordinates": [
@@ -19398,7 +19398,7 @@
       "555"
     ],
     "description": "Playa Morena, junto a El Portús, también es **nudista**: 360 metros de arena gruesa y bolos a los que se llega a pie por un camino de tierra. Hay un camping cerca y el mar puede estar algo movido.",
-    "orientation": "east",
+    "orientation": "southwest",
     "instagramHashtag": "#PlayaMorena",
     "dogFriendly": false,
     "lifeguard": false,
@@ -19687,9 +19687,9 @@
     "promenade": false,
     "access": "Un **camino asfaltado** llega hasta la costa.",
     "pictures": [
+      "recurso-1-529-3p_g.jpg",
       "paraiso-cartagena-3_g.jpg",
       "paraiso-cartagena-4_g.jpg",
-      "recurso-1-529-3p_g.jpg",
       "recurso-1-529-2p_g.jpg"
     ],
     "coordinates": [
@@ -20034,7 +20034,7 @@
       "513"
     ],
     "description": "Parreño se alcanza **por un sendero desde Cobaticas**, dentro de Calblanque, y tiene 710 metros de arena fina y dorada. No hay socorrista y el oleaje puede ser moderado, pero rara vez está llena.",
-    "orientation": "east",
+    "orientation": "south",
     "instagramHashtag": "#PlayaParreno",
     "dogFriendly": false,
     "lifeguard": false,
@@ -20119,8 +20119,8 @@
     "promenade": false,
     "access": "Entre los **kilómetros 4,9 y 7,9** de la Gran Vía de La Manga, de la urbanización Castillo de Mar a Hawai V.",
     "pictures": [
-      "pedrucho-manga-8_g.jpg",
       "recurso-1-672-6p_g.jpg",
+      "pedrucho-manga-8_g.jpg",
       "recurso-1-672-5p_g.jpg",
       "recurso-1-672-8p_g.jpg",
       "recurso-1-672-10p_g.jpg",
@@ -20578,8 +20578,8 @@
     "promenade": false,
     "access": "Junto a la carretera de **Puntas de Calnegre**, en el km 7 de la RM-D21. También se llega en barco.\n\n- **Desde la RM-332:** 7 km en dirección a Puntas de Calnegre.\n- **Desde la AP-7:** 8 km desde la salida 857 (Ramonete).",
     "pictures": [
-      "puntas-calnegre-lorca_g.jpg",
       "puntas-calnegre-lorca-3_g.jpg",
+      "puntas-calnegre-lorca_g.jpg",
       "puntas-calnegre-lorca-2_g.jpg"
     ],
     "coordinates": [
@@ -20698,7 +20698,7 @@
       "656"
     ],
     "description": "San Ginés es **la playa más larga de esta parte de la costa de Cartagena**: casi 2,8 kilómetros de arena media y grava entre Isla Plana y La Azohía. Tiene socorrista y bandera azul, y hay días con algo de oleaje.",
-    "orientation": "east",
+    "orientation": "south",
     "instagramHashtag": "#PlayaSanGines",
     "dogFriendly": false,
     "lifeguard": true,

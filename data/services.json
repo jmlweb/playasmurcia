@@ -6,6 +6,6 @@
   { "id": "umbrellas", "name": "Sombrillas", "icon": "⛱️" },
   { "id": "sunbeds", "name": "Hamacas", "icon": "🛏️" },
   { "id": "chiringuito", "name": "Chiringuito", "icon": "🍹" },
-  { "id": "first-aid", "name": "Primeros Auxilios", "icon": "🩹" },
-  { "id": "wheelchair-ramp", "name": "Rampa Accesible", "icon": "♿" }
+  { "id": "first-aid", "name": "Primeros auxilios", "icon": "🩹" },
+  { "id": "wheelchair-ramp", "name": "Rampa accesible", "icon": "♿" }
 ]

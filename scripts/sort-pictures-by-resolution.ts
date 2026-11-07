@@ -40,10 +40,12 @@ function main(): void {
     const pics = beach.pictures
     if (!pics || pics.length < 2) continue
 
-    const withRes = pics.map((p) => ({ file: p, shortSide: shortSideOf(p) }))
+    // pictures[0] is the hand-picked cover, so only the rest are sorted
+    const [cover, ...rest] = pics
+    const withRes = rest.map((p) => ({ file: p, shortSide: shortSideOf(p) }))
     withRes.sort((a, b) => b.shortSide - a.shortSide)
 
-    const sorted = withRes.map((w) => w.file)
+    const sorted = [cover, ...withRes.map((w) => w.file)]
     const changed = sorted.some((f, i) => f !== pics[i])
     if (!changed) continue
 
