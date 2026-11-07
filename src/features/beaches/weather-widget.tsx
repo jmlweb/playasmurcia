@@ -196,10 +196,10 @@ function ForecastDayCard({ day }: ForecastDayCardProps) {
         </span>
       )}
       {day.tMinima !== undefined && (
-        <span className="text-xs text-gray-600">{day.tMinima}°</span>
+        <span className="text-[13px] text-gray-600">{day.tMinima}°</span>
       )}
       {rain > 0 && (
-        <span className="flex items-center gap-0.5 text-xs text-ocean-700">
+        <span className="flex items-center gap-0.5 text-[13px] text-ocean-700">
           <svg
             aria-hidden="true"
             className="h-3 w-3 shrink-0"
@@ -340,7 +340,7 @@ export function WeatherWidget({ beachCode }: WeatherWidgetProps) {
       )}
 
       <footer className="mt-3">
-        <p className="text-xs text-gray-600">
+        <p className="text-[13px] text-gray-600">
           Fuente: {ForecastSourceLabel[forecast.source]}
           {forecast.observedAt &&
             ` · Datos de las ${forecast.observedAt.slice(11, 16)}`}
