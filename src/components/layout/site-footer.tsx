@@ -242,11 +242,14 @@ export function SiteFooter({
           </p>
           <dl aria-labelledby="footer-fuentes" className={columnsClass}>
             {SOURCES.map(({ fact, links }) => (
-              <div key={fact} className="grid grid-cols-[7.5rem_1fr] gap-x-2">
-                <dt className="flex min-h-11 items-center sm:min-h-7">
+              // Flex, not a 7.5rem grid column: at 200% text the label eats
+              // the phone width, so the links drop below it instead of
+              // overflowing the page
+              <div key={fact} className="flex flex-wrap gap-x-2">
+                <dt className="flex min-h-11 shrink-0 basis-[7.5rem] items-center sm:min-h-7">
                   {fact}:
                 </dt>
-                <dd className="flex flex-wrap items-center gap-x-1">
+                <dd className="flex min-w-0 flex-1 basis-24 flex-wrap items-center gap-x-1">
                   {links.map(({ label, detail, href }, index) => (
                     <span key={href} className="inline-flex items-center gap-1">
                       {index > 0 && <span>y</span>}

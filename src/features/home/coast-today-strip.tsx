@@ -141,7 +141,7 @@ export function CoastTodayStrip({
                 to="/colecciones/$slug"
               >
                 <span className="block min-w-0">
-                  <span className="flex items-baseline gap-2">
+                  <span className="flex flex-wrap items-baseline gap-x-2">
                     <span className="text-lg font-semibold text-gray-900 transition-colors duration-150 group-hover:text-ocean-600">
                       {name}
                     </span>
