@@ -264,7 +264,11 @@ function BeachPage() {
 
             {pictures.length > 1 && (
               <div>
-                <BeachGallery beachName={beach.name} pictures={pictures} />
+                <BeachGallery
+                  beachName={beach.name}
+                  municipalityName={municipality.name}
+                  pictures={pictures}
+                />
               </div>
             )}
 
@@ -313,14 +317,17 @@ function BeachPage() {
 
 function BeachGallery({
   beachName,
+  municipalityName,
   pictures,
 }: {
   beachName: string
+  municipalityName: string
   pictures: string[]
 }) {
+  // Pictures carry no caption, so the alt names the place and the position
   const parsedPictures = pictures.map((p, i) => ({
     ...parseImageFilename(p),
-    alt: `${beachName}, foto ${i + 1} de ${pictures.length}`,
+    alt: `${beachName}, ${municipalityName}: fotografía ${i + 1} de ${pictures.length}`,
   }))
 
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)

@@ -52,8 +52,10 @@ export function BeachHero({
             priority="high"
             variant="full"
           />
-          {/* Scrim keeps white text legible over any photo, bright sand included */}
-          <div className="absolute inset-0 bg-linear-to-t from-ocean-950/85 via-ocean-950/65 via-65% to-ocean-950/55 sm:via-ocean-950/35 sm:via-55% sm:to-ocean-950/10" />
+          {/* Scrim keeps white text legible over any photo, bright sand included.
+              Measured over production heroes: the breadcrumb needs at least /55 at
+              the midpoint on desktop to clear 4.5:1 over bright sand (Bolnuevo). */}
+          <div className="absolute inset-0 bg-linear-to-t from-ocean-950/85 via-ocean-950/65 via-65% to-ocean-950/55 sm:via-ocean-950/55 sm:via-55% sm:to-ocean-950/20" />
         </>
       ) : (
         <>
