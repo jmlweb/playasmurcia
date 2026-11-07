@@ -147,6 +147,14 @@ type MultiCurrentResponse = {
 // Fetch
 // ---------------------------------------------------------------------------
 
+// Open-Meteo sends "2026-10-27" as a Europe/Madrid calendar day. UTC midnight of
+// that day is the representation aemet.ts and the widget share: it keeps the
+// weekday stable for visitors in any timezone when read with the UTC getters.
+export function parseOpenMeteoDate(dateStr: string): number {
+  const [year, month, day] = dateStr.slice(0, 10).split('-').map(Number)
+  return Date.UTC(year, month - 1, day)
+}
+
 export async function fetchOpenMeteoForecast(
   latitude: number,
   longitude: number,
@@ -190,7 +198,7 @@ export async function fetchOpenMeteoForecast(
 
     const forecast: OpenMeteoForecast = {
       days: daily.time.map((dateStr, i) => ({
-        fecha: new Date(dateStr).getTime(),
+        fecha: parseOpenMeteoDate(dateStr),
         skyDescription: wmoToDescription(daily.weather_code[i]),
         skyIcon: wmoToIcon(daily.weather_code[i]),
         tMaxima: Math.round(daily.temperature_2m_max[i]),

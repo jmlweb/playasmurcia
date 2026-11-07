@@ -1,6 +1,11 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import { fetchBatchCardWeather, fetchMarineWeather } from './open-meteo'
+import {
+  fetchBatchCardWeather,
+  fetchMarineWeather,
+  fetchOpenMeteoForecast,
+  parseOpenMeteoDate,
+} from './open-meteo'
 
 const beaches = [
   { code: 'TEST_TIMEOUT_A', coordinates: [37.6, -0.8] as [number, number] },
@@ -208,5 +213,51 @@ describe('fetchMarineWeather', () => {
     const result = await fetchMarineWeather(37.43, -1.53)
 
     expect(result).toEqual({ currentTemp: 20 })
+  })
+})
+
+describe('parseOpenMeteoDate', () => {
+  it('reads the Madrid calendar day as UTC midnight in any timezone', () => {
+    const fecha = parseOpenMeteoDate('2026-10-27')
+    expect(fecha).toBe(Date.UTC(2026, 9, 27))
+    expect(new Date(fecha).getUTCDay()).toBe(2)
+  })
+
+  it('matches the representation aemet.ts uses for the same day', () => {
+    expect(parseOpenMeteoDate('2026-11-04')).toBe(Date.UTC(2026, 10, 4))
+  })
+})
+
+describe('fetchOpenMeteoForecast', () => {
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
+
+  it('keeps each daily date on its Madrid calendar day', async () => {
+    global.fetch = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        daily: {
+          time: ['2026-10-27', '2026-10-28'],
+          weather_code: [0, 3],
+          temperature_2m_max: [24.2, 22.8],
+          temperature_2m_min: [15.1, 14.6],
+          wind_speed_10m_max: [10.4, 12.9],
+          wind_direction_10m_dominant: [90, 180],
+          uv_index_max: [5.2, 4.1],
+          precipitation_probability_max: [0, 30],
+        },
+      }),
+    })
+
+    const result = await fetchOpenMeteoForecast(37.44, -1.54)
+
+    expect(result?.days.map((d) => d.fecha)).toEqual([
+      Date.UTC(2026, 9, 27),
+      Date.UTC(2026, 9, 28),
+    ])
+    expect(result?.days.map((d) => new Date(d.fecha).getUTCDay())).toEqual([
+      2, 3,
+    ])
   })
 })
