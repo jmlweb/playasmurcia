@@ -74,9 +74,23 @@ const FullDayNames = [
   'sábado',
 ] as const
 
-function formatDayLabel(timestamp: number): string {
-  const date = new Date(timestamp)
-  return DayNames[date.getDay()]
+// `fecha` is UTC midnight of the Madrid calendar day (see open-meteo.ts and
+// aemet.ts). The widget renders in the visitor's browser, so the local getters
+// would shift the weekday back one day west of UTC.
+export function getForecastWeekday(timestamp: number): number {
+  return new Date(timestamp).getUTCDay()
+}
+
+export function formatDayLabel(timestamp: number): string {
+  return DayNames[getForecastWeekday(timestamp)]
+}
+
+export function formatFullDayName(timestamp: number): string {
+  return FullDayNames[getForecastWeekday(timestamp)]
+}
+
+export function isWeekend(timestamp: number): boolean {
+  return [0, 6].includes(getForecastWeekday(timestamp))
 }
 
 // ---------------------------------------------------------------------------
@@ -133,7 +147,7 @@ function TodayCard({ day, forecast }: TodayCardProps) {
   return (
     <div>
       <p className="text-sm font-semibold text-ocean-700">
-        Hoy, {FullDayNames[new Date(day.fecha).getDay()]}
+        Hoy, {formatFullDayName(day.fecha)}
       </p>
       <div className="mt-1 flex items-center gap-4">
         <WeatherIcon className="h-12 w-12 flex-shrink-0" type={iconType} />
@@ -180,12 +194,12 @@ function ForecastDayCard({ day }: ForecastDayCardProps) {
     ? (day.skyIcon as WeatherIconType)
     : getSkyIconType(day.skyDescription)
   const rain = day.precipitationProbability ?? 0
-  const isWeekend = [0, 6].includes(new Date(day.fecha).getDay())
+  const isWeekendDay = isWeekend(day.fecha)
 
   return (
     <li className="flex min-w-0 flex-col items-center gap-1 text-center tabular-nums">
       <span
-        className={`text-xs ${isWeekend ? 'font-semibold text-ocean-700' : 'font-medium text-gray-600'}`}
+        className={`text-xs ${isWeekendDay ? 'font-semibold text-ocean-700' : 'font-medium text-gray-600'}`}
       >
         {formatDayLabel(day.fecha)}
       </span>
