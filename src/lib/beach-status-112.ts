@@ -115,6 +115,49 @@ function municipalitiesMatch(
   return a === b || a.includes(b) || b.includes(a)
 }
 
+// Feed names no name rule can reach, keyed by municipality and site beach
+// name as written in data/beaches.json. The feed's coordx/coordy cannot
+// replace this: on the live feed, matched entries sit up to 3 km from their
+// beach, and a 0.5 km nearest-entry fallback would hand ~27 unrelated beaches
+// a neighbour's flag or closure. An exact alias has no such false positives.
+// Compared with normalizeText on both sides, so punctuation and case in the
+// feed may drift. Several aliases mean several segments: the most severe wins.
+export const COPLA_FEED_ALIASES: Readonly<
+  Record<string, Readonly<Record<string, readonly string[]>>>
+> = {
+  Cartagena: {
+    'Playa Calnegre': ['MONTE BLANCO - CALNEGRE'],
+    'Playa de La Chapineta': ['LA AZOHIA (CHAPINETA)'],
+  },
+  Lorca: {
+    'Cala de Calnegre': ['PLAYA DE CALNEGRE'],
+  },
+  Mazarrón: {
+    'Playa de El Rihuete (Playa del Rigüete)': [
+      'PUERTO - RIHUETE',
+      'SILLAS DE RIHUETE',
+    ],
+  },
+}
+
+const normalizedAliases = new Map(
+  Object.entries(COPLA_FEED_ALIASES).flatMap(([municipality, beaches]) =>
+    Object.entries(beaches).map(([beachName, feedNames]) => [
+      `${normalizeText(municipality)}|${normalizeText(beachName)}`,
+      new Set(feedNames.map(normalizeText)),
+    ]),
+  ),
+)
+
+function aliasFeedNames(
+  beachName: string,
+  municipalityName: string,
+): ReadonlySet<string> | undefined {
+  return normalizedAliases.get(
+    `${normalizeText(municipalityName)}|${normalizeText(beachName)}`,
+  )
+}
+
 // ---------------------------------------------------------------------------
 // Entry lookup
 // ---------------------------------------------------------------------------
@@ -131,10 +174,21 @@ function flagSeverity(entry: CoplaEntry): number {
   return FLAG_SEVERITY[toBeachFlag(entry.bandera)]
 }
 
+const mostSevereEntry = (entries: CoplaEntry[]): CoplaEntry | undefined =>
+  entries.reduce<CoplaEntry | undefined>(
+    (mostSevere, e) =>
+      mostSevere && flagSeverity(mostSevere) >= flagSeverity(e)
+        ? mostSevere
+        : e,
+    undefined,
+  )
+
 /**
  * A direct name match wins. Otherwise the beach's feed segments are used,
  * and when there are several the most severe flag is shown so a closure or
- * red flag on any segment is never hidden.
+ * red flag on any segment is never hidden. Beaches whose feed name no rule
+ * can reach fall back to their explicit aliases, last, so no existing match
+ * moves.
  */
 function findCoplaEntry(
   entries: CoplaEntry[],
@@ -149,15 +203,16 @@ function findCoplaEntry(
   )
   if (directMatch) return directMatch
 
-  return sameMunicipality
-    .filter((e) => segmentNamesMatch(e.playa, beachName))
-    .reduce<CoplaEntry | undefined>(
-      (mostSevere, e) =>
-        mostSevere && flagSeverity(mostSevere) >= flagSeverity(e)
-          ? mostSevere
-          : e,
-      undefined,
-    )
+  const segmentMatch = mostSevereEntry(
+    sameMunicipality.filter((e) => segmentNamesMatch(e.playa, beachName)),
+  )
+  if (segmentMatch) return segmentMatch
+
+  const aliases = aliasFeedNames(beachName, municipalityName)
+  if (!aliases) return undefined
+  return mostSevereEntry(
+    sameMunicipality.filter((e) => aliases.has(normalizeText(e.playa))),
+  )
 }
 
 // ---------------------------------------------------------------------------
