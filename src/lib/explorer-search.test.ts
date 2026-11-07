@@ -39,6 +39,66 @@ describe('validateSearch need filters', () => {
   })
 })
 
+describe('validateSearch id filters', () => {
+  it('keeps integer ids given as numbers or strings', () => {
+    expect(validateSearch({ municipality: 1 }).municipality).toEqual([1])
+    expect(validateSearch({ municipality: '2' }).municipality).toEqual([2])
+    expect(validateSearch({ sea: ['1', 2] }).sea).toEqual([1, 2])
+  })
+
+  it('drops an empty value instead of reading it as id 0', () => {
+    expect(validateSearch({ municipality: '' }).municipality).toBeUndefined()
+    expect(validateSearch({ municipality: [''] }).municipality).toBeUndefined()
+  })
+
+  it('drops non-integer and negative ids', () => {
+    expect(validateSearch({ municipality: '1.5' }).municipality).toBeUndefined()
+    expect(validateSearch({ municipality: 1.5 }).municipality).toBeUndefined()
+    expect(validateSearch({ municipality: '-1' }).municipality).toBeUndefined()
+    expect(validateSearch({ municipality: -1 }).municipality).toBeUndefined()
+    expect(
+      validateSearch({ services: ['1', '-3', '2.5', 'x'] }).services,
+    ).toEqual([1])
+  })
+
+  it('rejects prototype keys as enum values', () => {
+    expect(
+      validateSearch({ accessDifficulty: 'toString' }).accessDifficulty,
+    ).toBeUndefined()
+    expect(
+      validateSearch({ occupancy: 'constructor' }).occupancy,
+    ).toBeUndefined()
+    expect(
+      validateMunicipalitySearch({ accessDifficulty: ['hasOwnProperty'] })
+        .accessDifficulty,
+    ).toBeUndefined()
+  })
+})
+
+describe('validateSearch page', () => {
+  it('keeps whole pages from 1 and floors fractions', () => {
+    expect(validateSearch({ page: 1 }).page).toBe(1)
+    expect(validateSearch({ page: 3 }).page).toBe(3)
+    expect(validateSearch({ page: 2.7 }).page).toBe(2)
+  })
+
+  it('drops pages that floor below 1', () => {
+    expect(validateSearch({ page: 0.5 }).page).toBeUndefined()
+    expect(validateSearch({ page: 0 }).page).toBeUndefined()
+    expect(validateSearch({ page: -2 }).page).toBeUndefined()
+    expect(validateListingSearch({ page: 0.5 }).page).toBeUndefined()
+    expect(validateMunicipalitySearch({ page: 0 }).page).toBeUndefined()
+  })
+
+  it('drops non-finite and non-numeric pages', () => {
+    expect(validateSearch({ page: Number.NaN }).page).toBeUndefined()
+    expect(
+      validateSearch({ page: Number.POSITIVE_INFINITY }).page,
+    ).toBeUndefined()
+    expect(validateSearch({ page: '2' }).page).toBeUndefined()
+  })
+})
+
 describe('validateSearch view', () => {
   it('keeps the map view and drops anything else', () => {
     expect(validateSearch({ view: 'map' }).view).toBe('map')
