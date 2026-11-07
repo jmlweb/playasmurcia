@@ -1,5 +1,7 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 
+import { BeachRichText } from '@/features/beaches/beach-rich-text'
+
 const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN
 
 const IDLE_TIMEOUT_MS = 8_000
@@ -8,6 +10,8 @@ const OBSERVER_MARGIN = '400px'
 type LocationMapProps = {
   coordinates: [number, number]
   beachName: string
+  /** Editorial directions shown above the map when the beach has them */
+  access?: string
 }
 
 const LeafletMap = lazy(() =>
@@ -90,17 +94,29 @@ function useLoadTrigger(
   return [shouldLoad, activate]
 }
 
-export function LocationMap({ coordinates, beachName }: LocationMapProps) {
+export function LocationMap({
+  coordinates,
+  beachName,
+  access,
+}: LocationMapProps) {
   const [lat, lng] = coordinates
   const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`
   const sectionRef = useRef<HTMLElement>(null)
   const [shouldLoad, activate] = useLoadTrigger(sectionRef)
 
   return (
-    <section ref={sectionRef} aria-label="Ubicación">
-      <h2 className="mb-4 text-3xl font-normal tracking-tight text-gray-900">
-        Ubicación
+    <section ref={sectionRef} aria-labelledby="como-llegar-heading">
+      <h2
+        className="mb-4 text-3xl font-normal tracking-tight text-gray-900"
+        id="como-llegar-heading"
+      >
+        Cómo llegar
       </h2>
+      {access && (
+        <div className="mb-6">
+          <BeachRichText text={access} variant="body" />
+        </div>
+      )}
       <div className="overflow-hidden rounded-2xl border border-gray-200/60 shadow-sm">
         {shouldLoad ? (
           <Suspense
