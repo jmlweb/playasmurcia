@@ -26,6 +26,9 @@ started: 2026-11-07
 
 ## Learnings
 
+- LRN-042: Commons licence names need normalising
+- LRN-043: Wikimedia geosearch hits are not always the beach
+- LRN-044: Picture files are not in git
 ## Progress Log
 
 - [2026-10-28] Created

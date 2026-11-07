@@ -38,6 +38,9 @@ Sources: https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/2883?tip=AM&nult=1 
 
 ## Learnings
 
+- LRN-039: CARM tourist-office open dataset is stale
+- LRN-040: es-ES Intl formatting drops the separator on 4-digit numbers
+- LRN-041: Worktree needs generated route tree and a DB for check and build
 ## Progress Log
 
 - [2026-11-04] Created

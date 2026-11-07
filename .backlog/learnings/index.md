@@ -42,3 +42,9 @@
 | LRN-036 | Fresh worktree needs a seeded local DB and a build before check and test mean anything | worktree, testing, tooling, setup | active | 2026-11-05 |
 | LRN-037 | Beach editorial fields are one-off LLM output; the validator is the only guard | data, validation, content | active | 2026-11-05 |
 | LRN-038 | ITREM beach pages: code alone selects the page, unknown codes answer 200 with the list page | data, external-source, itrem | active | 2026-11-06 |
+| LRN-039 | CARM tourist-office open dataset is stale | data, open-data, tourist-offices | active | 2026-11-07 |
+| LRN-040 | es-ES Intl formatting drops the separator on 4-digit numbers | i18n, formatting | active | 2026-11-07 |
+| LRN-041 | Worktree needs generated route tree and a DB for check and build | worktree, tooling | active | 2026-11-07 |
+| LRN-042 | Commons licence names need normalising | wikimedia, licence, scripts | active | 2026-11-07 |
+| LRN-043 | Wikimedia geosearch hits are not always the beach | wikimedia, picture-sourcing | active | 2026-11-07 |
+| LRN-044 | Picture files are not in git | pictures, worktree, r2 | active | 2026-11-07 |
