@@ -95,6 +95,14 @@ describe('Navbar', () => {
     ).toBe('true')
   })
 
+  it('names the collections popover after its trigger', async () => {
+    renderNavbar()
+    fireEvent.click(screen.getByRole('button', { name: 'Colecciones' }))
+    expect(
+      await screen.findByRole('dialog', { name: 'Colecciones' }),
+    ).toBeTruthy()
+  })
+
   it('does not treat a shared prefix as the same section', () => {
     renderNavbar('/playas-raras')
     expect(

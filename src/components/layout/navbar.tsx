@@ -52,7 +52,10 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
           side="bottom"
           sideOffset={12}
         >
-          <Popover.Popup className="max-h-[var(--available-height)] w-72 overflow-y-auto overscroll-contain rounded-xl border border-white/10 bg-ocean-800 p-3 shadow-2xl">
+          <Popover.Popup
+            aria-label={label}
+            className="max-h-[var(--available-height)] w-72 overflow-y-auto overscroll-contain rounded-xl border border-white/10 bg-ocean-800 p-3 shadow-2xl"
+          >
             <ul className="space-y-1">
               {navData.characteristics.map((c) => {
                 const active = pathname.startsWith(c.href)
