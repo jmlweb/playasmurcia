@@ -93,7 +93,7 @@ function BeachErrorComponent({ reset }: ErrorComponentProps) {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-sand-50 px-4 text-center">
       <p className="mb-3 text-7xl font-extrabold text-ocean-200">!</p>
-      <h1 className="mb-2 text-2xl font-semibold text-gray-900">
+      <h1 className="mb-2 text-2xl font-normal text-gray-900">
         No pudimos cargar esta playa
       </h1>
       <p className="mb-8 text-gray-500">

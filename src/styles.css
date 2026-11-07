@@ -57,9 +57,12 @@
     }
   }
 
+  /* DM Serif Display ships Regular only: lock the weight and forbid faux bold */
   h1,
   h2 {
     font-family: var(--font-family-display);
+    font-weight: 400;
+    font-synthesis-weight: none;
   }
 
   /* Scrollbar styling for carousels */

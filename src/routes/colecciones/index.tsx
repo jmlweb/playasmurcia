@@ -77,7 +77,7 @@ function ColeccionesPage() {
 
       <div className="mx-auto max-w-7xl px-4 pt-8 pb-16 sm:px-6 sm:pt-12 sm:pb-20 lg:px-8">
         <section className="mb-12">
-          <h2 className="mb-5 text-3xl font-semibold text-gray-900">
+          <h2 className="mb-5 text-3xl font-normal text-gray-900">
             Playas por mar
           </h2>
           <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-6">
@@ -90,7 +90,7 @@ function ColeccionesPage() {
         </section>
 
         <section>
-          <h2 className="mb-5 text-3xl font-semibold text-gray-900">
+          <h2 className="mb-5 text-3xl font-normal text-gray-900">
             Colecciones temáticas
           </h2>
           <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-6">

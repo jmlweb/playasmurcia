@@ -44,7 +44,7 @@ export function FeaturedSection({
           <p className="overline-accent mb-2 text-sm font-semibold tracking-wider text-ocean-600 uppercase">
             Selección destacada
           </p>
-          <h2 className="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 className="text-3xl font-normal tracking-tight text-gray-900 sm:text-4xl">
             Por dónde empezar
           </h2>
         </div>

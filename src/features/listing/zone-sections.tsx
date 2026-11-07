@@ -25,7 +25,7 @@ export function ZoneSections<T extends { code: string; zone?: string }>({
           <section key={headingId} aria-labelledby={headingId}>
             <div className="mb-5 flex items-baseline gap-3">
               <h2
-                className="text-2xl font-semibold text-gray-900"
+                className="text-2xl font-normal text-gray-900"
                 id={headingId}
               >
                 {zone?.name ?? UNZONED_HEADING}
