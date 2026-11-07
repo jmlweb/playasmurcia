@@ -5910,7 +5910,6 @@
     "promenade": false,
     "access": "Desde **Cañada de Gallego**, un camino sin asfaltar baja hasta la costa.\n\n- **Con perro:** es una playa canina.",
     "pictures": [
-      "PLAYAS_1_638_3_g.jpg",
       "PLAYAS_1_638_7_g.jpg",
       "PLAYAS_1_638_4_g.jpg",
       "PLAYAS_1_638_6_g.jpg",
@@ -7388,9 +7387,8 @@
     "promenade": false,
     "access": "En el **km 1,400 de la carretera de Isla Plana a Cartagena**. Una pista sin asfaltar baja hasta la playa.",
     "pictures": [
-      "PLAYAS_1_654_1_g.jpg",
-      "PLAYAS_1_654_2_g.jpg",
-      "PLAYAS_1_654_4_g.jpg"
+      "PLAYAS_1_654_4_g.jpg",
+      "PLAYAS_1_654_2_g.jpg"
     ],
     "coordinates": [
       37.576183,
@@ -7725,11 +7723,10 @@
     "promenade": false,
     "access": "Por carretera hasta el **poblado de Bolnuevo**, en la urbanización Punta Bella.",
     "pictures": [
-      "PLAYAS_1_645_3_g.jpg",
+      "PLAYAS_1_645_1_g.jpg",
       "recurso-1-645-6p_g.jpg",
       "recurso-1-645-7p_g.jpg",
-      "PLAYAS_1_645_4_g.jpg",
-      "PLAYAS_1_645_1_g.jpg"
+      "PLAYAS_1_645_4_g.jpg"
     ],
     "coordinates": [
       37.562477,

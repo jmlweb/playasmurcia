@@ -20,10 +20,10 @@ See `.backlog/reports/complete/RPT-063-el-rincn-hero-photo-may.md`.
 
 ## Acceptance Criteria
 
-- [ ] The hosted file is compared with its original source
-- [ ] The result is recorded in the report or task
-- [ ] If edited, the photo is replaced with an unedited one and the first gallery image is corrected
-- [ ] If edited, other beach photos are checked for the same sparkle mark
+- [x] The hosted file is compared with its original source
+- [x] The result is recorded in the report or task
+- [x] If edited, the photo is replaced with an unedited one and the first gallery image is corrected
+- [x] If edited, other beach photos are checked for the same sparkle mark
 - [ ] The page is verified with scripts/screenshot.ts
 
 ## Notes
@@ -34,3 +34,4 @@ See `.backlog/reports/complete/RPT-063-el-rincn-hero-photo-may.md`.
 
 - [2026-11-04] Created
 - [2026-11-07] Started
+- [2026-11-07] Confirmed generated (2752×1536, sparkle mark, scene differs from the 560×420 source). Replaced covers of 645, 638 and 654; R2 and production migrated. Details in RPT-063.
