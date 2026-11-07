@@ -12,18 +12,18 @@ type ExplorerSearchParams = BeachSearchParams & {
   view?: 'map'
 }
 
-/** Catalog ids are non-negative integers; `Number('')` is 0, so blanks are dropped first */
+/** Catalog ids are plain decimal digits; `Number('')` is 0, so a digit check also drops blanks */
 function parseId(value: unknown): number | undefined {
+  if (typeof value === 'string' && !/^\d+$/.test(value)) return undefined
   if (typeof value !== 'number' && typeof value !== 'string') return undefined
-  if (typeof value === 'string' && value.trim() === '') return undefined
   const id = Number(value)
-  return Number.isInteger(id) && id >= 0 ? id : undefined
+  return Number.isSafeInteger(id) && id >= 0 ? id + 0 : undefined
 }
 
 function parseNumberArray(value: unknown): number[] | undefined {
   const items = Array.isArray(value) ? value : [value]
   const ids = items.map(parseId).filter((id): id is number => id !== undefined)
-  return ids.length > 0 ? ids : undefined
+  return ids.length > 0 ? [...new Set(ids)] : undefined
 }
 
 function parseFlag(value: unknown): true | undefined {
@@ -58,7 +58,7 @@ function parseSort(value: unknown): BeachSearchParams['sort'] {
 function parsePage(value: unknown): number | undefined {
   if (typeof value !== 'number') return undefined
   const page = Math.floor(value)
-  return Number.isInteger(page) && page >= 1 ? page : undefined
+  return Number.isSafeInteger(page) && page >= 1 ? page : undefined
 }
 
 function parseNeedFilters(search: Record<string, unknown>) {

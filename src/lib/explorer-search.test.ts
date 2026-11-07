@@ -75,6 +75,38 @@ describe('validateSearch id filters', () => {
   })
 })
 
+describe('validateSearch id hardening', () => {
+  it('drops blank, exponent, hex, unsafe and -0 ids', () => {
+    expect(validateSearch({ municipality: ' ' }).municipality).toBeUndefined()
+    expect(validateSearch({ municipality: '1e3' }).municipality).toBeUndefined()
+    expect(
+      validateSearch({ municipality: '0x10' }).municipality,
+    ).toBeUndefined()
+    expect(
+      validateSearch({ municipality: '9007199254740993' }).municipality,
+    ).toBeUndefined()
+    expect(validateSearch({ municipality: 1e21 }).municipality).toBeUndefined()
+    expect(
+      validateSearch({ municipality: Infinity }).municipality,
+    ).toBeUndefined()
+    expect(validateSearch({ municipality: true }).municipality).toBeUndefined()
+    expect(validateSearch({ municipality: [] }).municipality).toBeUndefined()
+    expect(
+      Object.is(validateSearch({ municipality: -0 }).municipality?.[0], 0),
+    ).toBe(true)
+  })
+
+  it('dedupes ids and keeps the valid ones from a mixed array', () => {
+    expect(
+      validateSearch({ municipality: ['1', '', '1', 2] }).municipality,
+    ).toEqual([1, 2])
+  })
+
+  it('drops unsafe page numbers', () => {
+    expect(validateSearch({ page: 1e300 }).page).toBeUndefined()
+  })
+})
+
 describe('validateSearch page', () => {
   it('keeps whole pages from 1 and floors fractions', () => {
     expect(validateSearch({ page: 1 }).page).toBe(1)

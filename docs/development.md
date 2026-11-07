@@ -34,7 +34,8 @@ pnpm lint:fix      # Run Oxlint with auto-fix
 pnpm format        # Oxfmt: `src/**/*.{ts,tsx,css}` and `scripts/**/*.js`
 pnpm type-check    # TypeScript type checking (tsc --noEmit)
 pnpm check         # Type-check + Oxlint (`src/`) + Oxfmt on the same globs as `format`
-pnpm test          # Run tests
+pnpm test          # Run tests (also runs test:tz)
+pnpm test:tz       # Forecast weekday test under TZ=America/New_York
 pnpm test:watch    # Run tests in watch mode
 pnpm test:coverage # Run tests with coverage report
 pnpm score:picture-quality                  # Set beaches.json pictureQualityScore from public/pictures
