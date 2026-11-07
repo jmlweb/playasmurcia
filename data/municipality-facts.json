@@ -1,0 +1,84 @@
+{
+  "population": {
+    "source": "INE, tabla 2883 (Cifras oficiales de población), 1 de enero",
+    "sourceUrl": "https://www.ine.es/jaxiT3/Tabla.htm?t=2883",
+    "year": 2025,
+    "values": {
+      "30003": 37811,
+      "30016": 220704,
+      "30024": 98969,
+      "30026": 35449,
+      "30035": 36524,
+      "30036": 29674,
+      "30041": 21380,
+      "30902": 20408
+    }
+  },
+  "appraisedValue": {
+    "source": "Valor tasado medio de la vivienda libre (Ministerio de Transportes y Movilidad Sostenible), publicado por el CREM",
+    "sourceUrl": "https://econet.carm.es/inicio/-/crem/sicrem/PU_datosBasicos/pdf/sec71.pdf",
+    "quarter": "2.º trimestre de 2026",
+    "regionalAverage": 1350.1,
+    "values": {
+      "30003": 1453.8,
+      "30016": 1485.6,
+      "30024": 1170.2,
+      "30026": 1583.6,
+      "30035": 1952.8
+    }
+  },
+  "touristOffices": {
+    "source": "Web oficial de cada ayuntamiento",
+    "verifiedOn": "2026-11-07",
+    "values": {
+      "30003": [
+        {
+          "name": "Oficina Municipal de Turismo de Águilas",
+          "address": "Plaza Antonio Cortijos, s/n",
+          "phone": "968 493 285",
+          "url": "https://www.aguilas.es/contacto/"
+        }
+      ],
+      "30024": [
+        {
+          "name": "Oficina Municipal de Turismo de Lorca",
+          "address": "Palacio de Guevara, calle Lope Gisbert, 12",
+          "phone": "968 441 914",
+          "url": "https://www.lorcaturismo.es/"
+        }
+      ],
+      "30026": [
+        {
+          "name": "Oficina de Turismo de Mazarrón",
+          "address": "Plaza Toneleros, s/n, Puerto de Mazarrón",
+          "phone": "968 594 426",
+          "url": "https://www.visitamazarron.com/"
+        }
+      ],
+      "30035": [
+        {
+          "name": "Turismo San Javier",
+          "address": "Plaza de España, 3",
+          "phone": "968 573 700 (ext. 5351)",
+          "url": "https://turismo.sanjavier.es/"
+        }
+      ],
+      "30041": [
+        {
+          "name": "Oficina de Turismo de La Unión",
+          "address": "Calle Jacinto Conesa, 21 (Museo Minero)",
+          "phone": "968 541 614",
+          "url": "https://www.ayto-launion.org/turismo/"
+        }
+      ],
+      "30902": [
+        {
+          "name": "Oficina Municipal de Turismo de Los Alcázares",
+          "address": "Avenida Trece de Octubre, 12",
+          "phone": "968 575 756",
+          "url": "https://turismo.losalcazares.es/"
+        }
+      ]
+    }
+  }
+}

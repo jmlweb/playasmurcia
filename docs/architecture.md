@@ -20,7 +20,7 @@
 | **Open-Meteo API**            | Coordinate-based weather (cards and detail when AEMET is unavailable)                                                                        |
 | **AEMET Open Data**           | Official beach forecasts where `aemetId` is set                                                                                              |
 | **112 COPLA (112rmurcia.es)** | Live beach flag color and sea state                                                                                                          |
-| **Leaflet + react-leaflet**   | Interactive maps on beach detail and the explorer (lazy-loaded, client-only); `leaflet.markercluster` groups explorer markers               |
+| **Leaflet + react-leaflet**   | Interactive maps on beach detail and the explorer (lazy-loaded, client-only); `leaflet.markercluster` groups explorer markers                |
 
 ## Current State
 
@@ -84,6 +84,7 @@ playasmurcia/
 │   │   ├── security-headers.ts  # Response security headers + CSP
 │   │   ├── cn.ts           # clsx + tailwind-merge helper
 │   │   ├── slugs.ts        # Slug generation
+│   │   ├── municipality-facts.ts # Population, appraised value and tourist offices from data/municipality-facts.json
 │   │   ├── zones.ts        # Beach zones from data/zones.json: lookup, ITREM label mapping, grouping
 │   │   ├── status-styles.ts     # Badge Tailwind class maps
 │   │   ├── images.ts
@@ -248,14 +249,16 @@ Authoritative **editorial source** for bulk fields; after edits, run migration s
 
 Exception: `data/certification-seasons.json` is not migrated. `src/lib/certification-seasons.ts` imports it statically (`resolveJsonModule`), so a new season year ships with the next deploy without a DB migration.
 
+`data/municipality-facts.json` is bundled the same way by `src/lib/municipality-facts.ts` and rendered by `src/features/municipalities/municipality-facts-panel.tsx`, keyed by INE code. It needs no DB column or migration.
+
 `data/zones.json` is bundled the same way by `src/lib/zones.ts` for zone names, kinds and order. The per-beach `zone` id itself lives in `beaches.json` and the `beaches.zone` column, so it does need the migration. `data/source/itrem-localities.json` is evidence only: neither bundled nor migrated.
 
 ## Scripts and deployment
 
 Maintenance and data scripts are listed in [development.md](./development.md).
 
-| Component       | Technology                              |
-| --------------- | --------------------------------------- |
+| Component       | Technology                                                           |
+| --------------- | -------------------------------------------------------------------- |
 | **Hosting**     | Cloudflare Workers (`www.playasmurcia.com`, apex redirects to `www`) |
 | **Images**      | Cloudflare R2 bucket on `img.playasmurcia.com`                       |
 | **Database**    | Turso (libSQL)                                                       |

@@ -79,14 +79,14 @@ Copy `.env.example` to `.env` and set real Turso credentials.
 
 `.github/workflows/ci.yml` runs on pull requests (check, test, build) and on pushes to `main` (same, then `wrangler deploy`). It needs these GitHub repository settings:
 
-| Name                     | Kind     | Purpose                                                       |
-| ------------------------ | -------- | ------------------------------------------------------------- |
-| `CLOUDFLARE_API_TOKEN`   | Secret   | Deploy (Cloudflare "Edit Cloudflare Workers" token template)  |
-| `CLOUDFLARE_ACCOUNT_ID`  | Secret   | Deploy                                                        |
-| `VITE_MAPBOX_TOKEN`      | Secret   | Inlined into the client bundle at build time                  |
-| `TURSO_DATABASE_URL`     | Secret   | The sitemap step of `pnpm build` queries the database         |
-| `TURSO_AUTH_TOKEN`       | Secret   | Same                                                          |
-| `VITE_PICTURES_BASE_URL` | Variable | `https://img.playasmurcia.com`                                |
+| Name                     | Kind     | Purpose                                                      |
+| ------------------------ | -------- | ------------------------------------------------------------ |
+| `CLOUDFLARE_API_TOKEN`   | Secret   | Deploy (Cloudflare "Edit Cloudflare Workers" token template) |
+| `CLOUDFLARE_ACCOUNT_ID`  | Secret   | Deploy                                                       |
+| `VITE_MAPBOX_TOKEN`      | Secret   | Inlined into the client bundle at build time                 |
+| `TURSO_DATABASE_URL`     | Secret   | The sitemap step of `pnpm build` queries the database        |
+| `TURSO_AUTH_TOKEN`       | Secret   | Same                                                         |
+| `VITE_PICTURES_BASE_URL` | Variable | `https://img.playasmurcia.com`                               |
 
 Runtime secrets of the Worker (`TURSO_*`, `AEMET_API_KEY`) live in Cloudflare (`wrangler secret put`), not in GitHub.
 
@@ -193,7 +193,7 @@ Run each spring, after ADEAC publishes the Blue Flag awards (usually early May),
    node scripts/validate-beaches.js
    ```
 
-4. Update the counts under *Beach Certifications* in [business-rules.md](./business-rules.md).
+4. Update the counts under _Beach Certifications_ in [business-rules.md](./business-rules.md).
 5. If `data/beaches.json` changed, migrate Turso by hand before pushing (`pnpm tsx scripts/migrate-to-database.ts` against production). A change to `data/certification-seasons.json` alone needs no migration: it ships with the next deploy.
 
 No env vars or keys are needed.
@@ -222,6 +222,10 @@ node scripts/validate-beaches.js
 ```
 
 Sets `waterQuality` and `waterQualitySource` in `data/beaches.json` from the EEA bathing water map service (the EEA republishes the NÁYADE data of the Ministerio de Sanidad). It picks the newest bathing season the EEA publishes, so run it once a year after the release (around June). No API key or env var is needed. Beaches without a classified Región de Murcia sampling point within 500 m lose their class. The matching rules are in [business-rules.md](./business-rules.md#bathing-water-quality). Afterwards run the Turso migration (see [Keeping remote DB in sync](#keeping-remote-db-in-sync)).
+
+#### Municipality facts (`data/municipality-facts.json`)
+
+Edited by hand, no script. Yearly: refetch `https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/2883?tip=AM&nult=1` and update `population`. Quarterly: update `appraisedValue` from the CREM `sec71.pdf` ("Total vivienda libre" block). Offices: re-check each municipality's site. The file ships with the next deploy; no DB migration. Details: [data-schema.md](./data-schema.md#municipality-facts).
 
 #### Beach zones (`assign-zones.ts`)
 

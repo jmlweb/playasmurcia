@@ -55,13 +55,13 @@ Unresolved, and left unchanged: Playa de El Palomarico (open sea, no coast withi
 
 `getBeachStatus` returns `null` when the 112 has no entry for a beach and throws when the feed fails, so the page can tell them apart.
 
-| State | Page |
-| --- | --- |
-| Red flag or closure, in season | Alert first in the rail. A closure demotes the directions button |
-| Other flag, in season | Card under the forecast |
-| No entry, June to September | "El 112 no publica bandera para esta playa." |
+| State                           | Page                                                              |
+| ------------------------------- | ----------------------------------------------------------------- |
+| Red flag or closure, in season  | Alert first in the rail. A closure demotes the directions button  |
+| Other flag, in season           | Card under the forecast                                           |
+| No entry, June to September     | "El 112 no publica bandera para esta playa."                      |
 | Feed failure, June to September | "No hemos podido consultar la bandera", with a link to the source |
-| Off season | "Bandera del 112: se publica de junio a septiembre." |
+| Off season                      | "Bandera del 112: se publica de junio a septiembre."              |
 
 ## Shore Bearing
 
@@ -179,6 +179,10 @@ So weather is **not** limited to beaches with `aemetId`; those codes only gate t
 - History: page, filter and sort changes add an entry, so Back steps through them. Search text and the list/map toggle replace the current entry
 - Sort "Municipio" is alphabetical by name, ignoring accents. Search text ignores accents, `ñ` included, and treats repeated spaces as one
 - `/explorar` ignores filter ids that are not in the catalogue, so a stale link cannot empty the list with a filter no chip can show
+
+## Municipality Facts
+
+The municipality page shows a "Datos de <municipio>" panel above the beaches: population (INE, with its year), mean appraised value of free-market housing (with its quarter, the regional average and a note that it is neither a median nor a sale price) and the official tourist office. Each fact cites its source. A fact missing for a municipality is left out, never estimated; with no facts at all the panel is not rendered. Data, sources and refresh: [data-schema.md](./data-schema.md#municipality-facts). Refresh population each year after INE publishes, appraised values each quarter, and offices whenever a municipality site changes.
 
 ## Municipality Order
 
