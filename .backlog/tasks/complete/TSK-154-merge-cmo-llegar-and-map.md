@@ -1,13 +1,14 @@
 ---
 id: TSK-154
 title: Merge Cómo llegar and map into one section
-status: active
+status: complete
 priority: P3
 tags: [ui, beach-detail, map]
 created: 2026-11-04
 source: manual
 depends-on: [TSK-153]
 started: 2026-11-07
+completed: 2026-11-07
 ---
 
 # Merge Cómo llegar and map into one section
@@ -18,11 +19,11 @@ started: 2026-11-07
 
 ## Acceptance Criteria
 
-- [ ] Access text, map and directions button sit in one section with one heading
-- [ ] Outside the rail button, no beach page shows two separate Cómo llegar elements for the same purpose
-- [ ] Beaches without access text still render the map section correctly
-- [ ] Layout verified at 375px and 1280px with scripts/screenshot.ts
-- [ ] pnpm build, pnpm test and pnpm check pass
+- [x] Access text, map and directions button sit in one section with one heading
+- [x] Outside the rail button, no beach page shows two separate Cómo llegar elements for the same purpose
+- [x] Beaches without access text still render the map section correctly
+- [x] Layout verified at 375px and 1280px with scripts/screenshot.ts
+- [x] pnpm build, pnpm test and pnpm check pass
 
 ## Notes
 
@@ -33,3 +34,5 @@ started: 2026-11-07
 - [2026-11-04] Created
 - [2026-11-04] Depends on TSK-153: both reorder sections in src/routes/playas/$slug.tsx and move the directions link.
 - [2026-11-07] Started
+- [2026-11-07] LocationMap takes access text and renders one Cómo llegar section with heading, copy, map and one directions button; the separate text section left $slug.tsx. Commit 4fcfbea.
+- [2026-11-07] Completed

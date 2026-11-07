@@ -5,14 +5,13 @@
 | Status | Count |
 |--------|-------|
 | Pending | 33 |
-| Active | 2 |
+| Active | 0 |
 | Blocked | 0 |
-| Complete | 143 |
+| Complete | 145 |
 
 ## Active Tasks
 
-- TSK-154: Merge Cómo llegar and map into one section (P3)
-- TSK-155: Restyle beach map to match the brand (P3)
+_No active tasks._
 
 ## Pending Tasks
 
@@ -57,6 +56,8 @@
 | ID | Title | Completed |
 |----|-------|-----------|
 | TSK-128 | Fix: formatDistance shows 1000 m and 10,0 km at unit boundaries | 2026-11-07 |
+| TSK-154 | Merge Cómo llegar and map into one section | 2026-11-07 |
+| TSK-155 | Restyle beach map to match the brand | 2026-11-07 |
 | TSK-156 | Compact the beach weather forecast | 2026-11-07 |
 | TSK-157 | Calm static content on beach detail | 2026-11-07 |
 | TSK-158 | Show distance on nearby beach cards | 2026-11-07 |
@@ -64,5 +65,3 @@
 | TSK-163 | Fix: Map raw waves enum to Spanish labels | 2026-11-07 |
 | TSK-170 | Fix: COPLA flag lookup still misses four beaches whose feed entry uses a different name | 2026-11-07 |
 | TSK-174 | Fix: Explorer exposes two current items in the navbar | 2026-11-07 |
-| TSK-175 | Fix: Colecciones popover has no accessible name | 2026-11-07 |
-| TSK-176 | Fix: Navbar beach counts have no unit for screen readers | 2026-11-07 |
