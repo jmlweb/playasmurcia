@@ -1,7 +1,8 @@
 import L from 'leaflet'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import { removeLeafletMap } from './leaflet-map'
+import { mapboxAttribution, markerIcon, removeLeafletMap } from './leaflet-map'
+import { mapPinDataUrl } from './map-pin'
 
 const LEAFLET_ZOOM_TIMER_MS = 250
 
@@ -17,6 +18,20 @@ function createMapMidZoom() {
   animated._animateZoom(map.getCenter(), 10, true)
   return map
 }
+
+describe('markerIcon', () => {
+  it('uses the brand pin instead of the Leaflet default', () => {
+    expect(markerIcon.options.iconUrl).toBe(mapPinDataUrl)
+    expect(markerIcon.options.iconUrl).not.toContain('marker-icon')
+  })
+})
+
+describe('mapboxAttribution', () => {
+  it('credits Mapbox and OpenStreetMap', () => {
+    expect(mapboxAttribution).toContain('Mapbox')
+    expect(mapboxAttribution).toContain('OpenStreetMap')
+  })
+})
 
 describe('removeLeafletMap', () => {
   afterEach(() => {

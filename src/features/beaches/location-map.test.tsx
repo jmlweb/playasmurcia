@@ -1,7 +1,9 @@
 import { render, screen } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
+import { markerIcon } from './leaflet-map'
 import { LocationMap } from './location-map'
+import { MAPBOX_STYLE } from './map-style'
 
 class MockIntersectionObserver {
   observe = vi.fn()
@@ -50,6 +52,18 @@ describe('LocationMap', () => {
     expect(img).toBeTruthy()
     expect(img.getAttribute('src')).toContain('37.6894')
     expect(img.getAttribute('src')).toContain('-0.9812')
+    expect(img.getAttribute('src')).toContain(`/${MAPBOX_STYLE}/`)
+  })
+
+  it('draws the same pin as the live map over the static image', () => {
+    const { container } = render(
+      <LocationMap beachName="Playa Test" coordinates={coords} />,
+    )
+    const img = screen.getByAltText('Mapa de Playa Test')
+    expect(img.getAttribute('src')).not.toContain('pin-')
+    expect(
+      container.querySelector(`img[src="${markerIcon.options.iconUrl}"]`),
+    ).toBeTruthy()
   })
 
   it('renders a directions link with correct coordinates', () => {
