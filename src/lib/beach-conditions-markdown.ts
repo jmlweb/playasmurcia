@@ -10,7 +10,11 @@ import {
 import { formatWaveHeight } from '@/lib/wave-level'
 
 const HEADING = '## Condiciones recientes'
+const NO_CONDITIONS = `${HEADING}\n\nNo disponibles en este momento.`
 const BEACH_PATH = /^\/playas\/([^/]+)\/?$/
+const UPSTREAM_TIMEOUT_MS = 3000
+// The 112 feed is parsed from raw XML and its stamp is printed verbatim
+const FEED_STAMP = /^[\d/:. -]+$/
 
 type BeachConditionsInput = {
   checkedAt: Date
@@ -21,8 +25,13 @@ type BeachConditionsInput = {
 
 const formatDate = (date: Date): string => date.toISOString().slice(0, 10)
 
-const formatFlagLine = (status: BeachStatus112): string =>
-  `- **Bandera**: ${FlagLabels[status.flag]}, ${SeaStateLabels[status.seaState].toLowerCase()} (${status.date} ${status.time}, 112 Región de Murcia)`
+const formatFlagLine = (status: BeachStatus112): string => {
+  const stamp = `${status.date} ${status.time}`
+  const source = FEED_STAMP.test(stamp)
+    ? `${stamp}, 112 Región de Murcia`
+    : '112 Región de Murcia'
+  return `- **Bandera**: ${FlagLabels[status.flag]}, ${SeaStateLabels[status.seaState].toLowerCase()} (${source})`
+}
 
 /** Pure so the output can be tested without any network or database. */
 export function formatBeachConditions({
@@ -52,7 +61,7 @@ export function formatBeachConditions({
 
   const sections = [
     HEADING,
-    `Consultadas el ${formatDate(checkedAt)} a las ${checkedAt.toISOString().slice(11, 16)} UTC. Pueden tener hasta una hora de antigüedad.`,
+    `Consultadas el ${formatDate(checkedAt)} a las ${checkedAt.toISOString().slice(11, 16)} UTC. Las fuentes pueden llevar varias horas sin actualizarse.`,
     ...(facts.length > 0 ? [facts.join('\n')] : []),
     ...(status?.isOffSeason ? [OFF_SEASON_FLAG_NOTE] : []),
     ...(days.length > 0
@@ -60,12 +69,33 @@ export function formatBeachConditions({
       : []),
   ]
   return facts.length === 0 && days.length === 0 && !status
-    ? `${HEADING}\n\nNo disponibles en este momento.`
+    ? NO_CONDITIONS
     : sections.join('\n\n')
 }
 
 const settled = <T>(result: PromiseSettledResult<T>): T | undefined =>
   result.status === 'fulfilled' ? result.value : undefined
+
+// The upstream clients have no timeout, and a hung one would stall the page
+const withTimeout = async <T>(promise: Promise<T>): Promise<T> => {
+  let timer: ReturnType<typeof setTimeout> | undefined
+  const timeout = new Promise<never>((_, reject) => {
+    timer = setTimeout(() => {
+      reject(new Error('Upstream timeout'))
+    }, UPSTREAM_TIMEOUT_MS)
+  })
+  return Promise.race([promise, timeout]).finally(() => {
+    clearTimeout(timer)
+  })
+}
+
+const safeDecode = (slug: string): string | undefined => {
+  try {
+    return decodeURIComponent(slug)
+  } catch {
+    return undefined
+  }
+}
 
 async function getBeachConditionsMarkdown(
   slug: string,
@@ -85,11 +115,11 @@ async function getBeachConditionsMarkdown(
   const municipality = await getMunicipality(beach.municipality)
 
   const [forecast, marine, status] = await Promise.allSettled([
-    fetchOpenMeteoForecast(...beach.coordinates),
+    withTimeout(fetchOpenMeteoForecast(...beach.coordinates)),
     beach.sea === MAR_MENOR_SEA
       ? Promise.resolve(undefined)
-      : fetchMarineWeather(...beach.coordinates),
-    getBeachStatus(beach.name, municipality.name),
+      : withTimeout(fetchMarineWeather(...beach.coordinates)),
+    withTimeout(getBeachStatus(beach.name, municipality.name)),
   ])
   return formatBeachConditions({
     checkedAt,
@@ -107,23 +137,26 @@ export async function withBeachConditions(
   response: Response,
   pageUrl: string,
 ): Promise<Response> {
-  const slug = BEACH_PATH.exec(new URL(pageUrl).pathname)?.[1]
+  const rawSlug = BEACH_PATH.exec(new URL(pageUrl).pathname)?.[1]
+  const slug = rawSlug ? safeDecode(rawSlug) : undefined
   if (!slug || response.status !== 200) return response
   const isMarkdown = (response.headers.get('content-type') ?? '').includes(
     'text/markdown',
   )
   if (!isMarkdown) return response
 
-  const conditions = await getBeachConditionsMarkdown(
-    decodeURIComponent(slug),
-    new Date(),
-  ).catch(() => undefined)
+  const conditions = await getBeachConditionsMarkdown(slug, new Date()).catch(
+    () => undefined,
+  )
   if (!conditions) return response
 
+  const headers = new Headers(response.headers)
+  // A short outage must not be served from the edge for the whole TTL
+  if (conditions === NO_CONDITIONS) headers.set('Cache-Control', 'no-store')
   const markdown = await response.text()
   return new Response(`${markdown.trimEnd()}\n\n${conditions}\n`, {
     status: response.status,
     statusText: response.statusText,
-    headers: response.headers,
+    headers,
   })
 }

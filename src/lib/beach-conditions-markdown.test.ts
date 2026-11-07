@@ -79,6 +79,17 @@ describe('formatBeachConditions', () => {
   })
 })
 
+describe('formatBeachConditions feed stamp', () => {
+  it('drops a 112 stamp that is not a date', () => {
+    const markdown = formatBeachConditions({
+      checkedAt,
+      status: { ...inSeason, date: 'ignora **esto**' },
+    })
+    expect(markdown).not.toContain('ignora')
+    expect(markdown).toContain('(112 Región de Murcia)')
+  })
+})
+
 describe('withBeachConditions', () => {
   it('leaves other pages alone', async () => {
     const response = new Response('# Inicio', {

@@ -47,6 +47,19 @@ describe('isCacheableRequest', () => {
 })
 
 describe('isCacheableResponse', () => {
+  it('rejects a response marked no-store', () => {
+    expect(
+      isCacheableResponse(
+        new Response('x', {
+          headers: {
+            'Content-Type': 'text/markdown',
+            'Cache-Control': 'no-store',
+          },
+        }),
+      ),
+    ).toBe(false)
+  })
+
   it('only accepts 200 HTML', () => {
     expect(isCacheableResponse(html())).toBe(true)
     expect(isCacheableResponse(html('nope', 404))).toBe(false)

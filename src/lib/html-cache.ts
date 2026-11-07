@@ -22,7 +22,8 @@ export function isCacheableRequest(request: Request): boolean {
 export function isCacheableResponse(response: Response): boolean {
   return (
     response.status === 200 &&
-    /text\/(html|markdown)/.test(response.headers.get('content-type') ?? '')
+    /text\/(html|markdown)/.test(response.headers.get('content-type') ?? '') &&
+    !(response.headers.get('cache-control') ?? '').includes('no-store')
   )
 }
 
