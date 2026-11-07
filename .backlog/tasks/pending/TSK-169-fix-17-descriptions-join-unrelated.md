@@ -13,7 +13,7 @@ depends-on: []
 
 ## Description
 
-TSK-123 fixed Playa de La Concha but never ran the audit it promised for the same pattern. 17 `description` values still end in "y socorrista.", for example "con agua sin oleaje y socorrista". Codes: 579, 675, 530, 625, 682, 647, 664, 585, 608, 686, 670, 536, 650, 591, 539, 691, 696. `description` is hand-edited copy, so follow the guidelines in `docs/business-rules.md`.
+TSK-123 fixed Playa de La Concha but never ran the audit it promised for the same pattern. 17 `description` values still contain "y socorrista.", for example "con agua sin oleaje y socorrista", most of them now followed by another sentence. Codes: 579, 675, 530, 625, 682, 647, 664, 585, 608, 686, 670, 536, 650, 591, 539, 691, 696. `description` is hand-edited copy, so follow the guidelines in `docs/business-rules.md`.
 
 ## Acceptance Criteria
 

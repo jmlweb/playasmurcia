@@ -13,13 +13,15 @@ depends-on: [TSK-156]
 
 ## Description
 
-`weather-widget.tsx:428` uses `%💧` at 10.4px in off-palette blue. `gray-400` and `gray-500` captions at 12px fall below the floor in `docs/ui-guidelines.md`. Coordinate with the compact forecast task to avoid doing the same work twice.
+The compact forecast (28957e0) removed the `%💧` emoji and the off-palette blue. Rain probability is now `text-xs text-ocean-700` with a screen-reader "Lluvia" prefix, at 12px.
+
+Still open: `text-xs text-gray-500` captions at `src/features/beaches/location-map.tsx:115` and `src/features/beaches/nearby-carousel.tsx:88` fall below the floor in `docs/ui-guidelines.md`, which asks for `gray-600` at 13px or `gray-500` at 14px. The 12px rain text and forecast minimums need the same check.
 
 See `.backlog/reports/complete/RPT-066-weather-widget-and-captions-break.md`.
 
 ## Acceptance Criteria
 
-- [ ] Rain probability uses an SVG icon instead of emoji
+- [x] Rain probability no longer uses an emoji — evidence: src/features/beaches/weather-widget.tsx → emoji removed (2026-11-07)
 - [ ] Rain probability uses an allowed colour and a readable size
 - [ ] Beach detail captions meet the caption contrast floor
 - [ ] Contrast is measured, not only judged from tokens
@@ -33,3 +35,4 @@ See `.backlog/reports/complete/RPT-066-weather-widget-and-captions-break.md`.
 
 - [2026-11-04] Created
 - [2026-11-04] Depends on TSK-156: the compact forecast rewrites the same rain-probability markup.
+- [2026-11-07] Decision in 2026-11-07 grooming: no SVG icon is needed, because the percentage has a screen-reader Lluvia prefix. Criterion reworded. Colour is ocean-700, but the 12px size stays to be checked.

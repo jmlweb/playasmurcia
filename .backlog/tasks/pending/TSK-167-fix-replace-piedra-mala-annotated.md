@@ -2,7 +2,7 @@
 id: TSK-167
 title: Fix: Replace Piedra Mala annotated cover
 status: pending
-priority: P4
+priority: P3
 tags: [images, content, bug]
 created: 2026-11-04
 source: report/RPT-068
@@ -31,3 +31,4 @@ See `.backlog/reports/complete/RPT-068-piedra-mala-cover-is-an.md`.
 ## Progress Log
 
 - [2026-11-04] Created
+- [2026-11-07] Raised to P3 in 2026-11-07 grooming: the red-arrow image is now the first nearby card on El Rincón.

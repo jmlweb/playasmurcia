@@ -13,11 +13,11 @@ depends-on: [TSK-144]
 
 ## Description
 
-`fetchOpenMeteoForecast` parses Open-Meteo `YYYY-MM-DD` dates as UTC midnight (`src/lib/open-meteo.ts:187`) and `formatDayLabel` reads them with local `getDay()` (`src/features/beaches/weather-widget.tsx:226-229`), so visitors west of UTC see every forecast card labelled with the previous weekday. See `.backlog/reports/complete/RPT-058-weather-forecast-day-labels-shift.md`.
+`fetchOpenMeteoForecast` parses Open-Meteo `YYYY-MM-DD` dates as UTC midnight (`src/lib/open-meteo.ts:190`) and `formatDayLabel` reads them with local `getDay()` (`src/features/beaches/weather-widget.tsx:188-191`), so visitors west of UTC see every forecast card labelled with the previous weekday. The `isWeekend` highlight in the same file has the same bug. See `.backlog/reports/complete/RPT-058-weather-forecast-day-labels-shift.md`.
 
 ## Acceptance Criteria
 
-- [ ] Forecast weekday labels match the Europe/Madrid calendar date regardless of the browser timezone
+- [ ] Forecast weekday labels and the weekend highlight match the Europe/Madrid calendar date regardless of the browser timezone
 - [ ] Unit test covers the day label under a negative-offset timezone (e.g. America/New_York)
 - [ ] pnpm build, pnpm test and pnpm check pass
 

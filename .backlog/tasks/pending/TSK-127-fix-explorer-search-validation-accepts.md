@@ -13,7 +13,7 @@ depends-on: []
 
 ## Description
 
-`validateSearch` (`src/lib/explorer-search.ts:11-36`) turns `?municipality=` into `[0]` (Cartagena), passes unknown ids that hide every chip and the "Limpiar todo" button, and accepts inherited keys like `toString`. See `.backlog/reports/complete/RPT-054-explorer-search-validation-accepts-empty.md`.
+`parseNumberArray` and `parseEnumArray` (`src/lib/explorer-search.ts:15-40`) turn `?municipality=` into `[0]`, accept non-integers such as `1.5`, and accept inherited keys like `toString`. Unknown ids are no longer a problem: `dropUnknownFilterIds` removes them since edc38fb. See `.backlog/reports/complete/RPT-054-explorer-search-validation-accepts-empty.md`.
 
 ## Acceptance Criteria
 

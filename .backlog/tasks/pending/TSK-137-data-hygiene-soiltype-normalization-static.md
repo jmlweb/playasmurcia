@@ -13,12 +13,12 @@ depends-on: []
 
 ## Description
 
-`soilType` has 25 variants with near-duplicates (for example `"Arena  media y blanca"` with a double space). The static `waves` label can contradict the live wave forecast added in TSK-115. `docs/data-schema.md` says 194 beaches; the data has 193.
+`soilType` has 25 variants with near-duplicates, for example `Arena blanca y fina` (1 beach) and word-order or partial forms such as `Arena fina` and `Arena media`. The double-space value is already gone. `docs/data-schema.md:11` and `:183` say 194 beaches; the data has 193.
 
 ## Acceptance Criteria
 
 - [ ] soilType values merged into one canonical list (no double spaces or reordered duplicates such as Arena blanca y fina)
-- [ ] Decision recorded on whether the static waves label stays now that the live Open-Meteo marine forecast exists
+- [x] Decision recorded on whether the static waves label stays now that the live Open-Meteo marine forecast exists — evidence: 28957e0 → static label stays as Oleaje habitual, apart from live waves (2026-11-07)
 - [ ] docs/data-schema.md shows the correct beach count (193)
 - [ ] node scripts/validate-beaches.js passes
 
@@ -29,3 +29,4 @@ depends-on: []
 ## Progress Log
 
 - [2026-10-28] Created
+- [2026-11-07] Refreshed in 2026-11-07 grooming: double-space claim was stale.
