@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
+import { fireEvent, render, screen } from '@testing-library/react'
+import { beforeAll, describe, expect, it, vi } from 'vitest'
 
 import type { Beach, Municipality } from '@/types/beach'
 
@@ -41,25 +41,42 @@ function makeBeach(overrides: Partial<Beach> = {}): Beach {
 }
 
 const mockMunicipality: Municipality = { name: 'Cartagena', id: '30016' }
+const scrollBySpy = vi.fn()
+
+// Same municipality (0) as makeBeach(); 0.009° of latitude is about 1,0 km.
+const currentBeach = makeBeach({ code: '000', coordinates: [37.609, -0.9] })
+
+function renderCarousel(items: Parameters<typeof NearbyCarousel>[0]['items']) {
+  return render(<NearbyCarousel currentBeach={currentBeach} items={items} />)
+}
 
 describe('NearbyCarousel', () => {
+  beforeAll(() => {
+    // jsdom has no layout, so the track would otherwise never overflow.
+    Object.defineProperty(HTMLElement.prototype, 'clientWidth', {
+      configurable: true,
+      get: () => 800,
+    })
+    Object.defineProperty(HTMLElement.prototype, 'scrollWidth', {
+      configurable: true,
+      get: () => 2000,
+    })
+    HTMLElement.prototype.scrollBy = scrollBySpy
+  })
+
   it('renders nothing when no nearby items are provided', () => {
-    const { container } = render(<NearbyCarousel items={[]} />)
+    const { container } = renderCarousel([])
     expect(container.firstChild).toBeNull()
   })
 
   it('renders the heading', () => {
-    render(
-      <NearbyCarousel
-        items={[
-          {
-            beach: makeBeach(),
-            municipality: mockMunicipality,
-            slug: 'playa-test',
-          },
-        ]}
-      />,
-    )
+    renderCarousel([
+      {
+        beach: makeBeach(),
+        municipality: mockMunicipality,
+        slug: 'playa-test',
+      },
+    ])
     expect(
       screen.getByRole('heading', { name: 'Playas cercanas' }),
     ).toBeTruthy()
@@ -78,7 +95,7 @@ describe('NearbyCarousel', () => {
         slug: 'playa-b',
       },
     ]
-    render(<NearbyCarousel items={items} />)
+    renderCarousel(items)
     const linkA = screen.getByRole('link', { name: 'Ver playa Playa A' })
     const linkB = screen.getByRole('link', { name: 'Ver playa Playa B' })
     expect(linkA.getAttribute('href')).toBe('/playas/playa-a')
@@ -92,7 +109,7 @@ describe('NearbyCarousel', () => {
       municipality: mockMunicipality,
       slug: name,
     }))
-    render(<NearbyCarousel items={items} />)
+    renderCarousel(items)
     const links = screen.getAllByRole('link', { name: /^Ver playa / })
     expect(links.map((link) => link.getAttribute('aria-label'))).toEqual(
       names.map((name) => `Ver playa ${name}`),
@@ -101,58 +118,92 @@ describe('NearbyCarousel', () => {
 
   it('renders the beach picture when available', () => {
     const beach = makeBeach({ name: 'Playa Foto', pictures: ['foto.jpg'] })
-    render(
-      <NearbyCarousel
-        items={[{ beach, municipality: mockMunicipality, slug: 'playa-foto' }]}
-      />,
-    )
+    renderCarousel([
+      { beach, municipality: mockMunicipality, slug: 'playa-foto' },
+    ])
     const img = screen.getByRole('img', { name: 'Playa Foto' })
     expect(img.getAttribute('src')).toBe('/pictures/foto.jpg')
   })
 
   it('renders a placeholder when no pictures are available', () => {
-    render(
-      <NearbyCarousel
-        items={[
-          {
-            beach: makeBeach({ name: 'Sin Foto' }),
-            municipality: mockMunicipality,
-            slug: 'sin-foto',
-          },
-        ]}
-      />,
-    )
+    renderCarousel([
+      {
+        beach: makeBeach({ name: 'Sin Foto' }),
+        municipality: mockMunicipality,
+        slug: 'sin-foto',
+      },
+    ])
     expect(screen.getByText('Sin Foto')).toBeTruthy()
     expect(screen.queryByRole('img', { name: 'Sin Foto' })).toBeNull()
   })
 
-  it('renders the municipality name', () => {
-    render(
-      <NearbyCarousel
-        items={[
-          {
-            beach: makeBeach(),
-            municipality: mockMunicipality,
-            slug: 'playa-test',
-          },
-        ]}
-      />,
+  it('shows only the distance when the municipality matches the current beach', () => {
+    renderCarousel([
+      {
+        beach: makeBeach(),
+        municipality: mockMunicipality,
+        slug: 'playa-test',
+      },
+    ])
+    expect(screen.getByText('A 1,0 km')).toBeTruthy()
+    expect(screen.queryByText(/Cartagena/)).toBeNull()
+  })
+
+  it('shows municipality and distance when the municipality differs', () => {
+    renderCarousel([
+      {
+        beach: makeBeach({ municipality: 1 }),
+        municipality: { name: 'Mazarrón', id: '30026' },
+        slug: 'playa-test',
+      },
+    ])
+    expect(screen.getByText('Mazarrón · a 1,0 km')).toBeTruthy()
+  })
+
+  it('shows previous and next controls only when cards overflow the desktop track', () => {
+    const fewItems = Array.from({ length: 4 }, (_, index) => ({
+      beach: makeBeach({ code: String(index), name: `Playa ${index}` }),
+      municipality: mockMunicipality,
+      slug: `playa-${index}`,
+    }))
+    const { unmount } = renderCarousel(fewItems)
+    expect(screen.queryByRole('button', { name: 'Anterior' })).toBeNull()
+    unmount()
+
+    renderCarousel([
+      ...fewItems,
+      {
+        beach: makeBeach({ code: '4', name: 'Playa 4' }),
+        municipality: mockMunicipality,
+        slug: 'playa-4',
+      },
+    ])
+    expect(screen.getByRole('button', { name: 'Anterior' })).toBeTruthy()
+    expect(screen.getByRole('button', { name: 'Siguiente' })).toBeTruthy()
+  })
+
+  it('scrolls the track forward when Siguiente is pressed', () => {
+    const items = Array.from({ length: 5 }, (_, index) => ({
+      beach: makeBeach({ code: String(index), name: `Playa ${index}` }),
+      municipality: mockMunicipality,
+      slug: `playa-${index}`,
+    }))
+    renderCarousel(items)
+    const next = screen.getByRole('button', { name: 'Siguiente' })
+    fireEvent.click(next)
+    expect(scrollBySpy).toHaveBeenCalledWith(
+      expect.objectContaining({ left: 800, behavior: 'smooth' }),
     )
-    expect(screen.getByText('Cartagena')).toBeTruthy()
   })
 
   it('shows live conditions so the visitor can compare', () => {
-    render(
-      <NearbyCarousel
-        items={[
-          {
-            beach: makeBeach(),
-            municipality: mockMunicipality,
-            slug: 'playa-test',
-          },
-        ]}
-      />,
-    )
+    renderCarousel([
+      {
+        beach: makeBeach(),
+        municipality: mockMunicipality,
+        slug: 'playa-test',
+      },
+    ])
     expect(screen.getByText('19°')).toBeTruthy()
     expect(screen.getByText('Bandera roja')).toBeTruthy()
   })
