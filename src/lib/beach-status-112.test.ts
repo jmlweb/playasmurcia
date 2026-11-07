@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 // ---------------------------------------------------------------------------
@@ -398,6 +399,155 @@ describe('segment-suffixed feed names', () => {
       'San Pedro del Pinatar',
     )
     expect(result?.flag).toBe('VERDE')
+  })
+})
+
+describe('aliased feed names', () => {
+  beforeEach(() => {
+    mockFetch.mockReset()
+  })
+
+  afterEach(() => {
+    vi.resetModules()
+  })
+
+  async function statusFor(
+    feed: Parameters<typeof buildXml>[0],
+    beachName: string,
+    municipalityName: string,
+  ) {
+    const xml = buildXml(feed.map((e) => ({ dia: recentDate(), ...e })))
+    mockFetch.mockResolvedValueOnce({ ok: true, text: async () => xml })
+    const { getBeachStatus } = await freshModule()
+    return getBeachStatus(beachName, municipalityName)
+  }
+
+  it('resolves El Rihuete to its two feed entries, most severe first', async () => {
+    const result = await statusFor(
+      [
+        { playa: 'PUERTO - RIHUETE', municipio: 'MAZARRON', bandera: 'VERDE' },
+        { playa: 'SILLAS DE RIHUETE', municipio: 'MAZARRON', bandera: 'ROJA' },
+      ],
+      'Playa de El Rihuete (Playa del Rigüete)',
+      'Mazarrón',
+    )
+    expect(result?.flag).toBe('ROJA')
+  })
+
+  it('resolves Cala de Calnegre to PLAYA DE CALNEGRE', async () => {
+    const result = await statusFor(
+      [
+        {
+          playa: 'PLAYA DE CALNEGRE',
+          municipio: 'LORCA',
+          bandera: 'PLAYA CERRADA',
+        },
+      ],
+      'Cala de Calnegre',
+      'Lorca',
+    )
+    expect(result?.flag).toBe('PLAYA CERRADA')
+  })
+
+  it('resolves Playa Calnegre to MONTE BLANCO - CALNEGRE', async () => {
+    const result = await statusFor(
+      [
+        {
+          playa: 'MONTE BLANCO - CALNEGRE',
+          municipio: 'CARTAGENA',
+          bandera: 'AMARILLA',
+        },
+      ],
+      'Playa Calnegre',
+      'Cartagena',
+    )
+    expect(result?.flag).toBe('AMARILLA')
+  })
+
+  it('resolves La Chapineta to LA AZOHIA (CHAPINETA)', async () => {
+    const result = await statusFor(
+      [
+        {
+          playa: 'LA AZOHIA (CHAPINETA)',
+          municipio: 'CARTAGENA',
+          bandera: 'ROJA',
+        },
+      ],
+      'Playa de La Chapineta',
+      'Cartagena',
+    )
+    expect(result?.flag).toBe('ROJA')
+  })
+
+  it('keeps a direct name match ahead of an alias', async () => {
+    const result = await statusFor(
+      [
+        { playa: 'SILLAS DE RIHUETE', municipio: 'MAZARRON', bandera: 'ROJA' },
+        { playa: 'EL RIHUETE', municipio: 'MAZARRON', bandera: 'VERDE' },
+      ],
+      'Playa de El Rihuete (Playa del Rigüete)',
+      'Mazarrón',
+    )
+    expect(result?.flag).toBe('VERDE')
+  })
+
+  it('does not take an aliased entry from another municipality', async () => {
+    const result = await statusFor(
+      [
+        {
+          playa: 'PLAYA DE CALNEGRE',
+          municipio: 'CARTAGENA',
+          bandera: 'PLAYA CERRADA',
+        },
+      ],
+      'Cala de Calnegre',
+      'Lorca',
+    )
+    expect(result).toBeNull()
+  })
+
+  it('does not give an aliased entry to a neighbouring beach', async () => {
+    const result = await statusFor(
+      [
+        {
+          playa: 'SILLAS DE RIHUETE',
+          municipio: 'MAZARRON',
+          bandera: 'PLAYA CERRADA',
+        },
+      ],
+      'Playa El Gachero',
+      'Mazarrón',
+    )
+    expect(result).toBeNull()
+  })
+
+  it('does not match a feed name that only shares a word with an alias', async () => {
+    const result = await statusFor(
+      [{ playa: 'MONTE BLANCO', municipio: 'CARTAGENA', bandera: 'ROJA' }],
+      'Playa Calnegre',
+      'Cartagena',
+    )
+    expect(result).toBeNull()
+  })
+
+  it('names only beaches that exist in data/beaches.json under that municipality', async () => {
+    const { COPLA_FEED_ALIASES } = await freshModule()
+    const municipalities = JSON.parse(
+      readFileSync('data/municipalities.json', 'utf8'),
+    ) as { name: string }[]
+    const beaches = JSON.parse(readFileSync('data/beaches.json', 'utf8')) as {
+      name: string
+      municipality: number
+    }[]
+    const known = new Set(
+      beaches.map((b) => `${municipalities[b.municipality].name}|${b.name}`),
+    )
+
+    const aliased = Object.entries(COPLA_FEED_ALIASES).flatMap(
+      ([municipality, byBeach]) =>
+        Object.keys(byBeach).map((beachName) => `${municipality}|${beachName}`),
+    )
+    expect(aliased.filter((key) => !known.has(key))).toEqual([])
   })
 })
 
