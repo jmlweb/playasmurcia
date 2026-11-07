@@ -12,16 +12,18 @@ type ExplorerSearchParams = BeachSearchParams & {
   view?: 'map'
 }
 
+/** Catalog ids are non-negative integers; `Number('')` is 0, so blanks are dropped first */
+function parseId(value: unknown): number | undefined {
+  if (typeof value !== 'number' && typeof value !== 'string') return undefined
+  if (typeof value === 'string' && value.trim() === '') return undefined
+  const id = Number(value)
+  return Number.isInteger(id) && id >= 0 ? id : undefined
+}
+
 function parseNumberArray(value: unknown): number[] | undefined {
-  if (Array.isArray(value)) {
-    const nums = value.map(Number).filter((n) => !isNaN(n))
-    return nums.length > 0 ? nums : undefined
-  }
-  if (typeof value === 'string') {
-    const n = Number(value)
-    return isNaN(n) ? undefined : [n]
-  }
-  return undefined
+  const items = Array.isArray(value) ? value : [value]
+  const ids = items.map(parseId).filter((id): id is number => id !== undefined)
+  return ids.length > 0 ? ids : undefined
 }
 
 function parseFlag(value: unknown): true | undefined {
@@ -34,7 +36,8 @@ function parseEnumArray<TValue extends string>(
 ): TValue[] | undefined {
   const items = Array.isArray(value) ? value : [value]
   const valid = items.filter(
-    (item): item is TValue => typeof item === 'string' && item in allowed,
+    (item): item is TValue =>
+      typeof item === 'string' && Object.hasOwn(allowed, item),
   )
   return valid.length > 0 ? [...new Set(valid)] : undefined
 }
