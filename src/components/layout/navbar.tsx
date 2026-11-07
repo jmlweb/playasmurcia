@@ -48,7 +48,7 @@ const navItemUnderline = (active: boolean) =>
 
 // Touch screens from `sm` up (landscape phones, tablets) get 44px targets:
 // the box grows and the negative margin gives the height back to the row,
-// so the bar keeps its 61px and the pointer layout stays untouched
+// so the bar keeps its 61px and the fine-pointer layout is left as is
 const touchNavTarget = 'pointer-coarse:-my-3 pointer-coarse:min-h-11'
 const touchSearchTarget =
   'sm:pointer-coarse:-m-2 sm:pointer-coarse:ml-3 sm:pointer-coarse:h-11 sm:pointer-coarse:w-11'
@@ -403,6 +403,8 @@ export function Navbar({ navData }: { navData: NavData }) {
           </button>
         </div>
         {mobileOpen && (
+          // `100%` is the sticky header, the only positioned ancestor: keep `nav`
+          // static and the panel unportaled or the height resolves to 0
           <div
             className="absolute inset-x-0 top-full max-h-[calc(100dvh-100%)] overflow-y-auto overscroll-contain border-t border-white/10 bg-nav px-4 pt-2 pb-4 sm:hidden"
             id="mobile-menu"

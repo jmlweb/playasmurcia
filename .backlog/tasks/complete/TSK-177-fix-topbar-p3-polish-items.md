@@ -1,13 +1,14 @@
 ---
 id: TSK-177
 title: Fix: Topbar P3 polish items from the critique
-status: active
+status: complete
 priority: P4
 tags: [ui, navbar]
 created: 2026-11-06
 source: report/RPT-077
 depends-on: [TSK-174]
 started: 2026-11-07
+completed: 2026-11-07
 ---
 
 # Fix: Topbar P3 polish items from the critique
@@ -35,15 +36,15 @@ Source report: `.backlog/reports/complete/RPT-077-topbar-p3-polish-items-from.md
 
 ## Acceptance Criteria
 
-- [ ] Active and inactive nav items have equal box height, with no text shift
-- [ ] Search and menu toggle use darkFocusRing, so the bar has one focus ring
-- [ ] Search icon is 20px and ocean-200 on desktop
-- [ ] Popover geometry re-measured at 1440; anchored or offset only if overlap still shows
-- [ ] Phone panel has no hardcoded 73px and leaves no sliver of page
-- [ ] Chevron rotation does not animate under prefers-reduced-motion
-- [ ] Hover-then-click popover behaviour decided and recorded in the task
-- [ ] Phone menu rows use text-base
-- [ ] Items 1 and 2 checked on the current build
+- [x] Active and inactive nav items have equal box height, with no text shift
+- [x] Search and menu toggle use darkFocusRing, so the bar has one focus ring
+- [x] Search icon is 20px and ocean-200 on desktop
+- [x] Popover geometry re-measured at 1440; anchored or offset only if overlap still shows
+- [x] Phone panel has no hardcoded 73px and leaves no sliver of page
+- [x] Chevron rotation does not animate under prefers-reduced-motion
+- [x] Hover-then-click popover behaviour decided and recorded in the task
+- [x] Phone menu rows use text-base
+- [x] Items 1 and 2 checked on the current build
 
 ## Notes
 
@@ -54,3 +55,5 @@ Source report: `.backlog/reports/complete/RPT-077-topbar-p3-polish-items-from.md
 - [2026-11-06] Created
 - [2026-11-07] Tagged in 2026-11-07 grooming. Navbar tasks run in order 175, 176, 174, 177, 171 because they edit the same file.
 - [2026-11-07] Started
+- [2026-11-07] Checked on the current build at 1440: inactive links 20px at y=20, active 24px at y=18 (item 1 confirmed); popover still overlapped the bar by 9px and ran 48px past the content column. Fixes: navItemUnderline(active) reserves border-b-2 pb-0.5 (all items 24px at y=18); darkFocusRing on search and toggle; search icon h-5 w-5 text-ocean-200 (28px control); popover anchored to the header with a virtual anchor, sideOffset 8, align end (top 69, right edge 1280, inside the content column); phone panel max-h-[calc(100dvh-100%)] instead of 73px; motion-safe:transition-transform on both chevrons (0s under reduced motion); phone rows text-base. Item 7 decision: keep hover-then-click pinning, Escape and outside click close it, matches tap. Commit 9f33dec, merged f1642bc.
+- [2026-11-07] Completed

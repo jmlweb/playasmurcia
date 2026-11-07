@@ -5,17 +5,15 @@
 | Status | Count |
 |--------|-------|
 | Pending | 23 |
-| Active | 5 |
+| Active | 3 |
 | Blocked | 0 |
-| Complete | 150 |
+| Complete | 152 |
 
 ## Active Tasks
 
 - TSK-164: Fix: Remove synthetic bold from DM Serif headings site-wide (P4)
 - TSK-165: Fix: Weather icon and caption contrast violations (P4)
 - TSK-166: Fix: Beach detail copy and accessibility defects (P4)
-- TSK-171: Fix: Desktop bar on landscape phones has small touch targets (P3)
-- TSK-177: Fix: Topbar P3 polish items from the critique (P4)
 
 ## Pending Tasks
 

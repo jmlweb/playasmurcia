@@ -1,13 +1,14 @@
 ---
 id: TSK-171
 title: Fix: Desktop bar on landscape phones has small touch targets
-status: active
+status: complete
 priority: P3
 tags: [bug, navbar, accessibility]
 created: 2026-11-06
 source: report/RPT-072
 depends-on: [TSK-177]
 started: 2026-11-07
+completed: 2026-11-07
 ---
 
 # Fix: Desktop bar on landscape phones has small touch targets
@@ -36,10 +37,10 @@ Source report: `.backlog/reports/complete/RPT-072-desktop-bar-on-landscape-phone
 
 ## Acceptance Criteria
 
-- [ ] Popover row height re-measured at touch widths before choosing the fix
-- [ ] One option chosen and recorded: move bar to md, gate small sizes on (hover: hover), or raise target height with padding
-- [ ] Navbar links, search control and popover rows are 44px tall on touch screens at every width from 640px
-- [ ] Visual bar height and desktop pointer layout stay unchanged, or any change is recorded in the task
+- [x] Popover row height re-measured at touch widths before choosing the fix
+- [x] One option chosen and recorded: move bar to md, gate small sizes on (hover: hover), or raise target height with padding
+- [x] Navbar links, search control and popover rows are 44px tall on touch screens at every width from 640px
+- [x] Visual bar height and desktop pointer layout stay unchanged, or any change is recorded in the task
 
 ## Notes
 
@@ -50,3 +51,5 @@ Source report: `.backlog/reports/complete/RPT-072-desktop-bar-on-landscape-phone
 - [2026-11-06] Created
 - [2026-11-07] Tagged in 2026-11-07 grooming. Navbar tasks run in order 175, 176, 174, 177, 171 because they edit the same file.
 - [2026-11-07] Started
+- [2026-11-07] Re-measured with hasTouch at 640x360, 740x360, 820x400, 1024x768 after TSK-177: links 24px, search 28x28, popover rows 32px, bar 61px. Option chosen: (b) gate on the pointer with the existing pointer-coarse: variant (touchNavTarget: -my-3 min-h-11; touchSearchTarget: 44x44 control with matching margin box; popover rows and Ver todas min-h-11). After: links, search and rows 44px on touch at every width from 640; bar stays 61px; desktop 1440 no-touch rects identical (8-pixel diff inside the chevron transition). Commit 8d73bda, merged f1642bc.
+- [2026-11-07] Completed
