@@ -1,12 +1,13 @@
 ---
 id: TSK-175
 title: Fix: Colecciones popover has no accessible name
-status: pending
+status: active
 priority: P4
 tags: [bug, navbar, accessibility]
 created: 2026-11-06
 source: report/RPT-075
 depends-on: []
+started: 2026-11-07
 ---
 
 # Fix: Colecciones popover has no accessible name
@@ -46,3 +47,4 @@ Source report: `.backlog/reports/complete/RPT-075-colecciones-popover-has-no-acc
 
 - [2026-11-06] Created
 - [2026-11-07] Tagged in 2026-11-07 grooming. Navbar tasks run in order 175, 176, 174, 177, 171 because they edit the same file.
+- [2026-11-07] Started

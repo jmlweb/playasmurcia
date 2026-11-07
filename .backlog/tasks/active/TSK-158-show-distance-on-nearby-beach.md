@@ -1,12 +1,13 @@
 ---
 id: TSK-158
 title: Show distance on nearby beach cards
-status: pending
+status: active
 priority: P3
 tags: [ui, beach-detail, navigation]
 created: 2026-11-04
 source: manual
 depends-on: [TSK-128]
+started: 2026-11-07
 ---
 
 # Show distance on nearby beach cards
@@ -32,3 +33,4 @@ Every nearby card on El Rincón repeats "Mazarrón", which adds nothing. Distanc
 
 - [2026-11-04] Created
 - [2026-11-04] Depends on TSK-128: nearby cards reuse formatDistance, which has the boundary bug.
+- [2026-11-07] Started

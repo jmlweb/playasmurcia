@@ -1,12 +1,13 @@
 ---
 id: TSK-162
 title: Fix: Verify El Rincón hero photo provenance
-status: pending
+status: active
 priority: P2
 tags: [images, content, bug]
 created: 2026-11-04
 source: report/RPT-063
 depends-on: []
+started: 2026-11-07
 ---
 
 # Fix: Verify El Rincón hero photo provenance
@@ -32,3 +33,4 @@ See `.backlog/reports/complete/RPT-063-el-rincn-hero-photo-may.md`.
 ## Progress Log
 
 - [2026-11-04] Created
+- [2026-11-07] Started

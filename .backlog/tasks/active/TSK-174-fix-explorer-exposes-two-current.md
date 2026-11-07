@@ -1,12 +1,13 @@
 ---
 id: TSK-174
 title: Fix: Explorer exposes two current items in the navbar
-status: pending
+status: active
 priority: P4
 tags: [bug, navbar, accessibility]
 created: 2026-11-06
 source: report/RPT-074
 depends-on: [TSK-176]
+started: 2026-11-07
 ---
 
 # Fix: Explorer exposes two current items in the navbar
@@ -47,3 +48,4 @@ Source report: `.backlog/reports/complete/RPT-074-explorer-exposes-two-current-i
 
 - [2026-11-06] Created
 - [2026-11-07] Tagged in 2026-11-07 grooming. Navbar tasks run in order 175, 176, 174, 177, 171 because they edit the same file.
+- [2026-11-07] Started

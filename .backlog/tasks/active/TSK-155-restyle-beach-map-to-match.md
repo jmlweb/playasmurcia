@@ -1,12 +1,13 @@
 ---
 id: TSK-155
 title: Restyle beach map to match the brand
-status: pending
+status: active
 priority: P3
 tags: [ui, beach-detail, map]
 created: 2026-11-04
 source: manual
 depends-on: [TSK-154]
+started: 2026-11-07
 ---
 
 # Restyle beach map to match the brand
@@ -32,3 +33,4 @@ The map looks off-brand. `navigation-day-v1` draws green roads that clash with t
 
 - [2026-11-04] Created
 - [2026-11-04] Depends on TSK-154: both edit src/features/beaches/location-map.tsx.
+- [2026-11-07] Started

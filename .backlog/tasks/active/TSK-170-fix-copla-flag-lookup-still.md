@@ -1,12 +1,13 @@
 ---
 id: TSK-170
 title: Fix: COPLA flag lookup still misses four beaches whose feed entry uses a different name
-status: pending
+status: active
 priority: P2
 tags: [bug, safety, data]
 created: 2026-11-06
 source: report/RPT-070
 depends-on: []
+started: 2026-11-07
 ---
 
 # Fix: COPLA flag lookup still misses four beaches whose feed entry uses a different name
@@ -35,3 +36,4 @@ Suggested fix: when no name rule matches, fall back to the nearest feed entry in
 
 - [2026-11-06] Created
 - [2026-11-07] Raised to P2 and tagged in 2026-11-07 grooming: a missing flag or closure on four beaches is safety data. Must ship before the June season, when the 112 feed publishes flags.
+- [2026-11-07] Started

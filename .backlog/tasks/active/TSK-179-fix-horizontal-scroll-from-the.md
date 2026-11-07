@@ -1,12 +1,13 @@
 ---
 id: TSK-179
 title: Fix: Horizontal scroll from the footer at 200% text size
-status: pending
+status: active
 priority: P3
 tags: [bug, accessibility, footer]
 created: 2026-11-07
 source: report/RPT-078
 depends-on: []
+started: 2026-11-07
 ---
 
 # Fix: Horizontal scroll from the footer at 200% text size
@@ -28,3 +29,4 @@ With text at 200%, `/explorar` still scrolls horizontally, and the audit traced 
 ## Progress Log
 
 - [2026-11-07] Created
+- [2026-11-07] Started

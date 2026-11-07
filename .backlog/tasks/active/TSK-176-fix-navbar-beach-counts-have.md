@@ -1,12 +1,13 @@
 ---
 id: TSK-176
 title: Fix: Navbar beach counts have no unit for screen readers
-status: pending
+status: active
 priority: P4
 tags: [bug, navbar, accessibility]
 created: 2026-11-06
 source: report/RPT-076
 depends-on: [TSK-175]
+started: 2026-11-07
 ---
 
 # Fix: Navbar beach counts have no unit for screen readers
@@ -45,3 +46,4 @@ Source report: `.backlog/reports/complete/RPT-076-navbar-beach-counts-have-no.md
 
 - [2026-11-06] Created
 - [2026-11-07] Tagged in 2026-11-07 grooming. Navbar tasks run in order 175, 176, 174, 177, 171 because they edit the same file.
+- [2026-11-07] Started
