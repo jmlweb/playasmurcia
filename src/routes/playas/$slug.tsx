@@ -286,16 +286,8 @@ function BeachPage() {
               </div>
             )}
 
-            {beach.access && (
-              <section>
-                <h2 className="mb-3 text-3xl font-normal tracking-tight text-gray-900">
-                  Cómo llegar
-                </h2>
-                <BeachRichText text={beach.access} variant="body" />
-              </section>
-            )}
-
             <LocationMap
+              access={beach.access || undefined}
               beachName={beach.name}
               coordinates={beach.coordinates}
             />

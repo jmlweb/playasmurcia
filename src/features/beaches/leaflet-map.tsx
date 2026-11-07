@@ -2,20 +2,25 @@ import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
 import { useEffect, useRef } from 'react'
 
-export const mapboxUrl = `https://api.mapbox.com/styles/v1/mapbox/navigation-day-v1/tiles/512/{z}/{x}/{y}@2x?access_token=${import.meta.env.VITE_MAPBOX_TOKEN}`
+import {
+  MAP_PIN_HEIGHT,
+  MAP_PIN_WIDTH,
+  mapPinDataUrl,
+} from '@/features/beaches/map-pin'
+import { MAPBOX_STYLE } from '@/features/beaches/map-style'
 
+export const mapboxUrl = `https://api.mapbox.com/styles/v1/mapbox/${MAPBOX_STYLE}/tiles/512/{z}/{x}/{y}@2x?access_token=${import.meta.env.VITE_MAPBOX_TOKEN}`
+
+// The attribution Mapbox requires for its styles; short enough for one line
+// on a 375px map
 export const mapboxAttribution =
-  'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="https://www.mapbox.com/">Mapbox</a>'
+  '&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> <a href="https://apps.mapbox.com/feedback/">Mejorar este mapa</a>'
 
 export const markerIcon = L.icon({
-  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-  iconRetinaUrl:
-    'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41],
+  iconUrl: mapPinDataUrl,
+  iconSize: [MAP_PIN_WIDTH, MAP_PIN_HEIGHT],
+  iconAnchor: [MAP_PIN_WIDTH / 2, MAP_PIN_HEIGHT - 1],
+  popupAnchor: [0, -MAP_PIN_HEIGHT],
 })
 
 /**
@@ -49,6 +54,10 @@ export function LeafletMap({ coordinates, beachName }: LeafletMapProps) {
       // One finger keeps scrolling the page, as in the explorer map
       dragging: !window.matchMedia('(pointer: coarse)').matches,
     })
+
+    // Map credits only: the Leaflet prefix would push the required Mapbox
+    // attribution onto a second line at 375px
+    map.attributionControl.setPrefix(false)
 
     L.control
       .zoom({ zoomInTitle: 'Acercar', zoomOutTitle: 'Alejar' })

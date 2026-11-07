@@ -275,3 +275,22 @@
     line-height: 44px;
   }
 }
+
+.leaflet-container {
+  font-family: inherit;
+}
+
+.leaflet-container .leaflet-control-attribution {
+  padding: 2px 8px;
+  border-top-left-radius: 0.5rem;
+  background: rgb(255 255 255 / 0.85);
+  color: var(--color-gray-600);
+  font-size: 11px;
+  line-height: 1.5;
+  white-space: nowrap;
+  backdrop-filter: blur(4px);
+}
+
+.leaflet-container .leaflet-control-attribution a {
+  color: var(--color-ocean-700);
+}
