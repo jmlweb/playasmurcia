@@ -1,12 +1,13 @@
 ---
 id: TSK-164
 title: Fix: Remove synthetic bold from DM Serif headings site-wide
-status: pending
+status: active
 priority: P4
 tags: [ui, bug, typography]
 created: 2026-11-04
 source: report/RPT-065
 depends-on: [TSK-153]
+started: 2026-11-07
 ---
 
 # Fix: Remove synthetic bold from DM Serif headings
@@ -46,3 +47,4 @@ See `.backlog/reports/complete/RPT-065-synthetic-bold-on-dm-serif.md`.
 - [2026-11-04] Created
 - [2026-11-04] Depends on TSK-153: both edit src/routes/playas/$slug.tsx.
 - [2026-11-07] Beach detail fixed by 28957e0. Rescoped in 2026-11-07 grooming to the remaining site-wide headings.
+- [2026-11-07] Started

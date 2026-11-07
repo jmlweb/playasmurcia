@@ -1,12 +1,13 @@
 ---
 id: TSK-166
 title: Fix: Beach detail copy and accessibility defects
-status: pending
+status: active
 priority: P4
 tags: [ui, bug, accessibility]
 created: 2026-11-04
 source: report/RPT-067
 depends-on: [TSK-153]
+started: 2026-11-07
 ---
 
 # Fix: Beach detail copy and accessibility defects
@@ -35,3 +36,4 @@ See `.backlog/reports/complete/RPT-067-small-copy-and-accessibility-defects.md`.
 - [2026-11-04] Created
 - [2026-11-04] Depends on TSK-153 ($slug.tsx) and TSK-155 (leaflet-map.tsx).
 - [2026-11-07] Narrowed in 2026-11-07 grooming. Removed TSK-155 dependency: its only map item is done.
+- [2026-11-07] Started

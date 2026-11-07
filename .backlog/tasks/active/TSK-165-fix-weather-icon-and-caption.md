@@ -1,12 +1,13 @@
 ---
 id: TSK-165
 title: Fix: Weather icon and caption contrast violations
-status: pending
+status: active
 priority: P4
 tags: [ui, bug, accessibility]
 created: 2026-11-04
 source: report/RPT-066
 depends-on: [TSK-156]
+started: 2026-11-07
 ---
 
 # Fix: Weather icon and caption contrast violations
@@ -36,3 +37,4 @@ See `.backlog/reports/complete/RPT-066-weather-widget-and-captions-break.md`.
 - [2026-11-04] Created
 - [2026-11-04] Depends on TSK-156: the compact forecast rewrites the same rain-probability markup.
 - [2026-11-07] Decision in 2026-11-07 grooming: no SVG icon is needed, because the percentage has a screen-reader Lluvia prefix. Criterion reworded. Colour is ocean-700, but the 12px size stays to be checked.
+- [2026-11-07] Started

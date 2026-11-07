@@ -1,12 +1,13 @@
 ---
 id: TSK-131
 title: Fix: Weather forecast day labels shift one day back for visitors west of UTC
-status: pending
+status: active
 priority: P4
 tags: [bug, weather]
 created: 2026-10-27
 source: report/RPT-058
 depends-on: [TSK-144]
+started: 2026-11-07
 ---
 
 # Fix: Weather forecast day labels shift one day back for visitors west of UTC
@@ -29,3 +30,4 @@ depends-on: [TSK-144]
 
 - [2026-10-27] Created
 - [2026-11-04] Depends on TSK-144: both change forecast date handling and formatDayLabel.
+- [2026-11-07] Started

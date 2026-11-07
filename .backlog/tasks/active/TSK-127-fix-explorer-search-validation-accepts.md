@@ -1,12 +1,13 @@
 ---
 id: TSK-127
 title: Fix: Explorer search validation accepts empty, unknown and prototype-key filter values
-status: pending
+status: active
 priority: P4
 tags: [bug, explorer]
 created: 2026-10-21
 source: report/RPT-054
 depends-on: []
+started: 2026-11-07
 ---
 
 # Fix: Explorer search validation accepts empty, unknown and prototype-key filter values
@@ -28,3 +29,4 @@ depends-on: []
 ## Progress Log
 
 - [2026-10-21] Created
+- [2026-11-07] Started

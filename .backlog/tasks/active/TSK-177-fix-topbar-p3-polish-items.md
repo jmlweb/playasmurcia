@@ -1,12 +1,13 @@
 ---
 id: TSK-177
 title: Fix: Topbar P3 polish items from the critique
-status: pending
+status: active
 priority: P4
 tags: [ui, navbar]
 created: 2026-11-06
 source: report/RPT-077
 depends-on: [TSK-174]
+started: 2026-11-07
 ---
 
 # Fix: Topbar P3 polish items from the critique
@@ -52,3 +53,4 @@ Source report: `.backlog/reports/complete/RPT-077-topbar-p3-polish-items-from.md
 
 - [2026-11-06] Created
 - [2026-11-07] Tagged in 2026-11-07 grooming. Navbar tasks run in order 175, 176, 174, 177, 171 because they edit the same file.
+- [2026-11-07] Started

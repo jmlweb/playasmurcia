@@ -1,12 +1,13 @@
 ---
 id: TSK-171
 title: Fix: Desktop bar on landscape phones has small touch targets
-status: pending
+status: active
 priority: P3
 tags: [bug, navbar, accessibility]
 created: 2026-11-06
 source: report/RPT-072
 depends-on: [TSK-177]
+started: 2026-11-07
 ---
 
 # Fix: Desktop bar on landscape phones has small touch targets
@@ -48,3 +49,4 @@ Source report: `.backlog/reports/complete/RPT-072-desktop-bar-on-landscape-phone
 
 - [2026-11-06] Created
 - [2026-11-07] Tagged in 2026-11-07 grooming. Navbar tasks run in order 175, 176, 174, 177, 171 because they edit the same file.
+- [2026-11-07] Started

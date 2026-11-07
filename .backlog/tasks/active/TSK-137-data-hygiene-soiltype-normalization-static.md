@@ -1,12 +1,13 @@
 ---
 id: TSK-137
 title: Data hygiene: soilType normalization, static waves, beach count
-status: pending
+status: active
 priority: P3
 tags: [data, cleanup]
 created: 2026-10-28
 source: manual
 depends-on: []
+started: 2026-11-07
 ---
 
 # Data hygiene: soilType normalization, static waves, beach count
@@ -30,3 +31,4 @@ depends-on: []
 
 - [2026-10-28] Created
 - [2026-11-07] Refreshed in 2026-11-07 grooming: double-space claim was stale.
+- [2026-11-07] Started
