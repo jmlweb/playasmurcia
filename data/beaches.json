@@ -3853,9 +3853,7 @@
     "sea": 0,
     "promenade": false,
     "access": "Un **camino de tierra** une la cala con la carretera.",
-    "pictures": [
-      "salitrona_g.jpg"
-    ],
+    "pictures": [],
     "coordinates": [
       37.54876,
       -1.12676
@@ -3940,7 +3938,7 @@
         "description": "Cala Salitrona in Cartagena erwartet Sie mit ihren kristallklaren Gewässern des Mittelmeers und feinem Sand sowie Kies, der zum Entspannen einlädt. Genießen Sie eine ruhige, natürliche Umgebung, ideal für einen Tagesausflug am Strand in der Region Murcia. Obwohl es keinen Uferpromenade und keinen direkten Zugang gibt, bietet es einen Rückzugsort für alle, die einen intensiven Kontakt zur Natur suchen."
       }
     },
-    "pictureQualityScore": 1,
+    "pictureQualityScore": 0,
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
@@ -12488,9 +12486,7 @@
     "sea": 0,
     "promenade": false,
     "access": "Por una **carretera estrecha sin asfaltar** que llega hasta el poblado de Bolnuevo, en la urbanización Punta Bella.",
-    "pictures": [
-      "piedramala_g.jpg"
-    ],
+    "pictures": [],
     "coordinates": [
       37.563217,
       -1.32014
@@ -12562,7 +12558,7 @@
         "description": "Am Strand von Piedra Mala, in Mazarrón, erwartet Sie eine einzigartige Landschaft mit grobem, grauen Sand, das durch die Erosion des Mittelmeers entstanden ist. Genießen Sie das kristallklare Wasser und eine ruhige Atmosphäre, ideal zum Entspannen und Abschalten. Obwohl es keine Einrichtungen oder Zugänge gibt, ist seine natürliche Schönheit und die entspannte Atmosphäre ein besonderer Ort für Strandliebhaber, die einen direkten Kontakt zum Meer suchen."
       }
     },
-    "pictureQualityScore": 1,
+    "pictureQualityScore": 0,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
     "shoreBearing": 217
@@ -13727,9 +13723,7 @@
     "sea": 0,
     "promenade": false,
     "access": "Desde la **AP-7, salida 800**, sigue por la vía rápida **MU-312** hacia Cabo de Palos. La playa está en la urbanización Cala Flores.",
-    "pictures": [
-      "descargador_g.jpg"
-    ],
+    "pictures": [],
     "coordinates": [
       37.623752221959286,
       -0.7072647351080978
@@ -13812,7 +13806,7 @@
         "description": "Playa del Descargador in Cartagena bietet eine malerische Küstenlandschaft mit Felsen und einem lebhaften Mittelmeer. Ideal für Besucher, die einen ruhigen Ort zum Entspannen am Meer suchen, obwohl es hier keine Annehmlichkeiten wie einen Uferpromenade oder eine Anlegestelle gibt. Der Kies- und Felsstrand macht sie zu einer besonderen und authentischen Option in der Region Murcia."
       }
     },
-    "pictureQualityScore": 1,
+    "pictureQualityScore": 0,
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
