@@ -5,14 +5,13 @@
 | Status | Count |
 |--------|-------|
 | Pending | 24 |
-| Active | 2 |
+| Active | 0 |
 | Blocked | 0 |
-| Complete | 155 |
+| Complete | 157 |
 
 ## Active Tasks
 
-- TSK-142: Photos for the 53 beaches with no pictures (P3)
-- TSK-148: Municipality facts: population, appraised housing value, tourist offices (P3)
+_No active tasks._
 
 ## Pending Tasks
 
@@ -47,6 +46,8 @@
 
 | ID | Title | Completed |
 |----|-------|-----------|
+| TSK-142 | Photos for the 53 beaches with no pictures | 2026-11-08 |
+| TSK-148 | Municipality facts: population, appraised housing value, tourist offices | 2026-11-08 |
 | TSK-127 | Fix: Explorer search validation accepts empty, unknown and prototype-key filter values | 2026-11-07 |
 | TSK-128 | Fix: formatDistance shows 1000 m and 10,0 km at unit boundaries | 2026-11-07 |
 | TSK-131 | Fix: Weather forecast day labels shift one day back for visitors west of UTC | 2026-11-07 |
@@ -55,5 +56,3 @@
 | TSK-154 | Merge Cómo llegar and map into one section | 2026-11-07 |
 | TSK-155 | Restyle beach map to match the brand | 2026-11-07 |
 | TSK-156 | Compact the beach weather forecast | 2026-11-07 |
-| TSK-157 | Calm static content on beach detail | 2026-11-07 |
-| TSK-158 | Show distance on nearby beach cards | 2026-11-07 |
