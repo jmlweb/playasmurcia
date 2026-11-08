@@ -294,4 +294,26 @@ describe('generateBeachSchema', () => {
 
     expect(schema.name).toBe('Playa de Cañón Águilas')
   })
+
+  it('carries the street address and postal code when the beach has them', () => {
+    const schema = generateBeachSchema(
+      { ...mockBeach, address: 'Avenida de Bolnuevo', postalCode: '30877' },
+      mockMunicipality,
+      mockServices,
+      'cala-abierta',
+    )
+
+    expect(schema.address).toEqual({
+      '@type': 'PostalAddress',
+      streetAddress: 'Avenida de Bolnuevo',
+      postalCode: '30877',
+      addressLocality: 'Cartagena',
+      addressRegion: 'Murcia',
+      addressCountry: 'ES',
+    })
+    expect(
+      generateBeachSchema(mockBeach, mockMunicipality, mockServices, 'x')
+        .address,
+    ).not.toHaveProperty('streetAddress')
+  })
 })

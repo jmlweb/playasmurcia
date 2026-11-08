@@ -32,6 +32,9 @@ export type Beach = {
   phone?: string
   email?: string
   realUrl?: string
+  /** Street or locality line from the official source; absent when the source only repeated the municipality */
+  address?: string
+  postalCode?: string
   waves?: string
   pictures?: string[]
   pictureQualityScore?: 0 | 1 | 2 | 3

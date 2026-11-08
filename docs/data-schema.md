@@ -74,6 +74,8 @@ interface Beach {
   phone?: string // Emergency contact
   email?: string // Contact email
   realUrl?: string // Official website URL
+  address?: string // Street or locality line from the official source (43 beaches, Mazarrón/Águilas/Lorca); never just the municipality name
+  postalCode?: string // Five-digit postal code (42 beaches)
   waves?: string // Wave conditions (MODERADO, etc.)
   pictures?: string[] // Image filenames; pictures[0] is the hand-picked cover
   pictureQualityScore?: 0 | 1 | 2 | 3 // Derived from `pictures` + `public/pictures` files (see `pnpm score:picture-quality`)

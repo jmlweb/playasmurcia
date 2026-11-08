@@ -18,6 +18,9 @@ type LocationMapProps = {
   beachName: string
   /** Editorial directions shown above the map when the beach has them */
   access?: string
+  /** Street or locality line from the official source */
+  address?: string
+  postalCode?: string
 }
 
 const LeafletMap = lazy(() =>
@@ -114,6 +117,8 @@ export function LocationMap({
   coordinates,
   beachName,
   access,
+  address,
+  postalCode,
 }: LocationMapProps) {
   const [lat, lng] = coordinates
   const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`
@@ -132,6 +137,14 @@ export function LocationMap({
         <div className="mb-6">
           <BeachRichText text={access} variant="body" />
         </div>
+      )}
+      {(address ?? postalCode) && (
+        <p className="mb-6 text-sm text-gray-700">
+          <span className="font-semibold text-gray-900">Dirección:</span>{' '}
+          {[address, postalCode && `CP ${postalCode}`]
+            .filter(Boolean)
+            .join(' · ')}
+        </p>
       )}
       <div className="overflow-hidden rounded-2xl border border-gray-200/60 shadow-sm">
         {shouldLoad ? (

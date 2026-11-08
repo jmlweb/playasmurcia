@@ -36,6 +36,8 @@ export function mapBeachFromDB(dbBeach: {
   phone: string | null
   email: string | null
   realUrl: string | null
+  address: string | null
+  postalCode: string | null
   waves: string | null
   pictures: string | null
   pictureQualityScore: number | null
@@ -100,6 +102,8 @@ export function mapBeachFromDB(dbBeach: {
     ...(dbBeach.phone && { phone: dbBeach.phone }),
     ...(dbBeach.email && { email: dbBeach.email }),
     ...(dbBeach.realUrl && { realUrl: dbBeach.realUrl }),
+    ...(dbBeach.address && { address: dbBeach.address }),
+    ...(dbBeach.postalCode && { postalCode: dbBeach.postalCode }),
     ...(dbBeach.waves && { waves: dbBeach.waves }),
     ...(dbBeach.pictures && { pictures: JSON.parse(dbBeach.pictures) }),
     ...(dbBeach.pictureQualityScore != null && {

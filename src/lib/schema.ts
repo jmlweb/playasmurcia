@@ -24,6 +24,8 @@ type GeoCoordinates = {
 
 type PostalAddress = {
   '@type': 'PostalAddress'
+  streetAddress?: string
+  postalCode?: string
   addressLocality: string
   addressRegion: string
   addressCountry: string
@@ -162,6 +164,8 @@ export function generateBeachSchema(
     },
     address: {
       '@type': 'PostalAddress',
+      ...(beach.address && { streetAddress: beach.address }),
+      ...(beach.postalCode && { postalCode: beach.postalCode }),
       addressLocality: municipality.name,
       addressRegion: 'Murcia',
       addressCountry: 'ES',

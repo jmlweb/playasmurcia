@@ -38,6 +38,8 @@ type JsonBeach = {
   phone?: string
   email?: string
   realUrl?: string
+  address?: string
+  postalCode?: string
   waves?: string
   pictures?: Array<string>
   pictureQualityScore?: 0 | 1 | 2 | 3
@@ -273,6 +275,8 @@ async function main() {
           phone: beach.phone || null,
           email: beach.email || null,
           realUrl: beach.realUrl || null,
+          address: beach.address || null,
+          postalCode: beach.postalCode || null,
           waves: beach.waves || null,
           pictures: serializeArray(beach.pictures) || null,
           pictureQualityScore:
