@@ -1,0 +1,2758 @@
+{
+  "natura2000Source": {
+    "label": "Red Natura 2000, European Environment Agency (EEA), versión fin de 2024, CC BY 4.0",
+    "url": "https://www.eea.europa.eu/en/datahub/datahubitem-view/6fc8ad2d-195d-40f4-bdec-576e7d1268e4"
+  },
+  "regionalSource": {
+    "label": "Espacios Naturales Protegidos, Comunidad Autónoma de la Región de Murcia (IDERM / SITMURCIA)",
+    "url": "https://mapas-gis-inter.carm.es/geoserver/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
+  },
+  "bufferMetres": 200,
+  "fetchedOn": "2026-11-08",
+  "values": {
+    "510": {
+      "natura2000": [
+        {
+          "code": "ES0000264",
+          "name": "La Muela-Cabo Tiñoso",
+          "type": "A"
+        },
+        {
+          "code": "ES6200015",
+          "name": "La Muela y Cabo Tiñoso",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "511": {
+      "natura2000": [
+        {
+          "code": "ES0000264",
+          "name": "La Muela-Cabo Tiñoso",
+          "type": "A"
+        },
+        {
+          "code": "ES0000507",
+          "name": "Espacio marino de los Islotes Litorales de Murcia y Almería",
+          "type": "A"
+        },
+        {
+          "code": "ES6200024",
+          "name": "Cabezo de Roldán",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "513": {
+      "natura2000": [
+        {
+          "code": "ES6200001",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000005",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "figure": "Parque Regional",
+          "norm": "Decreto 45/1995"
+        }
+      ]
+    },
+    "514": {
+      "natura2000": [
+        {
+          "code": "ES6200001",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000005",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "figure": "Parque Regional",
+          "norm": "Decreto 45/1995"
+        }
+      ]
+    },
+    "516": {
+      "natura2000": [
+        {
+          "code": "ES6200001",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000005",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "figure": "Parque Regional",
+          "norm": "Decreto 45/1995"
+        }
+      ]
+    },
+    "517": {
+      "natura2000": [
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200001",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000005",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "figure": "Parque Regional",
+          "norm": "Decreto 45/1995"
+        }
+      ]
+    },
+    "518": {
+      "natura2000": [
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200001",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000005",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "figure": "Parque Regional",
+          "norm": "Decreto 45/1995"
+        }
+      ]
+    },
+    "519": {
+      "natura2000": [
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "520": {
+      "natura2000": [
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "521": {
+      "natura2000": [
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "522": {
+      "natura2000": [
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "523": {
+      "natura2000": [
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "525": {
+      "natura2000": [
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "526": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "528": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200006",
+          "name": "Espacios Abiertos e Islas del Mar Menor",
+          "type": "B"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000008",
+          "name": "Espacios Abiertos e Islas del Mar Menor",
+          "figure": "Paisaje Protegido",
+          "norm": "Decreto 259/2019"
+        }
+      ]
+    },
+    "529": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200006",
+          "name": "Espacios Abiertos e Islas del Mar Menor",
+          "type": "B"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000008",
+          "name": "Espacios Abiertos e Islas del Mar Menor",
+          "figure": "Paisaje Protegido",
+          "norm": "Decreto 259/2019"
+        }
+      ]
+    },
+    "530": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000008",
+          "name": "Espacios Abiertos e Islas del Mar Menor",
+          "figure": "Paisaje Protegido",
+          "norm": "Decreto-Ley 2/2019 y Ley 3/2020"
+        }
+      ]
+    },
+    "531": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "532": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200006",
+          "name": "Espacios Abiertos e Islas del Mar Menor",
+          "type": "B"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000008",
+          "name": "Espacios Abiertos e Islas del Mar Menor",
+          "figure": "Paisaje Protegido",
+          "norm": "Decreto 259/2019"
+        }
+      ]
+    },
+    "533": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "534": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "535": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "536": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "537": {
+      "natura2000": [
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "538": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "539": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "540": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "541": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "542": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "543": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "544": {
+      "natura2000": [
+        {
+          "code": "ES0000175",
+          "name": "Salinas y Arenales de San Pedro del Pinatar",
+          "type": "C"
+        },
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000004",
+          "name": "Salinas y Arenales de San Pedro del Pinatar",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992 y Decreto 259/2019"
+        }
+      ]
+    },
+    "545": {
+      "natura2000": [
+        {
+          "code": "ES0000175",
+          "name": "Salinas y Arenales de San Pedro del Pinatar",
+          "type": "C"
+        },
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000004",
+          "name": "Salinas y Arenales de San Pedro del Pinatar",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992 y Decreto 259/2019"
+        }
+      ]
+    },
+    "546": {
+      "natura2000": [
+        {
+          "code": "ES0000175",
+          "name": "Salinas y Arenales de San Pedro del Pinatar",
+          "type": "C"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000004",
+          "name": "Salinas y Arenales de San Pedro del Pinatar",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992 y Decreto 259/2019"
+        }
+      ]
+    },
+    "551": {
+      "natura2000": [
+        {
+          "code": "ES6200012",
+          "name": "Calnegre",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "552": {
+      "natura2000": [
+        {
+          "code": "ES0000261",
+          "name": "Almenara-Moreras-Cabo Cope",
+          "type": "A"
+        },
+        {
+          "code": "ES6200011",
+          "name": "Sierra de las Moreras",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000009",
+          "name": "Sierra de las Moreras",
+          "figure": "Paisaje Protegido",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "553": {
+      "natura2000": [
+        {
+          "code": "ES0000264",
+          "name": "La Muela-Cabo Tiñoso",
+          "type": "A"
+        },
+        {
+          "code": "ES6200015",
+          "name": "La Muela y Cabo Tiñoso",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "554": {
+      "natura2000": [
+        {
+          "code": "ES0000264",
+          "name": "La Muela-Cabo Tiñoso",
+          "type": "A"
+        },
+        {
+          "code": "ES6200015",
+          "name": "La Muela y Cabo Tiñoso",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "555": {
+      "natura2000": [
+        {
+          "code": "ES0000264",
+          "name": "La Muela-Cabo Tiñoso",
+          "type": "A"
+        },
+        {
+          "code": "ES6200024",
+          "name": "Cabezo de Roldán",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "556": {
+      "natura2000": [
+        {
+          "code": "ES6200001",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000005",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "figure": "Parque Regional",
+          "norm": "Decreto 45/1995"
+        }
+      ]
+    },
+    "557": {
+      "natura2000": [
+        {
+          "code": "ES6200001",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000005",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "figure": "Parque Regional",
+          "norm": "Decreto 45/1995"
+        }
+      ]
+    },
+    "558": {
+      "natura2000": [
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "559": {
+      "natura2000": [
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "561": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "562": {
+      "natura2000": [
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "563": {
+      "natura2000": [
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "564": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "565": {
+      "natura2000": [],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "566": {
+      "natura2000": [
+        {
+          "code": "ES0000507",
+          "name": "Espacio marino de los Islotes Litorales de Murcia y Almería",
+          "type": "A"
+        },
+        {
+          "code": "ES6200010",
+          "name": "Cuatro Calas",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000007",
+          "name": "Cuatro Calas",
+          "figure": "Paisaje Protegido",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "567": {
+      "natura2000": [
+        {
+          "code": "ES6200012",
+          "name": "Calnegre",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "568": {
+      "natura2000": [
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "569": {
+      "natura2000": [
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "570": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000008",
+          "name": "Espacios Abiertos e Islas del Mar Menor",
+          "figure": "Paisaje Protegido",
+          "norm": "Decreto-Ley 2/2019 y Ley 3/2020"
+        }
+      ]
+    },
+    "571": {
+      "natura2000": [
+        {
+          "code": "ES6200001",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000005",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "figure": "Parque Regional",
+          "norm": "Decreto 45/1995"
+        }
+      ]
+    },
+    "572": {
+      "natura2000": [
+        {
+          "code": "ES6200001",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000005",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "figure": "Parque Regional",
+          "norm": "Decreto 45/1995"
+        }
+      ]
+    },
+    "573": {
+      "natura2000": [
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "574": {
+      "natura2000": [
+        {
+          "code": "ES0000264",
+          "name": "La Muela-Cabo Tiñoso",
+          "type": "A"
+        },
+        {
+          "code": "ES6200015",
+          "name": "La Muela y Cabo Tiñoso",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        },
+        {
+          "code": "ES6200048",
+          "name": "Valles submarinos del Escarpe de Mazarrón",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "575": {
+      "natura2000": [
+        {
+          "code": "ES0000264",
+          "name": "La Muela-Cabo Tiñoso",
+          "type": "A"
+        },
+        {
+          "code": "ES6200015",
+          "name": "La Muela y Cabo Tiñoso",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "576": {
+      "natura2000": [
+        {
+          "code": "ES6200012",
+          "name": "Calnegre",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "577": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "578": {
+      "natura2000": [
+        {
+          "code": "ES0000175",
+          "name": "Salinas y Arenales de San Pedro del Pinatar",
+          "type": "C"
+        },
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000004",
+          "name": "Salinas y Arenales de San Pedro del Pinatar",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992 y Decreto 259/2019"
+        }
+      ]
+    },
+    "579": {
+      "natura2000": [
+        {
+          "code": "ES6200012",
+          "name": "Calnegre",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "580": {
+      "natura2000": [
+        {
+          "code": "ES6200015",
+          "name": "La Muela y Cabo Tiñoso",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "582": {
+      "natura2000": [
+        {
+          "code": "ES0000264",
+          "name": "La Muela-Cabo Tiñoso",
+          "type": "A"
+        }
+      ],
+      "regional": []
+    },
+    "583": {
+      "natura2000": [
+        {
+          "code": "ES0000264",
+          "name": "La Muela-Cabo Tiñoso",
+          "type": "A"
+        },
+        {
+          "code": "ES0000507",
+          "name": "Espacio marino de los Islotes Litorales de Murcia y Almería",
+          "type": "A"
+        },
+        {
+          "code": "ES6200024",
+          "name": "Cabezo de Roldán",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "584": {
+      "natura2000": [
+        {
+          "code": "ES6200001",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000005",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "figure": "Parque Regional",
+          "norm": "Decreto 45/1995"
+        }
+      ]
+    },
+    "585": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "586": {
+      "natura2000": [
+        {
+          "code": "ES0000261",
+          "name": "Almenara-Moreras-Cabo Cope",
+          "type": "A"
+        },
+        {
+          "code": "ES0000270",
+          "name": "Isla Cueva de Lobos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200011",
+          "name": "Sierra de las Moreras",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000009",
+          "name": "Sierra de las Moreras",
+          "figure": "Paisaje Protegido",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "587": {
+      "natura2000": [],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "588": {
+      "natura2000": [],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "589": {
+      "natura2000": [
+        {
+          "code": "ES0000507",
+          "name": "Espacio marino de los Islotes Litorales de Murcia y Almería",
+          "type": "A"
+        },
+        {
+          "code": "ES6200010",
+          "name": "Cuatro Calas",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000007",
+          "name": "Cuatro Calas",
+          "figure": "Paisaje Protegido",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "590": {
+      "natura2000": [
+        {
+          "code": "ES6200001",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000005",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "figure": "Parque Regional",
+          "norm": "Decreto 45/1995"
+        }
+      ]
+    },
+    "591": {
+      "natura2000": [
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "592": {
+      "natura2000": [
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "593": {
+      "natura2000": [
+        {
+          "code": "ES0000507",
+          "name": "Espacio marino de los Islotes Litorales de Murcia y Almería",
+          "type": "A"
+        },
+        {
+          "code": "ES6110010",
+          "name": "Fondos Marinos Levante Almeriense",
+          "type": "B"
+        },
+        {
+          "code": "ES6200010",
+          "name": "Cuatro Calas",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000007",
+          "name": "Cuatro Calas",
+          "figure": "Paisaje Protegido",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "594": {
+      "natura2000": [
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "595": {
+      "natura2000": [
+        {
+          "code": "ES6200001",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000005",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "figure": "Parque Regional",
+          "norm": "Decreto 45/1995"
+        }
+      ]
+    },
+    "596": {
+      "natura2000": [
+        {
+          "code": "ES0000507",
+          "name": "Espacio marino de los Islotes Litorales de Murcia y Almería",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "597": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "598": {
+      "natura2000": [
+        {
+          "code": "ES0000507",
+          "name": "Espacio marino de los Islotes Litorales de Murcia y Almería",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "599": {
+      "natura2000": [],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "600": {
+      "natura2000": [
+        {
+          "code": "ES0000261",
+          "name": "Almenara-Moreras-Cabo Cope",
+          "type": "A"
+        },
+        {
+          "code": "ES6200011",
+          "name": "Sierra de las Moreras",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000009",
+          "name": "Sierra de las Moreras",
+          "figure": "Paisaje Protegido",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "601": {
+      "natura2000": [
+        {
+          "code": "ES0000264",
+          "name": "La Muela-Cabo Tiñoso",
+          "type": "A"
+        },
+        {
+          "code": "ES6200015",
+          "name": "La Muela y Cabo Tiñoso",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        },
+        {
+          "code": "ES6200048",
+          "name": "Valles submarinos del Escarpe de Mazarrón",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "602": {
+      "natura2000": [
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "603": {
+      "natura2000": [
+        {
+          "code": "ES0000264",
+          "name": "La Muela-Cabo Tiñoso",
+          "type": "A"
+        },
+        {
+          "code": "ES6200015",
+          "name": "La Muela y Cabo Tiñoso",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "604": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "605": {
+      "natura2000": [
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "606": {
+      "natura2000": [
+        {
+          "code": "ES0000264",
+          "name": "La Muela-Cabo Tiñoso",
+          "type": "A"
+        },
+        {
+          "code": "ES0000507",
+          "name": "Espacio marino de los Islotes Litorales de Murcia y Almería",
+          "type": "A"
+        }
+      ],
+      "regional": []
+    },
+    "607": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "609": {
+      "natura2000": [
+        {
+          "code": "ES0000507",
+          "name": "Espacio marino de los Islotes Litorales de Murcia y Almería",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "610": {
+      "natura2000": [
+        {
+          "code": "ES0000507",
+          "name": "Espacio marino de los Islotes Litorales de Murcia y Almería",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "611": {
+      "natura2000": [
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "612": {
+      "natura2000": [
+        {
+          "code": "ES0000507",
+          "name": "Espacio marino de los Islotes Litorales de Murcia y Almería",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "613": {
+      "natura2000": [
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "614": {
+      "natura2000": [
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "615": {
+      "natura2000": [
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "616": {
+      "natura2000": [
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "617": {
+      "natura2000": [
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "618": {
+      "natura2000": [
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "619": {
+      "natura2000": [
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "620": {
+      "natura2000": [
+        {
+          "code": "ES0000261",
+          "name": "Almenara-Moreras-Cabo Cope",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        },
+        {
+          "code": "ES6200031",
+          "name": "Cabo Cope",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "621": {
+      "natura2000": [],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "622": {
+      "natura2000": [],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "623": {
+      "natura2000": [],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "624": {
+      "natura2000": [],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "625": {
+      "natura2000": [
+        {
+          "code": "ES0000507",
+          "name": "Espacio marino de los Islotes Litorales de Murcia y Almería",
+          "type": "A"
+        },
+        {
+          "code": "ES6200010",
+          "name": "Cuatro Calas",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000007",
+          "name": "Cuatro Calas",
+          "figure": "Paisaje Protegido",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "626": {
+      "natura2000": [
+        {
+          "code": "ES6200012",
+          "name": "Calnegre",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "627": {
+      "natura2000": [
+        {
+          "code": "ES6200001",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000005",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "figure": "Parque Regional",
+          "norm": "Decreto 45/1995"
+        }
+      ]
+    },
+    "628": {
+      "natura2000": [],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "629": {
+      "natura2000": [
+        {
+          "code": "ES6200012",
+          "name": "Calnegre",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "630": {
+      "natura2000": [
+        {
+          "code": "ES6200012",
+          "name": "Calnegre",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "631": {
+      "natura2000": [
+        {
+          "code": "ES6200012",
+          "name": "Calnegre",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "632": {
+      "natura2000": [
+        {
+          "code": "ES6200012",
+          "name": "Calnegre",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "634": {
+      "natura2000": [
+        {
+          "code": "ES6200048",
+          "name": "Valles submarinos del Escarpe de Mazarrón",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "641": {
+      "natura2000": [
+        {
+          "code": "ES0000261",
+          "name": "Almenara-Moreras-Cabo Cope",
+          "type": "A"
+        },
+        {
+          "code": "ES6200011",
+          "name": "Sierra de las Moreras",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000009",
+          "name": "Sierra de las Moreras",
+          "figure": "Paisaje Protegido",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "642": {
+      "natura2000": [
+        {
+          "code": "ES0000261",
+          "name": "Almenara-Moreras-Cabo Cope",
+          "type": "A"
+        },
+        {
+          "code": "ES6200011",
+          "name": "Sierra de las Moreras",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000009",
+          "name": "Sierra de las Moreras",
+          "figure": "Paisaje Protegido",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "643": {
+      "natura2000": [
+        {
+          "code": "ES0000261",
+          "name": "Almenara-Moreras-Cabo Cope",
+          "type": "A"
+        },
+        {
+          "code": "ES6200011",
+          "name": "Sierra de las Moreras",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000009",
+          "name": "Sierra de las Moreras",
+          "figure": "Paisaje Protegido",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "646": {
+      "natura2000": [],
+      "regional": [
+        {
+          "code": "ENP000021",
+          "name": "Gredas de Bolnuevo",
+          "figure": "Monumento Natural",
+          "norm": "Decreto 34/2019"
+        }
+      ]
+    },
+    "658": {
+      "natura2000": [
+        {
+          "code": "ES0000264",
+          "name": "La Muela-Cabo Tiñoso",
+          "type": "A"
+        },
+        {
+          "code": "ES6200015",
+          "name": "La Muela y Cabo Tiñoso",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "660": {
+      "natura2000": [
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "661": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "663": {
+      "natura2000": [
+        {
+          "code": "ES6200012",
+          "name": "Calnegre",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "664": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "665": {
+      "natura2000": [
+        {
+          "code": "ES0000175",
+          "name": "Salinas y Arenales de San Pedro del Pinatar",
+          "type": "C"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000004",
+          "name": "Salinas y Arenales de San Pedro del Pinatar",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992 y Decreto 259/2019"
+        }
+      ]
+    },
+    "666": {
+      "natura2000": [
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        },
+        {
+          "code": "ESZZ16009",
+          "name": "Espacio marino de Cabo Roig",
+          "type": "C"
+        }
+      ],
+      "regional": []
+    },
+    "667": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "668": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "669": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "670": {
+      "natura2000": [
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "671": {
+      "natura2000": [
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "672": {
+      "natura2000": [
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "673": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "674": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "676": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "677": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "678": {
+      "natura2000": [
+        {
+          "code": "ES0000507",
+          "name": "Espacio marino de los Islotes Litorales de Murcia y Almería",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "679": {
+      "natura2000": [
+        {
+          "code": "ES0000507",
+          "name": "Espacio marino de los Islotes Litorales de Murcia y Almería",
+          "type": "A"
+        },
+        {
+          "code": "ES6200010",
+          "name": "Cuatro Calas",
+          "type": "B"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000007",
+          "name": "Cuatro Calas",
+          "figure": "Paisaje Protegido",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "681": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "682": {
+      "natura2000": [
+        {
+          "code": "ES0000175",
+          "name": "Salinas y Arenales de San Pedro del Pinatar",
+          "type": "C"
+        },
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000004",
+          "name": "Salinas y Arenales de San Pedro del Pinatar",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992 y Decreto 259/2019"
+        }
+      ]
+    },
+    "684": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "686": {
+      "natura2000": [
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "687": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES0000508",
+          "name": "Espacio marino de Tabarca-Cabo de Palos",
+          "type": "A"
+        },
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "688": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "689": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000008",
+          "name": "Espacios Abiertos e Islas del Mar Menor",
+          "figure": "Paisaje Protegido",
+          "norm": "Decreto-Ley 2/2019 y Ley 3/2020"
+        }
+      ]
+    },
+    "690": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "691": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "692": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "693": {
+      "natura2000": [
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "694": {
+      "natura2000": [
+        {
+          "code": "ES6200012",
+          "name": "Calnegre",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "695": {
+      "natura2000": [
+        {
+          "code": "ES6200001",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000005",
+          "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+          "figure": "Parque Regional",
+          "norm": "Decreto 45/1995"
+        }
+      ]
+    },
+    "696": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "4894": {
+      "natura2000": [
+        {
+          "code": "ES0000536",
+          "name": "Lagunas de las Moreras",
+          "type": "A"
+        }
+      ],
+      "regional": []
+    },
+    "5253": {
+      "natura2000": [
+        {
+          "code": "ES0000260",
+          "name": "Mar Menor",
+          "type": "A"
+        },
+        {
+          "code": "ES6200030",
+          "name": "Mar Menor",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "5906": {
+      "natura2000": [
+        {
+          "code": "ES6200012",
+          "name": "Calnegre",
+          "type": "B"
+        }
+      ],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "5907": {
+      "natura2000": [],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "7050": {
+      "natura2000": [
+        {
+          "code": "ES6200029",
+          "name": "Franja Litoral Sumergida de la Región de Murcia",
+          "type": "B"
+        }
+      ],
+      "regional": []
+    },
+    "7051": {
+      "natura2000": [],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "7052": {
+      "natura2000": [],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    },
+    "7053": {
+      "natura2000": [],
+      "regional": [
+        {
+          "code": "ENP000010",
+          "name": "Calnegre y Cabo Cope",
+          "figure": "Parque Regional",
+          "norm": "Ley 4/1992"
+        }
+      ]
+    }
+  }
+}
