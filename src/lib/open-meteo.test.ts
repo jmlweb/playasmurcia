@@ -220,17 +220,48 @@ describe('parseOpenMeteoDate', () => {
   it('reads the Madrid calendar day as UTC midnight in any timezone', () => {
     const fecha = parseOpenMeteoDate('2026-10-27')
     expect(fecha).toBe(Date.UTC(2026, 9, 27))
-    expect(new Date(fecha).getUTCDay()).toBe(2)
+    expect(new Date(fecha ?? 0).getUTCDay()).toBe(2)
   })
 
   it('matches the representation aemet.ts uses for the same day', () => {
     expect(parseOpenMeteoDate('2026-11-04')).toBe(Date.UTC(2026, 10, 4))
+  })
+
+  it('returns undefined for garbage and impossible dates', () => {
+    expect(parseOpenMeteoDate('')).toBeUndefined()
+    expect(parseOpenMeteoDate('not-a-date')).toBeUndefined()
+    expect(parseOpenMeteoDate('2026-2-3')).toBeUndefined()
+    expect(parseOpenMeteoDate('2026-02-30')).toBeUndefined()
+    expect(parseOpenMeteoDate('2026-13-01')).toBeUndefined()
   })
 })
 
 describe('fetchOpenMeteoForecast', () => {
   afterEach(() => {
     vi.restoreAllMocks()
+  })
+
+  it('drops days whose date is malformed or impossible', async () => {
+    global.fetch = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        daily: {
+          time: ['2026-02-28', '2026-02-30', 'garbage'],
+          weather_code: [0, 3, 1],
+          temperature_2m_max: [18, 17, 16],
+          temperature_2m_min: [9, 8, 7],
+          wind_speed_10m_max: [10, 12, 11],
+          wind_direction_10m_dominant: [90, 180, 270],
+          uv_index_max: [3, 2, 2],
+          precipitation_probability_max: [0, 30, 10],
+        },
+      }),
+    })
+
+    // Distinct coordinates: the edge cache is shared across tests
+    const result = await fetchOpenMeteoForecast(38.11, -0.65)
+
+    expect(result?.days.map((d) => d.fecha)).toEqual([Date.UTC(2026, 1, 28)])
   })
 
   it('keeps each daily date on its Madrid calendar day', async () => {

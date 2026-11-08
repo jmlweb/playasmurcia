@@ -150,9 +150,20 @@ type MultiCurrentResponse = {
 // Open-Meteo sends "2026-10-27" as a Europe/Madrid calendar day. UTC midnight of
 // that day is the representation aemet.ts and the widget share: it keeps the
 // weekday stable for visitors in any timezone when read with the UTC getters.
-export function parseOpenMeteoDate(dateStr: string): number {
-  const [year, month, day] = dateStr.slice(0, 10).split('-').map(Number)
-  return Date.UTC(year, month - 1, day)
+// Returns undefined for anything that is not a real YYYY-MM-DD calendar day:
+// a NaN or rolled-over date would miss the forecast-days lookup and render an
+// undefined weekday in the widget.
+export function parseOpenMeteoDate(dateStr: string): number | undefined {
+  const match = /^(\d{4})-(\d{2})-(\d{2})/.exec(dateStr)
+  if (!match) return undefined
+  const [year, month, day] = match.slice(1).map(Number)
+  const fecha = Date.UTC(year, month - 1, day)
+  const date = new Date(fecha)
+  const isSameDay =
+    date.getUTCFullYear() === year &&
+    date.getUTCMonth() === month - 1 &&
+    date.getUTCDate() === day
+  return isSameDay ? fecha : undefined
 }
 
 export async function fetchOpenMeteoForecast(
@@ -197,17 +208,26 @@ export async function fetchOpenMeteoForecast(
     }
 
     const forecast: OpenMeteoForecast = {
-      days: daily.time.map((dateStr, i) => ({
-        fecha: parseOpenMeteoDate(dateStr),
-        skyDescription: wmoToDescription(daily.weather_code[i]),
-        skyIcon: wmoToIcon(daily.weather_code[i]),
-        tMaxima: Math.round(daily.temperature_2m_max[i]),
-        tMinima: Math.round(daily.temperature_2m_min[i]),
-        windSpeed: Math.round(daily.wind_speed_10m_max[i]),
-        windDirection: degreesToDirection(daily.wind_direction_10m_dominant[i]),
-        uvIndex: Math.round(daily.uv_index_max[i]),
-        precipitationProbability: daily.precipitation_probability_max[i] ?? 0,
-      })),
+      days: daily.time.flatMap((dateStr, i) => {
+        const fecha = parseOpenMeteoDate(dateStr)
+        if (fecha === undefined) return []
+        return [
+          {
+            fecha,
+            skyDescription: wmoToDescription(daily.weather_code[i]),
+            skyIcon: wmoToIcon(daily.weather_code[i]),
+            tMaxima: Math.round(daily.temperature_2m_max[i]),
+            tMinima: Math.round(daily.temperature_2m_min[i]),
+            windSpeed: Math.round(daily.wind_speed_10m_max[i]),
+            windDirection: degreesToDirection(
+              daily.wind_direction_10m_dominant[i],
+            ),
+            uvIndex: Math.round(daily.uv_index_max[i]),
+            precipitationProbability:
+              daily.precipitation_probability_max[i] ?? 0,
+          },
+        ]
+      }),
     }
 
     if (data.current) {
