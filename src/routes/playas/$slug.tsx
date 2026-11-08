@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from 'react'
 
 import { NotFound } from '@/components/layout/not-found'
 import { ResponsiveImage } from '@/components/ui/responsive-image'
+import { AccessibilityPanel } from '@/features/beaches/accessibility-panel'
 import { ActivitiesGrid } from '@/features/beaches/activities-grid'
 import { BeachConditions } from '@/features/beaches/beach-conditions'
 import { BeachDecisionRail } from '@/features/beaches/beach-decision-rail'
@@ -18,16 +19,22 @@ import { BeachRichText } from '@/features/beaches/beach-rich-text'
 import { CertificationsBadge } from '@/features/beaches/certifications-badge'
 import { ContactInfo } from '@/features/beaches/contact-info'
 import { LocationMap } from '@/features/beaches/location-map'
+import { MarineReserveNotice } from '@/features/beaches/marine-reserve-notice'
 import { NearbyCarousel } from '@/features/beaches/nearby-carousel'
 import { PracticalInfoCard } from '@/features/beaches/practical-info-card'
+import { ProtectedAreasNotice } from '@/features/beaches/protected-areas-notice'
 import { ServicesGrid } from '@/features/beaches/services-grid'
 import { SmokeFreeNotice } from '@/features/beaches/smoke-free-notice'
 import { TagsSection } from '@/features/beaches/tags-section'
+import { getAccessibilitySheet } from '@/lib/accessibility'
 import { MAR_MENOR_SEA } from '@/lib/beach-facts'
 import { getAccessRestriction } from '@/lib/beach-notices'
 import { getBeachSummary } from '@/lib/beach-summary'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
 import { parseImageFilename, pictureUrl } from '@/lib/images'
+import { getNearestMarina } from '@/lib/marinas'
+import { getMarineReserveForZone } from '@/lib/marine-reserves'
+import { getProtectedAreas } from '@/lib/protected-areas'
 import { generateBeachSchema } from '@/lib/schema'
 import { beachToSlug, municipalityToSlug } from '@/lib/slugs'
 
@@ -188,6 +195,9 @@ export const Route = createFileRoute('/playas/$slug')({
 function BeachPage() {
   const { beach, municipality, services, activities, tags, nearbyItems } =
     Route.useLoaderData()
+  const accessibilitySheet = getAccessibilitySheet(beach.code)
+  const marineReserve = getMarineReserveForZone(beach.zone)
+  const protectedAreas = getProtectedAreas(beach.code)
 
   const pictures = beach.pictures ?? []
 
@@ -250,8 +260,14 @@ function BeachPage() {
                   <CertificationsBadge certifications={beach.certifications} />
                 </div>
               )}
-              <div className="mt-8 empty:hidden">
+              <div className="mt-8 space-y-3 empty:hidden">
+                {protectedAreas && (
+                  <ProtectedAreasNotice areas={protectedAreas} />
+                )}
                 <SmokeFreeNotice beachCode={beach.code} />
+                {marineReserve && (
+                  <MarineReserveNotice reserve={marineReserve} />
+                )}
               </div>
             </section>
 
@@ -290,6 +306,10 @@ function BeachPage() {
               </div>
             )}
 
+            {accessibilitySheet && (
+              <AccessibilityPanel sheet={accessibilitySheet} />
+            )}
+
             {beach.activities.length > 0 && (
               <div>
                 <ActivitiesGrid
@@ -305,6 +325,7 @@ function BeachPage() {
               address={beach.address}
               beachName={beach.name}
               coordinates={beach.coordinates}
+              nearestMarina={getNearestMarina(beach.coordinates)}
               postalCode={beach.postalCode}
             />
 

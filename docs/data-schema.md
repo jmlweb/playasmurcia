@@ -12,13 +12,17 @@ This document describes the data structure for beaches in the Region of Murcia, 
 | `municipalities.json` | Coastal municipalities with INE codes | 8 municipalities |
 | `seas.json` | Sea names (indexed array) | 2 seas |
 | `activities.json` | Beach activities (indexed array) | 10 activities |
-| `services.json` | Beach services (indexed array) | 9 services |
+| `services.json` | Beach services (indexed array); `assisted-bathing` (index 9) is set from `accessibility.json` | 10 services |
 | `tags.json` | Beach tags for categorization (indexed array) | 17 tags |
 | `certification-seasons.json` | Season year of each certification list, keyed by certification (`{ "blue-flag": 2026, "q-quality": 2024 }`). Written by `scripts/add-certifications.js`; not migrated to the DB — the site bundles it at build time | 2 entries |
 | `picture-credits.json` | Author, licence and source page of pictures sourced from Wikimedia Commons, keyed by the picture filename used in `pictures` (`{ "wm-geo-567.jpg": { author, license, source, title, descriptionUrl } }`). Written by `scripts/source-wikimedia-pictures.ts` when a candidate is approved; not migrated to the DB. Only CC BY, CC BY-SA, CC0 and public domain are accepted. Pictures from earlier sourcing runs have no entry yet | 2 entries |
 | `zones.json` | Hand-curated beach zones (see [Zones](#zones)): the zone list, the mapping of every ITREM locality label, manual assignments with a reason, and `unresolved` beaches with a reason. Bundled by `src/lib/zones.ts` for names and order | 30 zones |
 | `smoke-free-beaches.json` | The 16 spaces of the regional Red de Playas sin Humo keyed by beach code, with the covered stretch when the list names only part of a beach, the source URL and the confirmation note (the list is undated; the 30 May 2025 press release confirms 16). Bundled by `src/lib/beach-notices.ts`; not migrated | 16 codes |
 | `access-restrictions.json` | Published summer vehicle limits and shuttles keyed by beach code (`{ year, recurring, summary, shuttle?, sourceLabel, sourceUrl, shuttleSourceLabel?, shuttleSourceUrl? }`): Calblanque (BORM order each year), Puntas de Calnegre (access-ordering service, no ban) and Cuatro Calas (2026 regional barriers, dates not published). The year is shown on the page so stale data is visible. Bundled by `src/lib/beach-notices.ts`; not migrated | 23 codes |
+| `accessibility.json` | FAMDIF accessibility sheet per beach as published on the ITREM beach pages, keyed by beach code (`{ year, category, assistedBathing?: 'staff' \| 'loan' \| 'none', amphibiousChairs?, amphibiousCrutches?, walkway?, adaptedToilets?, adaptedChangingRooms?, adaptedShade?, adaptedBathingZone?, season?, hours?, bookingNote?, sourceUrl, imagesUrl? }`). Written by `scripts/fetch-beach-accessibility.ts`; bundled by `src/lib/accessibility.ts`; not migrated. `assistedBathing: 'staff'` is mirrored as the `assisted-bathing` service in `beaches.json` | 67 codes |
+| `marinas.json` | The 19 leisure ports from the ITREM `puerto_deportivo` pages with coordinates, site and phone, plus the 3 excluded entries and why. Bundled by `src/lib/marinas.ts` (nearest marina per beach at render time); not migrated | 19 marinas |
+| `marine-reserves.json` | Marine reserves shown at zone level (`zones` lists the zone ids): area, creation year, summary, integral zone and the diving authorisation rule, with sources. Bundled by `src/lib/marine-reserves.ts`; not migrated | 1 reserve |
+| `protected-areas.json` | Natura 2000 sites (EEA, end-2024 release) and regional Espacios Naturales Protegidos (CARM WFS) within 200 m of each beach, keyed by beach code (`{ natura2000: [{ code, name, type }], regional: [{ code, name, figure, norm }] }`). Written by `scripts/fetch-protected-areas.ts`; bundled by `src/lib/protected-areas.ts`, which also marks the marine-only sites; not migrated | 158 codes |
 | `municipality-facts.json` | Official facts per municipality, keyed by INE code (see [Municipality facts](#municipality-facts)). Bundled by `src/lib/municipality-facts.ts` at build time; not migrated to the DB | 5 blocks |
 | `source/itrem-localities.json` | Raw ITREM locality labels per beach code, fetched on 2026-11-06 by `scripts/assign-zones.ts --fetch`. Evidence for `zone`; not migrated, not bundled | 193 codes |
 
@@ -279,7 +283,7 @@ activities.json (10 elements)
         ↓
         └─→ beaches.json[].activities (array of indices 0-9)
 
-services.json (9 elements)
+services.json (10 elements)
         ↓
         └─→ beaches.json[].services (array of indices 0-8)
 
