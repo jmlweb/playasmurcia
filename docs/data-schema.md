@@ -17,7 +17,9 @@ This document describes the data structure for beaches in the Region of Murcia, 
 | `certification-seasons.json` | Season year of each certification list, keyed by certification (`{ "blue-flag": 2026, "q-quality": 2024 }`). Written by `scripts/add-certifications.js`; not migrated to the DB — the site bundles it at build time | 2 entries |
 | `picture-credits.json` | Author, licence and source page of pictures sourced from Wikimedia Commons, keyed by the picture filename used in `pictures` (`{ "wm-geo-567.jpg": { author, license, source, title, descriptionUrl } }`). Written by `scripts/source-wikimedia-pictures.ts` when a candidate is approved; not migrated to the DB. Only CC BY, CC BY-SA, CC0 and public domain are accepted. Pictures from earlier sourcing runs have no entry yet | 2 entries |
 | `zones.json` | Hand-curated beach zones (see [Zones](#zones)): the zone list, the mapping of every ITREM locality label, manual assignments with a reason, and `unresolved` beaches with a reason. Bundled by `src/lib/zones.ts` for names and order | 30 zones |
-| `municipality-facts.json` | Official facts per municipality, keyed by INE code (see [Municipality facts](#municipality-facts)). Bundled by `src/lib/municipality-facts.ts` at build time; not migrated to the DB | 3 blocks |
+| `smoke-free-beaches.json` | The 16 spaces of the regional Red de Playas sin Humo keyed by beach code, with the covered stretch when the list names only part of a beach, the source URL and the confirmation note (the list is undated; the 30 May 2025 press release confirms 16). Bundled by `src/lib/beach-notices.ts`; not migrated | 16 codes |
+| `access-restrictions.json` | Published summer vehicle limits and shuttles keyed by beach code (`{ year, recurring, summary, shuttle?, sourceLabel, sourceUrl, shuttleSourceLabel?, shuttleSourceUrl? }`): Calblanque (BORM order each year), Puntas de Calnegre (access-ordering service, no ban) and Cuatro Calas (2026 regional barriers, dates not published). The year is shown on the page so stale data is visible. Bundled by `src/lib/beach-notices.ts`; not migrated | 23 codes |
+| `municipality-facts.json` | Official facts per municipality, keyed by INE code (see [Municipality facts](#municipality-facts)). Bundled by `src/lib/municipality-facts.ts` at build time; not migrated to the DB | 5 blocks |
 | `source/itrem-localities.json` | Raw ITREM locality labels per beach code, fetched on 2026-11-06 by `scripts/assign-zones.ts --fetch`. Evidence for `zone`; not migrated, not bundled | 193 codes |
 
 ## Data Sources
@@ -151,7 +153,7 @@ interface Sea {
 
 ### Municipality facts
 
-`data/municipality-facts.json` has three blocks. Each `values` map is keyed by the 5-digit INE code from `municipalities.json`. A municipality without a key shows nothing for that block (no estimate).
+`data/municipality-facts.json` has five blocks. Each `values` map is keyed by the 5-digit INE code from `municipalities.json`. A municipality without a key shows nothing for that block (no estimate).
 
 ```typescript
 {
@@ -168,6 +170,25 @@ interface Sea {
     regionalAverage: number
     values: Record<string, number>
   } // €/m²
+  income: {
+    source: string
+    sourceUrl: string
+    apiUrl: string // INE JSON API, whole table; filter series by Nombre "<Municipio>. Dato base. Renta neta media por persona. "
+    year: number // Income year (ADRH 2024 = income 2024, published 2026-10-19)
+    publishedOn: string
+    nationalAverage: number
+    note: string // Comparability caveat shown on the page
+    values: Record<string, number> // € per person, net
+  }
+  touristHousing: {
+    source: string
+    sourceUrl: string
+    apiUrls: string[] // Tables 39363 (homes, beds) and 39366 (share %)
+    period: string // Reference month, e.g. "mayo de 2026"
+    releaseFrequency: string // From the INE page: twice a year, May and November
+    nationalSharePercent: number
+    values: Record<string, { homes: number; beds: number; sharePercent: number }>
+  }
   touristOffices: {
     source: string
     verifiedOn: string

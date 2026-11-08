@@ -80,5 +80,77 @@
         }
       ]
     }
+  },
+  "income": {
+    "source": "INE, Atlas de Distribución de Renta de los Hogares (ADRH), tabla 31115, renta neta media por persona",
+    "sourceUrl": "https://www.ine.es/jaxiT3/Tabla.htm?t=31115",
+    "apiUrl": "https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/31115?nult=1",
+    "year": 2024,
+    "publishedOn": "2026-10-19",
+    "nationalAverage": 15948,
+    "note": "Desde la edición ADRH 2023 la población de referencia es la del Censo Anual, no la del Fichero Precensal: compara con ediciones anteriores con cautela.",
+    "values": {
+      "30003": 12379,
+      "30016": 13902,
+      "30024": 12250,
+      "30026": 11320,
+      "30035": 13199,
+      "30036": 11622,
+      "30041": 11267,
+      "30902": 11395
+    }
+  },
+  "touristHousing": {
+    "source": "INE, estadística experimental Medición del número de viviendas turísticas en España y su capacidad, tablas 39363 y 39366",
+    "sourceUrl": "https://www.ine.es/experimental/viv_turistica/experimental_viv_turistica.htm",
+    "apiUrls": [
+      "https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/39363?nult=1",
+      "https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/39366?nult=1"
+    ],
+    "period": "mayo de 2026",
+    "releaseFrequency": "Dos veces al año, con referencia a mayo y noviembre (antes agosto y febrero; cambio acordado en la segunda mitad de 2024)",
+    "nationalSharePercent": 1.28,
+    "values": {
+      "30003": {
+        "homes": 426,
+        "beds": 2221,
+        "sharePercent": 1.63
+      },
+      "30016": {
+        "homes": 1307,
+        "beds": 6961,
+        "sharePercent": 1.04
+      },
+      "30024": {
+        "homes": 67,
+        "beds": 373,
+        "sharePercent": 0.16
+      },
+      "30026": {
+        "homes": 495,
+        "beds": 2497,
+        "sharePercent": 1.57
+      },
+      "30035": {
+        "homes": 940,
+        "beds": 4778,
+        "sharePercent": 2.27
+      },
+      "30036": {
+        "homes": 436,
+        "beds": 2276,
+        "sharePercent": 2.03
+      },
+      "30041": {
+        "homes": 15,
+        "beds": 76,
+        "sharePercent": 0.16
+      },
+      "30902": {
+        "homes": 492,
+        "beds": 2480,
+        "sharePercent": 2.27
+      }
+    }
   }
 }

@@ -1,6 +1,8 @@
 import {
   factSources,
   formatEurPerM2,
+  formatEuros,
+  formatPercent,
   formatPopulation,
   getMunicipalityFacts,
 } from '@/lib/municipality-facts'
@@ -17,9 +19,15 @@ export function MunicipalityFactsPanel({
   name,
   ineCode,
 }: MunicipalityFactsPanelProps) {
-  const { population, appraisedValue, touristOffices } =
+  const { population, appraisedValue, income, touristHousing, touristOffices } =
     getMunicipalityFacts(ineCode)
-  if (!population && !appraisedValue && touristOffices.length === 0) {
+  if (
+    !population &&
+    !appraisedValue &&
+    !income &&
+    !touristHousing &&
+    touristOffices.length === 0
+  ) {
     return null
   }
 
@@ -76,6 +84,55 @@ export function MunicipalityFactsPanel({
               >
                 Ministerio de Transportes y Movilidad Sostenible, vía CREM
               </a>
+            </dd>
+          </div>
+        )}
+        {income && (
+          <div>
+            <dt className="text-sm text-gray-600">
+              Renta neta media por persona ({income.year})
+            </dt>
+            <dd className="text-2xl font-semibold text-gray-900">
+              {formatEuros(income.eurPerPerson)}
+            </dd>
+            <dd className="mt-1 text-xs text-gray-600">
+              Media nacional: {formatEuros(factSources.income.nationalAverage)}.
+              Fuente:{' '}
+              <a
+                className={linkClass}
+                href={factSources.income.url}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                INE, Atlas de Distribución de Renta de los Hogares
+              </a>
+              . {factSources.income.note}
+            </dd>
+          </div>
+        )}
+        {touristHousing && (
+          <div>
+            <dt className="text-sm text-gray-600">
+              Viviendas turísticas ({touristHousing.period})
+            </dt>
+            <dd className="text-2xl font-semibold text-gray-900">
+              {formatPopulation(touristHousing.homes)} viviendas
+            </dd>
+            <dd className="mt-1 text-xs text-gray-600">
+              {formatPopulation(touristHousing.beds)} plazas, el{' '}
+              {formatPercent(touristHousing.sharePercent)} del parque de
+              viviendas (media nacional:{' '}
+              {formatPercent(factSources.touristHousing.nationalSharePercent)}).
+              Fuente:{' '}
+              <a
+                className={linkClass}
+                href={factSources.touristHousing.url}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                INE, estadística experimental de viviendas turísticas
+              </a>
+              . {factSources.touristHousing.releaseFrequency}.
             </dd>
           </div>
         )}

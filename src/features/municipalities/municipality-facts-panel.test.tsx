@@ -17,6 +17,18 @@ describe('MunicipalityFactsPanel', () => {
     ).toBeTruthy()
   })
 
+  it('shows income and tourist housing with their reference periods', () => {
+    render(<MunicipalityFactsPanel ineCode="30035" name="San Javier" />)
+    expect(screen.getByText('Renta neta media por persona (2024)')).toBeTruthy()
+    expect(screen.getByText('13.199 €')).toBeTruthy()
+    expect(screen.getByText('Viviendas turísticas (mayo de 2026)')).toBeTruthy()
+    expect(screen.getByText('940 viviendas')).toBeTruthy()
+    expect(screen.getByText(/4.778 plazas, el 2,27 % del parque/)).toBeTruthy()
+    expect(
+      screen.getByRole('link', { name: /Atlas de Distribución de Renta/ }),
+    ).toBeTruthy()
+  })
+
   it('omits the appraised value when the municipality has none', () => {
     render(
       <MunicipalityFactsPanel ineCode="30036" name="San Pedro del Pinatar" />,
