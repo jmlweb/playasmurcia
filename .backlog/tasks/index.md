@@ -37,3 +37,4 @@ _No active tasks._
 | TSK-143 | Seasonal access restrictions (Calblanque, Cabo Cope, Cala Cerrada) | 2026-11-08 |
 | TSK-148 | Municipality facts: population, appraised housing value, tourist offices | 2026-11-08 |
 | TSK-149 | Smoke-free beaches from the regional network | 2026-11-08 |
+| TSK-151 | Municipality income and tourist housing from INE | 2026-11-08 |
