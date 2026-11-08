@@ -120,10 +120,10 @@ describe('CoastTodayStrip', () => {
 
   it('shows no unavailable notice while loading or with a source', () => {
     const { unmount } = renderStrip(undefined, true)
-    expect(screen.queryByRole('status')).toBeNull()
+    expect(screen.getByRole('status').textContent).toBe('')
     unmount()
 
     renderStrip(offSeason)
-    expect(screen.queryByRole('status')).toBeNull()
+    expect(screen.getByRole('status').textContent).toBe('Open-Meteo · 11:15')
   })
 })

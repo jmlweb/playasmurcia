@@ -177,9 +177,10 @@ export function CoastTodayStrip({
           )
         })}
       </ul>
+      {/* Constant live region: a role that appears with its text is often not announced */}
       <p
         className="mt-2 min-h-5 text-[13px] text-gray-600 tabular-nums"
-        role={isUnavailable ? 'status' : undefined}
+        role="status"
       >
         {isUnavailable
           ? 'Sin datos de hoy: el tiempo y las banderas no están disponibles ahora mismo. Cada mar enlaza a sus playas.'

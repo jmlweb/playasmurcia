@@ -230,6 +230,12 @@ export async function fetchOpenMeteoForecast(
       }),
     }
 
+    // Every date unusable: cache the miss like an empty daily block
+    if (forecast.days.length === 0) {
+      await edgeCacheSet(CACHE_NS, cacheKey, null, CACHE_TTL_SECONDS)
+      return null
+    }
+
     if (data.current) {
       const c = data.current
       forecast.observedAt = c.time
