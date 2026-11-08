@@ -4,10 +4,10 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 14 |
+| Pending | 12 |
 | Active | 0 |
 | Blocked | 0 |
-| Complete | 167 |
+| Complete | 169 |
 
 ## Active Tasks
 
@@ -17,9 +17,7 @@ _No active tasks._
 
 | ID | Title | Priority | Tags | Created |
 |----|-------|----------|------|---------|
-| TSK-136 | Expose address and postalCode fields | P3 | data, seo | 2026-10-28 |
 | TSK-138 | Expand aemetId coverage | P4 | data, weather | 2026-10-28 |
-| TSK-139 | Sunrise and sunset per beach; derive puesta-sol tag | P3 | data, feature | 2026-10-28 |
 | TSK-140 | Protected-area membership (Natura 2000 and regional parks) | P3 | data, external-source, geo | 2026-10-28 |
 | TSK-141 | Accessible beaches: assisted bathing and amphibious chairs | P3 | data, accessibility | 2026-10-28 |
 | TSK-143 | Seasonal access restrictions (Calblanque, Cabo Cope, Cala Cerrada) | P4 | data, access | 2026-10-28 |
@@ -38,11 +36,11 @@ _No active tasks._
 |----|-------|-----------|
 | TSK-130 | Fix: WebMCP search_beaches accepts prototype keys as accessDifficulty and occupancy | 2026-11-08 |
 | TSK-132 | Fix: Three beaches tagged Chiringuito lack the chiringuito service and miss the Con chiringuito collection | 2026-11-08 |
+| TSK-136 | Expose address and postalCode fields | 2026-11-08 |
+| TSK-139 | Sunrise and sunset per beach; derive puesta-sol tag | 2026-11-08 |
 | TSK-142 | Photos for the 53 beaches with no pictures | 2026-11-08 |
 | TSK-148 | Municipality facts: population, appraised housing value, tourist offices | 2026-11-08 |
 | TSK-159 | Fix beach gallery crops and photo count button | 2026-11-08 |
 | TSK-160 | Sync UI guidelines with the beach detail hero | 2026-11-08 |
 | TSK-169 | Fix: 17 descriptions join unrelated facts with y socorrista | 2026-11-08 |
 | TSK-173 | Fix: Hoy link lands on non-today strip when live data fails | 2026-11-08 |
-| TSK-180 | Fix: Shared flagGreen URL loses the filter before flags settle | 2026-11-08 |
-| TSK-181 | Fix: 54 beaches carry a stale pictureQualityScore | 2026-11-08 |

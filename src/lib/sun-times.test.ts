@@ -17,17 +17,24 @@ const minutesOff = (actual: number, expectedIso: string) =>
 describe('getSunTimes', () => {
   it('matches the published times for the June solstice in Cartagena', () => {
     const times = getSunTimes(LAT, LNG, Date.UTC(2026, 5, 21))
-    expect(times).toBeDefined()
     // timeanddate.com for Cartagena, 21 June 2026: 06:44 and 21:29 CEST
-    expect(minutesOff(times!.sunrise, '2026-06-21T04:44:00Z')).toBeLessThan(3)
-    expect(minutesOff(times!.sunset, '2026-06-21T19:29:00Z')).toBeLessThan(3)
+    expect(
+      minutesOff(times?.sunrise ?? 0, '2026-06-21T04:44:00Z'),
+    ).toBeLessThan(3)
+    expect(minutesOff(times?.sunset ?? 0, '2026-06-21T19:29:00Z')).toBeLessThan(
+      3,
+    )
   })
 
   it('matches the published times for the December solstice', () => {
     const times = getSunTimes(LAT, LNG, Date.UTC(2026, 11, 21))
     // 08:16 and 17:48 CET
-    expect(minutesOff(times!.sunrise, '2026-12-21T07:16:00Z')).toBeLessThan(3)
-    expect(minutesOff(times!.sunset, '2026-12-21T16:48:00Z')).toBeLessThan(3)
+    expect(
+      minutesOff(times?.sunrise ?? 0, '2026-12-21T07:16:00Z'),
+    ).toBeLessThan(3)
+    expect(minutesOff(times?.sunset ?? 0, '2026-12-21T16:48:00Z')).toBeLessThan(
+      3,
+    )
   })
 
   it('returns undefined inside the polar night', () => {

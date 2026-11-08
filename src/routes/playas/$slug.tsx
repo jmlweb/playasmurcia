@@ -21,8 +21,10 @@ import { LocationMap } from '@/features/beaches/location-map'
 import { NearbyCarousel } from '@/features/beaches/nearby-carousel'
 import { PracticalInfoCard } from '@/features/beaches/practical-info-card'
 import { ServicesGrid } from '@/features/beaches/services-grid'
+import { SmokeFreeNotice } from '@/features/beaches/smoke-free-notice'
 import { TagsSection } from '@/features/beaches/tags-section'
 import { MAR_MENOR_SEA } from '@/lib/beach-facts'
+import { getAccessRestriction } from '@/lib/beach-notices'
 import { getBeachSummary } from '@/lib/beach-summary'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
 import { parseImageFilename, pictureUrl } from '@/lib/images'
@@ -248,6 +250,9 @@ function BeachPage() {
                   <CertificationsBadge certifications={beach.certifications} />
                 </div>
               )}
+              <div className="mt-8 empty:hidden">
+                <SmokeFreeNotice beachCode={beach.code} />
+              </div>
             </section>
 
             <PracticalInfoCard
@@ -296,6 +301,7 @@ function BeachPage() {
 
             <LocationMap
               access={beach.access || undefined}
+              accessRestriction={getAccessRestriction(beach.code)}
               address={beach.address}
               beachName={beach.name}
               coordinates={beach.coordinates}

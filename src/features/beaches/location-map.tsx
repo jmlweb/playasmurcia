@@ -1,5 +1,7 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 
+import type { AccessRestriction } from '@/lib/beach-notices'
+
 import { BeachRichText } from '@/features/beaches/beach-rich-text'
 import {
   MAP_PIN_HEIGHT,
@@ -21,7 +23,11 @@ type LocationMapProps = {
   /** Street or locality line from the official source */
   address?: string
   postalCode?: string
+  /** Published summer vehicle limits, shown under the directions */
+  accessRestriction?: AccessRestriction
 }
+
+import { AccessRestrictionNotice } from './access-restriction-notice'
 
 const LeafletMap = lazy(() =>
   import('@/features/beaches/leaflet-map').then((m) => ({
@@ -119,6 +125,7 @@ export function LocationMap({
   access,
   address,
   postalCode,
+  accessRestriction,
 }: LocationMapProps) {
   const [lat, lng] = coordinates
   const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`
@@ -136,6 +143,11 @@ export function LocationMap({
       {access && (
         <div className="mb-6">
           <BeachRichText text={access} variant="body" />
+        </div>
+      )}
+      {accessRestriction && (
+        <div className="mb-6">
+          <AccessRestrictionNotice restriction={accessRestriction} />
         </div>
       )}
       {(address ?? postalCode) && (
