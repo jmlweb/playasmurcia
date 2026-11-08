@@ -2116,7 +2116,7 @@
       "592",
       "538"
     ],
-    "description": "En el kilómetro 3 de La Manga, del lado del Mar Menor, Cala del Pino **mira al oeste**, así que aquí el sol se pone sobre el agua. Son 462 metros de arena fina y dorada con agua quieta y socorrista, cómoda para ir con niños.",
+    "description": "En el kilómetro 3 de La Manga, del lado del Mar Menor, Cala del Pino **mira al oeste**, así que aquí el sol se pone sobre el agua. Son 462 metros de arena fina y dorada con agua quieta, cómoda para ir con niños.",
     "orientation": "west",
     "instagramHashtag": "#CalaDelPino",
     "dogFriendly": false,
@@ -2734,7 +2734,7 @@
       "567",
       "632"
     ],
-    "description": "Cala Honda tiene 286 metros de arena fina con grava entre rocas, el agua normalmente en calma y socorrista. Es **una de las calas más fotogénicas** de la costa de Lorca.",
+    "description": "Cala Honda tiene 286 metros de arena fina con grava entre rocas y el agua normalmente en calma. Es **una de las calas más fotogénicas** de la costa de Lorca y, algo poco habitual en una cala, cuenta con socorrista.",
     "orientation": "southeast",
     "instagramHashtag": "#CalaHonda",
     "dogFriendly": false,
@@ -5584,7 +5584,8 @@
       8,
       1,
       5,
-      3
+      3,
+      6
     ],
     "tags": [
       6,
@@ -6258,7 +6259,8 @@
       0,
       1,
       5,
-      8
+      8,
+      6
     ],
     "length": 384,
     "tags": [
@@ -7168,7 +7170,7 @@
       "648",
       "662"
     ],
-    "description": "El Castellar tiene **más de 1,5 kilómetros** de arena gruesa y dorada entre el Puerto de Mazarrón y Bolnuevo, con oleaje suave y socorrista. Es cómoda para ir con niños.",
+    "description": "El Castellar tiene **más de 1,5 kilómetros** de arena gruesa y dorada entre el Puerto de Mazarrón y Bolnuevo, con oleaje suave. Es cómoda para ir con niños.",
     "orientation": "southwest",
     "instagramHashtag": "#PlayaDeElCastellar",
     "dogFriendly": false,
@@ -7952,7 +7954,7 @@
       "5253",
       "688"
     ],
-    "description": "Islas Menores, en la orilla sur del Mar Menor, es **la playa del pueblo**: 595 metros de arena media y dorada con agua sin oleaje y socorrista. Su aparcamiento, de más de cien plazas, hace fácil llegar en coche.",
+    "description": "Islas Menores, en la orilla sur del Mar Menor, es **la playa del pueblo**: 595 metros de arena media y dorada con agua sin oleaje. Su aparcamiento, de más de cien plazas, hace fácil llegar en coche.",
     "orientation": "east",
     "instagramHashtag": "#PlayaDeIslasMenores",
     "access": "En el pueblo de **Islas Menores**, en la orilla sur del Mar Menor, entre Los Nietos y Mar de Cristal.",
@@ -9281,7 +9283,7 @@
       "566",
       "609"
     ],
-    "description": "Otra de las **Cuatro Calas**, La Higuerica tiene arena fina y gris y socorrista. Suele haber menos gente que en la vecina Calarreona, aunque el oleaje puede ser moderado.",
+    "description": "Otra de las **Cuatro Calas**, La Higuerica tiene arena fina y gris. Suele haber menos gente que en la vecina Calarreona. El oleaje puede ser moderado, pero hay socorrista.",
     "orientation": "southeast",
     "instagramHashtag": "#PlayaDeLaHiguerica",
     "dogFriendly": false,
@@ -9503,7 +9505,7 @@
       "546",
       "681"
     ],
-    "description": "La Barraca Quemada es uno de los tramos de La Llana, la gran playa del **parque regional de las Salinas y Arenales** de San Pedro del Pinatar. Tiene arena fina y gris entre dunas y socorrista; hay días con algo de oleaje.",
+    "description": "La Barraca Quemada es uno de los tramos de La Llana, la gran playa del **parque regional de las Salinas y Arenales** de San Pedro del Pinatar. Tiene arena fina y gris entre dunas. Hay días con algo de oleaje, pero hay socorrista.",
     "orientation": "southeast",
     "instagramHashtag": "#PlayaDeLaLlanaplayaDeLaBarracaQuemada",
     "dogFriendly": false,
@@ -9717,7 +9719,7 @@
       "546",
       "681"
     ],
-    "description": "Punta de Algas es el tramo de La Llana **junto al puerto de San Pedro del Pinatar**, dentro del parque regional de las Salinas y Arenales. Tiene arena fina y gris y socorrista, pero ningún otro servicio; el oleaje puede ser moderado.",
+    "description": "Punta de Algas es el tramo de La Llana **junto al puerto de San Pedro del Pinatar**, dentro del parque regional de las Salinas y Arenales. Tiene arena fina y gris. Hay socorrista, pero ningún otro servicio, y el oleaje puede ser moderado.",
     "orientation": "southeast",
     "instagramHashtag": "#PlayaDeLaLlanaplayaPuntaDeAlgas",
     "dogFriendly": false,
@@ -9823,7 +9825,7 @@
       "544",
       "546"
     ],
-    "description": "La Mota es una playa del Mar Menor en Lo Pagán, pueblo conocido por sus **baños de lodo**, con agua quieta y socorrista.",
+    "description": "La Mota es una playa del Mar Menor en Lo Pagán, pueblo conocido por sus **baños de lodo**. El agua está quieta y es cómoda para ir con niños.",
     "orientation": "east",
     "instagramHashtag": "#PlayaDeLaMota",
     "dogFriendly": false,
@@ -10035,7 +10037,7 @@
       "649",
       "675"
     ],
-    "description": "La Pava tiene 447 metros de arena fina y dorada entre el Puerto de Mazarrón y Bolnuevo, con **oleaje suave** y socorrista. Llega el autobús y hay aparcamiento público cerca.",
+    "description": "La Pava tiene 447 metros de arena fina y dorada entre el Puerto de Mazarrón y Bolnuevo, con **oleaje suave**. Llega el autobús y hay aparcamiento público cerca.",
     "orientation": "east",
     "instagramHashtag": "#PlayaDeLaPava",
     "dogFriendly": false,
@@ -10142,7 +10144,7 @@
       "668",
       "535"
     ],
-    "description": "La Puntica tiene algo más de un kilómetro de arena fina y gris en **Lo Pagán**, frente al Mar Menor, con agua tranquila y socorrista.",
+    "description": "La Puntica tiene algo más de un kilómetro de arena fina y gris en **Lo Pagán**, frente al Mar Menor, con agua tranquila. Es cómoda para ir con niños y tiene rampa accesible.",
     "orientation": "east",
     "instagramHashtag": "#PlayaDeLaPuntica",
     "dogFriendly": false,
@@ -10974,7 +10976,7 @@
       "647",
       "648"
     ],
-    "description": "Las Moreras es una playa urbana de Mazarrón, entre las avenidas del Castellar y de Bolnuevo, donde **se puede ir con perro**. Tiene algo más de un kilómetro de arena gruesa y socorrista, y hay días con algo de oleaje.",
+    "description": "Las Moreras es una playa urbana de Mazarrón, entre las avenidas del Castellar y de Bolnuevo, donde **se puede ir con perro**. Tiene algo más de un kilómetro de arena gruesa, y hay días con algo de oleaje.",
     "orientation": "east",
     "instagramHashtag": "#PlayaDeLasMoreras",
     "access": "Entre la **avenida del Castellar y la avenida de Bolnuevo**, en zona urbana, así que se llega fácilmente a pie o en coche.",
@@ -11287,7 +11289,7 @@
       "534",
       "668"
     ],
-    "description": "Las Salinas es la playa de Los Alcázares donde **se puede ir con perro**: 646 metros de arena gruesa y gris con agua tranquila y socorrista.\n\n**Consejo:** no hay más servicios, así que lleva agua y sombra para ti y para el perro.",
+    "description": "Las Salinas es la playa de Los Alcázares donde **se puede ir con perro**: 646 metros de arena gruesa y gris con agua tranquila. Tiene socorrista, pero ningún otro servicio.\n\n**Consejo:** lleva agua y sombra para ti y para el perro.",
     "orientation": "east",
     "instagramHashtag": "#PlayaDeLasSalinas",
     "access": "Desde la **AP-7**, toma la salida hacia **Los Alcázares**.",
@@ -12405,7 +12407,7 @@
       "637",
       "636"
     ],
-    "description": "Percheles tiene algo más de un kilómetro de arena fina y gris y socorrista. Se llega por un camino sin asfaltar y suele estar **menos llena que las playas del Puerto**; el mar puede estar algo movido.",
+    "description": "Percheles tiene algo más de un kilómetro de arena fina y gris. Se llega por un camino sin asfaltar y suele estar **menos llena que las playas del Puerto**. El mar puede estar algo movido, pero hay socorrista.",
     "orientation": "east",
     "instagramHashtag": "#PlayaDePercheles",
     "dogFriendly": false,
@@ -13242,7 +13244,7 @@
       "607"
     ],
     "aemetId": "3001655",
-    "description": "Al comienzo de La Manga, **del lado del Mediterráneo**, el tramo de Entremares de la playa del Barco Perdido tiene arena fina y dorada y socorrista. A diferencia del Mar Menor, a pocos metros, aquí puede haber oleaje moderado.",
+    "description": "Al comienzo de La Manga, **del lado del Mediterráneo**, el tramo de Entremares de la playa del Barco Perdido tiene arena fina y dorada. A diferencia del Mar Menor, a pocos metros, aquí puede haber oleaje moderado.",
     "orientation": "southeast",
     "instagramHashtag": "#PlayaDelBarcoPerdidoplayaEntremares",
     "dogFriendly": false,
@@ -13342,7 +13344,7 @@
       "592"
     ],
     "aemetId": "3001655",
-    "description": "Las Sirenas es **el tramo más tranquilo** de la playa del Barco Perdido, en el kilómetro 2,5 de La Manga, con arena fina y dorada y socorrista. Puede haber oleaje moderado.\n\n**Consejo:** no hay más servicios ni sombra, así que lleva sombrilla y agua.",
+    "description": "Las Sirenas es **el tramo más tranquilo** de la playa del Barco Perdido, en el kilómetro 2,5 de La Manga, con arena fina y dorada. Puede haber oleaje moderado; hay socorrista, pero ningún otro servicio.\n\n**Consejo:** no hay sombra, así que lleva sombrilla y agua.",
     "orientation": "southeast",
     "instagramHashtag": "#PlayaDelBarcoPerdidoplayaLasSirenas",
     "dogFriendly": false,
@@ -13971,7 +13973,7 @@
       "561",
       "541"
     ],
-    "description": "El Estacio está en el **lado mediterráneo de La Manga**, cerca de Puerto Mayor, con 723 metros de arena fina y dorada y socorrista. El mar puede estar algo movido.",
+    "description": "El Estacio está en el **lado mediterráneo de La Manga**, cerca de Puerto Mayor, con 723 metros de arena fina y dorada. El mar puede estar algo movido.",
     "orientation": "southeast",
     "instagramHashtag": "#PlayaDelEstacio",
     "dogFriendly": false,
@@ -14698,7 +14700,7 @@
       "651",
       "649"
     ],
-    "description": "Junto al casco urbano, la playa del Puerto de Mazarrón tiene algo más de un kilómetro de arena fina y dorada, **oleaje suave** y socorrista. Es cómoda para ir con niños.",
+    "description": "Junto al casco urbano, la playa del Puerto de Mazarrón tiene algo más de un kilómetro de arena fina y dorada y **oleaje suave**. Es cómoda para ir con niños.",
     "orientation": "east",
     "instagramHashtag": "#PlayaDelPuertoDeMazarron",
     "dogFriendly": false,
@@ -15908,8 +15910,7 @@
     "tags": [
       6,
       3,
-      2,
-      7
+      2
     ],
     "activities": [
       0,
@@ -16885,7 +16886,7 @@
       "526",
       "686"
     ],
-    "description": "Galúa está en el kilómetro 2,5 de La Manga, **del lado del Mediterráneo**, con arena fina y dorada, oleaje suave y socorrista. En verano suele estar concurrida.",
+    "description": "Galúa está en el kilómetro 2,5 de La Manga, **del lado del Mediterráneo**, con arena fina y dorada y oleaje suave. En verano suele estar concurrida.",
     "orientation": "southeast",
     "instagramHashtag": "#PlayaGalua",
     "dogFriendly": false,
@@ -18834,7 +18835,7 @@
       "597",
       "564"
     ],
-    "description": "Lebeche ocupa el tramo entre los kilómetros 5 y 6,5 de La Manga, del lado del Mar Menor, con 734 metros de arena fina y dorada, chiringuito y socorrista. **El sol se pone frente a la orilla**.",
+    "description": "Lebeche ocupa el tramo entre los kilómetros 5 y 6,5 de La Manga, del lado del Mar Menor, con 734 metros de arena fina y dorada y chiringuito. **El sol se pone frente a la orilla**.",
     "orientation": "west",
     "instagramHashtag": "#PlayaLebeche",
     "dogFriendly": false,
@@ -19056,7 +19057,7 @@
       "534",
       "661"
     ],
-    "description": "Manzanares está **en pleno Los Alcázares**, con 821 metros de arena fina y gris, agua sin oleaje y socorrista. Es cómoda para ir con niños.",
+    "description": "Manzanares está **en pleno Los Alcázares**, con 821 metros de arena fina y gris y agua sin oleaje. Es cómoda para ir con niños.",
     "orientation": "east",
     "instagramHashtag": "#PlayaManzanares",
     "dogFriendly": false,
@@ -19277,7 +19278,7 @@
       "543",
       "561"
     ],
-    "description": "Mistral, en el kilómetro 12 de La Manga, es una **playa urbana del Mar Menor** con arena gruesa y socorrista. El agua tranquila es cómoda para ir con niños.",
+    "description": "Mistral, en el kilómetro 12 de La Manga, es una **playa urbana del Mar Menor** con arena gruesa. El agua tranquila es cómoda para ir con niños.",
     "orientation": "west",
     "instagramHashtag": "#PlayaMistral",
     "dogFriendly": false,
