@@ -248,6 +248,7 @@ const serviceIconMap: Record<string, (p: IconProps) => JSX.Element> = {
   '🍹': BarIcon,
   '🩹': FirstAidIcon,
   '♿': AccessibleIcon,
+  '🛟': LifebuoyIcon,
   // string ID keys (DB values)
   parking: ParkingIcon,
   showers: ShowerIcon,
@@ -258,6 +259,7 @@ const serviceIconMap: Record<string, (p: IconProps) => JSX.Element> = {
   chiringuito: BarIcon,
   'first-aid': FirstAidIcon,
   'wheelchair-ramp': AccessibleIcon,
+  'assisted-bathing': LifebuoyIcon,
 }
 
 export function ServiceIcon({
@@ -1304,6 +1306,25 @@ export function ChevronDownIcon({ className = 'h-4 w-4' }: IconProps) {
         strokeLinejoin="round"
         strokeWidth={2}
       />
+    </svg>
+  )
+}
+
+function LifebuoyIcon({ className = 'h-4 w-4' }: IconProps) {
+  return (
+    <svg
+      aria-hidden="true"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      viewBox="0 0 24 24"
+    >
+      <circle cx="12" cy="12" r="9" />
+      <circle cx="12" cy="12" r="4" />
+      <path d="M5.6 5.6l3.6 3.6M14.8 14.8l3.6 3.6M18.4 5.6l-3.6 3.6M9.2 14.8l-3.6 3.6" />
     </svg>
   )
 }

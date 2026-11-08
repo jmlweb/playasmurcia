@@ -7,5 +7,6 @@
   { "id": "sunbeds", "name": "Hamacas", "icon": "🛏️" },
   { "id": "chiringuito", "name": "Chiringuito", "icon": "🍹" },
   { "id": "first-aid", "name": "Primeros auxilios", "icon": "🩹" },
-  { "id": "wheelchair-ramp", "name": "Rampa accesible", "icon": "♿" }
+  { "id": "wheelchair-ramp", "name": "Rampa accesible", "icon": "♿" },
+  { "id": "assisted-bathing", "name": "Baño asistido", "icon": "🛟" }
 ]

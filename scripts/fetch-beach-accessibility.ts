@@ -48,7 +48,7 @@ const clean = (html: string) =>
     .trim()
 
 const isYes = (value: string | undefined) =>
-  value !== undefined && /^s[ií]\b/i.test(value)
+  value !== undefined && /^s[ií](?![a-záéíóúñ])/i.test(value)
 
 const count = (value: string | undefined) => {
   const m = value?.match(/\((\d+)\)/)

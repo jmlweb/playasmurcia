@@ -60,6 +60,7 @@ const SERVICE_TO_AMENITY: Record<string, string> = {
   chiringuito: 'Restaurant',
   'first-aid': 'First Aid',
   'wheelchair-ramp': 'Wheelchair Accessible',
+  'assisted-bathing': 'Assisted Bathing',
 }
 
 function mapServicesToAmenities(

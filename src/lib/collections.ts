@@ -22,6 +22,7 @@ const TAG_PUESTA_SOL = 16
 // Services (data/services.json)
 const SERVICE_CHIRINGUITO = 6
 const SERVICE_WHEELCHAIR_RAMP = 8
+const SERVICE_ASSISTED_BATHING = 9
 
 // Activities (data/activities.json)
 const ACTIVITY_SNORKELING = 1
@@ -197,14 +198,15 @@ export const collections: Collection[] = [
     slug: 'accesibles',
     title: 'Playas accesibles',
     description:
-      'Playas con accesibilidad adaptada: rampas, pasarelas y servicios para personas con movilidad reducida.',
+      'Playas con accesibilidad adaptada: rampas, pasarelas, sillas anfibias y baño asistido para personas con movilidad reducida.',
     metaDescription:
       'Playas accesibles en Murcia. Rampas, pasarelas y servicios adaptados en la Costa Cálida.',
     filterFn: (b) => {
       const tags = b.tags ?? []
       return (
         tags.includes(TAG_ACCESIBLE) ||
-        b.services.includes(SERVICE_WHEELCHAIR_RAMP)
+        b.services.includes(SERVICE_WHEELCHAIR_RAMP) ||
+        b.services.includes(SERVICE_ASSISTED_BATHING)
       )
     },
   },
