@@ -595,7 +595,7 @@
   {
     "code": "7050",
     "name": "Cala Canalicas",
-    "address": "Acceso: Carretera de Cope, km 7. Calabardina",
+    "address": "Carretera de Cope, km 7. Calabardina",
     "postalCode": "30880",
     "municipality": 2,
     "zone": "calabardina",
@@ -925,7 +925,6 @@
   {
     "code": "663",
     "name": "Cala de Calnegre",
-    "address": "Lorca",
     "municipality": 1,
     "zone": "puntas-de-calnegre",
     "district": "RAMONETE",
@@ -1303,7 +1302,8 @@
     "tags": [
       7,
       1,
-      3
+      3,
+      16
     ],
     "activities": [
       0,
@@ -1476,7 +1476,7 @@
   {
     "code": "7053",
     "name": "Cala de los Abejorros",
-    "address": "Carretera de Cuesta de Gos, camino del Cantal.",
+    "address": "Carretera de Cuesta de Gos, camino del Cantal",
     "municipality": 2,
     "zone": "cabo-cope",
     "district": "COPE",
@@ -1577,7 +1577,6 @@
   {
     "code": "631",
     "name": "Cala de San Pedro",
-    "address": "Lorca",
     "municipality": 1,
     "zone": "puntas-de-calnegre",
     "district": "RAMONETE",
@@ -1889,7 +1888,6 @@
   {
     "code": "567",
     "name": "Cala del Cuartel del Ciscar",
-    "address": "Lorca",
     "municipality": 1,
     "zone": "garrobillo",
     "district": "GARROBILLO",
@@ -2133,7 +2131,8 @@
       3,
       0,
       1,
-      2
+      2,
+      16
     ],
     "activities": [
       0,
@@ -2706,7 +2705,6 @@
   {
     "code": "579",
     "name": "Cala Honda",
-    "address": "Lorca",
     "municipality": 1,
     "zone": "garrobillo",
     "district": "GARROBILLO",
@@ -2811,7 +2809,6 @@
   {
     "code": "630",
     "name": "Cala Junquera",
-    "address": "Lorca",
     "municipality": 1,
     "zone": "garrobillo",
     "district": "GARROBILLO",
@@ -2945,7 +2942,8 @@
       11,
       1,
       3,
-      10
+      10,
+      16
     ],
     "activities": [
       0,
@@ -4684,7 +4682,6 @@
   {
     "code": "632",
     "name": "Playa Baño de las Mujeres",
-    "address": "Lorca",
     "municipality": 1,
     "zone": "puntas-de-calnegre",
     "district": "RAMONETE",
@@ -5716,7 +5713,8 @@
       6,
       3,
       0,
-      11
+      11,
+      16
     ],
     "activities": [
       0,
@@ -5893,7 +5891,7 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 91
+    "shoreBearing": 280
   },
   {
     "code": "638",
@@ -6149,8 +6147,7 @@
       7,
       3,
       0,
-      2,
-      16
+      2
     ],
     "activities": [
       0,
@@ -8086,7 +8083,8 @@
     "length": 314,
     "tags": [
       6,
-      11
+      11,
+      16
     ],
     "activities": [
       0,
@@ -8410,7 +8408,8 @@
     "length": 1608,
     "tags": [
       0,
-      11
+      11,
+      16
     ],
     "activities": [
       0,
@@ -9077,7 +9076,8 @@
       6,
       3,
       0,
-      11
+      11,
+      16
     ],
     "activities": [
       0,
@@ -9842,7 +9842,8 @@
       6,
       3,
       2,
-      5
+      5,
+      16
     ],
     "activities": [
       0,
@@ -10161,8 +10162,7 @@
       6,
       3,
       0,
-      2,
-      16
+      2
     ],
     "activities": [
       0,
@@ -11524,7 +11524,8 @@
     "tags": [
       6,
       0,
-      4
+      4,
+      16
     ],
     "activities": [
       0,
@@ -11634,7 +11635,8 @@
       14,
       6,
       3,
-      2
+      2,
+      16
     ],
     "activities": [
       0,
@@ -11820,7 +11822,6 @@
   {
     "code": "576",
     "name": "Playa de los Hierros",
-    "address": "Lorca",
     "municipality": 1,
     "zone": "garrobillo",
     "district": "GARROBILLO",
@@ -12793,7 +12794,7 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 64,
+    "shoreBearing": 280,
     "waterQualitySource": {
       "season": 2025,
       "samplingPointId": "ES620M0351642",
@@ -14057,7 +14058,7 @@
   {
     "code": "7051",
     "name": "Playa del Hoyo",
-    "address": "Carretera de Cope, km 9.",
+    "address": "Carretera de Cope, km 9",
     "postalCode": "30880",
     "municipality": 2,
     "zone": "cabo-cope",
@@ -15184,7 +15185,7 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 20,
+    "shoreBearing": 280,
     "waterQualitySource": {
       "season": 2025,
       "samplingPointId": "ES620M0161609",
@@ -15747,7 +15748,7 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 26
+    "shoreBearing": 280
   },
   {
     "code": "666",
@@ -15910,7 +15911,8 @@
     "tags": [
       6,
       3,
-      2
+      2,
+      16
     ],
     "activities": [
       0,
@@ -15972,7 +15974,7 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 81,
+    "shoreBearing": 280,
     "waterQualitySource": {
       "season": 2025,
       "samplingPointId": "ES620M0351651",
@@ -16430,7 +16432,6 @@
   {
     "code": "5906",
     "name": "Playa El Siscal",
-    "address": "Lorca",
     "municipality": 1,
     "zone": "puntas-de-calnegre",
     "district": "RAMONETE",
@@ -16680,7 +16681,8 @@
     "tags": [
       6,
       0,
-      2
+      2,
+      16
     ],
     "activities": [
       0,
@@ -17462,8 +17464,7 @@
       6,
       0,
       1,
-      2,
-      16
+      2
     ],
     "activities": [
       0,
@@ -17888,7 +17889,8 @@
     "tags": [
       11,
       10,
-      15
+      15,
+      16
     ],
     "activities": [
       0,
@@ -18915,7 +18917,7 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 98,
+    "shoreBearing": 280,
     "waterQualitySource": {
       "season": 2025,
       "samplingPointId": "ES620M0351647",
@@ -19248,7 +19250,7 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 172
+    "shoreBearing": 280
   },
   {
     "code": "696",
@@ -19295,7 +19297,8 @@
       6,
       3,
       2,
-      4
+      4,
+      16
     ],
     "activities": [
       0,
@@ -19791,7 +19794,6 @@
   {
     "code": "6703",
     "name": "Playa Parazuelos",
-    "address": "Lorca",
     "municipality": 1,
     "zone": "puntas-de-calnegre",
     "district": "RAMONETE",
@@ -20373,7 +20375,8 @@
       6,
       3,
       0,
-      11
+      11,
+      16
     ],
     "activities": [
       0,
@@ -20436,7 +20439,7 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 30,
+    "shoreBearing": 280,
     "waterQualitySource": {
       "season": 2025,
       "samplingPointId": "ES620M0161625",
@@ -20559,7 +20562,6 @@
   {
     "code": "694",
     "name": "Playa Puntas de Calnegre",
-    "address": "Lorca",
     "municipality": 1,
     "zone": "puntas-de-calnegre",
     "district": "RAMONETE",

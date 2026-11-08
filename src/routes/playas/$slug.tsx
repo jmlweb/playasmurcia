@@ -234,6 +234,9 @@ function BeachPage() {
               hasNearbyBeaches={nearbyItems.length > 0}
               lifeguard={beach.lifeguard}
               municipalityName={municipality.name}
+              sunsetOverWater={beach.tags?.includes(
+                tags.findIndex((tag) => tag.id === 'puesta-sol'),
+              )}
             />
           </div>
 
@@ -293,8 +296,10 @@ function BeachPage() {
 
             <LocationMap
               access={beach.access || undefined}
+              address={beach.address}
               beachName={beach.name}
               coordinates={beach.coordinates}
+              postalCode={beach.postalCode}
             />
 
             <ContactInfo
