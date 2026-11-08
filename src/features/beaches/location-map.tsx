@@ -150,7 +150,7 @@ export function LocationMap({
           <AccessRestrictionNotice restriction={accessRestriction} />
         </div>
       )}
-      {(address || postalCode) && (
+      {(address !== undefined || postalCode !== undefined) && (
         <p className="mb-6 text-sm text-gray-700">
           <span className="font-semibold text-gray-900">Dirección:</span>{' '}
           {[address, postalCode && `CP ${postalCode}`]
