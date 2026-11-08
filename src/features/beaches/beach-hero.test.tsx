@@ -49,6 +49,21 @@ describe('BeachHero sizing', () => {
     expect(heroClass('cala_1.jpg')).toContain('min-h-')
   })
 
+  it('numbers the cover like the gallery in its alt text', () => {
+    render(
+      <BeachHero
+        breadcrumb={[{ label: 'Playa Isla Plana' }]}
+        municipalityName="Cartagena"
+        name="Playa Isla Plana"
+        picture="cala_1.jpg"
+        pictureCount={5}
+      />,
+    )
+    expect(
+      screen.getByAltText('Playa Isla Plana, Cartagena: fotografía 1 de 5'),
+    ).toBeTruthy()
+  })
+
   it('renders the conditions slot', () => {
     render(
       <BeachHero

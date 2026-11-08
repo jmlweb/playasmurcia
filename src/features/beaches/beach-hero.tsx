@@ -15,6 +15,8 @@ type BeachHeroProps = {
   breadcrumb: BreadcrumbItem[]
   /** Cover picture; without it the hero falls back to the ocean gradient */
   picture?: string
+  /** Total pictures of the beach, so the alt numbers the cover as 1 of N like the gallery */
+  pictureCount?: number
   /** Live conditions rendered under the location line */
   conditions?: ReactNode
   /** Tags row rendered under the conditions */
@@ -27,6 +29,7 @@ export function BeachHero({
   zone,
   breadcrumb,
   picture,
+  pictureCount,
   conditions,
   tags,
 }: BeachHeroProps) {
@@ -43,7 +46,7 @@ export function BeachHero({
       {image ? (
         <>
           <ResponsiveImage
-            alt={`${name} - foto 1`}
+            alt={`${name}, ${municipalityName}: fotografía 1 de ${String(pictureCount ?? 1)}`}
             baseName={image.baseName}
             className="absolute inset-0 h-full w-full object-cover"
             ext={image.ext}
