@@ -1,0 +1,63 @@
+{
+  "source": "Red de Playas sin Humo de la Región de Murcia (Consejería de Salud)",
+  "sourceUrl": "https://www.murciasalud.es/web/servicio-de-promocion-y-eps/playas-sin-humo-tabaquismo",
+  "listDate": "undated",
+  "confirmation": "Nota de prensa de la Consejería de Salud del 30 de mayo de 2025 (16 espacios); la página se editó después del 2 de marzo de 2026 (Las Salinas añadió las zonas náutica y canina). La lista no lleva fecha.",
+  "confirmationUrl": "https://www.murciasalud.es/-/20250530_playa-sin-humo",
+  "verifiedOn": "2026-11-08",
+  "values": {
+    "581": {
+      "name": "Playa de El Rihuete (en toda su extensión)"
+    },
+    "662": {
+      "name": "Playa de Bahía (conocida como Bahía chica)"
+    },
+    "675": {
+      "name": "Playa El Castellar"
+    },
+    "648": {
+      "name": "Playa La Reya"
+    },
+    "683": {
+      "name": "Playa Nares"
+    },
+    "681": {
+      "name": "Playa deportiva de Villananitos",
+      "stretch": "el espacio entre el muro del Club Náutico Lo Pagán y el chiringuito Bitákora"
+    },
+    "535": {
+      "name": "Playa deportiva del Pescador (en toda su extensión)"
+    },
+    "604": {
+      "name": "Playa El Castillico",
+      "stretch": "dos espacios en la zona accesible"
+    },
+    "696": {
+      "name": "Playa Mistral",
+      "stretch": "dos espacios en la zona accesible"
+    },
+    "533": {
+      "name": "Playa de La Concha",
+      "stretch": "la zona deportiva"
+    },
+    "585": {
+      "name": "Playa de Las Salinas",
+      "stretch": "las zonas de playa deportiva, playa náutica y playa canina"
+    },
+    "625": {
+      "name": "Playa La Higuerica"
+    },
+    "612": {
+      "name": "Playa La Colonia"
+    },
+    "660": {
+      "name": "Playa Las Delicias"
+    },
+    "615": {
+      "name": "Playa Amarilla"
+    },
+    "580": {
+      "name": "Playa de La Chapineta"
+    }
+  }
+}
