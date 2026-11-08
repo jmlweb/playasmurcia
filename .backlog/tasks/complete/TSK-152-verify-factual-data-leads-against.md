@@ -1,12 +1,14 @@
 ---
 id: TSK-152
 title: Verify factual data leads against primary sources
-status: pending
+status: complete
 priority: P4
 tags: [data, research]
 created: 2026-11-04
 source: manual
 depends-on: []
+started: 2026-11-08
+completed: 2026-11-08
 ---
 
 # Verify factual data leads against primary sources
@@ -25,9 +27,9 @@ Research only; this task ships no site changes. These leads came up in the 2026-
 
 ## Acceptance Criteria
 
-- [ ] Each lead is confirmed or discarded against a primary source: fiesta categories, GR-92, Cartagena-Los Nietos train, lifeguard season dates, summer clinics, monthly sea temperature, Mar Menor conditions
-- [ ] Findings filed through /flowstate:report
-- [ ] Each confirmed lead gets its own follow-up task
+- [x] Each lead is confirmed or discarded against a primary source: fiesta categories, GR-92, Cartagena-Los Nietos train, lifeguard season dates, summer clinics, monthly sea temperature, Mar Menor conditions — evidence: Fiestas confirmed (ITREM lists + BOE), GR-92 partially (ITREM guide ~180 km, 163 km discarded), train confirmed (Renfe), COPLA dates confirmed (BORM 3346/2025), clinics partially (SMS note via press), sea temperature unresolved (no Puertos table; Copernicus alternative), Mar Menor confirmed (IEO BELICH, no live feed) (2026-11-08)
+- [x] Findings filed through /flowstate:report — evidence: .backlog/reports/complete/RPT-079-primary-source-verification-of-seven-data.md (2026-11-08)
+- [x] Each confirmed lead gets its own follow-up task — evidence: TSK-185 to TSK-191 created with source task/TSK-152 (2026-11-08)
 
 ## Notes
 
@@ -36,3 +38,6 @@ Research only; this task ships no site changes. These leads came up in the 2026-
 ## Progress Log
 
 - [2026-11-04] Created
+- [2026-11-08] Started
+- [2026-11-08] Research only; no site change.
+- [2026-11-08] Completed
