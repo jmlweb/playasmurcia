@@ -51,10 +51,12 @@ export function ProtectedAreaNotice({ beachCode }: ProtectedAreaNoticeProps) {
       className="rounded-xl bg-emerald-50 px-4 py-3 text-sm text-gray-900"
       role="note"
     >
-      <p className="font-semibold">Espacio natural protegido</p>
+      <p className="font-semibold">
+        {areas.length === 1 ? 'Espacio protegido' : 'Espacios protegidos'}
+      </p>
       <ul className="mt-1 space-y-1">
         {areas.map((area) => (
-          <li key={area.code}>
+          <li key={`${area.code}-${area.designation}`}>
             <span className="font-medium">{area.name}</span>
             {' · '}
             {designationLabel(area)}{' '}

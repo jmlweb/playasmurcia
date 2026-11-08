@@ -165,7 +165,7 @@ const main = async () => {
     if (areas.length === 0) continue
     values[beach.code] = areas
     areas.forEach((area) => {
-      const key = `${area.code} ${area.name}`
+      const key = `${area.code} ${area.designation} ${area.name}`
       beachesPerArea.set(key, (beachesPerArea.get(key) ?? 0) + 1)
     })
   }

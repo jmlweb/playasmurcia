@@ -156,6 +156,26 @@ describe('findContainingAreas', () => {
     expect(findContainingAreas(beach, [coast], 20)).toEqual([])
   })
 
+  it('keeps a site listed both as ZEC and as ZEPA', () => {
+    const zec: ProtectedAreaFeature = {
+      area: {
+        code: 'ES2',
+        name: 'Salinas',
+        designation: 'ZEC',
+        network: 'natura2000',
+      },
+      geometry: twoIslands,
+    }
+    const zepa: ProtectedAreaFeature = {
+      area: { ...zec.area, designation: 'ZEPA' },
+      geometry: twoIslands,
+    }
+    expect(findContainingAreas([0.5, 0.5], [zec, zepa])).toEqual([
+      zec.area,
+      zepa.area,
+    ])
+  })
+
   it('does not swap latitude and longitude', () => {
     const tall: ProtectedAreaFeature = {
       area: {
@@ -224,6 +244,17 @@ describe('protected-areas.json', () => {
         ).not.toContain(area.code)
       })
     })
+  })
+
+  it('lists the San Pedro salt flats as park, ZEC and ZEPA', () => {
+    const laLlana = getProtectedAreas('544').map(
+      (area) => `${area.code} ${area.designation}`,
+    )
+    expect(laLlana).toEqual([
+      'ENP000004 Parque Regional',
+      'ES0000175 ZEC',
+      'ES0000175 ZEPA',
+    ])
   })
 
   it('returns no areas for a beach outside every protected space', () => {

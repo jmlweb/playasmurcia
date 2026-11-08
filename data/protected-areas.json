@@ -171,6 +171,12 @@
         "name": "Salinas y Arenales de San Pedro del Pinatar",
         "designation": "ZEC",
         "network": "natura2000"
+      },
+      {
+        "code": "ES0000175",
+        "name": "Salinas y Arenales de San Pedro del Pinatar",
+        "designation": "ZEPA",
+        "network": "natura2000"
       }
     ],
     "545": [
@@ -185,6 +191,12 @@
         "name": "Salinas y Arenales de San Pedro del Pinatar",
         "designation": "ZEC",
         "network": "natura2000"
+      },
+      {
+        "code": "ES0000175",
+        "name": "Salinas y Arenales de San Pedro del Pinatar",
+        "designation": "ZEPA",
+        "network": "natura2000"
       }
     ],
     "546": [
@@ -198,6 +210,12 @@
         "code": "ES0000175",
         "name": "Salinas y Arenales de San Pedro del Pinatar",
         "designation": "ZEC",
+        "network": "natura2000"
+      },
+      {
+        "code": "ES0000175",
+        "name": "Salinas y Arenales de San Pedro del Pinatar",
+        "designation": "ZEPA",
         "network": "natura2000"
       }
     ],
@@ -406,6 +424,12 @@
         "code": "ES0000175",
         "name": "Salinas y Arenales de San Pedro del Pinatar",
         "designation": "ZEC",
+        "network": "natura2000"
+      },
+      {
+        "code": "ES0000175",
+        "name": "Salinas y Arenales de San Pedro del Pinatar",
+        "designation": "ZEPA",
         "network": "natura2000"
       }
     ],

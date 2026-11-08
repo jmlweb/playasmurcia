@@ -10,6 +10,7 @@ describe('ProtectedAreaNotice', () => {
       .getAllByRole('listitem')
       .map((item) => item.textContent)
     expect(items).toHaveLength(2)
+    expect(screen.getByText('Espacios protegidos')).toBeTruthy()
     expect(items[0]).toContain(
       'Calblanque, Monte de las Cenizas y Peña del Águila',
     )
@@ -25,8 +26,8 @@ describe('ProtectedAreaNotice', () => {
     expect(screen.getByRole('link').getAttribute('href')).toContain(
       'mapas-gis-inter.carm.es',
     )
-    expect(screen.getByRole('note').textContent).toContain(
-      '8 de noviembre de 2026',
+    expect(screen.getByRole('note').textContent).toMatch(
+      /consultados el \d{1,2} de [a-z]+ de \d{4}/,
     )
   })
 
@@ -35,6 +36,12 @@ describe('ProtectedAreaNotice', () => {
     expect(screen.getByRole('note').textContent).toContain(
       'Espacio natural protegido, propuesto como parque regional',
     )
+  })
+
+  it('uses the singular heading for a single Natura 2000 site', () => {
+    render(<ProtectedAreaNotice beachCode="529" />)
+    expect(screen.getByText('Espacio protegido')).toBeTruthy()
+    expect(screen.getByRole('listitem').textContent).toContain('ES6200006')
   })
 
   it('renders nothing for a beach outside every protected space', () => {

@@ -11,5 +11,5 @@ The regional protected-space and Natura 2000 limits for Murcia are on the CARM (
 
 Traps:
 - The ENP layer also holds `figura = "Resto Ámbito PORN"` polygons: the planning extent around a park, not the protected space itself. Drop them.
-- Some ENP have more than one feature per `codigoenp`; dedupe by code.
+- Some ENP have more than one feature per `codigoenp`. Dedupe by code and designation, not code alone: ES0000175 (San Pedro salt flats) is both a ZEC in `LIC-ZEC` and a ZEPA in `ZEPA` with the same code.
 - The MITECO Natura 2000 WMS (`wms.mapama.gob.es/sig/Biodiversidad/RedNatura`) timed out; the EEA ArcGIS service (`bio.discomap.eea.europa.eu/.../Natura2000Sites/MapServer`, release 2024) answers point queries and has the same site codes.

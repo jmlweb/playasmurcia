@@ -128,7 +128,7 @@ export const distanceToGeometryMeters = (
 
 /**
  * Areas that hold the beach or lie within `toleranceMeters` of it, each code
- * once. Beach coordinates are [lat, lng]; the tolerance absorbs beach points
+ * and designation once (a site can be both ZEC and ZEPA). Beach coordinates are [lat, lng]; the tolerance absorbs beach points
  * that sit on the waterline of a limit drawn along the shore.
  */
 export const findContainingAreas = (
@@ -145,7 +145,10 @@ export const findContainingAreas = (
     .map((feature) => feature.area)
     .filter(
       (area, index, areas) =>
-        areas.findIndex((other) => other.code === area.code) === index,
+        areas.findIndex(
+          (other) =>
+            other.code === area.code && other.designation === area.designation,
+        ) === index,
     )
 
 const protectedAreasFile = protectedAreasData as ProtectedAreasFile
