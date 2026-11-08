@@ -170,6 +170,7 @@ pnpm tsx scripts/script-name.ts
 | `fix-orthography.js`             | Proofread Markdown with local Ollama (`/api/chat`); default scope `docs/**/*.md`                  | Ad hoc (review diffs before `--write`)                |
 | `screenshot.ts`                  | Capture page screenshots via Playwright (desktop/mobile, full-page)                               | Ad hoc (UI reviews)                                   |
 | `add-bathing-water-quality.ts`   | Set the official EU bathing-water class and season from the EEA / NÁYADE dataset                  | Annual (after the EEA season release, around June); then migrate |
+| `derive-sunset-tag.ts`           | Set the `puesta-sol` tag in `beaches.json` from `shoreBearing` (`--dry-run` to preview); see Sunset Tag in business-rules.md | After adding beaches or changing `shoreBearing`; then migrate |
 | `assign-zones.ts`                | Set `zone` in `beaches.json` from the ITREM locality snapshot and `data/zones.json`; `--fetch` refreshes the snapshot | After adding beaches or editing `data/zones.json`; then migrate |
 | `optimize-images.ts`             | Generate WebP/AVIF variants and responsive thumbnails in `public/pictures/optimized/`             | After adding or replacing source images               |
 | `normalize-brightness.ts`        | Normalize brightness/contrast of source photos via histogram stretching (in-place)                | Before `optimize:images`, after new source images     |

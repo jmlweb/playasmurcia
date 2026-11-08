@@ -82,6 +82,14 @@ On the Mar Menor the opposite holds: `shoreBearing` is unreliable, because the n
 
 The forecast shows live waves as "Oleaje hoy" and says whether they arrive head-on ("Llega de frente a la playa" / "No llega de frente a la playa") from `getWaveExposure`. The stored `waves` value reads "Oleaje habitual", and `SIN DETERMINAR` is hidden. The Mar Menor shows no wave data.
 
+## Sunset Tag and Sun Times
+
+The `puesta-sol` tag is derived, not editorial. A beach gets it when the summer sun sets within 65° of its `shoreBearing`: the mean sunset azimuth over June–August at 37.7° N is 295° (300° in late June, 289° in late August), so bearings from 230° through north to 0° qualify. Beyond 65° the shoreline or a headland sits between the visitor and the setting sun.
+
+- Derive with `pnpm tsx scripts/derive-sunset-tag.ts` after adding beaches or changing `shoreBearing`, then migrate. `node scripts/validate-beaches.js` fails when a tag disagrees with the rule
+- On 2026-11-08 eight Mar Menor beaches of La Manga (527, 539, 540, 542, 543, 564, 669, 674) had an OSM-derived bearing under 180°, i.e. facing the Mediterranean side of the strip; the OSM coastline search cannot tell the two shores apart there. Their `shoreBearing` was set by hand to 280°, the lagoon-side normal of the strip. The validator rejects any Mar Menor beach in zone `la-manga` with a bearing under 180°
+- Sunrise and sunset shown on the beach page come from `getSunTimes` in `src/lib/sun-times.ts` (NOAA solar calculator, about a minute of accuracy) for today's Europe/Madrid calendar day. No external API
+
 ## Bathing-Water Quality
 
 `waterQuality` is the official EU class (Directive 2006/7/EC) of a sampling point, never an estimate. `pnpm tsx scripts/add-bathing-water-quality.ts` sets it:

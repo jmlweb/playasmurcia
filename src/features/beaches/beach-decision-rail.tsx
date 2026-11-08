@@ -1,6 +1,7 @@
 import { BeachFlagAlert } from './beach-flag-alert'
 import { BeachSafetyBar } from './beach-safety-bar'
 import { BeachStatusWidget } from './beach-status-widget'
+import { SunTimesPanel } from './sun-times-panel'
 import { useBeachStatus } from './use-beach-status'
 import { WeatherWidget } from './weather-widget'
 
@@ -11,6 +12,8 @@ type BeachDecisionRailProps = {
   coordinates: [number, number]
   lifeguard?: boolean
   hasNearbyBeaches: boolean
+  /** puesta-sol tag: the summer sun sets over the water from this shore */
+  sunsetOverWater?: boolean
 }
 
 export function BeachDecisionRail({
@@ -20,6 +23,7 @@ export function BeachDecisionRail({
   coordinates,
   lifeguard,
   hasNearbyBeaches,
+  sunsetOverWater,
 }: BeachDecisionRailProps) {
   const status = useBeachStatus(beachName, municipalityName)
   const isClosed =
@@ -37,6 +41,10 @@ export function BeachDecisionRail({
         lifeguard={lifeguard}
       />
       <WeatherWidget beachCode={beachCode} />
+      <SunTimesPanel
+        coordinates={coordinates}
+        sunsetOverWater={sunsetOverWater}
+      />
       <BeachStatusWidget state={status} />
     </>
   )

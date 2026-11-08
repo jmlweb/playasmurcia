@@ -10,6 +10,15 @@ const zonesById = new Map(zoneCuration.zones.map((zone) => [zone.id, zone]))
 
 const tags = JSON.parse(readFileSync('./data/tags.json', 'utf-8'))
 const familiarTagIndex = tags.findIndex((tag) => tag.id === 'familiar')
+const sunsetTagIndex = tags.findIndex((tag) => tag.id === 'puesta-sol')
+const MAR_MENOR_SEA = seas.findIndex((sea) => sea.name === 'Mar Menor')
+
+// Mirrors facesSummerSunset in src/lib/sun-times.ts (plain Node here)
+const SUMMER_SUNSET_AZIMUTH = 295
+const SUNSET_VIEW_HALF_WIDTH = 65
+const facesSummerSunset = (shoreBearing) =>
+  Math.abs(((shoreBearing - SUMMER_SUNSET_AZIMUTH + 540) % 360) - 180) <=
+  SUNSET_VIEW_HALF_WIDTH
 
 const errors = []
 const warnings = []
@@ -114,6 +123,26 @@ beaches.forEach((beach, index) => {
     if (/familia/i.test(beach.metaDescription ?? '')) {
       errors.push(
         `${prefix}: metaDescription promises families but childSafe is false`,
+      )
+    }
+  }
+
+  // puesta-sol is derived from shoreBearing (scripts/derive-sunset-tag.ts)
+  if (typeof beach.shoreBearing === 'number') {
+    const hasSunset = beach.tags?.includes(sunsetTagIndex) ?? false
+    if (hasSunset !== facesSummerSunset(beach.shoreBearing)) {
+      errors.push(
+        `${prefix}: tag 'puesta-sol' does not match shoreBearing ${beach.shoreBearing}; run pnpm tsx scripts/derive-sunset-tag.ts`,
+      )
+    }
+    // The OSM derivation picks the Mediterranean coastline on the narrow La Manga strip
+    if (
+      beach.sea === MAR_MENOR_SEA &&
+      beach.zone === 'la-manga' &&
+      beach.shoreBearing < 180
+    ) {
+      errors.push(
+        `${prefix}: Mar Menor beach on La Manga faces ${beach.shoreBearing}° (the Mediterranean side); set shoreBearing to the lagoon side`,
       )
     }
   }
