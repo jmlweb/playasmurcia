@@ -45,7 +45,7 @@ pnpm run prune:small-pictures -- --dry-run  # List picture refs that would be re
 pnpm run prune:small-pictures               # Remove those refs from beaches.json
 pnpm run prune:small-pictures -- --delete-files  # Also delete unreferenced rasters from public/pictures
 pnpm optimize:images           # Generate WebP variants + thumbnails in public/pictures/optimized/
-pnpm sync:pictures -- --dry-run  # Preview what would be uploaded to / deleted from R2
+pnpm sync:pictures --dry-run     # Preview what would be uploaded to / deleted from R2
 pnpm sync:pictures             # Mirror public/pictures/ to the R2 bucket (img.playasmurcia.com)
 pnpm run deploy                # Build and deploy to Cloudflare Workers from this machine (`pnpm deploy` is a pnpm built-in)
 ```

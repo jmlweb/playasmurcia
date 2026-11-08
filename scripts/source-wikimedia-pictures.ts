@@ -290,13 +290,27 @@ async function wmCategoryMembers(category: string): Promise<Array<string>> {
   return data.query?.categorymembers?.map((m) => m.title) ?? []
 }
 
+/**
+ * `--codes 611,584` limits the run to those beaches (to replace weak covers);
+ * without it only beaches with no pictures are searched.
+ */
+function selectBeaches(beaches: Array<Beach>): Array<Beach> {
+  const args = process.argv.slice(2)
+  const idx = args.indexOf("--codes")
+  if (idx !== -1 && args[idx + 1]) {
+    const wanted = new Set(args[idx + 1].split(","))
+    return beaches.filter((b) => wanted.has(b.code))
+  }
+  return beaches.filter((b) => !b.pictures || b.pictures.length === 0)
+}
+
 // ─── Phase 1: Search ─────────────────────────────────────────────────
 
 async function runSearch(): Promise<void> {
   const beaches = JSON.parse(await readFile(BEACHES_PATH, "utf-8")) as Array<Beach>
   const municipalities = JSON.parse(await readFile(MUNICIPALITIES_PATH, "utf-8")) as Array<Municipality>
-  const missing = beaches.filter((b) => !b.pictures || b.pictures.length === 0)
-  console.log(`Found ${missing.length} beaches without pictures`)
+  const missing = selectBeaches(beaches)
+  console.log(`Found ${missing.length} beaches to search`)
 
   await mkdir(CANDIDATES_DIR, { recursive: true })
 
@@ -466,7 +480,7 @@ async function runReview(picks: Record<string, string> | null): Promise<void> {
   const ask = (q: string): Promise<string> =>
     new Promise((res) => rl.question(q, res))
 
-  const missing = beaches.filter((b) => !b.pictures || b.pictures.length === 0)
+  const missing = selectBeaches(beaches)
 
   let approved = 0
   let skipped = 0
@@ -581,6 +595,7 @@ async function main(): Promise<void> {
     console.log("  pnpm tsx scripts/source-wikimedia-pictures.ts --review")
     console.log("  pnpm tsx scripts/source-wikimedia-pictures.ts --search --review")
     console.log("  pnpm tsx scripts/source-wikimedia-pictures.ts --pick 520=1,521=2   # non-interactive review")
+    console.log("  pnpm tsx scripts/source-wikimedia-pictures.ts --search --codes 611,584   # specific beaches")
     process.exit(0)
   }
 
