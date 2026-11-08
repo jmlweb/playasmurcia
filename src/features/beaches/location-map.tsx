@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 
 import type { AccessRestriction } from '@/lib/beach-notices'
+import type { NearestMarina } from '@/lib/marinas'
 
 import { BeachRichText } from '@/features/beaches/beach-rich-text'
 import {
@@ -9,6 +10,7 @@ import {
   mapPinDataUrl,
 } from '@/features/beaches/map-pin'
 import { MAPBOX_STYLE } from '@/features/beaches/map-style'
+import { formatDistance } from '@/lib/geo'
 
 import { AccessRestrictionNotice } from './access-restriction-notice'
 
@@ -27,6 +29,8 @@ type LocationMapProps = {
   postalCode?: string
   /** Published summer vehicle limits, shown under the directions */
   accessRestriction?: AccessRestriction
+  /** Straight-line nearest leisure port, for visitors arriving by boat */
+  nearestMarina?: NearestMarina
 }
 
 const LeafletMap = lazy(() =>
@@ -126,6 +130,7 @@ export function LocationMap({
   address,
   postalCode,
   accessRestriction,
+  nearestMarina,
 }: LocationMapProps) {
   const [lat, lng] = coordinates
   const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`
@@ -156,6 +161,26 @@ export function LocationMap({
           {[address, postalCode && `CP ${postalCode}`]
             .filter(Boolean)
             .join(' · ')}
+        </p>
+      )}
+      {nearestMarina && (
+        <p className="mb-6 text-sm text-gray-700">
+          <span className="font-semibold text-gray-900">
+            Puerto deportivo más cercano:
+          </span>{' '}
+          {nearestMarina.url ? (
+            <a
+              className="underline decoration-gray-400 underline-offset-2 hover:text-ocean-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none"
+              href={nearestMarina.url}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {nearestMarina.name}
+            </a>
+          ) : (
+            nearestMarina.name
+          )}
+          , a {formatDistance(nearestMarina.distanceKm)} en línea recta
         </p>
       )}
       <div className="overflow-hidden rounded-2xl border border-gray-200/60 shadow-sm">
