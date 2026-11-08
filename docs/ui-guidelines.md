@@ -83,7 +83,7 @@ Each major section follows a pattern:
 
 ### Cards
 
-- **Cards are for clickable items only** (beach, municipality, collection). Static content sections (description, services, activities, cómo llegar, contacto) render **unboxed**, separated by `1px` `gray-200` hairlines with 48px vertical rhythm. Stacking many white shadowed boxes flattens hierarchy.
+- **Cards are for clickable items only** (beach, municipality, collection). Static content sections (description, services, activities, cómo llegar, contacto) render **unboxed**, separated by `1px` `gray-200` hairlines with 48px vertical rhythm. Stacking many white shadowed boxes flattens hierarchy. The one exception is the beach detail side rail (directions, lifeguard warning, forecast, 112 flag): its panels are flat `ocean-50` blocks with no shadow, border or gradient, so they group today's decision without claiming to be clickable (see `DESIGN.md`, _The Lift Means Clickable Rule_).
 - **One card style per object type.** A page must not mix card treatments for the same kind of item (e.g. image-strip, image-top and icon-only collection cards on `/colecciones`). Collections and seas share one card: 4:3 photo, title, short description, beach count; covers are picked by `pictureQualityScore` and kept distinct per card.
 - **Filters**: the explorer sidebar opens with Para hoy as hairline rows, groups Acceso and Ocupación as segmented controls, and lists Mar, Necesidades and Municipio as hairline rows. Option counts stay out of view at rest with a mouse: rows reveal theirs on hover or keyboard focus, segments carry theirs in `title` and for screen readers. On touch screens every count stays visible, because hover does not exist there. An option with no results stays greyed out. It is sticky at `top-20` and scrolls inside its own viewport-capped box. Pages with already-scoped beaches (e.g. `/municipios/$slug`) use the horizontal `ChipFilterBar` instead. Show count and page in one results line (`35 playas · página 1 de 3`). On phones the sticky filter bar carries the count instead, and that line stays only for screen readers.
 - White background with subtle shadow (`shadow-sm` or `shadow`)
@@ -169,7 +169,8 @@ Height tiers create visual hierarchy between the homepage, beach detail and inne
 ### Photo heroes
 
 - **Full-bleed photo, no panel.** Do not place a centered glass/`backdrop-blur` box behind the hero text — it hides the photo (≈90% on mobile) and reads as a dated template pattern.
-- **Duotone treatment**: the photo is grayscale (`grayscale contrast-125`) multiplied by an `ocean-400` layer, then a bottom-weighted `ocean-950` gradient (85% → transparent over ~55%). Every photo reads as the same teal tone, so white text always passes contrast. Detail is traded for legibility on purpose. For photos that end up too dark, `PageHero` takes `tone`: `soft` (mid point, used by `/explorar`) or `lifted` (brightened image, `ocean-300` tint, weaker gradient; used by `/municipios/lorca` and `/municipios/mazarron`).
+- **Duotone treatment** (`PageHero` only): the photo is grayscale (`grayscale contrast-125`) multiplied by an `ocean-400` layer, then a bottom-weighted `ocean-950` gradient (85% → transparent over ~55%). Every photo reads as the same teal tone, so white text always passes contrast. Detail is traded for legibility on purpose. For photos that end up too dark, `PageHero` takes `tone`: `soft` (mid point, used by `/explorar`) or `lifted` (brightened image, `ocean-300` tint, weaker gradient; used by `/municipios/lorca` and `/municipios/mazarron`).
+- **Beach detail is exempt from duotone.** `BeachHero` (`/playas/$slug`) keeps the photo in natural colour, because visitors use it to judge the beach itself. Legibility comes from a bottom-weighted `ocean-950` scrim (85% → 55% on phones, 85% → 20% from `sm`) plus a text shadow on the heading block; the breadcrumb must still clear 4.5:1 at the hero midpoint over bright sand.
 - **Text block**: left-aligned to the `max-w-7xl` container, anchored bottom-left, padding 48px desktop / 24px mobile.
 - **Eyebrow**: small tracked caps must reach ≥ 4.5:1 — use white over a scrim that reaches the text, and measure it over the image; `coral-300` does not clear 4.5:1 on photos; never place small text over unscrimmed photo areas.
 - **Implementation**: `PageHero` takes `size="home"` for the immersive tier (default is the ~420px listing tier) and a `breadcrumb` prop rendered inside the hero above the eyebrow. Subtitles use `text-ocean-100`.
@@ -184,6 +185,7 @@ Inner pages follow two sub-tiers for `h1` size:
 | ----------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Index**         | `text-4xl font-normal tracking-tight text-white sm:text-5xl` | Index/listing pages (`/colecciones`). Uses `font-normal` because DM Serif Display only ships Regular (400) weight.                           |
 | **Detail / tool** | `text-3xl font-normal tracking-tight text-white sm:text-4xl` | Detail pages (`/municipios/$slug`, `/colecciones/$slug`) and tool pages (`/explorar`). Uses `font-normal` — same DM Serif Display rationale. |
+| **Beach detail**  | `text-3xl font-normal tracking-tight text-white sm:text-5xl` | `/playas/$slug` only (`BeachHero`). The beach name is the page's subject over a full-bleed photo, so from `sm` it takes the index size; on phones it stays at the detail size so the hero keeps room for the conditions line. |
 
 **Structure** (inner pages):
 
@@ -196,11 +198,11 @@ Decorative blur circles are optional — use `opacity-20` minimum if present, ot
 
 ## Breadcrumbs
 
-Present on every page except the homepage. On pages with a `PageHero` the breadcrumb is rendered **inside the hero**, above the eyebrow, via the `breadcrumb` prop (`tone="onPhoto"`: `text-sm text-white`, `mb-4`; links underlined with `decoration-white/50`, current item `font-semibold`; solid white, because `white/80` measured 2.6:1 to 3.7:1 over bright sand on desktop heroes). Pages without a hero (beach detail) place it in the main content area (light background).
+Present on every page except the homepage. On pages with a `PageHero` or `BeachHero` the breadcrumb is rendered **inside the hero**, above the eyebrow (or above the beach name), via the `breadcrumb` prop (`tone="onPhoto"`: `text-sm text-white`, `mb-4`; links underlined with `decoration-white/50`, current item `font-semibold`; solid white, because `white/80` measured 2.6:1 to 3.7:1 over bright sand on desktop heroes). Beach detail keeps the breadcrumb inside its hero even without a photo, over the compact gradient. Only pages with no hero at all place it in the main content area (light background).
 
 **Styling**: `text-sm text-gray-500` with separator `<span className="mx-2" aria-hidden="true">/</span>`. Links use `hover:text-ocean-600 focus-visible:text-ocean-600 focus-visible:underline`. Current page uses `text-gray-600` with `aria-current="page"`.
 
-**Spacing**: `pt-6` (24px) above the breadcrumb — directly under the hero, with no extra section padding in between — and `mb-8` below it, before main content. The same placement applies on every route, including beach detail.
+**Spacing** (pages with no hero): `pt-6` (24px) above the breadcrumb and `mb-8` below it, before main content. Inside a hero the breadcrumb follows the hero's own padding and the `mb-4` above.
 
 **Depth**: Mirror the site hierarchy. Examples:
 
