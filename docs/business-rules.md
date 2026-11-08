@@ -128,8 +128,8 @@ So weather is **not** limited to beaches with `aemetId`; those codes only gate t
 
 - Source: https://www.aemet.es/documentos/es/eltiempo/prediccion/playas/Playas_codigos.csv
 - Format: 7-digit code starting with "30" (Murcia province)
-- Coverage: subset of beaches (~65) — AEMET only publishes stations for major beaches
-- A beach only gets an `aemetId` when the nearest AEMET point is within 2.37 km; otherwise the widget falls back to coordinates (Open-Meteo)
+- Coverage: AEMET publishes 30 forecast points for the Región de Murcia. 126 of 193 beaches carry an `aemetId` (64 before 2026-11-08, when TSK-138 assigned the nearest point to 62 more beaches by coordinates)
+- A beach only gets an `aemetId` when the nearest AEMET point is within 2.37 km; otherwise the widget falls back to coordinates (Open-Meteo). Assignment is by distance to the catalogue coordinates, never by name alone; the same point serves several neighbouring beaches
 - Decision (TSK-124): 585 Playa de Las Salinas (Los Alcázares) keeps no `aemetId`. Its nearest point, Punta Calera (3090202), is 2.4 km away, just over the cutoff, and a forecast point that far away would not describe this beach better than coordinate-based data
 - Known mismatch (TSK-124): 561 Playa El Arenal coordinates (37.7133, -0.7399) match its stated Gran Vía km 7.9-10 range, while AEMET's "El Arenal" point (3003526) sits at 37.6922, -0.7361, 2.4 km south around km 6.5-7. The beach coordinates are kept and the AEMET point is treated as the offset one
 

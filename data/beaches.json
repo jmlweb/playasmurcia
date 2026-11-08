@@ -283,7 +283,8 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 155
+    "shoreBearing": 155,
+    "aemetId": "3001634"
   },
   {
     "code": "559",
@@ -390,7 +391,8 @@
       "samplingPointName": "PLAYA LEVANTE-CABO PALOS PM1",
       "distanceMeters": 432,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16887"
-    }
+    },
+    "aemetId": "3001653"
   },
   {
     "code": "628",
@@ -1257,7 +1259,8 @@
       "samplingPointName": "PLAYA MATALENTISCO PM1",
       "distanceMeters": 227,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18175"
-    }
+    },
+    "aemetId": "3000301"
   },
   {
     "code": "605",
@@ -1370,7 +1373,8 @@
       "samplingPointName": "PLAYA LEVANTE-CABO PALOS PM1",
       "distanceMeters": 308,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16887"
-    }
+    },
+    "aemetId": "3001653"
   },
   {
     "code": "513",
@@ -1673,7 +1677,8 @@
       }
     },
     "pictureQualityScore": 0,
-    "shoreBearing": 171
+    "shoreBearing": 171,
+    "aemetId": "3002414"
   },
   {
     "code": "556",
@@ -1883,7 +1888,8 @@
       }
     },
     "pictureQualityScore": 3,
-    "shoreBearing": 193
+    "shoreBearing": 193,
+    "aemetId": "3002414"
   },
   {
     "code": "567",
@@ -2203,7 +2209,8 @@
       "samplingPointName": "PLAYA CALA DEL PINO PM1",
       "distanceMeters": 225,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17219"
-    }
+    },
+    "aemetId": "3003531"
   },
   {
     "code": "571",
@@ -3005,7 +3012,8 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 344
+    "shoreBearing": 344,
+    "aemetId": "3001653"
   },
   {
     "code": "629",
@@ -3196,7 +3204,8 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 158
+    "shoreBearing": 158,
+    "aemetId": "3001634"
   },
   {
     "code": "558",
@@ -3301,7 +3310,8 @@
       "samplingPointName": "PLAYA CALA FLORES PM1",
       "distanceMeters": 470,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17390"
-    }
+    },
+    "aemetId": "3001653"
   },
   {
     "code": "678",
@@ -3411,7 +3421,8 @@
       "samplingPointName": "PLAYA MATALENTISCO PM1",
       "distanceMeters": 153,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18175"
-    }
+    },
+    "aemetId": "3000301"
   },
   {
     "code": "574",
@@ -3740,7 +3751,8 @@
       "samplingPointName": "PLAYA CALA REONA PM1",
       "distanceMeters": 228,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoZonaAction.do"
-    }
+    },
+    "aemetId": "3001634"
   },
   {
     "code": "523",
@@ -4038,7 +4050,8 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 20
+    "shoreBearing": 20,
+    "aemetId": "3001653"
   },
   {
     "code": "578",
@@ -4353,7 +4366,8 @@
       "samplingPointName": "PLAYAS LOS ALISIOS PM1",
       "distanceMeters": 163,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17365"
-    }
+    },
+    "aemetId": "3003531"
   },
   {
     "code": "586",
@@ -4454,7 +4468,8 @@
     "pictureQualityScore": 3,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
-    "shoreBearing": 130
+    "shoreBearing": 130,
+    "aemetId": "3002618"
   },
   {
     "code": "615",
@@ -4558,7 +4573,8 @@
     "pictureQualityScore": 2,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 200
+    "shoreBearing": 200,
+    "aemetId": "3000315"
   },
   {
     "code": "671",
@@ -4789,7 +4805,8 @@
       "samplingPointName": "PLAYA CALNEGRE PM1",
       "distanceMeters": 262,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17215"
-    }
+    },
+    "aemetId": "3002414"
   },
   {
     "code": "667",
@@ -4911,7 +4928,8 @@
       "samplingPointName": "PLAYA BARNUEVO PM1",
       "distanceMeters": 148,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18037"
-    }
+    },
+    "aemetId": "3003503"
   },
   {
     "code": "639",
@@ -5661,7 +5679,8 @@
       "samplingPointName": "PLAYA PASEO DE MANZANARES PM1",
       "distanceMeters": 157,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17213"
-    }
+    },
+    "aemetId": "3090206"
   },
   {
     "code": "687",
@@ -5785,7 +5804,8 @@
       "samplingPointName": "PLAYA GALUA PM1",
       "distanceMeters": 185,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18096"
-    }
+    },
+    "aemetId": "3001655"
   },
   {
     "code": "543",
@@ -5891,7 +5911,8 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 280
+    "shoreBearing": 280,
+    "aemetId": "3003509"
   },
   {
     "code": "638",
@@ -6104,7 +6125,8 @@
     "pictureQualityScore": 3,
     "phone": "968 590 012",
     "realUrl": "https://www.mazarron.es/es/servicios-del-litoral/carta-de-playas/",
-    "shoreBearing": 147
+    "shoreBearing": 147,
+    "aemetId": "3002618"
   },
   {
     "code": "526",
@@ -6214,7 +6236,8 @@
       "samplingPointName": "PLAYA DE CAVANNAS PM1",
       "distanceMeters": 439,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18089"
-    }
+    },
+    "aemetId": "3001655"
   },
   {
     "code": "662",
@@ -7917,7 +7940,8 @@
       "samplingPointName": "PLAYA CALA DEL PINO PM1",
       "distanceMeters": 337,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17219"
-    }
+    },
+    "aemetId": "3003531"
   },
   {
     "code": "530",
@@ -8167,7 +8191,6 @@
     "promenade": false,
     "access": "En el **km 2 de la carretera de Vera**. Se llega a la costa por un camino sin asfaltar.",
     "pictures": [
-      "playa-blanca-aguilas-2_g.jpg",
       "playa-blanca-aguilas_g.jpg"
     ],
     "coordinates": [
@@ -8812,7 +8835,8 @@
       "samplingPointName": "PLAYA PASEO CARRI?N PM1",
       "distanceMeters": 59,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16587"
-    }
+    },
+    "aemetId": "3090206"
   },
   {
     "code": "649",
@@ -9149,7 +9173,8 @@
       "samplingPointName": "PLAYA DE LA GOLA PM1",
       "distanceMeters": 383,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18090"
-    }
+    },
+    "aemetId": "3001653"
   },
   {
     "code": "600",
@@ -9578,7 +9603,8 @@
     "phone": "968 182 301",
     "email": "turismo@sanpedrodelpinatar.es",
     "realUrl": "https://www.sanpedrodelpinatar.es/concejalias/turismo/lugares-de-interes/playas-de-la-llana/",
-    "shoreBearing": 78
+    "shoreBearing": 78,
+    "aemetId": "3003606"
   },
   {
     "code": "665",
@@ -9795,7 +9821,8 @@
       "samplingPointName": "PLAYA LA LLANA-LAS SALINAS PM1",
       "distanceMeters": 448,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17368"
-    }
+    },
+    "aemetId": "3003606"
   },
   {
     "code": "682",
@@ -9911,7 +9938,8 @@
       "samplingPointName": "PLAYA LA MOTA PM1",
       "distanceMeters": 213,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17369"
-    }
+    },
+    "aemetId": "3003602"
   },
   {
     "code": "555",
@@ -10233,7 +10261,8 @@
       "samplingPointName": "PLAYA VILLANANITOS PM1",
       "distanceMeters": 488,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17371"
-    }
+    },
+    "aemetId": "3003602"
   },
   {
     "code": "653",
@@ -10664,7 +10693,7 @@
     "promenade": false,
     "access": "Se llega **por un sendero desde Cobaticas**.\n\n**Consejo:** en verano el acceso en coche al parque regional de Calblanque está regulado. Consulta las condiciones en la [web de Murcia Natural](https://murcianatural.carm.es) antes de ir.",
     "pictures": [
-      "canas_g.jpg"
+      "wm-geo-584.jpg"
     ],
     "coordinates": [
       37.60157202975702,
@@ -10745,11 +10774,12 @@
         "description": "Der Strand Las Cañas in Cartagena heißt Sie mit der Brise des Mittelmeers willkommen. Genießen Sie eine ruhige und natürliche Umgebung, ideal zum Entspannen und Abschalten. Dieser Strand, obwohl er keinen Uferpromenade oder Anlegesteg hat, bietet eine Auszeit aus Sand und Sonne an der wunderschönen Küste von Murcia."
       }
     },
-    "pictureQualityScore": 1,
+    "pictureQualityScore": 2,
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 170
+    "shoreBearing": 170,
+    "aemetId": "3001634"
   },
   {
     "code": "637",
@@ -11166,7 +11196,8 @@
       "samplingPointName": "PLAYA LAS PALMERAS PM1",
       "distanceMeters": 174,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18176"
-    }
+    },
+    "aemetId": "3090205"
   },
   {
     "code": "623",
@@ -11706,7 +11737,8 @@
       "samplingPointName": "PLAYA EL VIVERO PM1",
       "distanceMeters": 303,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18093"
-    }
+    },
+    "aemetId": "3001653"
   },
   {
     "code": "566",
@@ -12029,7 +12061,8 @@
       "samplingPointName": "PLAYA LOS NAREJOS PM1",
       "distanceMeters": 227,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18177"
-    }
+    },
+    "aemetId": "3090202"
   },
   {
     "code": "677",
@@ -12899,7 +12932,8 @@
     "phone": "968 54 16 14",
     "email": "turismo@ayto-launion.org",
     "realUrl": "https://www.turismoregiondemurcia.es/es/playa/playa-de-portman-560/",
-    "shoreBearing": 193
+    "shoreBearing": 193,
+    "aemetId": "3004102"
   },
   {
     "code": "681",
@@ -13113,7 +13147,8 @@
     "pictureQualityScore": 2,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 157
+    "shoreBearing": 157,
+    "aemetId": "3000327"
   },
   {
     "code": "636",
@@ -14383,7 +14418,8 @@
       "samplingPointName": "PLAYA MATALENTISCO PM1",
       "distanceMeters": 434,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18175"
-    }
+    },
+    "aemetId": "3000312"
   },
   {
     "code": "594",
@@ -14479,7 +14515,8 @@
     "pictureQualityScore": 0,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 154
+    "shoreBearing": 154,
+    "aemetId": "3000327"
   },
   {
     "code": "565",
@@ -15192,7 +15229,8 @@
       "samplingPointName": "PLAYA PUERTO BELLO PM1",
       "distanceMeters": 267,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16910"
-    }
+    },
+    "aemetId": "3001653"
   },
   {
     "code": "561",
@@ -15319,9 +15357,6 @@
     "sea": 1,
     "promenade": false,
     "access": "Desde la **RM-332**, toma la carretera de acceso a la playa y síguela unos **2 km**: la playa queda a la derecha.",
-    "pictures": [
-      "carmoli2_g.jpg"
-    ],
     "coordinates": [
       37.70677,
       -0.85051
@@ -15401,7 +15436,7 @@
         "description": "Playa El Carmolí in Cartagena bietet eine ruhige Oase im Mar Menor. Der feine, goldene Sand lädt zu einem entspannten Tag am Wasser ein. Ideal für Familien und alle, die einen einfachen Ort zum Genießen der Küste von Murcia suchen, obwohl es hier keine besonderen Einrichtungen oder Zugänge gibt."
       }
     },
-    "pictureQualityScore": 1,
+    "pictureQualityScore": 0,
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
@@ -15526,7 +15561,8 @@
       "samplingPointName": "PLAYA LA PUNTICA PM1",
       "distanceMeters": 240,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17370"
-    }
+    },
+    "aemetId": "3003602"
   },
   {
     "code": "4893",
@@ -15748,7 +15784,8 @@
     "phone": "968 573 700",
     "email": "concejaliadeturismo@sanjavier.es",
     "realUrl": "https://turismo.sanjavier.es/",
-    "shoreBearing": 280
+    "shoreBearing": 280,
+    "aemetId": "3003526"
   },
   {
     "code": "666",
@@ -15981,7 +16018,8 @@
       "samplingPointName": "PLAYA EL PEDRUCHILLO PM1",
       "distanceMeters": 333,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17146"
-    }
+    },
+    "aemetId": "3003526"
   },
   {
     "code": "535",
@@ -16099,7 +16137,8 @@
       "samplingPointName": "PLAYA PASEO COLON PM1",
       "distanceMeters": 41,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17640"
-    }
+    },
+    "aemetId": "3003503"
   },
   {
     "code": "606",
@@ -16330,7 +16369,8 @@
       "samplingPointName": "PLAYA VENECIOLA PM1",
       "distanceMeters": 405,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16693"
-    }
+    },
+    "aemetId": "3003509"
   },
   {
     "code": "599",
@@ -16531,7 +16571,8 @@
       }
     },
     "pictureQualityScore": 3,
-    "shoreBearing": 193
+    "shoreBearing": 193,
+    "aemetId": "3002414"
   },
   {
     "code": "620",
@@ -16629,7 +16670,8 @@
     "pictureQualityScore": 2,
     "phone": "968 493 285",
     "realUrl": "https://aguilas.es/experiencias-en-aguilas/playas/",
-    "shoreBearing": 67
+    "shoreBearing": 67,
+    "aemetId": "3000327"
   },
   {
     "code": "562",
@@ -16751,7 +16793,8 @@
       "samplingPointName": "PLAYA LA ENSENADA DEL ESPARTO PM1",
       "distanceMeters": 217,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17580"
-    }
+    },
+    "aemetId": "3003509"
   },
   {
     "code": "511",
@@ -16971,7 +17014,8 @@
       "samplingPointName": "PLAYA GALUA PM1",
       "distanceMeters": 495,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18096"
-    }
+    },
+    "aemetId": "3001655"
   },
   {
     "code": "688",
@@ -17309,7 +17353,8 @@
       "samplingPointName": "PLAYA ISLA PLANA PM1",
       "distanceMeters": 213,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18098"
-    }
+    },
+    "aemetId": "3002633"
   },
   {
     "code": "521",
@@ -17414,7 +17459,8 @@
       "samplingPointName": "PLAYA LEVANTE-CABO PALOS PM1",
       "distanceMeters": 325,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16887"
-    }
+    },
+    "aemetId": "3001653"
   },
   {
     "code": "619",
@@ -17735,7 +17781,8 @@
       "samplingPointName": "PLAYA ISLA PLANA PM1",
       "distanceMeters": 283,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18098"
-    }
+    },
+    "aemetId": "3002633"
   },
   {
     "code": "589",
@@ -17950,7 +17997,8 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 327
+    "shoreBearing": 327,
+    "aemetId": "3001653"
   },
   {
     "code": "597",
@@ -18156,7 +18204,8 @@
       "samplingPointName": "PLAYA MATALENTISCO PM1",
       "distanceMeters": 309,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18175"
-    }
+    },
+    "aemetId": "3000301"
   },
   {
     "code": "673",
@@ -18272,7 +18321,8 @@
       "samplingPointName": "PLAYA VENECIOLA PM1",
       "distanceMeters": 298,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16693"
-    }
+    },
+    "aemetId": "3003509"
   },
   {
     "code": "627",
@@ -18378,7 +18428,8 @@
       "samplingPointName": "PLAYA CALBLANQUE PM1",
       "distanceMeters": 287,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17391"
-    }
+    },
+    "aemetId": "3001634"
   },
   {
     "code": "5907",
@@ -18695,7 +18746,8 @@
       "samplingPointName": "PLAYA ANTILLAS PM1",
       "distanceMeters": 289,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18036"
-    }
+    },
+    "aemetId": "3003526"
   },
   {
     "code": "660",
@@ -18924,7 +18976,8 @@
       "samplingPointName": "PLAYA DEL GALAN PM1",
       "distanceMeters": 463,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18038"
-    }
+    },
+    "aemetId": "3003526"
   },
   {
     "code": "684",
@@ -19789,7 +19842,8 @@
       "samplingPointName": "PLAYA PARAISO PM1",
       "distanceMeters": 155,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16952"
-    }
+    },
+    "aemetId": "3001653"
   },
   {
     "code": "6703",
@@ -20222,7 +20276,8 @@
       "samplingPointName": "PLAYA EL PEDRUCHILLO PM1",
       "distanceMeters": 261,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=17146"
-    }
+    },
+    "aemetId": "3003526"
   },
   {
     "code": "570",
@@ -20446,7 +20501,8 @@
       "samplingPointName": "PLAYA LAS SIRENAS PM1",
       "distanceMeters": 331,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=18102"
-    }
+    },
+    "aemetId": "3001653"
   },
   {
     "code": "531",
@@ -20557,7 +20613,8 @@
       "samplingPointName": "PLAYA PUNTA BRAVA PM1",
       "distanceMeters": 297,
       "profileUrl": "https://nayadeciudadano.sanidad.gob.es/Splayas/ciudadano/ciudadanoDownloadAction.do?tipoEntidad=4&tipo=1&codigoEntidad=16911"
-    }
+    },
+    "aemetId": "3001676"
   },
   {
     "code": "694",
@@ -20773,6 +20830,7 @@
     "phone": "968 12 89 55",
     "email": "turismo@ayto-cartagena.es",
     "realUrl": "https://turismo.cartagena.es/listado_playas.asp?tipo=1",
-    "shoreBearing": 197
+    "shoreBearing": 197,
+    "aemetId": "3001610"
   }
 ]
