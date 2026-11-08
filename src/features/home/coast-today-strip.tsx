@@ -116,7 +116,8 @@ export function CoastTodayStrip({
   beachCounts,
 }: CoastTodayStripProps) {
   const sources = sourceLine(today)
-  const isLive = isLoading || sources !== undefined
+  // Neither Open-Meteo nor 112 answered: say so instead of inventing conditions
+  const isUnavailable = !isLoading && sources === undefined
 
   return (
     <section
@@ -128,7 +129,7 @@ export function CoastTodayStrip({
         className="overline-accent font-sans text-sm font-semibold tracking-wider text-ocean-600 uppercase"
         id="coast-today-heading"
       >
-        {isLive ? 'Hoy en la costa' : 'La costa por mares'}
+        Hoy en la costa
       </h2>
       <ul className="mt-2 grid border-b border-gray-200 sm:mt-3 sm:grid-cols-2 sm:gap-x-8 lg:gap-x-12">
         {CoastSeas.map(({ slug, name }) => {
@@ -176,11 +177,14 @@ export function CoastTodayStrip({
           )
         })}
       </ul>
-      {(sources ?? isLoading) && (
-        <p className="mt-2 min-h-5 text-[13px] text-gray-600 tabular-nums">
-          {sources}
-        </p>
-      )}
+      <p
+        className="mt-2 min-h-5 text-[13px] text-gray-600 tabular-nums"
+        role={isUnavailable ? 'status' : undefined}
+      >
+        {isUnavailable
+          ? 'Sin datos de hoy: el tiempo y las banderas no están disponibles ahora mismo. Cada mar enlaza a sus playas.'
+          : sources}
+      </p>
     </section>
   )
 }

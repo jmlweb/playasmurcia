@@ -103,12 +103,27 @@ describe('CoastTodayStrip', () => {
     expect(screen.getByText('43 playas')).toBeTruthy()
   })
 
-  it('stops claiming "hoy" when no source answered', () => {
+  it('says that today has no data when no source answered', () => {
     renderStrip(undefined)
 
     expect(
-      screen.getByRole('heading', { name: 'La costa por mares' }),
+      screen.getByRole('heading', { name: 'Hoy en la costa' }),
     ).toBeTruthy()
-    expect(screen.getByRole('link', { name: /Mar Menor/ })).toBeTruthy()
+    expect(screen.getByRole('status').textContent).toBe(
+      'Sin datos de hoy: el tiempo y las banderas no están disponibles ahora mismo. Cada mar enlaza a sus playas.',
+    )
+    expect(screen.queryByText(/°/)).toBeNull()
+    expect(
+      screen.getByRole('link', { name: /Mar Menor/ }).getAttribute('href'),
+    ).toBe('/colecciones/mar-menor')
+  })
+
+  it('shows no unavailable notice while loading or with a source', () => {
+    const { unmount } = renderStrip(undefined, true)
+    expect(screen.queryByRole('status')).toBeNull()
+    unmount()
+
+    renderStrip(offSeason)
+    expect(screen.queryByRole('status')).toBeNull()
   })
 })
