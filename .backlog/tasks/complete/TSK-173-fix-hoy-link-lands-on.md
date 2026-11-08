@@ -1,12 +1,14 @@
 ---
 id: TSK-173
 title: Fix: Hoy link lands on non-today strip when live data fails
-status: pending
+status: complete
 priority: P4
 tags: [bug, home]
 created: 2026-11-06
 source: report/RPT-073
 depends-on: []
+started: 2026-11-08
+completed: 2026-11-08
 ---
 
 # Fix: Hoy link lands on non-today strip when live data fails
@@ -31,10 +33,10 @@ Source report: `.backlog/reports/complete/RPT-073-hoy-link-lands-on-non-today.md
 
 ## Acceptance Criteria
 
-- [ ] With no Open-Meteo or 112 data, the fallback strip says that today's data is unavailable
-- [ ] The fallback invents no conditions and keeps its real sea links
-- [ ] The nav fetches no data
-- [ ] Failure state checked in the browser, with a test covering the fallback copy
+- [x] With no Open-Meteo or 112 data, the fallback strip says that today's data is unavailable — evidence: coast-today-strip.tsx renders a role=status line: Sin datos de hoy… (2026-11-08)
+- [x] The fallback invents no conditions and keeps its real sea links — evidence: No conditions rendered; sea links kept (test asserts href) (2026-11-08)
+- [x] The nav fetches no data — evidence: navbar.tsx untouched (2026-11-08)
+- [x] Failure state checked in the browser, with a test covering the fallback copy — evidence: coast-today-strip.test.tsx: says that today has no data when no source answered; manual: fallback branch rendered in jsdom, not reproduced live (needs both upstreams down) (2026-11-08)
 
 ## Notes
 
@@ -44,3 +46,6 @@ Source report: `.backlog/reports/complete/RPT-073-hoy-link-lands-on-non-today.md
 
 - [2026-11-06] Created
 - [2026-11-07] Tagged in 2026-11-07 grooming. Navbar tasks run in order 175, 176, 174, 177, 171 because they edit the same file.
+- [2026-11-08] Started
+- [2026-11-08] Commit 6538a90. Heading stays Hoy en la costa so the nav label matches.
+- [2026-11-08] Completed

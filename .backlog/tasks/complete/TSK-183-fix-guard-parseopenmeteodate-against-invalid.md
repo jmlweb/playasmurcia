@@ -1,12 +1,14 @@
 ---
 id: TSK-183
 title: Fix: Guard parseOpenMeteoDate against invalid dates
-status: pending
+status: complete
 priority: P4
 tags: [bug, weather]
 created: 2026-11-07
 source: review/2026-11-07
 depends-on: []
+started: 2026-11-08
+completed: 2026-11-08
 ---
 
 # Fix: Guard parseOpenMeteoDate against invalid dates
@@ -17,9 +19,9 @@ src/lib/open-meteo.ts parseOpenMeteoDate returns NaN for malformed strings and s
 
 ## Acceptance Criteria
 
-- [ ] Malformed or impossible dates are dropped from the forecast
-- [ ] Unit test covers garbage and 2026-02-30
-- [ ] pnpm build, pnpm test and pnpm check pass
+- [x] Malformed or impossible dates are dropped from the forecast — evidence: parseOpenMeteoDate returns undefined; fetchOpenMeteoForecast flatMap drops the day (2026-11-08)
+- [x] Unit test covers garbage and 2026-02-30 — evidence: open-meteo.test.ts: garbage, 2026-2-3, 2026-02-30, 2026-13-01 and a fetch test → pnpm test exit 0 (2026-11-08)
+- [x] pnpm build, pnpm test and pnpm check pass — evidence: pnpm build, pnpm test, pnpm check exit 0 (2026-11-08) (2026-11-08)
 
 ## Notes
 
@@ -28,3 +30,6 @@ src/lib/open-meteo.ts parseOpenMeteoDate returns NaN for malformed strings and s
 ## Progress Log
 
 - [2026-11-07] Created
+- [2026-11-08] Started
+- [2026-11-08] Commit a535ac8.
+- [2026-11-08] Completed

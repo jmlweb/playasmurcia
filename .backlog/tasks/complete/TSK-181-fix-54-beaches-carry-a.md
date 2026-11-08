@@ -1,12 +1,14 @@
 ---
 id: TSK-181
 title: Fix: 54 beaches carry a stale pictureQualityScore
-status: pending
+status: complete
 priority: P4
 tags: [data, images, cleanup]
 created: 2026-11-07
 source: manual
 depends-on: []
+started: 2026-11-08
+completed: 2026-11-08
 ---
 
 # Fix: 54 beaches carry a stale pictureQualityScore
@@ -34,3 +36,6 @@ depends-on: []
 ## Progress Log
 
 - [2026-11-07] Created
+- [2026-11-08] Started
+- [2026-11-08] pnpm run score:picture-quality -- --dry-run on 2026-11-08: Beaches with score change vs previous JSON: 0. Scores were already refreshed by TSK-142; nothing to migrate.
+- [2026-11-08] Completed

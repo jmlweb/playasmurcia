@@ -1,12 +1,14 @@
 ---
 id: TSK-182
 title: Fix: Align hero and gallery alt text formats
-status: pending
+status: complete
 priority: P4
 tags: [ui, accessibility]
 created: 2026-11-07
 source: review/2026-11-07
 depends-on: []
+started: 2026-11-08
+completed: 2026-11-08
 ---
 
 # Fix: Align hero and gallery alt text formats
@@ -17,9 +19,9 @@ TSK-166 changed the beach detail gallery alt to '<beach>, <municipality>: fotogr
 
 ## Acceptance Criteria
 
-- [ ] Hero alt uses the gallery format with municipality
-- [ ] photo-gallery.tsx aligned or removed with its test
-- [ ] pnpm build, pnpm test and pnpm check pass
+- [x] Hero alt uses the gallery format with municipality — evidence: BeachHero alt = name, municipality: fotografía 1 de N (pictureCount prop); beach-hero.test.tsx (2026-11-08)
+- [x] photo-gallery.tsx aligned or removed with its test — evidence: photo-gallery.tsx and its test removed (only the test imported it) (2026-11-08)
+- [x] pnpm build, pnpm test and pnpm check pass — evidence: pnpm build, pnpm test, pnpm check exit 0 (2026-11-08) (2026-11-08)
 
 ## Notes
 
@@ -28,3 +30,6 @@ TSK-166 changed the beach detail gallery alt to '<beach>, <municipality>: fotogr
 ## Progress Log
 
 - [2026-11-07] Created
+- [2026-11-08] Started
+- [2026-11-08] Commit cbd73fb.
+- [2026-11-08] Completed
