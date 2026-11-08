@@ -52,7 +52,7 @@ function asEnum<TValue extends string>(
   value: unknown,
   allowed: Record<TValue, string>,
 ): TValue | undefined {
-  return typeof value === 'string' && value in allowed
+  return typeof value === 'string' && Object.hasOwn(allowed, value)
     ? (value as TValue)
     : undefined
 }

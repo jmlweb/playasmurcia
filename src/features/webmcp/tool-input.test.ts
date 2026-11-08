@@ -57,6 +57,18 @@ describe('parseSearchInput', () => {
     expect(parseSearchInput({ sort: 'cercania' }).sort).toBeUndefined()
   })
 
+  it('rejects prototype keys as enum values', () => {
+    const result = parseSearchInput({
+      accessDifficulty: 'toString',
+      occupancy: 'constructor',
+    })
+    expect(result.accessDifficulty).toBeUndefined()
+    expect(result.occupancy).toBeUndefined()
+    expect(
+      parseSearchInput({ occupancy: '__proto__' }).occupancy,
+    ).toBeUndefined()
+  })
+
   it('clamps the limit', () => {
     expect(parseSearchInput({ limit: 0 }).limit).toBe(1)
     expect(parseSearchInput({ limit: 999 }).limit).toBe(MAX_SEARCH_LIMIT)
