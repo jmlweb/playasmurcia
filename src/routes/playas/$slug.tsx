@@ -210,6 +210,7 @@ function BeachPage() {
         municipalityName={municipality.name}
         name={beach.name}
         picture={pictures[0]}
+        pictureCount={pictures.length}
         tags={
           beach.tags && beach.tags.length > 0 ? (
             <TagsSection
@@ -399,7 +400,6 @@ function BeachGallery({
     const img = parsedPictures[index]
     return (
       <button
-        key={img.baseName}
         aria-label={`Ver ${img.alt} en grande`}
         className="h-full w-full cursor-zoom-in overflow-hidden rounded-2xl focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
         type="button"
@@ -412,6 +412,8 @@ function BeachGallery({
           baseName={img.baseName}
           className="h-full w-full object-cover transition-transform duration-500 motion-safe:hover:scale-105"
           ext={img.ext}
+          // Tiles crop by height, so a panorama shows at up to twice the tile width on phones
+          fullSizes="(max-width: 640px) 200vw, (max-width: 1024px) 100vw, 1200px"
           variant="full"
         />
       </button>
@@ -424,8 +426,9 @@ function BeachGallery({
         <h2 className="text-3xl font-normal tracking-tight text-gray-900">
           Fotos
         </h2>
+        {/* Full width on phones, so the pill never floats over the gap between tiles */}
         <button
-          className="inline-flex min-h-11 shrink-0 items-center rounded-full border border-ocean-200 px-4 text-sm font-semibold text-ocean-600 transition-colors hover:bg-ocean-50 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none"
+          className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-full border border-ocean-200 px-4 text-sm font-semibold text-ocean-600 transition-colors hover:bg-ocean-50 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:ring-offset-2 focus-visible:outline-none max-sm:w-full"
           type="button"
           onClick={() => {
             openLightbox(0)
@@ -434,13 +437,23 @@ function BeachGallery({
           Ver las {parsedPictures.length} fotos
         </button>
       </div>
+      {/* Phones stack a wide tile over a row of two, so panoramas keep their shape; from sm the mosaic is 2fr/1fr */}
       <div
-        className={`grid aspect-[16/10] gap-2 sm:aspect-auto sm:h-80 sm:gap-3 ${stacked.length > 0 ? 'grid-cols-[2fr_1fr]' : ''}`}
+        className={`grid gap-2 sm:h-80 sm:gap-3 ${stacked.length > 0 ? 'sm:grid-cols-[2fr_1fr]' : ''}`}
       >
-        {mosaicButton(1)}
+        <div className="aspect-[16/9] sm:aspect-auto sm:h-full sm:min-h-0">
+          {mosaicButton(1)}
+        </div>
         {stacked.length > 0 && (
-          <div className="grid min-h-0 grid-rows-2 gap-2 sm:gap-3">
-            {stacked.map((_, i) => mosaicButton(i + 2))}
+          <div className="grid grid-cols-2 gap-2 sm:min-h-0 sm:grid-cols-1 sm:grid-rows-2 sm:gap-3">
+            {stacked.map((_, i) => (
+              <div
+                key={parsedPictures[i + 2].baseName}
+                className="aspect-[4/3] sm:aspect-auto sm:h-full sm:min-h-0"
+              >
+                {mosaicButton(i + 2)}
+              </div>
+            ))}
           </div>
         )}
       </div>
