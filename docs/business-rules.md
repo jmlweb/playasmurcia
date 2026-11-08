@@ -12,6 +12,7 @@ Scripts that exist in `scripts/` and require periodic execution:
 | `add-lifeguard-info.js`        | Update COPLA lifeguard data                                               | Seasonal (pre-summer)                |
 | `add-bathing-water-quality.ts` | Set official EU bathing-water class from EEA / NÁYADE sampling points     | Annual (after EEA release, ~June)    |
 | `assign-zones.ts`              | Set `zone` from ITREM locality labels and the curation in `zones.json`    | After adding beaches or zone edits   |
+| `assign-protected-areas.ts`    | Write `protected-areas.json` from the CARM ENP, LIC-ZEC and ZEPA layers   | After adding beaches; yearly         |
 | `validate-beaches.js`          | Validate all beach data integrity                                         | Before releases                      |
 | `migrate-to-database.ts`       | Migrate JSON data to SQLite/Turso                                         | Once (or after JSON changes)         |
 | `validate-migration.ts`        | Validate database matches JSON source                                     | After migration                      |
@@ -192,6 +193,11 @@ So weather is **not** limited to beaches with `aemetId`; those codes only gate t
 
 - **Smoke-free beaches** (`data/smoke-free-beaches.json`): membership of the regional Red de Playas sin Humo, shown under the description as a note. The network only *recommends* not smoking and enforcement depends on each municipal ordinance, so the copy never mentions fines. Where the list names a stretch (sports area, accessible spots) the note says so instead of covering the whole beach. The source page is undated; re-check it each spring against the Consejería de Salud press releases and update `verifiedOn`
 - **Summer access restrictions** (`data/access-restrictions.json`): shown under the directions in "Cómo llegar" as an amber note that carries the year of the rule. Calblanque publishes a BORM order every spring (dates, hours, vehicle cap, shuttle); refresh it when the new order appears (usually late March) and update the shuttle line when the Comunidad announces the Calblanque 440 service (late June). Puntas de Calnegre has no vehicle ban, only an access-ordering service; Cuatro Calas got regional barriers in July 2026 without published dates. A rule missing for a beach shows nothing
+- **Protected areas** (`data/protected-areas.json`): the regional protected natural spaces (Ley 4/1992: parques regionales, paisajes protegidos, the ENP still waiting for a figure) and Natura 2000 sites (LIC, ZEC, ZEPA) that hold the beach, shown under the description as a green note with each name, figure and code, the regional spaces first. `scripts/assign-protected-areas.ts` intersects `coordinates` with the CARM layers `SIG_LUP_SITES_CARM:ENP`, `:LIC-ZEC` and `:ZEPA`. Rules:
+  - A beach belongs to an area when its point lies inside the polygon or within 50 m of it (`toleranceMeters`). Beach points sit on the waterline and many park limits follow the shore, so exact intersection missed beaches 1–45 m outside Calblanque, Calnegre, La Muela and the San Pedro salt flats
+  - Sites drawn over the sea or the Mar Menor lagoon are left out (`excludedMarineSites`: ZEC ES6200029, ES6200030, ES6200048; ZEPA ES0000507, ES0000508, ES0000260). They border every beach on their shore, so a point a few metres into the water would list them by chance
+  - ENP features with the figure `Resto Ámbito PORN` are left out: they are the planning extent around a park, not a protected space
+  - The MITECO Natura 2000 service did not answer when the script was written; CARM publishes the same site codes (the regional limits at 1:5,000 scale, plus the two marine ZEPA under the Ministry)
 
 ## Municipality Facts
 

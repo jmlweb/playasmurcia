@@ -1,0 +1,953 @@
+{
+  "source": "Infraestructura de Datos Espaciales de la Región de Murcia (IDERM), servicio WFS de la CARM",
+  "serviceUrl": "https://mapas-gis-inter.carm.es/geoserver/wfs",
+  "viewerUrl": "https://mapas-gis-inter.carm.es/mapstore/",
+  "retrievedOn": "2026-11-08",
+  "layers": [
+    {
+      "typeName": "SIG_LUP_SITES_CARM:ENP",
+      "title": "Espacios naturales protegidos (ENP)",
+      "version": "WFS snapshot 2026-11-08, 29 features. Espacios naturales protegidos designados por la Ley 4/1992 y otras normativas, así como los Planes Rectores de Uso y Gestión (PRUG) y ámbitos de Planes de Ordenación de los Recursos Naturales (PORN) de la Región de Murcia.",
+      "featureCount": 29
+    },
+    {
+      "typeName": "SIG_LUP_SITES_CARM:LIC-ZEC",
+      "title": "Lugares de Importancia Comunicatia (LIC) -Zonas de Especial Conservación (ZEC)",
+      "version": "WFS snapshot 2026-11-08, 50 features. Capa de los límites vigentes de los 18 Lugares de Importancia Comunitaria (LIC; 16ª lista) y 32 Zonas Especiales de Conservación de la Región de Murcia (ZEC). Un total de 50 Lugares, 47 en el Medio Terrestre y 3 en el Medio Marino. Equivalente a una escala 1/5000.",
+      "featureCount": 50
+    },
+    {
+      "typeName": "SIG_LUP_SITES_CARM:ZEPA",
+      "title": "Zona de Especial Protección para las aves (ZEPA)",
+      "version": "WFS snapshot 2026-11-08, 26 features. Zonas de Especial Protección para las Aves (ZEPA) de la Región de Murcia, en aplicación de la Directiva 79/409/CEE del Consejo, de 2 de abril, relativa a la Conservación de las Aves Silvestres, reemplazada por la Directiva 2009/147/CE del Parlamento Europeo y del Consejo, de 30 de noviembre de 2009 (Directiva Aves). Contiene 26 registros, 24 para las ZEPA gestionadas por la CARM y 2 para las ZEPA, de ámbito estrictamente marítimo, tuteladas por el Ministerio de Agricultura, Alimentación y Medio Ambiente (MAGRAMA).",
+      "featureCount": 26
+    }
+  ],
+  "excludedMarineSites": [
+    "ES6200029",
+    "ES6200030",
+    "ES6200048",
+    "ES0000507",
+    "ES0000508",
+    "ES0000260"
+  ],
+  "toleranceMeters": 50,
+  "values": {
+    "510": [
+      {
+        "code": "EN0000012",
+        "name": "Sierra de la Muela, Cabo Tiñoso y Roldán",
+        "designation": "Sin figura asignada (Propuesto Parque Regional)",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200015",
+        "name": "La Muela y Cabo Tiñoso",
+        "designation": "LIC",
+        "network": "natura2000"
+      },
+      {
+        "code": "ES0000264",
+        "name": "La Muela-Cabo Tiñoso",
+        "designation": "ZEPA",
+        "network": "natura2000"
+      }
+    ],
+    "511": [
+      {
+        "code": "EN0000012",
+        "name": "Sierra de la Muela, Cabo Tiñoso y Roldán",
+        "designation": "Sin figura asignada (Propuesto Parque Regional)",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200024",
+        "name": "Cabezo de Roldán",
+        "designation": "LIC",
+        "network": "natura2000"
+      },
+      {
+        "code": "ES0000264",
+        "name": "La Muela-Cabo Tiñoso",
+        "designation": "ZEPA",
+        "network": "natura2000"
+      }
+    ],
+    "513": [
+      {
+        "code": "ENP000005",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200001",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "514": [
+      {
+        "code": "ENP000005",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200001",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "516": [
+      {
+        "code": "ENP000005",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200001",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "517": [
+      {
+        "code": "ENP000005",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200001",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "529": [
+      {
+        "code": "ES6200006",
+        "name": "Espacios Abiertos e Islas del Mar Menor",
+        "designation": "ZEC",
+        "network": "natura2000"
+      }
+    ],
+    "530": [
+      {
+        "code": "ENP000008",
+        "name": "Espacios Abiertos e Islas del Mar Menor",
+        "designation": "Paisaje Protegido",
+        "network": "enp"
+      }
+    ],
+    "532": [
+      {
+        "code": "ENP000008",
+        "name": "Espacios Abiertos e Islas del Mar Menor",
+        "designation": "Paisaje Protegido",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200006",
+        "name": "Espacios Abiertos e Islas del Mar Menor",
+        "designation": "ZEC",
+        "network": "natura2000"
+      }
+    ],
+    "544": [
+      {
+        "code": "ENP000004",
+        "name": "Salinas y Arenales de San Pedro del Pinatar",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES0000175",
+        "name": "Salinas y Arenales de San Pedro del Pinatar",
+        "designation": "ZEC",
+        "network": "natura2000"
+      }
+    ],
+    "545": [
+      {
+        "code": "ENP000004",
+        "name": "Salinas y Arenales de San Pedro del Pinatar",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES0000175",
+        "name": "Salinas y Arenales de San Pedro del Pinatar",
+        "designation": "ZEC",
+        "network": "natura2000"
+      }
+    ],
+    "546": [
+      {
+        "code": "ENP000004",
+        "name": "Salinas y Arenales de San Pedro del Pinatar",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES0000175",
+        "name": "Salinas y Arenales de San Pedro del Pinatar",
+        "designation": "ZEC",
+        "network": "natura2000"
+      }
+    ],
+    "551": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200012",
+        "name": "Calnegre",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "552": [
+      {
+        "code": "ENP000009",
+        "name": "Sierra de las Moreras",
+        "designation": "Paisaje Protegido",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200011",
+        "name": "Sierra de las Moreras",
+        "designation": "LIC",
+        "network": "natura2000"
+      },
+      {
+        "code": "ES0000261",
+        "name": "Almenara, Moreras y Cabo Cope",
+        "designation": "ZEPA",
+        "network": "natura2000"
+      }
+    ],
+    "553": [
+      {
+        "code": "EN0000012",
+        "name": "Sierra de la Muela, Cabo Tiñoso y Roldán",
+        "designation": "Sin figura asignada (Propuesto Parque Regional)",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200015",
+        "name": "La Muela y Cabo Tiñoso",
+        "designation": "LIC",
+        "network": "natura2000"
+      },
+      {
+        "code": "ES0000264",
+        "name": "La Muela-Cabo Tiñoso",
+        "designation": "ZEPA",
+        "network": "natura2000"
+      }
+    ],
+    "554": [
+      {
+        "code": "EN0000012",
+        "name": "Sierra de la Muela, Cabo Tiñoso y Roldán",
+        "designation": "Sin figura asignada (Propuesto Parque Regional)",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200015",
+        "name": "La Muela y Cabo Tiñoso",
+        "designation": "LIC",
+        "network": "natura2000"
+      },
+      {
+        "code": "ES0000264",
+        "name": "La Muela-Cabo Tiñoso",
+        "designation": "ZEPA",
+        "network": "natura2000"
+      }
+    ],
+    "556": [
+      {
+        "code": "ENP000005",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200001",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "557": [
+      {
+        "code": "ENP000005",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200001",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "565": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      }
+    ],
+    "566": [
+      {
+        "code": "ENP000007",
+        "name": "Cuatro Calas",
+        "designation": "Paisaje Protegido",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200010",
+        "name": "Cuatro Calas",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "567": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200012",
+        "name": "Calnegre",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "571": [
+      {
+        "code": "ENP000005",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200001",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "572": [
+      {
+        "code": "ENP000005",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200001",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "575": [
+      {
+        "code": "EN0000012",
+        "name": "Sierra de la Muela, Cabo Tiñoso y Roldán",
+        "designation": "Sin figura asignada (Propuesto Parque Regional)",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200015",
+        "name": "La Muela y Cabo Tiñoso",
+        "designation": "LIC",
+        "network": "natura2000"
+      },
+      {
+        "code": "ES0000264",
+        "name": "La Muela-Cabo Tiñoso",
+        "designation": "ZEPA",
+        "network": "natura2000"
+      }
+    ],
+    "576": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      }
+    ],
+    "578": [
+      {
+        "code": "ENP000004",
+        "name": "Salinas y Arenales de San Pedro del Pinatar",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES0000175",
+        "name": "Salinas y Arenales de San Pedro del Pinatar",
+        "designation": "ZEC",
+        "network": "natura2000"
+      }
+    ],
+    "579": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200012",
+        "name": "Calnegre",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "580": [
+      {
+        "code": "EN0000012",
+        "name": "Sierra de la Muela, Cabo Tiñoso y Roldán",
+        "designation": "Sin figura asignada (Propuesto Parque Regional)",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200015",
+        "name": "La Muela y Cabo Tiñoso",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "583": [
+      {
+        "code": "EN0000012",
+        "name": "Sierra de la Muela, Cabo Tiñoso y Roldán",
+        "designation": "Sin figura asignada (Propuesto Parque Regional)",
+        "network": "enp"
+      },
+      {
+        "code": "ES0000264",
+        "name": "La Muela-Cabo Tiñoso",
+        "designation": "ZEPA",
+        "network": "natura2000"
+      }
+    ],
+    "584": [
+      {
+        "code": "ENP000005",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200001",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "586": [
+      {
+        "code": "ENP000009",
+        "name": "Sierra de las Moreras",
+        "designation": "Paisaje Protegido",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200011",
+        "name": "Sierra de las Moreras",
+        "designation": "LIC",
+        "network": "natura2000"
+      },
+      {
+        "code": "ES0000261",
+        "name": "Almenara, Moreras y Cabo Cope",
+        "designation": "ZEPA",
+        "network": "natura2000"
+      }
+    ],
+    "587": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      }
+    ],
+    "588": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      }
+    ],
+    "589": [
+      {
+        "code": "ENP000007",
+        "name": "Cuatro Calas",
+        "designation": "Paisaje Protegido",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200010",
+        "name": "Cuatro Calas",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "590": [
+      {
+        "code": "ENP000005",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200001",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "593": [
+      {
+        "code": "ENP000007",
+        "name": "Cuatro Calas",
+        "designation": "Paisaje Protegido",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200010",
+        "name": "Cuatro Calas",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "595": [
+      {
+        "code": "ENP000005",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200001",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "599": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      }
+    ],
+    "600": [
+      {
+        "code": "ENP000009",
+        "name": "Sierra de las Moreras",
+        "designation": "Paisaje Protegido",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200011",
+        "name": "Sierra de las Moreras",
+        "designation": "LIC",
+        "network": "natura2000"
+      },
+      {
+        "code": "ES0000261",
+        "name": "Almenara, Moreras y Cabo Cope",
+        "designation": "ZEPA",
+        "network": "natura2000"
+      }
+    ],
+    "601": [
+      {
+        "code": "EN0000012",
+        "name": "Sierra de la Muela, Cabo Tiñoso y Roldán",
+        "designation": "Sin figura asignada (Propuesto Parque Regional)",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200015",
+        "name": "La Muela y Cabo Tiñoso",
+        "designation": "LIC",
+        "network": "natura2000"
+      },
+      {
+        "code": "ES0000264",
+        "name": "La Muela-Cabo Tiñoso",
+        "designation": "ZEPA",
+        "network": "natura2000"
+      }
+    ],
+    "603": [
+      {
+        "code": "EN0000012",
+        "name": "Sierra de la Muela, Cabo Tiñoso y Roldán",
+        "designation": "Sin figura asignada (Propuesto Parque Regional)",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200015",
+        "name": "La Muela y Cabo Tiñoso",
+        "designation": "LIC",
+        "network": "natura2000"
+      },
+      {
+        "code": "ES0000264",
+        "name": "La Muela-Cabo Tiñoso",
+        "designation": "ZEPA",
+        "network": "natura2000"
+      }
+    ],
+    "606": [
+      {
+        "code": "EN0000012",
+        "name": "Sierra de la Muela, Cabo Tiñoso y Roldán",
+        "designation": "Sin figura asignada (Propuesto Parque Regional)",
+        "network": "enp"
+      },
+      {
+        "code": "ES0000264",
+        "name": "La Muela-Cabo Tiñoso",
+        "designation": "ZEPA",
+        "network": "natura2000"
+      }
+    ],
+    "620": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      }
+    ],
+    "621": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      }
+    ],
+    "622": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      }
+    ],
+    "623": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      }
+    ],
+    "624": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      }
+    ],
+    "625": [
+      {
+        "code": "ENP000007",
+        "name": "Cuatro Calas",
+        "designation": "Paisaje Protegido",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200010",
+        "name": "Cuatro Calas",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "626": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200012",
+        "name": "Calnegre",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "627": [
+      {
+        "code": "ENP000005",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200001",
+        "name": "Calblanque, Monte de las Cenizas y Peña del Águila",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "628": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      }
+    ],
+    "629": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200012",
+        "name": "Calnegre",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "630": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200012",
+        "name": "Calnegre",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "631": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200012",
+        "name": "Calnegre",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "632": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200012",
+        "name": "Calnegre",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "641": [
+      {
+        "code": "ENP000009",
+        "name": "Sierra de las Moreras",
+        "designation": "Paisaje Protegido",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200011",
+        "name": "Sierra de las Moreras",
+        "designation": "LIC",
+        "network": "natura2000"
+      },
+      {
+        "code": "ES0000261",
+        "name": "Almenara, Moreras y Cabo Cope",
+        "designation": "ZEPA",
+        "network": "natura2000"
+      }
+    ],
+    "642": [
+      {
+        "code": "ENP000009",
+        "name": "Sierra de las Moreras",
+        "designation": "Paisaje Protegido",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200011",
+        "name": "Sierra de las Moreras",
+        "designation": "LIC",
+        "network": "natura2000"
+      },
+      {
+        "code": "ES0000261",
+        "name": "Almenara, Moreras y Cabo Cope",
+        "designation": "ZEPA",
+        "network": "natura2000"
+      }
+    ],
+    "643": [
+      {
+        "code": "ENP000009",
+        "name": "Sierra de las Moreras",
+        "designation": "Paisaje Protegido",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200011",
+        "name": "Sierra de las Moreras",
+        "designation": "LIC",
+        "network": "natura2000"
+      },
+      {
+        "code": "ES0000261",
+        "name": "Almenara, Moreras y Cabo Cope",
+        "designation": "ZEPA",
+        "network": "natura2000"
+      }
+    ],
+    "658": [
+      {
+        "code": "EN0000012",
+        "name": "Sierra de la Muela, Cabo Tiñoso y Roldán",
+        "designation": "Sin figura asignada (Propuesto Parque Regional)",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200015",
+        "name": "La Muela y Cabo Tiñoso",
+        "designation": "LIC",
+        "network": "natura2000"
+      },
+      {
+        "code": "ES0000264",
+        "name": "La Muela-Cabo Tiñoso",
+        "designation": "ZEPA",
+        "network": "natura2000"
+      }
+    ],
+    "663": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200012",
+        "name": "Calnegre",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "665": [
+      {
+        "code": "ENP000004",
+        "name": "Salinas y Arenales de San Pedro del Pinatar",
+        "designation": "Parque Regional",
+        "network": "enp"
+      }
+    ],
+    "682": [
+      {
+        "code": "ENP000004",
+        "name": "Salinas y Arenales de San Pedro del Pinatar",
+        "designation": "Parque Regional",
+        "network": "enp"
+      }
+    ],
+    "689": [
+      {
+        "code": "ENP000008",
+        "name": "Espacios Abiertos e Islas del Mar Menor",
+        "designation": "Paisaje Protegido",
+        "network": "enp"
+      }
+    ],
+    "5906": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      },
+      {
+        "code": "ES6200012",
+        "name": "Calnegre",
+        "designation": "LIC",
+        "network": "natura2000"
+      }
+    ],
+    "5907": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      }
+    ],
+    "7051": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      }
+    ],
+    "7052": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      }
+    ],
+    "7053": [
+      {
+        "code": "ENP000010",
+        "name": "Calnegre y Cabo Cope",
+        "designation": "Parque Regional",
+        "network": "enp"
+      }
+    ]
+  }
+}

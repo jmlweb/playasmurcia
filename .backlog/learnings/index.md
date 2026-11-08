@@ -48,3 +48,6 @@
 | LRN-042 | Commons licence names need normalising | wikimedia, licence, scripts | active | 2026-11-07 |
 | LRN-043 | Wikimedia geosearch hits are not always the beach | wikimedia, picture-sourcing | active | 2026-11-07 |
 | LRN-044 | Picture files are not in git | pictures, worktree, r2 | active | 2026-11-07 |
+| LRN-045 | CARM GeoServer WFS serves ENP, LIC-ZEC and ZEPA limits as GeoJSON | data, external-source, geo | active | 2026-11-08 |
+| LRN-046 | Beach points sit on the waterline: intersect protected areas with a 50 m tolerance and drop sea sites | data, geo | active | 2026-11-08 |
+| LRN-047 | NODE_ENV=production in the shell breaks pnpm test with React.act is not a function | testing, tooling | active | 2026-11-08 |

@@ -20,6 +20,7 @@ import { ContactInfo } from '@/features/beaches/contact-info'
 import { LocationMap } from '@/features/beaches/location-map'
 import { NearbyCarousel } from '@/features/beaches/nearby-carousel'
 import { PracticalInfoCard } from '@/features/beaches/practical-info-card'
+import { ProtectedAreaNotice } from '@/features/beaches/protected-area-notice'
 import { ServicesGrid } from '@/features/beaches/services-grid'
 import { SmokeFreeNotice } from '@/features/beaches/smoke-free-notice'
 import { TagsSection } from '@/features/beaches/tags-section'
@@ -252,6 +253,9 @@ function BeachPage() {
               )}
               <div className="mt-8 empty:hidden">
                 <SmokeFreeNotice beachCode={beach.code} />
+              </div>
+              <div className="mt-4 empty:hidden">
+                <ProtectedAreaNotice beachCode={beach.code} />
               </div>
             </section>
 

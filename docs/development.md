@@ -172,6 +172,7 @@ pnpm tsx scripts/script-name.ts
 | `add-bathing-water-quality.ts`   | Set the official EU bathing-water class and season from the EEA / NÁYADE dataset                  | Annual (after the EEA season release, around June); then migrate |
 | `derive-sunset-tag.ts`           | Set the `puesta-sol` tag in `beaches.json` from `shoreBearing` (`--dry-run` to preview); see Sunset Tag in business-rules.md | After adding beaches or changing `shoreBearing`; then migrate |
 | `assign-zones.ts`                | Set `zone` in `beaches.json` from the ITREM locality snapshot and `data/zones.json`; `--fetch` refreshes the snapshot | After adding beaches or editing `data/zones.json`; then migrate |
+| `assign-protected-areas.ts`      | Write `data/protected-areas.json` from the CARM ENP, LIC-ZEC and ZEPA WFS layers (~1 min, about 13 MB download) | After adding beaches or moving `coordinates`; yearly for new designations. No migration |
 | `optimize-images.ts`             | Generate WebP/AVIF variants and responsive thumbnails in `public/pictures/optimized/`             | After adding or replacing source images               |
 | `normalize-brightness.ts`        | Normalize brightness/contrast of source photos via histogram stretching (in-place)                | Before `optimize:images`, after new source images     |
 | `sort-pictures-by-resolution.ts` | Sort `pictures` arrays in `beaches.json` by image resolution (highest first), keeping the cover `pictures[0]` in place | After adding new pictures; then migrate               |
@@ -237,6 +238,14 @@ node scripts/validate-beaches.js
 ```
 
 Sets `zone` in `data/beaches.json` from `data/source/itrem-localities.json` and the hand curation in `data/zones.json`. `--fetch` reads each ITREM page (`https://itrem.carm.es/es/playa/<slug>-<code>/`, decoded as Latin-1) with a 250 ms pause between requests. No API key or env var is needed. A new beach or a new ITREM label makes the script or `validate-beaches.js` fail until `data/zones.json` gets a curated entry. Run it when beaches are added or the curation changes. Rules: [business-rules.md](./business-rules.md#beach-zones). Afterwards migrate Turso: the `zone` column must exist first (`pnpm drizzle-kit push` against production), then run the data migration (see [Keeping remote DB in sync](#keeping-remote-db-in-sync)).
+
+#### Protected areas (`assign-protected-areas.ts`)
+
+```bash
+pnpm tsx scripts/assign-protected-areas.ts
+```
+
+Downloads the CARM (IDERM) WFS layers `SIG_LUP_SITES_CARM:ENP`, `SIG_LUP_SITES_CARM:LIC-ZEC` and `SIG_LUP_SITES_CARM:ZEPA` from `https://mapas-gis-inter.carm.es/geoserver/wfs` as GeoJSON (`srsName=EPSG:4326`, which GeoServer answers in `[lng, lat]` order), intersects every beach point, writes `data/protected-areas.json` and prints the beach count per area. Run it after adding beaches or moving `coordinates`, and once a year to catch new designations. No API key or env var is needed. The geometries are not kept. The file is bundled at build time, so no Turso migration is needed. Rules: [business-rules.md](./business-rules.md) (Protected areas).
 
 #### Spell-check Markdown (`fix-orthography.js`)
 

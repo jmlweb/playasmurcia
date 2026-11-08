@@ -85,6 +85,7 @@ playasmurcia/
 │   │   ├── cn.ts           # clsx + tailwind-merge helper
 │   │   ├── slugs.ts        # Slug generation
 │   │   ├── municipality-facts.ts # Population, appraised value and tourist offices from data/municipality-facts.json
+│   │   ├── protected-areas.ts # Protected areas per beach from data/protected-areas.json; point-in-polygon for the script
 │   │   ├── zones.ts        # Beach zones from data/zones.json: lookup, ITREM label mapping, grouping
 │   │   ├── status-styles.ts     # Badge Tailwind class maps
 │   │   ├── images.ts
@@ -250,6 +251,8 @@ Authoritative **editorial source** for bulk fields; after edits, run migration s
 Exception: `data/certification-seasons.json` is not migrated. `src/lib/certification-seasons.ts` imports it statically (`resolveJsonModule`), so a new season year ships with the next deploy without a DB migration.
 
 `data/municipality-facts.json` is bundled the same way by `src/lib/municipality-facts.ts` and rendered by `src/features/municipalities/municipality-facts-panel.tsx`, keyed by INE code. It needs no DB column or migration.
+
+`data/protected-areas.json` is bundled the same way by `src/lib/protected-areas.ts` and rendered by `src/features/beaches/protected-area-notice.tsx`, keyed by beach code. `scripts/assign-protected-areas.ts` writes it; it needs no DB column or migration.
 
 `data/zones.json` is bundled the same way by `src/lib/zones.ts` for zone names, kinds and order. The per-beach `zone` id itself lives in `beaches.json` and the `beaches.zone` column, so it does need the migration. `data/source/itrem-localities.json` is evidence only: neither bundled nor migrated.
 
