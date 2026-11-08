@@ -10,6 +10,8 @@ import {
 } from '@/features/beaches/map-pin'
 import { MAPBOX_STYLE } from '@/features/beaches/map-style'
 
+import { AccessRestrictionNotice } from './access-restriction-notice'
+
 const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN
 
 const IDLE_TIMEOUT_MS = 8_000
@@ -26,8 +28,6 @@ type LocationMapProps = {
   /** Published summer vehicle limits, shown under the directions */
   accessRestriction?: AccessRestriction
 }
-
-import { AccessRestrictionNotice } from './access-restriction-notice'
 
 const LeafletMap = lazy(() =>
   import('@/features/beaches/leaflet-map').then((m) => ({
@@ -150,7 +150,7 @@ export function LocationMap({
           <AccessRestrictionNotice restriction={accessRestriction} />
         </div>
       )}
-      {(address ?? postalCode) && (
+      {(address || postalCode) && (
         <p className="mb-6 text-sm text-gray-700">
           <span className="font-semibold text-gray-900">Dirección:</span>{' '}
           {[address, postalCode && `CP ${postalCode}`]

@@ -596,6 +596,7 @@ async function main(): Promise<void> {
     console.log("  pnpm tsx scripts/source-wikimedia-pictures.ts --search --review")
     console.log("  pnpm tsx scripts/source-wikimedia-pictures.ts --pick 520=1,521=2   # non-interactive review")
     console.log("  pnpm tsx scripts/source-wikimedia-pictures.ts --search --codes 611,584   # specific beaches")
+    console.log("  pnpm tsx scripts/source-wikimedia-pictures.ts --review --codes 611,584   # review those (plain --review skips beaches with pictures)")
     process.exit(0)
   }
 

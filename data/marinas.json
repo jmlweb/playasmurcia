@@ -1,0 +1,229 @@
+{
+  "source": "ITREM, páginas de puertos deportivos (itrem.carm.es/es/puerto_deportivo/); coordenadas del mapa de cada página",
+  "sourceUrl": "https://itrem.carm.es/sitemap.xml",
+  "verifiedOn": "2026-11-08",
+  "excluded": [
+    {
+      "itremId": 1269,
+      "name": "Puerto de Águilas",
+      "reason": "Puerto comercial y pesquero"
+    },
+    {
+      "itremId": 1272,
+      "name": "CAR Mar Menor Infanta Cristina",
+      "reason": "Centro de alto rendimiento deportivo, no puerto"
+    },
+    {
+      "itremId": 5259,
+      "name": "Autoridad Portuaria de Cartagena",
+      "reason": "Organismo portuario, sin amarres de recreo"
+    }
+  ],
+  "values": [
+    {
+      "itremId": 1267,
+      "name": "Puerto Deportivo Juan Montiel",
+      "municipality": "30003",
+      "coordinates": [
+        37.395869,
+        -1.599616
+      ],
+      "url": "https://puertodeportivojuanmontiel.es",
+      "phone": "968 414 968"
+    },
+    {
+      "itremId": 1268,
+      "name": "Club Náutico de Águilas",
+      "municipality": "30003",
+      "coordinates": [
+        37.407519,
+        -1.573604
+      ],
+      "url": "https://cnaguilas.com",
+      "phone": "968 411 951"
+    },
+    {
+      "itremId": 1270,
+      "name": "Puerto Deportivo de Cabo de Palos",
+      "municipality": "30016",
+      "coordinates": [
+        37.633116,
+        -0.70266
+      ],
+      "phone": "968 563 515"
+    },
+    {
+      "itremId": 1273,
+      "name": "Puerto Deportivo de Dos Mares",
+      "municipality": "30016",
+      "coordinates": [
+        37.662895,
+        -0.732224
+      ],
+      "phone": "968 140 342"
+    },
+    {
+      "itremId": 1274,
+      "name": "Puerto Deportivo de Islas Menores",
+      "municipality": "30016",
+      "coordinates": [
+        37.646355,
+        -0.767441
+      ],
+      "url": "https://cnislasmenores.com",
+      "phone": "968 133 344"
+    },
+    {
+      "itremId": 1275,
+      "name": "Puerto Deportivo de la Isleta",
+      "municipality": "30016",
+      "coordinates": [
+        37.650285,
+        -0.721784
+      ],
+      "phone": "968 145 339"
+    },
+    {
+      "itremId": 1276,
+      "name": "Real Club de Regatas de Santiago de la Ribera",
+      "municipality": "30035",
+      "coordinates": [
+        37.7962033,
+        -0.8028232
+      ],
+      "url": "https://realclubderegatasdesantiagodelaribera.es",
+      "phone": "968 570 250"
+    },
+    {
+      "itremId": 1277,
+      "name": "Club Náutico de Lo Pagán",
+      "municipality": "30036",
+      "coordinates": [
+        37.816466,
+        -0.784932
+      ],
+      "url": "https://clubnauticolopagan.es",
+      "phone": "968 186 958"
+    },
+    {
+      "itremId": 1278,
+      "name": "Puerto Deportivo de Los Alcázares (Club Náutico Mar Menor)",
+      "municipality": "30902",
+      "coordinates": [
+        37.736023,
+        -0.849956
+      ],
+      "url": "https://cnmarmenor.es",
+      "phone": "968 575 129"
+    },
+    {
+      "itremId": 1279,
+      "name": "Puerto Deportivo de Los Nietos",
+      "municipality": "30016",
+      "coordinates": [
+        37.650383,
+        -0.787552
+      ],
+      "url": "https://cnlosnietos.com",
+      "phone": "968 133 300"
+    },
+    {
+      "itremId": 1280,
+      "name": "Puerto Deportivo de Los Urrutias (Club de Regatas Mar Menor)",
+      "municipality": "30016",
+      "coordinates": [
+        37.679618,
+        -0.824872
+      ],
+      "url": "https://clubregatasmarmenor.com",
+      "phone": "968 134 438"
+    },
+    {
+      "itremId": 1281,
+      "name": "Puerto Deportivo Mar de Cristal",
+      "municipality": "30016",
+      "coordinates": [
+        37.643967,
+        -0.760804
+      ],
+      "url": "https://pdmc.es"
+    },
+    {
+      "itremId": 1282,
+      "name": "Puerto Deportivo de Mazarrón",
+      "municipality": "30026",
+      "coordinates": [
+        37.562899,
+        -1.257178
+      ],
+      "url": "https://puertodeportivomazarron.com",
+      "phone": "968 154 065"
+    },
+    {
+      "itremId": 1283,
+      "name": "Club de Regatas de Mazarrón",
+      "municipality": "30026",
+      "coordinates": [
+        37.557036,
+        -1.274602
+      ],
+      "url": "https://crmazarron.com",
+      "phone": "968 594 011"
+    },
+    {
+      "itremId": 1284,
+      "name": "Puerto Deportivo Villa de San Pedro",
+      "municipality": "30036",
+      "coordinates": [
+        37.8218532,
+        -0.7578114
+      ],
+      "url": "https://clubnauticovillasanpedro.com",
+      "phone": "968 182 500"
+    },
+    {
+      "itremId": 1285,
+      "name": "Puerto Deportivo Tomás Maestre",
+      "municipality": "30035",
+      "coordinates": [
+        37.7455222,
+        -0.7422077
+      ],
+      "url": "https://puertomaestre.com",
+      "phone": "968 140 816"
+    },
+    {
+      "itremId": 1287,
+      "name": "Marina de Las Salinas",
+      "municipality": "30036",
+      "coordinates": [
+        37.8207404,
+        -0.7568318
+      ],
+      "url": "https://marinadelassalinas.es",
+      "phone": "968 103 497"
+    },
+    {
+      "itremId": 5260,
+      "name": "Real Club de Regatas de Cartagena",
+      "municipality": "30016",
+      "coordinates": [
+        37.5958121,
+        -0.9843238
+      ],
+      "url": "https://clubregatascartagena.es",
+      "phone": "968 501 507"
+    },
+    {
+      "itremId": 5261,
+      "name": "Yacht Port Cartagena",
+      "municipality": "30016",
+      "coordinates": [
+        37.597369,
+        -0.979491
+      ],
+      "url": "https://yachtportcartagena.com",
+      "phone": "968 121 213"
+    }
+  ]
+}

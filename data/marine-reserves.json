@@ -1,0 +1,31 @@
+{
+  "verifiedOn": "2026-11-08",
+  "values": {
+    "cabo-de-palos-islas-hormigas": {
+      "name": "Reserva Marina de Cabo de Palos-Islas Hormigas",
+      "zones": [
+        "cabo-de-palos"
+      ],
+      "areaHectares": 1931,
+      "createdYear": 1995,
+      "summary": "Reserva marina de interés pesquero de 1.931 hectáreas, creada en 1995, con aguas interiores gestionadas por la Comunidad Autónoma y aguas exteriores por el Ministerio. Pesca recreativa desde embarcación y pesca submarina prohibidas; desde tierra solo con caña en aguas interiores. Fondeo solo en las boyas de amarre.",
+      "integralZone": "Reserva integral: círculo de media milla náutica alrededor del faro de la Isla Hormiga (Hormiga, bajo El Mosquito, El Hormigón y La Losa). Allí no se autoriza el buceo ni la pesca.",
+      "diving": "El buceo necesita autorización: en aguas interiores la concede la Comunidad Autónoma (procedimiento 1153, con cupos diarios por punto de inmersión: Bajo de la Testa, Piles 1 y 2, Bajo de Dentro, Las Palomas y Bajo de la Morra); en aguas exteriores (Bajo de Fuera) la Secretaría General de Pesca, con 30 inmersiones al día en temporada alta. Solo de día, sin fondeo y sin pesca.",
+      "sources": [
+        {
+          "label": "MAPA, características de la reserva",
+          "url": "https://www.mapa.gob.es/es/pesca/temas/proteccion-recursos-pesqueros/reservas-marinas-de-espana/cabo-de-palos-islas-hormigas/caracteristicas"
+        },
+        {
+          "label": "Orden APM/660/2017 (BOE 12-07-2017), aguas exteriores",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2017-8146"
+        },
+        {
+          "label": "Sede CARM, procedimiento 1153 (inmersiones en aguas interiores)",
+          "url": "https://sede.carm.es/web/procedimiento/1153"
+        }
+      ],
+      "note": "En mayo de 2026 el Consejo de Gobierno anunció una ampliación de 168 ha de aguas interiores; no se ha localizado el decreto en el BORM, así que no se refleja aquí."
+    }
+  }
+}
