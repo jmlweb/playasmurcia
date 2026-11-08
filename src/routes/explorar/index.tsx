@@ -41,7 +41,11 @@ import {
   dropUnknownFilterIds,
 } from '@/lib/beach-filters'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
-import { mergeExplorerSearch, validateSearch } from '@/lib/explorer-search'
+import {
+  keepUnsettledFlagGreen,
+  mergeExplorerSearch,
+  validateSearch,
+} from '@/lib/explorer-search'
 import { haversineKm } from '@/lib/geo'
 import { pictureUrl } from '@/lib/images'
 import { beachToSlug } from '@/lib/slugs'
@@ -223,13 +227,18 @@ function ExplorerPage() {
       history: 'push' | 'replace' = 'push',
     ) => {
       void navigate({
-        search: (prev) => mergeExplorerSearch(prev, next, page),
+        search: (prev) =>
+          mergeExplorerSearch(
+            prev,
+            keepUnsettledFlagGreen(prev, next, flagsSettled),
+            page,
+          ),
         replace: history === 'replace',
         // Scrolling stays here: a filter keeps its place, a page goes to results
         resetScroll: false,
       })
     },
-    [navigate],
+    [navigate, flagsSettled],
   )
 
   function handleViewChange(nextView: 'list' | 'map') {
@@ -437,7 +446,11 @@ function ExplorerPage() {
               showClearAll={allFiltered.length > 0}
               tags={tags}
               onClearAll={() => {
-                updateFilters({ sort })
+                // Clears a hidden flagGreen too: the visitor asked for a reset
+                void navigate({
+                  search: (prev) => mergeExplorerSearch(prev, { sort }),
+                  resetScroll: false,
+                })
               }}
               onUpdateFilters={updateFilters}
             />

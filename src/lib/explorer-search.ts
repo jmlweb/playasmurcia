@@ -123,6 +123,20 @@ export function mergeExplorerSearch(
   }
 }
 
+/**
+ * A shared `flagGreen` URL is hidden from the applied filters until the live
+ * flags settle, so a filter change made in that window would otherwise write
+ * the URL without it. Carry the previous value until flags are settled.
+ */
+export function keepUnsettledFlagGreen(
+  prev: ExplorerSearchParams,
+  next: BeachSearchParams,
+  flagsSettled: boolean,
+): BeachSearchParams {
+  if (flagsSettled || next.flagGreen || !prev.flagGreen) return next
+  return { ...next, flagGreen: prev.flagGreen }
+}
+
 export function validateSearch(
   search: Record<string, unknown>,
 ): ExplorerSearchParams {

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import {
+  keepUnsettledFlagGreen,
   mergeExplorerSearch,
   validateListingSearch,
   validateMunicipalitySearch,
@@ -221,5 +222,33 @@ describe('mergeExplorerSearch', () => {
 
   it('sets a later page', () => {
     expect(mergeExplorerSearch({}, {}, 2).page).toBe(2)
+  })
+})
+
+describe('keepUnsettledFlagGreen', () => {
+  const prev = { flagGreen: true as const, sort: 'name' as const }
+
+  it('carries flagGreen from the URL while flags are not settled', () => {
+    expect(keepUnsettledFlagGreen(prev, { sort: 'length' }, false)).toEqual({
+      sort: 'length',
+      flagGreen: true,
+    })
+  })
+
+  it('leaves the selection alone once flags are settled', () => {
+    expect(keepUnsettledFlagGreen(prev, { sort: 'length' }, true)).toEqual({
+      sort: 'length',
+    })
+  })
+
+  it('does nothing when the URL has no flagGreen', () => {
+    expect(keepUnsettledFlagGreen({}, { sort: 'length' }, false)).toEqual({
+      sort: 'length',
+    })
+  })
+
+  it('keeps flagGreen in the URL across an early filter change', () => {
+    const next = keepUnsettledFlagGreen(prev, { services: [1] }, false)
+    expect(mergeExplorerSearch(prev, next).flagGreen).toBe(true)
   })
 })
