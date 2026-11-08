@@ -132,6 +132,10 @@ async function main() {
       console.error(`  ✗ ${beach.code} ${beach.name}: ${String(error)}`)
     }
   }
+  if (failed > 0) {
+    console.error(`\n${String(failed)} beaches failed; output left untouched`)
+    process.exit(1)
+  }
   const out = {
     source: 'ITREM, ficha de accesibilidad de cada playa (datos de campo FAMDIF)',
     sourceUrl: 'https://itrem.carm.es/es/playas/',

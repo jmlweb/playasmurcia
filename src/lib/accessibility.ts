@@ -35,8 +35,3 @@ export const accessibilitySource = {
 export const getAccessibilitySheet = (
   code: string,
 ): AccessibilitySheet | undefined => sheets[code]
-
-/** Whether the sheet describes a beach a wheelchair user can actually use */
-export const isPracticable = (sheet: AccessibilitySheet): boolean =>
-  /practicable|punto accesible/.test(sheet.category) &&
-  !sheet.category.startsWith('no practicable')

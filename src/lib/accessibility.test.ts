@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 
 import beaches from '../../data/beaches.json'
 import services from '../../data/services.json'
-import { getAccessibilitySheet, isPracticable } from './accessibility'
+import { getAccessibilitySheet } from './accessibility'
 
 const ASSISTED_BATHING = services.findIndex((s) => s.id === 'assisted-bathing')
 
@@ -37,24 +37,5 @@ describe('getAccessibilitySheet', () => {
     expect(sheet?.amphibiousChairs).toBe(2)
     expect(sheet?.adaptedBathingZone).toBe(true)
     expect(sheet?.season).toContain('01/07/26')
-  })
-})
-
-describe('isPracticable', () => {
-  it('rejects no accesible and no practicable sheets', () => {
-    const base = { year: 2026, sourceUrl: '' }
-    expect(isPracticable({ ...base, category: 'no accesible' })).toBe(false)
-    expect(
-      isPracticable({
-        ...base,
-        category: 'no practicable parcialmente equipada',
-      }),
-    ).toBe(false)
-    expect(isPracticable({ ...base, category: 'practicable equipada' })).toBe(
-      true,
-    )
-    expect(
-      isPracticable({ ...base, category: 'punto accesible con baño asistido' }),
-    ).toBe(true)
   })
 })

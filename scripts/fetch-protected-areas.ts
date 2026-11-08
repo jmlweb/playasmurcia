@@ -93,6 +93,7 @@ async function fetchNatura(lat: number, lng: number): Promise<NaturaSite[]> {
     f: 'json',
   })
   const res = await fetch(`${NATURA_URL}?${params}`)
+  if (!res.ok) throw new Error(`EEA ${String(res.status)}`)
   const data = (await res.json()) as {
     error?: { message: string }
     features?: { attributes: { SITECODE: string; SITENAME: string; SITETYPE: 'A' | 'B' | 'C' } }[]
@@ -160,6 +161,11 @@ async function main() {
       failed++
       console.error(`  ✗ ${beach.code} ${beach.name}: ${String(error)}`)
     }
+  }
+  // A partial run must not overwrite good data with silence
+  if (failed > 0) {
+    console.error(`\n${String(failed)} beaches failed; data/protected-areas.json left untouched`)
+    process.exit(1)
   }
   const out = {
     natura2000Source: {

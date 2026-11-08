@@ -45,7 +45,7 @@ export function ProtectedAreasNotice({ areas }: ProtectedAreasNoticeProps) {
       <span className="font-semibold">Espacio protegido.</span>{' '}
       {areas.regional.length > 0 && (
         <>
-          La playa está dentro del{' '}
+          La playa está en un espacio natural protegido:{' '}
           {joinNames(
             areas.regional.map((site) => `${site.figure} ${site.name}`),
           )}
