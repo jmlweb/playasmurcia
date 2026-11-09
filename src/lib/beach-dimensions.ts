@@ -10,7 +10,8 @@ export type BeachDimensions = {
   sourceUrl: string
 }
 
-const values = dimensions.values as Record<string, BeachDimensions>
+// The JSON infers tuple ranges as number[], so the cast goes through unknown
+const values = dimensions.values as unknown as Record<string, BeachDimensions>
 
 export const dimensionsSource = {
   label: dimensions.source,

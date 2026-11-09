@@ -25,7 +25,7 @@ describe('ProtectedAreasNotice', () => {
     )
     const text = screen.getByRole('note').textContent
     expect(text).toContain(
-      'dentro del Parque Regional Calblanque, Monte de las Cenizas',
+      'espacio natural protegido: Parque Regional Calblanque, Monte de las Cenizas',
     )
     expect(text).toContain('Red Natura 2000: Calblanque (LIC/ZEC ES6200001)')
     expect(text).toContain(
