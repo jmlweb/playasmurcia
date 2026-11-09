@@ -4,10 +4,10 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 9 |
+| Pending | 8 |
 | Active | 0 |
 | Blocked | 0 |
-| Complete | 179 |
+| Complete | 180 |
 
 ## Active Tasks
 
@@ -17,7 +17,6 @@ _No active tasks._
 
 | ID | Title | Priority | Tags | Created |
 |----|-------|----------|------|---------|
-| TSK-147 | Official beach width and length from ITREM; review OSM length | P3 | data, external-source, cleanup | 2026-11-04 |
 | TSK-172 | Fix: Search flushSync exception unverified on real phones | P4 | bug, navbar, needs-device | 2026-11-06 |
 | TSK-185 | Fiesta de interés turístico badges per coastal municipality | P4 | data, content, municipalities | 2026-11-08 |
 | TSK-186 | GR-92 Costa Cálida trail: length and stages copy | P4 | content, data | 2026-11-08 |
@@ -31,6 +30,7 @@ _No active tasks._
 
 | ID | Title | Completed |
 |----|-------|-----------|
+| TSK-147 | Official beach width and length from ITREM; review OSM length | 2026-11-09 |
 | TSK-130 | Fix: WebMCP search_beaches accepts prototype keys as accessDifficulty and occupancy | 2026-11-08 |
 | TSK-132 | Fix: Three beaches tagged Chiringuito lack the chiringuito service and miss the Con chiringuito collection | 2026-11-08 |
 | TSK-136 | Expose address and postalCode fields | 2026-11-08 |
@@ -40,4 +40,3 @@ _No active tasks._
 | TSK-141 | Accessible beaches: assisted bathing and amphibious chairs | 2026-11-08 |
 | TSK-142 | Photos for the 53 beaches with no pictures | 2026-11-08 |
 | TSK-143 | Seasonal access restrictions (Calblanque, Cabo Cope, Cala Cerrada) | 2026-11-08 |
-| TSK-148 | Municipality facts: population, appraised housing value, tourist offices | 2026-11-08 |
