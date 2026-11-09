@@ -8,6 +8,7 @@ import type {
   Tag,
 } from '@/types/beach'
 
+import { getDisplayLength } from '@/lib/beach-dimensions'
 import {
   AccessDifficultyLabels,
   normalizeText,
@@ -144,7 +145,7 @@ export function summarizeBeach(
     municipality: catalog.municipalities[beach.municipality]?.name ?? '',
     sea: catalog.seas[beach.sea]?.name ?? '',
     coordinates: beach.coordinates,
-    lengthMeters: beach.length,
+    lengthMeters: getDisplayLength(beach.code, beach.length),
     occupancy: beach.occupancyLevel
       ? OccupancyLabels[beach.occupancyLevel]
       : undefined,

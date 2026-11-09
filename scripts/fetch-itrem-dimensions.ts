@@ -57,6 +57,7 @@ async function main() {
   for (const beach of beaches) {
     try {
       const res = await fetch(pageUrl(beach.code))
+      if (!res.ok) throw new Error(`ITREM ${String(res.status)}`)
       const html = new TextDecoder('latin1').decode(await res.arrayBuffer())
       // Unknown codes answer 200 with the list page (LRN-038)
       if (!html.includes('<h1 class="h2 fw-bold text-dark mb-2">')) continue
