@@ -119,7 +119,7 @@ const safeDecode = (slug: string): string | undefined => {
 async function getBeachConditionsMarkdown(
   slug: string,
   checkedAt: Date,
-): Promise<string | undefined> {
+): Promise<{ markdown: string; isComplete: boolean } | undefined> {
   const [
     { getBeachBySlug, getMunicipality },
     { fetchBeachForecast, withTimeout },
@@ -137,11 +137,17 @@ async function getBeachConditionsMarkdown(
     fetchBeachForecast(beach),
     withTimeout(getBeachStatus(beach.name, municipality.name)),
   ])
-  return formatBeachConditions({
-    checkedAt,
-    forecast: settled(forecast),
-    status: settled(status),
-  })
+  return {
+    markdown: formatBeachConditions({
+      checkedAt,
+      forecast: settled(forecast),
+      status: settled(status),
+    }),
+    // A beach with no flag today still fulfils; only a failed source is a gap.
+    // `current` comes from Open-Meteo alone, so its absence is that outage
+    isComplete:
+      settled(forecast)?.current != null && status.status === 'fulfilled',
+  }
 }
 
 // Conditions lead the page body: they are what an agent is usually asked about
@@ -174,10 +180,11 @@ export async function withBeachConditions(
   if (!conditions) return response
 
   const headers = new Headers(response.headers)
-  // A short outage must not be served from the edge for the whole TTL
-  if (conditions === NO_CONDITIONS) headers.set('Cache-Control', 'no-store')
+  // A short outage, even of one source, must not be served from the edge for
+  // the whole TTL
+  if (!conditions.isComplete) headers.set('Cache-Control', 'no-store')
   const markdown = await response.text()
-  return new Response(insertConditions(markdown, conditions), {
+  return new Response(insertConditions(markdown, conditions.markdown), {
     status: response.status,
     statusText: response.statusText,
     headers,

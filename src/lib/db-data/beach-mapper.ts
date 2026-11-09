@@ -54,6 +54,7 @@ export function mapBeachFromDB(dbBeach: {
   activities: { activityId: number }[]
   tags: { tagId: number }[]
 }): Beach {
+  const displayLength = getDisplayLength(dbBeach.code, dbBeach.length)
   return {
     code: dbBeach.code,
     name: dbBeach.name,
@@ -112,7 +113,9 @@ export function mapBeachFromDB(dbBeach: {
       pictureQualityScore: dbBeach.pictureQualityScore as 0 | 1 | 2 | 3,
     }),
     ...(dbBeach.aemetId && { aemetId: dbBeach.aemetId }),
-    ...(dbBeach.length !== null && { length: dbBeach.length }),
+    // Cards, sorting and the detail page must agree, so every consumer gets
+    // the display length (ITREM when published, else OSM)
+    ...(displayLength !== undefined && { length: displayLength }),
     ...(dbBeach.accessDifficulty && {
       accessDifficulty: dbBeach.accessDifficulty as
         | 'easy'
@@ -139,7 +142,7 @@ export function mapBeachFromDB(dbBeach: {
     recommendationScore: computeRecommendationScore({
       services: dbBeach.services.map((s) => s.serviceId - 1),
       // ITREM length when published: OSM merges inflate several beaches
-      length: getDisplayLength(dbBeach.code, dbBeach.length) ?? null,
+      length: displayLength ?? null,
       pictureQualityScore: dbBeach.pictureQualityScore,
       accessDifficulty: dbBeach.accessDifficulty,
       certifications: dbBeach.certifications,

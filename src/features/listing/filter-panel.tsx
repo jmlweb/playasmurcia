@@ -32,6 +32,7 @@ import {
   TodayFilterLabels,
 } from '@/lib/beach-filters'
 import { cn } from '@/lib/cn'
+import { sortMunicipalitiesAlphabetically } from '@/lib/nav-builders'
 
 import { FilterRow, SegmentedFilter, toggleValue } from './filter-controls'
 
@@ -346,6 +347,15 @@ function FilterContent({
     tags,
   })
 
+  // Filter values are positions in `municipalities`, so each row keeps its own
+  const sortedMunicipalities = useMemo(
+    () =>
+      sortMunicipalitiesAlphabetically(
+        municipalities.map(({ name }, index) => ({ name, index })),
+      ),
+    [municipalities],
+  )
+
   function toggleArrayFilter(
     key: IndexKey,
     index: number,
@@ -544,14 +554,14 @@ function FilterContent({
         label="Municipio"
       >
         <div className="-mx-2">
-          {municipalities.map((m, i) => (
+          {sortedMunicipalities.map(({ name, index }) => (
             <FilterRow
-              key={m.name}
-              count={counts.indexed.municipality[i]}
-              label={m.name}
-              pressed={(filters.municipality ?? []).includes(i)}
+              key={name}
+              count={counts.indexed.municipality[index]}
+              label={name}
+              pressed={(filters.municipality ?? []).includes(index)}
               onToggle={() => {
-                toggleArrayFilter('municipality', i, filters.municipality)
+                toggleArrayFilter('municipality', index, filters.municipality)
               }}
             />
           ))}

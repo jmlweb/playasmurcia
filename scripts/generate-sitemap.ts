@@ -2,7 +2,7 @@ import { writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
 import { runWithDbScope } from '../src/db/request-scope'
-import { collections } from '../src/lib/collections'
+import { allCollections } from '../src/lib/collections'
 import {
   beachToSlug,
   getAllBeaches,
@@ -52,7 +52,7 @@ async function generateSitemap() {
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>`,
-    ...collections.map(
+    ...allCollections.map(
       (collection) => `  <url>
     <loc>${BASE_URL}/colecciones/${collection.slug}</loc>
     <lastmod>${today}</lastmod>

@@ -23,6 +23,11 @@ describe('parseSearchInput', () => {
     expect(result.municipality).toBeUndefined()
   })
 
+  it('caps text fields, which are compared against every beach', () => {
+    const result = parseSearchInput({ query: 'a'.repeat(5000) })
+    expect(result.query).toHaveLength(200)
+  })
+
   it('accepts a single string or an array for list fields', () => {
     expect(parseSearchInput({ services: 'Duchas' }).services).toEqual([
       'Duchas',

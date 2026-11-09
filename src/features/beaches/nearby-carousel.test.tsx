@@ -96,8 +96,8 @@ describe('NearbyCarousel', () => {
       },
     ]
     renderCarousel(items)
-    const linkA = screen.getByRole('link', { name: 'Ver playa Playa A' })
-    const linkB = screen.getByRole('link', { name: 'Ver playa Playa B' })
+    const linkA = screen.getByRole('link', { name: /Playa A/ })
+    const linkB = screen.getByRole('link', { name: /Playa B/ })
     expect(linkA.getAttribute('href')).toBe('/playas/playa-a')
     expect(linkB.getAttribute('href')).toBe('/playas/playa-b')
   })
@@ -110,10 +110,11 @@ describe('NearbyCarousel', () => {
       slug: name,
     }))
     renderCarousel(items)
-    const links = screen.getAllByRole('link', { name: /^Ver playa / })
-    expect(links.map((link) => link.getAttribute('aria-label'))).toEqual(
-      names.map((name) => `Ver playa ${name}`),
-    )
+    const links = screen.getAllByRole('link')
+    links.forEach((link, index) => {
+      expect(link.textContent).toContain(names[index])
+    })
+    expect(links).toHaveLength(names.length)
   })
 
   it('renders the beach picture when available', () => {
@@ -121,8 +122,10 @@ describe('NearbyCarousel', () => {
     renderCarousel([
       { beach, municipality: mockMunicipality, slug: 'playa-foto' },
     ])
-    const img = screen.getByRole('img', { name: 'Playa Foto' })
-    expect(img.getAttribute('src')).toBe('/pictures/foto.jpg')
+    // Decorative: the link text names the beach, so the image has no role
+    const img = document.querySelector('img')
+    expect(img?.getAttribute('src')).toBe('/pictures/foto.jpg')
+    expect(img?.getAttribute('alt')).toBe('')
   })
 
   it('renders a placeholder when no pictures are available', () => {

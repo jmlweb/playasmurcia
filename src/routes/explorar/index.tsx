@@ -98,7 +98,7 @@ export const Route = createFileRoute('/explorar/')({
       { title: 'Todas las playas - Playas de Murcia' },
       {
         name: 'description',
-        content: `Explora y filtra las ${loaderData?.beaches.length ?? 194} playas de la Región de Murcia. Busca por municipio, mar, servicios, actividades y más.`,
+        content: `Explora y filtra las ${loaderData?.beaches.length ?? 193} playas de la Región de Murcia. Busca por municipio, mar, servicios, actividades y más.`,
       },
       ogUrlMeta('/explorar'),
     ],

@@ -163,10 +163,10 @@ export function getDayDescription(parts: AemetDayParts): string {
  * AEMET keeps yesterday in the payload until its morning update, and the widget
  * treats the first day as today.
  */
-export function dropPastDays(
-  dias: readonly AemetForecastDay[],
+export function dropPastDays<TDay extends { fecha: number }>(
+  dias: readonly TDay[],
   now: Date,
-): AemetForecastDay[] {
+): TDay[] {
   const madridToday = Date.parse(
     new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Madrid' }).format(now),
   )

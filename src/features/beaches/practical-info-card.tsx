@@ -39,7 +39,7 @@ function WaterQualityCitation({ source }: { source: WaterQualitySource }) {
       Clasificación oficial UE, temporada {source.season}. Fuente:{' '}
       {source.profileUrl ? (
         <a
-          className="rounded text-ocean-600 hover:text-ocean-700 hover:underline focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none"
+          className="rounded text-ocean-600 underline underline-offset-2 hover:text-ocean-700 focus-visible:ring-2 focus-visible:ring-ocean-500 focus-visible:outline-none"
           href={source.profileUrl}
           rel="noopener noreferrer"
           target="_blank"

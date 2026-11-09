@@ -97,7 +97,9 @@ export async function fetchBeachForecast(
   const hasAemet = aemetDays.length > 0
   if (!hasAemet && !openMeteo) return null
 
-  const openMeteoDays = openMeteo?.days ?? []
+  // The cached forecast outlives midnight: without this, yesterday leads the
+  // list and the widget labels it as today
+  const openMeteoDays = dropPastDays(openMeteo?.days ?? [], new Date())
   const days = hasAemet
     ? mergeForecastDays(aemetDays, openMeteoDays)
     : openMeteoDays
@@ -109,7 +111,11 @@ export async function fetchBeachForecast(
     days: isLagoon ? days.map(withoutWaves) : days,
     current: openMeteo?.current,
     observedAt: openMeteo?.observedAt,
-    waterTemp: marine?.currentTemp ?? aemetDays.at(0)?.waterTemp,
+    // The marine model has no lagoon cell and answers with the nearest open-sea
+    // one, so the Mar Menor only gets the temperature AEMET forecasts for it
+    waterTemp: isLagoon
+      ? aemetDays.at(0)?.waterTemp
+      : (marine?.currentTemp ?? aemetDays.at(0)?.waterTemp),
     waves: isLagoon ? undefined : toWaves(marine, target.shoreBearing),
   }
 }

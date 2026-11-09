@@ -36,9 +36,12 @@ export type SearchToolInput = {
 export const DEFAULT_SEARCH_LIMIT = 10
 export const MAX_SEARCH_LIMIT = 50
 
+// Text is compared against every beach, so it is bounded like the result limit
+const MAX_TEXT_LENGTH = 200
+
 function asText(value: unknown): string | undefined {
   if (typeof value !== 'string') return undefined
-  const trimmed = value.trim()
+  const trimmed = value.trim().slice(0, MAX_TEXT_LENGTH)
   return trimmed.length > 0 ? trimmed : undefined
 }
 
