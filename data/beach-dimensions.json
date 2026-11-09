@@ -1,0 +1,780 @@
+{
+  "source": "ITREM, ficha de cada playa (Características: Longitud, Anchura media)",
+  "sourceUrl": "https://itrem.carm.es/es/playas/",
+  "fetchedOn": "2026-11-09",
+  "values": {
+    "512": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-512/",
+      "officialLength": 210,
+      "officialWidth": 28
+    },
+    "518": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-518/",
+      "officialLength": 200,
+      "officialWidth": 20
+    },
+    "524": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-524/",
+      "officialLength": 1600,
+      "officialWidth": 10
+    },
+    "525": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-525/",
+      "officialLength": 200,
+      "officialWidth": 20
+    },
+    "527": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-527/",
+      "officialLength": 550,
+      "officialWidth": 15
+    },
+    "529": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-529/",
+      "officialLength": 800,
+      "officialWidth": 17
+    },
+    "530": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-530/",
+      "officialLength": 1400,
+      "officialWidth": 35
+    },
+    "531": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-531/",
+      "officialLength": 900,
+      "officialWidth": 5
+    },
+    "533": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-533/",
+      "officialLength": 207,
+      "officialWidth": 30
+    },
+    "534": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-534/",
+      "officialLength": 650,
+      "officialWidth": 20
+    },
+    "535": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-535/",
+      "officialLength": 230,
+      "officialWidth": 20
+    },
+    "536": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-536/",
+      "officialLength": 2900,
+      "officialWidth": 18
+    },
+    "537": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-537/",
+      "officialLength": 1500,
+      "officialWidth": 18
+    },
+    "538": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-538/",
+      "officialLength": 800,
+      "officialWidth": 10
+    },
+    "539": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-539/",
+      "officialLength": 1700,
+      "officialWidth": 10
+    },
+    "540": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-540/",
+      "officialLength": 700,
+      "officialWidth": 10
+    },
+    "541": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-541/",
+      "officialLength": 450,
+      "officialWidth": 10
+    },
+    "542": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-542/",
+      "officialLength": 3300,
+      "officialWidth": 10
+    },
+    "543": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-543/",
+      "officialLength": 1800,
+      "officialWidth": 10
+    },
+    "544": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-544/",
+      "officialLength": 1260,
+      "officialWidth": 20
+    },
+    "545": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-545/",
+      "officialLength": 700,
+      "officialWidth": 10
+    },
+    "546": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-546/",
+      "officialLength": 2210,
+      "officialWidth": 30
+    },
+    "548": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-548/",
+      "officialLength": 30,
+      "officialWidth": 8
+    },
+    "551": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-551/",
+      "officialLength": 40,
+      "officialWidth": 8
+    },
+    "552": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-552/",
+      "officialLength": 30,
+      "officialWidth": 9
+    },
+    "556": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-556/",
+      "officialLength": 40,
+      "officialWidth": 8
+    },
+    "560": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-560/",
+      "officialLength": 950,
+      "officialWidth": 110
+    },
+    "561": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-561/",
+      "officialLength": 1850,
+      "officialWidth": 18
+    },
+    "562": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-562/",
+      "officialLength": 2600,
+      "officialWidth": 20
+    },
+    "563": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-563/",
+      "officialLength": 600,
+      "officialWidth": 30
+    },
+    "564": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-564/",
+      "officialLength": 900,
+      "officialWidth": 10
+    },
+    "565": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-565/",
+      "officialLength": 65,
+      "officialWidth": 13
+    },
+    "566": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-566/",
+      "officialLength": 180,
+      "officialWidth": 10
+    },
+    "567": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-567/",
+      "officialLength": 20,
+      "officialWidth": 5
+    },
+    "575": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-575/",
+      "officialLength": 80,
+      "officialWidth": 10
+    },
+    "576": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-576/",
+      "officialLength": 380,
+      "officialWidth": 18
+    },
+    "577": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-577/",
+      "officialLength": 150,
+      "officialWidth": 12
+    },
+    "578": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-578/",
+      "officialLength": 350,
+      "officialWidth": 25
+    },
+    "579": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-579/",
+      "officialLength": 100,
+      "officialWidth": 20
+    },
+    "580": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-580/",
+      "officialLength": 410,
+      "officialWidth": 9
+    },
+    "581": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-581/",
+      "officialLength": 400,
+      "officialWidth": 30
+    },
+    "582": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-582/",
+      "officialLength": 800,
+      "officialWidth": 8
+    },
+    "585": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-585/",
+      "officialLength": 1200,
+      "officialWidth": 25
+    },
+    "586": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-586/",
+      "officialLength": 110,
+      "officialWidth": 12
+    },
+    "587": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-587/",
+      "officialLength": 55,
+      "officialWidth": 11
+    },
+    "588": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-588/",
+      "officialLength": 160,
+      "officialWidth": 14
+    },
+    "589": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-589/",
+      "officialLength": 250,
+      "officialWidth": 17
+    },
+    "590": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-590/",
+      "officialLength": 300,
+      "officialWidth": 40
+    },
+    "591": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-591/",
+      "officialLength": 980,
+      "officialWidth": 40
+    },
+    "592": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-592/",
+      "officialLength": 500,
+      "officialWidth": 20
+    },
+    "593": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-593/",
+      "officialLength": 150,
+      "officialWidth": 20
+    },
+    "594": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-594/",
+      "officialLength": 100,
+      "officialWidth": 11
+    },
+    "596": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-596/",
+      "officialLength": 1175,
+      "officialWidth": 40
+    },
+    "597": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-597/",
+      "officialLength": 500,
+      "officialWidth": 10
+    },
+    "598": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-598/",
+      "officialLength": 270,
+      "officialWidth": 15
+    },
+    "599": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-599/",
+      "officialLength": 100,
+      "officialWidth": 12
+    },
+    "600": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-600/",
+      "officialLength": 85,
+      "officialWidth": 18
+    },
+    "602": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-602/",
+      "officialLength": 45,
+      "officialWidth": 10
+    },
+    "604": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-604/",
+      "officialLength": 450,
+      "officialWidth": 40
+    },
+    "605": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-605/",
+      "officialLength": 65,
+      "officialWidth": 7
+    },
+    "606": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-606/",
+      "officialLength": 350,
+      "officialWidth": 16
+    },
+    "607": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-607/",
+      "officialLength": 250,
+      "officialWidth": 20
+    },
+    "608": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-608/",
+      "officialLength": 290,
+      "officialWidth": 16
+    },
+    "609": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-609/",
+      "officialLength": 60,
+      "officialWidth": 8
+    },
+    "610": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-610/",
+      "officialLength": 40,
+      "officialWidth": 11
+    },
+    "611": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-611/",
+      "officialLength": 150,
+      "officialWidth": 19
+    },
+    "612": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-612/",
+      "officialLength": 580,
+      "officialWidth": 40
+    },
+    "613": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-613/",
+      "officialLength": 200,
+      "officialWidth": 14
+    },
+    "614": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-614/",
+      "officialLength": 500,
+      "officialWidth": 30
+    },
+    "615": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-615/",
+      "officialLength": 150,
+      "officialWidth": 30
+    },
+    "616": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-616/",
+      "officialLength": 60,
+      "officialWidth": 5
+    },
+    "617": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-617/",
+      "officialLength": 60,
+      "officialWidth": 35
+    },
+    "618": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-618/",
+      "officialLength": 1050,
+      "officialWidth": 10
+    },
+    "619": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-619/",
+      "officialLength": 450,
+      "officialWidth": 30
+    },
+    "620": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-620/",
+      "officialLength": 85,
+      "officialWidth": 9
+    },
+    "621": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-621/",
+      "officialLength": 100,
+      "officialWidth": 10
+    },
+    "622": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-622/",
+      "officialLength": 450,
+      "officialWidth": 9
+    },
+    "623": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-623/",
+      "officialLength": 60,
+      "officialWidth": 11
+    },
+    "624": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-624/",
+      "officialLength": 130,
+      "officialWidth": 25
+    },
+    "625": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-625/",
+      "officialLength": 200,
+      "officialWidth": 47
+    },
+    "626": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-626/",
+      "officialLength": 300,
+      "officialWidth": 7
+    },
+    "628": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-628/",
+      "officialLength": 75,
+      "officialWidth": 35
+    },
+    "629": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-629/",
+      "officialLength": 55,
+      "officialWidth": 8
+    },
+    "630": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-630/",
+      "officialLength": 40,
+      "officialWidth": 5
+    },
+    "631": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-631/",
+      "officialLength": 30,
+      "officialWidth": 6
+    },
+    "632": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-632/",
+      "officialLength": 40,
+      "officialWidth": 30
+    },
+    "633": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-633/",
+      "officialLength": 900,
+      "officialWidth": 26
+    },
+    "634": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-634/",
+      "officialLength": 90,
+      "officialWidth": 20
+    },
+    "635": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-635/",
+      "officialLength": 100,
+      "officialWidth": 14
+    },
+    "636": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-636/",
+      "officialLength": 200,
+      "officialWidth": 17
+    },
+    "637": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-637/",
+      "officialLength": 300,
+      "officialWidth": 10
+    },
+    "638": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-638/",
+      "officialLength": 1000,
+      "officialWidth": 30
+    },
+    "639": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-639/",
+      "officialLength": 1750,
+      "officialWidth": 18
+    },
+    "640": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-640/",
+      "officialLength": 100,
+      "officialWidth": 11
+    },
+    "641": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-641/",
+      "officialLength": 80,
+      "officialWidth": 12
+    },
+    "642": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-642/",
+      "officialLength": 100,
+      "officialWidth": 12
+    },
+    "643": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-643/",
+      "officialLength": 90,
+      "officialWidth": 16
+    },
+    "644": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-644/",
+      "officialLength": 115,
+      "officialWidth": 17
+    },
+    "645": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-645/",
+      "officialLength": 90,
+      "officialWidth": 15
+    },
+    "646": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-646/",
+      "officialLength": 1600,
+      "officialWidth": 24
+    },
+    "647": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-647/",
+      "officialLength": 100,
+      "officialWidth": 29
+    },
+    "648": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-648/",
+      "officialLength": 400,
+      "officialWidth": 30
+    },
+    "649": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-649/",
+      "officialLength": 100,
+      "officialWidth": 14
+    },
+    "650": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-650/",
+      "officialLength": 500,
+      "officialWidth": 14
+    },
+    "651": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-651/",
+      "officialLength": 600,
+      "officialWidth": 14
+    },
+    "652": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-652/",
+      "officialLength": 160,
+      "officialWidth": 10
+    },
+    "653": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-653/",
+      "officialLength": 350,
+      "officialWidth": 10
+    },
+    "654": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-654/",
+      "officialLength": 465,
+      "officialWidth": 50
+    },
+    "657": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-657/",
+      "officialLength": 580,
+      "officialWidth": 12
+    },
+    "660": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-660/",
+      "officialLength": 1175,
+      "officialWidth": 40
+    },
+    "661": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-661/",
+      "officialLength": 1400,
+      "officialWidth": 20
+    },
+    "662": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-662/",
+      "officialLength": 190,
+      "officialWidth": 21
+    },
+    "663": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-663/",
+      "officialLength": 190,
+      "officialWidth": 38
+    },
+    "664": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-664/",
+      "officialLength": 520,
+      "officialWidth": 40
+    },
+    "665": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-665/",
+      "officialLength": 1200,
+      "officialWidth": 10
+    },
+    "666": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-666/",
+      "officialLength": 465,
+      "officialWidth": 50
+    },
+    "667": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-667/",
+      "officialLength": 400,
+      "officialWidth": 30
+    },
+    "668": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-668/",
+      "officialLength": 1000,
+      "officialWidth": 30
+    },
+    "669": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-669/",
+      "officialLength": 500,
+      "officialWidth": 42
+    },
+    "670": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-670/",
+      "officialLength": 1000,
+      "officialWidth": 10
+    },
+    "671": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-671/",
+      "officialLength": 1400,
+      "officialWidth": 35
+    },
+    "672": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-672/",
+      "officialLength": 3000,
+      "officialWidth": 35
+    },
+    "673": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-673/",
+      "officialLength": 1500,
+      "officialWidth": 10
+    },
+    "674": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-674/",
+      "officialLength": 500,
+      "officialWidth": 10
+    },
+    "675": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-675/",
+      "officialLength": 1170,
+      "officialWidth": 26
+    },
+    "676": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-676/",
+      "officialLength": 1100,
+      "officialWidth": 38
+    },
+    "677": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-677/",
+      "officialLength": 750,
+      "officialWidth": 15
+    },
+    "678": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-678/",
+      "officialLength": 60,
+      "officialWidth": 10
+    },
+    "679": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-679/",
+      "officialLength": 490,
+      "officialWidth": 45
+    },
+    "680": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-680/",
+      "officialLength": 600,
+      "officialWidth": 52
+    },
+    "681": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-681/",
+      "officialLength": 840,
+      "officialWidth": 30
+    },
+    "682": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-682/",
+      "officialLength": 2700,
+      "officialWidth": 50
+    },
+    "683": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-683/",
+      "officialLength": 400,
+      "officialWidth": 45
+    },
+    "684": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-684/",
+      "officialLength": 2700,
+      "officialWidth": 15
+    },
+    "685": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-685/",
+      "officialLength": 2200,
+      "officialWidth": 25
+    },
+    "686": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-686/",
+      "officialLength": 2000,
+      "officialWidth": 15
+    },
+    "687": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-687/",
+      "officialLength": 700,
+      "officialWidth": 18
+    },
+    "688": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-688/",
+      "officialLength": 700,
+      "officialWidth": 36
+    },
+    "689": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-689/",
+      "officialLength": 500,
+      "officialWidth": 25
+    },
+    "690": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-690/",
+      "officialLength": 800,
+      "officialWidthRange": [
+        20,
+        35
+      ]
+    },
+    "691": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-691/",
+      "officialLength": 395,
+      "officialWidth": 15
+    },
+    "692": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-692/",
+      "officialLength": 310,
+      "officialWidth": 20
+    },
+    "694": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-694/",
+      "officialLength": 1100,
+      "officialWidth": 30
+    },
+    "695": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-695/",
+      "officialLength": 180,
+      "officialWidth": 20
+    },
+    "696": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-696/",
+      "officialLength": 250,
+      "officialWidth": 10
+    },
+    "4894": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-4894/",
+      "officialLength": 500,
+      "officialWidth": 60
+    },
+    "5556": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-5556/",
+      "officialLength": 650,
+      "officialWidth": 18
+    },
+    "5906": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-5906/",
+      "officialLength": 155,
+      "officialWidth": 22
+    },
+    "5907": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-5907/",
+      "officialLength": 600,
+      "officialWidth": 7
+    },
+    "6703": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-6703/",
+      "officialLength": 900,
+      "officialWidth": 26
+    },
+    "7050": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-7050/",
+      "officialLength": 30,
+      "officialWidth": 8
+    },
+    "7051": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-7051/",
+      "officialLength": 40,
+      "officialWidth": 9
+    },
+    "7052": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-7052/",
+      "officialLength": 65,
+      "officialWidth": 13
+    },
+    "7053": {
+      "sourceUrl": "https://itrem.carm.es/es/playa/playa-7053/",
+      "officialLength": 160,
+      "officialWidth": 13
+    }
+  }
+}

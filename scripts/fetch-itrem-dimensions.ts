@@ -28,21 +28,25 @@ export type BeachDimensions = {
 const FIELD = (label: string) =>
   new RegExp(`<strong>${label}:</strong>\\s*([^<]*)`, 'i')
 
-/** "580 m", "800", "20-35 m" or "1,2 km"; anything else is left out */
+/** Spanish figures: "1.963" is one thousand nine hundred and sixty-three, "1,2" is one point two */
+const toNumber = (text: string) =>
+  Number(text.replace(/\.(?=\d{3}\b)/g, '').replace(',', '.'))
+
+/** "580 m", "1.963 m", "20-35 m" or "1,2 km"; anything else is left out */
 function parseMetres(raw: string | undefined): { value?: number; range?: [number, number] } {
   if (!raw) return {}
   const text = raw.replace(/&nbsp;/g, ' ').trim().toLowerCase()
   const range = /^(\d+(?:[.,]\d+)?)\s*[-–a]\s*(\d+(?:[.,]\d+)?)\s*(m|km)?/.exec(text)
   if (range) {
     const factor = range[3] === 'km' ? 1000 : 1
-    const lo = Number(range[1].replace(',', '.')) * factor
-    const hi = Number(range[2].replace(',', '.')) * factor
+    const lo = toNumber(range[1]) * factor
+    const hi = toNumber(range[2]) * factor
     return lo < hi ? { range: [lo, hi] } : {}
   }
   const single = /^(\d+(?:[.,]\d+)?)\s*(m|km|metros)?\b/.exec(text)
   if (!single) return {}
   const factor = single[2] === 'km' ? 1000 : 1
-  const value = Number(single[1].replace(',', '.')) * factor
+  const value = toNumber(single[1]) * factor
   return Number.isFinite(value) && value > 0 ? { value: Math.round(value) } : {}
 }
 

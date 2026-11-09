@@ -23,6 +23,7 @@ This document describes the data structure for beaches in the Region of Murcia, 
 | `marinas.json` | The 19 leisure ports from the ITREM `puerto_deportivo` pages with coordinates, site and phone, plus the 3 excluded entries and why. Bundled by `src/lib/marinas.ts` (nearest marina per beach at render time); not migrated | 19 marinas |
 | `marine-reserves.json` | Marine reserves shown at zone level (`zones` lists the zone ids): area, creation year, summary, integral zone and the diving authorisation rule, with sources. Bundled by `src/lib/marine-reserves.ts`; not migrated | 1 reserve |
 | `protected-areas.json` | Natura 2000 sites (EEA, end-2024 release) and regional Espacios Naturales Protegidos (CARM WFS) within 200 m of each beach, keyed by beach code (`{ natura2000: [{ code, name, type }], regional: [{ code, name, figure, norm }] }`). Written by `scripts/fetch-protected-areas.ts`; bundled by `src/lib/protected-areas.ts`, which also marks the marine-only sites; not migrated | 158 codes |
+| `beach-dimensions.json` | Official length and average width per beach from the ITREM sheet ("Características"), keyed by beach code (`{ officialLength?, officialWidth?, officialWidthRange?: [min, max], sourceUrl }`). Written by `scripts/fetch-itrem-dimensions.ts`; bundled by `src/lib/beach-dimensions.ts`; not migrated. `length` in `beaches.json` stays the OSM value | 153 codes |
 | `municipality-facts.json` | Official facts per municipality, keyed by INE code (see [Municipality facts](#municipality-facts)). Bundled by `src/lib/municipality-facts.ts` at build time; not migrated to the DB | 5 blocks |
 | `source/itrem-localities.json` | Raw ITREM locality labels per beach code, fetched on 2026-11-06 by `scripts/assign-zones.ts --fetch`. Evidence for `zone`; not migrated, not bundled | 193 codes |
 
@@ -86,7 +87,7 @@ interface Beach {
   pictures?: string[] // Image filenames; pictures[0] is the hand-picked cover
   pictureQualityScore?: 0 | 1 | 2 | 3 // Derived from `pictures` + `public/pictures` files (see `pnpm score:picture-quality`)
   aemetId?: string // AEMET beach code for weather API
-  length?: number // Beach length in meters (from OSM)
+  length?: number // Beach length in meters (from OSM); the page and the score prefer the ITREM length in beach-dimensions.json when published
   accessDifficulty?: 'easy' | 'moderate' | 'hard' // How difficult to reach (~61% easy, ~22% moderate, ~17% hard)
   childSafe?: boolean // Safe for young children (~38% true)
   naturalShade?: boolean // Has natural shade from cliffs/trees (~29% true)

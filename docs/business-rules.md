@@ -206,6 +206,10 @@ ITREM publishes a FAMDIF field sheet per beach and season ("Accesibilidad" block
 
 `scripts/fetch-protected-areas.ts` intersects each beach with the EEA Natura 2000 service (layer with both directives) and the CARM `SIG_LUP_SITES_CARM:ENP` WFS layer, using a 200 m buffer because shoreline coordinates often fall just seaward of a land polygon. PORN buffers ("Resto Ámbito PORN") and proposals are skipped, and a park that appears once per declaring act is kept once. The beach page separates the sea in front of the beach (marine-only sites listed in `src/lib/protected-areas.ts`: Franja Litoral Sumergida, Mar Menor, Tabarca-Cabo de Palos, Islotes Litorales, Valles submarinos, Cabo Roig, Fondos Marinos Levante Almeriense) from the land sites. Rerun when a new Natura 2000 release is published (yearly) or beaches are added.
 
+## Beach Length and Width
+
+Two lengths exist: `length` in `beaches.json` comes from OSM and inherits its coastline merges (several beaches share one way, so a 20 m cove can read 171 m), and `officialLength` in `data/beach-dimensions.json` is the figure ITREM publishes on each beach sheet, together with `officialWidth` (a range such as 20-35 m is kept as bounds). Decision 2026-11-09: the beach page shows the ITREM length and width, labelled "(ITREM)", and falls back to OSM when ITREM publishes none; the recommendation score uses the same rule through `getDisplayLength`. OSM `length` is kept untouched as evidence. 96 of the 145 beaches with both values differ by more than 2x; the list is in RPT-080. Refresh with `pnpm tsx scripts/fetch-itrem-dimensions.ts` when ITREM updates its sheets.
+
 ## Municipality Facts
 
 The municipality page shows a "Datos de <municipio>" panel above the beaches: population (INE, with its year), mean appraised value of free-market housing (with its quarter, the regional average and a note that it is neither a median nor a sale price), net income per person (INE ADRH, with its income year, the national average and the INE comparability caveat: from the 2023 edition the reference population comes from the Censo Anual, not the Fichero Precensal; the Atlas does not say the indicator switched to declared income), tourist homes (INE experimental statistic: homes, beds and share of the housing stock, with the reference month) and the official tourist office. Each fact cites its source. A fact missing for a municipality is left out, never estimated; with no facts at all the panel is not rendered. Data, sources and refresh: [data-schema.md](./data-schema.md#municipality-facts). Refresh population and income each year after INE publishes (ADRH in October), appraised values each quarter, tourist housing twice a year (INE references May and November, published about a month later), and offices whenever a municipality site changes.
@@ -399,7 +403,7 @@ A `recommendationScore` (0-1) is computed at runtime from internal beach data. U
 | Factor         | Weight | Normalization                                 |
 | -------------- | ------ | --------------------------------------------- |
 | Services count | 30%    | `min(count/8, 1)`                             |
-| Length         | 15%    | `min(length/1000, 1)`, default 0.3 if unknown |
+| Length         | 15%    | `min(length/1000, 1)`, default 0.3 if unknown; ITREM length when published, else OSM (see Beach Length and Width) |
 | Photo quality  | 10%    | `score/3` (0-3 scale)                         |
 | Accessibility  | 15%    | easy=1, moderate=0.6, hard=0.2, unknown=0.5   |
 | Blue Flag      | 15%    | 1 if certified, 0 otherwise                   |

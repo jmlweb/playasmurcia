@@ -27,6 +27,11 @@ import { ServicesGrid } from '@/features/beaches/services-grid'
 import { SmokeFreeNotice } from '@/features/beaches/smoke-free-notice'
 import { TagsSection } from '@/features/beaches/tags-section'
 import { getAccessibilitySheet } from '@/lib/accessibility'
+import {
+  formatBeachWidth,
+  getBeachDimensions,
+  getDisplayLength,
+} from '@/lib/beach-dimensions'
 import { MAR_MENOR_SEA } from '@/lib/beach-facts'
 import { getAccessRestriction } from '@/lib/beach-notices'
 import { getBeachSummary } from '@/lib/beach-summary'
@@ -198,6 +203,7 @@ function BeachPage() {
   const accessibilitySheet = getAccessibilitySheet(beach.code)
   const marineReserve = getMarineReserveForZone(beach.zone)
   const protectedAreas = getProtectedAreas(beach.code)
+  const dimensions = getBeachDimensions(beach.code)
 
   const pictures = beach.pictures ?? []
 
@@ -276,7 +282,8 @@ function BeachPage() {
               bestSeason={beach.bestSeason}
               childSafe={beach.childSafe}
               dogFriendly={beach.dogFriendly}
-              length={beach.length}
+              isOfficialLength={dimensions?.officialLength !== undefined}
+              length={getDisplayLength(beach.code, beach.length)}
               lifeguard={beach.lifeguard}
               naturalShade={beach.naturalShade}
               occupancyLevel={beach.occupancyLevel}
@@ -285,6 +292,7 @@ function BeachPage() {
               waterQuality={beach.waterQuality}
               waterQualitySource={beach.waterQualitySource}
               waves={beach.waves}
+              width={dimensions && formatBeachWidth(dimensions)}
             />
 
             {pictures.length > 1 && (

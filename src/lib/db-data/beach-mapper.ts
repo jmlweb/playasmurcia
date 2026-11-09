@@ -1,5 +1,7 @@
 import type { Beach, Certification } from '@/types/beach'
 
+import { getDisplayLength } from '@/lib/beach-dimensions'
+
 import { computeRecommendationScore } from './beach-scoring'
 
 /**
@@ -136,7 +138,8 @@ export function mapBeachFromDB(dbBeach: {
     }),
     recommendationScore: computeRecommendationScore({
       services: dbBeach.services.map((s) => s.serviceId - 1),
-      length: dbBeach.length,
+      // ITREM length when published: OSM merges inflate several beaches
+      length: getDisplayLength(dbBeach.code, dbBeach.length) ?? null,
       pictureQualityScore: dbBeach.pictureQualityScore,
       accessDifficulty: dbBeach.accessDifficulty,
       certifications: dbBeach.certifications,

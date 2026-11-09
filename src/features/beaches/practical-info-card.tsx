@@ -97,7 +97,12 @@ function FactGroup({ title, facts }: { title: string; facts: Fact[] }) {
 }
 
 type PracticalInfoCardProps = {
+  /** Length shown: ITREM when published, OSM otherwise (see getDisplayLength) */
   length?: number
+  /** True when `length` comes from the ITREM sheet */
+  isOfficialLength?: boolean
+  /** Average width published by ITREM, already formatted */
+  width?: string
   soilType?: string
   waves?: string
   occupancyLevel?: 'low' | 'medium' | 'high'
@@ -114,6 +119,8 @@ type PracticalInfoCardProps = {
 
 export function PracticalInfoCard({
   length,
+  isOfficialLength = false,
+  width,
   soilType,
   waves,
   occupancyLevel,
@@ -179,7 +186,15 @@ export function PracticalInfoCard({
   const theBeach: Fact[] = [
     ...(length === undefined
       ? []
-      : [{ label: 'Longitud', value: formatBeachLength(length) }]),
+      : [
+          {
+            label: 'Longitud',
+            value: isOfficialLength
+              ? `${formatBeachLength(length)} (ITREM)`
+              : formatBeachLength(length),
+          },
+        ]),
+    ...(width ? [{ label: 'Anchura media', value: `${width} (ITREM)` }] : []),
     ...(soilType ? [{ label: 'Suelo', value: soilType }] : []),
     ...(usualWaves ? [{ label: 'Oleaje habitual', value: usualWaves }] : []),
     ...(orientation
