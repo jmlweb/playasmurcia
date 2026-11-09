@@ -28,6 +28,7 @@ Intersect beach coordinates with the MITECO Natura 2000 layer and the CARM prote
 
 ## Learnings
 
+- LRN-047: NODE_ENV=production in the shell breaks pnpm test with React.act is not a function
 ## Progress Log
 
 - [2026-10-28] Created
@@ -35,3 +36,4 @@ Intersect beach coordinates with the MITECO Natura 2000 layer and the CARM prote
 - [2026-11-08] Started
 - [2026-11-08] MITECO services were down on 2026-11-08; EEA used instead. Baño de las Mujeres (632) lies 2.7 km outside the Calnegre park polygon: coordinate or boundary issue, left as is.
 - [2026-11-08] Completed
+- [2026-11-09] Closed PR #25 (hustle maintainer agent, duplicate implementation from a stale base) as superseded by the version on main; its LRN-047 salvaged into the backlog.
