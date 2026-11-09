@@ -33,6 +33,7 @@ Keep `length` untouched and add sourced `officialWidth` and `officialLength` fie
 
 ## Learnings
 
+- LRN-045: Stage a bundled JSON file with the module that imports it, and verify on a clean tree before pushing
 ## Progress Log
 
 - [2026-11-04] Created

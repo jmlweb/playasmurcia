@@ -48,3 +48,5 @@
 | LRN-042 | Commons licence names need normalising | wikimedia, licence, scripts | active | 2026-11-07 |
 | LRN-043 | Wikimedia geosearch hits are not always the beach | wikimedia, picture-sourcing | active | 2026-11-07 |
 | LRN-044 | Picture files are not in git | pictures, worktree, r2 | active | 2026-11-07 |
+| LRN-045 | Stage a bundled JSON file with the module that imports it, and verify on a clean tree before pushing | tooling, git, ci, data | active | 2026-11-09 |
+| LRN-046 | Prod migration can fail mid-run and leave relations empty; always validate counts after migrating | data, database, deploy, migration | active | 2026-11-09 |

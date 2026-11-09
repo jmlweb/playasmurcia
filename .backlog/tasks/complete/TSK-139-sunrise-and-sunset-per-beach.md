@@ -27,6 +27,7 @@ Show sunrise and sunset times on the beach page, computed from coordinates (no e
 
 ## Learnings
 
+- LRN-046: Prod migration can fail mid-run and leave relations empty; always validate counts after migrating
 ## Progress Log
 
 - [2026-10-28] Created
