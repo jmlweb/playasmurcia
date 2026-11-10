@@ -22,13 +22,19 @@ import { ResultsSummary } from '@/features/listing/results-summary'
 import { SortSelect } from '@/features/listing/sort-select'
 import { ZoneSections } from '@/features/listing/zone-sections'
 import { MunicipalityFactsPanel } from '@/features/municipalities/municipality-facts-panel'
+import {
+  ZoneJumpBar,
+  ZoneTodayStrip,
+} from '@/features/municipalities/zone-today-strip'
 import { filterBeaches, sortBeaches } from '@/lib/beach-filters'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
+import { isFlagSeason } from '@/lib/coast-today'
 import { validateMunicipalitySearch } from '@/lib/explorer-search'
 import { parseImageFilename, pictureUrl } from '@/lib/images'
 import { generateMunicipalitySchema } from '@/lib/schema'
 import { beachToSlug } from '@/lib/slugs'
-import { shouldGroupByZone } from '@/lib/zones'
+import { buildZoneToday, UNZONED_HEADING, zoneAnchorId } from '@/lib/zone-today'
+import { groupBeachesByZone, shouldGroupByZone } from '@/lib/zones'
 
 const fetchMunicipalityData = createServerFn({ method: 'GET' })
   .validator((data: { slug: string }) => {
@@ -75,6 +81,8 @@ const fetchMunicipalityData = createServerFn({ method: 'GET' })
       blueFlagCount,
       slug: data.slug,
       heroImage,
+      // Decided on the server so the reserved flag rows match after hydration
+      expectsFlags: isFlagSeason(),
     }
   })
 
@@ -138,8 +146,15 @@ export const Route = createFileRoute('/municipios/$slug')({
 })
 
 function MunicipalityPage() {
-  const { municipality, beaches, tags, blueFlagCount, heroImage, slug } =
-    Route.useLoaderData()
+  const {
+    municipality,
+    beaches,
+    tags,
+    blueFlagCount,
+    heroImage,
+    slug,
+    expectsFlags,
+  } = Route.useLoaderData()
   const weatherData = useCardWeather(beaches)
   const flagData = useCardFlags(beaches)
   const PAGE_SIZE = 15
@@ -162,6 +177,29 @@ function MunicipalityPage() {
         (currentPage - 1) * PAGE_SIZE,
         currentPage * PAGE_SIZE,
       )
+  // Every zone keeps its row while filtering, so the chips below stay put
+  const zoneToday = useMemo(
+    () =>
+      groupedByZone
+        ? buildZoneToday({
+            groups: groupBeachesByZone(beaches),
+            weather: weatherData,
+            flags: flagData,
+            shownCodes: new Set(sortedBeaches.map(({ code }) => code)),
+          })
+        : undefined,
+    [groupedByZone, beaches, sortedBeaches, weatherData, flagData],
+  )
+  // The jump bar sits below the controls, so it can follow the filters
+  const jumpRows = useMemo(
+    () =>
+      groupBeachesByZone(sortedBeaches).map(({ zone, beaches: members }) => ({
+        anchorId: zoneAnchorId(zone?.id),
+        name: zone?.name ?? UNZONED_HEADING,
+        beachCount: members.length,
+      })),
+    [sortedBeaches],
+  )
   const renderBeachCard = (beach: (typeof beaches)[number]) => (
     <BeachCard
       beach={beach}
@@ -235,15 +273,19 @@ function MunicipalityPage() {
 
       {/* Beach grid */}
       <div className="mx-auto max-w-7xl px-4 pt-8 pb-16 sm:px-6 sm:pt-12 sm:pb-20 lg:px-8">
-        <MunicipalityFactsPanel
-          ineCode={municipality.id}
-          name={municipality.name}
-        />
         {beaches.length > 0 ? (
           <>
+            {zoneToday && zoneToday.rows.length > 0 && (
+              <ZoneTodayStrip
+                expectsFlags={expectsFlags}
+                municipalityName={municipality.name}
+                today={zoneToday}
+              />
+            )}
             <ChipFilterBar filters={filters} onChange={handleFiltersChange} />
             <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
               <ResultsSummary
+                live
                 currentPage={currentPage}
                 totalItems={sortedBeaches.length}
                 totalPages={totalPages}
@@ -257,10 +299,14 @@ function MunicipalityPage() {
               />
             )}
             {groupedByZone ? (
-              <ZoneSections
-                beaches={visibleBeaches}
-                renderBeach={renderBeachCard}
-              />
+              // The jump bar sticks only while the zones are on screen
+              <div>
+                {jumpRows.length > 1 && <ZoneJumpBar rows={jumpRows} />}
+                <ZoneSections
+                  beaches={visibleBeaches}
+                  renderBeach={renderBeachCard}
+                />
+              </div>
             ) : (
               <>
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
@@ -284,6 +330,14 @@ function MunicipalityPage() {
             title="No hay playas registradas"
           />
         )}
+
+        {/* About the town, after the beaches it is not the reason to visit */}
+        <div className="mt-16 sm:mt-20">
+          <MunicipalityFactsPanel
+            ineCode={municipality.id}
+            name={municipality.name}
+          />
+        </div>
 
         <div className="mt-12 text-center">
           <Link

@@ -25,18 +25,21 @@ const flagOrder = Object.keys(FlagLabels) as CountedFlag[]
 const rangeInWords = (min: number, max: number): string =>
   min === max ? String(min) : `entre ${String(min)} y ${String(max)}`
 
-function WeatherLine({ weather }: { weather: SeaWeather }) {
+export function WeatherLine({ weather }: { weather: SeaWeather }) {
   const { temp, wind, icon } = weather
   const windWords = wind
     ? `, viento ${rangeInWords(wind.min, wind.max)} kilómetros por hora`
     : ''
 
   return (
-    <span className="flex min-h-6 items-center gap-3 text-sm font-semibold text-gray-900 tabular-nums">
+    <span className="flex min-h-6 flex-wrap items-center gap-x-3 gap-y-0.5 text-sm font-semibold text-gray-900 tabular-nums">
       <span className="sr-only">
         {`Temperatura ${rangeInWords(temp.min, temp.max)} grados${windWords}`}
       </span>
-      <span aria-hidden="true" className="flex items-center gap-1">
+      <span
+        aria-hidden="true"
+        className="flex items-center gap-1 whitespace-nowrap"
+      >
         {icon && validWeatherIcons.has(icon) && (
           <WeatherGlyph
             className="h-4 w-4 shrink-0 text-ocean-600"
@@ -48,7 +51,7 @@ function WeatherLine({ weather }: { weather: SeaWeather }) {
       {wind && (
         <span
           aria-hidden="true"
-          className="flex items-center gap-1 font-medium text-gray-700"
+          className="flex items-center gap-1 font-medium whitespace-nowrap text-gray-700"
         >
           <WeatherGlyph
             className="h-4 w-4 shrink-0 text-ocean-600"
@@ -61,7 +64,7 @@ function WeatherLine({ weather }: { weather: SeaWeather }) {
   )
 }
 
-function FlagLine({ flags }: { flags: FlagCounts }) {
+export function FlagLine({ flags }: { flags: FlagCounts }) {
   const shown = flagOrder.flatMap((flag) => {
     const count = flags[flag]
     return count ? [{ flag, count }] : []

@@ -207,7 +207,7 @@ A cool teal scale taken from deep water, a warm sand neutral, and one small cora
 
 **The One Weight Rule.** DM Serif Display ships Regular 400 only. Never apply a bold or semibold utility to it, because the browser synthesizes the weight.
 
-**The Stable Object Rule.** The same object keeps the same typeface everywhere. Serif stops at `h1` and `h2`, and a card title is always Inter. The Coast Today heading is the single exception.
+**The Stable Object Rule.** The same object keeps the same typeface everywhere. Serif stops at `h1` and `h2`, and a card title is always Inter. The Coast Today and Zone Today headings are the only exceptions.
 
 ## Layout
 
@@ -295,7 +295,11 @@ The signature data element. A solid `white/95` pill in the top-left of the photo
 
 ### Coast Today
 
-The homepage strip under the hero, headed "Hoy en la costa". Two link rows, Mar Menor first, side by side from `sm` up, unboxed on sand between hairlines. Each row carries the sea name and beach count in Title and Slate Ink, then temperature and wind as ranges in tabular numerals, then flag counts as dots beside text labels. A sources line closes the strip and states how many beaches reported a flag today. Room for flag lines is reserved only from June to September, when the 112 feed publishes them. The heading is the one `h2` set in Inter, at Label size, because a Headline would outrank the data. The sky glyph appears only when every reference point agrees. Only facts with data appear. If no source answers, the rows remain as links and the heading becomes "La costa por mares".
+The homepage strip under the hero, headed "Hoy en la costa". Two link rows, Mar Menor first, side by side from `sm` up, unboxed on sand between hairlines. Each row carries the sea name and beach count in Title and Slate Ink, then temperature and wind as ranges in tabular numerals, then flag counts as dots beside text labels. A sources line closes the strip and states how many beaches reported a flag today. Room for flag lines is reserved only from June to September, when the 112 feed publishes them. The heading is set in Inter at Label size, like the Zone Today heading, because a Headline would outrank the data. The sky glyph appears only when every reference point agrees. Only facts with data appear. If no source answers, the rows remain as links and the heading becomes "La costa por mares".
+
+### Zone Today
+
+The municipality page opens with "Hoy en {municipio}", the Coast Today pattern scoped to the zone sections below. One row per zone links to that zone's heading with a down arrow. Every zone keeps its row while filters change, so the chips below never move under the finger. Under filters the count reads "3 de 15", the same width as "15 playas", and a zone the filters emptied stays as a muted row with no link. Each row carries the zone name and beach count, then temperature and wind as ranges from the cards' Open-Meteo readings, then flag counts in season. Rows run two columns on phones and three from `lg`. A sources line states Open-Meteo with the reading time once for the page, and out of season it says when the 112 publishes flags. Single-zone municipalities get no strip. Below `lg`, a sticky zone bar lists the zones the filters leave, with their filtered counts, under the navigation bar while the zones are on screen, fading at its right edge to show that it scrolls. The beach cards keep their weather pills. The municipality facts panel follows the zones, because the town profile is not what a visitor came to choose.
 
 ### Beach Conditions
 

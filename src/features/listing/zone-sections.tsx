@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 
+import { UNZONED_HEADING, zoneAnchorId } from '@/lib/zone-today'
 import { groupBeachesByZone } from '@/lib/zones'
 
 type ZoneSectionsProps<T extends { code: string; zone?: string }> = {
@@ -7,8 +8,6 @@ type ZoneSectionsProps<T extends { code: string; zone?: string }> = {
   beaches: T[]
   renderBeach: (beach: T) => ReactNode
 }
-
-const UNZONED_HEADING = 'Otras playas'
 
 const countLabel = (count: number) =>
   count === 1 ? '1 playa' : `${count} playas`
@@ -20,11 +19,15 @@ export function ZoneSections<T extends { code: string; zone?: string }>({
   return (
     <div className="space-y-12">
       {groupBeachesByZone(beaches).map(({ zone, beaches: zoneBeaches }) => {
-        const headingId = `zona-${zone?.id ?? 'otras'}`
+        const headingId = zoneAnchorId(zone?.id)
         return (
           <section key={headingId} aria-labelledby={headingId}>
             <div className="mb-5 flex items-baseline gap-3">
-              <h2 className="text-2xl font-normal text-gray-900" id={headingId}>
+              <h2
+                // Below lg the zone jump bar also sticks under the navbar
+                className="text-2xl font-normal text-gray-900 max-lg:scroll-mt-14"
+                id={headingId}
+              >
                 {zone?.name ?? UNZONED_HEADING}
               </h2>
               <span className="text-sm text-gray-600">
