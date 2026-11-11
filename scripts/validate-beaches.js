@@ -7,6 +7,9 @@ const municipalities = JSON.parse(
 const seas = JSON.parse(readFileSync('./data/seas.json', 'utf-8'))
 const zoneCuration = JSON.parse(readFileSync('./data/zones.json', 'utf-8'))
 const zonesById = new Map(zoneCuration.zones.map((zone) => [zone.id, zone]))
+const beachDimensions = JSON.parse(
+  readFileSync('./data/beach-dimensions.json', 'utf-8'),
+).values
 
 const tags = JSON.parse(readFileSync('./data/tags.json', 'utf-8'))
 const familiarTagIndex = tags.findIndex((tag) => tag.id === 'familiar')
@@ -19,6 +22,28 @@ const SUNSET_VIEW_HALF_WIDTH = 65
 const facesSummerSunset = (shoreBearing) =>
   Math.abs(((shoreBearing - SUMMER_SUNSET_AZIMUTH + 540) % 360) - 180) <=
   SUNSET_VIEW_HALF_WIDTH
+
+// Mirrors getDisplayLength in src/lib/beach-dimensions.ts: ITREM when published, else OSM
+const getDisplayLength = (beach) =>
+  beachDimensions[beach.code]?.officialLength ?? beach.length
+
+// "173 metros", "1.200 metros", "1,5 kilómetros"; road markers ("kilómetro 8,5") put the unit first
+const LENGTH_FIGURE =
+  /(\d{1,3}(?:\.\d{3})*(?:,\d+)?)\s*(metros|kilómetros|km)\b/gi
+const isKilometres = (unit) => /^k/i.test(unit)
+const toMetres = (number, unit) => {
+  const value = Number(number.replaceAll('.', '').replace(',', '.'))
+  return isKilometres(unit) ? Math.round(value * 1000) : value
+}
+// Mirrors formatBeachLength in src/lib/beach-facts.ts: from 1 km on, the page rounds to 0.1 km
+const matchesDisplayLength = (metres, unit, displayLength) =>
+  isKilometres(unit)
+    ? Math.round(metres / 100) === Math.round(displayLength / 100)
+    : metres === displayLength
+// Figures far from the OSM length are distances ("a unos 4 kilómetros", "700 metros a pie")
+const OSM_LENGTH_TOLERANCE = 0.15
+const isNearOsmLength = (metres, osmLength) =>
+  Math.abs(metres - osmLength) <= osmLength * OSM_LENGTH_TOLERANCE
 
 const errors = []
 const warnings = []
@@ -112,6 +137,27 @@ beaches.forEach((beach, index) => {
     // Only "- " bullets are supported; "* " bullets and headings show literally
     if (/^\s*(\*\s|#)/m.test(text)) {
       errors.push(`${prefix}: ${field} uses unsupported markdown ('* ' or '#')`)
+    }
+  }
+
+  // The page shows the display length beside the description; prose must not contradict it
+  const displayLength = getDisplayLength(beach)
+  if (
+    typeof beach.length === 'number' &&
+    typeof beach.description === 'string'
+  ) {
+    for (const [figure, number, unit] of beach.description.matchAll(
+      LENGTH_FIGURE,
+    )) {
+      const metres = toMetres(number, unit)
+      if (
+        !matchesDisplayLength(metres, unit, displayLength) &&
+        isNearOsmLength(metres, beach.length)
+      ) {
+        errors.push(
+          `${prefix}: description states '${figure}' but the page shows ${displayLength} m`,
+        )
+      }
     }
   }
 
