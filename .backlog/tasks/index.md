@@ -4,14 +4,14 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 14 |
-| Active | 0 |
+| Pending | 13 |
+| Active | 1 |
 | Blocked | 0 |
 | Complete | 180 |
 
 ## Active Tasks
 
-_No active tasks._
+- TSK-192: Rewrite the 65 descriptions that quote the OSM length (P2)
 
 ## Pending Tasks
 
@@ -25,7 +25,6 @@ _No active tasks._
 | TSK-189 | Coastal summer health points (SUAP, UME, SVAE) 2026 | P4 | data, external-source | 2026-11-08 |
 | TSK-190 | Monthly sea temperature normals from Copernicus Marine | P4 | data, weather, external-source | 2026-11-08 |
 | TSK-191 | Mar Menor latest IEO-CSIC report card | P4 | feature, external-source | 2026-11-08 |
-| TSK-192 | Rewrite the 65 descriptions that quote the OSM length | P2 | content, data | 2026-11-09 |
 | TSK-193 | Review activities data: Natación, Kayak, Snorkel and Pesca are on nearly every beach | P3 | data, content | 2026-11-09 |
 | TSK-194 | Photos for the 55 beaches that still have none | P3 | data, photos | 2026-11-09 |
 | TSK-195 | Normalise the HTML cache key and cache 404s briefly | P3 | security, performance, cache | 2026-11-09 |

@@ -225,11 +225,12 @@ Every municipality list (home, `/municipios`, header and footer navigation) is a
 **Guidelines:**
 
 - 2-3 sentences, about 30-55 words, Spanish, addressed to the visitor as "tú"
-- Every claim must come from the beach's data fields (`soilType`, `length`, `waves`, `sea`, `occupancyLevel`, `naturalShade`, `lifeguard`, `nudist`, `dogFriendly`, services) or from well-known local facts (protected areas, landmarks, villages)
+- Every claim must come from the beach's data fields (`soilType`, display length, `waves`, `sea`, `occupancyLevel`, `naturalShade`, `lifeguard`, `nudist`, `dogFriendly`, services) or from well-known local facts (protected areas, landmarks, villages)
 - Lead with what sets the beach apart from its `nearby` neighbours, and add one practical tip when the data suggests it (water shoes on bolos, bring shade, arrive early)
 - Don't repeat what the page already shows as badges or grids: name at most one or two services, and only when they are unexpected or decide the visit (a lifeguard at a small cala, no lifeguard on a busy beach)
 - Mention waves only when they matter: Mediterranean side of La Manga vs. Mar Menor, entering the water over bolos, going with children
 - Don't state a `length` that is shared by several beaches (OSM merges), Q de Calidad (list not re-verified), or name origins you can't verify
+- A stated length must be the one the page shows (`getDisplayLength`: ITREM when published, else OSM): exact metres, or kilometres rounded to 0.1 as `formatBeachLength` prints them. Check the adjectives that lean on it ("pequeña", "corta", "apenas", "la más larga"). `validate-beaches.js` rejects figures within 15% of the OSM `length` that differ from the display length; distances ("a unos 4 kilómetros", "700 metros a pie") fall outside that window
 - Markdown: bold 1-2 phrases per text, only the fact that sets the beach apart. Put a practical tip in a final `**Consejo:**` paragraph, only when the data supports one; don't invent tips to fill the slot. Meta tags and JSON-LD use the stripped plain text (`stripDescriptionMarkdown` in `src/lib/description-markdown.ts`)
 - Avoid AI clichés: "te espera", "disfruta", "ideal para", "rincón", "paraíso", "joya", "remanso", "aguas cristalinas", closing with "en la Región de Murcia", and listing what a beach lacks unless it matters to the visitor
 

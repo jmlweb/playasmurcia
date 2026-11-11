@@ -51,3 +51,4 @@
 | LRN-045 | Stage a bundled JSON file with the module that imports it, and verify on a clean tree before pushing | tooling, git, ci, data | active | 2026-11-09 |
 | LRN-046 | Prod migration can fail mid-run and leave relations empty; always validate counts after migrating | data, database, deploy, migration | active | 2026-11-09 |
 | LRN-047 | NODE_ENV=production in the shell breaks pnpm test with React.act is not a function | testing, tooling | active | 2026-11-09 |
+| LRN-048 | Length claims in descriptions hide behind km rounding; match near the OSM figure, compare as the page rounds | content, data, validation | active | 2026-11-11 |
