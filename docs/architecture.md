@@ -61,6 +61,7 @@ playasmurcia/
 │   │   ├── municipalities/ # Reusable municipality card (photo, meta line, CTA)
 │   │   └── webmcp/         # WebMCP tools for in-browser agents (server fns + hook)
 │   ├── lib/
+│   │   ├── activities.ts   # Which activities beach pages and filters list (TSK-193)
 │   │   ├── db-data.ts      # Async loaders (primary)
 │   │   ├── edge-cache.ts
 │   │   ├── home-curation.ts # Curated featured beach codes and municipality cover photos

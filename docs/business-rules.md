@@ -369,7 +369,7 @@ The stored value describes a typical peak-summer day and drives the explorer fil
 
 ## Activities
 
-`data/activities.json` holds 10 activities, stored per beach in `beaches.json[].activities`. Four of them were assigned to nearly every beach when the data was generated, so they describe the coast, not a beach. They are **unlisted**: beach pages (Actividades block), the `/explorar` Actividades filter and the WebMCP beach summaries leave them out (`isListedActivity` in `src/lib/activities.ts`). The stored data is kept, so no migration is needed and the collection rules below still read it.
+`data/activities.json` holds 10 activities, stored per beach in `beaches.json[].activities`. Four of them were assigned to nearly every beach when the data was generated, so they describe the coast, not a beach. They are **unlisted**: beach pages (Actividades block), the `/explorar` Actividades filter and the WebMCP beach summaries leave them out (`isListedActivity` in `src/lib/activities.ts`). The stored data is kept, so no migration is needed and the collection rules below still read it. The WebMCP `search_beaches` tool still accepts the four names as input, so an agent query never fails on them, but its examples name listed activities only.
 
 Counts over 193 beaches when the decision was made (2026-11-14):
 
