@@ -27,6 +27,7 @@ import { ServicesGrid } from '@/features/beaches/services-grid'
 import { SmokeFreeNotice } from '@/features/beaches/smoke-free-notice'
 import { TagsSection } from '@/features/beaches/tags-section'
 import { getAccessibilitySheet } from '@/lib/accessibility'
+import { listedActivityIndices } from '@/lib/activities'
 import {
   formatBeachWidth,
   getBeachDimensions,
@@ -318,7 +319,7 @@ function BeachPage() {
               <AccessibilityPanel sheet={accessibilitySheet} />
             )}
 
-            {beach.activities.length > 0 && (
+            {listedActivityIndices(beach.activities, activities).length > 0 && (
               <div>
                 <ActivitiesGrid
                   activityIndices={beach.activities}

@@ -4,10 +4,10 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 14 |
+| Pending | 13 |
 | Active | 0 |
 | Blocked | 0 |
-| Complete | 180 |
+| Complete | 181 |
 
 ## Active Tasks
 
@@ -26,7 +26,6 @@ _No active tasks._
 | TSK-190 | Monthly sea temperature normals from Copernicus Marine | P4 | data, weather, external-source | 2026-11-08 |
 | TSK-191 | Mar Menor latest IEO-CSIC report card | P4 | feature, external-source | 2026-11-08 |
 | TSK-192 | Rewrite the 65 descriptions that quote the OSM length | P2 | content, data | 2026-11-09 |
-| TSK-193 | Review activities data: Natación, Kayak, Snorkel and Pesca are on nearly every beach | P3 | data, content | 2026-11-09 |
 | TSK-194 | Photos for the 55 beaches that still have none | P3 | data, photos | 2026-11-09 |
 | TSK-195 | Normalise the HTML cache key and cache 404s briefly | P3 | security, performance, cache | 2026-11-09 |
 | TSK-196 | Cache card weather per coordinate instead of per set of beach codes | P3 | security, weather, cache | 2026-11-09 |
@@ -36,6 +35,7 @@ _No active tasks._
 
 | ID | Title | Completed |
 |----|-------|-----------|
+| TSK-193 | Review activities data: Natación, Kayak, Snorkel and Pesca are on nearly every beach | 2026-11-14 |
 | TSK-147 | Official beach width and length from ITREM; review OSM length | 2026-11-09 |
 | TSK-130 | Fix: WebMCP search_beaches accepts prototype keys as accessDifficulty and occupancy | 2026-11-08 |
 | TSK-132 | Fix: Three beaches tagged Chiringuito lack the chiringuito service and miss the Con chiringuito collection | 2026-11-08 |
@@ -45,4 +45,3 @@ _No active tasks._
 | TSK-140 | Protected-area membership (Natura 2000 and regional parks) | 2026-11-08 |
 | TSK-141 | Accessible beaches: assisted bathing and amphibious chairs | 2026-11-08 |
 | TSK-142 | Photos for the 53 beaches with no pictures | 2026-11-08 |
-| TSK-143 | Seasonal access restrictions (Calblanque, Cabo Cope, Cala Cerrada) | 2026-11-08 |

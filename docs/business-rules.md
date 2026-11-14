@@ -179,7 +179,8 @@ So weather is **not** limited to beaches with `aemetId`; those codes only gate t
 - In Servicios, Actividades and Ambiente an unselected option that would leave every current result (count equals the result total) is hidden, since it filters nothing; a selected option always stays. A group with no visible option is not rendered
 - "Cerca de mí" is only in the sort menu, not a filter chip
 - Unselected options with 0 results stay focusable with `aria-disabled` so keyboard users can hear them; the number is part of the accessible name
-- "Ambiente" is the `tags` group. Tags that repeat another option (Chiringuito, Snorkel, Nudista, Playa canina) are hidden from the list unless already selected; they still filter through Servicios, Actividades and Necesidades
+- "Ambiente" is the `tags` group. Tags that repeat another option (Chiringuito, Nudista, Playa canina) are hidden from the list unless already selected; they still filter through Servicios and Necesidades. The Snorkel tag is shown: the Snorkel activity is unlisted (see [Activities](#activities)), so the tag is the snorkel filter
+- Actividades offers only listed activities (see [Activities](#activities)); an unlisted one stays visible only while a stale URL has it selected
 - When nothing matches, the empty state lists up to four filters whose removal brings beaches back, each with the resulting count (`src/features/explorer/empty-results.tsx`)
 - "Cerca de mí" (`sort=cercania`) asks for browser geolocation only on click. The position stays in component state: it is never put in the URL, storage or sent to the server. Without a position the sort falls back to "Recomendados"
 - Loading a URL with `sort=cercania` never raises a permission prompt: the position is read only if the browser already reports `granted`. Otherwise `sort` is removed from the URL
@@ -365,6 +366,20 @@ Typical crowd level is inferred from beach characteristics:
 Calculated once and stored in beach records. No recurring script.
 
 The stored value describes a typical peak-summer day and drives the explorer filter, the occupancy sort and the "Playas poco masificadas" collection all year round; the beach page labels it "Ocupación en verano". Only the beach-card badge is seasonal (`seasonalOccupancy` in `src/lib/occupancy.ts`): stored value in July–August, `high` capped to `medium` in June and September, hidden the rest of the year.
+
+## Activities
+
+`data/activities.json` holds 10 activities, stored per beach in `beaches.json[].activities`. Four of them were assigned to nearly every beach when the data was generated, so they describe the coast, not a beach. They are **unlisted**: beach pages (Actividades block), the `/explorar` Actividades filter and the WebMCP beach summaries leave them out (`isListedActivity` in `src/lib/activities.ts`). The stored data is kept, so no migration is needed and the collection rules below still read it. The WebMCP `search_beaches` tool still accepts the four names as input, so an agent query never fails on them, but its examples name listed activities only.
+
+Counts over 193 beaches when the decision was made (2026-11-14):
+
+- **Natación** (193/193): unlisted. Every beach allows swimming; the item carries no information
+- **Kayak** (193/193): unlisted. Applies everywhere, and no source says where kayak rental or launching is actually offered
+- **Snorkel** (189/193): unlisted. No dataset in scope describes rocky bottoms or water clarity per beach. The sourced signals are the hand-picked `snorkel` tag (shown in Ambiente) and the "Para hacer snorkel" collection, which only trusts the activity on a Mediterranean beach tagged `rocosa` or `acantilados`
+- **Pesca** (167/193): unlisted. No source for permitted fishing zones or bathing-season bans per beach is in scope
+- **Paddle surf** (98/193), Buceo (13), Vóley playa (10), Windsurf (4), Kitesurf (4), Vela (2): listed. Each is on at most two thirds of the beaches
+
+`src/lib/activities.test.ts` fails when a listed activity reaches more than two thirds of `data/beaches.json` or every beach, so a data change that makes an activity universal has to come with a new decision here. To list one of the four again, source it per beach first, then remove its id from `UnlistedActivityIds`.
 
 ## Collection Criteria
 

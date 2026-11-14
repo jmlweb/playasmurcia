@@ -1,6 +1,7 @@
 import type { Activity } from '@/types/beach'
 
 import { ActivityIcon } from '@/components/ui/icons'
+import { listedActivityIndices } from '@/lib/activities'
 
 type ActivitiesGridProps = {
   activityIndices: number[]
@@ -11,9 +12,10 @@ export function ActivitiesGrid({
   activityIndices,
   allActivities,
 }: ActivitiesGridProps) {
-  const resolvedActivities = activityIndices
-    .map((i) => allActivities[i])
-    .filter(Boolean)
+  const resolvedActivities = listedActivityIndices(
+    activityIndices,
+    allActivities,
+  ).map((index) => allActivities[index])
 
   if (resolvedActivities.length === 0) {
     return null

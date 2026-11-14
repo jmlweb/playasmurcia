@@ -62,7 +62,7 @@ const searchSchema = {
       type: 'array',
       items: { type: 'string' },
       description:
-        'Required activities by Spanish name, e.g. ["Buceo", "Kayak"].',
+        'Required activities by Spanish name, e.g. ["Buceo", "Windsurf"].',
     },
     tags: {
       type: 'array',

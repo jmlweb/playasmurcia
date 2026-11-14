@@ -129,7 +129,7 @@ Each major section follows a pattern:
 
 - Icons displayed inside circles (light background or bordered)
 - Label below the circle
-- Used for beach types (Arena fina, Familiar, Salvaje...) and activities (Natación, Snorkel, Kayak...)
+- Used for beach types (Arena fina, Familiar, Salvaje...) and activities (Buceo, Paddle surf, Windsurf...)
 - Keep icon style consistent (all outline or all filled, not mixed)
 
 ### Icons Policy

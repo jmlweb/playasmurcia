@@ -8,6 +8,7 @@ import type {
   Tag,
 } from '@/types/beach'
 
+import { listedActivityIndices } from '@/lib/activities'
 import { getDisplayLength } from '@/lib/beach-dimensions'
 import {
   AccessDifficultyLabels,
@@ -159,7 +160,10 @@ export function summarizeBeach(
     nudist: beach.nudist,
     certifications: beach.certifications ?? [],
     services: names(catalog.services, beach.services),
-    activities: names(catalog.activities, beach.activities),
+    activities: names(
+      catalog.activities,
+      listedActivityIndices(beach.activities, catalog.activities),
+    ),
     tags: names(catalog.tags, beach.tags ?? []),
   }
 }
