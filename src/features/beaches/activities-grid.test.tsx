@@ -7,8 +7,10 @@ import { ActivitiesGrid } from './activities-grid'
 
 const mockActivities: Activity[] = [
   { id: 'surf', name: 'Surf', icon: '🏄' },
-  { id: 'snorkel', name: 'Snorkel', icon: '🤿' },
-  { id: 'kayak', name: 'Kayak', icon: '🚣' },
+  { id: 'diving', name: 'Buceo', icon: '🫧' },
+  { id: 'sailing', name: 'Vela', icon: '⛵' },
+  { id: 'swimming', name: 'Natación', icon: '🏊' },
+  { id: 'kayak', name: 'Kayak', icon: '🛶' },
 ]
 
 describe('ActivitiesGrid', () => {
@@ -33,8 +35,8 @@ describe('ActivitiesGrid', () => {
         allActivities={mockActivities}
       />,
     )
-    expect(screen.getByText('Snorkel')).toBeTruthy()
-    expect(screen.getByText('Kayak')).toBeTruthy()
+    expect(screen.getByText('Buceo')).toBeTruthy()
+    expect(screen.getByText('Vela')).toBeTruthy()
     expect(screen.queryByText('Surf')).toBeNull()
   })
 
@@ -46,5 +48,27 @@ describe('ActivitiesGrid', () => {
       />,
     )
     expect(screen.getByText('Surf')).toBeTruthy()
+  })
+
+  it('does not list activities that apply to every beach', () => {
+    render(
+      <ActivitiesGrid
+        activityIndices={[1, 3, 4]}
+        allActivities={mockActivities}
+      />,
+    )
+    expect(screen.getByText('Buceo')).toBeTruthy()
+    expect(screen.queryByText('Natación')).toBeNull()
+    expect(screen.queryByText('Kayak')).toBeNull()
+  })
+
+  it('renders nothing when every activity is unlisted', () => {
+    const { container } = render(
+      <ActivitiesGrid
+        activityIndices={[3, 4]}
+        allActivities={mockActivities}
+      />,
+    )
+    expect(container.firstChild).toBeNull()
   })
 })

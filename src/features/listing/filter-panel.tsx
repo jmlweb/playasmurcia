@@ -19,6 +19,7 @@ import type {
 } from '@/types/beach'
 
 import { ChevronDownIcon } from '@/components/ui/icons'
+import { isListedActivity } from '@/lib/activities'
 import {
   AccessDifficultyLabels,
   type BeachSearchParams,
@@ -55,13 +56,9 @@ const OccupancyOptions = [
 // Lifeguard lives in "Para hoy"; the other needs keep their own group
 const OtherNeedKeys = NeedFilterKeys.filter((key) => key !== 'lifeguard')
 
-// Tags that repeat a Servicios, Actividades or Necesidades option
-const DuplicateTagNames = new Set([
-  'Chiringuito',
-  'Snorkel',
-  'Nudista',
-  'Playa canina',
-])
+// Tags that repeat a Servicios, Actividades or Necesidades option. Snorkel
+// is not one: the Snorkel activity is unlisted, so the tag is the only filter
+const DuplicateTagNames = new Set(['Chiringuito', 'Nudista', 'Playa canina'])
 
 type FlagKey = (typeof NeedFilterKeys)[number] | 'blueFlag' | 'flagGreen'
 
@@ -402,7 +399,9 @@ function FilterContent({
   const visibleActivities = activities
     .map((item, index) => ({ item, index }))
     .filter(
-      ({ index }) =>
+      ({ item, index }) =>
+        (isListedActivity(item) ||
+          (filters.activities ?? []).includes(index)) &&
         !isRedundant(
           (filters.activities ?? []).includes(index),
           counts.indexed.activities[index],

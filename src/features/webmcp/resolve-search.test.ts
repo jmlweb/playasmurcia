@@ -135,4 +135,17 @@ describe('summarizeBeach', () => {
       tags: ['Cala'],
     })
   })
+  it('leaves out activities listed on nearly every beach', () => {
+    const summary = summarizeBeach(
+      { ...beach, activities: [1, 0] },
+      {
+        ...catalog,
+        activities: [
+          ...catalog.activities,
+          { id: 'swimming', name: 'Natación', icon: '' },
+        ],
+      },
+    )
+    expect(summary.activities).toEqual(['Buceo'])
+  })
 })
