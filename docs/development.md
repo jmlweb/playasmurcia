@@ -290,7 +290,7 @@ See [ui-guidelines.md](./ui-guidelines.md). Image pipeline (`optimize:images`, `
 - TypeScript strict mode
 - Oxlint with [`@jmlweb/oxlint-config-react`](https://www.npmjs.com/package/@jmlweb/oxlint-config-react) (project overrides and `options.typeAware` in `oxlint.config.ts`). `@typescript-eslint/naming-convention` has no Oxlint port, so naming is no longer linted
 - Oxfmt with [`@jmlweb/oxfmt-config-base`](https://www.npmjs.com/package/@jmlweb/oxfmt-config-base) (`semi: false` and Tailwind class sorting against `src/styles.css` in `oxfmt.config.ts`). Oxfmt also sorts imports
-- TypeScript stays on 6.x: the `@eslint-react` plugin depends on typescript-eslint, which needs the classic TypeScript JS API that TypeScript 7 no longer ships
+- TypeScript 7 and 6 run side by side, as the TypeScript team recommends: `@typescript/native` (an alias of `typescript@7`) provides the `tsc` that `pnpm type-check` and `pnpm check` run, while `typescript` is an alias of `@typescript/typescript6`. The `@eslint-react` plugin depends on typescript-eslint, which needs the classic TypeScript JS API that TypeScript 7 no longer ships
 - Functional approach (functions over classes)
 - Named exports only (no default exports)
 
