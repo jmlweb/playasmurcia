@@ -53,3 +53,5 @@
 | LRN-047 | NODE_ENV=production in the shell breaks pnpm test with React.act is not a function | testing, tooling | active | 2026-11-09 |
 | LRN-048 | Hide uninformative activity data at the display layer, not in beaches.json | data, content, database | active | 2026-11-14 |
 | LRN-049 | Length claims in descriptions hide behind km rounding; match near the OSM figure, compare as the page rounds | content, data, validation | active | 2026-11-11 |
+| LRN-050 | Unset NODE_ENV=production before local tests and DB seeding | testing, tooling, database | active | 2026-11-17 |
+| LRN-051 | Type JSON-imported beach services as readonly number[] before includes | testing, typescript, data | active | 2026-11-17 |

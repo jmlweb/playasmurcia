@@ -4,14 +4,14 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 13 |
-| Active | 0 |
+| Pending | 12 |
+| Active | 1 |
 | Blocked | 0 |
 | Complete | 182 |
 
 ## Active Tasks
 
-_No active tasks._
+- TSK-198: Fix unverified sunbeds and umbrellas services (P2)
 
 ## Pending Tasks
 
@@ -29,7 +29,6 @@ _No active tasks._
 | TSK-195 | Normalise the HTML cache key and cache 404s briefly | P3 | security, performance, cache | 2026-11-09 |
 | TSK-196 | Cache card weather per coordinate instead of per set of beach codes | P3 | security, weather, cache | 2026-11-09 |
 | TSK-197 | Paginate or collapse long municipality pages | P4 | ui, listing, performance | 2026-11-09 |
-| TSK-198 | Fix unverified sunbeds and umbrellas services | P2 | data, services, quality | 2026-11-10 |
 
 ## Recently Completed
 

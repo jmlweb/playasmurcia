@@ -12,7 +12,7 @@ This document describes the data structure for beaches in the Region of Murcia, 
 | `municipalities.json` | Coastal municipalities with INE codes | 8 municipalities |
 | `seas.json` | Sea names (indexed array) | 2 seas |
 | `activities.json` | Beach activities (indexed array) | 10 activities |
-| `services.json` | Beach services (indexed array); `assisted-bathing` (index 9) is set from `accessibility.json` | 10 services |
+| `services.json` | Beach services (indexed array); `assisted-bathing` (index 9) is set from `accessibility.json`. `umbrellas` (index 4) and `sunbeds` (index 5) are **not verified** against any official source: an LLM guessed them from descriptions, so they are kept only where the beach `description` or `access` mentions sombrillas or hamacas (checked by `src/lib/rental-services-data.test.ts`) | 10 services |
 | `tags.json` | Beach tags for categorization (indexed array) | 17 tags |
 | `certification-seasons.json` | Season year of each certification list, keyed by certification (`{ "blue-flag": 2026, "q-quality": 2024 }`). Written by `scripts/add-certifications.js`; not migrated to the DB — the site bundles it at build time | 2 entries |
 | `picture-credits.json` | Author, licence and source page of pictures sourced from Wikimedia Commons, keyed by the picture filename used in `pictures` (`{ "wm-geo-567.jpg": { author, license, source, title, descriptionUrl } }`). Written by `scripts/source-wikimedia-pictures.ts` when a candidate is approved; not migrated to the DB. Only CC BY, CC BY-SA, CC0 and public domain are accepted. Pictures from earlier sourcing runs have no entry yet | 2 entries |
@@ -356,7 +356,7 @@ beaches ──< beach_tags >── tags
 - `municipality`: Valid index 0-8
 - `sea`: Valid index 0-1
 - `activities`: Array of valid indices 0-9
-- `services`: Array of valid indices 0-8
+- `services`: Array of valid indices 0-8. `umbrellas` (4) and `sunbeds` (5) are unverified: add them only when the beach text mentions sombrillas or hamacas
 - `tags`: Array of valid indices 0-16
 - `nearby`: Array of valid beach `code` values
 - `zone`: A zone id from `zones.json` whose `municipalities` include the beach's municipality. Required unless the code is in `zones.json` `unresolved`, which forbids it
