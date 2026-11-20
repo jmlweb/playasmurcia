@@ -55,3 +55,4 @@
 | LRN-049 | Length claims in descriptions hide behind km rounding; match near the OSM figure, compare as the page rounds | content, data, validation | active | 2026-11-11 |
 | LRN-050 | Unset NODE_ENV=production before local tests and DB seeding | testing, tooling, database | active | 2026-11-17 |
 | LRN-051 | Type JSON-imported beach services as readonly number[] before includes | testing, typescript, data | active | 2026-11-17 |
+| LRN-052 | Picture tasks need R2 originals and credentials, not a fresh clone | data, photos, r2 | active | 2026-11-20 |

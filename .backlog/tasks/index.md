@@ -4,14 +4,15 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 12 |
+| Pending | 11 |
 | Active | 1 |
-| Blocked | 0 |
+| Blocked | 1 |
 | Complete | 182 |
 
 ## Active Tasks
 
-- TSK-198: Fix unverified sunbeds and umbrellas services (P2)
+- TSK-194: Photos for the 55 beaches that still have none (P3)
+- TSK-198: Fix unverified sunbeds and umbrellas services (P2) [BLOCKED: Criteria 3-4 need the production Turso migration run by hand with prod credentials (NODE_ENV=production pnpm tsx scripts/migrate-to-database.ts, then validate counts per LRN-046) and a check that /playas La Reya (code 648) no longer shows Hamacas; the unattended run has no prod access]
 
 ## Pending Tasks
 
@@ -25,7 +26,6 @@
 | TSK-189 | Coastal summer health points (SUAP, UME, SVAE) 2026 | P4 | data, external-source | 2026-11-08 |
 | TSK-190 | Monthly sea temperature normals from Copernicus Marine | P4 | data, weather, external-source | 2026-11-08 |
 | TSK-191 | Mar Menor latest IEO-CSIC report card | P4 | feature, external-source | 2026-11-08 |
-| TSK-194 | Photos for the 55 beaches that still have none | P3 | data, photos | 2026-11-09 |
 | TSK-195 | Normalise the HTML cache key and cache 404s briefly | P3 | security, performance, cache | 2026-11-09 |
 | TSK-196 | Cache card weather per coordinate instead of per set of beach codes | P3 | security, weather, cache | 2026-11-09 |
 | TSK-197 | Paginate or collapse long municipality pages | P4 | ui, listing, performance | 2026-11-09 |
