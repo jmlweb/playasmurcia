@@ -312,7 +312,7 @@ Editorial JSON and the database store **machine-oriented** values (English enums
 - Rows put the name left and the count right, with `tabular-nums` and an `aria-label` that carries the unit ("Cartagena, 69 playas"). Collections with no beaches are dropped.
 - Below `sm`, Municipios and Colecciones collapse into native `<details>` sharing one `name`, so only one stays open, and every link is at least 44px tall. From `sm` up, `.footer-disclosure` in `src/styles.css` keeps them open through `::details-content`; browsers without it keep the disclosure.
 - Link only to pages that exist. Each source names the fact it supplies, in a `dl` on the same columns as the link groups, with a fixed label width, so rows stay even and both blocks align.
-- The current page reads in white and semibold through `aria-[current=page]`, so all footer `Link`s set `activeOptions={{ exact: true }}`.
+- The current page reads in white and semibold through `aria-[current=page]`, so all footer `Link`s set `activeOptions={{ exact: true, includeSearch: false }}`. Ignoring the search keeps the state stable on URLs with unknown parameters (`fbclid`, `utm_*`), which get the bare URL's cached HTML and must hydrate to the same `aria-current`.
 
 ## Performance
 

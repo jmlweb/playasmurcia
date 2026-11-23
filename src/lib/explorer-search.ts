@@ -160,3 +160,16 @@ export function validateSearch(
     view: search.view === 'map' ? 'map' : undefined,
   }
 }
+
+/**
+ * Search of a pagination link. Re-validating drops unknown parameters (fbclid,
+ * utm_*) that the route's search object carries over from the root route, so
+ * the HTML cached for the bare URL hydrates cleanly when served for a URL with
+ * such parameters.
+ */
+export function explorerPageSearch(
+  search: ExplorerSearchParams,
+  page: number,
+): ExplorerSearchParams {
+  return { ...validateSearch(search), page: page > 1 ? page : undefined }
+}

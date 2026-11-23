@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import {
+  explorerPageSearch,
   keepUnsettledFlagGreen,
   mergeExplorerSearch,
   validateListingSearch,
@@ -250,5 +251,28 @@ describe('keepUnsettledFlagGreen', () => {
   it('keeps flagGreen in the URL across an early filter change', () => {
     const next = keepUnsettledFlagGreen(prev, { services: [1] }, false)
     expect(mergeExplorerSearch(prev, next).flagGreen).toBe(true)
+  })
+})
+
+describe('explorerPageSearch', () => {
+  // The root route has no validateSearch, so the route's search object also
+  // carries raw unknown parameters such as fbclid
+  const search = {
+    sort: 'name',
+    municipality: [1],
+    page: 3,
+    fbclid: 'abc',
+    utm_source: 'fb',
+  } as Parameters<typeof explorerPageSearch>[0]
+
+  it('drops unknown parameters so page links match the cached HTML', () => {
+    const next = explorerPageSearch(search, 2)
+    expect(next).not.toHaveProperty('fbclid')
+    expect(next).not.toHaveProperty('utm_source')
+    expect(next).toMatchObject({ sort: 'name', municipality: [1], page: 2 })
+  })
+
+  it('leaves page 1 out of the URL', () => {
+    expect(explorerPageSearch(search, 1).page).toBeUndefined()
   })
 })

@@ -4,14 +4,14 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 12 |
-| Active | 1 |
-| Blocked | 1 |
-| Complete | 182 |
+| Pending | 11 |
+| Active | 0 |
+| Blocked | 2 |
+| Complete | 183 |
 
 ## Active Tasks
 
-- TSK-194: Photos for the 55 beaches that still have none (P3)
+- TSK-194: Photos for the 55 beaches that still have none (P3) [BLOCKED: Needs a human with R2 access and photo licences: public/pictures is empty in a fresh clone (originals live only in R2), so pnpm score:picture-quality has no files to score; pnpm sync:pictures needs R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY and rclone; non-Wikimedia sources (ITREM, municipal sites) need reuse permission obtained by a person; TSK-142 already used up Wikimedia Commons]
 - TSK-198: Fix unverified sunbeds and umbrellas services (P2) [BLOCKED: Criteria 3-4 need the production Turso migration run by hand with prod credentials (NODE_ENV=production pnpm tsx scripts/migrate-to-database.ts, then validate counts per LRN-046) and a check that /playas La Reya (code 648) no longer shows Hamacas; the unattended run has no prod access]
 
 ## Pending Tasks
@@ -26,7 +26,6 @@
 | TSK-189 | Coastal summer health points (SUAP, UME, SVAE) 2026 | P4 | data, external-source | 2026-11-08 |
 | TSK-190 | Monthly sea temperature normals from Copernicus Marine | P4 | data, weather, external-source | 2026-11-08 |
 | TSK-191 | Mar Menor latest IEO-CSIC report card | P4 | feature, external-source | 2026-11-08 |
-| TSK-195 | Normalise the HTML cache key and cache 404s briefly | P3 | security, performance, cache | 2026-11-09 |
 | TSK-196 | Cache card weather per coordinate instead of per set of beach codes | P3 | security, weather, cache | 2026-11-09 |
 | TSK-197 | Paginate or collapse long municipality pages | P4 | ui, listing, performance | 2026-11-09 |
 | TSK-199 | Fix: CI never runs validate-beaches.js, so invalid beach data deploys | P3 |  | 2026-11-23 |
@@ -35,6 +34,7 @@
 
 | ID | Title | Completed |
 |----|-------|-----------|
+| TSK-195 | Normalise the HTML cache key and cache 404s briefly | 2026-11-23 |
 | TSK-192 | Rewrite the 65 descriptions that quote the OSM length | 2026-11-15 |
 | TSK-193 | Review activities data: Natación, Kayak, Snorkel and Pesca are on nearly every beach | 2026-11-14 |
 | TSK-147 | Official beach width and length from ITREM; review OSM length | 2026-11-09 |
@@ -44,4 +44,3 @@
 | TSK-138 | Expand aemetId coverage | 2026-11-08 |
 | TSK-139 | Sunrise and sunset per beach; derive puesta-sol tag | 2026-11-08 |
 | TSK-140 | Protected-area membership (Natura 2000 and regional parks) | 2026-11-08 |
-| TSK-141 | Accessible beaches: assisted bathing and amphibious chairs | 2026-11-08 |

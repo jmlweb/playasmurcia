@@ -56,3 +56,5 @@
 | LRN-050 | Unset NODE_ENV=production before local tests and DB seeding | testing, tooling, database | active | 2026-11-17 |
 | LRN-051 | Type JSON-imported beach services as readonly number[] before includes | testing, typescript, data | active | 2026-11-17 |
 | LRN-052 | Picture tasks need R2 originals and credentials, not a fresh clone | data, photos, r2 | active | 2026-11-20 |
+| LRN-053 | Unknown query params leak into TanStack search and Link active state | cache, tanstack-router, hydration, ssr | active | 2026-11-23 |
+| LRN-054 | Run pnpm dev offline with a throwaway Hrana HTTP shim when turso CLI is missing | dev, database, libsql, workerd, testing | active | 2026-11-23 |
