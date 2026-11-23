@@ -180,7 +180,8 @@ GET document ──→ src/server.ts ──→ src/lib/html-cache.ts ──→ S
 ```
 
 The cache key keeps only the search parameters the matched route validates
-(the keys returned by its `validateSearch`), sorted by name with raw values.
+(the keys returned by its `validateSearch`), sorted by name. Values are only
+re-encoded by `URLSearchParams`, the parser the router uses, never re-validated.
 Unknown parameters such as `fbclid`, `utm_*` or random cache busters share the
 entry of the bare URL; routes without `validateSearch` drop the whole query.
 

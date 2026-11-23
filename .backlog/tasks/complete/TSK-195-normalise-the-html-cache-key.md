@@ -19,10 +19,10 @@ htmlCacheKey in src/lib/html-cache.ts uses pathname plus the raw query string, s
 
 ## Acceptance Criteria
 
-- [x] Requests that differ only in unknown query parameters share one cache entry
-- [x] Hydration verified without warnings on a URL with an unknown parameter
-- [x] Known search parameters still produce their own entries
-- [x] Unit tests cover the key
+- [x] Requests that differ only in unknown query parameters share one cache entry — evidence: pnpm vitest run src/lib/html-cache.test.ts → unknown-param key tests + same-entry withHtmlCache test pass (2026-11-23)
+- [x] Hydration verified without warnings on a URL with an unknown parameter — evidence: pnpm dev + Playwright cached-HTML swap on 8 URL pairs → 0 hydration warnings; ?page=2 control still mismatches (2026-11-23)
+- [x] Known search parameters still produce their own entries — evidence: pnpm vitest run src/lib/html-cache.test.ts → known-param and per-route allowlist tests pass (2026-11-23)
+- [x] Unit tests cover the key — evidence: pnpm test → 733 passed, 2 skipped (2026-11-23)
 
 ## Notes
 

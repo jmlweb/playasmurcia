@@ -119,13 +119,16 @@ describe('htmlCacheKey', () => {
     )
   })
 
-  it('orders known parameters stably and keeps raw values', () => {
+  it('orders known parameters stably and keeps their values', () => {
     expect(
       keyOf('/explorar?sort=name&fbclid=abc&municipality=%5B1%2C2%5D'),
     ).toBe(keyOf('/explorar?municipality=%5B1%2C2%5D&sort=name'))
     expect(keyOf('/explorar?municipality=%5B2%2C1%5D')).not.toBe(
       keyOf('/explorar?municipality=%5B1%2C2%5D'),
     )
+    // The router decodes search with URLSearchParams too: both are "a b"
+    expect(keyOf('/explorar?q=a+b')).toBe(keyOf('/explorar?q=a%20b'))
+    expect(keyOf('/explorar?q=a+b')).not.toBe(keyOf('/explorar?q=a%2Bb'))
   })
 
   it('only keeps the parameters the matched route validates', () => {

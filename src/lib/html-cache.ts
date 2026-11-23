@@ -68,8 +68,10 @@ const searchKeysForPath = (pathname: string): ReadonlySet<string> =>
 /**
  * Keeps only the parameters the route validates, sorted by name. Unknown ones
  * (fbclid, utm_*, random cache busters) render the same page, so they must not
- * create new entries. Raw values are kept as they are: rewriting them could
- * make two different renders share one entry.
+ * create new entries. Values are only decoded and re-encoded by
+ * URLSearchParams, the same parser the router uses, so `+` and `%20` share an
+ * entry; they are never re-validated, which could make two different renders
+ * share one entry.
  */
 function normalisedSearch(url: URL): string {
   const searchKeys = searchKeysForPath(url.pathname)
