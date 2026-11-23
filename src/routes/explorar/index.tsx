@@ -42,6 +42,7 @@ import {
 } from '@/lib/beach-filters'
 import { canonicalLink, ogUrlMeta } from '@/lib/canonical'
 import {
+  explorerPageSearch,
   keepUnsettledFlagGreen,
   mergeExplorerSearch,
   validateSearch,
@@ -263,7 +264,7 @@ function ExplorerPage() {
   const getPageHref = (page: number) =>
     router.buildLocation({
       to: '/explorar',
-      search: { ...search, page: page > 1 ? page : undefined },
+      search: explorerPageSearch(search, page),
     }).href
 
   const allFiltered = useMemo(

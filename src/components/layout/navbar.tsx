@@ -130,7 +130,7 @@ function NavDropdown({ label, navData }: { label: string; navData: NavData }) {
             </ul>
             <div className="mt-2 border-t border-ocean-700 pt-2">
               <Link
-                activeOptions={{ exact: true }}
+                activeOptions={{ exact: true, includeSearch: false }}
                 className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-ocean-200 transition-colors hover:bg-ocean-700 hover:text-white focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ocean-800 focus-visible:outline-none pointer-coarse:min-h-11"
                 to="/colecciones"
               >
@@ -196,7 +196,7 @@ function MobileDropdown({
             )
           })}
           <Link
-            activeOptions={{ exact: true }}
+            activeOptions={{ exact: true, includeSearch: false }}
             className={`flex min-h-11 items-center text-base font-medium transition-colors hover:text-white ${pathname === '/colecciones' ? 'text-white' : 'text-ocean-200'} ${darkFocusRing}`}
             to="/colecciones"
             onClick={onNavigate}
@@ -220,7 +220,7 @@ function TodayLink({
 
   return (
     <Link
-      activeOptions={{ exact: true, includeHash: true }}
+      activeOptions={{ exact: true, includeHash: true, includeSearch: false }}
       className={className}
       hash="hoy"
       to="/"
@@ -308,7 +308,7 @@ export function Navbar({ navData }: { navData: NavData }) {
               return (
                 <Link
                   key={to}
-                  activeOptions={{ exact: true }}
+                  activeOptions={{ exact: true, includeSearch: false }}
                   aria-current={active ? currentValue(pathname, to) : undefined}
                   className={`inline-flex items-center text-sm font-medium transition-colors ${active ? 'text-white' : 'text-ocean-200 hover:text-white focus-visible:text-white'} ${touchNavTarget} ${darkFocusRing}`}
                   to={to}
@@ -418,7 +418,7 @@ export function Navbar({ navData }: { navData: NavData }) {
               return (
                 <Link
                   key={to}
-                  activeOptions={{ exact: true }}
+                  activeOptions={{ exact: true, includeSearch: false }}
                   aria-current={active ? currentValue(pathname, to) : undefined}
                   className={`flex min-h-11 items-center text-base font-medium transition-colors ${active ? 'border-l-2 border-ocean-400 pl-2 text-white' : 'text-ocean-200 hover:text-white'} ${darkFocusRing}`}
                   to={to}

@@ -60,9 +60,10 @@ describe('isCacheableResponse', () => {
     ).toBe(false)
   })
 
-  it('only accepts 200 HTML', () => {
+  it('only accepts 200 and 404 HTML', () => {
     expect(isCacheableResponse(html())).toBe(true)
-    expect(isCacheableResponse(html('nope', 404))).toBe(false)
+    expect(isCacheableResponse(html('missing', 404))).toBe(true)
+    expect(isCacheableResponse(html('nope', 500))).toBe(false)
     expect(isCacheableResponse(new Response('{}', { status: 200 }))).toBe(false)
     expect(
       isCacheableResponse(
@@ -73,12 +74,70 @@ describe('isCacheableResponse', () => {
 })
 
 describe('htmlCacheKey', () => {
-  it('scopes the key by version, path and query', () => {
-    const key = htmlCacheKey(
-      new Request('https://www.playasmurcia.com/playas/cala?x=1'),
+  const keyOf = (pathAndQuery: string, variant?: 'html' | 'markdown') =>
+    htmlCacheKey(
+      new Request(`https://www.playasmurcia.com${pathAndQuery}`),
       'v1',
+      variant,
+    ).url
+
+  it('scopes the key by variant, version and path', () => {
+    expect(keyOf('/playas/cala')).toBe(
+      'https://playasmurcia.cache/html/v1/playas/cala',
     )
-    expect(key.url).toBe('https://playasmurcia.cache/html/v1/playas/cala?x=1')
+    expect(keyOf('/playas/cala', 'markdown')).toBe(
+      'https://playasmurcia.cache/markdown/v1/playas/cala',
+    )
+  })
+
+  it('drops the whole query on routes without search parameters', () => {
+    expect(keyOf('/playas/cala?x=1')).toBe(keyOf('/playas/cala'))
+    expect(keyOf('/?fbclid=abc')).toBe(keyOf('/'))
+  })
+
+  it('ignores unknown parameters such as fbclid and utm_*', () => {
+    expect(keyOf('/municipios/cartagena?fbclid=abc&utm_source=fb')).toBe(
+      keyOf('/municipios/cartagena'),
+    )
+    expect(keyOf('/explorar?x=random-1')).toBe(keyOf('/explorar'))
+    expect(keyOf('/explorar?x=random-2')).toBe(keyOf('/explorar'))
+  })
+
+  it('keeps known parameters, so each filter set gets its own entry', () => {
+    expect(keyOf('/explorar?sort=name')).toBe(
+      'https://playasmurcia.cache/html/v1/explorar?sort=name',
+    )
+    expect(keyOf('/explorar?sort=name')).not.toBe(
+      keyOf('/explorar?sort=length'),
+    )
+    expect(keyOf('/explorar?q=calblanque')).not.toBe(keyOf('/explorar'))
+    expect(keyOf('/municipios/cartagena?page=2')).not.toBe(
+      keyOf('/municipios/cartagena'),
+    )
+    expect(keyOf('/colecciones/calas?sort=name')).not.toBe(
+      keyOf('/colecciones/calas'),
+    )
+  })
+
+  it('orders known parameters stably and keeps raw values', () => {
+    expect(
+      keyOf('/explorar?sort=name&fbclid=abc&municipality=%5B1%2C2%5D'),
+    ).toBe(keyOf('/explorar?municipality=%5B1%2C2%5D&sort=name'))
+    expect(keyOf('/explorar?municipality=%5B2%2C1%5D')).not.toBe(
+      keyOf('/explorar?municipality=%5B1%2C2%5D'),
+    )
+  })
+
+  it('only keeps the parameters the matched route validates', () => {
+    expect(keyOf('/colecciones/calas?municipality=%5B1%5D')).toBe(
+      keyOf('/colecciones/calas'),
+    )
+    expect(keyOf('/municipios/cartagena?q=calblanque')).toBe(
+      keyOf('/municipios/cartagena'),
+    )
+    expect(keyOf('/municipios/cartagena?dogFriendly=true')).not.toBe(
+      keyOf('/municipios/cartagena'),
+    )
   })
 })
 
@@ -104,16 +163,48 @@ describe('withHtmlCache', () => {
     expect(render).toHaveBeenCalledTimes(1)
   })
 
+  it('serves a request with an unknown parameter from the same entry', async () => {
+    const { cache } = fakeCache()
+    const render = vi.fn(async () => html('<p>fresh</p>'))
+    const options = { versionId: 'v1', waitUntil, cache }
+
+    await withHtmlCache(request, options, render)
+    const hit = await withHtmlCache(
+      new Request('https://www.playasmurcia.com/playas/cala?fbclid=abc'),
+      options,
+      render,
+    )
+    expect(await hit.text()).toBe('<p>fresh</p>')
+    expect(render).toHaveBeenCalledTimes(1)
+  })
+
+  it('stores a 404 page briefly and serves it with its status', async () => {
+    const { cache, store } = fakeCache()
+    const render = vi.fn(async () => html('missing', 404))
+    const options = { versionId: 'v1', waitUntil, cache }
+
+    const miss = await withHtmlCache(request, options, render)
+    expect(miss.status).toBe(404)
+
+    const stored = store.get(htmlCacheKey(request, 'v1').url)
+    expect(stored?.headers.get('cache-control')).toBe('public, s-maxage=60')
+
+    const hit = await withHtmlCache(request, options, render)
+    expect(hit.status).toBe(404)
+    expect(hit.headers.get('cache-control')).toBe('no-cache')
+    expect(render).toHaveBeenCalledTimes(1)
+  })
+
   it('does not store non-cacheable responses', async () => {
     const { cache, put } = fakeCache()
-    const render = vi.fn(async () => html('missing', 404))
+    const render = vi.fn(async () => html('boom', 500))
 
     const response = await withHtmlCache(
       request,
       { versionId: 'v1', waitUntil, cache },
       render,
     )
-    expect(response.status).toBe(404)
+    expect(response.status).toBe(500)
     expect(put).not.toHaveBeenCalled()
   })
 

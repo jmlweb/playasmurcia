@@ -155,7 +155,7 @@ export function SiteFooter({
         <div className={`${columnsClass} sm:gap-y-10`}>
           <div className="pb-2 sm:col-span-2 sm:pb-0 lg:col-span-1">
             <Link
-              activeOptions={{ exact: true }}
+              activeOptions={{ exact: true, includeSearch: false }}
               className={`inline-flex min-h-11 scroll-mt-20 items-center gap-2 text-lg font-bold text-white transition-opacity hover:opacity-80 sm:min-h-0 ${darkFocusRing}`}
               to="/"
             >
@@ -169,7 +169,7 @@ export function SiteFooter({
               </p>
             )}
             <Link
-              activeOptions={{ exact: true }}
+              activeOptions={{ exact: true, includeSearch: false }}
               className={`inline-flex min-h-11 items-center text-sm text-ocean-200 underline decoration-ocean-400 underline-offset-2 aria-[current=page]:font-semibold aria-[current=page]:text-white sm:mt-2 sm:min-h-6 ${linkBaseClass}`}
               to="/explorar"
             >
@@ -184,7 +184,7 @@ export function SiteFooter({
             {municipalities.map((m) => (
               <li key={m.slug}>
                 <Link
-                  activeOptions={{ exact: true }}
+                  activeOptions={{ exact: true, includeSearch: false }}
                   aria-label={countedName(m.name, m.beachCount)}
                   className={rowClass}
                   params={{ slug: m.slug }}
@@ -197,7 +197,7 @@ export function SiteFooter({
             ))}
             <IndexRow>
               <Link
-                activeOptions={{ exact: true }}
+                activeOptions={{ exact: true, includeSearch: false }}
                 className={indexRowClass}
                 to="/municipios"
               >
@@ -213,7 +213,7 @@ export function SiteFooter({
             {characteristics.map((c) => (
               <li key={c.href}>
                 <Link
-                  activeOptions={{ exact: true }}
+                  activeOptions={{ exact: true, includeSearch: false }}
                   aria-label={countedName(c.label, c.count)}
                   className={rowClass}
                   params={{ slug: c.href.split('/').pop()! }}
@@ -226,7 +226,7 @@ export function SiteFooter({
             ))}
             <IndexRow>
               <Link
-                activeOptions={{ exact: true }}
+                activeOptions={{ exact: true, includeSearch: false }}
                 className={indexRowClass}
                 to="/colecciones"
               >

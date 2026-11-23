@@ -174,9 +174,15 @@ External APIs (AEMET, Open-Meteo, 112 COPLA) ──→ src/lib/edge-cache.ts ─
   (Cloudflare Cache API in production, in-memory fallback in local dev)
 
 GET document ──→ src/server.ts ──→ src/lib/html-cache.ts ──→ SSR only on a miss
-  (Cache API, key = deploy version + path + query, edge TTL 1 h, browsers `no-cache`;
-   server-function calls, redirects, 404s and non-HTML responses are never cached)
+  (Cache API, key = deploy version + path + the route's known search parameters,
+   edge TTL 1 h (404 pages 60 s), browsers `no-cache`; server-function calls,
+   redirects, errors and non-HTML responses are never cached)
 ```
+
+The cache key keeps only the search parameters the matched route validates
+(the keys returned by its `validateSearch`), sorted by name with raw values.
+Unknown parameters such as `fbclid`, `utm_*` or random cache busters share the
+entry of the bare URL; routes without `validateSearch` drop the whole query.
 
 Rendered HTML is static per URL: weather, flags and 112 status load client-side
 through server functions after hydration. The cache key includes the Worker

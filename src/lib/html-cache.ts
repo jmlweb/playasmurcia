@@ -1,5 +1,14 @@
+import {
+  validateListingSearch,
+  validateMunicipalitySearch,
+  validateSearch,
+} from '@/lib/explorer-search'
+
 const CACHE_ORIGIN = 'https://playasmurcia.cache'
 const EDGE_TTL_SECONDS = 60 * 60
+// Short enough that a page published after a 404 shows up quickly, long
+// enough that repeated probes of a missing URL skip SSR and Turso
+const NOT_FOUND_EDGE_TTL_SECONDS = 60
 // Server functions carry per-call payloads and must always run
 const SERVER_FN_PREFIX = '/_serverFn/'
 
@@ -21,10 +30,55 @@ export function isCacheableRequest(request: Request): boolean {
 
 export function isCacheableResponse(response: Response): boolean {
   return (
-    response.status === 200 &&
+    (response.status === 200 || response.status === 404) &&
     /text\/(html|markdown)/.test(response.headers.get('content-type') ?? '') &&
     !(response.headers.get('cache-control') ?? '').includes('no-store')
   )
+}
+
+// Each validator returns every key it knows (unset ones as undefined), so the
+// key lists stay in sync with the routes without a second hand-kept list
+const searchKeysOf = (
+  validate: (search: Record<string, unknown>) => object,
+): ReadonlySet<string> => new Set(Object.keys(validate({})))
+
+type RouteSearchKeys = {
+  pattern: RegExp
+  searchKeys: ReadonlySet<string>
+}
+
+const SEARCH_KEYS_BY_ROUTE: readonly RouteSearchKeys[] = [
+  { pattern: /^\/explorar\/?$/, searchKeys: searchKeysOf(validateSearch) },
+  {
+    pattern: /^\/municipios\/[^/]+\/?$/,
+    searchKeys: searchKeysOf(validateMunicipalitySearch),
+  },
+  {
+    pattern: /^\/colecciones\/[^/]+\/?$/,
+    searchKeys: searchKeysOf(validateListingSearch),
+  },
+]
+
+const NO_SEARCH_KEYS: ReadonlySet<string> = new Set()
+
+const searchKeysForPath = (pathname: string): ReadonlySet<string> =>
+  SEARCH_KEYS_BY_ROUTE.find(({ pattern }) => pattern.test(pathname))
+    ?.searchKeys ?? NO_SEARCH_KEYS
+
+/**
+ * Keeps only the parameters the route validates, sorted by name. Unknown ones
+ * (fbclid, utm_*, random cache busters) render the same page, so they must not
+ * create new entries. Raw values are kept as they are: rewriting them could
+ * make two different renders share one entry.
+ */
+function normalisedSearch(url: URL): string {
+  const searchKeys = searchKeysForPath(url.pathname)
+  const known = new URLSearchParams(
+    [...url.searchParams].filter(([name]) => searchKeys.has(name)),
+  )
+  known.sort()
+  const search = known.toString()
+  return search ? `?${search}` : ''
 }
 
 export function htmlCacheKey(
@@ -32,9 +86,9 @@ export function htmlCacheKey(
   versionId: string,
   variant: CacheVariant = 'html',
 ): Request {
-  const { pathname, search } = new URL(request.url)
+  const url = new URL(request.url)
   return new Request(
-    `${CACHE_ORIGIN}/${variant}/${encodeURIComponent(versionId)}${pathname}${search}`,
+    `${CACHE_ORIGIN}/${variant}/${encodeURIComponent(versionId)}${url.pathname}${normalisedSearch(url)}`,
   )
 }
 
@@ -52,7 +106,9 @@ function withClientCacheControl(response: Response): Response {
 
 function toEdgeCopy(response: Response): Response {
   const headers = new Headers(response.headers)
-  headers.set('Cache-Control', `public, s-maxage=${EDGE_TTL_SECONDS}`)
+  const ttlSeconds =
+    response.status === 404 ? NOT_FOUND_EDGE_TTL_SECONDS : EDGE_TTL_SECONDS
+  headers.set('Cache-Control', `public, s-maxage=${ttlSeconds}`)
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,
@@ -62,8 +118,10 @@ function toEdgeCopy(response: Response): Response {
 
 /**
  * Serves fully rendered HTML from the Cloudflare Cache API, keyed by deploy
- * version. Only successful GET documents are stored; server-function calls,
- * redirects, 404s and non-HTML responses always reach `render`.
+ * version, path and the route's known search parameters. Successful GET
+ * documents are stored for the edge TTL and 404 pages for a short TTL;
+ * server-function calls, redirects, errors and non-HTML responses always
+ * reach `render`.
  */
 export async function withHtmlCache(
   request: Request,
