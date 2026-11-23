@@ -4,7 +4,7 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 10 |
+| Pending | 11 |
 | Active | 0 |
 | Blocked | 2 |
 | Complete | 183 |
@@ -28,6 +28,7 @@
 | TSK-191 | Mar Menor latest IEO-CSIC report card | P4 | feature, external-source | 2026-11-08 |
 | TSK-196 | Cache card weather per coordinate instead of per set of beach codes | P3 | security, weather, cache | 2026-11-09 |
 | TSK-197 | Paginate or collapse long municipality pages | P4 | ui, listing, performance | 2026-11-09 |
+| TSK-199 | Fix: CI never runs validate-beaches.js, so invalid beach data deploys | P3 |  | 2026-11-23 |
 
 ## Recently Completed
 
