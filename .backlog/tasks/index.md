@@ -4,7 +4,7 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 11 |
+| Pending | 12 |
 | Active | 1 |
 | Blocked | 1 |
 | Complete | 182 |
@@ -29,6 +29,7 @@
 | TSK-195 | Normalise the HTML cache key and cache 404s briefly | P3 | security, performance, cache | 2026-11-09 |
 | TSK-196 | Cache card weather per coordinate instead of per set of beach codes | P3 | security, weather, cache | 2026-11-09 |
 | TSK-197 | Paginate or collapse long municipality pages | P4 | ui, listing, performance | 2026-11-09 |
+| TSK-199 | Fix: CI never runs validate-beaches.js, so invalid beach data deploys | P3 |  | 2026-11-23 |
 
 ## Recently Completed
 
