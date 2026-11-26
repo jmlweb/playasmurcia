@@ -227,7 +227,7 @@ describe('fetchBatchCardWeather cache per coordinate', () => {
     expect(result.size).toBe(40)
   })
 
-  it('does not serve an entry cached for a longer lifetime', async () => {
+  it('refetches a reading older than a fresher caller accepts', async () => {
     global.fetch = vi.fn().mockResolvedValue({
       ok: true,
       json: async () => currentReading(26),
@@ -235,11 +235,38 @@ describe('fetchBatchCardWeather cache per coordinate', () => {
     const beach = [
       { code: 'TEST_TTL', coordinates: [40.31, -1.5] as [number, number] },
     ]
+    const startedAt = Date.now()
+    const now = vi.spyOn(Date, 'now').mockReturnValue(startedAt)
 
     await fetchBatchCardWeather(beach)
-    await fetchBatchCardWeather(beach, { ttlSeconds: 1800 })
+    now.mockReturnValue(startedAt + 31 * 60 * 1000)
+    await fetchBatchCardWeather(beach)
+    expect(global.fetch).toHaveBeenCalledTimes(1)
 
+    await fetchBatchCardWeather(beach, { ttlSeconds: 1800 })
     expect(global.fetch).toHaveBeenCalledTimes(2)
+  })
+
+  it('makes one Cache API lookup and one write per request', async () => {
+    // Workers cap Cache API calls per request (50 on the Free plan)
+    const match = vi.fn().mockResolvedValue(undefined)
+    const put = vi.fn().mockResolvedValue(undefined)
+    vi.stubGlobal('caches', { default: { match, put } })
+    const listing = Array.from({ length: 120 }, (_, i) => ({
+      code: `TEST_CACHE_CALLS_${i}`,
+      coordinates: [42 + i / 100, -1.5] as [number, number],
+    }))
+    global.fetch = vi.fn().mockImplementation(async (url: string) => ({
+      ok: true,
+      json: async () => latitudesRequested([url]).map(() => currentReading(28)),
+    }))
+
+    const result = await fetchBatchCardWeather(listing)
+
+    vi.unstubAllGlobals()
+    expect(result.size).toBe(120)
+    expect(match).toHaveBeenCalledTimes(1)
+    expect(put).toHaveBeenCalledTimes(1)
   })
 
   it('refetches a coordinate whose upstream chunk failed', async () => {

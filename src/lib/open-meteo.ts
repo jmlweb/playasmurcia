@@ -262,7 +262,7 @@ export async function fetchOpenMeteoForecast(
 // Batch current weather for cards
 // ---------------------------------------------------------------------------
 
-// v4: one entry per rounded coordinate instead of one per set of beach codes
+// v4: readings per rounded coordinate instead of one entry per set of codes
 const CARD_CACHE_NS = 'open-meteo-card-v4'
 const CARD_CACHE_TTL = 2 * 60 * 60 // 2 hours
 // Cards are decorative: a slow upstream must not hold the whole page response
@@ -336,12 +336,20 @@ async function fetchMissingCardWeather(
   return fetched
 }
 
+type CardReading = { weather: CardWeather; fetchedAt: number }
+
+// One shared record keyed by "lat,lng" instead of one cache entry per point:
+// Workers cap Cache API calls per request (50 on the Free plan), and a full
+// listing has about 150 coordinates. Coordinates come from the DB, so the
+// record stays bounded by the real beaches
+const CARD_READINGS_KEY = 'readings'
+
 /**
  * Fetches current weather for multiple beaches in chunked API calls.
  * Returns a Map keyed by beach code with compact weather data (temp + icon).
  *
- * Caches each rounded coordinate on its own — nearby beaches share one data
- * point, and overlapping code sets reuse what earlier requests fetched.
+ * Caches each rounded coordinate — nearby beaches share one data point, and
+ * overlapping code sets reuse what earlier requests fetched.
  */
 export async function fetchBatchCardWeather(
   beaches: { code: string; coordinates: [number, number] }[],
@@ -366,41 +374,54 @@ export async function fetchBatchCardWeather(
     }
   }
 
-  // The TTL is part of the key so a fresher caller is never served an entry
-  // stored for a longer one
-  const cacheKeyFor = (coordinateKey: string) =>
-    `${String(ttlSeconds)}:${coordinateKey}`
+  const readings =
+    (await edgeCacheGet<Record<string, CardReading>>(
+      CARD_CACHE_NS,
+      CARD_READINGS_KEY,
+    )) ?? {}
 
-  const cachedEntries = await Promise.all(
-    uniqueCoords.map(({ lat, lng }) =>
-      edgeCacheGet<CardWeather>(CARD_CACHE_NS, cacheKeyFor(`${lat},${lng}`)),
-    ),
-  )
+  // Each caller applies its own TTL, so a fresher caller never gets a reading
+  // older than it accepts
+  const now = Date.now()
+  const isFresh = (
+    reading: CardReading | undefined,
+    maxAgeSeconds: number,
+  ): reading is CardReading =>
+    reading !== undefined && now - reading.fetchedAt < maxAgeSeconds * 1000
 
   const weatherByCoordinate = new Map<string, CardWeather>()
   const missing: RoundedCoordinate[] = []
-  uniqueCoords.forEach((coord, i) => {
-    const cached = cachedEntries[i]
-    if (cached) {
-      weatherByCoordinate.set(`${coord.lat},${coord.lng}`, cached)
+  for (const coord of uniqueCoords) {
+    const coordinateKey = `${coord.lat},${coord.lng}`
+    const reading = readings[coordinateKey]
+    if (isFresh(reading, ttlSeconds)) {
+      weatherByCoordinate.set(coordinateKey, reading.weather)
     } else {
       missing.push(coord)
     }
-  })
+  }
 
-  if (missing.length > 0) {
-    const fetched = await fetchMissingCardWeather(missing)
-    // Failed coordinates are not cached, so the next request retries them
-    await Promise.all(
-      Array.from(fetched, ([coordinateKey, weather]) => {
-        weatherByCoordinate.set(coordinateKey, weather)
-        return edgeCacheSet(
-          CARD_CACHE_NS,
-          cacheKeyFor(coordinateKey),
-          weather,
-          ttlSeconds,
-        )
-      }),
+  const fetched =
+    missing.length > 0
+      ? await fetchMissingCardWeather(missing)
+      : new Map<string, CardWeather>()
+
+  // Failed coordinates are not stored, so the next request retries them.
+  // Concurrent writers may drop each other's readings: that only costs a refetch
+  if (fetched.size > 0) {
+    const recordTtl = Math.max(ttlSeconds, CARD_CACHE_TTL)
+    const keptReadings = Object.entries(readings).filter(([, reading]) =>
+      isFresh(reading, recordTtl),
+    )
+    const newReadings = Array.from(fetched, ([coordinateKey, weather]) => {
+      weatherByCoordinate.set(coordinateKey, weather)
+      return [coordinateKey, { weather, fetchedAt: now }] as const
+    })
+    await edgeCacheSet(
+      CARD_CACHE_NS,
+      CARD_READINGS_KEY,
+      Object.fromEntries([...keptReadings, ...newReadings]),
+      recordTtl,
     )
   }
 

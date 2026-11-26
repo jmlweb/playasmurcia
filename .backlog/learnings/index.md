@@ -60,3 +60,4 @@
 | LRN-054 | Run pnpm dev offline with a throwaway Hrana HTTP shim when turso CLI is missing | dev, database, libsql, workerd, testing | active | 2026-11-23 |
 | LRN-055 | Edge-cache memory fallback leaks entries between tests that share coordinates | testing, cache, weather | active | 2026-11-26 |
 | LRN-056 | Local test runs need NODE_ENV=test, a seeded local.db and a prior build | testing, tooling | active | 2026-11-26 |
+| LRN-057 | Workers cap Cache API calls per request, so per-key cache fan-out breaks large batches | cache, weather, cloudflare | active | 2026-11-26 |

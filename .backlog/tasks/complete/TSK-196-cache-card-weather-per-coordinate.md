@@ -29,6 +29,7 @@ fetchBatchCardWeather in src/lib/open-meteo.ts keys its cache by the sorted list
 
 - LRN-055: Edge-cache memory fallback leaks entries between tests that share coordinates
 - LRN-056: Local test runs need NODE_ENV=test, a seeded local.db and a prior build
+- LRN-057: Workers cap Cache API calls per request, so per-key cache fan-out breaks large batches
 ## Progress Log
 
 - [2026-11-09] Created
@@ -37,3 +38,4 @@ fetchBatchCardWeather in src/lib/open-meteo.ts keys its cache by the sorted list
 - [2026-11-26] criterion 2 — evidence: pnpm vitest run src/lib/open-meteo.test.ts → 'fetches every coordinate of a cold listing in one batched call' passes (40 coordinates, 1 call) and 'splits many unique coordinates into several requests' still passes (2026-11-26)
 - [2026-11-26] criterion 3 — evidence: pnpm vitest run src/lib/open-meteo.test.ts → partial-hit tests (overlapping sets, shared coordinate across codes, all-hit with no call, failed chunk retried) pass; full pnpm test 739 passed (2026-11-26)
 - [2026-11-26] Completed
+- [2026-11-26] Reworked to one shared per-coordinate record after confirming the Workers Cache API cap (50 calls/request on Free) — evidence: 'makes one Cache API lookup and one write per request' passes with 120 coordinates; pnpm test 740 passed (2026-11-26)
