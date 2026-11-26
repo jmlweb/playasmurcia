@@ -4,10 +4,10 @@
 
 | Status | Count |
 |--------|-------|
-| Pending | 11 |
+| Pending | 10 |
 | Active | 0 |
 | Blocked | 2 |
-| Complete | 183 |
+| Complete | 184 |
 
 ## Active Tasks
 
@@ -26,7 +26,6 @@
 | TSK-189 | Coastal summer health points (SUAP, UME, SVAE) 2026 | P4 | data, external-source | 2026-11-08 |
 | TSK-190 | Monthly sea temperature normals from Copernicus Marine | P4 | data, weather, external-source | 2026-11-08 |
 | TSK-191 | Mar Menor latest IEO-CSIC report card | P4 | feature, external-source | 2026-11-08 |
-| TSK-196 | Cache card weather per coordinate instead of per set of beach codes | P3 | security, weather, cache | 2026-11-09 |
 | TSK-197 | Paginate or collapse long municipality pages | P4 | ui, listing, performance | 2026-11-09 |
 | TSK-199 | Fix: CI never runs validate-beaches.js, so invalid beach data deploys | P3 |  | 2026-11-23 |
 
@@ -34,6 +33,7 @@
 
 | ID | Title | Completed |
 |----|-------|-----------|
+| TSK-196 | Cache card weather per coordinate instead of per set of beach codes | 2026-11-26 |
 | TSK-195 | Normalise the HTML cache key and cache 404s briefly | 2026-11-23 |
 | TSK-192 | Rewrite the 65 descriptions that quote the OSM length | 2026-11-15 |
 | TSK-193 | Review activities data: Natación, Kayak, Snorkel and Pesca are on nearly every beach | 2026-11-14 |
@@ -43,4 +43,3 @@
 | TSK-136 | Expose address and postalCode fields | 2026-11-08 |
 | TSK-138 | Expand aemetId coverage | 2026-11-08 |
 | TSK-139 | Sunrise and sunset per beach; derive puesta-sol tag | 2026-11-08 |
-| TSK-140 | Protected-area membership (Natura 2000 and regional parks) | 2026-11-08 |

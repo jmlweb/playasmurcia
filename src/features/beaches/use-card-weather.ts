@@ -13,8 +13,8 @@ const fetchCardWeather = createServerFn({ method: 'POST' })
         import('@/lib/db-data/beach-queries'),
         import('@/lib/open-meteo'),
       ])
-    // Coordinates must come from the DB: the batch cache is keyed by code, so
-    // caller-supplied ones would be served to every visitor of that listing
+    // Coordinates must come from the DB: caller-supplied ones would fill the
+    // shared per-coordinate cache and spend the Open-Meteo quota on any point
     const weatherMap = await fetchBatchCardWeather(
       await getBeachWeatherTargets(data.codes),
     )

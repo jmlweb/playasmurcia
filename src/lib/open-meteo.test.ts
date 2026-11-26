@@ -56,7 +56,8 @@ describe('fetchBatchCardWeather', () => {
   it('keeps weather from chunks that succeed when another fails', async () => {
     const many = Array.from({ length: 60 }, (_, i) => ({
       code: `TEST_PARTIAL_${i}`,
-      coordinates: [38 + i / 100, -0.5] as [number, number],
+      // Own longitude: successful chunks stay cached for the later tests
+      coordinates: [38 + i / 100, -0.6] as [number, number],
     }))
     global.fetch = vi
       .fn()
@@ -120,6 +121,144 @@ describe('fetchBatchCardWeather', () => {
       windDirection: 'E',
     })
     expect(result.get('TEST_WIND_B')?.windDirection).toBe('S')
+  })
+})
+
+const currentReading = (temperature: number) => ({
+  current: {
+    temperature_2m: temperature,
+    weather_code: 0,
+    wind_speed_10m: 10,
+    wind_direction_10m: 180,
+  },
+})
+
+const latitudesRequested = (call: unknown[]) =>
+  new URL(String(call[0])).searchParams.get('latitude')?.split(',') ?? []
+
+describe('fetchBatchCardWeather cache per coordinate', () => {
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
+
+  it('fetches the coordinates shared by two overlapping requests once', async () => {
+    global.fetch = vi
+      .fn()
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => [currentReading(20), currentReading(21)],
+      })
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => currentReading(22),
+      })
+
+    await fetchBatchCardWeather([
+      { code: 'TEST_OVERLAP_P', coordinates: [40.01, -1.5] },
+      { code: 'TEST_OVERLAP_Q', coordinates: [40.02, -1.5] },
+    ])
+    const second = await fetchBatchCardWeather([
+      { code: 'TEST_OVERLAP_Q', coordinates: [40.02, -1.5] },
+      { code: 'TEST_OVERLAP_R', coordinates: [40.03, -1.5] },
+    ])
+
+    const calls = vi.mocked(global.fetch).mock.calls
+    expect(calls).toHaveLength(2)
+    expect(latitudesRequested(calls[1])).toEqual(['40.03'])
+    expect(second.get('TEST_OVERLAP_Q')?.temp).toBe(21)
+    expect(second.get('TEST_OVERLAP_R')?.temp).toBe(22)
+  })
+
+  it('shares cached coordinates between different beach codes', async () => {
+    global.fetch = vi.fn().mockResolvedValueOnce({
+      ok: true,
+      json: async () => currentReading(19),
+    })
+
+    await fetchBatchCardWeather([
+      { code: 'TEST_SHARED_A', coordinates: [40.11, -1.5] },
+    ])
+    const result = await fetchBatchCardWeather([
+      { code: 'TEST_SHARED_B', coordinates: [40.111, -1.501] },
+    ])
+
+    expect(global.fetch).toHaveBeenCalledTimes(1)
+    expect(result.get('TEST_SHARED_B')?.temp).toBe(19)
+  })
+
+  it('makes no upstream call when every coordinate is cached', async () => {
+    global.fetch = vi.fn().mockResolvedValueOnce({
+      ok: true,
+      json: async () => [currentReading(23), currentReading(24)],
+    })
+    const cachedBeaches = [
+      {
+        code: 'TEST_ALL_HIT_A',
+        coordinates: [40.21, -1.5] as [number, number],
+      },
+      {
+        code: 'TEST_ALL_HIT_B',
+        coordinates: [40.22, -1.5] as [number, number],
+      },
+    ]
+
+    await fetchBatchCardWeather(cachedBeaches)
+    const result = await fetchBatchCardWeather(cachedBeaches)
+
+    expect(global.fetch).toHaveBeenCalledTimes(1)
+    expect(result.get('TEST_ALL_HIT_B')?.temp).toBe(24)
+  })
+
+  it('fetches every coordinate of a cold listing in one batched call', async () => {
+    const listing = Array.from({ length: 40 }, (_, i) => ({
+      code: `TEST_COLD_${i}`,
+      coordinates: [41 + i / 100, -1.5] as [number, number],
+    }))
+    global.fetch = vi.fn().mockResolvedValueOnce({
+      ok: true,
+      json: async () => listing.map(() => currentReading(25)),
+    })
+
+    const result = await fetchBatchCardWeather(listing)
+
+    const calls = vi.mocked(global.fetch).mock.calls
+    expect(calls).toHaveLength(1)
+    expect(latitudesRequested(calls[0])).toHaveLength(40)
+    expect(result.size).toBe(40)
+  })
+
+  it('does not serve an entry cached for a longer lifetime', async () => {
+    global.fetch = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => currentReading(26),
+    })
+    const beach = [
+      { code: 'TEST_TTL', coordinates: [40.31, -1.5] as [number, number] },
+    ]
+
+    await fetchBatchCardWeather(beach)
+    await fetchBatchCardWeather(beach, { ttlSeconds: 1800 })
+
+    expect(global.fetch).toHaveBeenCalledTimes(2)
+  })
+
+  it('refetches a coordinate whose upstream chunk failed', async () => {
+    global.fetch = vi
+      .fn()
+      .mockResolvedValueOnce({ ok: false })
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => currentReading(27),
+      })
+    const beach = [
+      { code: 'TEST_RETRY', coordinates: [40.41, -1.5] as [number, number] },
+    ]
+
+    const first = await fetchBatchCardWeather(beach)
+    const second = await fetchBatchCardWeather(beach)
+
+    expect(first.size).toBe(0)
+    expect(second.get('TEST_RETRY')?.temp).toBe(27)
   })
 })
 

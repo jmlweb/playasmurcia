@@ -58,3 +58,5 @@
 | LRN-052 | Picture tasks need R2 originals and credentials, not a fresh clone | data, photos, r2 | active | 2026-11-20 |
 | LRN-053 | Unknown query params leak into TanStack search and Link active state | cache, tanstack-router, hydration, ssr | active | 2026-11-23 |
 | LRN-054 | Run pnpm dev offline with a throwaway Hrana HTTP shim when turso CLI is missing | dev, database, libsql, workerd, testing | active | 2026-11-23 |
+| LRN-055 | Edge-cache memory fallback leaks entries between tests that share coordinates | testing, cache, weather | active | 2026-11-26 |
+| LRN-056 | Local test runs need NODE_ENV=test, a seeded local.db and a prior build | testing, tooling | active | 2026-11-26 |
