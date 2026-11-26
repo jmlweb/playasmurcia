@@ -262,7 +262,8 @@ export async function fetchOpenMeteoForecast(
 // Batch current weather for cards
 // ---------------------------------------------------------------------------
 
-const CARD_CACHE_NS = 'open-meteo-card-v3'
+// v4: readings per rounded coordinate instead of one entry per set of codes
+const CARD_CACHE_NS = 'open-meteo-card-v4'
 const CARD_CACHE_TTL = 2 * 60 * 60 // 2 hours
 // Cards are decorative: a slow upstream must not hold the whole page response
 const CARD_FETCH_TIMEOUT_MS = 2000
@@ -294,11 +295,61 @@ async function fetchCardWeatherChunk(
   }
 }
 
+type RoundedCoordinate = { lat: number; lng: number }
+
+function toCardWeather(current: MultiCurrentResponse['current']): CardWeather {
+  return {
+    temp: Math.round(current.temperature_2m),
+    icon: wmoToIcon(current.weather_code),
+    windSpeed: Math.round(current.wind_speed_10m),
+    windDirection: degreesToDirection(current.wind_direction_10m),
+    observedAt: current.time,
+  }
+}
+
+// Upstream fetches only the coordinates missing from the cache, so the number
+// of calls is bounded by the real coordinates, not by the code sets callers send
+async function fetchMissingCardWeather(
+  missing: RoundedCoordinate[],
+): Promise<Map<string, CardWeather>> {
+  const fetched = new Map<string, CardWeather>()
+
+  // One GET URL per chunk keeps the query string well below URL-length limits
+  const chunks: RoundedCoordinate[][] = []
+  for (let i = 0; i < missing.length; i += CARD_CHUNK_SIZE) {
+    chunks.push(missing.slice(i, i + CARD_CHUNK_SIZE))
+  }
+
+  const outcomes = await Promise.all(
+    chunks.map((chunk) => fetchCardWeatherChunk(chunk)),
+  )
+
+  outcomes.forEach((responses, chunkIndex) => {
+    chunks[chunkIndex].forEach((coord, i) => {
+      const current = responses?.[i]?.current
+      if (current) {
+        fetched.set(`${coord.lat},${coord.lng}`, toCardWeather(current))
+      }
+    })
+  })
+
+  return fetched
+}
+
+type CardReading = { weather: CardWeather; fetchedAt: number }
+
+// One shared record keyed by "lat,lng" instead of one cache entry per point:
+// Workers cap Cache API calls per request (50 on the Free plan), and a full
+// listing has about 150 coordinates. Coordinates come from the DB, so the
+// record stays bounded by the real beaches
+const CARD_READINGS_KEY = 'readings'
+
 /**
  * Fetches current weather for multiple beaches in chunked API calls.
  * Returns a Map keyed by beach code with compact weather data (temp + icon).
  *
- * Deduplicates by rounded coordinates — nearby beaches share one data point.
+ * Caches each rounded coordinate — nearby beaches share one data point, and
+ * overlapping code sets reuse what earlier requests fetched.
  */
 export async function fetchBatchCardWeather(
   beaches: { code: string; coordinates: [number, number] }[],
@@ -307,79 +358,77 @@ export async function fetchBatchCardWeather(
   const result = new Map<string, CardWeather>()
   if (beaches.length === 0) return result
 
-  // Build a stable cache key from sorted beach codes. The TTL is part of it so
-  // a fresher caller is never served an entry stored for a longer one.
-  const cacheKey = `${String(ttlSeconds)}:${beaches
-    .map((b) => b.code)
-    .sort()
-    .join(',')}`
-
-  const cached = await edgeCacheGet<[string, CardWeather][]>(
-    CARD_CACHE_NS,
-    cacheKey,
-  )
-  if (cached) {
-    return new Map(cached)
-  }
-
-  // Deduplicate by rounded coordinates
-  const coordMap = new Map<string, string[]>() // "lat,lng" -> [beachCode, ...]
-  const uniqueCoords: { lat: number; lng: number }[] = []
+  const codesByCoordinate = new Map<string, string[]>()
+  const uniqueCoords: RoundedCoordinate[] = []
 
   for (const beach of beaches) {
     const lat = Math.round(beach.coordinates[0] * 100) / 100
     const lng = Math.round(beach.coordinates[1] * 100) / 100
     const key = `${lat},${lng}`
-    const existing = coordMap.get(key)
+    const existing = codesByCoordinate.get(key)
     if (existing) {
       existing.push(beach.code)
     } else {
-      coordMap.set(key, [beach.code])
+      codesByCoordinate.set(key, [beach.code])
       uniqueCoords.push({ lat, lng })
     }
   }
 
-  // One GET URL per chunk keeps the query string well below URL-length limits
-  const chunks: { lat: number; lng: number }[][] = []
-  for (let i = 0; i < uniqueCoords.length; i += CARD_CHUNK_SIZE) {
-    chunks.push(uniqueCoords.slice(i, i + CARD_CHUNK_SIZE))
+  const readings =
+    (await edgeCacheGet<Record<string, CardReading>>(
+      CARD_CACHE_NS,
+      CARD_READINGS_KEY,
+    )) ?? {}
+
+  // Each caller applies its own TTL, so a fresher caller never gets a reading
+  // older than it accepts
+  const now = Date.now()
+  const isFresh = (
+    reading: CardReading | undefined,
+    maxAgeSeconds: number,
+  ): reading is CardReading =>
+    reading !== undefined && now - reading.fetchedAt < maxAgeSeconds * 1000
+
+  const weatherByCoordinate = new Map<string, CardWeather>()
+  const missing: RoundedCoordinate[] = []
+  for (const coord of uniqueCoords) {
+    const coordinateKey = `${coord.lat},${coord.lng}`
+    const reading = readings[coordinateKey]
+    if (isFresh(reading, ttlSeconds)) {
+      weatherByCoordinate.set(coordinateKey, reading.weather)
+    } else {
+      missing.push(coord)
+    }
   }
 
-  const outcomes = await Promise.all(
-    chunks.map((chunk) => fetchCardWeatherChunk(chunk)),
-  )
+  const fetched =
+    missing.length > 0
+      ? await fetchMissingCardWeather(missing)
+      : new Map<string, CardWeather>()
 
-  let isComplete = true
-  outcomes.forEach((responses, chunkIndex) => {
-    if (!responses) {
-      isComplete = false
-      return
-    }
-    chunks[chunkIndex].forEach((coord, i) => {
-      const resp = responses[i]
-      if (!resp?.current) return
-
-      const weather: CardWeather = {
-        temp: Math.round(resp.current.temperature_2m),
-        icon: wmoToIcon(resp.current.weather_code),
-        windSpeed: Math.round(resp.current.wind_speed_10m),
-        windDirection: degreesToDirection(resp.current.wind_direction_10m),
-        observedAt: resp.current.time,
-      }
-      for (const code of coordMap.get(`${coord.lat},${coord.lng}`) ?? []) {
-        result.set(code, weather)
-      }
+  // Failed coordinates are not stored, so the next request retries them.
+  // Concurrent writers may drop each other's readings: that only costs a refetch
+  if (fetched.size > 0) {
+    const recordTtl = Math.max(ttlSeconds, CARD_CACHE_TTL)
+    const keptReadings = Object.entries(readings).filter(([, reading]) =>
+      isFresh(reading, recordTtl),
+    )
+    const newReadings = Array.from(fetched, ([coordinateKey, weather]) => {
+      weatherByCoordinate.set(coordinateKey, weather)
+      return [coordinateKey, { weather, fetchedAt: now }] as const
     })
-  })
-
-  // A partial result would be served for the whole TTL, so cache only complete ones
-  if (isComplete) {
     await edgeCacheSet(
       CARD_CACHE_NS,
-      cacheKey,
-      Array.from(result.entries()),
-      ttlSeconds,
+      CARD_READINGS_KEY,
+      Object.fromEntries([...keptReadings, ...newReadings]),
+      recordTtl,
     )
+  }
+
+  for (const [coordinateKey, weather] of weatherByCoordinate) {
+    for (const code of codesByCoordinate.get(coordinateKey) ?? []) {
+      result.set(code, weather)
+    }
   }
 
   return result
